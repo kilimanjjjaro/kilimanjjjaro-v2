@@ -1,5 +1,5 @@
 import type { ChildrenInterface } from '@/interfaces/general'
-import { inter } from '@/utils/fonts'
+import { neue } from '@/utils/fonts'
 import './globals.css'
 
 export const metadata = {
@@ -10,7 +10,7 @@ export const metadata = {
 export default function RootLayout ({ children }: ChildrenInterface) {
   return (
     <html lang='en'>
-        <body className={`bg-black font-inter antialiased ${inter}`}>{children}</body>
+        <body className={`bg-black font-neue antialiased italic ${neue}`}>{children}</body>
     </html>
   )
 }

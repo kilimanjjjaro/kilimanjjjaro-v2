@@ -1,9 +1,29 @@
-import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 
-const interFont = Inter({
-  variable: '--inter-font',
-  subsets: ['latin'],
-  preload: true
+const neueFont = localFont({
+  src: [
+    {
+      path: '../../public/fonts/neue-regular.woff2',
+      weight: '400',
+      style: 'normal'
+    },
+    {
+      path: '../../public/fonts/neue-regular.woff',
+      weight: '400',
+      style: 'normal'
+    },
+    {
+      path: '../../public/fonts/neue-regular-italic.woff2',
+      weight: '400',
+      style: 'italic'
+    },
+    {
+      path: '../../public/fonts/neue-regular-italic.woff',
+      weight: '400',
+      style: 'italic'
+    }
+  ],
+  variable: '--neue-font'
 })
 
-export const inter = interFont.variable
+export const neue = neueFont.variable
