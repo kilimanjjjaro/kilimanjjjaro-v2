@@ -1,6 +1,6 @@
 import localFont from 'next/font/local'
 
-const neueFont = localFont({
+const neue = localFont({
   src: [
     {
       path: '../../public/fonts/neue-regular.woff2',
@@ -26,4 +26,4 @@ const neueFont = localFont({
   variable: '--neue-font'
 })
 
-export const neue = neueFont.variable
+export const neueFont = neue.variable
