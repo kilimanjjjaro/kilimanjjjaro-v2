@@ -15,6 +15,13 @@ module.exports = {
         'kilimanjjjaro-white': '#F8F8F8',
         'kilimanjjjaro-dark-gray': '#0B0B0B',
         'kilimanjjjaro-light-gray': '#7A7A7A'
+      },
+      transitionDuration: {
+        400: '400ms'
+      },
+      zIndex: {
+        9998: 9998,
+        9999: 9999
       }
     }
   },
