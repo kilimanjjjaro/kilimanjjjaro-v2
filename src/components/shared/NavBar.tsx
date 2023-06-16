@@ -3,16 +3,17 @@
 import Link from 'next/link'
 import clsx from 'clsx'
 import { useNavBar } from '@/store/store'
+import { SECTIONS } from '@/constants/general'
 
 export default function NavBar() {
   const { isOpen, setIsOpen } = useNavBar()
 
   return (
     <nav>
-      <div
-        role='button'
+      <button
         className='relative flex flex-col h-auto gap-2 cursor-pointer z-9999 group'
         onClick={setIsOpen}
+        aria-label='Toggle navigation menu'
       >
         <div
           className={clsx(
@@ -26,7 +27,7 @@ export default function NavBar() {
             isOpen && '-rotate-[135deg] -translate-y-[7px]'
           )}
         />
-      </div>
+      </button>
       <ul
         className={clsx(
           'flex-col gap-4 h-full p-40 text-kilimanjjjaro-white w-full bg-kilimanjjjaro-dark-gray fixed top-0 left-0 z-9998',
@@ -34,18 +35,11 @@ export default function NavBar() {
           !isOpen && 'hidden'
         )}
       >
-        <Link href='#introducing'>
-          <li>Introducing</li>
-        </Link>
-        <Link href='#projects'>
-          <li>Projects</li>
-        </Link>
-        <Link href='#know-me'>
-          <li>Know me</li>
-        </Link>
-        <Link href='#lets-talk'>
-          <li>Let&apos;s talk</li>
-        </Link>
+        {SECTIONS.map((section) => (
+          <li key={section.id}>
+            <Link href={`#${section.id}`}>{section.name}</Link>
+          </li>
+        ))}
       </ul>
     </nav>
   )
