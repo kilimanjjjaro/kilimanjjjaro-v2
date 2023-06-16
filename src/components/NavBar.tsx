@@ -40,7 +40,7 @@ export default function NavBar() {
         <Link href='#projects'>
           <li>Projects</li>
         </Link>
-        <Link href='#kwnow-me'>
+        <Link href='#know-me'>
           <li>Know me</li>
         </Link>
         <Link href='#lets-talk'>
