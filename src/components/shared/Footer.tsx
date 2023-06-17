@@ -3,7 +3,7 @@ import ScrollPercentage from '@/components/shared/ScrollPercentage'
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className='mix-blend-difference'>
       <div className='fixed bottom-10 left-10'>
         <LanguageSelector />
       </div>

@@ -1,4 +1,4 @@
-import Header from '@/components/shared/Header'
+import NavBar from '@/components/shared/NavBar'
 import Footer from '@/components/shared/Footer'
 import { neueFont } from '@/utils/fonts'
 import type { ChildrenInterface } from '@/interfaces/general'
@@ -14,7 +14,7 @@ export default function RootLayout({ children }: ChildrenInterface) {
       <body
         className={`bg-kilimanjjjaro-black font-neue antialiased ${neueFont}`}
       >
-        <Header />
+        <NavBar />
         {children}
         <Footer />
       </body>
