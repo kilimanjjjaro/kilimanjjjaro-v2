@@ -1,4 +1,5 @@
 import LanguageSelector from '@/components/shared/LanguageSelector'
+import ScrollPercentage from '@/components/shared/ScrollPercentage'
 
 export default function Footer() {
   return (
@@ -7,7 +8,7 @@ export default function Footer() {
         <LanguageSelector />
       </div>
       <div className='fixed text-lg italic text-kilimanjjjaro-light-gray bottom-10 right-10'>
-        10%
+        <ScrollPercentage />
       </div>
     </footer>
   )
