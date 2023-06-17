@@ -1,5 +1,5 @@
-import LanguageSelector from '@/components/shared/LanguageSelector'
-import ScrollPercentage from '@/components/shared/ScrollPercentage'
+import LanguageSelector from '@/components/footer/LanguageSelector'
+import ScrollPercentage from '@/components/footer/ScrollPercentage'
 
 export default function Footer() {
   return (

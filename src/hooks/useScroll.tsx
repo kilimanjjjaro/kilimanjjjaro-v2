@@ -7,15 +7,14 @@ export default function useScroll() {
   useEffect(() => {
     let prevScrollPos = window.scrollY
 
-    const handleIsVisible = () => {
+    const handleScroll = () => {
       const currentScrollPos = window.scrollY
       const isScrollingUp = prevScrollPos > currentScrollPos
 
       setIsVisible(isScrollingUp)
-      prevScrollPos = currentScrollPos
-    }
 
-    const handleScrollPercentage = () => {
+      prevScrollPos = currentScrollPos
+
       const { scrollTop, scrollHeight, clientHeight } = document.documentElement
       const currentScrollPercentage = Math.round(
         (scrollTop / (scrollHeight - clientHeight)) * 100
@@ -24,12 +23,10 @@ export default function useScroll() {
       setScrollPercentage(currentScrollPercentage)
     }
 
-    window.addEventListener('scroll', handleIsVisible)
-    window.addEventListener('scroll', handleScrollPercentage)
+    window.addEventListener('scroll', handleScroll)
 
     return () => {
-      window.removeEventListener('scroll', handleIsVisible)
-      window.removeEventListener('scroll', handleScrollPercentage)
+      window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 

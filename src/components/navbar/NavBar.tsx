@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import clsx from 'clsx'
-import KilimanjjjaroLogo from '@/components/shared/KilimanjjjaroLogo'
+import KilimanjjjaroLogo from '@/components/navbar/KilimanjjjaroLogo'
 import useScroll from '@/hooks/useScroll'
 import { useNavBar } from '@/store/store'
 import { SECTIONS } from '@/constants/general'

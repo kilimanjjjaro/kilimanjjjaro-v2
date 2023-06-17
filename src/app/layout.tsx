@@ -1,8 +1,8 @@
-import NavBar from '@/components/shared/NavBar'
-import Footer from '@/components/shared/Footer'
+import NavBar from '@/components/navbar/NavBar'
+import Footer from '@/components/footer/Footer'
 import { neueFont } from '@/utils/fonts'
 import type { ChildrenInterface } from '@/interfaces/general'
-import './globals.css'
+import '@/app/globals.css'
 
 export const metadata = {
   title: 'Kilimanjjjaro'
