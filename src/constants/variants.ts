@@ -13,19 +13,40 @@ export const UL_VARIANTS = {
   }
 }
 
-export const LI_VARIANTS = {
+export const LANGUAGE_LI_VARIANTS = {
   open: {
     y: 0,
     opacity: 1,
     transition: {
-      y: { stiffness: 400, velocity: -100 }
+      duration: 0.4,
+      ease: 'easeOut'
     }
   },
   closed: {
     y: 16,
     opacity: 0,
     transition: {
-      y: { stiffness: 400 }
+      duration: 0.4,
+      ease: 'easeIn'
+    }
+  }
+}
+
+export const STACKS_LI_VARIANTS = {
+  open: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+      ease: 'easeOut'
+    }
+  },
+  closed: {
+    x: -40,
+    opacity: 0,
+    transition: {
+      duration: 0.4,
+      ease: 'easeIn'
     }
   }
 }

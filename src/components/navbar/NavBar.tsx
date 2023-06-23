@@ -4,11 +4,11 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import KilimanjjjaroLogo from '@/components/navbar/KilimanjjjaroLogo'
 import useScroll from '@/hooks/useScroll'
-import { useNavBar } from '@/store/store'
+import { useStore } from '@/store/store'
 import { SECTIONS } from '@/constants/general'
 
 export default function NavBar() {
-  const { isOpen, setIsOpen } = useNavBar()
+  const { navBarStatus, setNavBarStatus } = useStore()
   const { isVisible } = useScroll()
 
   return (
@@ -28,19 +28,19 @@ export default function NavBar() {
         </Link>
         <button
           className='flex flex-col gap-2 cursor-pointer group'
-          onClick={setIsOpen}
+          onClick={setNavBarStatus}
           aria-label='Toggle navigation menu'
         >
           <div
             className={clsx(
               'w-6 h-[2px] bg-kilimanjjjaro-light-gray group-hover:bg-kilimanjjjaro-white duration-400 ease-in-out',
-              isOpen && 'rotate-[135deg] translate-y-[3px]'
+              navBarStatus && 'rotate-[135deg] translate-y-[3px]'
             )}
           />
           <div
             className={clsx(
               'w-6 h-[2px] bg-kilimanjjjaro-light-gray group-hover:bg-kilimanjjjaro-white duration-400 ease-in-out',
-              isOpen && '-rotate-[135deg] -translate-y-[7px]'
+              navBarStatus && '-rotate-[135deg] -translate-y-[7px]'
             )}
           />
         </button>
@@ -48,8 +48,8 @@ export default function NavBar() {
       <nav
         className={clsx(
           'fixed top-0 left-0 w-full h-full bg-kilimanjjjaro-dark-gray z-9998',
-          isOpen && 'block',
-          !isOpen && 'hidden'
+          navBarStatus && 'block',
+          !navBarStatus && 'hidden'
         )}
       >
         <ul className='flex flex-col gap-4 p-40'>

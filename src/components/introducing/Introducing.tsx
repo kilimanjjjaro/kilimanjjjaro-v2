@@ -1,16 +1,17 @@
 import Image from 'next/image'
+import Header from '@/components/introducing/Header'
+import StackSelector from '@/components/introducing/StackSelector'
+import SkillsCarousel from '@/components/introducing/SkillsCarousel'
 import portraitImage from '../../../public/images/portrait.webp'
-import SkillsCarousel from './SkillsCarousel'
 
 export default function Introducing() {
   return (
     <>
-      <header className='flex items-center min-h-screen' id='introducing'>
-        <h1 className='text-kilimanjjjaro-white text-[180px] leading-none uppercase text-center'>
-          Developing <i>&</i> Designing <i>with</i> Consciousness.
-        </h1>
-      </header>
-      <section className='flex flex-col items-center px-60 pb-36'>
+      <Header />
+      <section
+        className='flex flex-col items-center px-60 pb-36'
+        id='introducing'
+      >
         <Image
           className='-mt-16'
           src={portraitImage}
@@ -18,7 +19,7 @@ export default function Introducing() {
           quality={90}
           priority
         />
-        <section className='flex flex-col w-full'>
+        <div className='flex flex-col'>
           <h2 className='w-1/2 -mt-28 text-kilimanjjjaro-white text-7xl'>
             Full Stack JavaScript Developer & UX/UI Designer with +5 years of
             work experience.
@@ -34,13 +35,11 @@ export default function Introducing() {
               solutions in an efficient and simple way.
             </p>
           </div>
-          <div className='mt-36'>
-            <h2 className='text-4xl text-kilimanjjjaro-white'>
-              Frontend Skills
-            </h2>
-            <SkillsCarousel />
-          </div>
-        </section>
+        </div>
+      </section>
+      <section className='flex flex-col gap-20 overflow-hidden pb-36'>
+        <StackSelector />
+        <SkillsCarousel />
       </section>
     </>
   )
