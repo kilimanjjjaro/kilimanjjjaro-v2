@@ -20,7 +20,7 @@ export default function StackSelector() {
 
   return (
     <div className='flex gap-10 text-4xl px-60 text-kilimanjjjaro-white'>
-      <button onClick={() => setShowSelector(true)}>
+      <button onClick={() => setShowSelector(!showSelector)}>
         <h2 className='flex items-center gap-4 ease-in-out hover:text-kilimanjjjaro-light-gray duration-400'>
           {selectedStack.name} Skills
           <motion.span animate={showSelector ? { rotate: 45 } : { rotate: 0 }}>
