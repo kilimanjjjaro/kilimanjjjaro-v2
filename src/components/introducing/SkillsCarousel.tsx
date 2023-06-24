@@ -1,107 +1,32 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import Flicking, { ChangedEvent } from '@egjs/react-flicking'
+import Flicking from '@egjs/react-flicking'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
-import { SKILLS } from '@/constants/skills'
 import { ArrowLongRightIcon } from '@/icons/ArrowLongRightIcon'
 import { ArrowLongLeftIcon } from '@/icons/ArrowLongLeftIcon'
-import { useStore } from '@/store/store'
+import useSkillsCarousel from '@/hooks/useSkillsCarousel'
+import * as Icons from '@/components/introducing/SkillIcons'
 
 export default function SkillsCarousel() {
-  const [isHovered, setIsHovered] = useState(false)
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
-  const [isNextArrow, setIsNextArrow] = useState(true)
   const {
-    selectedStack,
-    setSelectedStack,
-    stacks,
-    shouldMoveToStart,
-    setShouldMoveToStart
-  } = useStore()
-  const totalSlides = SKILLS.length
-  const sectionElRef = useRef<HTMLInputElement>(null)
-  const flickeringElRef = useRef<Flicking>(null)
-
-  const handleMouseMove = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    if (sectionElRef.current === null) return
-
-    setCursorPosition({
-      x: event.pageX - sectionElRef.current.offsetLeft - 60,
-      y: event.pageY - sectionElRef.current.offsetTop - 24
-    })
-
-    const isRightSide = innerWidth / 2 <= event.pageX
-
-    if (isRightSide) {
-      setIsNextArrow(true)
-    }
-
-    if (!isRightSide) {
-      setIsNextArrow(false)
-    }
-  }
-
-  const handleClick = async () => {
-    if (flickeringElRef.current === null) return
-
-    const currentSlide = flickeringElRef.current.currentPanel.index
-    const visibleSlides = flickeringElRef.current.visiblePanels.length
-    const isFirstSlide = currentSlide === 0
-    const isLastSlide = totalSlides - visibleSlides === currentSlide
-
-    try {
-      if (isNextArrow && !isLastSlide) {
-        await flickeringElRef.current?.next()
-      }
-
-      if (!isNextArrow && !isFirstSlide) {
-        await flickeringElRef.current?.prev()
-      }
-    } catch (error) {}
-  }
-
-  const handleChange = (event: ChangedEvent<Flicking>) => {
-    const currentSlideIndex = event.index
-    const startIndexSelectedStack = selectedStack.startIndex
-    const endIndexSelectedStack = selectedStack.endIndex
-
-    if (
-      currentSlideIndex >= startIndexSelectedStack &&
-      currentSlideIndex <= endIndexSelectedStack
-    ) {
-      return
-    }
-
-    const stack = stacks.find(
-      (stack) =>
-        stack.startIndex <= currentSlideIndex &&
-        stack.endIndex >= currentSlideIndex
-    )
-
-    if (stack === undefined) return
-
-    setSelectedStack(stack)
-    setShouldMoveToStart(false)
-  }
-
-  useEffect(() => {
-    if (flickeringElRef.current === null) return
-
-    if (shouldMoveToStart) {
-      flickeringElRef.current.moveTo(selectedStack.startIndex).catch(() => {})
-    }
-  }, [selectedStack, shouldMoveToStart])
+    isHovered,
+    setIsHovered,
+    cursorPosition,
+    isNextArrow,
+    sectionElRef,
+    flickeringElRef,
+    handleMouseMove,
+    handleChange,
+    handleClick
+  } = useSkillsCarousel()
 
   return (
     <div
       className={clsx('relative px-60', isHovered && 'cursor-none')}
-      onPointerMove={(event) => handleMouseMove(event)}
-      onPointerEnter={() => setIsHovered(true)}
-      onPointerLeave={() => setIsHovered(false)}
+      onMouseMove={(event) => handleMouseMove(event)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       onClick={async () => await handleClick()}
       ref={sectionElRef}
     >
@@ -136,17 +61,156 @@ export default function SkillsCarousel() {
         duration={250}
         bound
       >
-        {SKILLS.map((icon) => (
-          <article
-            className='flex flex-col items-center mr-36 group'
-            key={icon.id}
-          >
-            <i dangerouslySetInnerHTML={{ __html: icon.svg }} />
-            <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
-              {icon.name}
-            </div>
-          </article>
-        ))}
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.ReactIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            React
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.AstroIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Astro
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.NextJsIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Next.js
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.SvelteIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Svelte
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.QwikIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Qwik
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.VueIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Vue
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.NuxtIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Nuxt
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.TailwindCssIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Tailwind CSS
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.TypeScriptIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            TypeScript
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.JavaScriptIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            JavaScript
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.HtmlIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            HTML
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.CssIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            CSS
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.NodeJsIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Node.js
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.ExpressIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Express
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.NestJsIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Nest.js
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.FirebaseIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Firebase
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.SupabaseIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Supabase
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.MongoDbIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            MongoDB
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.PlaywrightIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Playwright
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.FigmaIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Figma
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.XdIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            XD
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.WordPressIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            WordPress
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.ElementorIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Elementor
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.IllustratorIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Illustrator
+          </div>
+        </div>
+        <div className='flex flex-col items-center mr-36 group'>
+          <Icons.PhotoshopIcon />
+          <div className='invisible px-3 py-1 mt-8 ease-in-out rounded-full opacity-0 bg-kilimanjjjaro-light-gray duration-400 group-hover:opacity-100 group-hover:visible'>
+            Photoshop
+          </div>
+        </div>
       </Flicking>
     </div>
   )
