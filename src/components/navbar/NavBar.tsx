@@ -2,21 +2,37 @@
 
 import Link from 'next/link'
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 import KilimanjjjaroLogo from '@/components/navbar/KilimanjjjaroLogo'
 import useScroll from '@/hooks/useScroll'
 import { useStore } from '@/store/store'
 import { SECTIONS } from '@/constants/general'
+import {
+  LOGO_VARIANTS,
+  NAVBAR_LI_VARIANTS,
+  NAVBAR_VARIANTS
+} from '@/constants/variants'
+import { useEffect } from 'react'
 
 export default function NavBar() {
   const { navBarStatus, setNavBarStatus } = useStore()
   const { isVisible } = useScroll()
+
+  useEffect(() => {
+    if (navBarStatus) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+  }, [navBarStatus])
 
   return (
     <>
       <header
         className={clsx(
           'fixed top-0 left-0 flex items-center justify-between w-full px-10 pt-10 mix-blend-difference transition-transform duration-400 ease-in-out z-9999',
-          isVisible ? 'translate-y-0' : '-translate-y-full'
+          isVisible ? 'translate-y-0' : '-translate-y-full',
+          navBarStatus && 'translate-y-0'
         )}
       >
         <Link
@@ -24,7 +40,12 @@ export default function NavBar() {
           style={{ clipPath: 'circle(50% at 50% 50%)' }}
           href='/'
         >
-          <KilimanjjjaroLogo />
+          <motion.div
+            variants={LOGO_VARIANTS}
+            animate={navBarStatus ? 'open' : 'closed'}
+          >
+            <KilimanjjjaroLogo />
+          </motion.div>
         </Link>
         <button
           className='flex flex-col gap-2 cursor-pointer group'
@@ -45,26 +66,23 @@ export default function NavBar() {
           />
         </button>
       </header>
-      <nav
-        className={clsx(
-          'fixed top-0 left-0 w-full h-full bg-kilimanjjjaro-dark-gray z-9998',
-          navBarStatus && 'block',
-          !navBarStatus && 'hidden'
-        )}
+      <motion.nav
+        className='fixed top-0 left-0 flex-col items-start justify-center hidden w-full h-full gap-5 px-40 bg-kilimanjjjaro-dark-gray z-9998'
+        variants={NAVBAR_VARIANTS}
+        animate={navBarStatus ? 'open' : 'closed'}
       >
-        <ul className='flex flex-col gap-4 p-40'>
-          {SECTIONS.map((section) => (
-            <li key={section.id}>
-              <Link
-                className='text-7xl text-kilimanjjjaro-white'
-                href={`#${section.id}`}
-              >
-                {section.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+        {SECTIONS.map((section) => (
+          <Link
+            className='overflow-hidden leading-tight text-7xl text-kilimanjjjaro-white'
+            key={section.id}
+            href={`/#${section.id}`}
+          >
+            <motion.div variants={NAVBAR_LI_VARIANTS}>
+              {section.name}
+            </motion.div>
+          </Link>
+        ))}
+      </motion.nav>
     </>
   )
 }
