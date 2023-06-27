@@ -37,7 +37,7 @@ export default function Introducing() {
           </div>
         </div>
       </section>
-      <section className='flex flex-col gap-20 overflow-hidden pb-36'>
+      <section className='flex flex-col gap-20 pb-24 overflow-hidden'>
         <StackSelector />
         <SkillsCarousel />
       </section>
