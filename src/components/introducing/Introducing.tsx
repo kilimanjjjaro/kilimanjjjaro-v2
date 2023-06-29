@@ -21,7 +21,7 @@ export default function Introducing() {
           priority
         />
         <div className='flex flex-col'>
-          <h2 className='w-1/2 -mt-28 text-kilimanjjjaro-white text-7xl'>
+          <h2 className='w-1/2 -mt-28 text-kili-white text-7xl'>
             Full Stack JavaScript Developer & UX/UI Designer with +5 years of
             work experience.
           </h2>
@@ -41,7 +41,7 @@ export default function Introducing() {
           </div>
         </div>
       </section>
-      <section className='flex flex-col gap-20 overflow-hidden pb-36'>
+      <section className='flex flex-col gap-20 pb-24 overflow-hidden'>
         <StackSelector />
         <SkillsCarousel />
       </section>

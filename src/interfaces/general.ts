@@ -15,3 +15,8 @@ export interface SkillInterface {
   svg: string
   stackId: number
 }
+
+export interface LanguageInterface {
+  id: string
+  name: string
+}

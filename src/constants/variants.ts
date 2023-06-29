@@ -1,52 +1,118 @@
+export const LOGO_VARIANTS = {
+  open: {
+    rotate: 360,
+    transition: {
+      duration: 0.7,
+      ease: [0.85, 0.01, 0.4, 1]
+    }
+  },
+  closed: {
+    rotate: 0,
+    transition: {
+      duration: 0.7,
+      delay: 0.5,
+      ease: [0.85, 0.01, 0.4, 1]
+    }
+  }
+}
+
+export const NAVBAR_BUTTON_VARIANTS = {
+  animate: {
+    y: ['0%', '-105%', '-105%', '105%', '105%', '0%'],
+    opacity: [1, 1, 0, 0, 1, 1],
+    transition: {
+      duration: 0.7,
+      ease: [0.85, 0.01, 0.4, 1],
+      times: [0, 0.2, 0.4, 0.6, 0.8, 1]
+    }
+  },
+  initial: {
+    y: 0,
+    opacity: 1
+  }
+}
+
+export const NAVBAR_VARIANTS = {
+  open: {
+    top: '0%',
+    display: 'flex',
+    transition: {
+      duration: 0.7,
+      ease: [0.85, 0.01, 0.4, 1],
+      staggerChildren: 0.1,
+      delayChildren: 0.5
+    }
+  },
+  closed: {
+    top: '-100%',
+    transition: {
+      duration: 0.7,
+      ease: [0.85, 0.01, 0.4, 1],
+      delay: 0.7,
+      staggerChildren: 0.1,
+      staggerDirection: -1
+    },
+    transitionEnd: {
+      display: 'none',
+      top: '100%'
+    }
+  }
+}
+
+export const NAVBAR_LI_VARIANTS = {
+  open: {
+    y: '0%',
+    transition: {
+      duration: 0.7,
+      ease: [0.85, 0.01, 0.4, 1]
+    }
+  },
+  closed: {
+    y: '100%',
+    transition: {
+      duration: 0.7,
+      ease: [0.85, 0.01, 0.4, 1]
+    }
+  }
+}
+
 export const UL_VARIANTS = {
   open: {
     opacity: 1,
     display: 'flex',
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+    transition: {
+      duration: 0.5,
+      ease: [0.85, 0.01, 0.4, 1],
+      staggerChildren: 0.1
+    }
   },
   closed: {
     opacity: 0,
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    transition: {
+      duration: 0.5,
+      ease: [0.85, 0.01, 0.4, 1],
+      staggerChildren: 0.1,
+      staggerDirection: -1
+    },
     transitionEnd: {
       display: 'none'
     }
   }
 }
 
-export const LANGUAGE_LI_VARIANTS = {
+export const LI_VARIANTS = {
   open: {
-    y: 0,
-    opacity: 1,
+    y: '0%',
     transition: {
-      duration: 0.4,
-      ease: 'easeOut'
+      duration: 0.5,
+      ease: [0.85, 0.01, 0.4, 1]
     }
   },
   closed: {
-    y: 16,
-    opacity: 0,
+    y: '100%',
     transition: {
-      duration: 0.4,
-      ease: 'easeIn'
-    }
-  }
-}
-
-export const STACKS_LI_VARIANTS = {
-  open: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.4,
-      ease: 'easeOut'
-    }
-  },
-  closed: {
-    x: -40,
-    opacity: 0,
-    transition: {
-      duration: 0.4,
-      ease: 'easeIn'
+      duration: 0.5,
+      ease: [0.85, 0.01, 0.4, 1]
     }
   }
 }

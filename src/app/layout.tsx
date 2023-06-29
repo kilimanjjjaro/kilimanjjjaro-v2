@@ -1,6 +1,6 @@
 import NavBar from '@/components/navbar/NavBar'
 import Footer from '@/components/footer/Footer'
-import { neueFont } from '@/utils/fonts'
+import { neueHaasGroteskDisplayFont } from '@/utils/fonts'
 import type { ChildrenInterface } from '@/interfaces/general'
 import '@/app/globals.css'
 
@@ -12,7 +12,7 @@ export default function RootLayout({ children }: ChildrenInterface) {
   return (
     <html lang='en' className='scroll-smooth'>
       <body
-        className={`bg-kilimanjjjaro-black font-neue antialiased ${neueFont}`}
+        className={`bg-kili-black font-neue-haas-grotesk-display antialiased ${neueHaasGroteskDisplayFont}`}
       >
         <NavBar />
         {children}
