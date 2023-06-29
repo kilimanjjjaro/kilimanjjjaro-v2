@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import updateStacks from '@/utils/updateStacks'
-import type { StackInterface } from '@/interfaces/general'
+import type { LanguageInterface, StackInterface } from '@/interfaces/general'
+import { LANGUAGES } from '@/constants/general'
 
 interface StoreInterface {
   navBarStatus: boolean
@@ -10,6 +11,8 @@ interface StoreInterface {
   setSelectedStack: (skill: StackInterface) => void
   shouldMoveToStart: boolean
   setShouldMoveToStart: (shouldMoveToStart: boolean) => void
+  selectedLanguage: LanguageInterface
+  setSelectedLanguage: (language: LanguageInterface) => void
 }
 
 const updatedStacks = updateStacks()
@@ -23,5 +26,7 @@ export const useStore = create<StoreInterface>((set) => ({
   setSelectedStack: (skill) => set(() => ({ selectedStack: skill })),
   shouldMoveToStart: false,
   setShouldMoveToStart: (shouldMoveToStart) =>
-    set(() => ({ shouldMoveToStart }))
+    set(() => ({ shouldMoveToStart })),
+  selectedLanguage: LANGUAGES[0],
+  setSelectedLanguage: (language) => set(() => ({ selectedLanguage: language }))
 }))

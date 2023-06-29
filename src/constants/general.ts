@@ -1,8 +1,8 @@
-import type { StackInterface } from '@/interfaces/general'
+import type { LanguageInterface, StackInterface } from '@/interfaces/general'
 
-export const LANGUAGES = [
-  { id: 'en', name: 'En' },
-  { id: 'es', name: 'Es' }
+export const LANGUAGES: LanguageInterface[] = [
+  { id: 'en', name: 'English' },
+  { id: 'es', name: 'Spanish' }
 ]
 
 export const SECTIONS = [

@@ -4,10 +4,10 @@ import ScrollPercentage from '@/components/footer/ScrollPercentage'
 export default function Footer() {
   return (
     <footer className='mix-blend-difference'>
-      <div className='fixed bottom-10 left-10'>
+      <div className='fixed bottom-8 left-8'>
         <LanguageSelector />
       </div>
-      <div className='fixed text-lg italic text-kilimanjjjaro-light-gray bottom-10 right-10'>
+      <div className='fixed italic text-kili-light-gray bottom-8 right-8'>
         <ScrollPercentage />
       </div>
     </footer>
