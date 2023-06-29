@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: ChildrenInterface) {
   return (
-    <html lang='en'>
+    <html lang='en' className='scroll-smooth'>
       <body
         className={`bg-kilimanjjjaro-black font-neue antialiased ${neueFont}`}
       >

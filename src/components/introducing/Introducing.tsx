@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Header from '@/components/introducing/Header'
 import StackSelector from '@/components/introducing/StackSelector'
 import SkillsCarousel from '@/components/introducing/SkillsCarousel'
+import TextLink from '@/components/shared/TextLink'
 import portraitImage from '../../../public/images/portrait.webp'
 
 export default function Introducing() {
@@ -25,9 +26,12 @@ export default function Introducing() {
             work experience.
           </h2>
           <div className='grid items-end content-start grid-cols-2 gap-40 justify-items-start'>
-            <button className='text-3xl text-kilimanjjjaro-white relative after:w-full after:h-[2px] after:absolute after:-bottom-2 after:left-0 after:block after:bg-current hover:after:origin-bottom-right after:origin-bottom-left hover:after:scale-0 after:transition-transform after:ease-in-out after:duration-400 after:will-change-transform'>
+            <TextLink
+              href='/#introducing'
+              className='text-3xl text-kilimanjjjaro-white'
+            >
               Let's talk!
-            </button>
+            </TextLink>
             <p className='text-3xl leading-tight text-kilimanjjjaro-white indent-10'>
               <i>— Hello,</i> my name is Gonzalo and I am 30 years old. In my
               experience, I learned that the difference lies in taking care of

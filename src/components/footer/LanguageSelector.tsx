@@ -15,10 +15,10 @@ export default function LanguageSelector() {
         aria-label='Select language'
         onClick={() => setShowSelector(!showSelector)}
       >
-        <LanguageIcon className='w-5 ease-in-out fill-kilimanjjjaro-light-gray hover:fill-kilimanjjjaro-white duration-400' />
+        <LanguageIcon className='w-4 ease-in-out fill-kilimanjjjaro-light-gray hover:fill-kilimanjjjaro-white duration-400' />
       </button>
       <motion.ul
-        className='absolute left-0 flex-col hidden gap-2 mb-4 text-white bottom-full'
+        className='absolute left-0 flex-col hidden gap-2 mb-3 text-white bottom-full'
         variants={UL_VARIANTS}
         animate={showSelector ? 'open' : 'closed'}
       >
