@@ -8,20 +8,25 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        neue: 'var(--neue-font), system-ui, sans-serif'
+        'neue-haas-grotesk-display':
+          'var(--neue-haas-grotesk-display-font), system-ui, sans-serif'
       },
       colors: {
-        'kilimanjjjaro-black': '#090909',
-        'kilimanjjjaro-white': '#F8F8F8',
-        'kilimanjjjaro-dark-gray': '#0B0B0B',
-        'kilimanjjjaro-light-gray': '#7A7A7A'
+        'kili-black': '#090909',
+        'kili-white': '#F8F8F8',
+        'kili-dark-gray': '#0E0E0E',
+        'kili-light-gray': '#7A7A7A'
       },
       transitionDuration: {
-        400: '400ms'
+        400: '400ms',
+        800: '800ms'
       },
       zIndex: {
         9998: 9998,
         9999: 9999
+      },
+      transitionTimingFunction: {
+        'kili-ease': 'cubic-bezier(0.85, 0.01, 0.4, 1)'
       }
     }
   },

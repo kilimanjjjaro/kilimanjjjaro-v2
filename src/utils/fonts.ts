@@ -1,29 +1,89 @@
 import localFont from 'next/font/local'
 
-const neue = localFont({
+const neueHaasGroteskDisplay = localFont({
   src: [
     {
-      path: '../../public/fonts/neue-regular.woff2',
+      path: '../../public/fonts/neue-haas-grotesk-display-light.woff2',
+      weight: '300',
+      style: 'normal'
+    },
+    {
+      path: '../../public/fonts/neue-haas-grotesk-display-light.woff',
+      weight: '300',
+      style: 'normal'
+    },
+    {
+      path: '../../public/fonts/neue-haas-grotesk-display-light-italic.woff2',
+      weight: '300',
+      style: 'italic'
+    },
+    {
+      path: '../../public/fonts/neue-haas-grotesk-display-light-italic.woff',
+      weight: '300',
+      style: 'italic'
+    },
+    {
+      path: '../../public/fonts/neue-haas-grotesk-display-roman.woff2',
       weight: '400',
       style: 'normal'
     },
     {
-      path: '../../public/fonts/neue-regular.woff',
+      path: '../../public/fonts/neue-haas-grotesk-display-roman.woff',
       weight: '400',
       style: 'normal'
     },
     {
-      path: '../../public/fonts/neue-regular-italic.woff2',
+      path: '../../public/fonts/neue-haas-grotesk-display-italic.woff2',
       weight: '400',
       style: 'italic'
     },
     {
-      path: '../../public/fonts/neue-regular-italic.woff',
+      path: '../../public/fonts/neue-haas-grotesk-display-italic.woff',
       weight: '400',
+      style: 'italic'
+    },
+    {
+      path: '../../public/fonts/neue-haas-grotesk-display-medium.woff2',
+      weight: '500',
+      style: 'normal'
+    },
+    {
+      path: '../../public/fonts/neue-haas-grotesk-display-medium.woff',
+      weight: '500',
+      style: 'normal'
+    },
+    {
+      path: '../../public/fonts/neue-haas-grotesk-display-medium-italic.woff2',
+      weight: '500',
+      style: 'italic'
+    },
+    {
+      path: '../../public/fonts/neue-haas-grotesk-display-medium-italic.woff',
+      weight: '500',
+      style: 'italic'
+    },
+    {
+      path: '../../public/fonts/neue-haas-grotesk-display-bold.woff2',
+      weight: '700',
+      style: 'normal'
+    },
+    {
+      path: '../../public/fonts/neue-haas-grotesk-display-bold.woff',
+      weight: '700',
+      style: 'normal'
+    },
+    {
+      path: '../../public/fonts/neue-haas-grotesk-display-bold-italic.woff2',
+      weight: '700',
+      style: 'italic'
+    },
+    {
+      path: '../../public/fonts/neue-haas-grotesk-display-bold-italic.woff',
+      weight: '700',
       style: 'italic'
     }
   ],
-  variable: '--neue-font'
+  variable: '--neue-haas-grotesk-display-font'
 })
 
-export const neueFont = neue.variable
+export const neueHaasGroteskDisplayFont = neueHaasGroteskDisplay.variable
