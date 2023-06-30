@@ -33,13 +33,9 @@ export default function LanguageSelector() {
         {LANGUAGES.map((language) => (
           <li className='overflow-hidden' key={language.id}>
             <motion.button
-              className='italic leading-none text-kili-white'
+              className='italic leading-none transition-colors duration-500 ease-in-out text-kili-white hover:text-kili-light-gray'
               onClick={() => handleClick({ language })}
               variants={LI_VARIANTS}
-              whileHover={{
-                color: '#7A7A7A',
-                transition: { duration: 0.5, ease: 'easeInOut' }
-              }}
             >
               {language.name}
             </motion.button>

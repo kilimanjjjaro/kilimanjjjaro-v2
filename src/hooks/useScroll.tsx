@@ -17,8 +17,6 @@ export default function useScroll() {
     const currentScrollPos = window.scrollY
     const isScrollingUp = prevScrollPosRef.current > currentScrollPos
 
-    console.log('currentScrollPos', currentScrollPos)
-
     setIsVisible(isScrollingUp)
     prevScrollPosRef.current = currentScrollPos
 

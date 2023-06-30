@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import clsx from 'clsx'
 import { PlusIcon } from '@/icons/PlusIcon'
 import { useStore } from '@/store/store'
 import { LI_VARIANTS, UL_VARIANTS } from '@/constants/variants'
@@ -23,12 +24,14 @@ export default function StackSelector() {
       <button onClick={() => setShowSelector(!showSelector)}>
         <h2 className='flex items-center gap-4 leading-none duration-500 ease-in-out hover:text-kili-light-gray'>
           {selectedStack.name} Skills
-          <motion.span
-            animate={showSelector ? { rotate: 45 } : { rotate: 0 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
+          <span
+            className={clsx(
+              'transition-transform duration-500 ease-in-out',
+              showSelector && 'rotate-45'
+            )}
           >
             <PlusIcon className='w-4' />
-          </motion.span>
+          </span>
         </h2>
       </button>
       <motion.ul
@@ -41,11 +44,8 @@ export default function StackSelector() {
           .map((stack) => (
             <li key={stack.id} className='overflow-hidden leading-none'>
               <motion.button
+                className='transition-colors duration-500 ease-in-out hover:text-kili-light-gray'
                 variants={LI_VARIANTS}
-                whileHover={{
-                  color: '#7A7A7A',
-                  transition: { duration: 0.5, ease: 'easeInOut' }
-                }}
                 onClick={() => handleClick(stack)}
               >
                 {stack.name} Skills

@@ -73,11 +73,11 @@ export default function useSkillsCarousel() {
 
     try {
       if (isNextArrow && !isLastSlide) {
-        await flickeringElRef.current?.next()
+        await flickeringElRef.current?.next(250)
       }
 
       if (!isNextArrow && !isFirstSlide) {
-        await flickeringElRef.current?.prev()
+        await flickeringElRef.current?.prev(250)
       }
     } catch (error) {}
   }
@@ -86,7 +86,9 @@ export default function useSkillsCarousel() {
     if (flickeringElRef.current === null) return
 
     if (shouldMoveToStart) {
-      flickeringElRef.current.moveTo(selectedStack.startIndex).catch(() => {})
+      flickeringElRef.current
+        .moveTo(selectedStack.startIndex, 250)
+        .catch(() => {})
     }
   }, [selectedStack, shouldMoveToStart])
 

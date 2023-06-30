@@ -1,3 +1,4 @@
+import SmoothScroll from '@/components/shared/SmoothScroll'
 import NavBar from '@/components/navbar/NavBar'
 import Footer from '@/components/footer/Footer'
 import { neueHaasGroteskDisplayFont } from '@/utils/fonts'
@@ -10,13 +11,15 @@ export const metadata = {
 
 export default function RootLayout({ children }: ChildrenInterface) {
   return (
-    <html lang='en' className='scroll-smooth'>
+    <html lang='en'>
       <body
         className={`bg-kili-black font-neue-haas-grotesk-display antialiased ${neueHaasGroteskDisplayFont}`}
       >
-        <NavBar />
-        {children}
-        <Footer />
+        <SmoothScroll>
+          <NavBar />
+          {children}
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   )

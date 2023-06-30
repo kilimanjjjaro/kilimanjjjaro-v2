@@ -16,23 +16,24 @@ export default function NavBar() {
 
   useEffect(() => {
     if (navBarStatus) {
-      document.body.style.overflow = 'hidden'
+      document.body.classList.add('overflow-hidden')
     } else {
-      document.body.style.overflow = 'auto'
+      document.body.classList.remove('overflow-hidden')
     }
   }, [navBarStatus])
 
   return (
     <>
-      <motion.header
-        className='fixed top-0 left-0 flex items-center justify-between w-full px-8 pt-8 mix-blend-difference z-9999'
-        animate={isVisible ? { y: '0%' } : { y: '-100%' }}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
+      <header
+        className={clsx(
+          'fixed top-0 left-0 flex items-center justify-between w-full px-8 pt-8 mix-blend-difference z-9999 transition-transform duration-500 ease-in-out',
+          !isVisible && '-translate-y-full'
+        )}
       >
         <Link
           className='w-20 duration-500 ease-in-out text-kili-light-gray hover:text-kili-white'
           style={{ clipPath: 'circle(50% at 50% 50%)' }}
-          href='/'
+          href='/#'
         >
           <motion.div
             variants={LOGO_VARIANTS}
@@ -59,7 +60,7 @@ export default function NavBar() {
             )}
           />
         </button>
-      </motion.header>
+      </header>
       <Navigation />
     </>
   )

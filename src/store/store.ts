@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import updateStacks from '@/utils/updateStacks'
-import type { LanguageInterface, StackInterface } from '@/interfaces/general'
 import { LANGUAGES } from '@/constants/general'
+import type { LanguageInterface, StackInterface } from '@/interfaces/general'
 
 interface StoreInterface {
   navBarStatus: boolean
