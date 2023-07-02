@@ -14,7 +14,7 @@ module.exports = {
       colors: {
         'kili-black': '#090909',
         'kili-white': '#F8F8F8',
-        'kili-dark-gray': '#0E0E0E',
+        'kili-dark-gray': '#0C0C0C',
         'kili-light-gray': '#7A7A7A'
       },
       transitionDuration: {
@@ -29,7 +29,9 @@ module.exports = {
         'kili-ease': 'cubic-bezier(0.85, 0.01, 0.4, 1)'
       },
       animation: {
-        'link-hover': 'link-hover 0.5s ease-in-out'
+        'link-hover': 'link-hover 0.5s ease-in-out',
+        'fade-in-bottom':
+          'fade-in-bottom 0.7s cubic-bezier(0.85, 0.01, 0.4, 1) forwards'
       },
       keyframes: {
         'link-hover': {
@@ -39,6 +41,10 @@ module.exports = {
           '60%': { transform: 'translateY(105%)', opacity: '0' },
           '65%': { transform: 'translateY(105%)', opacity: '1' },
           '100%': { transform: 'translateY(0)', opacity: '1' }
+        },
+        'fade-in-bottom': {
+          '0%': { transform: 'translateY(100%)' },
+          '100%': { transform: 'translateY(0)' }
         }
       }
     }

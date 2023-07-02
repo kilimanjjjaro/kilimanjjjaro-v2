@@ -68,10 +68,50 @@ export const NAVBAR_LI_VARIANTS = {
     }
   },
   closed: {
-    y: '100%',
+    y: '115%',
     transition: {
       duration: 0.7,
       ease: [0.85, 0.01, 0.4, 1]
+    }
+  }
+}
+
+export const NAVBAR_BUTTON_ONE_VARIANTS = {
+  open: {
+    rotate: 135,
+    translateY: 3,
+    transition: {
+      duration: 0.7,
+      ease: [0.85, 0.01, 0.4, 1]
+    }
+  },
+  closed: {
+    rotate: 0,
+    translateY: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.85, 0.01, 0.4, 1],
+      delay: 0.7
+    }
+  }
+}
+
+export const NAVBAR_BUTTON_TWO_VARIANTS = {
+  open: {
+    rotate: -135,
+    translateY: -7,
+    transition: {
+      duration: 0.7,
+      ease: [0.85, 0.01, 0.4, 1]
+    }
+  },
+  closed: {
+    rotate: 0,
+    translateY: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.85, 0.01, 0.4, 1],
+      delay: 0.7
     }
   }
 }

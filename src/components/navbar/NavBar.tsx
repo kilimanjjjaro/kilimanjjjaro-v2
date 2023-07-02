@@ -8,7 +8,11 @@ import { useStore } from '@/store/store'
 import useScroll from '@/hooks/useScroll'
 import KilimanjjjaroLogo from '@/components/navbar/KilimanjjjaroLogo'
 import Navigation from '@/components/navbar/Navigation'
-import { LOGO_VARIANTS } from '@/constants/variants'
+import {
+  LOGO_VARIANTS,
+  NAVBAR_BUTTON_ONE_VARIANTS,
+  NAVBAR_BUTTON_TWO_VARIANTS
+} from '@/constants/variants'
 
 export default function NavBar() {
   const { navBarStatus, setNavBarStatus } = useStore()
@@ -16,9 +20,9 @@ export default function NavBar() {
 
   useEffect(() => {
     if (navBarStatus) {
-      document.body.classList.add('overflow-hidden')
+      document.body.style.overflow = 'hidden'
     } else {
-      document.body.classList.remove('overflow-hidden')
+      document.body.style.overflow = 'auto'
     }
   }, [navBarStatus])
 
@@ -47,17 +51,15 @@ export default function NavBar() {
           onClick={setNavBarStatus}
           aria-label='Toggle navigation menu'
         >
-          <div
-            className={clsx(
-              'w-7 h-[2px] bg-kili-light-gray group-hover:bg-kili-white duration-700 ease-kili-ease',
-              navBarStatus && 'rotate-[135deg] translate-y-[3px]'
-            )}
+          <motion.div
+            className='w-7 h-[2px] bg-kili-light-gray group-hover:bg-kili-white'
+            variants={NAVBAR_BUTTON_ONE_VARIANTS}
+            animate={navBarStatus ? 'open' : 'closed'}
           />
-          <div
-            className={clsx(
-              'w-7 h-[2px] bg-kili-light-gray group-hover:bg-kili-white duration-700 ease-kili-ease',
-              navBarStatus && '-rotate-[135deg] -translate-y-[7px]'
-            )}
+          <motion.div
+            className='w-7 h-[2px] bg-kili-light-gray group-hover:bg-kili-white'
+            variants={NAVBAR_BUTTON_TWO_VARIANTS}
+            animate={navBarStatus ? 'open' : 'closed'}
           />
         </button>
       </header>
