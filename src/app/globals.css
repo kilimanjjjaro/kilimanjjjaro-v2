@@ -21,3 +21,7 @@ body::-webkit-scrollbar-thumb {
   background-color: #7a7a7a;
   border-radius: 20px;
 }
+
+.fadeInSplittedText {
+  transform: translateY(100%);
+}

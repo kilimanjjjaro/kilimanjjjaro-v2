@@ -23,7 +23,7 @@ export default function SmoothScroll({ children }: Props) {
   }, [lenis, navBarStatus])
 
   return (
-    <ReactLenis root options={{ duration: 1.2 }}>
+    <ReactLenis root options={{ duration: 1.25 }}>
       {children}
     </ReactLenis>
   )

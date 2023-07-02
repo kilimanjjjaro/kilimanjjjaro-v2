@@ -20,13 +20,13 @@ export default function useSplitText() {
     const childSplit = SplitType.create(parentSplit.lines, {
       types: 'lines',
       tagName: 'span',
-      lineClass: 'translate-y-full toAnimate'
+      lineClass: 'fadeInSplittedText'
     })
 
     if (isInView) {
       void animate(
-        '.toAnimate',
-        { transform: 'translateY(0)' },
+        'span.fadeInSplittedText',
+        { transform: 'translateY(0%)' },
         { duration: 0.7, ease: 'easeOut', delay: stagger(0.3) }
       )
     }

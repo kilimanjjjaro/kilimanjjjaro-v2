@@ -31,13 +31,13 @@ export default function ParallaxHeadline({
     damping: 50,
     stiffness: 400
   })
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 6], {
     clamp: false
   })
 
   const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`)
 
-  const directionFactor = useRef<number>(1)
+  const directionFactor = useRef(1)
   useAnimationFrame((t, delta) => {
     let moveBy = directionFactor.current * baseVelocity * (delta / 1000)
 
@@ -53,7 +53,7 @@ export default function ParallaxHeadline({
   })
 
   return (
-    <div className='flex whitespace-nowrap flex-nowrap'>
+    <div className='flex overflow-hidden whitespace-nowrap flex-nowrap'>
       <motion.h2
         className={clsx(
           'flex flex-nowrap whitespace-nowrap will-change-transform',

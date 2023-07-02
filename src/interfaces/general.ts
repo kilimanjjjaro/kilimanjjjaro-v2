@@ -20,3 +20,13 @@ export interface LanguageInterface {
   id: string
   name: string
 }
+
+export interface ProjectInterface {
+  id: number
+  name: string
+  role: string
+  images: {
+    background: string
+    poster: string
+  }
+}
