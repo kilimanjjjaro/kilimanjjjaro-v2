@@ -12,7 +12,7 @@ export default function Introducing() {
     <>
       <Header />
       <section
-        className='flex flex-col items-center px-56 pb-36'
+        className='flex flex-col items-center px-40 pb-36'
         id='introducing'
       >
         <Image
@@ -24,7 +24,7 @@ export default function Introducing() {
         />
         <div className='flex flex-col'>
           <Headline />
-          <div className='grid items-end content-start grid-cols-2 gap-48 justify-items-start'>
+          <div className='grid items-end content-start grid-cols-2 gap-[19vw] justify-items-start'>
             <LetsTalkButton />
             <Paragraph />
           </div>

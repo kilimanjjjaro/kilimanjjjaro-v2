@@ -20,7 +20,7 @@ export default function StackSelector() {
   }
 
   return (
-    <div className='flex gap-10 px-56 text-4xl text-kili-white'>
+    <div className='flex gap-10 px-40 text-4xl text-kili-white'>
       <button onClick={() => setShowSelector(!showSelector)}>
         <h2 className='flex items-center gap-4 leading-none duration-500 ease-in-out hover:text-kili-light-gray'>
           {selectedStack.name} Skills

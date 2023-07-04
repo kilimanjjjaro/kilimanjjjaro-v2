@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        '10xl': ['10rem', '1']
+      },
       fontFamily: {
         'neue-haas-grotesk-display':
           'var(--neue-haas-grotesk-display-font), system-ui, sans-serif'

@@ -23,7 +23,7 @@ export default function SkillsCarousel() {
 
   return (
     <div
-      className={clsx('relative px-56', isHovered && 'cursor-none')}
+      className={clsx('relative px-40', isHovered && 'cursor-none')}
       onMouseMove={(event) => handleMouseMove(event)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

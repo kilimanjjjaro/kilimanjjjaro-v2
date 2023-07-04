@@ -6,7 +6,7 @@ import { motion, useAnimate, useInView } from 'framer-motion'
 import clsx from 'clsx'
 import type { ProjectInterface } from '@/interfaces/general'
 
-export default function Project({
+export default function FeaturedProject({
   className,
   project
 }: {
@@ -80,7 +80,7 @@ export default function Project({
         height={360}
         quality={90}
       />
-      <h4 className='absolute right-0 mt-4 overflow-hidden text-lg font-light leading-none top-full text-kili-white'>
+      <span className='absolute right-0 mt-4 overflow-hidden text-xl leading-none top-full text-kili-white'>
         <motion.span
           className='block'
           initial={{
@@ -96,7 +96,7 @@ export default function Project({
         >
           {project.role}
         </motion.span>
-      </h4>
+      </span>
       <h3
         className='absolute top-0 left-0 overflow-hidden text-center -translate-x-1/2 -translate-y-1/2 pointer-events-none text-9xl text-kili-white group-hover:opacity-100'
         style={{

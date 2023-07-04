@@ -1,23 +1,24 @@
+import clsx from 'clsx'
 import Paragraph from '@/components/projects/Paragraph'
 import ParallaxHeadline from '@/components/shared/ParallaxHeadline'
-import Project from '@/components/projects/Project'
+import FeaturedProject from '@/components/projects/FeaturedProject'
+import OtherProjects from '@/components/projects/OtherProjects'
 import { PROJECTS } from '@/constants/projects'
-import clsx from 'clsx'
 
 export default function Projects() {
   return (
-    <section className='pt-32 pb-36 bg-kili-dark-gray' id='projects'>
+    <section className='pt-32 bg-kili-dark-gray' id='projects'>
       <ParallaxHeadline
-        className='text-kili-white text-[180px] leading-none uppercase'
+        className='leading-none uppercase text-kili-white text-10xl'
         baseVelocity={-2}
       >
         Projects
       </ParallaxHeadline>
-      <section className='px-56 mt-32'>
+      <section className='px-40 mt-32'>
         <Paragraph />
         <div className='grid justify-center grid-cols-2 gap-x-[20vw] mt-36 back'>
-          {PROJECTS.map((project) => (
-            <Project
+          {PROJECTS.filter((project) => project.featured).map((project) => (
+            <FeaturedProject
               className={clsx(project.id % 2 === 0 && 'mt-80')}
               key={project.id}
               project={project}
@@ -25,6 +26,7 @@ export default function Projects() {
           ))}
         </div>
       </section>
+      <OtherProjects />
     </section>
   )
 }
