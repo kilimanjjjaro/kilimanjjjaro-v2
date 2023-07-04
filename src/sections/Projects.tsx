@@ -19,7 +19,7 @@ export default function Projects() {
       </ParallaxHeadline>
       <section className='px-40 mt-32'>
         <Paragraph />
-        <div className='grid justify-center grid-cols-2 gap-x-[20vw] mt-36 back'>
+        <div className='grid justify-center grid-cols-2 gap-x-[20vw] mt-36'>
           {PROJECTS.filter((project) => project.featured).map((project) => (
             <FeaturedProject
               className={clsx(project.id % 2 === 0 && 'mt-80')}

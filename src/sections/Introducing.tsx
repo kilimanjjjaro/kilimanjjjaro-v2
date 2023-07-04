@@ -5,7 +5,7 @@ import SkillsCarousel from '@/components/introducing/SkillsCarousel'
 import LetsTalkButton from '@/components/introducing/LetsTalkButton'
 import Headline from '@/components/introducing/Headline'
 import Paragraph from '@/components/introducing/Paragraph'
-import portraitImage from '../../../public/images/portrait.webp'
+import portraitImage from '../../public/images/portrait.webp'
 
 export default function Introducing() {
   return (

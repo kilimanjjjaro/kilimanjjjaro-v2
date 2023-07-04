@@ -78,7 +78,7 @@ export default function FeaturedProject({
           }
         }
         transition={{
-          duration: 0.7,
+          duration: 1,
           ease: 'easeOut',
           type: 'tween',
           delay: 0.3
