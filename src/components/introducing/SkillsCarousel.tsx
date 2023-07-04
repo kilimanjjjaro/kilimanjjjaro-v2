@@ -31,7 +31,7 @@ export default function SkillsCarousel() {
       ref={sectionElRef}
     >
       <motion.div
-        className='absolute z-10 pointer-events-none'
+        className='absolute z-10 pointer-events-none will-change-transform'
         style={{ top: cursorPosition.y, left: cursorPosition.x }}
         initial={{
           scale: 0,

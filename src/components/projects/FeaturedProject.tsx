@@ -31,6 +31,19 @@ export default function FeaturedProject({
     []
   )
 
+  const handleMouseEnter = (project: ProjectInterface | null) => {
+    const sectionEl = document.getElementById('projects') as HTMLElement
+
+    if (project === null) {
+      setIsHovered(null)
+
+      sectionEl.style.backgroundColor = ''
+    } else {
+      setIsHovered(project.id)
+      sectionEl.style.backgroundColor = project.backgroundColor
+    }
+  }
+
   useEffect(() => {
     if (isInView) {
       void animate(
@@ -50,8 +63,8 @@ export default function FeaturedProject({
         isHovered === project.id && 'cursor-none'
       )}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(project.id)}
-      onMouseLeave={() => setIsHovered(null)}
+      onMouseEnter={() => handleMouseEnter(project)}
+      onMouseLeave={() => handleMouseEnter(null)}
     >
       <motion.div
         className='top-0 left-0 absolute w-full h-full bg-center bg-[length:125%] group-hover:bg-[length:112%] ease-in-out duration-500'
@@ -98,7 +111,7 @@ export default function FeaturedProject({
         </motion.span>
       </span>
       <h3
-        className='absolute top-0 left-0 overflow-hidden text-center -translate-x-1/2 -translate-y-1/2 pointer-events-none text-9xl text-kili-white group-hover:opacity-100'
+        className='absolute top-0 left-0 overflow-hidden text-center -translate-x-1/2 -translate-y-1/2 pointer-events-none will-change-transform text-9xl text-kili-white group-hover:opacity-100'
         style={{
           top: cursorPosition.y,
           left: cursorPosition.x

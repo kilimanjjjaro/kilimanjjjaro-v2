@@ -12,7 +12,8 @@ export const PROJECTS: ProjectInterface[] = [
       background: '/images/projects/wrkload/background.jpg',
       poster: '/images/projects/wrkload/poster.jpg'
     },
-    featured: true
+    featured: true,
+    backgroundColor: '#7686b7'
   },
   {
     id: 2,

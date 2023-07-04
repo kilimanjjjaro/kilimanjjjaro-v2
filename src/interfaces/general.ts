@@ -32,4 +32,5 @@ export interface ProjectInterface {
     poster: string
   }
   featured: boolean
+  backgroundColor: string
 }
