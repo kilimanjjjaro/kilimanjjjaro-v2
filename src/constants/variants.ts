@@ -116,7 +116,7 @@ export const NAVBAR_BUTTON_TWO_VARIANTS = {
   }
 }
 
-export const UL_VARIANTS = {
+export const STACKS_UL_VARIANTS = {
   open: {
     opacity: 1,
     display: 'flex',
@@ -132,7 +132,7 @@ export const UL_VARIANTS = {
       duration: 0.5,
       ease: [0.85, 0.01, 0.4, 1],
       staggerChildren: 0.1,
-      staggerDirection: -1
+      staggerDirection: 1
     },
     transitionEnd: {
       display: 'none'
@@ -140,7 +140,7 @@ export const UL_VARIANTS = {
   }
 }
 
-export const STACKS_VARIANTS = {
+export const STACKS_LI_VARIANTS = {
   open: {
     y: '0%',
     transition: {
@@ -157,7 +157,28 @@ export const STACKS_VARIANTS = {
   }
 }
 
-export const LANGUAGES_VARIANTS = {
+export const LANGUAGES_UL_VARIANTS = {
+  open: {
+    opacity: 1,
+    display: 'flex',
+    transition: {
+      duration: 0.5,
+      ease: [0.85, 0.01, 0.4, 1]
+    }
+  },
+  closed: {
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.85, 0.01, 0.4, 1]
+    },
+    transitionEnd: {
+      display: 'none'
+    }
+  }
+}
+
+export const LANGUAGES_LI_VARIANTS = {
   open: {
     y: '0%',
     transition: {

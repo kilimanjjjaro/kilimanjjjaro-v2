@@ -1,7 +1,6 @@
 export default function KilimanjjjaroLogo() {
   return (
     <svg
-      className='mix-blend-difference'
       xmlns='http://www.w3.org/2000/svg'
       fill='currentColor'
       viewBox='0 0 79 80'

@@ -24,15 +24,11 @@ export default function ScrollPercentage() {
       }
     }
   }, [scrollPercentage, lastScrollPercentage])
-
-  console.log(showScrollPercentage)
-  console.log(scrollPercentage)
-
   return (
     <div
       className={clsx(
-        'fixed bottom-8 right-8 px-2 pt-[4px] translate-y-16 transition-transform ease-out duration-500 pb-[2px] rounded-sm bg-kili-white/60 text-kili-black backdrop-blur-sm',
-        showScrollPercentage && 'translate-y-0'
+        'fixed bottom-8 right-8 flex justify-center min-w-[56px] px-3 pt-[10px] pb-2 transition-transform ease-in-out duration-700 leading-none rounded-full bg-kili-white/60 text-kili-black backdrop-blur-sm',
+        showScrollPercentage ? 'translate-y-0' : 'translate-y-20'
       )}
     >
       {scrollPercentage}%

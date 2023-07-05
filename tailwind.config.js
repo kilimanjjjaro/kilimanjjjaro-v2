@@ -25,9 +25,6 @@ module.exports = {
         400: '400ms',
         800: '800ms'
       },
-      transitionTimingFunction: {
-        'kili-ease': 'cubic-bezier(0.85, 0.01, 0.4, 1)'
-      },
       animation: {
         'link-hover': 'link-hover 0.5s ease-in-out',
         'fade-in-headline': 'fade-in-headline 0.7s ease-in-out forwards',
