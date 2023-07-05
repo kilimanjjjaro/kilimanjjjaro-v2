@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
@@ -8,6 +7,7 @@ import { useStore } from '@/store/store'
 import useScroll from '@/hooks/useScroll'
 import KilimanjjjaroLogo from '@/components/navbar/KilimanjjjaroLogo'
 import Navigation from '@/components/navbar/Navigation'
+import LanguageSelector from '@/components/navbar/LanguageSelector'
 import {
   LOGO_VARIANTS,
   NAVBAR_BUTTON_ONE_VARIANTS,
@@ -18,18 +18,20 @@ export default function NavBar() {
   const { navBarStatus, setNavBarStatus } = useStore()
   const { isVisible } = useScroll()
 
-  useEffect(() => {
+  const handleClick = () => {
+    setNavBarStatus(!navBarStatus)
+
     if (navBarStatus) {
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'auto'
     }
-  }, [navBarStatus])
+  }
 
   return (
     <header
       className={clsx(
-        'fixed top-0 left-0 flex justify-between items-center w-full p-8 z-9998',
+        'fixed top-0 left-0 flex justify-between duration-500 ease-in-out items-center w-full p-8 z-50',
         !isVisible && '-translate-y-full'
       )}
     >
@@ -45,22 +47,25 @@ export default function NavBar() {
           <KilimanjjjaroLogo />
         </motion.div>
       </Link>
-      <button
-        className='z-10 flex flex-col gap-2 cursor-pointer group'
-        onClick={setNavBarStatus}
-        aria-label='Toggle navigation menu'
-      >
-        <motion.div
-          className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-500 group-hover:bg-kili-white'
-          variants={NAVBAR_BUTTON_ONE_VARIANTS}
-          animate={navBarStatus ? 'open' : 'closed'}
-        />
-        <motion.div
-          className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-500 group-hover:bg-kili-white'
-          variants={NAVBAR_BUTTON_TWO_VARIANTS}
-          animate={navBarStatus ? 'open' : 'closed'}
-        />
-      </button>
+      <div className='z-10 flex items-center gap-10'>
+        <LanguageSelector />
+        <button
+          className='flex flex-col gap-2 cursor-pointer group'
+          onClick={handleClick}
+          aria-label='Toggle navigation menu'
+        >
+          <motion.div
+            className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-500 group-hover:bg-kili-white'
+            variants={NAVBAR_BUTTON_ONE_VARIANTS}
+            animate={navBarStatus ? 'open' : 'closed'}
+          />
+          <motion.div
+            className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-500 group-hover:bg-kili-white'
+            variants={NAVBAR_BUTTON_TWO_VARIANTS}
+            animate={navBarStatus ? 'open' : 'closed'}
+          />
+        </button>
+      </div>
       <Navigation />
     </header>
   )

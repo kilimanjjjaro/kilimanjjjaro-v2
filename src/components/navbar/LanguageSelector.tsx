@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useStore } from '@/store/store'
-import { LI_VARIANTS, UL_VARIANTS } from '@/constants/variants'
+import { LANGUAGES_VARIANTS, UL_VARIANTS } from '@/constants/variants'
 import { LANGUAGES } from '@/constants/general'
 import type { LanguageInterface } from '@/interfaces/general'
 
@@ -17,25 +17,25 @@ export default function LanguageSelector() {
   }
 
   return (
-    <div className='relative'>
+    <div className='relative flex justify-end'>
       <button
         onClick={() => setShowSelector(!showSelector)}
-        className='italic leading-none duration-500 ease-in-out text-kili-light-gray hover:text-kili-white'
+        className='duration-500 ease-in-out text-kili-light-gray hover:text-kili-white mix-blend-difference'
         aria-label='Select language'
       >
         {selectedLanguage.name}
       </button>
       <motion.ul
-        className='absolute left-0 flex-col hidden gap-2 mb-3 bottom-full'
+        className='absolute flex-col items-end hidden gap-2 mt-3 top-full'
         variants={UL_VARIANTS}
         animate={showSelector ? 'open' : 'closed'}
       >
         {LANGUAGES.map((language) => (
-          <li className='overflow-hidden' key={language.id}>
+          <li key={language.id} className='overflow-hidden'>
             <motion.button
-              className='italic leading-none transition-colors duration-500 ease-in-out text-kili-white hover:text-kili-light-gray'
+              className='transition-colors duration-500 ease-in-out text-kili-white hover:text-kili-light-gray'
               onClick={() => handleClick({ language })}
-              variants={LI_VARIANTS}
+              variants={LANGUAGES_VARIANTS}
             >
               {language.name}
             </motion.button>

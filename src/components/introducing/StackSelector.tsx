@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import clsx from 'clsx'
 import { PlusIcon } from '@/icons/PlusIcon'
 import { useStore } from '@/store/store'
-import { LI_VARIANTS, UL_VARIANTS } from '@/constants/variants'
+import { STACKS_VARIANTS, UL_VARIANTS } from '@/constants/variants'
 import type { StackInterface } from '@/interfaces/general'
 
 export default function StackSelector() {
@@ -45,7 +45,7 @@ export default function StackSelector() {
             <li key={stack.id} className='overflow-hidden leading-none'>
               <motion.button
                 className='transition-colors duration-500 ease-in-out hover:text-kili-light-gray'
-                variants={LI_VARIANTS}
+                variants={STACKS_VARIANTS}
                 onClick={() => handleClick(stack)}
               >
                 {stack.name} Skills

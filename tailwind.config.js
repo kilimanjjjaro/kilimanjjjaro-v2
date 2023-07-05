@@ -25,10 +25,6 @@ module.exports = {
         400: '400ms',
         800: '800ms'
       },
-      zIndex: {
-        9998: 9998,
-        9999: 9999
-      },
       transitionTimingFunction: {
         'kili-ease': 'cubic-bezier(0.85, 0.01, 0.4, 1)'
       },

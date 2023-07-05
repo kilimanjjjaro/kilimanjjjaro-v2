@@ -140,19 +140,36 @@ export const UL_VARIANTS = {
   }
 }
 
-export const LI_VARIANTS = {
+export const STACKS_VARIANTS = {
   open: {
     y: '0%',
     transition: {
       duration: 0.5,
-      ease: [0.85, 0.01, 0.4, 1]
+      ease: 'easeOut'
     }
   },
   closed: {
     y: '100%',
     transition: {
       duration: 0.5,
-      ease: [0.85, 0.01, 0.4, 1]
+      ease: 'easeIn'
+    }
+  }
+}
+
+export const LANGUAGES_VARIANTS = {
+  open: {
+    y: '0%',
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut'
+    }
+  },
+  closed: {
+    y: '-100%',
+    transition: {
+      duration: 0.5,
+      ease: 'easeIn'
     }
   }
 }

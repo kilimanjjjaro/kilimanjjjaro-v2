@@ -32,15 +32,16 @@ export default function FeaturedProject({
   )
 
   const handleMouseEnter = (project: ProjectInterface | null) => {
-    const sectionEl = document.getElementById('projects') as HTMLElement
+    const sectionEl = document.getElementById('projects')
 
-    if (project === null) {
-      setIsHovered(null)
+    if (sectionEl === null) return
 
-      sectionEl.style.backgroundColor = ''
-    } else {
+    if (project !== null) {
       setIsHovered(project.id)
       sectionEl.style.backgroundColor = project.backgroundColor
+    } else {
+      setIsHovered(null)
+      sectionEl.style.backgroundColor = ''
     }
   }
 

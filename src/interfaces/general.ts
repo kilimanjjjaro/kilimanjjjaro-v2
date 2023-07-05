@@ -1,3 +1,15 @@
+export interface StoreInterface {
+  navBarStatus: boolean
+  setNavBarStatus: (navBarStatus: boolean) => void
+  stacks: StackInterface[]
+  selectedStack: StackInterface
+  setSelectedStack: (selectedStack: StackInterface) => void
+  shouldMoveToStart: boolean
+  setShouldMoveToStart: (shouldMoveToStart: boolean) => void
+  selectedLanguage: LanguageInterface
+  setSelectedLanguage: (selectedLanguage: LanguageInterface) => void
+}
+
 export interface ChildrenInterface {
   children: React.ReactNode
 }

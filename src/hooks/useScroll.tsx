@@ -7,9 +7,11 @@ export default function useScroll() {
 
   const getScrollPercentage = useCallback(() => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement
+
     const currentScrollPercentage = Math.round(
       (scrollTop / (scrollHeight - clientHeight)) * 100
     )
+
     setScrollPercentage(currentScrollPercentage)
   }, [])
 
