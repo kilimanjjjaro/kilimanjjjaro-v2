@@ -34,8 +34,9 @@ module.exports = {
       },
       animation: {
         'link-hover': 'link-hover 0.5s ease-in-out',
-        'fade-in-bottom':
-          'fade-in-bottom 0.7s cubic-bezier(0.85, 0.01, 0.4, 1) forwards'
+        'fade-in-headline': 'fade-in-headline 0.7s ease-in-out forwards',
+        'fade-in-headline-delay':
+          'fade-in-headline 0.7s 0.3s ease-in-out forwards'
       },
       keyframes: {
         'link-hover': {
@@ -46,7 +47,7 @@ module.exports = {
           '65%': { transform: 'translateY(105%)', opacity: '1' },
           '100%': { transform: 'translateY(0)', opacity: '1' }
         },
-        'fade-in-bottom': {
+        'fade-in-headline': {
           '0%': { transform: 'translateY(100%)' },
           '100%': { transform: 'translateY(0)' }
         }

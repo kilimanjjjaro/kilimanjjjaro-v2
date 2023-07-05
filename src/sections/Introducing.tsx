@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Header from '@/components/introducing/Header'
 import StackSelector from '@/components/introducing/StackSelector'
 import SkillsCarousel from '@/components/introducing/SkillsCarousel'
 import LetsTalkButton from '@/components/introducing/LetsTalkButton'
@@ -10,7 +9,6 @@ import portraitImage from '../../public/images/portrait.webp'
 export default function Introducing() {
   return (
     <>
-      <Header />
       <section
         className='flex flex-col items-center px-40 pb-36'
         id='introducing'

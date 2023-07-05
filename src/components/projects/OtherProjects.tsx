@@ -34,7 +34,7 @@ export default function OtherProjects() {
       </h3>
       <motion.div
         ref={sectionRef}
-        className='flex flex-col w-full gap-10 mt-20'
+        className='mt-10'
         variants={{
           hidden: { opacity: 0 },
           show: {
@@ -55,7 +55,7 @@ export default function OtherProjects() {
           .map((project) => (
             <motion.article
               key={project.id}
-              className='flex [&>*]:flex-1 items-center gap-x-10 border-b border-kili-light-gray pb-10 group'
+              className='flex [&>*]:flex-1 items-center gap-x-10 border-b border-kili-light-gray py-10 group'
               variants={{
                 hidden: {
                   opacity: 0,
