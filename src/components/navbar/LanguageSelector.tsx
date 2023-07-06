@@ -23,7 +23,7 @@ export default function LanguageSelector() {
     <div className='relative flex justify-end'>
       <button
         onClick={() => setShowSelector(!showSelector)}
-        className='duration-500 ease-in-out text-kili-light-gray hover:text-kili-white'
+        className='tracking-wide duration-500 ease-in-out text-kili-light-gray hover:text-kili-white'
         aria-label='Select language'
       >
         {selectedLanguage.name}
@@ -36,7 +36,7 @@ export default function LanguageSelector() {
         {LANGUAGES.map((language) => (
           <li key={language.id} className='overflow-hidden'>
             <motion.button
-              className='transition-colors duration-500 ease-in-out text-kili-white hover:text-kili-light-gray'
+              className='tracking-wide transition-colors duration-500 ease-in-out text-kili-white hover:text-kili-light-gray'
               onClick={() => handleClick({ language })}
               variants={LANGUAGES_LI_VARIANTS}
             >
