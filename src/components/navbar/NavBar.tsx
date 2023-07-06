@@ -47,7 +47,7 @@ export default function NavBar() {
           <KilimanjjjaroLogo />
         </motion.div>
       </Link>
-      <div className='z-10 flex items-center gap-10'>
+      <div className='z-10 flex items-center gap-8'>
         <LanguageSelector />
         <button
           className='flex flex-col gap-2 cursor-pointer group'

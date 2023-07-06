@@ -1,6 +1,6 @@
 import SmoothScroll from '@/components/shared/SmoothScroll'
 import NavBar from '@/components/navbar/NavBar'
-import Footer from '@/components/footer/Footer'
+import ScrollPercentage from '@/components/ScrollPercentage'
 import { neueHaasGroteskDisplayFont } from '@/utils/fonts'
 import type { ChildrenInterface } from '@/interfaces/general'
 import '@/app/globals.css'
@@ -18,7 +18,7 @@ export default function RootLayout({ children }: ChildrenInterface) {
         <SmoothScroll>
           <NavBar />
           {children}
-          <Footer />
+          <ScrollPercentage />
         </SmoothScroll>
       </body>
     </html>
