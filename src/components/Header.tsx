@@ -15,7 +15,7 @@ export default function Header() {
       transition={{
         duration: 3,
         ease: [0.17, 0.84, 0.44, 1],
-        delay: 4
+        delay: 4.5
       }}
     >
       <h2 className='text-kili-white text-[200px] flex flex-col leading-[1.03]'>
@@ -33,7 +33,7 @@ export default function Header() {
             transition={{
               duration: 3,
               ease: [0.17, 0.84, 0.44, 1],
-              delay: 4
+              delay: 4.5
             }}
           >
             Thinking{' '}
@@ -53,7 +53,7 @@ export default function Header() {
             transition={{
               duration: 3,
               ease: [0.17, 0.84, 0.44, 1],
-              delay: 4.3
+              delay: 4.8
             }}
           >
             future <span className='-mr-[6px]'>—</span> proof
@@ -73,7 +73,7 @@ export default function Header() {
             transition={{
               duration: 3,
               ease: [0.17, 0.84, 0.44, 1],
-              delay: 4.5
+              delay: 5.1
             }}
           >
             experiences.
