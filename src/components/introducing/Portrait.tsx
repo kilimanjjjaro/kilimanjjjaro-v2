@@ -2,20 +2,17 @@
 
 import { useRef } from 'react'
 import Image from 'next/image'
-import { motion, useInView, useScroll, useTransform } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import portraitImage from '../../../public/images/portrait.webp'
-import clsx from 'clsx'
 
 export default function Portrait() {
   const imageRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(imageRef, { margin: '-300px', once: true })
-  const { scrollYProgress } = useScroll()
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
+  const isInView = useInView(imageRef, { margin: '-350px', once: true })
 
   return (
     <motion.div
-      className='overflow-hidden bg-kili-dark-gray'
       ref={imageRef}
+      className='overflow-hidden bg-kili-dark-gray'
       initial={{
         clipPath: 'inset(100% 0% 0% 0%)'
       }}
