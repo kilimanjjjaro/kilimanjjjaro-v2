@@ -4,9 +4,10 @@ import ScrollPercentage from '@/components/ScrollPercentage'
 import { neueHaasGroteskDisplayFont } from '@/utils/fonts'
 import type { ChildrenInterface } from '@/interfaces/general'
 import '@/app/globals.css'
+import IntroAnimation from '@/components/IntroAnimation'
 
 export const metadata = {
-  title: 'Kilimanjjjaro'
+  title: 'kilimanjjjaro'
 }
 
 export default function RootLayout({ children }: ChildrenInterface) {
@@ -15,11 +16,10 @@ export default function RootLayout({ children }: ChildrenInterface) {
       <body
         className={`bg-kili-black font-neue-haas-grotesk-display antialiased ${neueHaasGroteskDisplayFont}`}
       >
-        <SmoothScroll>
-          <NavBar />
-          {children}
-          <ScrollPercentage />
-        </SmoothScroll>
+        {/* <IntroAnimation /> */}
+        <NavBar />
+        <SmoothScroll>{children}</SmoothScroll>
+        <ScrollPercentage />
       </body>
     </html>
   )

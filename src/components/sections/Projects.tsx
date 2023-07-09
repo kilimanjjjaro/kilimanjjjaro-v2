@@ -12,7 +12,7 @@ export default function Projects() {
       id='projects'
     >
       <ParallaxHeadline
-        className='leading-none uppercase text-kili-white text-10xl'
+        className='leading-none text-kili-white text-10xl'
         baseVelocity={-2}
       >
         Projects

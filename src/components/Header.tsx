@@ -1,33 +1,85 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { motion } from 'framer-motion'
 
 export default function Header() {
-  const headerRef = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll()
-  const headlineY = useTransform(scrollYProgress, [0, 1], ['0%', '450%'])
-
   return (
-    <header
-      ref={headerRef}
+    <motion.header
       className='flex items-center justify-center min-h-screen'
+      initial={{
+        scale: 1.3
+      }}
+      animate={{
+        scale: 1
+      }}
+      transition={{
+        duration: 3,
+        ease: [0.17, 0.84, 0.44, 1],
+        delay: 4
+      }}
     >
-      <motion.h1
-        className='text-kili-white text-8xl 2xl:text-[150px] flex flex-col items-center leading-[1.05] gap-y-3'
-        style={{ y: headlineY }}
-      >
+      <h2 className='text-kili-white text-[200px] flex flex-col leading-[1.03]'>
         <span className='overflow-hidden'>
-          <span className='block translate-y-full animate-fade-in-headline'>
-            Developing & Designing
-          </span>
-        </span>{' '}
-        <span className='overflow-hidden'>
-          <span className='block translate-y-full animate-fade-in-headline-delay'>
-            with Consciousness.
-          </span>
+          <motion.span
+            className='block'
+            initial={{
+              y: '100%',
+              rotate: 4
+            }}
+            animate={{
+              y: 0,
+              rotate: 0
+            }}
+            transition={{
+              duration: 3,
+              ease: [0.17, 0.84, 0.44, 1],
+              delay: 4
+            }}
+          >
+            Thinking{' '}
+          </motion.span>
         </span>
-      </motion.h1>
-    </header>
+        <span className='-my-4 overflow-hidden'>
+          <motion.span
+            className='flex items-center ml-64 gap-x-1'
+            initial={{
+              y: '100%',
+              rotate: 4
+            }}
+            animate={{
+              y: 0,
+              rotate: 0
+            }}
+            transition={{
+              duration: 3,
+              ease: [0.17, 0.84, 0.44, 1],
+              delay: 4.3
+            }}
+          >
+            future <span className='-mr-[6px]'>—</span> proof
+          </motion.span>
+        </span>
+        <span className='ml-24 overflow-hidden'>
+          <motion.span
+            className='block'
+            initial={{
+              y: '100%',
+              rotate: 4
+            }}
+            animate={{
+              y: 0,
+              rotate: 0
+            }}
+            transition={{
+              duration: 3,
+              ease: [0.17, 0.84, 0.44, 1],
+              delay: 4.5
+            }}
+          >
+            experiences.
+          </motion.span>
+        </span>
+      </h2>
+    </motion.header>
   )
 }

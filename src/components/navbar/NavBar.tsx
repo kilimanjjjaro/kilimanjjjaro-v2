@@ -5,11 +5,9 @@ import { motion } from 'framer-motion'
 import clsx from 'clsx'
 import { useStore } from '@/store/store'
 import useScroll from '@/hooks/useScroll'
-import KilimanjjjaroLogo from '@/components/navbar/KilimanjjjaroLogo'
 import Navigation from '@/components/navbar/Navigation'
 import LanguageSelector from '@/components/navbar/LanguageSelector'
 import {
-  LOGO_VARIANTS,
   NAVBAR_BUTTON_ONE_VARIANTS,
   NAVBAR_BUTTON_TWO_VARIANTS
 } from '@/constants/variants'
@@ -29,25 +27,35 @@ export default function NavBar() {
   }
 
   return (
-    <header
-      className={clsx(
-        'fixed top-0 left-0 flex justify-between duration-500 ease-in-out items-center w-full p-8 z-50',
-        !isVisible && '-translate-y-full'
-      )}
+    <motion.header
+      className='relative z-40'
+      initial={{
+        opacity: 0
+      }}
+      animate={{
+        opacity: 1
+      }}
+      transition={{
+        duration: 3,
+        ease: 'easeIn',
+        delay: 6
+      }}
     >
       <Link
-        className='z-10 w-20 duration-500 ease-in-out text-kili-light-gray hover:text-kili-white'
-        style={{ clipPath: 'circle(50% at 50% 50%)' }}
+        className={clsx(
+          'fixed z-50 left-8 top-12 leading-none tracking-wide duration-500 ease-in-out text-kili-light-gray hover:text-kili-white',
+          !isVisible && '-translate-y-16'
+        )}
         href='/#'
       >
-        <motion.div
-          variants={LOGO_VARIANTS}
-          animate={navBarStatus ? 'open' : 'closed'}
-        >
-          <KilimanjjjaroLogo />
-        </motion.div>
+        <h1>kilimanjjjaro</h1>
       </Link>
-      <div className='z-10 flex items-center gap-8'>
+      <div
+        className={clsx(
+          'fixed z-50 flex items-center gap-8 right-8 top-12 leading-none tracking-wide duration-500 ease-in-out text-kili-light-gray hover:text-kili-white',
+          !isVisible && '-translate-y-16'
+        )}
+      >
         <LanguageSelector />
         <button
           className='flex flex-col gap-2 cursor-pointer group'
@@ -67,6 +75,6 @@ export default function NavBar() {
         </button>
       </div>
       <Navigation />
-    </header>
+    </motion.header>
   )
 }

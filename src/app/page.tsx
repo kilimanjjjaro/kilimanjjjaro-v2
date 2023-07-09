@@ -1,6 +1,6 @@
 import Header from '@/components/Header'
-import Introducing from '@/sections/Introducing'
-import Projects from '@/sections/Projects'
+import Introducing from '@/components/sections/Introducing'
+import Projects from '@/components/sections/Projects'
 
 export default function Home() {
   return (
