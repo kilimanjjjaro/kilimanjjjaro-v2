@@ -18,7 +18,7 @@ export default function IntroAnimation() {
         }
       }}
       transition={{
-        duration: 2,
+        duration: 3,
         ease: [0.77, 0, 0.18, 1],
         delay: 4
       }}
@@ -34,7 +34,7 @@ export default function IntroAnimation() {
         transition={{
           duration: 3,
           ease: [0.77, 0, 0.18, 1],
-          delay: 1
+          delay: 1.3
         }}
       />
       <span className='absolute overflow-hidden'>

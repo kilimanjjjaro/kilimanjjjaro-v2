@@ -38,7 +38,7 @@ export default function NavBar() {
       transition={{
         duration: 3,
         ease: 'easeIn',
-        delay: 6
+        delay: 5.5
       }}
     >
       <Link
