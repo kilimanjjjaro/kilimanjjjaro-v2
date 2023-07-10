@@ -55,7 +55,7 @@ export default function OtherProjects() {
           .map((project) => (
             <motion.article
               key={project.id}
-              className='flex [&>*]:flex-1 items-center gap-x-10 border-b border-kili-light-gray py-10 group'
+              className='flex items-center py-10 border-b gap-x-10 border-kili-light-gray group'
               variants={{
                 hidden: {
                   opacity: 0,
@@ -75,7 +75,7 @@ export default function OtherProjects() {
                 }
               }}
             >
-              <div className='relative flex gap-[6px] items-center '>
+              <div className='relative flex gap-[6px] items-center flex-1'>
                 <span className='absolute overflow-hidden'>
                   <ArrowLongRightIcon className='w-6 duration-700 ease-in-out -translate-x-full text-kili-light-gray group-hover:text-kili-white group-hover:translate-x-0' />
                 </span>
@@ -86,10 +86,11 @@ export default function OtherProjects() {
                   — {project.role}
                 </span>
               </div>
-              <p className='text-2xl text-kili-light-gray'>
+              <p className='flex-1 text-2xl text-kili-light-gray'>
                 {project.description}
               </p>
               <p className='text-2xl text-kili-light-gray'>{project.stacks}</p>
+              <p className='text-2xl text-kili-light-gray'>{project.year}</p>
             </motion.article>
           ))}
       </motion.div>

@@ -7,10 +7,7 @@ import portraitImage from '../../../public/images/portrait.webp'
 
 export default function Portrait() {
   const imageRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(imageRef, {
-    margin: '-200px 0px -200px 0px',
-    once: true
-  })
+  const isInView = useInView(imageRef, { once: true })
 
   return (
     <motion.div

@@ -46,5 +46,6 @@ export interface ProjectInterface {
     poster: string
   }
   featured: boolean
-  backgroundColor: string
+  backgroundColor?: string
+  year: string
 }

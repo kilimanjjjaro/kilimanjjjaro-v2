@@ -9,7 +9,7 @@ export default function Introducing() {
   return (
     <>
       <section
-        className='flex flex-col items-center px-40 pb-36'
+        className='flex flex-col items-center px-40 py-36'
         id='introducing'
       >
         <Portrait />

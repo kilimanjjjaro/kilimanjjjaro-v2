@@ -13,7 +13,8 @@ export const PROJECTS: ProjectInterface[] = [
       poster: '/images/projects/wrkload/poster.jpg'
     },
     featured: true,
-    backgroundColor: '#7686b7'
+    backgroundColor: '#7686b7',
+    year: '2021'
   },
   {
     id: 2,
@@ -26,7 +27,8 @@ export const PROJECTS: ProjectInterface[] = [
       background: '/images/projects/wrkload/background.jpg',
       poster: '/images/projects/wrkload/poster.jpg'
     },
-    featured: true
+    featured: true,
+    year: '2021'
   },
   {
     id: 3,
@@ -39,7 +41,8 @@ export const PROJECTS: ProjectInterface[] = [
       background: '/images/projects/wrkload/background.jpg',
       poster: '/images/projects/wrkload/poster.jpg'
     },
-    featured: true
+    featured: true,
+    year: '2021'
   },
   {
     id: 4,
@@ -52,7 +55,8 @@ export const PROJECTS: ProjectInterface[] = [
       background: '/images/projects/wrkload/background.jpg',
       poster: '/images/projects/wrkload/poster.jpg'
     },
-    featured: true
+    featured: true,
+    year: '2021'
   },
   {
     id: 5,
@@ -65,7 +69,8 @@ export const PROJECTS: ProjectInterface[] = [
       background: '/images/projects/wrkload/background.jpg',
       poster: '/images/projects/wrkload/poster.jpg'
     },
-    featured: false
+    featured: false,
+    year: '2021'
   },
   {
     id: 6,
@@ -78,7 +83,8 @@ export const PROJECTS: ProjectInterface[] = [
       background: '/images/projects/wrkload/background.jpg',
       poster: '/images/projects/wrkload/poster.jpg'
     },
-    featured: false
+    featured: false,
+    year: '2021'
   },
   {
     id: 7,
@@ -91,7 +97,8 @@ export const PROJECTS: ProjectInterface[] = [
       background: '/images/projects/wrkload/background.jpg',
       poster: '/images/projects/wrkload/poster.jpg'
     },
-    featured: false
+    featured: false,
+    year: '2021'
   },
   {
     id: 8,
@@ -104,7 +111,8 @@ export const PROJECTS: ProjectInterface[] = [
       background: '/images/projects/wrkload/background.jpg',
       poster: '/images/projects/wrkload/poster.jpg'
     },
-    featured: false
+    featured: false,
+    year: '2021'
   },
   {
     id: 9,
@@ -117,7 +125,8 @@ export const PROJECTS: ProjectInterface[] = [
       background: '/images/projects/wrkload/background.jpg',
       poster: '/images/projects/wrkload/poster.jpg'
     },
-    featured: false
+    featured: false,
+    year: '2021'
   },
   {
     id: 10,
@@ -130,7 +139,8 @@ export const PROJECTS: ProjectInterface[] = [
       background: '/images/projects/wrkload/background.jpg',
       poster: '/images/projects/wrkload/poster.jpg'
     },
-    featured: false
+    featured: false,
+    year: '2021'
   },
   {
     id: 11,
@@ -143,6 +153,7 @@ export const PROJECTS: ProjectInterface[] = [
       background: '/images/projects/wrkload/background.jpg',
       poster: '/images/projects/wrkload/poster.jpg'
     },
-    featured: false
+    featured: false,
+    year: '2021'
   }
 ]
