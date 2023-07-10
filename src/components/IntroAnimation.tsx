@@ -1,8 +1,11 @@
 'use client'
 
+import { useStore } from '@/store/store'
 import { motion } from 'framer-motion'
 
 export default function IntroAnimation() {
+  const { setIntroRunning } = useStore()
+
   return (
     <motion.div
       className='fixed inset-0 z-50 items-center justify-center overflow-hidden bg-kili-light-gray'
@@ -22,6 +25,8 @@ export default function IntroAnimation() {
         ease: [0.77, 0, 0.18, 1],
         delay: 4
       }}
+      onAnimationStart={() => setIntroRunning(true)}
+      onAnimationComplete={() => setIntroRunning(false)}
     >
       <motion.div
         className='absolute inset-0 bg-kili-black'
@@ -60,7 +65,7 @@ export default function IntroAnimation() {
         <motion.span
           className='block text-3xl leading-[1.1] font-light tracking-wider text-kili-white'
           initial={{
-            y: '104%',
+            y: '105%',
             rotate: 4
           }}
           animate={{
@@ -72,7 +77,7 @@ export default function IntroAnimation() {
             ease: [0.17, 0.84, 0.44, 1]
           }}
         >
-          kilimanjjjaro
+          Kilimanjjjaro
         </motion.span>
       </span>
     </motion.div>

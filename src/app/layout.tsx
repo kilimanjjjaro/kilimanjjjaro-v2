@@ -7,7 +7,7 @@ import '@/app/globals.css'
 import IntroAnimation from '@/components/IntroAnimation'
 
 export const metadata = {
-  title: 'kilimanjjjaro'
+  title: 'Kilimanjjjaro'
 }
 
 export default function RootLayout({ children }: ChildrenInterface) {

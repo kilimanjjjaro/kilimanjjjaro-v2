@@ -16,16 +16,6 @@ export default function NavBar() {
   const { navBarStatus, setNavBarStatus } = useStore()
   const { isVisible } = useScroll()
 
-  const handleClick = () => {
-    setNavBarStatus(!navBarStatus)
-
-    if (navBarStatus) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'auto'
-    }
-  }
-
   return (
     <motion.header
       className='relative z-40'
@@ -48,7 +38,7 @@ export default function NavBar() {
         )}
         href='/#'
       >
-        <h1>kilimanjjjaro</h1>
+        <h1>Kilimanjjjaro</h1>
       </Link>
       <div
         className={clsx(
@@ -59,7 +49,7 @@ export default function NavBar() {
         <LanguageSelector />
         <button
           className='flex flex-col gap-2 cursor-pointer group'
-          onClick={handleClick}
+          onClick={() => setNavBarStatus(!navBarStatus)}
           aria-label='Toggle navigation menu'
         >
           <motion.div

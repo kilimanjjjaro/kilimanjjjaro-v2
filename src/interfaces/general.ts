@@ -8,6 +8,8 @@ export interface StoreInterface {
   setShouldMoveToStart: (shouldMoveToStart: boolean) => void
   selectedLanguage: LanguageInterface
   setSelectedLanguage: (selectedLanguage: LanguageInterface) => void
+  introRunning: boolean
+  setIntroRunning: (introRunning: boolean) => void
 }
 
 export interface ChildrenInterface {

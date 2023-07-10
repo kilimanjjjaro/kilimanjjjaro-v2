@@ -9,18 +9,18 @@ interface Props {
 }
 
 export default function SmoothScroll({ children }: Props) {
-  const { navBarStatus } = useStore()
+  const { navBarStatus, introRunning } = useStore()
   const lenis = useLenis()
 
   useEffect(() => {
     if (lenis === undefined) return
 
-    if (navBarStatus) {
+    if (navBarStatus || introRunning) {
       lenis.stop()
     } else {
       lenis.start()
     }
-  }, [lenis, navBarStatus])
+  }, [lenis, navBarStatus, introRunning])
 
   return (
     <ReactLenis root options={{ duration: 1.3 }}>
