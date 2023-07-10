@@ -77,9 +77,9 @@ export default function OtherProjects() {
             >
               <div className='relative flex gap-[6px] items-center '>
                 <span className='absolute overflow-hidden'>
-                  <ArrowLongRightIcon className='w-6 duration-500 ease-in-out -translate-x-full text-kili-light-gray group-hover:text-kili-white group-hover:translate-x-0' />
+                  <ArrowLongRightIcon className='w-6 duration-700 ease-in-out -translate-x-full text-kili-light-gray group-hover:text-kili-white group-hover:translate-x-0' />
                 </span>
-                <h4 className='text-2xl duration-500 ease-in-out text-kili-white group-hover:ml-10'>
+                <h4 className='text-2xl duration-700 ease-in-out text-kili-white group-hover:ml-10'>
                   {project.name}
                 </h4>
                 <span className='text-2xl text-kili-light-gray'>
@@ -94,7 +94,7 @@ export default function OtherProjects() {
           ))}
       </motion.div>
       <motion.button
-        className='flex items-center gap-2 mt-10 text-2xl duration-500 ease-in-out opacity-0 text-kili-white group hover:text-kili-light-gray'
+        className='flex items-center gap-2 mt-10 text-2xl duration-700 ease-in-out opacity-0 text-kili-white group hover:text-kili-light-gray'
         onClick={handleShowMore}
         variants={{
           hidden: { opacity: 0 },
@@ -114,7 +114,7 @@ export default function OtherProjects() {
         PROJECTS.filter((project) => !project.featured).length ? (
           <>
             Load more
-            <span className='transition-transform duration-500 ease-in-out group-hover:rotate-180'>
+            <span className='transition-transform duration-700 ease-in-out group-hover:rotate-180'>
               <PlusIcon className='w-3' />
             </span>
           </>

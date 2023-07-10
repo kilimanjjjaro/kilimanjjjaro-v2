@@ -22,11 +22,11 @@ export default function StackSelector() {
   return (
     <div className='flex gap-10 px-40 text-4xl text-kili-white'>
       <button onClick={() => setShowSelector(!showSelector)}>
-        <h2 className='flex items-center gap-4 leading-none duration-500 ease-in-out hover:text-kili-light-gray'>
+        <h2 className='flex items-center gap-4 leading-none duration-700 ease-in-out hover:text-kili-light-gray'>
           {selectedStack.name} Skills
           <span
             className={clsx(
-              'transition-transform duration-500 ease-in-out',
+              'transition-transform duration-700 ease-in-out',
               showSelector && 'rotate-45'
             )}
           >
@@ -44,7 +44,7 @@ export default function StackSelector() {
           .map((stack) => (
             <li key={stack.id} className='overflow-hidden leading-none'>
               <motion.button
-                className='transition-colors duration-500 ease-in-out hover:text-kili-light-gray'
+                className='transition-colors duration-700 ease-in-out hover:text-kili-light-gray'
                 variants={STACKS_LI_VARIANTS}
                 onClick={() => handleClick(stack)}
               >

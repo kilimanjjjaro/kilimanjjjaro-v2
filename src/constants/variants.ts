@@ -36,25 +36,25 @@ export const NAVBAR_VARIANTS = {
   open: {
     y: '0%',
     display: 'flex',
+    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
     transition: {
-      duration: 0.7,
-      ease: [0.85, 0.01, 0.4, 1],
+      duration: 2,
+      ease: [0.77, 0, 0.18, 1],
       staggerChildren: 0.1,
-      delayChildren: 0.5
+      delayChildren: 0.6
     }
   },
   closed: {
-    y: '-100%',
+    y: '100%',
+    clipPath: 'polygon(0% 0%, 100% 8%, 100% 100%, 0% 100%)',
     transition: {
-      duration: 0.7,
-      ease: [0.85, 0.01, 0.4, 1],
-      delay: 0.7,
+      duration: 2,
+      ease: [0.77, 0, 0.18, 1],
       staggerChildren: 0.1,
       staggerDirection: -1
     },
     transitionEnd: {
-      display: 'none',
-      y: '100%'
+      display: 'none'
     }
   }
 }
@@ -62,16 +62,19 @@ export const NAVBAR_VARIANTS = {
 export const NAVBAR_LI_VARIANTS = {
   open: {
     y: '0%',
+    rotate: 0,
     transition: {
-      duration: 0.7,
-      ease: [0.85, 0.01, 0.4, 1]
+      duration: 1,
+      ease: [0.77, 0, 0.18, 1]
     }
   },
   closed: {
-    y: '115%',
+    y: '120%',
+    rotate: 4,
     transition: {
-      duration: 0.7,
-      ease: [0.85, 0.01, 0.4, 1]
+      duration: 1,
+      ease: [0.77, 0, 0.18, 1],
+      delay: 0.4
     }
   }
 }
@@ -82,7 +85,8 @@ export const NAVBAR_BUTTON_ONE_VARIANTS = {
     translateY: 3,
     transition: {
       duration: 0.7,
-      ease: [0.85, 0.01, 0.4, 1]
+      ease: [0.85, 0.01, 0.4, 1],
+      delay: 0.4
     }
   },
   closed: {
@@ -91,7 +95,7 @@ export const NAVBAR_BUTTON_ONE_VARIANTS = {
     transition: {
       duration: 0.7,
       ease: [0.85, 0.01, 0.4, 1],
-      delay: 0.7
+      delay: 0.3
     }
   }
 }
@@ -102,7 +106,8 @@ export const NAVBAR_BUTTON_TWO_VARIANTS = {
     translateY: -7,
     transition: {
       duration: 0.7,
-      ease: [0.85, 0.01, 0.4, 1]
+      ease: [0.85, 0.01, 0.4, 1],
+      delay: 0.4
     }
   },
   closed: {
@@ -111,7 +116,7 @@ export const NAVBAR_BUTTON_TWO_VARIANTS = {
     transition: {
       duration: 0.7,
       ease: [0.85, 0.01, 0.4, 1],
-      delay: 0.7
+      delay: 0.3
     }
   }
 }

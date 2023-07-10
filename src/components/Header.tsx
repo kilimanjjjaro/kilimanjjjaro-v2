@@ -1,8 +1,21 @@
 'use client'
 
+import { useLenis } from '@studio-freight/react-lenis'
 import { motion } from 'framer-motion'
 
 export default function Header() {
+  const lenis = useLenis()
+
+  const handleClick = () => {
+    if (lenis !== undefined) {
+      const startOfSection = document.getElementById('introducing')?.offsetTop
+
+      lenis.scrollTo(startOfSection, {
+        duration: 3
+      })
+    }
+  }
+
   return (
     <header className='flex items-center justify-center min-h-screen'>
       <motion.div
@@ -81,8 +94,9 @@ export default function Header() {
           </span>
         </h2>
       </motion.div>
-      <motion.span
-        className='absolute block leading-none tracking-wide bottom-12 text-kili-light-gray animate-fade-in'
+      <motion.button
+        className='absolute block leading-none tracking-wide duration-700 ease-in-out bottom-12 text-kili-light-gray animate-fade-in hover:text-kili-white'
+        onClick={handleClick}
         initial={{
           opacity: 0
         }}
@@ -96,7 +110,7 @@ export default function Header() {
         }}
       >
         (Scroll)
-      </motion.span>
+      </motion.button>
     </header>
   )
 }

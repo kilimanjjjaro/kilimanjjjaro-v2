@@ -33,7 +33,7 @@ export default function NavBar() {
     >
       <Link
         className={clsx(
-          'fixed z-50 left-8 top-12 leading-none tracking-wide duration-500 ease-in-out text-kili-light-gray hover:text-kili-white',
+          'fixed z-50 left-8 top-12 leading-none tracking-wide duration-700 ease-in-out text-kili-light-gray hover:text-kili-white',
           !isVisible && '-translate-y-16'
         )}
         href='/#'
@@ -42,7 +42,7 @@ export default function NavBar() {
       </Link>
       <div
         className={clsx(
-          'fixed z-50 flex items-center gap-8 right-8 top-12 leading-none tracking-wide duration-500 ease-in-out text-kili-light-gray hover:text-kili-white',
+          'fixed z-50 flex items-center gap-8 right-8 top-12 leading-none tracking-wide duration-700 ease-in-out text-kili-light-gray hover:text-kili-white',
           !isVisible && '-translate-y-16'
         )}
       >
@@ -53,12 +53,12 @@ export default function NavBar() {
           aria-label='Toggle navigation menu'
         >
           <motion.div
-            className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-500 group-hover:bg-kili-white'
+            className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-700 group-hover:bg-kili-white'
             variants={NAVBAR_BUTTON_ONE_VARIANTS}
             animate={navBarStatus ? 'open' : 'closed'}
           />
           <motion.div
-            className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-500 group-hover:bg-kili-white'
+            className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-700 group-hover:bg-kili-white'
             variants={NAVBAR_BUTTON_TWO_VARIANTS}
             animate={navBarStatus ? 'open' : 'closed'}
           />

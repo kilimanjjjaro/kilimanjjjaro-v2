@@ -8,7 +8,7 @@ import { PROJECTS } from '@/constants/projects'
 export default function Projects() {
   return (
     <section
-      className='pt-32 transition-colors duration-500 ease-in-out bg-kili-dark-gray'
+      className='pt-32 transition-colors duration-700 ease-in-out bg-kili-dark-gray'
       id='projects'
     >
       <ParallaxHeadline

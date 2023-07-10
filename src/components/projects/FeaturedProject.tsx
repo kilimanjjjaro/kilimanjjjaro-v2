@@ -68,7 +68,7 @@ export default function FeaturedProject({
       onMouseLeave={() => handleMouseEnter(null)}
     >
       <motion.div
-        className='top-0 left-0 absolute w-full h-full bg-center bg-[length:125%] group-hover:bg-[length:112%] ease-in-out duration-500'
+        className='top-0 left-0 absolute w-full h-full bg-center bg-[length:125%] group-hover:bg-[length:112%] ease-in-out duration-700'
         style={{ backgroundImage: `url('${project.images.background}')` }}
         initial={{
           clipPath: 'inset(100% 0% 0% 0%)'
@@ -87,7 +87,7 @@ export default function FeaturedProject({
       />
       <Image
         ref={scope}
-        className='w-full h-auto transition-transform duration-500 ease-in-out scale-90 opacity-0 aspect-video group-hover:scale-100 will-change-transform'
+        className='w-full h-auto transition-transform duration-700 ease-in-out scale-90 opacity-0 aspect-video group-hover:scale-100 will-change-transform'
         src={project.images.poster}
         alt={project.name}
         width={640}
