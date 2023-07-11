@@ -12,8 +12,8 @@ dependencies:
     specifier: ^10.15.1
     version: 10.15.1
   '@studio-freight/react-lenis':
-    specifier: ^0.0.22
-    version: 0.0.22(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^0.0.23
+    version: 0.0.23(react-dom@18.2.0)(react@18.2.0)
   '@types/node':
     specifier: 20.4.1
     version: 20.4.1
@@ -400,13 +400,13 @@ packages:
     resolution: {integrity: sha512-V+MvGwaHH03hYhY+k6Ef/xKd6RYlc4q8WBx+2ANmipHJcKuktNcI/NgEsJgdSUF6Lw32njT6OnrRsKYCdgHjYw==}
     dev: false
 
-  /@studio-freight/hamo@0.6.18(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-/qSSbKY7noqvQME7F5GO2Fa+d43L4gMOk9TX0Hn5D2Wx6mAnaQHC49Zdg/7nGnHfybf4VPLaaqVYs6J8VXonLQ==}
+  /@studio-freight/hamo@0.6.19(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-tU8QLbYEuo7AFhne90JhGY2DH1zfmyxDiB30QqIwoRt+Po/w8TbiLdigcWb946W0Vhyfm2rjI7eDRyQN1Oh3HQ==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      '@studio-freight/tempus': 0.0.37
+      '@studio-freight/tempus': 0.0.38
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       rimraf: 5.0.1
@@ -417,13 +417,13 @@ packages:
     resolution: {integrity: sha512-OeCBCafpaIfqFov4of/+cArunTL6wuN8hQkx3w/yJTh9Y84O82Y7tZ1xvU/HlvH+1M/tpltruxpddaI7ydTrnQ==}
     dev: false
 
-  /@studio-freight/react-lenis@0.0.22(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-MH+c+UZ20StK5cEFbEVF8dcpxp5zZZlmfTwmsQZZeV5Gs9YEPjK3W8y5tqn8KEUc9iblHDUsoAB5Ya9vcyY+4Q==}
+  /@studio-freight/react-lenis@0.0.23(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-47u+WpwkmB0BuhQQNEIbtFzbJpLyxymz7qYBFb41q4CwhxiGJbQftJgi1AZqvrk1/kNtuO39+M3MkOQ7visywA==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      '@studio-freight/hamo': 0.6.18(react-dom@18.2.0)(react@18.2.0)
+      '@studio-freight/hamo': 0.6.19(react-dom@18.2.0)(react@18.2.0)
       '@studio-freight/lenis': 1.0.16
       prop-types: 15.8.1
       react: 18.2.0
@@ -433,8 +433,8 @@ packages:
       - immer
     dev: false
 
-  /@studio-freight/tempus@0.0.37:
-    resolution: {integrity: sha512-UNK2i27qs+/cPi0C2dO3uXVSVlime8NQYuPPtLO6qGoEdXTMo3ORRlgq+X50AacQNdWMoSMr0Dmo69W6zIup3w==}
+  /@studio-freight/tempus@0.0.38:
+    resolution: {integrity: sha512-AO1O2fEmfUqWGjEofmPNMQRlwgZ96eB5OFsVJjeH8/RKd1/Yf4zbPnXO+r2TD4aueA6X9JRCJU2GUprI9+m8uQ==}
     dev: false
 
   /@swc/helpers@0.5.1:
@@ -729,7 +729,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.9
-      caniuse-lite: 1.0.30001514
+      caniuse-lite: 1.0.30001515
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -793,7 +793,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001514
+      caniuse-lite: 1.0.30001515
       electron-to-chromium: 1.4.455
       node-releases: 2.0.13
       update-browserslist-db: 1.0.11(browserslist@4.21.9)
@@ -833,8 +833,8 @@ packages:
     engines: {node: '>= 6'}
     dev: false
 
-  /caniuse-lite@1.0.30001514:
-    resolution: {integrity: sha512-ENcIpYBmwAAOm/V2cXgM7rZUrKKaqisZl4ZAI520FIkqGXUxJjmaIssbRW5HVVR5tyV6ygTLIm15aU8LUmQSaQ==}
+  /caniuse-lite@1.0.30001515:
+    resolution: {integrity: sha512-eEFDwUOZbE24sb+Ecsx3+OvNETqjWIdabMy52oOkIgcUtAsQifjUG9q4U9dgTHJM2mfk4uEPxc0+xuFdJ629QA==}
     dev: false
 
   /chalk@4.1.2:
@@ -1264,7 +1264,7 @@ packages:
       minimatch: 3.1.2
       object.values: 1.1.6
       resolve: 1.22.2
-      semver: 6.3.0
+      semver: 6.3.1
       tsconfig-paths: 3.14.2
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
@@ -1293,7 +1293,7 @@ packages:
       minimatch: 3.1.2
       object.entries: 1.1.6
       object.fromentries: 2.0.6
-      semver: 6.3.0
+      semver: 6.3.1
     dev: false
 
   /eslint-plugin-n@15.7.0(eslint@8.44.0):
@@ -1351,7 +1351,7 @@ packages:
       object.values: 1.1.6
       prop-types: 15.8.1
       resolve: 2.0.0-next.4
-      semver: 6.3.0
+      semver: 6.3.1
       string.prototype.matchall: 4.0.8
 
   /eslint-scope@5.1.1:
@@ -1690,7 +1690,7 @@ packages:
       foreground-child: 3.1.1
       jackspeak: 2.2.1
       minimatch: 9.0.3
-      minipass: 7.0.1
+      minipass: 7.0.2
       path-scurry: 1.10.1
     dev: false
 
@@ -2165,8 +2165,8 @@ packages:
   /minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
 
-  /minipass@7.0.1:
-    resolution: {integrity: sha512-NQ8MCKimInjVlaIqx51RKJJB7mINVkLTJbsZKmto4UAAOC/CWXES8PGaOgoBZyqoUsUA/U3DToGK7GJkkHbjJw==}
+  /minipass@7.0.2:
+    resolution: {integrity: sha512-eL79dXrE1q9dBbDCLg7xfn/vl7MS4F1gvJAgjJrQli/jbQWdUttuVawphqpffoIYfRdq78LHx6GP4bU/EQ2ATA==}
     engines: {node: '>=16 || 14 >=14.17'}
     dev: false
 
@@ -2218,7 +2218,7 @@ packages:
       '@next/env': 13.4.9
       '@swc/helpers': 0.5.1
       busboy: 1.6.0
-      caniuse-lite: 1.0.30001514
+      caniuse-lite: 1.0.30001515
       postcss: 8.4.14
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -2451,7 +2451,7 @@ packages:
     engines: {node: '>=16 || 14 >=14.17'}
     dependencies:
       lru-cache: 10.0.0
-      minipass: 7.0.1
+      minipass: 7.0.2
     dev: false
 
   /path-type@4.0.0:
@@ -2716,8 +2716,8 @@ packages:
       loose-envify: 1.4.0
     dev: false
 
-  /semver@6.3.0:
-    resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
+  /semver@6.3.1:
+    resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
 
   /semver@7.5.4:

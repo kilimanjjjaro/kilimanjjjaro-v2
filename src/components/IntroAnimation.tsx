@@ -63,9 +63,9 @@ export default function IntroAnimation() {
       </span>
       <span className='absolute overflow-hidden'>
         <motion.span
-          className='block text-3xl leading-[1.1] tracking-wider text-kili-white'
+          className='block text-3xl leading-none tracking-wider text-kili-white'
           initial={{
-            y: '105%',
+            y: '110%',
             rotate: 4
           }}
           animate={{

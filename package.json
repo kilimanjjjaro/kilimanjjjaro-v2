@@ -11,7 +11,7 @@
   "dependencies": {
     "@egjs/react-flicking": "4.10.10",
     "@motionone/utils": "^10.15.1",
-    "@studio-freight/react-lenis": "^0.0.22",
+    "@studio-freight/react-lenis": "^0.0.23",
     "@types/node": "20.4.1",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
