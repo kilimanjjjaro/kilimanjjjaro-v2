@@ -10,8 +10,8 @@ import useSplitText from '@/hooks/useSplitText'
 
 export default function OtherProjects() {
   const [visibleItems, setVisibleItems] = useState(3)
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(sectionRef, { once: true })
+  const sectionEl = useRef<HTMLDivElement>(null)
+  const isInView = useInView(sectionEl, { once: true })
   const lenis = useLenis()
   const { elRef } = useSplitText()
 
@@ -33,7 +33,7 @@ export default function OtherProjects() {
         And other equally important projects...
       </h3>
       <motion.div
-        ref={sectionRef}
+        ref={sectionEl}
         className='mt-10'
         variants={{
           hidden: { opacity: 0 },
@@ -92,7 +92,7 @@ export default function OtherProjects() {
               <p className='text-2xl text-kili-light-gray'>{project.stacks}</p>
               <p className='text-2xl text-kili-light-gray'>{project.year}</p>
               <motion.hr
-                className='bottom-0 w-full h-[2px] bg-kili-light-gray absolute origin-left'
+                className='bottom-0 w-full h-[2px] border-kili-light-gray absolute origin-left'
                 initial={{
                   scaleX: '0%'
                 }}

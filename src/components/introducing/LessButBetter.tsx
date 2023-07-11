@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 export default function LessButBetter() {
   const {
     isHovered,
-    sectionElRef,
+    sectionEl,
     setIsHovered,
     cursorPosition,
     handleMouseMove
@@ -20,7 +20,7 @@ export default function LessButBetter() {
         onMouseMove={(event) => handleMouseMove(event)}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        ref={sectionElRef}
+        ref={sectionEl}
       >
         <motion.span
           className='absolute z-10 text-2xl whitespace-pre pointer-events-none text-kili-white'

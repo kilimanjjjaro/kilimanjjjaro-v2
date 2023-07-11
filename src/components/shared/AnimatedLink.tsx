@@ -10,7 +10,7 @@ interface Props {
 }
 
 export default function AnimatedLink({ text, link, className }: Props) {
-  const animationIntervalRef = useRef<NodeJS.Timeout | null>(null)
+  const animationInterval = useRef<NodeJS.Timeout | null>(null)
   const [originalText, setOriginalText] = useState<string>(text)
   const [counter, setCounter] = useState<number>(0)
 
@@ -36,19 +36,19 @@ export default function AnimatedLink({ text, link, className }: Props) {
   }, [originalText])
 
   const startAnimation = () => {
-    if (animationIntervalRef.current === null) {
+    if (animationInterval.current === null) {
       const interval = setInterval(() => {
         changeTextRandomly()
         setCounter((prevCounter) => prevCounter + 1)
       }, 100)
-      animationIntervalRef.current = interval
+      animationInterval.current = interval
     }
   }
 
   const stopAnimation = () => {
-    if (animationIntervalRef.current !== null) {
-      clearInterval(animationIntervalRef.current)
-      animationIntervalRef.current = null
+    if (animationInterval.current !== null) {
+      clearInterval(animationInterval.current)
+      animationInterval.current = null
       setCounter(0)
       setOriginalText(text)
     }
@@ -56,7 +56,7 @@ export default function AnimatedLink({ text, link, className }: Props) {
 
   useEffect(() => {
     if (counter >= 7) {
-      clearInterval(animationIntervalRef.current as NodeJS.Timeout)
+      clearInterval(animationInterval.current as NodeJS.Timeout)
       setCounter(0)
       setOriginalText(text)
     }

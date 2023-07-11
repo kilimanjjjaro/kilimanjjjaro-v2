@@ -6,12 +6,12 @@ import { motion, useInView } from 'framer-motion'
 import portraitImage from '../../../public/images/portrait.webp'
 
 export default function Portrait() {
-  const imageRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(imageRef, { once: true })
+  const imageEl = useRef<HTMLDivElement>(null)
+  const isInView = useInView(imageEl, { once: true })
 
   return (
     <motion.div
-      ref={imageRef}
+      ref={imageEl}
       className='overflow-hidden bg-kili-dark-gray'
       initial={{
         clipPath: 'inset(100% 0% 0% 0%)'
@@ -26,7 +26,7 @@ export default function Portrait() {
         ease: [0.17, 0.84, 0.44, 1]
       }}
     >
-      <Image src={portraitImage} alt='Kilimanjjjaro' quality={100} priority />
+      <Image src={portraitImage} alt='Kilimanjjjaro' quality={90} priority />
     </motion.div>
   )
 }

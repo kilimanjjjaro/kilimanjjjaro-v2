@@ -15,9 +15,9 @@ export default function FeaturedProject({
 }) {
   const [isHovered, setIsHovered] = useState<number | null>(null)
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
-  const projectRef = useRef<HTMLElement>(null)
+  const projectEl = useRef<HTMLElement>(null)
   const [scope, animate] = useAnimate()
-  const isInView = useInView(projectRef, { once: true })
+  const isInView = useInView(projectEl, { once: true })
 
   const handleMouseMove = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
@@ -57,7 +57,7 @@ export default function FeaturedProject({
 
   return (
     <motion.article
-      ref={projectRef}
+      ref={projectEl}
       className={clsx(
         'relative flex justify-center items-center aspect-[18/25] p-5 group',
         className,
@@ -80,8 +80,7 @@ export default function FeaturedProject({
         }
         transition={{
           duration: 3,
-          ease: [0.17, 0.84, 0.44, 1],
-          delay: 0.5
+          ease: [0.17, 0.84, 0.44, 1]
         }}
       />
       <Image

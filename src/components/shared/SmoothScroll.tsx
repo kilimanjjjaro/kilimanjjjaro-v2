@@ -15,7 +15,7 @@ export default function SmoothScroll({ children }: Props) {
   useEffect(() => {
     if (lenis === undefined) return
 
-    if (navBarStatus || !introRunning) {
+    if (navBarStatus || introRunning) {
       lenis.stop()
     } else {
       lenis.start()

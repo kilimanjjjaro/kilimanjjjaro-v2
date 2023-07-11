@@ -8,8 +8,8 @@ export default function useSkillsCarousel() {
   const [isHovered, setIsHovered] = useState(false)
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
   const [isNextArrow, setIsNextArrow] = useState(true)
-  const sectionElRef = useRef<HTMLInputElement>(null)
-  const flickeringElRef = useRef<Flicking>(null)
+  const sectionEl = useRef<HTMLInputElement>(null)
+  const flickeringEl = useRef<Flicking>(null)
   const {
     selectedStack,
     setSelectedStack,
@@ -21,11 +21,11 @@ export default function useSkillsCarousel() {
   const handleMouseMove = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    if (sectionElRef.current === null) return
+    if (sectionEl.current === null) return
 
     setCursorPosition({
-      x: event.pageX - sectionElRef.current.offsetLeft - 60,
-      y: event.pageY - sectionElRef.current.offsetTop - 24
+      x: event.pageX - sectionEl.current.offsetLeft - 60,
+      y: event.pageY - sectionEl.current.offsetTop - 24
     })
 
     const isRightSide = innerWidth / 2 <= event.pageX
@@ -64,31 +64,29 @@ export default function useSkillsCarousel() {
   }
 
   const handleClick = async () => {
-    if (flickeringElRef.current === null) return
+    if (flickeringEl.current === null) return
 
-    const currentSlide = flickeringElRef.current.currentPanel.index
-    const visibleSlides = flickeringElRef.current.visiblePanels.length
+    const currentSlide = flickeringEl.current.currentPanel.index
+    const visibleSlides = flickeringEl.current.visiblePanels.length
     const isFirstSlide = currentSlide === 0
     const isLastSlide = totalSlides - visibleSlides === currentSlide
 
     try {
       if (isNextArrow && !isLastSlide) {
-        await flickeringElRef.current?.next(250)
+        await flickeringEl.current?.next(250)
       }
 
       if (!isNextArrow && !isFirstSlide) {
-        await flickeringElRef.current?.prev(250)
+        await flickeringEl.current?.prev(250)
       }
     } catch (error) {}
   }
 
   useEffect(() => {
-    if (flickeringElRef.current === null) return
+    if (flickeringEl.current === null) return
 
     if (shouldMoveToStart) {
-      flickeringElRef.current
-        .moveTo(selectedStack.startIndex, 250)
-        .catch(() => {})
+      flickeringEl.current.moveTo(selectedStack.startIndex, 250).catch(() => {})
     }
   }, [selectedStack, shouldMoveToStart])
 
@@ -97,8 +95,8 @@ export default function useSkillsCarousel() {
     setIsHovered,
     cursorPosition,
     isNextArrow,
-    sectionElRef,
-    flickeringElRef,
+    sectionEl,
+    flickeringEl,
     handleMouseMove,
     handleChange,
     handleClick
