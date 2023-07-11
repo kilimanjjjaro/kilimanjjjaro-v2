@@ -12,7 +12,6 @@ export default function Portrait() {
   return (
     <motion.div
       ref={imageEl}
-      className='overflow-hidden bg-kili-dark-gray'
       initial={{
         clipPath: 'inset(100% 0% 0% 0%)'
       }}
@@ -22,7 +21,7 @@ export default function Portrait() {
         }
       }
       transition={{
-        duration: 3,
+        duration: 2.5,
         ease: [0.17, 0.84, 0.44, 1]
       }}
     >

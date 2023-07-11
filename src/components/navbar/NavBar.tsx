@@ -42,7 +42,7 @@ export default function NavBar() {
       </Link>
       <div
         className={clsx(
-          'fixed z-50 flex items-center gap-8 right-8 top-12 leading-none tracking-wide duration-700 ease-in-out text-kili-light-gray hover:text-kili-white',
+          'fixed z-50 flex items-center gap-8 right-8 top-12 leading-none tracking-wide duration-700 ease-in-out',
           !isVisible && '-translate-y-16'
         )}
       >

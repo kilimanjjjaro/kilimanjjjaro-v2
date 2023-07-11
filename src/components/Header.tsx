@@ -11,7 +11,7 @@ export default function Header() {
       const startOfSection = document.getElementById('introducing')?.offsetTop
 
       lenis.scrollTo(startOfSection, {
-        duration: 2
+        duration: 3
       })
     }
   }

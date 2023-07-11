@@ -7,8 +7,8 @@ import Portrait from '@/components/introducing/Portrait'
 
 export default function Introducing() {
   return (
-    <section className='pt-24 pb-20' id='introducing'>
-      <div className='flex flex-col items-center px-40 mb-36'>
+    <section className='pt-24 ' id='introducing'>
+      <div className='flex flex-col items-center px-40 pb-36'>
         <Portrait />
         <div className='flex flex-col'>
           <Headline />
@@ -18,7 +18,7 @@ export default function Introducing() {
           </div>
         </div>
       </div>
-      <div className='flex flex-col gap-20 overflow-hidden'>
+      <div className='flex flex-col gap-20 pb-20 overflow-hidden'>
         <StackSelector />
         <SkillsCarousel />
       </div>

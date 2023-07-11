@@ -7,6 +7,12 @@ import { useLenis } from '@studio-freight/react-lenis'
 import { motion, useInView } from 'framer-motion'
 import { ArrowLongRightIcon } from '@/icons/ArrowLongRightIcon'
 import useSplitText from '@/hooks/useSplitText'
+import {
+  ANOTHER_PROJECTS_BUTTON_VARIANTS,
+  ANOTHER_PROJECTS_VARIANTS,
+  ANOTHER_PROJECT_HR_VARIANTS,
+  ANOTHER_PROJECT_VARIANTS
+} from '@/constants/variants'
 
 export default function OtherProjects() {
   const [visibleItems, setVisibleItems] = useState(3)
@@ -35,18 +41,7 @@ export default function OtherProjects() {
       <motion.div
         ref={sectionEl}
         className='mt-10'
-        variants={{
-          hidden: { opacity: 0 },
-          show: {
-            opacity: 1,
-            transition: {
-              duration: 0.5,
-              ease: 'easeInOut',
-              staggerChildren: 0.3,
-              delayChildren: 0.3
-            }
-          }
-        }}
+        variants={ANOTHER_PROJECTS_VARIANTS}
         initial='hidden'
         animate={isInView ? 'show' : 'hidden'}
       >
@@ -56,24 +51,7 @@ export default function OtherProjects() {
             <motion.article
               key={project.id}
               className='flex items-center py-10 overflow-x-hidden gap-x-10 group'
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  y: '50%',
-                  transition: {
-                    duration: 0.5,
-                    ease: 'easeInOut'
-                  }
-                },
-                show: {
-                  opacity: 1,
-                  y: '0%',
-                  transition: {
-                    duration: 0.5,
-                    ease: 'easeInOut'
-                  }
-                }
-              }}
+              variants={ANOTHER_PROJECT_VARIANTS}
             >
               <div className='relative flex gap-[6px] items-center flex-1'>
                 <span className='absolute overflow-hidden'>
@@ -93,17 +71,9 @@ export default function OtherProjects() {
               <p className='text-2xl text-kili-light-gray'>{project.year}</p>
               <motion.hr
                 className='bottom-0 w-full h-[2px] border-kili-light-gray absolute origin-left'
-                initial={{
-                  scaleX: '0%'
-                }}
-                animate={{
-                  scaleX: '100%'
-                }}
-                transition={{
-                  duration: 2,
-                  ease: [0.17, 0.84, 0.44, 1],
-                  delay: 0.7
-                }}
+                variants={ANOTHER_PROJECT_HR_VARIANTS}
+                initial='hidden'
+                animate={isInView ? 'show' : 'hidden'}
               />
             </motion.article>
           ))}
@@ -111,17 +81,7 @@ export default function OtherProjects() {
       <motion.button
         className='flex items-center gap-2 mt-10 text-2xl duration-700 ease-in-out opacity-0 text-kili-white group hover:text-kili-light-gray'
         onClick={handleShowMore}
-        variants={{
-          hidden: { opacity: 0 },
-          show: {
-            opacity: 1,
-            transition: {
-              duration: 0.5,
-              ease: 'easeInOut',
-              delay: 1.3
-            }
-          }
-        }}
+        variants={ANOTHER_PROJECTS_BUTTON_VARIANTS}
         initial='hidden'
         animate={isInView ? 'show' : 'hidden'}
       >

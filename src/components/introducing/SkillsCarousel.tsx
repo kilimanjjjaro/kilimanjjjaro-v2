@@ -14,8 +14,8 @@ export default function SkillsCarousel() {
     setIsHovered,
     cursorPosition,
     isNextArrow,
-    sectionElRef,
-    flickeringElRef,
+    sectionEl,
+    flickeringEl,
     handleMouseMove,
     handleChange,
     handleClick
@@ -28,7 +28,7 @@ export default function SkillsCarousel() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={async () => await handleClick()}
-      ref={sectionElRef}
+      ref={sectionEl}
     >
       <motion.div
         className='absolute z-10 pointer-events-none will-change-transform'
@@ -50,11 +50,11 @@ export default function SkillsCarousel() {
         {!isNextArrow && <ArrowLongLeftIcon className='w-32 fill-kili-white' />}
       </motion.div>
       <Flicking
-        ref={flickeringElRef}
+        ref={flickeringEl}
         onChanged={handleChange}
         align='prev'
         cameraClass='flex'
-        duration={250}
+        duration={300}
         bound
       >
         <div className='flex flex-col items-center mr-36 group'>

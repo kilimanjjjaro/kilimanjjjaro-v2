@@ -1,8 +1,8 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import Image from 'next/image'
-import { motion, useAnimate, useInView } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import clsx from 'clsx'
 import type { ProjectInterface } from '@/interfaces/general'
 
@@ -16,7 +16,6 @@ export default function FeaturedProject({
   const [isHovered, setIsHovered] = useState<number | null>(null)
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
   const projectEl = useRef<HTMLElement>(null)
-  const [scope, animate] = useAnimate()
   const isInView = useInView(projectEl, { once: true })
 
   const handleMouseMove = useCallback(
@@ -45,16 +44,6 @@ export default function FeaturedProject({
     }
   }
 
-  useEffect(() => {
-    if (isInView) {
-      void animate(
-        scope.current,
-        { opacity: 1 },
-        { duration: 4, ease: [0.17, 0.84, 0.44, 1], delay: 1 }
-      )
-    }
-  }, [isInView, animate, scope])
-
   return (
     <motion.article
       ref={projectEl}
@@ -79,38 +68,36 @@ export default function FeaturedProject({
           }
         }
         transition={{
-          duration: 3,
+          duration: 2.5,
           ease: [0.17, 0.84, 0.44, 1]
         }}
       />
-      <Image
-        ref={scope}
-        className='w-full h-auto transition-transform duration-700 ease-in-out scale-90 opacity-0 aspect-video group-hover:scale-100 will-change-transform'
-        src={project.images.poster}
-        alt={project.name}
-        width={640}
-        height={360}
-        quality={90}
-      />
-      <span className='absolute right-0 mt-4 overflow-hidden text-xl leading-none top-full text-kili-white'>
-        <motion.span
-          className='block'
-          initial={{
-            y: '-105%'
-          }}
-          animate={{
-            y: isHovered === project.id ? '0%' : '-105%'
-          }}
-          transition={{
-            duration: 0.5,
-            ease: 'easeInOut'
-          }}
-        >
-          {project.role}
-        </motion.span>
-      </span>
+      <motion.div
+        initial={{
+          opacity: 0
+        }}
+        animate={
+          isInView && {
+            opacity: 1
+          }
+        }
+        transition={{
+          duration: 2,
+          ease: 'easeInOut',
+          delay: 0.5
+        }}
+      >
+        <Image
+          className='w-full h-auto transition-transform duration-700 ease-in-out scale-90 aspect-video group-hover:scale-100'
+          src={project.images.poster}
+          alt={project.name}
+          width={640}
+          height={360}
+          quality={90}
+        />
+      </motion.div>
       <h3
-        className='absolute top-0 left-0 overflow-hidden text-center -translate-x-1/2 -translate-y-1/2 pointer-events-none will-change-transform text-9xl text-kili-white group-hover:opacity-100'
+        className='absolute top-0 left-0 overflow-hidden leading-none text-center -translate-x-1/2 -translate-y-1/2 pointer-events-none will-change-transform text-9xl text-kili-white group-hover:opacity-100'
         style={{
           top: cursorPosition.y,
           left: cursorPosition.x
@@ -122,16 +109,33 @@ export default function FeaturedProject({
             y: '105%'
           }}
           animate={{
-            y: isHovered === project.id ? '0%' : '105%'
+            y: isHovered === project.id ? '0%' : '100%'
           }}
           transition={{
-            duration: 0.5,
+            duration: 0.7,
             ease: 'easeInOut'
           }}
         >
           {project.name}
         </motion.span>
       </h3>
+      <span className='absolute right-0 mt-4 overflow-hidden text-xl leading-none top-full text-kili-white'>
+        <motion.span
+          className='block'
+          initial={{
+            y: '-105%'
+          }}
+          animate={{
+            y: isHovered === project.id ? '0%' : '-105%'
+          }}
+          transition={{
+            duration: 0.7,
+            ease: 'easeInOut'
+          }}
+        >
+          {project.role}
+        </motion.span>
+      </span>
     </motion.article>
   )
 }
