@@ -27,7 +27,7 @@ export default function useSplitText() {
       void animate(
         'span.fadeInSplittedText',
         { transform: 'translateY(0%)' },
-        { duration: 1.7, ease: [0.17, 0.84, 0.44, 1], delay: stagger(0.3) }
+        { duration: 1.5, ease: [0.17, 0.84, 0.44, 1], delay: stagger(0.3) }
       )
     }
 

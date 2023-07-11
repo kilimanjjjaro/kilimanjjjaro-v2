@@ -50,7 +50,7 @@ export default function FeaturedProject({
       void animate(
         scope.current,
         { opacity: 1 },
-        { duration: 0.5, ease: 'easeInOut', delay: 0.7, type: 'tween' }
+        { duration: 4, ease: [0.17, 0.84, 0.44, 1], delay: 1 }
       )
     }
   }, [isInView, animate, scope])
@@ -79,10 +79,9 @@ export default function FeaturedProject({
           }
         }
         transition={{
-          duration: 1,
-          ease: 'easeOut',
-          type: 'tween',
-          delay: 0.3
+          duration: 3,
+          ease: [0.17, 0.84, 0.44, 1],
+          delay: 0.5
         }}
       />
       <Image

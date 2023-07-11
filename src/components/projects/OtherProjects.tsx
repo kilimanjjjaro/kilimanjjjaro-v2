@@ -5,8 +5,8 @@ import { PlusIcon } from '@/icons/PlusIcon'
 import { PROJECTS } from '@/constants/projects'
 import { useLenis } from '@studio-freight/react-lenis'
 import { motion, useInView } from 'framer-motion'
-import useSplitText from '@/hooks/useSplitText'
 import { ArrowLongRightIcon } from '@/icons/ArrowLongRightIcon'
+import useSplitText from '@/hooks/useSplitText'
 
 export default function OtherProjects() {
   const [visibleItems, setVisibleItems] = useState(3)
@@ -55,7 +55,7 @@ export default function OtherProjects() {
           .map((project) => (
             <motion.article
               key={project.id}
-              className='flex items-center py-10 border-b gap-x-10 border-kili-light-gray group'
+              className='flex items-center py-10 overflow-x-hidden gap-x-10 group'
               variants={{
                 hidden: {
                   opacity: 0,
@@ -91,6 +91,20 @@ export default function OtherProjects() {
               </p>
               <p className='text-2xl text-kili-light-gray'>{project.stacks}</p>
               <p className='text-2xl text-kili-light-gray'>{project.year}</p>
+              <motion.hr
+                className='bottom-0 w-full h-[2px] bg-kili-light-gray absolute origin-left'
+                initial={{
+                  scaleX: '0%'
+                }}
+                animate={{
+                  scaleX: '100%'
+                }}
+                transition={{
+                  duration: 2,
+                  ease: [0.17, 0.84, 0.44, 1],
+                  delay: 0.7
+                }}
+              />
             </motion.article>
           ))}
       </motion.div>

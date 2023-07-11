@@ -13,7 +13,7 @@ export default function Projects() {
     >
       <ParallaxHeadline
         className='leading-none text-kili-white text-10xl'
-        baseVelocity={-4}
+        baseVelocity={-3}
       >
         Projects
       </ParallaxHeadline>

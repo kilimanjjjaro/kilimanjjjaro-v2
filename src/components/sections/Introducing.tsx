@@ -7,11 +7,8 @@ import Portrait from '@/components/introducing/Portrait'
 
 export default function Introducing() {
   return (
-    <>
-      <section
-        className='flex flex-col items-center px-40 py-36'
-        id='introducing'
-      >
+    <section className='pt-24 pb-20' id='introducing'>
+      <div className='flex flex-col items-center px-40 mb-36'>
         <Portrait />
         <div className='flex flex-col'>
           <Headline />
@@ -20,11 +17,11 @@ export default function Introducing() {
             <Paragraph />
           </div>
         </div>
-      </section>
-      <section className='flex flex-col gap-20 pb-20 overflow-hidden'>
+      </div>
+      <div className='flex flex-col gap-20 overflow-hidden'>
         <StackSelector />
         <SkillsCarousel />
-      </section>
-    </>
+      </div>
+    </section>
   )
 }
