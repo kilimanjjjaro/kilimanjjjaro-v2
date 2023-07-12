@@ -1,4 +1,4 @@
-import Header from '@/components/Header'
+import Header from '@/components/sections/Header'
 import Introducing from '@/components/sections/Introducing'
 import Projects from '@/components/sections/Projects'
 

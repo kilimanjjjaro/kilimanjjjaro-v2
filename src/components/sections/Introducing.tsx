@@ -7,7 +7,7 @@ import Portrait from '@/components/introducing/Portrait'
 
 export default function Introducing() {
   return (
-    <section className='pt-24 ' id='introducing'>
+    <section id='introducing' className='pt-24 '>
       <div className='flex flex-col items-center px-40 pb-36'>
         <Portrait />
         <div className='flex flex-col'>

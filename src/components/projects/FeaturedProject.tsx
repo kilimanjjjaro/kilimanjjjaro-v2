@@ -37,9 +37,8 @@ export default function FeaturedProject({
     <article
       ref={projectEl}
       className={clsx(
-        'relative flex justify-center items-center aspect-[18/25] p-5 group',
-        className,
-        isHovered === project.id && 'cursor-none'
+        'relative flex justify-center items-center aspect-[18/25] p-5 group cursor-none',
+        className
       )}
       onMouseEnter={() => handleMouseEnter(project)}
       onMouseLeave={() => handleMouseEnter(null)}
@@ -85,7 +84,7 @@ export default function FeaturedProject({
         />
       </motion.div>
       <motion.h3
-        className='fixed top-0 max-w-[640px] left-0 overflow-hidden pointer-events-none will-change-transform '
+        className='fixed top-0 max-w-[640px] left-0 overflow-hidden pointer-events-none'
         style={{
           x: `calc(${cursorPosition.x}px - 50%)`,
           y: `calc(${cursorPosition.y}px - 50%)`
@@ -97,7 +96,7 @@ export default function FeaturedProject({
             y: '105%'
           }}
           animate={{
-            y: isHovered === project.id ? '0%' : '100%'
+            y: isHovered === project.id ? '0%' : '105%'
           }}
           transition={{
             duration: 0.7,
