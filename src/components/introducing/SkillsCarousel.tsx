@@ -1,18 +1,19 @@
 'use client'
 
-import Flicking from '@egjs/react-flicking'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Flicking from '@egjs/react-flicking'
 import clsx from 'clsx'
+import * as Icons from '@/components/introducing/SkillIcons'
+import useSkillsCarousel from '@/hooks/useSkillsCarousel'
+import useCursorPosition from '@/hooks/useCursorPosition'
 import { ArrowLongRightIcon } from '@/icons/ArrowLongRightIcon'
 import { ArrowLongLeftIcon } from '@/icons/ArrowLongLeftIcon'
-import useSkillsCarousel from '@/hooks/useSkillsCarousel'
-import * as Icons from '@/components/introducing/SkillIcons'
 
 export default function SkillsCarousel() {
+  const [isHovered, setIsHovered] = useState(false)
+  const cursorPosition = useCursorPosition({ trigger: isHovered })
   const {
-    isHovered,
-    setIsHovered,
-    cursorPosition,
     isNextArrow,
     sectionEl,
     flickeringEl,
@@ -31,8 +32,11 @@ export default function SkillsCarousel() {
       onClick={async () => await handleClick()}
     >
       <motion.div
-        className='absolute z-10 pointer-events-none will-change-transform'
-        style={{ top: cursorPosition.y, left: cursorPosition.x }}
+        className='fixed top-0 left-0 z-10 pointer-events-none will-change-transform'
+        style={{
+          x: `calc(${cursorPosition.x}px - 50%)`,
+          y: `calc(${cursorPosition.y}px - 50%)`
+        }}
         initial={{
           scale: 0,
           opacity: 0

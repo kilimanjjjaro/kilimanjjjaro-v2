@@ -1,4 +1,3 @@
-import SmoothScroll from '@/components/shared/SmoothScroll'
 import NavBar from '@/components/navbar/NavBar'
 import ScrollPercentage from '@/components/ScrollPercentage'
 import IntroAnimation from '@/components/IntroAnimation'
@@ -18,7 +17,7 @@ export default function RootLayout({ children }: ChildrenInterface) {
       >
         <IntroAnimation />
         <NavBar />
-        <SmoothScroll>{children}</SmoothScroll>
+        {children}
         <ScrollPercentage />
       </body>
     </html>

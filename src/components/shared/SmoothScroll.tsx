@@ -1,8 +1,8 @@
 'use client'
 
+import { useEffect } from 'react'
 import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
 import { useStore } from '@/store/store'
-import { useEffect } from 'react'
 
 interface Props {
   children: React.ReactNode

@@ -4,6 +4,7 @@ import { useRef, useState } from 'react'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import clsx from 'clsx'
+import useCursorPosition from '@/hooks/useCursorPosition'
 import type { ProjectInterface } from '@/interfaces/general'
 
 export default function FeaturedProject({
@@ -14,20 +15,9 @@ export default function FeaturedProject({
   project: ProjectInterface
 }) {
   const [isHovered, setIsHovered] = useState<number | null>(null)
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
   const projectEl = useRef<HTMLElement>(null)
   const isInView = useInView(projectEl, { once: true })
-
-  const handleMouseMove = (
-    event: React.MouseEvent<HTMLElement, MouseEvent>
-  ) => {
-    if (event.currentTarget === null) return
-
-    setCursorPosition({
-      x: event.pageX - event.currentTarget.offsetLeft,
-      y: event.pageY - event.currentTarget.offsetTop
-    })
-  }
+  const cursorPosition = useCursorPosition({ trigger: isHovered !== null })
 
   const handleMouseEnter = (project: ProjectInterface | null) => {
     const sectionEl = document.getElementById('projects')
@@ -51,7 +41,6 @@ export default function FeaturedProject({
         className,
         isHovered === project.id && 'cursor-none'
       )}
-      onMouseMove={handleMouseMove}
       onMouseEnter={() => handleMouseEnter(project)}
       onMouseLeave={() => handleMouseEnter(null)}
     >
@@ -95,15 +84,15 @@ export default function FeaturedProject({
           quality={90}
         />
       </motion.div>
-      <h3
-        className='absolute top-0 left-0 overflow-hidden leading-none text-center -translate-x-1/2 -translate-y-1/2 pointer-events-none will-change-transform text-9xl text-kili-white group-hover:opacity-100'
+      <motion.h3
+        className='fixed top-0 max-w-[640px] left-0 overflow-hidden pointer-events-none will-change-transform '
         style={{
-          top: cursorPosition.y,
-          left: cursorPosition.x
+          x: `calc(${cursorPosition.x}px - 50%)`,
+          y: `calc(${cursorPosition.y}px - 50%)`
         }}
       >
         <motion.span
-          className='block'
+          className='block leading-none text-center text-kili-white text-9xl'
           initial={{
             y: '105%'
           }}
@@ -117,7 +106,7 @@ export default function FeaturedProject({
         >
           {project.name}
         </motion.span>
-      </h3>
+      </motion.h3>
       <span className='absolute right-0 mt-4 overflow-hidden text-xl leading-none top-full text-kili-white'>
         <motion.span
           className='block'

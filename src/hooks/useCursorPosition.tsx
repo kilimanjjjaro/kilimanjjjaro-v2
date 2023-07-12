@@ -1,19 +1,21 @@
 import { useEffect, useState } from 'react'
 
-export default function useCursorPosition() {
+export default function useCursorPosition({ trigger }: { trigger: boolean }) {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      setCursorPosition({ x: event.clientX, y: event.clientY })
+    if (!trigger) return
+
+    const handleMouseMove = (e: MouseEvent) => {
+      setCursorPosition({ x: e.clientX, y: e.clientY })
     }
 
-    document.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('mousemove', handleMouseMove)
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('mousemove', handleMouseMove)
     }
-  }, [])
+  }, [trigger])
 
   return cursorPosition
 }

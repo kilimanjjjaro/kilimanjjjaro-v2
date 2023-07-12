@@ -1,8 +1,8 @@
 'use client'
 
-import useSkillsCarousel from '@/hooks/useSkillsCarousel'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
+import useSkillsCarousel from '@/hooks/useSkillsCarousel'
 
 export default function LessButBetter() {
   const {

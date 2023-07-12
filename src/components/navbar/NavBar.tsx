@@ -3,10 +3,10 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
-import { useStore } from '@/store/store'
-import useScroll from '@/hooks/useScroll'
 import Navigation from '@/components/navbar/Navigation'
 import LanguageSelector from '@/components/navbar/LanguageSelector'
+import useNavBar from '@/hooks/useNavBar'
+import { useStore } from '@/store/store'
 import {
   NAVBAR_BUTTON_ONE_VARIANTS,
   NAVBAR_BUTTON_TWO_VARIANTS
@@ -14,7 +14,7 @@ import {
 
 export default function NavBar() {
   const { navBarStatus, setNavBarStatus } = useStore()
-  const { isVisible } = useScroll()
+  const { isVisible } = useNavBar()
 
   return (
     <motion.header

@@ -3,8 +3,7 @@ module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/sections/**/*.{js,ts,jsx,tsx,mdx}'
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
     extend: {
@@ -20,13 +19,6 @@ module.exports = {
         'kili-white': '#F8F8F8',
         'kili-dark-gray': '#0C0C0C',
         'kili-light-gray': '#7A7A7A'
-      },
-      transitionDuration: {
-        400: '400ms',
-        800: '800ms'
-      },
-      transitionTimingFunction: {
-        kili: 'cubic-bezier(0.17, 0.84, 0.44, 1)'
       }
     }
   },

@@ -3,10 +3,8 @@
 import { useRef, useState } from 'react'
 import { PlusIcon } from '@/icons/PlusIcon'
 import { PROJECTS } from '@/constants/projects'
-import { useLenis } from '@studio-freight/react-lenis'
 import { motion, useInView } from 'framer-motion'
 import { ArrowLongRightIcon } from '@/icons/ArrowLongRightIcon'
-import useSplitText from '@/hooks/useSplitText'
 import {
   OTHER_PROJECTS_VARIANTS,
   OTHER_PROJECT_HR_VARIANTS,
@@ -15,30 +13,45 @@ import {
 
 export default function OtherProjects() {
   const [visibleItems, setVisibleItems] = useState(3)
-  const sectionEl = useRef<HTMLDivElement>(null)
+  const sectionEl = useRef<HTMLElement>(null)
   const isInView = useInView(sectionEl, { once: true })
-  const lenis = useLenis()
-  const { elRef } = useSplitText()
 
   const handleShowMore = () => {
     setVisibleItems((prevItems) => prevItems + 2)
-
-    if (lenis !== undefined) {
-      const startOfSection = document.getElementById('projects')?.offsetTop
-
-      lenis.scrollTo(startOfSection, {
-        duration: 3
-      })
-    }
   }
 
   return (
-    <section className='px-40 mt-32 pb-36'>
-      <h3 ref={elRef} className='w-1/2 leading-none text-kili-white text-7xl'>
-        And other equally important projects...
+    <section ref={sectionEl} className='px-40 pb-36'>
+      <h3 className='flex flex-col w-1/2 leading-none text-kili-white text-7xl'>
+        <span className='overflow-hidden'>
+          <motion.span
+            className='block'
+            initial={{ y: '100%' }}
+            animate={isInView && { y: '0%' }}
+            transition={{
+              duration: 1.5,
+              ease: 'easeInOut'
+            }}
+          >
+            And other equally
+          </motion.span>
+        </span>
+        <span className='overflow-hidden'>
+          <motion.span
+            className='block'
+            initial={{ y: '100%' }}
+            animate={isInView && { y: '0%' }}
+            transition={{
+              duration: 1.5,
+              ease: 'easeInOut',
+              delay: 0.2
+            }}
+          >
+            important projects...
+          </motion.span>
+        </span>
       </h3>
       <motion.div
-        ref={sectionEl}
         className='mt-10'
         variants={OTHER_PROJECTS_VARIANTS}
         initial='hidden'

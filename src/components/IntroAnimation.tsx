@@ -1,7 +1,7 @@
 'use client'
 
-import { useStore } from '@/store/store'
 import { motion } from 'framer-motion'
+import { useStore } from '@/store/store'
 
 export default function IntroAnimation() {
   const { setIntroRunning } = useStore()
@@ -25,7 +25,6 @@ export default function IntroAnimation() {
         ease: [0.77, 0, 0.18, 1],
         delay: 4
       }}
-      onAnimationStart={() => setIntroRunning(true)}
       onAnimationComplete={() => setIntroRunning(false)}
     >
       <motion.div

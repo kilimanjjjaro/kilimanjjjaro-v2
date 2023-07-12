@@ -40,7 +40,7 @@ export default function Header() {
                 rotate: 4
               }}
               animate={{
-                y: 0,
+                y: '0%',
                 rotate: 0
               }}
               transition={{
@@ -60,7 +60,7 @@ export default function Header() {
                 rotate: 4
               }}
               animate={{
-                y: 0,
+                y: '0%',
                 rotate: 0
               }}
               transition={{
@@ -80,7 +80,7 @@ export default function Header() {
                 rotate: 4
               }}
               animate={{
-                y: 0,
+                y: '0%',
                 rotate: 0
               }}
               transition={{

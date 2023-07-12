@@ -1,12 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import Flicking, { ChangedEvent } from '@egjs/react-flicking'
-import { SKILLS } from '@/constants/skills'
 import { useStore } from '@/store/store'
+import { SKILLS } from '@/constants/skills'
 
 export default function useSkillsCarousel() {
   const totalSlides = SKILLS.length
-  const [isHovered, setIsHovered] = useState(false)
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
   const [isNextArrow, setIsNextArrow] = useState(true)
   const sectionEl = useRef<HTMLInputElement>(null)
   const flickeringEl = useRef<Flicking>(null)
@@ -23,18 +21,11 @@ export default function useSkillsCarousel() {
   ) => {
     if (sectionEl.current === null) return
 
-    setCursorPosition({
-      x: event.pageX - sectionEl.current.offsetLeft - 60,
-      y: event.pageY - sectionEl.current.offsetTop - 24
-    })
-
-    const isRightSide = innerWidth / 2 <= event.pageX
+    const isRightSide = window.innerWidth / 2 <= event.pageX
 
     if (isRightSide) {
       setIsNextArrow(true)
-    }
-
-    if (!isRightSide) {
+    } else {
       setIsNextArrow(false)
     }
   }
@@ -91,9 +82,6 @@ export default function useSkillsCarousel() {
   }, [selectedStack, shouldMoveToStart])
 
   return {
-    isHovered,
-    setIsHovered,
-    cursorPosition,
     isNextArrow,
     sectionEl,
     flickeringEl,
