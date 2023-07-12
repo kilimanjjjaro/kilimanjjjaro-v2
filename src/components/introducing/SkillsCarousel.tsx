@@ -54,7 +54,6 @@ export default function SkillsCarousel() {
         onChanged={handleChange}
         align='prev'
         cameraClass='flex'
-        duration={300}
         bound
       >
         <div className='flex flex-col items-center mr-36 group'>

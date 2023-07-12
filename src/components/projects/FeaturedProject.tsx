@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import clsx from 'clsx'
@@ -18,17 +18,16 @@ export default function FeaturedProject({
   const projectEl = useRef<HTMLElement>(null)
   const isInView = useInView(projectEl, { once: true })
 
-  const handleMouseMove = useCallback(
-    (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      if (event.currentTarget === null) return
+  const handleMouseMove = (
+    event: React.MouseEvent<HTMLElement, MouseEvent>
+  ) => {
+    if (event.currentTarget === null) return
 
-      setCursorPosition({
-        x: event.pageX - event.currentTarget.offsetLeft,
-        y: event.pageY - event.currentTarget.offsetTop
-      })
-    },
-    []
-  )
+    setCursorPosition({
+      x: event.pageX - event.currentTarget.offsetLeft,
+      y: event.pageY - event.currentTarget.offsetTop
+    })
+  }
 
   const handleMouseEnter = (project: ProjectInterface | null) => {
     const sectionEl = document.getElementById('projects')
