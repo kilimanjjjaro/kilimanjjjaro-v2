@@ -38,6 +38,11 @@ export default function StackSelector() {
         className='hidden gap-10'
         variants={STACKS_UL_VARIANTS}
         animate={showSelector ? 'open' : 'closed'}
+        transition={{
+          duration: 0.7,
+          ease: 'easeInOut',
+          staggerChildren: 0.1
+        }}
       >
         {stacks
           .filter((stack) => stack.id !== selectedStack.id)
@@ -45,8 +50,12 @@ export default function StackSelector() {
             <li key={stack.id} className='overflow-hidden leading-none'>
               <motion.button
                 className='transition-colors duration-700 ease-in-out hover:text-kili-light-gray'
-                variants={STACKS_LI_VARIANTS}
                 onClick={() => handleClick(stack)}
+                variants={STACKS_LI_VARIANTS}
+                transition={{
+                  duration: 0.7,
+                  ease: 'easeInOut'
+                }}
               >
                 {stack.name} Skills
               </motion.button>

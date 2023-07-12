@@ -45,7 +45,7 @@ export default function FeaturedProject({
   }
 
   return (
-    <motion.article
+    <article
       ref={projectEl}
       className={clsx(
         'relative flex justify-center items-center aspect-[18/25] p-5 group',
@@ -136,6 +136,6 @@ export default function FeaturedProject({
           {project.role}
         </motion.span>
       </span>
-    </motion.article>
+    </article>
   )
 }

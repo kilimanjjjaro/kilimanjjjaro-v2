@@ -32,6 +32,7 @@ export default function LanguageSelector() {
         className='absolute flex-col items-end hidden gap-3 mt-3 top-full'
         variants={LANGUAGES_UL_VARIANTS}
         animate={showSelector ? 'open' : 'closed'}
+        transition={{ duration: 0.7, ease: 'easeInOut' }}
       >
         {LANGUAGES.map((language) => (
           <li key={language.id} className='overflow-hidden'>
@@ -39,6 +40,10 @@ export default function LanguageSelector() {
               className='leading-none tracking-wide transition-colors duration-700 ease-in-out text-kili-white hover:text-kili-light-gray'
               onClick={() => handleClick({ language })}
               variants={LANGUAGES_LI_VARIANTS}
+              transition={{
+                duration: 0.7,
+                ease: 'easeInOut'
+              }}
             >
               {language.name}
             </motion.button>

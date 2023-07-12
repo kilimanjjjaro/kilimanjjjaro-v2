@@ -82,59 +82,32 @@ export const NAVBAR_LI_VARIANTS = {
 export const NAVBAR_BUTTON_ONE_VARIANTS = {
   open: {
     rotate: 135,
-    translateY: 3,
-    transition: {
-      duration: 0.7,
-      ease: 'easeInOut'
-    }
+    translateY: 3
   },
   closed: {
     rotate: 0,
-    translateY: 0,
-    transition: {
-      duration: 0.7,
-      ease: 'easeInOut'
-    }
+    translateY: 0
   }
 }
 
 export const NAVBAR_BUTTON_TWO_VARIANTS = {
   open: {
     rotate: -135,
-    translateY: -7,
-    transition: {
-      duration: 0.7,
-      ease: 'easeInOut'
-    }
+    translateY: -7
   },
   closed: {
     rotate: 0,
-    translateY: 0,
-    transition: {
-      duration: 0.7,
-      ease: 'easeInOut'
-    }
+    translateY: 0
   }
 }
 
 export const STACKS_UL_VARIANTS = {
   open: {
     opacity: 1,
-    display: 'flex',
-    transition: {
-      duration: 0.7,
-      ease: 'easeInOut',
-      staggerChildren: 0.1
-    }
+    display: 'flex'
   },
   closed: {
     opacity: 0,
-    transition: {
-      duration: 0.7,
-      ease: 'easeInOut',
-      staggerChildren: 0.1,
-      staggerDirection: 1
-    },
     transitionEnd: {
       display: 'none'
     }
@@ -143,36 +116,20 @@ export const STACKS_UL_VARIANTS = {
 
 export const STACKS_LI_VARIANTS = {
   open: {
-    y: '0%',
-    transition: {
-      duration: 0.7,
-      ease: 'easeInOut'
-    }
+    y: '0%'
   },
   closed: {
-    y: '100%',
-    transition: {
-      duration: 0.7,
-      ease: 'easeInOut'
-    }
+    y: '100%'
   }
 }
 
 export const LANGUAGES_UL_VARIANTS = {
   open: {
     opacity: 1,
-    display: 'flex',
-    transition: {
-      duration: 0.7,
-      ease: 'easeInOut'
-    }
+    display: 'flex'
   },
   closed: {
     opacity: 0,
-    transition: {
-      duration: 0.7,
-      ease: 'easeInOut'
-    },
     transitionEnd: {
       display: 'none'
     }
@@ -181,73 +138,36 @@ export const LANGUAGES_UL_VARIANTS = {
 
 export const LANGUAGES_LI_VARIANTS = {
   open: {
-    y: '0%',
-    transition: {
-      duration: 0.7,
-      ease: 'easeInOut'
-    }
+    y: '0%'
   },
   closed: {
-    y: '-100%',
-    transition: {
-      duration: 0.7,
-      ease: 'easeInOut'
-    }
+    y: '-100%'
   }
 }
 
-export const ANOTHER_PROJECTS_VARIANTS = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      duration: 1,
-      ease: 'easeInOut',
-      staggerChildren: 0.3,
-      delayChildren: 0.3
-    }
-  }
-}
-
-export const ANOTHER_PROJECT_VARIANTS = {
+export const OTHER_PROJECTS_VARIANTS = {
   hidden: {
-    opacity: 0,
-    y: '50%',
-    transition: {
-      duration: 1,
-      ease: 'easeInOut'
-    }
+    opacity: 0
   },
   show: {
-    opacity: 1,
-    y: '0%',
-    transition: {
-      duration: 1,
-      ease: 'easeInOut'
-    }
+    opacity: 1
   }
 }
 
-export const ANOTHER_PROJECT_HR_VARIANTS = {
-  hidden: { scaleX: '0%' },
+export const OTHER_PROJECT_VARIANTS = {
+  hidden: {
+    y: '100%'
+  },
   show: {
-    scaleX: '100%',
-    transition: {
-      duration: 2,
-      ease: [0.17, 0.84, 0.44, 1],
-      delay: 0.7
-    }
+    y: '0%'
   }
 }
 
-export const ANOTHER_PROJECTS_BUTTON_VARIANTS = {
-  hidden: { opacity: 0 },
+export const OTHER_PROJECT_HR_VARIANTS = {
+  hidden: {
+    scaleX: '0%'
+  },
   show: {
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: 'easeInOut',
-      delay: 1.3
-    }
+    scaleX: '100%'
   }
 }

@@ -74,7 +74,7 @@ export default function IntroAnimation() {
           }}
           transition={{
             duration: 2,
-            ease: [0.17, 0.84, 0.44, 1]
+            ease: 'easeInOut'
           }}
         >
           Kilimanjjjaro

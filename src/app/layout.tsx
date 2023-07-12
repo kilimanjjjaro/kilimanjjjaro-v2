@@ -1,10 +1,10 @@
 import SmoothScroll from '@/components/shared/SmoothScroll'
 import NavBar from '@/components/navbar/NavBar'
 import ScrollPercentage from '@/components/ScrollPercentage'
+import IntroAnimation from '@/components/IntroAnimation'
 import { neueHaasGroteskDisplayFont } from '@/utils/fonts'
 import type { ChildrenInterface } from '@/interfaces/general'
 import '@/app/globals.css'
-import IntroAnimation from '@/components/IntroAnimation'
 
 export const metadata = {
   title: 'Kilimanjjjaro'

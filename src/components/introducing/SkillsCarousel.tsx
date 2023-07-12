@@ -23,12 +23,12 @@ export default function SkillsCarousel() {
 
   return (
     <div
+      ref={sectionEl}
       className={clsx('relative px-40', isHovered && 'cursor-none')}
       onMouseMove={(event) => handleMouseMove(event)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={async () => await handleClick()}
-      ref={sectionEl}
     >
       <motion.div
         className='absolute z-10 pointer-events-none will-change-transform'

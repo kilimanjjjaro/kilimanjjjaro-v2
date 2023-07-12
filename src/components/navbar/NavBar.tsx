@@ -56,11 +56,19 @@ export default function NavBar() {
             className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-700 group-hover:bg-kili-white'
             variants={NAVBAR_BUTTON_ONE_VARIANTS}
             animate={navBarStatus ? 'open' : 'closed'}
+            transition={{
+              duration: 0.7,
+              ease: 'easeInOut'
+            }}
           />
           <motion.div
             className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-700 group-hover:bg-kili-white'
             variants={NAVBAR_BUTTON_TWO_VARIANTS}
             animate={navBarStatus ? 'open' : 'closed'}
+            transition={{
+              duration: 0.7,
+              ease: 'easeInOut'
+            }}
           />
         </button>
       </div>

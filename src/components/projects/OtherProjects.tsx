@@ -8,10 +8,9 @@ import { motion, useInView } from 'framer-motion'
 import { ArrowLongRightIcon } from '@/icons/ArrowLongRightIcon'
 import useSplitText from '@/hooks/useSplitText'
 import {
-  ANOTHER_PROJECTS_BUTTON_VARIANTS,
-  ANOTHER_PROJECTS_VARIANTS,
-  ANOTHER_PROJECT_HR_VARIANTS,
-  ANOTHER_PROJECT_VARIANTS
+  OTHER_PROJECTS_VARIANTS,
+  OTHER_PROJECT_HR_VARIANTS,
+  OTHER_PROJECT_VARIANTS
 } from '@/constants/variants'
 
 export default function OtherProjects() {
@@ -41,49 +40,53 @@ export default function OtherProjects() {
       <motion.div
         ref={sectionEl}
         className='mt-10'
-        variants={ANOTHER_PROJECTS_VARIANTS}
+        variants={OTHER_PROJECTS_VARIANTS}
         initial='hidden'
         animate={isInView ? 'show' : 'hidden'}
+        transition={{ duration: 0, staggerChildren: 0.3 }}
       >
         {PROJECTS.filter((project) => !project.featured)
           .slice(0, visibleItems)
           .map((project) => (
-            <motion.article
-              key={project.id}
-              className='flex items-center py-10 overflow-x-hidden gap-x-10 group'
-              variants={ANOTHER_PROJECT_VARIANTS}
-            >
-              <div className='relative flex gap-[6px] items-center flex-1'>
-                <span className='absolute overflow-hidden'>
-                  <ArrowLongRightIcon className='w-6 duration-700 ease-in-out -translate-x-full text-kili-light-gray group-hover:text-kili-white group-hover:translate-x-0' />
-                </span>
-                <h4 className='text-2xl duration-700 ease-in-out text-kili-white group-hover:ml-10'>
-                  {project.name}
-                </h4>
-                <span className='text-2xl text-kili-light-gray'>
-                  — {project.role}
-                </span>
-              </div>
-              <p className='flex-1 text-2xl text-kili-light-gray'>
-                {project.description}
-              </p>
-              <p className='text-2xl text-kili-light-gray'>{project.stacks}</p>
-              <p className='text-2xl text-kili-light-gray'>{project.year}</p>
+            <article key={project.id} className='relative overflow-hidden'>
+              <motion.div
+                className='flex items-center py-10 overflow-x-hidden gap-x-10 group'
+                variants={OTHER_PROJECT_VARIANTS}
+                transition={{ duration: 2, ease: 'easeInOut' }}
+              >
+                <div className='relative flex gap-[6px] items-center flex-1'>
+                  <span className='absolute overflow-hidden'>
+                    <ArrowLongRightIcon className='w-6 duration-700 ease-in-out -translate-x-full text-kili-light-gray group-hover:text-kili-white group-hover:translate-x-0' />
+                  </span>
+                  <h4 className='text-2xl duration-700 ease-in-out text-kili-white group-hover:ml-10'>
+                    {project.name}
+                  </h4>
+                  <span className='text-2xl text-kili-light-gray'>
+                    — {project.role}
+                  </span>
+                </div>
+                <p className='flex-1 text-2xl text-kili-light-gray'>
+                  {project.description}
+                </p>
+                <p className='text-2xl text-kili-light-gray'>
+                  {project.stacks}
+                </p>
+                <p className='text-2xl text-kili-light-gray'>{project.year}</p>
+              </motion.div>
               <motion.hr
                 className='bottom-0 w-full h-[2px] border-kili-light-gray absolute origin-left'
-                variants={ANOTHER_PROJECT_HR_VARIANTS}
-                initial='hidden'
-                animate={isInView ? 'show' : 'hidden'}
+                variants={OTHER_PROJECT_HR_VARIANTS}
+                transition={{ duration: 2, ease: 'easeInOut' }}
               />
-            </motion.article>
+            </article>
           ))}
       </motion.div>
       <motion.button
-        className='flex items-center gap-2 mt-10 text-2xl duration-700 ease-in-out opacity-0 text-kili-white group hover:text-kili-light-gray'
+        className='flex items-center gap-2 mt-10 text-2xl duration-700 ease-in-out text-kili-white group hover:text-kili-light-gray'
         onClick={handleShowMore}
-        variants={ANOTHER_PROJECTS_BUTTON_VARIANTS}
-        initial='hidden'
-        animate={isInView ? 'show' : 'hidden'}
+        initial={{ opacity: 0 }}
+        animate={isInView && { opacity: 1 }}
+        transition={{ duration: 2, ease: 'easeInOut', delay: 2.5 }}
       >
         {visibleItems <
         PROJECTS.filter((project) => !project.featured).length ? (
