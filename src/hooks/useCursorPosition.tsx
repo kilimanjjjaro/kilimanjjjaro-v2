@@ -1,13 +1,29 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useMotionValue, useSpring } from 'framer-motion'
 
-export default function useCursorPosition({ trigger }: { trigger: boolean }) {
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
+interface Props {
+  trigger: boolean
+  translateX: number
+  translateY: number
+}
+
+export default function useCursorPosition({
+  trigger,
+  translateX,
+  translateY
+}: Props) {
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
+  const springConfig = { damping: 15, stiffness: 40 }
+  const cursorXSpring = useSpring(x, springConfig)
+  const cursorYSpring = useSpring(y, springConfig)
 
   useEffect(() => {
     if (!trigger) return
 
     const handleMouseMove = (e: MouseEvent) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY })
+      x.set(e.clientX - translateX)
+      y.set(e.clientY - translateY)
     }
 
     window.addEventListener('mousemove', handleMouseMove)
@@ -15,7 +31,7 @@ export default function useCursorPosition({ trigger }: { trigger: boolean }) {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
     }
-  }, [trigger])
+  }, [trigger, x, y, translateX, translateY])
 
-  return cursorPosition
+  return { x: cursorXSpring, y: cursorYSpring }
 }

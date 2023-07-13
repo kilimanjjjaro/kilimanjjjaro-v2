@@ -6,6 +6,7 @@ import { motion, useInView } from 'framer-motion'
 import clsx from 'clsx'
 import useCursorPosition from '@/hooks/useCursorPosition'
 import type { ProjectInterface } from '@/interfaces/general'
+import useElementDimensions from '@/hooks/useElementDimensions'
 
 export default function FeaturedProject({
   className,
@@ -16,8 +17,16 @@ export default function FeaturedProject({
 }) {
   const [isHovered, setIsHovered] = useState<number | null>(null)
   const projectEl = useRef<HTMLElement>(null)
+  const projectNameEl = useRef<HTMLHeadingElement>(null)
   const isInView = useInView(projectEl, { once: true })
-  const cursorPosition = useCursorPosition({ trigger: isHovered !== null })
+  const elementDimensions = useElementDimensions({
+    ref: projectNameEl
+  })
+  const { x, y } = useCursorPosition({
+    trigger: isHovered !== null,
+    translateX: elementDimensions.width / 2,
+    translateY: elementDimensions.height / 2
+  })
 
   const handleMouseEnter = (project: ProjectInterface | null) => {
     const sectionEl = document.getElementById('projects')
@@ -37,7 +46,7 @@ export default function FeaturedProject({
     <article
       ref={projectEl}
       className={clsx(
-        'relative flex justify-center items-center aspect-[18/25] p-5 group cursor-none',
+        'relative flex justify-center items-center aspect-[18/25] p-5 group',
         className
       )}
       onMouseEnter={() => handleMouseEnter(project)}
@@ -84,10 +93,11 @@ export default function FeaturedProject({
         />
       </motion.div>
       <motion.h3
+        ref={projectNameEl}
         className='fixed top-0 max-w-[640px] left-0 overflow-hidden pointer-events-none'
         style={{
-          x: `calc(${cursorPosition.x}px - 50%)`,
-          y: `calc(${cursorPosition.y}px - 50%)`
+          x,
+          y
         }}
       >
         <motion.span

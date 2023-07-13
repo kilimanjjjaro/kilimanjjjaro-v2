@@ -1,6 +1,5 @@
 'use client'
 
-import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import useSkillsCarousel from '@/hooks/useSkillsCarousel'
 
@@ -16,7 +15,7 @@ export default function LessButBetter() {
   return (
     <section className='px-60 pb-28'>
       <div
-        className={clsx('relative group', isHovered && 'cursor-none')}
+        className='relative group'
         onMouseMove={(event) => handleMouseMove(event)}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}

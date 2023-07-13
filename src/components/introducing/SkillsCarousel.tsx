@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Flicking from '@egjs/react-flicking'
 import * as Icons from '@/components/introducing/SkillIcons'
@@ -8,10 +8,19 @@ import useSkillsCarousel from '@/hooks/useSkillsCarousel'
 import useCursorPosition from '@/hooks/useCursorPosition'
 import { ArrowLongRightIcon } from '@/icons/ArrowLongRightIcon'
 import { ArrowLongLeftIcon } from '@/icons/ArrowLongLeftIcon'
+import useElementDimensions from '@/hooks/useElementDimensions'
 
 export default function SkillsCarousel() {
+  const arrowEl = useRef<HTMLDivElement>(null)
   const [isHovered, setIsHovered] = useState(false)
-  const cursorPosition = useCursorPosition({ trigger: isHovered })
+  const elementDimensions = useElementDimensions({
+    ref: arrowEl
+  })
+  const { x, y } = useCursorPosition({
+    trigger: isHovered,
+    translateX: elementDimensions.width / 2,
+    translateY: elementDimensions.height / 2
+  })
   const {
     isNextArrow,
     sectionEl,
@@ -21,24 +30,23 @@ export default function SkillsCarousel() {
     handleClick
   } = useSkillsCarousel()
 
+  console.log(elementDimensions)
+
   return (
     <div
       ref={sectionEl}
-      className='relative px-40 cursor-none'
+      className='relative px-40'
       onMouseMove={(event) => handleMouseMove(event)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={async () => await handleClick()}
     >
       <motion.div
-        className='fixed top-0 left-0 z-10 pointer-events-none'
+        ref={arrowEl}
+        className='fixed top-0 left-0 z-10 scale-0 opacity-0 pointer-events-none'
         style={{
-          x: `calc(${cursorPosition.x}px - 50%)`,
-          y: `calc(${cursorPosition.y}px - 50%)`
-        }}
-        initial={{
-          scale: 0,
-          opacity: 0
+          x,
+          y
         }}
         animate={{
           scale: isHovered ? 1 : 0,

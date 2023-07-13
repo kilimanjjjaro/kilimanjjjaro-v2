@@ -8,7 +8,7 @@ export default function IntroAnimation() {
 
   return (
     <motion.div
-      className='fixed inset-0 z-50 items-center justify-center overflow-hidden bg-kili-light-gray cursor-none'
+      className='fixed inset-0 z-50 items-center justify-center overflow-hidden bg-kili-light-gray'
       initial={{
         display: 'flex',
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 108%, 0% 100%)'

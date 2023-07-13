@@ -1,12 +1,21 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import useCursorPosition from '@/hooks/useCursorPosition'
+import useElementDimensions from '@/hooks/useElementDimensions'
 
 export default function ScrollCursor() {
+  const cursorEl = useRef<HTMLDivElement>(null)
   const [isHovered, setIsHovered] = useState(false)
-  const cursorPosition = useCursorPosition({ trigger: isHovered })
+  const elementDimensions = useElementDimensions({
+    ref: cursorEl
+  })
+  const { x, y } = useCursorPosition({
+    trigger: isHovered,
+    translateX: elementDimensions.width / 2,
+    translateY: elementDimensions.height / 2
+  })
 
   useEffect(() => {
     const headerEl = document.getElementById('header')
@@ -24,10 +33,11 @@ export default function ScrollCursor() {
 
   return (
     <motion.div
+      ref={cursorEl}
       className='fixed top-0 left-0 overflow-hidden pointer-events-none'
       style={{
-        x: `calc(${cursorPosition.x}px - 50%)`,
-        y: `calc(${cursorPosition.y}px - 50%)`
+        x,
+        y
       }}
     >
       <motion.span
