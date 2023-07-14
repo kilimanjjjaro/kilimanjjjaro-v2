@@ -14,7 +14,7 @@ export default function useCursorPosition({
 }: Props) {
   const x = useMotionValue(-100)
   const y = useMotionValue(-100)
-  const springConfig = { damping: 100, stiffness: 1000 }
+  const springConfig = { damping: 100, stiffness: 500 }
   const cursorXSpring = useSpring(x, springConfig)
   const cursorYSpring = useSpring(y, springConfig)
 

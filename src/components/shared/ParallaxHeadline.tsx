@@ -24,6 +24,7 @@ export default function ParallaxHeadline({
   baseVelocity = 100,
   className
 }: Props) {
+  const directionFactor = useRef(1)
   const baseX = useMotionValue(0)
   const { scrollY } = useScroll()
   const scrollVelocity = useVelocity(scrollY)
@@ -37,7 +38,6 @@ export default function ParallaxHeadline({
 
   const x = useTransform(baseX, (v) => `${wrap(-20, -40, v)}%`)
 
-  const directionFactor = useRef(1)
   useAnimationFrame((t, delta) => {
     let moveBy = directionFactor.current * baseVelocity * (delta / 1000)
 

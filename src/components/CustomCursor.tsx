@@ -8,43 +8,55 @@ import { useStore } from '@/store/store'
 import { CURSOR_STATUS } from '@/constants/general'
 
 export default function CustomCursor() {
+  const { cursorStatus } = useStore()
   const cursorEl = useRef<HTMLDivElement>(null)
-  const [isHovered, setIsHovered] = useState(true)
+  const [cursorVariant, setCursorVariant] = useState(CURSOR_STATUS.DEFAULT)
   const elementDimensions = useElementDimensions({ ref: cursorEl })
   const { x, y } = useCursorPosition({
-    trigger: isHovered,
+    trigger: true,
     translateX: elementDimensions.width / 2,
     translateY: elementDimensions.height / 2
   })
-  const { cursorStatus } = useStore()
+
+  const VARIANTS = {
+    hidden: {
+      scale: 0,
+      borderColor: 'rgba(248, 248, 248, 0)',
+      backgroundColor: 'rgba(248, 248, 248, 0)'
+    },
+    visible: {
+      scale: 1,
+      borderColor: 'rgba(248, 248, 248, 1)',
+      backgroundColor: 'rgba(248, 248, 248, 0)'
+    },
+    hover: {
+      scale: 0.4,
+      backgroundColor: 'rgba(248, 248, 248, 1)',
+      borderColor: 'rgba(248, 248, 248, 0)'
+    }
+  }
 
   useEffect(() => {
-    const bodyEl = document.body
-
-    if (bodyEl === null) return
-
-    bodyEl.addEventListener('mouseenter', () => setIsHovered(true))
-    bodyEl.addEventListener('mouseleave', () => setIsHovered(false))
-
-    return () => {
-      bodyEl.removeEventListener('mouseenter', () => setIsHovered(true))
-      bodyEl.removeEventListener('mouseleave', () => setIsHovered(false))
+    if (cursorStatus === CURSOR_STATUS.HIDDEN) {
+      setCursorVariant(CURSOR_STATUS.HIDDEN)
     }
-  }, [])
+
+    if (cursorStatus === CURSOR_STATUS.DEFAULT) {
+      setCursorVariant(CURSOR_STATUS.DEFAULT)
+    }
+
+    if (cursorStatus === CURSOR_STATUS.HOVER) {
+      setCursorVariant(CURSOR_STATUS.HOVER)
+    }
+  }, [cursorStatus])
 
   return (
     <motion.div
       ref={cursorEl}
-      className='fixed scale-0 top-0 left-0 rounded-full pointer-events-none w-14 h-14 border-[2px] border-kili-white z-50 mix-blend-difference'
-      style={{
-        x,
-        y
-      }}
-      animate={
-        isHovered && cursorStatus !== CURSOR_STATUS.HIDDEN
-          ? { scale: 1 }
-          : { scale: 0 }
-      }
+      className='fixed scale-0 top-0 left-0 rounded-full pointer-events-none w-14 h-14 border-[2px] z-40 mix-blend-difference'
+      style={{ x, y }}
+      variants={VARIANTS}
+      animate={cursorVariant}
       transition={{
         duration: 0.7,
         ease: 'easeInOut'

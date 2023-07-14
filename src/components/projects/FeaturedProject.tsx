@@ -17,9 +17,10 @@ export default function FeaturedProject({
   className?: string
   project: ProjectInterface
 }) {
-  const [isHovered, setIsHovered] = useState<number | null>(null)
+  const { setCursorStatus } = useStore()
   const projectEl = useRef<HTMLElement>(null)
   const projectNameEl = useRef<HTMLHeadingElement>(null)
+  const [isHovered, setIsHovered] = useState<number | null>(null)
   const isInView = useInView(projectEl, { once: true })
   const elementDimensions = useElementDimensions({
     ref: projectNameEl
@@ -29,7 +30,6 @@ export default function FeaturedProject({
     translateX: elementDimensions.width / 2,
     translateY: elementDimensions.height / 2
   })
-  const { setCursorStatus } = useStore()
 
   const handleMouseEnter = (project: ProjectInterface | null) => {
     const sectionEl = document.getElementById('projects')
@@ -42,7 +42,7 @@ export default function FeaturedProject({
       sectionEl.style.backgroundColor = project.backgroundColor
     } else {
       setIsHovered(null)
-      setCursorStatus(CURSOR_STATUS.VISIBLE)
+      setCursorStatus(CURSOR_STATUS.DEFAULT)
       sectionEl.style.backgroundColor = ''
     }
   }
@@ -100,10 +100,7 @@ export default function FeaturedProject({
       <motion.h3
         ref={projectNameEl}
         className='fixed top-0 max-w-[640px] left-0 overflow-hidden pointer-events-none'
-        style={{
-          x,
-          y
-        }}
+        style={{ x, y }}
       >
         <motion.span
           className='block leading-none text-center text-kili-white text-9xl'

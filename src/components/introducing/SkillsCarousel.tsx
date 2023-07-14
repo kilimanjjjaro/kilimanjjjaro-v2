@@ -13,6 +13,7 @@ import { ArrowLongLeftIcon } from '@/icons/ArrowLongLeftIcon'
 import { CURSOR_STATUS } from '@/constants/general'
 
 export default function SkillsCarousel() {
+  const { setCursorStatus } = useStore()
   const arrowEl = useRef<HTMLDivElement>(null)
   const [isHovered, setIsHovered] = useState(false)
   const elementDimensions = useElementDimensions({
@@ -31,11 +32,10 @@ export default function SkillsCarousel() {
     handleChange,
     handleClick
   } = useSkillsCarousel()
-  const { setCursorStatus } = useStore()
 
   const handleMouse = (boolean: boolean) => {
     setIsHovered(boolean)
-    setCursorStatus(boolean ? CURSOR_STATUS.HIDDEN : CURSOR_STATUS.VISIBLE)
+    setCursorStatus(boolean ? CURSOR_STATUS.HIDDEN : CURSOR_STATUS.DEFAULT)
   }
 
   return (
@@ -47,25 +47,6 @@ export default function SkillsCarousel() {
       onMouseLeave={() => handleMouse(false)}
       onClick={async () => await handleClick()}
     >
-      <motion.div
-        ref={arrowEl}
-        className='fixed top-0 left-0 z-10 scale-0 opacity-0 pointer-events-none'
-        style={{
-          x,
-          y
-        }}
-        animate={{
-          scale: isHovered ? 1 : 0,
-          opacity: isHovered ? 1 : 0
-        }}
-        transition={{
-          duration: 0.7,
-          ease: 'easeInOut'
-        }}
-      >
-        {isNextArrow && <ArrowLongRightIcon className='w-32 fill-kili-white' />}
-        {!isNextArrow && <ArrowLongLeftIcon className='w-32 fill-kili-white' />}
-      </motion.div>
       <Flicking
         ref={flickeringEl}
         onChanged={handleChange}
@@ -299,6 +280,22 @@ export default function SkillsCarousel() {
           </div>
         </div>
       </Flicking>
+      <motion.div
+        ref={arrowEl}
+        className='fixed top-0 left-0 scale-0 opacity-0 pointer-events-none'
+        style={{ x, y }}
+        animate={{
+          scale: isHovered ? 1 : 0,
+          opacity: isHovered ? 1 : 0
+        }}
+        transition={{
+          duration: 0.7,
+          ease: 'easeInOut'
+        }}
+      >
+        {isNextArrow && <ArrowLongRightIcon className='w-32 fill-kili-white' />}
+        {!isNextArrow && <ArrowLongLeftIcon className='w-32 fill-kili-white' />}
+      </motion.div>
     </div>
   )
 }

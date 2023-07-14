@@ -1,11 +1,17 @@
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { useStore } from '@/store/store'
-import { SECTIONS } from '@/constants/general'
+import { SECTIONS, CURSOR_STATUS } from '@/constants/general'
 import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/constants/variants'
 
 export default function Navigation() {
-  const { navBarStatus, setNavBarStatus } = useStore()
+  const { navBarStatus, setNavBarStatus, setCursorStatus } = useStore()
+  const router = useRouter()
+
+  const handleClick = async (hash: string) => {
+    setNavBarStatus(false)
+    router.push(`/#${hash}`)
+  }
 
   return (
     <motion.nav
@@ -16,16 +22,16 @@ export default function Navigation() {
     >
       <ul className='flex flex-col items-center gap-5'>
         {SECTIONS.map((section) => (
-          <li key={section.id} className='pb-4 overflow-hidden'>
-            <Link
-              className='text-9xl text-kili-white relative before:h-[8px] before:scale-x-0 before:absolute before:-bottom-3 before:left-0 before:right-0 before:block before:bg-current before:origin-left hover:before:scale-x-100 before:transition-transform before:ease-in hover:before:ease-out before:duration-700 after:h-[8px] after:delay-500 after:absolute after:-bottom-3 after:scale-x-0 after:left-0 after:right-0 after:block after:bg-kili-dark-gray after:origin-left hover:after:scale-x-100 after:transition-transform after:ease-in hover:after:ease-out after:duration-700'
-              href={`/#${section.id}`}
-              onClick={() => setNavBarStatus(false)}
+          <li key={section.id} className='overflow-hidden'>
+            <motion.button
+              className='flex items-center gap-5 text-9xl text-kili-white'
+              variants={NAVBAR_LI_VARIANTS}
+              onClick={async () => await handleClick(section.id)}
+              onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+              onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
             >
-              <motion.div variants={NAVBAR_LI_VARIANTS}>
-                {section.name}
-              </motion.div>
-            </Link>
+              {section.name}
+            </motion.button>
           </li>
         ))}
       </ul>

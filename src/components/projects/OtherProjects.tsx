@@ -95,7 +95,7 @@ export default function OtherProjects() {
           ))}
       </motion.div>
       <motion.button
-        className='flex items-center gap-2 mt-10 text-2xl duration-700 ease-in-out text-kili-white group hover:text-kili-light-gray'
+        className='flex items-center gap-2 mt-10 text-2xl duration-700 ease-in-out text-kili-white group'
         onClick={handleShowMore}
         initial={{ opacity: 0 }}
         animate={isInView && { opacity: 1 }}
@@ -105,9 +105,7 @@ export default function OtherProjects() {
         PROJECTS.filter((project) => !project.featured).length ? (
           <>
             Load more
-            <span className='transition-transform duration-700 ease-in-out group-hover:rotate-180'>
-              <PlusIcon className='w-3' />
-            </span>
+            <PlusIcon className='w-3 duration-700 ease-in-out group-hover:rotate-180' />
           </>
         ) : (
           'No more projects'

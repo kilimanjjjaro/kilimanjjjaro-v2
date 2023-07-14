@@ -5,12 +5,12 @@ import {
   LANGUAGES_LI_VARIANTS,
   LANGUAGES_UL_VARIANTS
 } from '@/constants/variants'
-import { LANGUAGES } from '@/constants/general'
+import { CURSOR_STATUS, LANGUAGES } from '@/constants/general'
 import type { LanguageInterface } from '@/interfaces/general'
 
 export default function LanguageSelector() {
+  const { selectedLanguage, setSelectedLanguage, setCursorStatus } = useStore()
   const [showSelector, setShowSelector] = useState(false)
-  const { selectedLanguage, setSelectedLanguage } = useStore()
 
   const handleClick = ({ language }: { language: LanguageInterface }) => {
     setSelectedLanguage(language)
@@ -20,9 +20,11 @@ export default function LanguageSelector() {
   return (
     <div className='relative flex justify-end'>
       <button
-        onClick={() => setShowSelector(!showSelector)}
         className='leading-none tracking-wide duration-700 ease-in-out text-kili-light-gray hover:text-kili-white'
         aria-label='Select language'
+        onClick={() => setShowSelector(!showSelector)}
+        onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+        onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
       >
         {selectedLanguage.name}
       </button>
@@ -37,6 +39,8 @@ export default function LanguageSelector() {
             <motion.button
               className='leading-none tracking-wide transition-colors duration-700 ease-in-out text-kili-white hover:text-kili-light-gray'
               onClick={() => handleClick({ language })}
+              onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+              onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
               variants={LANGUAGES_LI_VARIANTS}
               transition={{
                 duration: 0.7,

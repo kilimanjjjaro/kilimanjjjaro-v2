@@ -7,11 +7,17 @@ import { PlusIcon } from '@/icons/PlusIcon'
 import { useStore } from '@/store/store'
 import { STACKS_LI_VARIANTS, STACKS_UL_VARIANTS } from '@/constants/variants'
 import type { StackInterface } from '@/interfaces/general'
+import { CURSOR_STATUS } from '@/constants/general'
 
 export default function StackSelector() {
+  const {
+    selectedStack,
+    setSelectedStack,
+    stacks,
+    setShouldMoveToStart,
+    setCursorStatus
+  } = useStore()
   const [showSelector, setShowSelector] = useState(false)
-  const { selectedStack, setSelectedStack, stacks, setShouldMoveToStart } =
-    useStore()
 
   const handleClick = (stack: StackInterface) => {
     setSelectedStack(stack)
@@ -21,17 +27,19 @@ export default function StackSelector() {
 
   return (
     <div className='flex gap-10 px-40 text-4xl text-kili-white'>
-      <button onClick={() => setShowSelector(!showSelector)}>
-        <h2 className='flex items-center gap-4 leading-none duration-700 ease-in-out hover:text-kili-light-gray'>
+      <button
+        onClick={() => setShowSelector(!showSelector)}
+        onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+        onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+      >
+        <h2 className='flex items-center gap-4 leading-none group'>
           {selectedStack.name} Skills
-          <span
+          <PlusIcon
             className={clsx(
-              'transition-transform duration-700 ease-in-out',
-              showSelector && 'rotate-45'
+              'duration-700 ease-in-out w-4 group-hover:rotate-180',
+              showSelector && '!-rotate-45'
             )}
-          >
-            <PlusIcon className='w-4' />
-          </span>
+          />
         </h2>
       </button>
       <motion.ul
@@ -49,8 +57,9 @@ export default function StackSelector() {
           .map((stack) => (
             <li key={stack.id} className='overflow-hidden leading-none'>
               <motion.button
-                className='transition-colors duration-700 ease-in-out hover:text-kili-light-gray'
                 onClick={() => handleClick(stack)}
+                onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+                onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
                 variants={STACKS_LI_VARIANTS}
                 transition={{
                   duration: 0.7,

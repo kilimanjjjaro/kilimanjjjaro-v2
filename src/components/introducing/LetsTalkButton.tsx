@@ -8,7 +8,11 @@ export default function LetsTalkButton() {
   }
 
   return (
-    <TextButton handler={handleClick} className='text-3xl text-kili-white'>
+    <TextButton
+      handler={handleClick}
+      className='text-3xl text-kili-white'
+      underlined
+    >
       Let's talk!
     </TextButton>
   )
