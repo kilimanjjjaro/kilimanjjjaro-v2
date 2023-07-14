@@ -65,7 +65,7 @@ export default function OtherProjects() {
               <motion.div
                 className='flex items-center py-10 overflow-x-hidden gap-x-10 group'
                 variants={OTHER_PROJECT_VARIANTS}
-                transition={{ duration: 2, ease: 'easeInOut' }}
+                transition={{ duration: 1.5, ease: 'easeInOut' }}
               >
                 <div className='relative flex gap-[6px] items-center flex-1'>
                   <span className='absolute overflow-hidden'>
@@ -89,7 +89,7 @@ export default function OtherProjects() {
               <motion.hr
                 className='bottom-0 w-full h-[2px] border-kili-light-gray absolute origin-left'
                 variants={OTHER_PROJECT_HR_VARIANTS}
-                transition={{ duration: 2, ease: 'easeInOut' }}
+                transition={{ duration: 1.5, ease: 'easeInOut' }}
               />
             </article>
           ))}
@@ -99,7 +99,7 @@ export default function OtherProjects() {
         onClick={handleShowMore}
         initial={{ opacity: 0 }}
         animate={isInView && { opacity: 1 }}
-        transition={{ duration: 2, ease: 'easeInOut', delay: 2.5 }}
+        transition={{ duration: 1.5, ease: 'easeInOut', delay: 2 }}
       >
         {visibleItems <
         PROJECTS.filter((project) => !project.featured).length ? (

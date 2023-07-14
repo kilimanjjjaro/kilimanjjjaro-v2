@@ -17,11 +17,11 @@ export default function RootLayout({ children }: ChildrenInterface) {
       <body
         className={`bg-kili-black font-neue-haas-grotesk-display antialiased ${neueHaasGroteskDisplayFont}`}
       >
-        {/* <IntroAnimation /> */}
-        <CustomCursor />
+        <IntroAnimation />
         <NavBar />
         <SmoothScroll>{children}</SmoothScroll>
         <ScrollPercentage />
+        <CustomCursor />
       </body>
     </html>
   )

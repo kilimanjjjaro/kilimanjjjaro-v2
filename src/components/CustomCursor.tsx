@@ -35,7 +35,7 @@ export default function CustomCursor() {
   return (
     <motion.div
       ref={cursorEl}
-      className='fixed scale-0 top-0 left-0 rounded-full pointer-events-none w-14 h-14 border-[2px] border-kili-white z-[9999] mix-blend-difference'
+      className='fixed scale-0 top-0 left-0 rounded-full pointer-events-none w-14 h-14 border-[2px] border-kili-white z-50 mix-blend-difference'
       style={{
         x,
         y
