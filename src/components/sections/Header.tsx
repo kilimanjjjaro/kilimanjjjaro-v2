@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header
       id='header'
-      className='flex items-center justify-center min-h-screen'
+      className='flex items-center justify-center min-h-screen cursor-none'
     >
       <ScrollCursor />
       <Headline />

@@ -6,9 +6,11 @@ import Flicking from '@egjs/react-flicking'
 import * as Icons from '@/components/introducing/SkillIcons'
 import useSkillsCarousel from '@/hooks/useSkillsCarousel'
 import useCursorPosition from '@/hooks/useCursorPosition'
+import useElementDimensions from '@/hooks/useElementDimensions'
+import { useStore } from '@/store/store'
 import { ArrowLongRightIcon } from '@/icons/ArrowLongRightIcon'
 import { ArrowLongLeftIcon } from '@/icons/ArrowLongLeftIcon'
-import useElementDimensions from '@/hooks/useElementDimensions'
+import { CURSOR_STATUS } from '@/constants/general'
 
 export default function SkillsCarousel() {
   const arrowEl = useRef<HTMLDivElement>(null)
@@ -29,16 +31,20 @@ export default function SkillsCarousel() {
     handleChange,
     handleClick
   } = useSkillsCarousel()
+  const { setCursorStatus } = useStore()
 
-  console.log(elementDimensions)
+  const handleMouse = (boolean: boolean) => {
+    setIsHovered(boolean)
+    setCursorStatus(boolean ? CURSOR_STATUS.HIDDEN : CURSOR_STATUS.VISIBLE)
+  }
 
   return (
     <div
       ref={sectionEl}
-      className='relative px-40'
+      className='relative px-40 cursor-none'
       onMouseMove={(event) => handleMouseMove(event)}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => handleMouse(true)}
+      onMouseLeave={() => handleMouse(false)}
       onClick={async () => await handleClick()}
     >
       <motion.div

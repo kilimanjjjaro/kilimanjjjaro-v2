@@ -15,9 +15,9 @@ export default function RootLayout({ children }: ChildrenInterface) {
   return (
     <html lang='en'>
       <body
-        className={`bg-kili-black font-neue-haas-grotesk-display antialiased ${neueHaasGroteskDisplayFont} cursor-none`}
+        className={`bg-kili-black font-neue-haas-grotesk-display antialiased ${neueHaasGroteskDisplayFont}`}
       >
-        <IntroAnimation />
+        {/* <IntroAnimation /> */}
         <CustomCursor />
         <NavBar />
         <SmoothScroll>{children}</SmoothScroll>

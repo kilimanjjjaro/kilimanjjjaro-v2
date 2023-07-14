@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import useCursorPosition from '@/hooks/useCursorPosition'
 import useElementDimensions from '@/hooks/useElementDimensions'
+import { useStore } from '@/store/store'
+import { CURSOR_STATUS } from '@/constants/general'
 
 export default function ScrollCursor() {
   const cursorEl = useRef<HTMLDivElement>(null)
@@ -16,18 +18,29 @@ export default function ScrollCursor() {
     translateX: elementDimensions.width / 2,
     translateY: elementDimensions.height / 2
   })
+  const { setCursorStatus } = useStore()
 
   useEffect(() => {
     const headerEl = document.getElementById('header')
 
     if (headerEl === null) return
 
-    headerEl.addEventListener('mouseenter', () => setIsHovered(true))
-    headerEl.addEventListener('mouseleave', () => setIsHovered(false))
+    const handleMouseEnter = () => {
+      setIsHovered(true)
+      setCursorStatus(CURSOR_STATUS.HIDDEN)
+    }
+
+    const handleMouseLeave = () => {
+      setIsHovered(false)
+      setCursorStatus(CURSOR_STATUS.VISIBLE)
+    }
+
+    headerEl.addEventListener('mouseenter', handleMouseEnter)
+    headerEl.addEventListener('mouseleave', handleMouseLeave)
 
     return () => {
-      headerEl.removeEventListener('mouseenter', () => setIsHovered(true))
-      headerEl.removeEventListener('mouseleave', () => setIsHovered(false))
+      headerEl.removeEventListener('mouseenter', handleMouseEnter)
+      headerEl.removeEventListener('mouseleave', handleMouseLeave)
     }
   }, [])
 

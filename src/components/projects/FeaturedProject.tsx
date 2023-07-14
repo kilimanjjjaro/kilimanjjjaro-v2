@@ -7,6 +7,8 @@ import clsx from 'clsx'
 import useCursorPosition from '@/hooks/useCursorPosition'
 import type { ProjectInterface } from '@/interfaces/general'
 import useElementDimensions from '@/hooks/useElementDimensions'
+import { useStore } from '@/store/store'
+import { CURSOR_STATUS } from '@/constants/general'
 
 export default function FeaturedProject({
   className,
@@ -27,6 +29,7 @@ export default function FeaturedProject({
     translateX: elementDimensions.width / 2,
     translateY: elementDimensions.height / 2
   })
+  const { setCursorStatus } = useStore()
 
   const handleMouseEnter = (project: ProjectInterface | null) => {
     const sectionEl = document.getElementById('projects')
@@ -35,9 +38,11 @@ export default function FeaturedProject({
 
     if (project !== null) {
       setIsHovered(project.id)
+      setCursorStatus(CURSOR_STATUS.HIDDEN)
       sectionEl.style.backgroundColor = project.backgroundColor
     } else {
       setIsHovered(null)
+      setCursorStatus(CURSOR_STATUS.VISIBLE)
       sectionEl.style.backgroundColor = ''
     }
   }
@@ -46,7 +51,7 @@ export default function FeaturedProject({
     <article
       ref={projectEl}
       className={clsx(
-        'relative flex justify-center items-center aspect-[18/25] p-5 group',
+        'relative flex justify-center items-center aspect-[18/25] p-5 group cursor-none',
         className
       )}
       onMouseEnter={() => handleMouseEnter(project)}

@@ -1,3 +1,5 @@
+import { CURSOR_STATUS } from '@/constants/general'
+
 export interface StoreInterface {
   navBarStatus: boolean
   setNavBarStatus: (navBarStatus: boolean) => void
@@ -10,6 +12,10 @@ export interface StoreInterface {
   setSelectedLanguage: (selectedLanguage: LanguageInterface) => void
   introRunning: boolean
   setIntroRunning: (introRunning: boolean) => void
+  cursorStatus: (typeof CURSOR_STATUS)[keyof typeof CURSOR_STATUS]
+  setCursorStatus: (
+    cursorStatus: (typeof CURSOR_STATUS)[keyof typeof CURSOR_STATUS]
+  ) => void
 }
 
 export interface ChildrenInterface {

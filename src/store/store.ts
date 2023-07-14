@@ -17,5 +17,7 @@ export const useStore = create<StoreInterface>((set) => ({
   selectedLanguage: LANGUAGES[0],
   setSelectedLanguage: (selectedLanguage) => set(() => ({ selectedLanguage })),
   introRunning: true,
-  setIntroRunning: (introRunning) => set(() => ({ introRunning }))
+  setIntroRunning: (introRunning) => set(() => ({ introRunning })),
+  cursorStatus: 'default',
+  setCursorStatus: (cursorStatus) => set(() => ({ cursorStatus }))
 }))
