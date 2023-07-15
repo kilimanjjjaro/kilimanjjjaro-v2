@@ -38,17 +38,17 @@ export const NAVBAR_VARIANTS = {
     display: 'flex',
     clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
     transition: {
-      duration: 3,
+      duration: 2,
       ease: [0.77, 0, 0.18, 1],
       staggerChildren: 0.1,
-      delayChildren: 0.6
+      delayChildren: 0.5
     }
   },
   closed: {
     y: '100%',
     clipPath: 'polygon(0% 0%, 100% 8%, 100% 100%, 0% 100%)',
     transition: {
-      duration: 3,
+      duration: 2,
       ease: [0.77, 0, 0.18, 1],
       staggerChildren: 0.1,
       staggerDirection: -1
@@ -64,7 +64,7 @@ export const NAVBAR_LI_VARIANTS = {
     y: '0%',
     rotate: 0,
     transition: {
-      duration: 2,
+      duration: 1.5,
       ease: [0.77, 0, 0.18, 1]
     }
   },
@@ -72,9 +72,8 @@ export const NAVBAR_LI_VARIANTS = {
     y: '120%',
     rotate: 4,
     transition: {
-      duration: 2,
-      ease: [0.77, 0, 0.18, 1],
-      delay: 0.3
+      duration: 1.5,
+      ease: [0.77, 0, 0.18, 1]
     }
   }
 }

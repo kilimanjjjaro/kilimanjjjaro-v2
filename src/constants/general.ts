@@ -6,10 +6,10 @@ export const LANGUAGES: LanguageInterface[] = [
 ]
 
 export const SECTIONS = [
-  { id: 'introducing', name: 'Introducing' },
-  { id: 'projects', name: 'Projects' },
-  { id: 'know-me', name: 'Know me' },
-  { id: 'lets-talk', name: "Let's talk!" }
+  { slug: 'introducing', name: 'Introducing' },
+  { slug: 'projects', name: 'Projects' },
+  { slug: 'know-me', name: 'Know me' },
+  { slug: 'lets-talk', name: "Let's talk!" }
 ]
 
 export const STACKS: StackInterface[] = [

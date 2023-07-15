@@ -6,11 +6,6 @@ const neueHaasGroteskDisplay = localFont({
       path: '../../public/fonts/neue-haas-grotesk-display-roman.woff2',
       weight: '400',
       style: 'normal'
-    },
-    {
-      path: '../../public/fonts/neue-haas-grotesk-display-roman.woff',
-      weight: '400',
-      style: 'normal'
     }
   ],
   variable: '--neue-haas-grotesk-display-font'
