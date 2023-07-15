@@ -3,12 +3,9 @@
 import { useEffect } from 'react'
 import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
 import { useStore } from '@/store/store'
+import type { ChildrenType } from '@/interfaces/general'
 
-interface Props {
-  children: React.ReactNode
-}
-
-export default function SmoothScroll({ children }: Props) {
+export default function SmoothScroll({ children }: { children: ChildrenType }) {
   const { navBarStatus, introRunning } = useStore()
   const lenis = useLenis()
 
@@ -23,7 +20,7 @@ export default function SmoothScroll({ children }: Props) {
   }, [lenis, navBarStatus, introRunning])
 
   return (
-    <ReactLenis root options={{ duration: 1.3 }}>
+    <ReactLenis root options={{ duration: 2 }}>
       {children}
     </ReactLenis>
   )

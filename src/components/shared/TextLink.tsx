@@ -4,9 +4,10 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import { useStore } from '@/store/store'
 import { CURSOR_STATUS } from '@/constants/general'
+import type { ChildrenType } from '@/interfaces/general'
 
 interface Props {
-  children: React.ReactNode
+  children: ChildrenType
   className?: string
   href: string
   underlined?: boolean

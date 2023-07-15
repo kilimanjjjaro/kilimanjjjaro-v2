@@ -12,12 +12,17 @@ import {
 } from '@/constants/variants'
 
 export default function OtherProjects() {
-  const [visibleItems, setVisibleItems] = useState(3)
   const sectionEl = useRef<HTMLElement>(null)
+  const totalNumberOfProjects = useRef(
+    PROJECTS.filter((project) => !project.featured).length
+  )
+  const [visibleItems, setVisibleItems] = useState(3)
   const isInView = useInView(sectionEl, { once: true })
 
   const handleShowMore = () => {
-    setVisibleItems((prevItems) => prevItems + 2)
+    setVisibleItems((prevItems) => prevItems + 3)
+
+    if (visibleItems >= totalNumberOfProjects.current) console.log('Contact')
   }
 
   return (
@@ -108,7 +113,7 @@ export default function OtherProjects() {
             <PlusIcon className='w-3 duration-700 ease-in-out group-hover:rotate-180' />
           </>
         ) : (
-          'No more projects'
+          'No more projects. Do you want to be part?'
         )}
       </motion.button>
     </section>

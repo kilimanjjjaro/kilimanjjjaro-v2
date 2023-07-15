@@ -2,9 +2,10 @@ import { MouseEventHandler } from 'react'
 import clsx from 'clsx'
 import { useStore } from '@/store/store'
 import { CURSOR_STATUS } from '@/constants/general'
+import type { ChildrenType } from '@/interfaces/general'
 
 interface Props {
-  children: React.ReactNode
+  children: ChildrenType
   className?: string
   handler: MouseEventHandler<HTMLButtonElement>
   underlined?: boolean

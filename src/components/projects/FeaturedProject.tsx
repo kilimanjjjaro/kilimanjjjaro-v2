@@ -4,10 +4,9 @@ import { useRef, useState } from 'react'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import clsx from 'clsx'
-import useCursorPosition from '@/hooks/useCursorPosition'
-import type { ProjectInterface } from '@/interfaces/general'
-import useElementDimensions from '@/hooks/useElementDimensions'
 import { useStore } from '@/store/store'
+import FeaturedProjectName from '@/components/projects/FeaturedProjectName'
+import type { ProjectInterface } from '@/interfaces/general'
 import { CURSOR_STATUS } from '@/constants/general'
 
 export default function FeaturedProject({
@@ -19,32 +18,27 @@ export default function FeaturedProject({
 }) {
   const { setCursorStatus } = useStore()
   const projectEl = useRef<HTMLElement>(null)
-  const projectNameEl = useRef<HTMLHeadingElement>(null)
   const [isHovered, setIsHovered] = useState<number | null>(null)
   const isInView = useInView(projectEl, { once: true })
-  const elementDimensions = useElementDimensions({
-    ref: projectNameEl
-  })
-  const { x, y } = useCursorPosition({
-    trigger: isHovered !== null,
-    translateX: elementDimensions.width / 2,
-    translateY: elementDimensions.height / 2
-  })
 
-  const handleMouseEnter = (project: ProjectInterface | null) => {
+  const handleMouseEnter = () => {
     const sectionEl = document.getElementById('projects')
 
     if (sectionEl === null) return
 
-    if (project !== null) {
-      setIsHovered(project.id)
-      setCursorStatus(CURSOR_STATUS.HIDDEN)
-      sectionEl.style.backgroundColor = project.backgroundColor
-    } else {
-      setIsHovered(null)
-      setCursorStatus(CURSOR_STATUS.DEFAULT)
-      sectionEl.style.backgroundColor = ''
-    }
+    setIsHovered(project.id)
+    setCursorStatus(CURSOR_STATUS.HIDDEN)
+    sectionEl.style.backgroundColor = project.backgroundColor
+  }
+
+  const handleMouseLeave = () => {
+    const sectionEl = document.getElementById('projects')
+
+    if (sectionEl === null) return
+
+    setIsHovered(null)
+    setCursorStatus(CURSOR_STATUS.DEFAULT)
+    sectionEl.style.backgroundColor = ''
   }
 
   return (
@@ -54,8 +48,8 @@ export default function FeaturedProject({
         'relative flex justify-center items-center aspect-[18/25] p-5 group cursor-none',
         className
       )}
-      onMouseEnter={() => handleMouseEnter(project)}
-      onMouseLeave={() => handleMouseEnter(null)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <motion.div
         className='top-0 left-0 absolute w-full h-full bg-center bg-[length:125%] group-hover:bg-[length:112%] ease-in-out duration-700'
@@ -97,30 +91,12 @@ export default function FeaturedProject({
           quality={90}
         />
       </motion.div>
-      <motion.h3
-        ref={projectNameEl}
-        className='fixed top-0 max-w-[640px] left-0 overflow-hidden pointer-events-none'
-        style={{ x, y }}
-      >
+      <FeaturedProjectName projectId={project.id} isHovered={isHovered}>
+        {project.name}
+      </FeaturedProjectName>
+      <span className='absolute right-0 overflow-hidden text-xl leading-none top-full text-kili-white'>
         <motion.span
-          className='block leading-none text-center text-kili-white text-9xl'
-          initial={{
-            y: '105%'
-          }}
-          animate={{
-            y: isHovered === project.id ? '0%' : '105%'
-          }}
-          transition={{
-            duration: 0.7,
-            ease: 'easeInOut'
-          }}
-        >
-          {project.name}
-        </motion.span>
-      </motion.h3>
-      <span className='absolute right-0 mt-4 overflow-hidden text-xl leading-none top-full text-kili-white'>
-        <motion.span
-          className='block'
+          className='block pt-4'
           initial={{
             y: '-105%'
           }}

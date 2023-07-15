@@ -18,9 +18,7 @@ export interface StoreInterface {
   ) => void
 }
 
-export interface ChildrenInterface {
-  children: React.ReactNode
-}
+export type ChildrenType = React.ReactNode
 
 export interface StackInterface {
   id: number
