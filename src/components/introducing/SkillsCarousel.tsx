@@ -46,7 +46,7 @@ export default function SkillsCarousel() {
         onSlideChange={handleChange}
         slidesPerView='auto'
         spaceBetween={144}
-        speed={700}
+        speed={500}
       >
         <SwiperSlide className='group'>
           <Icons.ReactIcon />

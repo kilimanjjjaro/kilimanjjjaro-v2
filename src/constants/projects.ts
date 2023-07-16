@@ -6,7 +6,7 @@ export const PROJECTS: ProjectInterface[] = [
     name: 'wrkload',
     description:
       'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: '',
+    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
     role: 'UX/UI Design — Frontend & Backend Development',
     images: {
       background: '/images/projects/wrkload/background.jpg',
@@ -21,7 +21,7 @@ export const PROJECTS: ProjectInterface[] = [
     name: 'Royal Enfield',
     description:
       'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: '',
+    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
     role: 'UX/UI Design — Frontend & Backend Development',
     images: {
       background: '/images/projects/wrkload/background.jpg',
@@ -35,7 +35,7 @@ export const PROJECTS: ProjectInterface[] = [
     name: 'wrkload',
     description:
       'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: '',
+    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
     role: 'UX/UI Design — Frontend & Backend Development',
     images: {
       background: '/images/projects/wrkload/background.jpg',
@@ -49,7 +49,7 @@ export const PROJECTS: ProjectInterface[] = [
     name: 'Royal Enfield',
     description:
       'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: '',
+    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
     role: 'UX/UI Design — Frontend & Backend Development',
     images: {
       background: '/images/projects/wrkload/background.jpg',
@@ -63,7 +63,16 @@ export const PROJECTS: ProjectInterface[] = [
     name: 'Royal Enfield',
     description:
       'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: 'HTML, JavaScript, CSS, SCSS, BEMIT.',
+    stacks: [
+      'HTML',
+      'JavaScript',
+      'CSS',
+      'SCSS',
+      'BEMIT',
+      'CSS',
+      'SCSS',
+      'BEMIT'
+    ],
     role: 'Backend Development',
     images: {
       background: '/images/projects/wrkload/background.jpg',
@@ -77,7 +86,7 @@ export const PROJECTS: ProjectInterface[] = [
     name: 'Royal Enfield',
     description:
       'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: 'HTML, JavaScript, CSS, SCSS, BEMIT.',
+    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
     role: 'Backend Development',
     images: {
       background: '/images/projects/wrkload/background.jpg',
@@ -91,7 +100,7 @@ export const PROJECTS: ProjectInterface[] = [
     name: 'Royal Enfield',
     description:
       'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: 'HTML, JavaScript, CSS, SCSS, BEMIT.',
+    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
     role: 'Backend Development',
     images: {
       background: '/images/projects/wrkload/background.jpg',
@@ -105,7 +114,7 @@ export const PROJECTS: ProjectInterface[] = [
     name: 'Royal Enfield',
     description:
       'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: 'HTML, JavaScript, CSS, SCSS, BEMIT.',
+    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
     role: 'Backend Development',
     images: {
       background: '/images/projects/wrkload/background.jpg',
@@ -119,7 +128,7 @@ export const PROJECTS: ProjectInterface[] = [
     name: 'Royal Enfield',
     description:
       'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: 'HTML, JavaScript, CSS, SCSS, BEMIT.',
+    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
     role: 'Backend Development',
     images: {
       background: '/images/projects/wrkload/background.jpg',
@@ -133,7 +142,7 @@ export const PROJECTS: ProjectInterface[] = [
     name: 'Royal Enfield',
     description:
       'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: 'HTML, JavaScript, CSS, SCSS, BEMIT.',
+    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
     role: 'Backend Development',
     images: {
       background: '/images/projects/wrkload/background.jpg',
@@ -147,7 +156,7 @@ export const PROJECTS: ProjectInterface[] = [
     name: 'Royal Enfield',
     description:
       'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: 'HTML, JavaScript, CSS, SCSS, BEMIT.',
+    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
     role: 'Backend Development',
     images: {
       background: '/images/projects/wrkload/background.jpg',

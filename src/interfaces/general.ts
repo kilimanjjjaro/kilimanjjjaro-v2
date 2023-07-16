@@ -46,7 +46,7 @@ export interface ProjectInterface {
   id: number
   name: string
   description: string
-  stacks: string
+  stacks: string[]
   role: string
   images: {
     background: string
