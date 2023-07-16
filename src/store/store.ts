@@ -19,5 +19,7 @@ export const useStore = create<StoreInterface>((set) => ({
   introRunning: true,
   setIntroRunning: (introRunning) => set(() => ({ introRunning })),
   cursorStatus: 'default',
-  setCursorStatus: (cursorStatus) => set(() => ({ cursorStatus }))
+  setCursorStatus: (cursorStatus) => set(() => ({ cursorStatus })),
+  swiperInstance: null,
+  setSwiperInstance: (swiperInstance) => set(() => ({ swiperInstance }))
 }))

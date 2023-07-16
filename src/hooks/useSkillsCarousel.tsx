@@ -1,19 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
-import Flicking, { ChangedEvent } from '@egjs/react-flicking'
 import { useStore } from '@/store/store'
-import { SKILLS } from '@/constants/skills'
 
 export default function useSkillsCarousel() {
-  const totalSlides = SKILLS.length
   const [isNextArrow, setIsNextArrow] = useState(true)
   const sectionEl = useRef<HTMLInputElement>(null)
-  const flickeringEl = useRef<Flicking>(null)
   const {
     selectedStack,
     setSelectedStack,
     stacks,
     shouldMoveToStart,
-    setShouldMoveToStart
+    setShouldMoveToStart,
+    swiperInstance
   } = useStore()
 
   const handleMouseMove = (
@@ -30,17 +27,10 @@ export default function useSkillsCarousel() {
     }
   }
 
-  const handleChange = (event: ChangedEvent<Flicking>) => {
-    const currentSlideIndex = event.index
-    const startIndexSelectedStack = selectedStack.startIndex
-    const endIndexSelectedStack = selectedStack.endIndex
+  const handleChange = () => {
+    if (swiperInstance === null) return
 
-    if (
-      currentSlideIndex >= startIndexSelectedStack &&
-      currentSlideIndex <= endIndexSelectedStack
-    ) {
-      return
-    }
+    const currentSlideIndex = swiperInstance.activeIndex
 
     const stack = stacks.find(
       (stack) =>
@@ -50,41 +40,34 @@ export default function useSkillsCarousel() {
 
     if (stack === undefined) return
 
-    setSelectedStack(stack)
-    setShouldMoveToStart(false)
+    if (stack.id !== selectedStack.id) {
+      setSelectedStack(stack)
+      setShouldMoveToStart(false)
+    }
   }
 
-  const handleClick = async () => {
-    if (flickeringEl.current === null) return
+  const handleClick = () => {
+    if (swiperInstance === null) return
 
-    const currentSlide = flickeringEl.current.currentPanel.index
-    const visibleSlides = flickeringEl.current.visiblePanels.length
-    const isFirstSlide = currentSlide === 0
-    const isLastSlide = totalSlides - visibleSlides === currentSlide
-
-    try {
-      if (isNextArrow && !isLastSlide) {
-        await flickeringEl.current?.next()
-      }
-
-      if (!isNextArrow && !isFirstSlide) {
-        await flickeringEl.current?.prev()
-      }
-    } catch (error) {}
+    if (isNextArrow) {
+      swiperInstance.slideNext()
+    }
+    if (!isNextArrow) {
+      swiperInstance.slidePrev()
+    }
   }
 
   useEffect(() => {
-    if (flickeringEl.current === null) return
+    if (swiperInstance === null) return
 
     if (shouldMoveToStart) {
-      flickeringEl.current.moveTo(selectedStack.startIndex).catch(() => {})
+      swiperInstance.slideTo(selectedStack.startIndex)
     }
-  }, [selectedStack, shouldMoveToStart])
+  }, [selectedStack, shouldMoveToStart, swiperInstance])
 
   return {
     isNextArrow,
     sectionEl,
-    flickeringEl,
     handleMouseMove,
     handleChange,
     handleClick

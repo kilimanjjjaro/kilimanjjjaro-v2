@@ -1,4 +1,5 @@
 import { CURSOR_STATUS } from '@/constants/general'
+import type { Swiper } from 'swiper'
 
 export interface StoreInterface {
   navBarStatus: boolean
@@ -16,6 +17,8 @@ export interface StoreInterface {
   setCursorStatus: (
     cursorStatus: (typeof CURSOR_STATUS)[keyof typeof CURSOR_STATUS]
   ) => void
+  swiperInstance: Swiper | null
+  setSwiperInstance: (swiperInstance: Swiper) => void
 }
 
 export type ChildrenType = React.ReactNode

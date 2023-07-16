@@ -13,3 +13,14 @@ body::-webkit-scrollbar {
 .fadeInSplittedText {
   transform: translateY(100%);
 }
+
+.swiper {
+  overflow: visible !important;
+}
+
+.swiper-slide {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: auto !important;
+}

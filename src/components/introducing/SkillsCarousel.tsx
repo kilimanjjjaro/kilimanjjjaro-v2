@@ -2,7 +2,6 @@
 
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import Flicking from '@egjs/react-flicking'
 import * as Icons from '@/components/introducing/SkillIcons'
 import useSkillsCarousel from '@/hooks/useSkillsCarousel'
 import useCursorPosition from '@/hooks/useCursorPosition'
@@ -12,26 +11,21 @@ import { ArrowLongRightIcon } from '@/icons/ArrowLongRightIcon'
 import { ArrowLongLeftIcon } from '@/icons/ArrowLongLeftIcon'
 import { CURSOR_STATUS } from '@/constants/general'
 
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+
 export default function SkillsCarousel() {
-  const { setCursorStatus } = useStore()
+  const { setCursorStatus, setSwiperInstance } = useStore()
   const arrowEl = useRef<HTMLDivElement>(null)
   const [isHovered, setIsHovered] = useState(false)
-  const elementDimensions = useElementDimensions({
-    ref: arrowEl
-  })
+  const elementDimensions = useElementDimensions({ ref: arrowEl })
   const { x, y } = useCursorPosition({
     trigger: isHovered,
     translateX: elementDimensions.width / 2,
     translateY: elementDimensions.height / 2
   })
-  const {
-    isNextArrow,
-    sectionEl,
-    flickeringEl,
-    handleMouseMove,
-    handleChange,
-    handleClick
-  } = useSkillsCarousel()
+  const { isNextArrow, sectionEl, handleMouseMove, handleChange, handleClick } =
+    useSkillsCarousel()
 
   const handleMouse = (boolean: boolean) => {
     setIsHovered(boolean)
@@ -41,20 +35,20 @@ export default function SkillsCarousel() {
   return (
     <div
       ref={sectionEl}
-      className='relative px-40 cursor-none'
+      className='relative px-40'
       onMouseMove={(event) => handleMouseMove(event)}
       onMouseEnter={() => handleMouse(true)}
       onMouseLeave={() => handleMouse(false)}
-      onClick={async () => await handleClick()}
+      onClick={handleClick}
     >
-      <Flicking
-        ref={flickeringEl}
-        onChanged={handleChange}
-        align='prev'
-        cameraClass='flex'
-        bound
+      <Swiper
+        onSwiper={(swiper) => setSwiperInstance(swiper)}
+        onSlideChange={handleChange}
+        slidesPerView='auto'
+        spaceBetween={144}
+        speed={700}
       >
-        <div className='flex flex-col items-center mr-36 group'>
+        <SwiperSlide className='group'>
           <Icons.ReactIcon />
           <div
             role='tooltip'
@@ -62,8 +56,8 @@ export default function SkillsCarousel() {
           >
             React
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.AstroIcon />
           <div
             role='tooltip'
@@ -71,8 +65,8 @@ export default function SkillsCarousel() {
           >
             Astro
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.NextJsIcon />
           <div
             role='tooltip'
@@ -80,8 +74,8 @@ export default function SkillsCarousel() {
           >
             Next.js
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.SvelteIcon />
           <div
             role='tooltip'
@@ -89,8 +83,8 @@ export default function SkillsCarousel() {
           >
             Svelte
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.QwikIcon />
           <div
             role='tooltip'
@@ -98,8 +92,8 @@ export default function SkillsCarousel() {
           >
             Qwik
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.VueIcon />
           <div
             role='tooltip'
@@ -107,8 +101,8 @@ export default function SkillsCarousel() {
           >
             Vue
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.NuxtIcon />
           <div
             role='tooltip'
@@ -116,8 +110,8 @@ export default function SkillsCarousel() {
           >
             Nuxt
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.TailwindCssIcon />
           <div
             role='tooltip'
@@ -125,8 +119,8 @@ export default function SkillsCarousel() {
           >
             Tailwind CSS
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.TypeScriptIcon />
           <div
             role='tooltip'
@@ -134,8 +128,8 @@ export default function SkillsCarousel() {
           >
             TypeScript
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.JavaScriptIcon />
           <div
             role='tooltip'
@@ -143,8 +137,8 @@ export default function SkillsCarousel() {
           >
             JavaScript
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.HtmlIcon />
           <div
             role='tooltip'
@@ -152,8 +146,8 @@ export default function SkillsCarousel() {
           >
             HTML
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.CssIcon />
           <div
             role='tooltip'
@@ -161,8 +155,8 @@ export default function SkillsCarousel() {
           >
             CSS
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.NodeJsIcon />
           <div
             role='tooltip'
@@ -170,8 +164,8 @@ export default function SkillsCarousel() {
           >
             Node.js
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.ExpressIcon />
           <div
             role='tooltip'
@@ -179,8 +173,8 @@ export default function SkillsCarousel() {
           >
             Express
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.NestJsIcon />
           <div
             role='tooltip'
@@ -188,8 +182,8 @@ export default function SkillsCarousel() {
           >
             Nest.js
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.FirebaseIcon />
           <div
             role='tooltip'
@@ -197,8 +191,8 @@ export default function SkillsCarousel() {
           >
             Firebase
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.SupabaseIcon />
           <div
             role='tooltip'
@@ -206,8 +200,8 @@ export default function SkillsCarousel() {
           >
             Supabase
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.MongoDbIcon />
           <div
             role='tooltip'
@@ -215,8 +209,8 @@ export default function SkillsCarousel() {
           >
             MongoDB
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.PlaywrightIcon />
           <div
             role='tooltip'
@@ -224,8 +218,8 @@ export default function SkillsCarousel() {
           >
             Playwright
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.FigmaIcon />
           <div
             role='tooltip'
@@ -233,8 +227,8 @@ export default function SkillsCarousel() {
           >
             Figma
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.XdIcon />
           <div
             role='tooltip'
@@ -242,8 +236,8 @@ export default function SkillsCarousel() {
           >
             XD
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.WordPressIcon />
           <div
             role='tooltip'
@@ -251,8 +245,8 @@ export default function SkillsCarousel() {
           >
             WordPress
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.ElementorIcon />
           <div
             role='tooltip'
@@ -260,8 +254,8 @@ export default function SkillsCarousel() {
           >
             Elementor
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.IllustratorIcon />
           <div
             role='tooltip'
@@ -269,8 +263,8 @@ export default function SkillsCarousel() {
           >
             Illustrator
           </div>
-        </div>
-        <div className='flex flex-col items-center mr-36 group'>
+        </SwiperSlide>
+        <SwiperSlide className='group'>
           <Icons.PhotoshopIcon />
           <div
             role='tooltip'
@@ -278,11 +272,11 @@ export default function SkillsCarousel() {
           >
             Photoshop
           </div>
-        </div>
-      </Flicking>
+        </SwiperSlide>
+      </Swiper>
       <motion.div
         ref={arrowEl}
-        className='fixed top-0 left-0 scale-0 opacity-0 pointer-events-none'
+        className='fixed top-0 left-0 z-10 scale-0 opacity-0 pointer-events-none'
         style={{ x, y }}
         animate={{
           scale: isHovered ? 1 : 0,
