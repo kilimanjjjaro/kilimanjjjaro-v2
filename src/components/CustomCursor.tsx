@@ -30,7 +30,7 @@ export default function CustomCursor() {
       backgroundColor: 'rgba(248, 248, 248, 0)'
     },
     hover: {
-      scale: 0.5,
+      scale: 0.4,
       backgroundColor: 'rgba(248, 248, 248, 1)',
       borderColor: 'rgba(248, 248, 248, 0)'
     }
