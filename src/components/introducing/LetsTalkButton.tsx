@@ -9,8 +9,8 @@ export default function LetsTalkButton() {
 
   return (
     <TextButton
+      className='text-3xl text-kili-white before:bg-kili-white after:bg-kili-white'
       handler={handleClick}
-      className='text-3xl text-kili-white'
       underlined
     >
       Let's talk!

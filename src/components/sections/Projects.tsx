@@ -3,7 +3,7 @@ import Paragraph from '@/components/projects/Paragraph'
 import ParallaxHeadline from '@/components/shared/ParallaxHeadline'
 import FeaturedProject from '@/components/projects/FeaturedProject'
 import OtherProjects from '@/components/projects/OtherProjects'
-import { PROJECTS } from '@/constants/projects'
+import { FEATURED_PROJECTS } from '@/constants/projects'
 
 export default function Projects() {
   return (
@@ -20,7 +20,7 @@ export default function Projects() {
       <section className='px-40 my-32'>
         <Paragraph />
         <div className='grid justify-center grid-cols-2 gap-x-[20vw] mt-36'>
-          {PROJECTS.filter((project) => project.featured).map((project) => (
+          {FEATURED_PROJECTS.map((project) => (
             <FeaturedProject
               className={clsx(project.id % 2 === 0 && 'mt-80')}
               key={project.id}

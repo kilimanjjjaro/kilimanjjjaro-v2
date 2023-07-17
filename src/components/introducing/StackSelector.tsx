@@ -55,7 +55,10 @@ export default function StackSelector() {
         {stacks
           .filter((stack) => stack.id !== selectedStack.id)
           .map((stack) => (
-            <li key={stack.id} className='overflow-hidden leading-none'>
+            <li
+              key={stack.id}
+              className='overflow-hidden leading-none duration-700 ease-in-out hover:text-kili-light-gray'
+            >
               <motion.button
                 onClick={() => handleClick(stack)}
                 onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}

@@ -42,9 +42,10 @@ export interface LanguageInterface {
   name: string
 }
 
-export interface ProjectInterface {
+export interface FeaturedProjectInterface {
   id: number
   name: string
+  slug: string
   description: string
   stacks: string[]
   role: string
@@ -52,7 +53,17 @@ export interface ProjectInterface {
     background: string
     poster: string
   }
-  featured: boolean
   backgroundColor: string
+  year: string
+}
+
+export interface OtherProjectInterface {
+  id: number
+  name: string
+  image: string
+  link: string
+  description: string
+  stacks: string[]
+  role: string
   year: string
 }

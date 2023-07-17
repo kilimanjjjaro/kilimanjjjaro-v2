@@ -6,7 +6,7 @@ import { motion, useInView } from 'framer-motion'
 import clsx from 'clsx'
 import { useStore } from '@/store/store'
 import FeaturedProjectName from '@/components/projects/FeaturedProjectName'
-import type { ProjectInterface } from '@/interfaces/general'
+import type { FeaturedProjectInterface } from '@/interfaces/general'
 import { CURSOR_STATUS } from '@/constants/general'
 
 export default function FeaturedProject({
@@ -14,7 +14,7 @@ export default function FeaturedProject({
   project
 }: {
   className?: string
-  project: ProjectInterface
+  project: FeaturedProjectInterface
 }) {
   const { setCursorStatus } = useStore()
   const projectEl = useRef<HTMLElement>(null)
