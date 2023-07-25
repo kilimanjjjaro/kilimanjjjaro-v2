@@ -14,7 +14,7 @@ export default function Headline() {
       transition={{
         duration: 3,
         ease: [0.17, 0.84, 0.44, 1],
-        delay: 5
+        delay: 5.1
       }}
     >
       <h2 className='text-kili-white text-[200px] flex flex-col leading-[1.03]'>
@@ -32,7 +32,7 @@ export default function Headline() {
             transition={{
               duration: 3,
               ease: [0.17, 0.84, 0.44, 1],
-              delay: 5
+              delay: 5.1
             }}
           >
             Thinking{' '}
@@ -52,7 +52,7 @@ export default function Headline() {
             transition={{
               duration: 3,
               ease: [0.17, 0.84, 0.44, 1],
-              delay: 5.3
+              delay: 5.4
             }}
           >
             future <span className='-mr-[6px]'>—</span> proof
@@ -72,7 +72,7 @@ export default function Headline() {
             transition={{
               duration: 3,
               ease: [0.17, 0.84, 0.44, 1],
-              delay: 5.5
+              delay: 5.7
             }}
           >
             experiences.
