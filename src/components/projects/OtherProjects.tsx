@@ -1,20 +1,23 @@
 'use client'
 
 import { useRef, useState } from 'react'
-import { PlusIcon } from '@/icons/PlusIcon'
-import { OTHER_PROJECTS } from '@/constants/projects'
+import clsx from 'clsx'
+import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
+import { PlusIcon } from '@/icons/PlusIcon'
+import { useStore } from '@/store/store'
 import {
   OTHER_PROJECTS_VARIANTS,
   OTHER_PROJECT_HR_VARIANTS,
   OTHER_PROJECT_VARIANTS
 } from '@/constants/variants'
-import Image from 'next/image'
-import clsx from 'clsx'
+import { OTHER_PROJECTS } from '@/constants/projects'
+import { CURSOR_STATUS } from '@/constants/general'
 
 export default function OtherProjects() {
   const sectionEl = useRef<HTMLElement>(null)
   const totalNumberOfProjects = useRef(OTHER_PROJECTS.length)
+  const { setCursorStatus } = useStore()
   const [visibleItems, setVisibleItems] = useState(3)
   const isInView = useInView(sectionEl, { once: true })
 
@@ -74,7 +77,11 @@ export default function OtherProjects() {
                 transition={{ duration: 1.5, ease: 'easeInOut' }}
               >
                 <div className='flex gap-[6px] items-center w-[30%] text-2xl'>
-                  <a href={project.link}>
+                  <a
+                    href={project.link}
+                    onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+                    onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+                  >
                     <h4 className='relative duration-700 ease-in-out text-kili-white before:h-[2px] before:scale-x-0 before:absolute before:-bottom-2 before:left-0 before:right-0 before:block before:bg-current before:origin-left hover:before:scale-x-100 before:transition-transform before:ease-in hover:before:ease-out before:duration-700 after:delay-700 hover:before:delay-0 after:h-[2px] after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:bg-kili-dark-gray after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:ease-in hover:after:ease-out after:duration-700 hover:after:delay-700'>
                       {project.name}
                     </h4>
@@ -125,6 +132,8 @@ export default function OtherProjects() {
       <motion.button
         className='flex items-center gap-2 mt-10 text-2xl duration-700 ease-in-out text-kili-white group'
         onClick={handleShowMore}
+        onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+        onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
         initial={{ opacity: 0 }}
         animate={isInView && { opacity: 1 }}
         transition={{ duration: 1.5, ease: 'easeInOut', delay: 2 }}

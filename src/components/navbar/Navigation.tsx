@@ -27,7 +27,7 @@ export default function Navigation() {
 
   return (
     <motion.nav
-      className='fixed inset-0 items-end justify-start hidden p-8 bg-kili-dark-gray'
+      className='fixed inset-0 items-end justify-between hidden p-8 bg-kili-dark-gray'
       variants={NAVBAR_VARIANTS}
       initial='closed'
       animate={navBarStatus ? 'open' : 'closed'}
@@ -66,6 +66,38 @@ export default function Navigation() {
             </motion.button>
           </li>
         ))}
+      </ul>
+      <ul className='flex flex-col items-end gap-5'>
+        <li className='overflow-hidden'>
+          <motion.a
+            className='block text-5xl duration-700 ease-in-out text-kili-white hover:text-kili-light-gray'
+            href='#'
+            onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+            onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+            initial={{ y: '110%', rotate: 4 }}
+            animate={
+              navBarStatus ? { y: '0%', rotate: 0 } : { y: '110%', rotate: 4 }
+            }
+            transition={{ duration: 1.3, ease: [0.77, 0, 0.18, 1], delay: 0.2 }}
+          >
+            GitHub
+          </motion.a>
+        </li>
+        <li className='overflow-hidden'>
+          <motion.a
+            className='block text-5xl duration-700 ease-in-out text-kili-white hover:text-kili-light-gray'
+            href='#'
+            onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+            onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+            initial={{ y: '110%', rotate: 4 }}
+            animate={
+              navBarStatus ? { y: '0%', rotate: 0 } : { y: '110%', rotate: 4 }
+            }
+            transition={{ duration: 1.3, ease: [0.77, 0, 0.18, 1] }}
+          >
+            LinkedIn
+          </motion.a>
+        </li>
       </ul>
     </motion.nav>
   )

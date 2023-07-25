@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: ChildrenType }) {
       <body
         className={`bg-kili-black font-neue-haas-grotesk-display antialiased ${neueHaasGroteskDisplayFont}`}
       >
-        {/* <IntroAnimation /> */}
+        <IntroAnimation />
         <NavBar />
         <SmoothScroll>{children}</SmoothScroll>
         <ScrollPercentage />

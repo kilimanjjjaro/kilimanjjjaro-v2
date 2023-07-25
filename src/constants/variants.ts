@@ -40,8 +40,9 @@ export const NAVBAR_VARIANTS = {
     transition: {
       duration: 2,
       ease: [0.77, 0, 0.18, 1],
-      staggerChildren: 0.1,
-      delayChildren: 0.5
+      staggerChildren: 0.2,
+      delayChildren: 0.5,
+      staggerDirection: -1
     }
   },
   closed: {
@@ -50,7 +51,7 @@ export const NAVBAR_VARIANTS = {
     transition: {
       duration: 2,
       ease: [0.77, 0, 0.18, 1],
-      staggerChildren: 0.1,
+      staggerChildren: 0.2,
       staggerDirection: -1
     },
     transitionEnd: {
