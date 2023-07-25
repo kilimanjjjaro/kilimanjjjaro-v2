@@ -19,6 +19,18 @@ module.exports = {
         'kili-white': '#F8F8F8',
         'kili-dark-gray': '#0C0C0C',
         'kili-light-gray': '#7A7A7A'
+      },
+      animation: {
+        'translate-y': 'translateY 1s ease-in-out both'
+      },
+      keyframes: {
+        translateY: {
+          '0%': { transform: 'translateY(0%)' },
+          '49.9%': { transform: 'translateY(-105%)' },
+          '50%': { transform: 'translateY(105%)' },
+          '50.1%': { transform: 'translateY(105%)' },
+          '100%': { transform: 'translateY(0%)' }
+        }
       }
     }
   },
