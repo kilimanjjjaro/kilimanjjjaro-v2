@@ -26,9 +26,11 @@ export default function ScrollButton() {
       onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
       onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
       initial={{
+        display: 'none',
         opacity: 0
       }}
       animate={{
+        display: 'block',
         opacity: 1
       }}
       transition={{

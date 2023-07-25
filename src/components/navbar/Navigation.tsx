@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { useStore } from '@/store/store'
@@ -7,22 +6,11 @@ import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/constants/variants'
 
 export default function Navigation() {
   const { navBarStatus, setNavBarStatus, setCursorStatus } = useStore()
-  const [animateId, setAnimateId] = useState('')
   const router = useRouter()
 
   const handleClick = async (hash: string) => {
     setNavBarStatus(false)
     router.push(`/#${hash}`)
-  }
-
-  const handleMouseEnter = (id: string) => {
-    setCursorStatus(CURSOR_STATUS.HOVER)
-    setAnimateId(id)
-  }
-
-  const handleMouseLeave = () => {
-    setCursorStatus(CURSOR_STATUS.DEFAULT)
-    setAnimateId('')
   }
 
   return (
@@ -36,41 +24,23 @@ export default function Navigation() {
         {SECTIONS.map((section) => (
           <li key={section.slug} className='overflow-hidden'>
             <motion.button
-              className='text-9xl text-kili-white'
+              className='overflow-hidden text-9xl text-kili-white group'
               variants={NAVBAR_LI_VARIANTS}
               onClick={async () => await handleClick(section.slug)}
-              onMouseEnter={() => handleMouseEnter(section.slug)}
-              onMouseLeave={handleMouseLeave}
+              onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+              onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
             >
-              <motion.span
-                className='block translate-y-0 opacity-0'
-                animate={
-                  animateId === section.slug
-                    ? {
-                        y: ['0%', '-105%', '105%', '105%', '0%'],
-                        opacity: [1, 1, 0, 1, 1]
-                      }
-                    : {
-                        y: '0%',
-                        opacity: 1
-                      }
-                }
-                transition={{
-                  duration: 1,
-                  ease: 'easeInOut',
-                  times: [0, 0.499, 0.5, 0.509, 1]
-                }}
-              >
+              <span className='block group-hover:animate-translate-y'>
                 {section.name}
-              </motion.span>
+              </span>
             </motion.button>
           </li>
         ))}
       </ul>
       <ul className='flex flex-col items-end gap-5'>
-        <li className='overflow-hidden'>
+        <li className='overflow-hidden group'>
           <motion.a
-            className='block text-5xl duration-700 ease-in-out text-kili-white hover:text-kili-light-gray'
+            className='block text-5xl duration-700 ease-in-out text-kili-white group-hover:animate-translate-y'
             href='#'
             onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
             onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
@@ -83,9 +53,9 @@ export default function Navigation() {
             GitHub
           </motion.a>
         </li>
-        <li className='overflow-hidden'>
+        <li className='overflow-hidden group'>
           <motion.a
-            className='block text-5xl duration-700 ease-in-out text-kili-white hover:text-kili-light-gray'
+            className='block text-5xl duration-700 ease-in-out text-kili-white group-hover:animate-translate-y'
             href='#'
             onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
             onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}

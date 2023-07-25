@@ -88,10 +88,10 @@ export default function OtherProjects() {
                   </a>
                   <span className='text-kili-light-gray'>— {project.role}</span>
                 </div>
-                <p className='w-[30%] text-kili-light-gray text-2xl'>
+                <p className='flex-1 text-2xl text-kili-light-gray'>
                   {project.description}
                 </p>
-                <div className='flex gap-2 w-[30%] flex-wrap text-sm text-kili-light-gray'>
+                <div className='flex flex-wrap flex-1 gap-2 text-sm text-kili-light-gray'>
                   {project.stacks.map((stack, index) => (
                     <span
                       key={index}
@@ -101,9 +101,7 @@ export default function OtherProjects() {
                     </span>
                   ))}
                 </div>
-                <p className='w-auto text-2xl text-kili-light-gray'>
-                  {project.year}
-                </p>
+                <p className='text-2xl text-kili-light-gray'>{project.year}</p>
               </motion.div>
               <motion.hr
                 className='w-full h-[2px] border-kili-light-gray origin-left'

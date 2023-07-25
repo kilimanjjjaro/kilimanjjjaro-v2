@@ -23,7 +23,7 @@ export default function TextButton({
     <button
       className={clsx(
         underlined === true &&
-          'relative before:h-[2px] before:scale-x-100 before:absolute mb-2 before:-bottom-2 before:left-0 before:right-0 before:block before:origin-right hover:before:scale-x-0 before:transition-transform before:ease-in hover:before:ease-out before:duration-700 before:delay-700 hover:before:delay-0 after:h-[2px] after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:ease-in hover:after:ease-out after:duration-700 hover:after:delay-700',
+          'relative before:h-[1px] before:scale-x-100 before:absolute mb-2 before:-bottom-2 before:left-0 before:right-0 before:block before:origin-right hover:before:scale-x-0 before:transition-transform before:ease-in hover:before:ease-out before:duration-700 before:delay-700 hover:before:delay-0 after:h-[1px] after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:ease-in hover:after:ease-out after:duration-700 hover:after:delay-700',
         className ?? ''
       )}
       onClick={handler}

@@ -17,7 +17,7 @@ export default function Projects() {
       >
         Projects
       </ParallaxHeadline>
-      <section className='px-40 my-32'>
+      <section className='px-40 my-36'>
         <Paragraph />
         <div className='grid justify-center grid-cols-2 gap-x-[20vw] mt-36'>
           {FEATURED_PROJECTS.map((project) => (

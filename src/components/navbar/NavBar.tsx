@@ -2,9 +2,10 @@
 
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
+import { useLenis } from '@studio-freight/react-lenis'
 import Navigation from '@/components/navbar/Navigation'
 import LanguageSelector from '@/components/navbar/LanguageSelector'
-import TextLink from '@/components/shared/TextLink'
+import TextButton from '@/components/shared/TextButton'
 import useNavBar from '@/hooks/useNavBar'
 import { useStore } from '@/store/store'
 import {
@@ -16,14 +17,23 @@ import { CURSOR_STATUS } from '@/constants/general'
 export default function NavBar() {
   const { navBarStatus, setNavBarStatus, setCursorStatus } = useStore()
   const { isVisible } = useNavBar()
+  const lenis = useLenis()
+
+  const handleGoToTop = () => {
+    lenis.scrollTo(0, {
+      duration: 3
+    })
+  }
 
   return (
     <motion.header
       className='relative z-30'
       initial={{
+        display: 'none',
         opacity: 0
       }}
       animate={{
+        display: 'block',
         opacity: 1
       }}
       transition={{
@@ -33,15 +43,19 @@ export default function NavBar() {
       }}
     >
       <Navigation />
-      <TextLink
+      <h1
         className={clsx(
-          'fixed left-8 top-12 leading-none tracking-wide duration-700 ease-in-out text-kili-light-gray hover:text-kili-white',
+          'fixed left-8 top-12 leading-none tracking-wide duration-1000 ease-in-out text-kili-light-gray hover:text-kili-white group overflow-hidden',
           !isVisible && '-translate-y-16'
         )}
-        href='/#'
       >
-        Kilimanjjjaro
-      </TextLink>
+        <TextButton
+          className='group-hover:animate-translate-y'
+          handler={handleGoToTop}
+        >
+          Kilimanjjjaro
+        </TextButton>
+      </h1>
       <div
         className={clsx(
           'fixed flex items-center gap-8 right-8 top-12 leading-none tracking-wide duration-700 ease-in-out',
