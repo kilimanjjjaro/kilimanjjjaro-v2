@@ -12,7 +12,7 @@ export default function SmoothScroll({ children }: { children: ChildrenType }) {
   useEffect(() => {
     if (lenis === undefined) return
 
-    if (navBarStatus || introRunning) {
+    if (navBarStatus || !introRunning) {
       lenis.stop()
     } else {
       lenis.start()
