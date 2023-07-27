@@ -66,9 +66,9 @@ export default function Footer() {
         </button>
         <ul className='flex flex-col items-end gap-4 mb-5'>
           {SOCIAL_LINKS.map((social) => (
-            <li className='overflow-hidden group' key={social.name}>
+            <li className='overflow-hidden' key={social.name}>
               <a
-                className='block text-kili-light-gray group-hover:animate-translate-y'
+                className='block transition-colors duration-700 ease-in-out text-kili-light-gray hover:text-kili-white'
                 href={social.link}
                 onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
                 onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
@@ -77,9 +77,9 @@ export default function Footer() {
               </a>
             </li>
           ))}
-          <li className='overflow-hidden group'>
+          <li className='overflow-hidden'>
             <button
-              className='block text-kili-light-gray group-hover:animate-translate-y'
+              className='block transition-colors duration-700 ease-in-out text-kili-light-gray hover:text-kili-white'
               onClick={handleGoToTop}
               onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
               onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}

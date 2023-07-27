@@ -45,20 +45,15 @@ export default function NavBar() {
       <Navigation />
       <h1
         className={clsx(
-          'fixed left-8 top-12 leading-none tracking-wide duration-1000 ease-in-out text-kili-light-gray hover:text-kili-white group overflow-hidden',
+          'fixed left-8 top-12 leading-none tracking-wide transition duration-1000 ease-in-out text-kili-light-gray hover:text-kili-white',
           !isVisible && '-translate-y-16'
         )}
       >
-        <TextButton
-          className='group-hover:animate-translate-y'
-          handler={handleGoToTop}
-        >
-          Kilimanjjjaro
-        </TextButton>
+        <TextButton handler={handleGoToTop}>Kilimanjjjaro</TextButton>
       </h1>
       <div
         className={clsx(
-          'fixed flex items-center gap-8 right-8 top-12 leading-none tracking-wide duration-700 ease-in-out',
+          'fixed flex items-center gap-8 right-8 top-12 leading-none transition-transform tracking-wide duration-700 ease-in-out',
           !isVisible && '-translate-y-16'
         )}
       >

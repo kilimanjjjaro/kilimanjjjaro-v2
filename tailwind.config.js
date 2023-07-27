@@ -21,7 +21,7 @@ module.exports = {
         'kili-light-gray': '#7A7A7A'
       },
       animation: {
-        'translate-y': 'translateY 1s ease-in-out both'
+        'translate-y': 'translateY 1s ease-in-out'
       },
       keyframes: {
         translateY: {

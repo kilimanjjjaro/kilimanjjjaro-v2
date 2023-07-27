@@ -28,15 +28,13 @@ export default function LanguageSelector() {
   return (
     <div className='relative flex justify-end'>
       <button
-        className='overflow-hidden leading-none tracking-wide duration-1000 ease-in-out text-kili-light-gray hover:text-kili-white group'
+        className='overflow-hidden leading-none tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray hover:text-kili-white'
         aria-label='Select language'
         onClick={() => setShowSelector(!showSelector)}
         onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
         onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
       >
-        <span className='block group-hover:animate-translate-y'>
-          {selectedLanguage.name}
-        </span>
+        {selectedLanguage.name}
       </button>
       <motion.ul
         className='absolute flex-col items-end hidden gap-3 mt-3 top-full'
@@ -47,7 +45,7 @@ export default function LanguageSelector() {
         {LANGUAGES.map((language) => (
           <li key={language.id} className='overflow-hidden'>
             <motion.button
-              className='overflow-hidden leading-none tracking-wide text-kili-white group'
+              className='overflow-hidden leading-none tracking-wide transition-colors duration-1000 ease-in-out text-kili-white hover:text-kili-light-gray'
               onClick={() => handleClick({ language })}
               onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
               onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
@@ -57,9 +55,7 @@ export default function LanguageSelector() {
                 ease: 'easeInOut'
               }}
             >
-              <span className='block group-hover:animate-translate-y'>
-                {language.name}
-              </span>
+              {language.name}
             </motion.button>
           </li>
         ))}

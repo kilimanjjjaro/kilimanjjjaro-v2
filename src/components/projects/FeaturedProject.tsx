@@ -52,7 +52,7 @@ export default function FeaturedProject({
       onMouseLeave={handleMouseLeave}
     >
       <motion.div
-        className='top-0 left-0 absolute w-full h-full bg-center bg-[length:125%] group-hover:bg-[length:112%] ease-in-out duration-700'
+        className='top-0 left-0 absolute w-full h-full bg-center bg-[length:125%] group-hover:bg-[length:112%] transition-all ease-in-out duration-700'
         style={{ backgroundImage: `url('${project.images.background}')` }}
         initial={{
           clipPath: 'inset(100% 0% 0% 0%)'

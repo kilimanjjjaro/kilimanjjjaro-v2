@@ -21,7 +21,7 @@ export default function ScrollButton() {
 
   return (
     <motion.button
-      className='absolute duration-700 ease-in-out bottom-8 text-kili-light-gray hover:text-kili-white'
+      className='absolute transition-colors duration-700 ease-in-out bottom-8 text-kili-light-gray hover:text-kili-white'
       onClick={handleClick}
       onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
       onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}

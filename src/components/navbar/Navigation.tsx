@@ -40,7 +40,7 @@ export default function Navigation() {
       <ul className='flex flex-col items-end gap-5'>
         <li className='overflow-hidden group'>
           <motion.a
-            className='block text-5xl duration-700 ease-in-out text-kili-white group-hover:animate-translate-y'
+            className='block text-5xl transition-transform duration-700 ease-in-out text-kili-white group-hover:animate-translate-y'
             href='#'
             onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
             onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
@@ -55,7 +55,7 @@ export default function Navigation() {
         </li>
         <li className='overflow-hidden group'>
           <motion.a
-            className='block text-5xl duration-700 ease-in-out text-kili-white group-hover:animate-translate-y'
+            className='block text-5xl transition-transform duration-700 ease-in-out text-kili-white group-hover:animate-translate-y'
             href='#'
             onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
             onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}

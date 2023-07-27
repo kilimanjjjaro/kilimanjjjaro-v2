@@ -116,7 +116,7 @@ export default function OtherProjects() {
               )}
             >
               <Image
-                className='duration-700 ease-in-out translate-y-[101%] group-hover:translate-y-0'
+                className='duration-700 ease-in-out transition-transform translate-y-[101%] group-hover:translate-y-0'
                 src={project.image}
                 alt={project.name}
                 width={400}
@@ -128,7 +128,7 @@ export default function OtherProjects() {
         ))}
       </motion.div>
       <motion.button
-        className='flex items-center gap-2 mt-10 text-2xl duration-700 ease-in-out text-kili-white group'
+        className='flex items-center gap-2 mt-10 text-2xl text-kili-white group'
         onClick={handleShowMore}
         onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
         onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
@@ -139,7 +139,7 @@ export default function OtherProjects() {
         {visibleItems < totalNumberOfProjects.current ? (
           <>
             Load more
-            <PlusIcon className='w-3 duration-700 ease-in-out group-hover:rotate-180' />
+            <PlusIcon className='w-3 transition-transform duration-700 ease-in-out group-hover:rotate-180' />
           </>
         ) : (
           'No more projects. Do you want to be part?'
