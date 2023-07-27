@@ -17,7 +17,7 @@ module.exports = {
       colors: {
         'kili-black': '#090909',
         'kili-white': '#F8F8F8',
-        'kili-dark-gray': '#0C0C0C',
+        'kili-dark-gray': '#0D0D0D',
         'kili-light-gray': '#7A7A7A'
       },
       animation: {
