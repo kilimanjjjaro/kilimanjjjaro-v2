@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, useWillChange } from 'framer-motion'
 import { useLenis } from '@studio-freight/react-lenis'
 import TextButton from '@/components/shared/TextButton'
 import { useStore } from '@/store/store'
@@ -21,7 +21,7 @@ export default function Footer() {
     target: footerEl,
     offset: ['start end', 'end end']
   })
-  const y = useTransform(scrollYProgress, [0, 1], ['-35%', '0%'])
+  const y = useTransform(scrollYProgress, [0, 1], ['-32%', '0%'])
 
   const handleSectionClick = (slug: string) => {
     const elementRef = document.getElementById(slug)
@@ -49,11 +49,7 @@ export default function Footer() {
       ref={footerEl}
       className='px-40 pt-24 pb-16 overflow-hidden bg-kili-black'
     >
-      <motion.div
-        style={{
-          y
-        }}
-      >
+      <motion.div style={{ y }}>
         <ul className='flex justify-between mb-48'>
           {SECTIONS.filter((section) => section.slug !== 'lets-talk').map(
             (section) => (
