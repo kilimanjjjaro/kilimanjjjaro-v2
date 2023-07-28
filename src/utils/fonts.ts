@@ -1,4 +1,5 @@
 import localFont from 'next/font/local'
+import { Fira_Mono } from 'next/font/google'
 
 const neueHaasGroteskDisplay = localFont({
   src: [
@@ -8,7 +9,14 @@ const neueHaasGroteskDisplay = localFont({
       style: 'normal'
     }
   ],
-  variable: '--neue-haas-grotesk-display-font'
+  display: 'swap'
 })
 
-export const neueHaasGroteskDisplayFont = neueHaasGroteskDisplay.variable
+const firaMono = Fira_Mono({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap'
+})
+
+export const neueHaasGroteskDisplayFont = neueHaasGroteskDisplay.className
+export const firaMonoFont = firaMono.className

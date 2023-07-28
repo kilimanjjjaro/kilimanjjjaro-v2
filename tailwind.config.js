@@ -10,15 +10,16 @@ module.exports = {
       fontSize: {
         '10xl': ['10rem', '1']
       },
-      fontFamily: {
-        'neue-haas-grotesk-display':
-          'var(--neue-haas-grotesk-display-font), system-ui, sans-serif'
-      },
       colors: {
         'kili-black': '#090909',
         'kili-white': '#F8F8F8',
         'kili-dark-gray': '#0D0D0D',
         'kili-light-gray': '#7A7A7A'
+      },
+      boxShadow: {
+        lg: [
+          '0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4)'
+        ]
       },
       animation: {
         'translate-y': 'translateY 1s ease-in-out'

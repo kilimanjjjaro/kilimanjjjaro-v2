@@ -14,7 +14,7 @@ const SOCIAL_LINKS = [
 ]
 
 export default function Footer() {
-  const { setCursorStatus } = useStore()
+  const { setCursorStatus, setShowContactForm } = useStore()
   const footerEl = useRef<HTMLElement>(null)
   const lenis = useLenis()
   const { scrollYProgress } = useScroll({
@@ -23,7 +23,7 @@ export default function Footer() {
   })
   const y = useTransform(scrollYProgress, [0, 1], ['-32%', '0%'])
 
-  const handleSectionClick = (slug: string) => {
+  const handleClick = (slug: string) => {
     const elementRef = document.getElementById(slug)
 
     if (elementRef != null) {
@@ -31,16 +31,6 @@ export default function Footer() {
         duration: 2
       })
     }
-  }
-
-  const handleLetsTalk = () => {
-    console.log('clicked')
-  }
-
-  const handleGoToTop = () => {
-    lenis.scrollTo(0, {
-      duration: 4
-    })
   }
 
   return (
@@ -56,7 +46,7 @@ export default function Footer() {
               <li key={section.slug}>
                 <TextButton
                   className='text-3xl text-kili-white before:bg-kili-white after:bg-kili-white'
-                  handler={() => handleSectionClick(section.slug)}
+                  handler={() => handleClick(section.slug)}
                   underlined
                 >
                   {section.name}
@@ -68,7 +58,7 @@ export default function Footer() {
         <div className='flex items-end justify-between'>
           <button
             className='overflow-hidden group'
-            onClick={handleLetsTalk}
+            onClick={() => setShowContactForm(true)}
             onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
             onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
           >
@@ -93,7 +83,7 @@ export default function Footer() {
             <li className='overflow-hidden'>
               <button
                 className='block transition-colors duration-700 ease-in-out text-kili-light-gray hover:text-kili-white'
-                onClick={handleGoToTop}
+                onClick={() => lenis.scrollTo(0, { duration: 4 })}
                 onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
                 onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
               >

@@ -21,5 +21,7 @@ export const useStore = create<StoreInterface>((set) => ({
   cursorStatus: 'default',
   setCursorStatus: (cursorStatus) => set(() => ({ cursorStatus })),
   swiperInstance: null,
-  setSwiperInstance: (swiperInstance) => set(() => ({ swiperInstance }))
+  setSwiperInstance: (swiperInstance) => set(() => ({ swiperInstance })),
+  showContactForm: false,
+  setShowContactForm: (showContactForm) => set(() => ({ showContactForm }))
 }))

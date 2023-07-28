@@ -19,15 +19,9 @@ export default function NavBar() {
   const { isVisible } = useNavBar()
   const lenis = useLenis()
 
-  const handleGoToTop = () => {
-    lenis.scrollTo(0, {
-      duration: 3
-    })
-  }
-
   return (
     <motion.header
-      className='relative z-30'
+      className='relative z-50'
       initial={{
         display: 'none',
         opacity: 0
@@ -49,7 +43,9 @@ export default function NavBar() {
           !isVisible && '-translate-y-16'
         )}
       >
-        <TextButton handler={handleGoToTop}>Kilimanjjjaro</TextButton>
+        <TextButton handler={() => lenis.scrollTo(0, { duration: 3 })}>
+          Kilimanjjjaro
+        </TextButton>
       </h1>
       <div
         className={clsx(

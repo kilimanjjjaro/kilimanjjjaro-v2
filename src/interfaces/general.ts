@@ -21,6 +21,8 @@ export interface StoreInterface {
   ) => void
   swiperInstance: Swiper | null
   setSwiperInstance: (swiperInstance: Swiper) => void
+  showContactForm: boolean
+  setShowContactForm: (showContactForm: boolean) => void
 }
 
 export interface StackInterface {
