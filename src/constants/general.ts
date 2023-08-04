@@ -36,5 +36,6 @@ export const STACKS: StackInterface[] = [
 export const CURSOR_STATUS = {
   DEFAULT: 'default',
   HIDDEN: 'hidden',
-  HOVER: 'hover'
+  HOVER: 'hover',
+  FEATURED: 'featured'
 }

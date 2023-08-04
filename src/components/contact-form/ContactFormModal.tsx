@@ -15,7 +15,7 @@ export default function ContactFormModal() {
       {showContactForm && (
         <motion.div
           ref={dragConstraintsRef}
-          className='fixed inset-0 z-40 flex items-center justify-center pointer-events-none'
+          className='fixed inset-0 z-50 flex items-center justify-center pointer-events-none'
         >
           <motion.div
             drag

@@ -18,11 +18,12 @@ module.exports = {
       },
       boxShadow: {
         lg: [
-          '0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4)'
+          '0 10px 16px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5)'
         ]
       },
       animation: {
-        'translate-y': 'translateY 1s ease-in-out'
+        'translate-y': 'translateY 1s ease-in-out',
+        typing: 'blink 1.2s step-start infinite'
       },
       keyframes: {
         translateY: {
@@ -31,6 +32,9 @@ module.exports = {
           '50%': { transform: 'translateY(105%)' },
           '50.1%': { transform: 'translateY(105%)' },
           '100%': { transform: 'translateY(0%)' }
+        },
+        blink: {
+          '50%': { opacity: 0 }
         }
       }
     }
