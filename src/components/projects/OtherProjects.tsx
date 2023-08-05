@@ -15,16 +15,16 @@ import { OTHER_PROJECTS } from '@/constants/projects'
 import { CURSOR_STATUS } from '@/constants/general'
 
 export default function OtherProjects() {
+  const { setCursorStatus, setShowContactForm } = useStore()
   const sectionEl = useRef<HTMLElement>(null)
   const totalNumberOfProjects = useRef(OTHER_PROJECTS.length)
-  const { setCursorStatus } = useStore()
   const [visibleItems, setVisibleItems] = useState(3)
   const isInView = useInView(sectionEl, { once: true })
 
   const handleShowMore = () => {
     setVisibleItems((prevItems) => prevItems + 1)
 
-    if (visibleItems >= totalNumberOfProjects.current) console.log('Contact')
+    if (visibleItems >= totalNumberOfProjects.current) setShowContactForm(true)
   }
 
   return (

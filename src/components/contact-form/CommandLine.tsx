@@ -39,7 +39,7 @@ export default function CommandLine() {
   }, [])
 
   return (
-    <div className='flex flex-col gap-6'>
+    <div className='flex flex-col w-full h-full gap-6'>
       <div>
         <p className='text-kili-light-gray'>~/kilimanjjjaro/src</p>
         <div className='text-lg text-kili-white'>

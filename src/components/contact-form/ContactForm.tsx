@@ -1,12 +1,13 @@
+import { useEffect, useState } from 'react'
+import clsx from 'clsx'
 import { motion } from 'framer-motion'
+import FocusTrap from 'focus-trap-react'
 import CommandLine from '@/components/contact-form/CommandLine'
 import Fields from '@/components/contact-form/Fields'
 import { useStore } from '@/store/store'
+import { ArrowRightIcon } from '@/icons/ArrowRightIcon'
 import { firaMonoFont } from '@/utils/fonts'
 import { CURSOR_STATUS } from '@/constants/general'
-import FocusTrap from 'focus-trap-react'
-import { useEffect, useState } from 'react'
-import { ArrowRightIcon } from '@/icons/ArrowRightIcon'
 
 interface Props {
   handleDrag: React.PointerEventHandler<HTMLElement>
@@ -15,6 +16,43 @@ interface Props {
 export default function ContactForm({ handleDrag }: Props) {
   const { setShowContactForm, setCursorStatus } = useStore()
   const [renderFields, setRenderFields] = useState(false)
+  const [step, setStep] = useState(1)
+  const [error, setError] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    async function delay(): Promise<void> {
+      await new Promise((resolve) => setTimeout(resolve, 3000))
+    }
+
+    setIsLoading(true)
+    await delay()
+
+    try {
+      const form = event.target as HTMLFormElement
+
+      const status: number = 400
+
+      if (status === 200) {
+        setSuccess(true)
+        setError(false)
+        form.reset()
+      } else {
+        throw new Error('Something went wrong')
+      }
+    } catch (err) {
+      setError(true)
+    } finally {
+      setIsLoading(false)
+
+      setTimeout(() => {
+        setSuccess(false)
+      }, 3000)
+    }
+  }
 
   const handleCloseClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -36,7 +74,7 @@ export default function ContactForm({ handleDrag }: Props) {
   return (
     <FocusTrap>
       <motion.form
-        onSubmit={() => console.log('Sending')}
+        onSubmit={handleSubmit}
         className='w-[700px] bg-[#030303] relative rounded-md overflow-hidden shadow-lg pointer-events-auto'
         initial={{
           y: '90dvh',
@@ -50,12 +88,12 @@ export default function ContactForm({ handleDrag }: Props) {
           y: '90dvh',
           scale: 0.5,
           transition: {
-            duration: 0.7,
+            duration: 1,
             ease: 'easeInOut'
           }
         }}
         transition={{
-          duration: 0.7,
+          duration: 1,
           ease: 'easeInOut'
         }}
       >
@@ -76,17 +114,52 @@ export default function ContactForm({ handleDrag }: Props) {
         </motion.header>
         <main
           data-lenis-prevent
-          className={`relative p-9 h-[55dvh] overflow-y-auto ${firaMonoFont} contact-form-scrollbar overscroll-contain`}
+          className={`relative flex items-center justify-center p-9 h-[55dvh] overflow-y-auto ${firaMonoFont} contact-form-scrollbar overscroll-contain`}
         >
           {!renderFields && <CommandLine />}
-          {renderFields && <Fields />}
+          {renderFields && (
+            <div className='flex flex-col w-full h-full gap-6 py-6'>
+              <div
+                className={clsx(
+                  'absolute top-0 left-0 flex items-center justify-between bg-[#00ff00] w-full h-6 px-4 text-sm',
+                  error && 'bg-red-600'
+                )}
+              >
+                <span>GNU nano 2.8.4</span>
+                {step <= 2 && !error && (
+                  <span>Please, fill in the form =)</span>
+                )}
+                {step === 3 && !error && (
+                  <span>You can press Tab + Enter to send</span>
+                )}
+                {error && <span>Something went wrong =(</span>}
+              </div>
+              <Fields step={step} setStep={setStep} />
+            </div>
+          )}
         </main>
         {renderFields && (
           <button
-            type='submit'
-            className='flex absolute bottom-8 right-9 items-center gap-2 text-lg text-kili-white bg-[#030303] py-1 px-3 rounded-sm hover:bg-kili-light-gray hover:text-kili-black transition-colors duration-700 ease-in-out'
+            className={clsx(
+              'flex absolute bottom-8 right-9 items-center gap-2 text-lg text-kili-white bg-[#030303] py-1 px-3 hover:bg-kili-light-gray hover:text-kili-black transition-colors duration-700 ease-in-out',
+              isLoading && 'cursor-not-allowed animate-pulse'
+            )}
+            disabled={isLoading}
           >
-            Send message <ArrowRightIcon className='w-3' />
+            {error && !isLoading && (
+              <>
+                Try again!
+                <ArrowRightIcon className='w-3' />
+              </>
+            )}
+            {!error && !success && !isLoading && (
+              <>
+                Send message
+                <ArrowRightIcon className='w-3' />
+              </>
+            )}
+            {success && !error && 'Sent!'}
+            {isLoading && 'Sending...'}
           </button>
         )}
       </motion.form>
