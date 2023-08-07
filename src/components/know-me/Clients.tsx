@@ -3,21 +3,7 @@ import {
   OTHER_PROJECT_HR_VARIANTS,
   OTHER_PROJECT_VARIANTS
 } from '@/constants/variants'
-
-const CLIENTS = [
-  'Royal Enfield',
-  'Royal Enfield',
-  'Royal Enfield',
-  'Royal Enfield',
-  'Royal Enfield',
-  'Royal Enfield',
-  'Royal Enfield',
-  'Royal Enfield',
-  'Royal Enfield',
-  'Royal Enfield',
-  'Royal Enfield',
-  'Royal Enfield'
-]
+import { CLIENTS } from '@/constants/know-me'
 
 export default function Clients() {
   return (

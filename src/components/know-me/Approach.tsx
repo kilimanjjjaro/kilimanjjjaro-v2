@@ -3,24 +3,7 @@ import {
   OTHER_PROJECT_HR_VARIANTS,
   OTHER_PROJECT_VARIANTS
 } from '@/constants/variants'
-
-const APPROACH = [
-  {
-    title: 'Front end Development',
-    description:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia, Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit.'
-  },
-  {
-    title: 'Back end Development',
-    description:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia, Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit.'
-  },
-  {
-    title: 'Mobile & Web Design',
-    description:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia, Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit.'
-  }
-]
+import { APPROACH } from '@/constants/know-me'
 
 export default function Approach() {
   return (

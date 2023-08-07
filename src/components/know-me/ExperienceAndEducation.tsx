@@ -3,29 +3,7 @@ import {
   OTHER_PROJECT_HR_VARIANTS,
   OTHER_PROJECT_VARIANTS
 } from '@/constants/variants'
-
-const EXPERIENCE_AND_EDUCATION = [
-  {
-    year: '2011 — 2017',
-    name: 'Graphic Design'
-  },
-  {
-    year: '2011 — 2017',
-    name: 'Graphic Design'
-  },
-  {
-    year: '2011 — 2017',
-    name: 'Graphic Design'
-  },
-  {
-    year: '2011 — 2017',
-    name: 'Graphic Design'
-  },
-  {
-    year: '2011 — 2017',
-    name: 'Graphic Design'
-  }
-]
+import { EXPERIENCE_AND_EDUCATION } from '@/constants/know-me'
 
 export default function ExperienceAndEducation() {
   return (

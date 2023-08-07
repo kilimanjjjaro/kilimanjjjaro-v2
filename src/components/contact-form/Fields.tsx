@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import { useStore } from '@/store/store'
+import { CURSOR_STATUS } from '@/constants/general'
 
 interface Props {
   step: number
@@ -58,8 +59,8 @@ export default function Fields({ step, setStep }: Props) {
         <input
           ref={nameInputRef}
           onKeyDown={(event) => handleKeyDown({ event, nextStep: 2 })}
-          onMouseEnter={() => setCursorStatus('hover')}
-          onMouseLeave={() => setCursorStatus('default')}
+          onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+          onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
           className='text-lg placeholder-opacity-100 bg-transparent outline-none text-kili-white focus:outline-none'
           type='text'
           name='name'
@@ -70,8 +71,8 @@ export default function Fields({ step, setStep }: Props) {
         Your email:
         <input
           ref={emailInputRef}
-          onMouseEnter={() => setCursorStatus('hover')}
-          onMouseLeave={() => setCursorStatus('default')}
+          onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+          onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
           onKeyDown={(event) => handleKeyDown({ event, nextStep: 3 })}
           className='text-lg placeholder-opacity-100 bg-transparent outline-none text-kili-white focus:outline-none'
           type='email'
@@ -83,8 +84,8 @@ export default function Fields({ step, setStep }: Props) {
         Your message:
         <textarea
           ref={textAreaRef}
-          onMouseEnter={() => setCursorStatus('hover')}
-          onMouseLeave={() => setCursorStatus('default')}
+          onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+          onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
           onChange={handleChange}
           onKeyDown={(event) => handleKeyDown({ event, nextStep: 4 })}
           className='text-lg bg-transparent outline-none resize-none h-7 text-kili-white focus:outline-none peer/message'
