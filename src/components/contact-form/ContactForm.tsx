@@ -141,10 +141,12 @@ export default function ContactForm({ handleDrag }: Props) {
         {renderFields && (
           <button
             className={clsx(
-              'flex absolute bottom-8 right-9 items-center gap-2 text-lg text-kili-white bg-[#030303] py-1 px-3 hover:bg-kili-light-gray hover:text-kili-black transition-colors duration-700 ease-in-out',
+              'flex absolute bottom-8 right-9 items-center gap-2 text-lg text-kili-white bg-[#030303] py-1 px-3',
               isLoading && 'cursor-not-allowed animate-pulse'
             )}
             disabled={isLoading}
+            onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+            onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
           >
             {error && !isLoading && (
               <>

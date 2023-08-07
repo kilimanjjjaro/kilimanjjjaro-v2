@@ -35,7 +35,7 @@ export default function SkillsCarousel() {
   return (
     <div
       ref={sectionEl}
-      className='relative px-40'
+      className='relative px-40 cursor-none'
       onMouseMove={(event) => handleMouseMove(event)}
       onMouseEnter={() => handleMouse(true)}
       onMouseLeave={() => handleMouse(false)}
@@ -46,7 +46,7 @@ export default function SkillsCarousel() {
         onSlideChange={handleChange}
         slidesPerView='auto'
         spaceBetween={144}
-        speed={500}
+        speed={700}
       >
         <SwiperSlide className='group'>
           <Icons.ReactIcon />

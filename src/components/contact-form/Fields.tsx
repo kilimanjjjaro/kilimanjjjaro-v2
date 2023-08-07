@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { useStore } from '@/store/store'
 
 interface Props {
   step: number
@@ -8,6 +9,7 @@ interface Props {
 }
 
 export default function Fields({ step, setStep }: Props) {
+  const { setCursorStatus } = useStore()
   const textAreaRef = useRef<HTMLTextAreaElement>(null)
   const nameInputRef = useRef<HTMLInputElement>(null)
   const emailInputRef = useRef<HTMLInputElement>(null)
@@ -54,8 +56,10 @@ export default function Fields({ step, setStep }: Props) {
       <label className='flex flex-col transition-colors duration-700 ease-in-out text-kili-light-gray focus-within:text-kili-white'>
         Your name:
         <input
-          onKeyDown={(event) => handleKeyDown({ event, nextStep: 2 })}
           ref={nameInputRef}
+          onKeyDown={(event) => handleKeyDown({ event, nextStep: 2 })}
+          onMouseEnter={() => setCursorStatus('hover')}
+          onMouseLeave={() => setCursorStatus('default')}
           className='text-lg placeholder-opacity-100 bg-transparent outline-none text-kili-white focus:outline-none'
           type='text'
           name='name'
@@ -66,6 +70,8 @@ export default function Fields({ step, setStep }: Props) {
         Your email:
         <input
           ref={emailInputRef}
+          onMouseEnter={() => setCursorStatus('hover')}
+          onMouseLeave={() => setCursorStatus('default')}
           onKeyDown={(event) => handleKeyDown({ event, nextStep: 3 })}
           className='text-lg placeholder-opacity-100 bg-transparent outline-none text-kili-white focus:outline-none'
           type='email'
@@ -77,6 +83,8 @@ export default function Fields({ step, setStep }: Props) {
         Your message:
         <textarea
           ref={textAreaRef}
+          onMouseEnter={() => setCursorStatus('hover')}
+          onMouseLeave={() => setCursorStatus('default')}
           onChange={handleChange}
           onKeyDown={(event) => handleKeyDown({ event, nextStep: 4 })}
           className='text-lg bg-transparent outline-none resize-none h-7 text-kili-white focus:outline-none peer/message'
