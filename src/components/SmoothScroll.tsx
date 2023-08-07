@@ -6,18 +6,18 @@ import { useStore } from '@/store/store'
 import type { ChildrenType } from '@/interfaces/general'
 
 export default function SmoothScroll({ children }: { children: ChildrenType }) {
-  const { navBarStatus, introRunning } = useStore()
+  const { navBarStatus } = useStore()
   const lenis = useLenis()
 
   useEffect(() => {
     if (lenis === undefined) return
 
-    if (navBarStatus || !introRunning) {
+    if (navBarStatus) {
       lenis.stop()
     } else {
       lenis.start()
     }
-  }, [lenis, navBarStatus, introRunning])
+  }, [lenis, navBarStatus])
 
   return (
     <ReactLenis root options={{ duration: 2 }}>

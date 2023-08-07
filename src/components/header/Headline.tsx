@@ -13,8 +13,7 @@ export default function Headline() {
       }}
       transition={{
         duration: 3,
-        ease: [0.17, 0.84, 0.44, 1],
-        delay: 5.1
+        ease: [0.17, 0.84, 0.44, 1]
       }}
     >
       <h2 className='text-kili-white text-[200px] flex flex-col leading-[1.03]'>
@@ -22,7 +21,7 @@ export default function Headline() {
           <motion.span
             className='block'
             initial={{
-              y: '100%',
+              y: '112%',
               rotate: 4
             }}
             animate={{
@@ -31,8 +30,7 @@ export default function Headline() {
             }}
             transition={{
               duration: 3,
-              ease: [0.17, 0.84, 0.44, 1],
-              delay: 5.1
+              ease: [0.17, 0.84, 0.44, 1]
             }}
           >
             Thinking{' '}
@@ -42,7 +40,7 @@ export default function Headline() {
           <motion.span
             className='flex items-center ml-64 gap-x-1'
             initial={{
-              y: '100%',
+              y: '110%',
               rotate: 4
             }}
             animate={{
@@ -52,7 +50,7 @@ export default function Headline() {
             transition={{
               duration: 3,
               ease: [0.17, 0.84, 0.44, 1],
-              delay: 5.4
+              delay: 0.3
             }}
           >
             future <span className='-mr-[6px]'>—</span> proof
@@ -62,7 +60,7 @@ export default function Headline() {
           <motion.span
             className='block'
             initial={{
-              y: '100%',
+              y: '110%',
               rotate: 4
             }}
             animate={{
@@ -72,7 +70,7 @@ export default function Headline() {
             transition={{
               duration: 3,
               ease: [0.17, 0.84, 0.44, 1],
-              delay: 5.7
+              delay: 0.5
             }}
           >
             experiences.

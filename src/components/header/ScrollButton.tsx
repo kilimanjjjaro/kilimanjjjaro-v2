@@ -36,7 +36,7 @@ export default function ScrollButton() {
       transition={{
         duration: 3,
         ease: 'easeIn',
-        delay: 5.5
+        delay: 1.5
       }}
     >
       Scroll
