@@ -36,7 +36,6 @@ export const NAVBAR_VARIANTS = {
   open: {
     y: '0%',
     display: 'flex',
-    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
     transition: {
       duration: 2,
       ease: [0.77, 0, 0.18, 1],
@@ -47,7 +46,6 @@ export const NAVBAR_VARIANTS = {
   },
   closed: {
     y: '100%',
-    clipPath: 'polygon(0% 0%, 100% 8%, 100% 100%, 0% 100%)',
     transition: {
       duration: 2,
       ease: [0.77, 0, 0.18, 1],

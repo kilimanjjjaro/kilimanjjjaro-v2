@@ -16,6 +16,9 @@ module.exports = {
         'kili-dark-gray': '#0D0D0D',
         'kili-light-gray': '#7A7A7A'
       },
+      transitionTimingFunction: {
+        'kili-in': 'cubic-bezier(0.77, 0, 0.18, 1)'
+      },
       boxShadow: {
         lg: [
           '0 10px 16px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5)'

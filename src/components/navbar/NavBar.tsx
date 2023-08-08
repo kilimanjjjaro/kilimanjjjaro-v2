@@ -1,11 +1,11 @@
 'use client'
 
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
-import { useLenis } from '@studio-freight/react-lenis'
 import Navigation from '@/components/navbar/Navigation'
 import LanguageSelector from '@/components/navbar/LanguageSelector'
-import TextButton from '@/components/shared/TextButton'
+import TextLink from '@/components/shared/TextLink'
 import useNavBar from '@/hooks/useNavBar'
 import { useStore } from '@/store/store'
 import {
@@ -17,7 +17,20 @@ import { CURSOR_STATUS } from '@/constants/general'
 export default function NavBar() {
   const { navBarStatus, setNavBarStatus, setCursorStatus } = useStore()
   const { isVisible } = useNavBar()
-  const lenis = useLenis()
+
+  useEffect(() => {
+    const mainElement = document.querySelector('main')
+
+    if (mainElement === null) return
+
+    if (navBarStatus) {
+      mainElement.classList.add('-translate-y-3')
+      mainElement.classList.add('scale-[1.3]')
+    } else {
+      mainElement.classList.remove('-translate-y-3')
+      mainElement.classList.remove('scale-[1.3]')
+    }
+  }, [navBarStatus])
 
   return (
     <motion.header
@@ -43,9 +56,7 @@ export default function NavBar() {
           !isVisible && '-translate-y-16'
         )}
       >
-        <TextButton handler={() => lenis.scrollTo(0, { duration: 3 })}>
-          Kilimanjjjaro
-        </TextButton>
+        <TextLink href='/'>Kilimanjjjaro</TextLink>
       </h1>
       <div
         className={clsx(
