@@ -5,7 +5,7 @@ import KnowMe from '@/components/sections/KnowMe'
 
 export default function Home() {
   return (
-    <main className='transition-transform duration-[2s] ease-kili-in'>
+    <main>
       <Header />
       <Introducing />
       <Projects />

@@ -8,6 +8,7 @@ import { useStore } from '@/store/store'
 import FeaturedProjectName from '@/components/projects/FeaturedProjectName'
 import type { FeaturedProjectInterface } from '@/interfaces/general'
 import { CURSOR_STATUS } from '@/constants/general'
+import Link from 'next/link'
 
 export default function FeaturedProject({
   className,
@@ -42,75 +43,77 @@ export default function FeaturedProject({
   }
 
   return (
-    <article
-      ref={projectEl}
-      className={clsx(
-        'relative flex justify-center items-center aspect-[18/25] p-5 group cursor-none',
-        className
-      )}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <motion.div
-        className='top-0 left-0 absolute w-full h-full bg-center bg-[length:125%] group-hover:bg-[length:112%] transition-all ease-in-out duration-700'
-        style={{ backgroundImage: `url('${project.images.background}')` }}
-        initial={{
-          clipPath: 'inset(100% 0% 0% 0%)'
-        }}
-        animate={
-          isInView && {
-            clipPath: 'inset(0% 0% 0% 0%)'
-          }
-        }
-        transition={{
-          duration: 2.5,
-          ease: [0.17, 0.84, 0.44, 1]
-        }}
-      />
-      <motion.div
-        initial={{
-          opacity: 0
-        }}
-        animate={
-          isInView && {
-            opacity: 1
-          }
-        }
-        transition={{
-          duration: 2,
-          ease: 'easeInOut',
-          delay: 0.5
-        }}
+    <Link href={`/project/${project.slug}`}>
+      <article
+        ref={projectEl}
+        className={clsx(
+          'relative flex justify-center items-center aspect-[18/25] p-5 group cursor-none',
+          className
+        )}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
-        <Image
-          className='w-full h-auto transition-transform duration-700 ease-in-out scale-90 aspect-video group-hover:scale-100'
-          src={project.images.poster}
-          alt={project.name}
-          width={640}
-          height={360}
-          quality={90}
-        />
-      </motion.div>
-      <FeaturedProjectName projectId={project.id} isHovered={isHovered}>
-        {project.name}
-      </FeaturedProjectName>
-      <span className='absolute right-0 overflow-hidden text-xl leading-none top-full text-kili-white'>
-        <motion.span
-          className='block pt-4'
+        <motion.div
+          className='top-0 left-0 absolute w-full h-full bg-center bg-[length:125%] group-hover:bg-[length:112%] transition-all ease-in-out duration-700'
+          style={{ backgroundImage: `url('${project.images.background}')` }}
           initial={{
-            y: '-105%'
+            clipPath: 'inset(100% 0% 0% 0%)'
           }}
-          animate={{
-            y: isHovered === project.id ? '0%' : '-105%'
-          }}
+          animate={
+            isInView && {
+              clipPath: 'inset(0% 0% 0% 0%)'
+            }
+          }
           transition={{
-            duration: 0.7,
-            ease: 'easeInOut'
+            duration: 2.5,
+            ease: [0.17, 0.84, 0.44, 1]
+          }}
+        />
+        <motion.div
+          initial={{
+            opacity: 0
+          }}
+          animate={
+            isInView && {
+              opacity: 1
+            }
+          }
+          transition={{
+            duration: 2,
+            ease: 'easeInOut',
+            delay: 0.5
           }}
         >
-          {project.role}
-        </motion.span>
-      </span>
-    </article>
+          <Image
+            className='w-full h-auto transition-transform duration-700 ease-in-out scale-90 aspect-video group-hover:scale-100'
+            src={project.images.poster}
+            alt={project.name}
+            width={640}
+            height={360}
+            quality={90}
+          />
+        </motion.div>
+        <FeaturedProjectName projectId={project.id} isHovered={isHovered}>
+          {project.name}
+        </FeaturedProjectName>
+        <span className='absolute right-0 overflow-hidden text-xl leading-none top-full text-kili-white'>
+          <motion.span
+            className='block pt-4'
+            initial={{
+              y: '-105%'
+            }}
+            animate={{
+              y: isHovered === project.id ? '0%' : '-105%'
+            }}
+            transition={{
+              duration: 0.7,
+              ease: 'easeInOut'
+            }}
+          >
+            {project.role}
+          </motion.span>
+        </span>
+      </article>
+    </Link>
   )
 }

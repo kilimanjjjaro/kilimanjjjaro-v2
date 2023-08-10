@@ -2,8 +2,8 @@ import NavBar from '@/components/navbar/NavBar'
 import ContactFormModal from '@/components/contact-form/ContactFormModal'
 import Footer from '@/components/footer/Footer'
 import ScrollPercentage from '@/components/ScrollPercentage'
-import SmoothScroll from '@/components/SmoothScroll'
 import CustomCursor from '@/components/CustomCursor'
+import SmoothScroll from '@/components/SmoothScroll'
 import { neueHaasGroteskDisplayFont } from '@/utils/fonts'
 import type { ChildrenType } from '@/interfaces/general'
 import '@/app/globals.css'
@@ -18,10 +18,15 @@ export default function RootLayout({ children }: { children: ChildrenType }) {
       <body
         className={`bg-kili-black font-neue-haas-grotesk-display antialiased ${neueHaasGroteskDisplayFont}`}
       >
-        <ContactFormModal />
         <NavBar />
-        <SmoothScroll>{children}</SmoothScroll>
-        <Footer />
+        <div
+          id='page-wrapper'
+          className='transition-transform duration-[2s] ease-kili-in'
+        >
+          <SmoothScroll>{children}</SmoothScroll>
+          <Footer />
+          <ContactFormModal />
+        </div>
         <ScrollPercentage />
         <CustomCursor />
       </body>

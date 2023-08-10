@@ -13,22 +13,23 @@ import {
   NAVBAR_BUTTON_TWO_VARIANTS
 } from '@/constants/variants'
 import { CURSOR_STATUS } from '@/constants/general'
+import Link from 'next/link'
 
 export default function NavBar() {
   const { navBarStatus, setNavBarStatus, setCursorStatus } = useStore()
   const { isVisible } = useNavBar()
 
   useEffect(() => {
-    const mainElement = document.querySelector('main')
+    const wrapperEl = document.getElementById('page-wrapper')
 
-    if (mainElement === null) return
+    if (wrapperEl === null) return
 
     if (navBarStatus) {
-      mainElement.classList.add('-translate-y-3')
-      mainElement.classList.add('scale-[1.3]')
+      wrapperEl.classList.add('-translate-y-3')
+      wrapperEl.classList.add('scale-[1.3]')
     } else {
-      mainElement.classList.remove('-translate-y-3')
-      mainElement.classList.remove('scale-[1.3]')
+      wrapperEl.classList.remove('-translate-y-3')
+      wrapperEl.classList.remove('scale-[1.3]')
     }
   }, [navBarStatus])
 
@@ -64,6 +65,12 @@ export default function NavBar() {
           !isVisible && '-translate-y-16'
         )}
       >
+        <Link
+          className='leading-none tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray hover:text-kili-white'
+          href='/project/wrkload'
+        >
+          Test page transition
+        </Link>
         <LanguageSelector />
         <button
           className='flex flex-col gap-2 cursor-pointer group'
