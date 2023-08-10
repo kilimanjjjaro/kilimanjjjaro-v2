@@ -49,12 +49,15 @@ export interface FeaturedProjectInterface {
   description: string
   stacks: string[]
   role: string
-  images: {
+  presentation: {
     background: string
     poster: string
+    heroVideo: string
   }
+  gallery: string[]
   backgroundColor: string
   year: string
+  link: string
 }
 
 export interface OtherProjectInterface {

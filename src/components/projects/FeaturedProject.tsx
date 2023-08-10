@@ -55,7 +55,9 @@ export default function FeaturedProject({
       >
         <motion.div
           className='top-0 left-0 absolute w-full h-full bg-center bg-[length:125%] group-hover:bg-[length:112%] transition-all ease-in-out duration-700'
-          style={{ backgroundImage: `url('${project.images.background}')` }}
+          style={{
+            backgroundImage: `url('${project.presentation.background}')`
+          }}
           initial={{
             clipPath: 'inset(100% 0% 0% 0%)'
           }}
@@ -86,7 +88,7 @@ export default function FeaturedProject({
         >
           <Image
             className='w-full h-auto transition-transform duration-700 ease-in-out scale-90 aspect-video group-hover:scale-100'
-            src={project.images.poster}
+            src={project.presentation.poster}
             alt={project.name}
             width={640}
             height={360}

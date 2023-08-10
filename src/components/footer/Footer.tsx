@@ -37,7 +37,7 @@ export default function Footer() {
     <footer
       id='lets-talk'
       ref={footerEl}
-      className='px-40 pt-24 pb-16 overflow-hidden bg-kili-black'
+      className='px-40 pt-24 pb-16 overflow-hidden'
     >
       <motion.div initial={{ y: 0 }} style={{ y }}>
         <ul className='flex justify-between mb-48'>
