@@ -46,7 +46,8 @@ export interface FeaturedProjectInterface {
   id: number
   name: string
   slug: string
-  description: string
+  headerDescription: string
+  sectionDescription: string
   stacks: string[]
   role: string
   presentation: {

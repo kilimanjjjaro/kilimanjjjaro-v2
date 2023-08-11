@@ -8,11 +8,21 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     id: 1,
     name: 'wrkload',
     slug: 'wrkload',
-    description:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia. Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia. Donec blandit, ligula quis lacinia.',
-    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
+    headerDescription:
+      "wrkload is a web app where you can track what you've worked on in a simple and organized way. You can control in detail the time you worked on a project and extra data associated with it. All in the same place.",
+    sectionDescription:
+      'The dark mode was designed and developed throughout the application for a more relaxed and focused user experience.',
+    stacks: [
+      'Next JS',
+      'TypeScript',
+      'Tailwind',
+      'Node JS',
+      'MongoDB',
+      'Express',
+      'Figma'
+    ],
     role: 'UX/UI Design — Frontend & Backend Development',
-    year: '2021',
+    year: '2023',
     backgroundColor: '#7686b7',
     link: '/#',
     presentation: {
@@ -34,8 +44,10 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     id: 2,
     name: 'Royal Enfield',
     slug: 'royal-enfield',
-    description:
+    headerDescription:
       'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia. Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia. Donec blandit, ligula quis lacinia.',
+    sectionDescription:
+      'The dark mode was designed and developed throughout the application.',
     stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
     role: 'UX/UI Design — Frontend & Backend Development',
     year: '2021',
@@ -60,8 +72,10 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     id: 3,
     name: 'wrkload',
     slug: 'wrkload-2',
-    description:
+    headerDescription:
       'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia. Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia. Donec blandit, ligula quis lacinia.',
+    sectionDescription:
+      'The dark mode was designed and developed throughout the application.',
     stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
     role: 'UX/UI Design — Frontend & Backend Development',
     year: '2021',
@@ -86,8 +100,10 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     id: 4,
     name: 'Royal Enfield',
     slug: 'royal-enfield-2',
-    description:
+    headerDescription:
       'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia. Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia. Donec blandit, ligula quis lacinia.',
+    sectionDescription:
+      'The dark mode was designed and developed throughout the application.',
     stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
     role: 'UX/UI Design — Frontend & Backend Development',
     year: '2021',

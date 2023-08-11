@@ -1,3 +1,4 @@
+import Balancer from 'react-wrap-balancer'
 import ParallaxHeadline from '@/components/shared/ParallaxHeadline'
 import { ArrowCornerIcon } from '@/icons/ArrowCornerIcon'
 
@@ -17,7 +18,9 @@ export default function Header({ name, description, link }: Props) {
         {name}
       </ParallaxHeadline>
       <div className='flex flex-col items-start w-4/6 px-40 gap-y-36'>
-        <p className='text-4xl leading-tight text-kili-white'>{description}</p>
+        <p className='text-4xl leading-tight text-kili-white'>
+          <Balancer>{description}</Balancer>
+        </p>
         <a
           className='flex items-center gap-3 text-4xl text-kili-white before:bg-kili-white after:bg-kili-white relative before:h-[1px] before:scale-x-100 mb-2 before:absolute before:-bottom-2 before:left-0 before:right-0 before:block before:origin-right hover:before:scale-x-0 before:transition-transform before:ease-in hover:before:ease-out before:duration-700 before:delay-700 hover:before:delay-0 after:h-[1px] after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:ease-in hover:after:ease-out after:duration-700 hover:after:delay-700'
           href={link}
