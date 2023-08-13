@@ -45,73 +45,17 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     name: 'Royal Enfield',
     slug: 'royal-enfield',
     headerDescription:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia. Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia. Donec blandit, ligula quis lacinia.',
+      'Royal Enfield is a motorcycle brand based in India, known for its classic style and historical heritage. The company was founded in 1893 in Redditch, United Kingdom. Institutional websites was developed for three brand dealerships.',
     sectionDescription:
       'The dark mode was designed and developed throughout the application.',
-    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
-    role: 'UX/UI Design — Frontend & Backend Development',
+    stacks: ['HTML', 'JavaScript', 'PHP', 'CSS', 'SCSS', 'BEMIT'],
+    role: 'Frontend Development',
     year: '2021',
-    backgroundColor: '#7686b7',
-    link: '/#',
+    backgroundColor: '#ed3414',
+    link: 'https://royalenfieldmadero.com.ar/',
     presentation: {
-      background: '/images/projects/wrkload/background.jpg',
-      poster: '/images/projects/wrkload/poster.jpg',
-      heroVideo: '/images/projects/wrkload/hero-video.mp4'
-    },
-    gallery: [
-      '/images/projects/wrkload/gallery-1.webp',
-      '/images/projects/wrkload/gallery-2.mp4',
-      '/images/projects/wrkload/gallery-3.webp',
-      '/images/projects/wrkload/gallery-4.mp4',
-      '/images/projects/wrkload/gallery-5.webp',
-      '/images/projects/wrkload/gallery-6.mp4',
-      '/images/projects/wrkload/gallery-7.webp'
-    ]
-  },
-  {
-    id: 3,
-    name: 'wrkload',
-    slug: 'wrkload-2',
-    headerDescription:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia. Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia. Donec blandit, ligula quis lacinia.',
-    sectionDescription:
-      'The dark mode was designed and developed throughout the application.',
-    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
-    role: 'UX/UI Design — Frontend & Backend Development',
-    year: '2021',
-    backgroundColor: '#7686b7',
-    link: '/#',
-    presentation: {
-      background: '/images/projects/wrkload/background.jpg',
-      poster: '/images/projects/wrkload/poster.jpg',
-      heroVideo: '/images/projects/wrkload/hero-video.mp4'
-    },
-    gallery: [
-      '/images/projects/wrkload/gallery-1.webp',
-      '/images/projects/wrkload/gallery-2.mp4',
-      '/images/projects/wrkload/gallery-3.webp',
-      '/images/projects/wrkload/gallery-4.mp4',
-      '/images/projects/wrkload/gallery-5.webp',
-      '/images/projects/wrkload/gallery-6.mp4',
-      '/images/projects/wrkload/gallery-7.webp'
-    ]
-  },
-  {
-    id: 4,
-    name: 'Royal Enfield',
-    slug: 'royal-enfield-2',
-    headerDescription:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia. Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia. Donec blandit, ligula quis lacinia.',
-    sectionDescription:
-      'The dark mode was designed and developed throughout the application.',
-    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
-    role: 'UX/UI Design — Frontend & Backend Development',
-    year: '2021',
-    backgroundColor: '#7686b7',
-    link: '/#',
-    presentation: {
-      background: '/images/projects/wrkload/background.jpg',
-      poster: '/images/projects/wrkload/poster.jpg',
+      background: '/images/projects/royal-enfield/background.jpg',
+      poster: '/images/projects/royal-enfield/poster.jpg',
       heroVideo: '/images/projects/wrkload/hero-video.mp4'
     },
     gallery: [
