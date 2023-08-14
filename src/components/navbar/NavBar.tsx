@@ -44,7 +44,7 @@ export default function NavBar() {
 
   return (
     <motion.header
-      className='relative z-40'
+      className='relative '
       initial={{
         display: 'none',
         opacity: 0
@@ -62,7 +62,7 @@ export default function NavBar() {
       <Navigation />
       <h1
         className={clsx(
-          'fixed left-8 top-12 leading-none tracking-wide transition duration-1000 ease-in-out text-kili-light-gray hover:text-kili-white',
+          'fixed left-8 top-12 leading-none tracking-wide transition duration-1000 ease-in-out text-kili-light-gray hover:text-kili-white z-40 mix-blend-difference',
           !isVisible && '-translate-y-16'
         )}
       >
@@ -70,7 +70,7 @@ export default function NavBar() {
       </h1>
       <div
         className={clsx(
-          'fixed flex items-center gap-8 right-8 top-12 leading-none transition-transform tracking-wide duration-700 ease-in-out',
+          'fixed flex items-center gap-8 right-8 top-12 leading-none transition-transform tracking-wide duration-700 ease-in-out z-40 mix-blend-difference',
           !isVisible && '-translate-y-16'
         )}
       >
