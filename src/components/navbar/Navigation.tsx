@@ -15,7 +15,7 @@ export default function Navigation() {
 
   return (
     <motion.nav
-      className='fixed inset-0 items-end justify-between hidden p-8 bg-kili-dark-gray mix-blend-normal'
+      className='fixed inset-0 z-40 items-end justify-between hidden p-8 bg-kili-dark-gray mix-blend-normal'
       variants={NAVBAR_VARIANTS}
       initial='closed'
       animate={navBarStatus ? 'open' : 'closed'}

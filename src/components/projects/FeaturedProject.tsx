@@ -2,13 +2,13 @@
 
 import { useRef, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import clsx from 'clsx'
 import { useStore } from '@/store/store'
 import FeaturedProjectName from '@/components/projects/FeaturedProjectName'
 import type { FeaturedProjectInterface } from '@/interfaces/general'
 import { CURSOR_STATUS } from '@/constants/general'
-import Link from 'next/link'
 
 export default function FeaturedProject({
   className,
@@ -87,12 +87,13 @@ export default function FeaturedProject({
           }}
         >
           <Image
-            className='w-full h-auto transition-transform duration-700 ease-in-out scale-90 aspect-video group-hover:scale-100'
+            className='w-auto h-auto transition-transform duration-700 ease-in-out scale-90 group-hover:scale-100'
             src={project.presentation.poster}
             alt={project.name}
             width={640}
-            height={360}
+            height={401}
             quality={90}
+            priority
           />
         </motion.div>
         <FeaturedProjectName projectId={project.id} isHovered={isHovered}>
