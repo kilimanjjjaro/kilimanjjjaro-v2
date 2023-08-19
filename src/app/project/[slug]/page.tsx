@@ -45,7 +45,7 @@ export default function Project({ params }: Props) {
     <main className='bg-kili-dark-gray'>
       <Header project={project} />
       <Grid project={project} />
-      <OtherProjects project={project} />
+      <OtherProjects />
     </main>
   )
 }

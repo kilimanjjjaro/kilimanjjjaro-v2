@@ -8,7 +8,7 @@ interface Props {
 
 export default function Grid({ project }: Props) {
   return (
-    <section className='grid grid-cols-3 px-40 pb-36 gap-36'>
+    <section id='blur' className='grid grid-cols-3 px-40 pb-36 gap-36'>
       <video
         className='col-span-3'
         src={project.presentation.heroVideo}
