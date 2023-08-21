@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: ChildrenType }) {
         <NavBar />
         <div
           id='page-wrapper'
-          className='transition-transform duration-[2s] ease-kili-in'
+          className='transition-transform duration-[1.7s] ease-kili-in'
         >
           <SmoothScroll>{children}</SmoothScroll>
           <Footer />

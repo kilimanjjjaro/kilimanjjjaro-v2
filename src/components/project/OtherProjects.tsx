@@ -22,7 +22,7 @@ export default function OtherProjects() {
             {project.name}
             <div className='absolute w-[500px] overflow-hidden pointer-events-none'>
               <video
-                className='transition-transform duration-700 ease-in-out translate-y-[108%] rotate-6 group-hover:translate-y-0 group-hover:rotate-0'
+                className='transition-transform duration-700 ease-in-out translate-y-[109%] rotate-6 group-hover:translate-y-0 group-hover:rotate-0'
                 src={project.presentation.heroVideo}
                 autoPlay
                 playsInline

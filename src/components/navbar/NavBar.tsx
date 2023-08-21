@@ -44,7 +44,7 @@ export default function NavBar() {
 
   return (
     <motion.header
-      className='relative '
+      className='relative'
       initial={{
         display: 'none',
         opacity: 0

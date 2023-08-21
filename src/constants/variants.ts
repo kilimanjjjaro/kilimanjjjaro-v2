@@ -37,7 +37,7 @@ export const NAVBAR_VARIANTS = {
     y: '0%',
     display: 'flex',
     transition: {
-      duration: 2,
+      duration: 1.7,
       ease: [0.77, 0, 0.18, 1],
       staggerChildren: 0.2,
       delayChildren: 0.5,
@@ -47,7 +47,7 @@ export const NAVBAR_VARIANTS = {
   closed: {
     y: '100%',
     transition: {
-      duration: 2,
+      duration: 1.7,
       ease: [0.77, 0, 0.18, 1],
       staggerChildren: 0.2,
       staggerDirection: -1

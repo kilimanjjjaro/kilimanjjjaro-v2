@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+// @ts-expect-error
 import { type } from '@camwiegert/typical'
 
 interface Props {
