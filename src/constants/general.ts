@@ -39,3 +39,5 @@ export const CURSOR_STATUS = {
   HOVER: 'hover',
   FEATURED: 'featured'
 }
+
+export const INTRO_ANIMATION_DURATION = 6

@@ -109,24 +109,26 @@ export default function OtherProjects() {
                 transition={{ duration: 1.5, ease: 'easeInOut' }}
               />
             </div>
-            <a
-              className={clsx(
-                'absolute overflow-hidden right-10 z-10',
-                project.id % 2 === 0 ? '-rotate-3' : 'rotate-3'
-              )}
-              href={project.link}
-              onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-              onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
-            >
-              <Image
-                className='duration-700 ease-in-out transition-transform translate-y-[101%] group-hover:translate-y-0'
-                src={project.image}
-                alt={project.name}
-                width={400}
-                height={250}
-                quality={90}
-              />
-            </a>
+            {project.image !== undefined && (
+              <a
+                className={clsx(
+                  'absolute overflow-hidden right-10 z-10',
+                  project.id % 2 === 0 ? '-rotate-3' : 'rotate-3'
+                )}
+                href={project.link}
+                onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+                onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+              >
+                <Image
+                  className='duration-700 ease-in-out transition-transform translate-y-[101%] group-hover:translate-y-0'
+                  src={project.image}
+                  alt={project.name}
+                  width={400}
+                  height={250}
+                  quality={90}
+                />
+              </a>
+            )}
           </article>
         ))}
       </motion.div>

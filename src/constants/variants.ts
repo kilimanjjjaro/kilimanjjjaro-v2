@@ -63,7 +63,7 @@ export const NAVBAR_LI_VARIANTS = {
     y: '0%',
     rotate: 0,
     transition: {
-      duration: 1.5,
+      duration: 1.3,
       ease: [0.77, 0, 0.18, 1]
     }
   },
@@ -71,7 +71,7 @@ export const NAVBAR_LI_VARIANTS = {
     y: '120%',
     rotate: 4,
     transition: {
-      duration: 1.5,
+      duration: 1.3,
       ease: [0.77, 0, 0.18, 1]
     }
   }

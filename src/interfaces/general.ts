@@ -21,6 +21,8 @@ export interface StoreInterface {
   setSwiperInstance: (swiperInstance: Swiper) => void
   showContactForm: boolean
   setShowContactForm: (showContactForm: boolean) => void
+  introRunning: boolean
+  setIntroRunning: (introRunning: boolean) => void
 }
 
 export interface StackInterface {
@@ -64,7 +66,7 @@ export interface FeaturedProjectInterface {
 export interface OtherProjectInterface {
   id: number
   name: string
-  image: string
+  image?: string
   link: string
   description: string
   stacks: string[]

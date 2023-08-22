@@ -56,105 +56,162 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     presentation: {
       background: '/images/projects/royal-enfield/background.jpg',
       poster: '/images/projects/royal-enfield/poster.jpg',
-      heroVideo: '/images/projects/wrkload/hero-video.mp4'
+      heroVideo: '/images/projects/royal-enfield/hero-video.mp4'
     },
     gallery: [
-      '/images/projects/wrkload/gallery-1.webp',
-      '/images/projects/wrkload/gallery-2.mp4',
-      '/images/projects/wrkload/gallery-3.webp',
-      '/images/projects/wrkload/gallery-4.mp4',
-      '/images/projects/wrkload/gallery-5.webp',
-      '/images/projects/wrkload/gallery-6.mp4',
-      '/images/projects/wrkload/gallery-7.webp'
+      '/images/projects/royal-enfield/gallery-1.webp',
+      '/images/projects/royal-enfield/gallery-2.mp4',
+      '/images/projects/royal-enfield/gallery-3.webp',
+      '/images/projects/royal-enfield/gallery-4.mp4',
+      '/images/projects/royal-enfield/gallery-5.webp',
+      '/images/projects/royal-enfield/gallery-6.mp4',
+      '/images/projects/royal-enfield/gallery-7.webp'
+    ]
+  },
+  {
+    id: 3,
+    name: 'Threads Clone',
+    slug: 'threads-clone',
+    headerDescription:
+      'This project is a clone of the new social network by Meta called Threads. An attempt was made to recreate the desktop version of the application, and some UX/UI improvements were implemented.',
+    sectionDescription:
+      "The project's goal is to learn about and experiment with Qwik.",
+    stacks: ['TypeScript', 'Qwik', 'Tailwind', 'Cloudinary'],
+    role: 'Frontend Development',
+    year: '2023',
+    backgroundColor: '#d31aed',
+    link: 'https://threads-clone-kilimanjjjaro.vercel.app/',
+    presentation: {
+      background: '/images/projects/threads-clone/background.jpg',
+      poster: '/images/projects/threads-clone/poster.jpg',
+      heroVideo: '/images/projects/threads-clone/hero-video.mp4'
+    },
+    gallery: [
+      '/images/projects/threads-clone/gallery-1.webp',
+      '/images/projects/threads-clone/gallery-2.mp4',
+      '/images/projects/threads-clone/gallery-3.webp',
+      '/images/projects/threads-clone/gallery-4.mp4',
+      '/images/projects/threads-clone/gallery-5.webp',
+      '/images/projects/threads-clone/gallery-6.mp4',
+      '/images/projects/threads-clone/gallery-7.webp'
+    ]
+  },
+  {
+    id: 4,
+    name: 'Kilimanjjjaro v1',
+    slug: 'kilimanjjjaro-v1',
+    headerDescription:
+      'This is the first version of my personal portfolio. It was designed and developed as a static website focused on simplicity.',
+    sectionDescription: 'The website layout adapts to the projects.',
+    stacks: ['HTML', 'CSS', 'JavaScript', 'PHP'],
+    role: 'UX/UI Design — Frontend Development',
+    year: '2017',
+    backgroundColor: '#fff',
+    link: 'https://kilimanjjjaro-v1.pages.dev/',
+    presentation: {
+      background: '/images/projects/kilimanjjjaro-v1/background.jpg',
+      poster: '/images/projects/kilimanjjjaro-v1/poster.jpg',
+      heroVideo: '/images/projects/kilimanjjjaro-v1/hero-video.mp4'
+    },
+    gallery: [
+      '/images/projects/kilimanjjjaro-v1/gallery-1.webp',
+      '/images/projects/kilimanjjjaro-v1/gallery-2.mp4',
+      '/images/projects/kilimanjjjaro-v1/gallery-3.webp',
+      '/images/projects/kilimanjjjaro-v1/gallery-4.mp4',
+      '/images/projects/kilimanjjjaro-v1/gallery-5.webp',
+      '/images/projects/kilimanjjjaro-v1/gallery-6.mp4',
+      '/images/projects/kilimanjjjaro-v1/gallery-7.webp'
     ]
   }
 ]
 
 export const OTHER_PROJECTS: OtherProjectInterface[] = [
   {
-    id: 5,
-    name: 'Royal Enfield',
-    link: '#',
+    id: 1,
+    name: 'Volvo Test Drive',
+    link: 'https://volvotestdrive.com.ar/',
     description:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
+      "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world.",
+    stacks: ['TypeScript', 'Astro', 'Tailwind', 'PHP'],
+    role: 'Frontend Development',
+    image: '/images/projects/volvo-test-drive/poster.jpg',
+    year: '2023'
+  },
+  {
+    id: 2,
+    name: 'DolArg API',
+    link: 'https://github.com/kilimanjjjaro/dolarg-api',
+    description:
+      'Is an API to get the most commonly dollar quotes of Argentina. The data is updated from Monday to Friday at 11 AM and 16 PM Argentina time.',
     stacks: [
-      'HTML',
-      'JavaScript',
-      'CSS',
-      'SCSS',
-      'BEMIT',
-      'CSS',
-      'SCSS',
-      'BEMIT'
+      'TypeScript',
+      'Hono',
+      'Wrangler',
+      'Cloudflare Wordkers',
+      'Scrapping'
     ],
     role: 'Backend Development',
-    image: '/images/projects/wrkload/poster.jpg',
-    year: '2021'
+    year: '2023'
+  },
+  {
+    id: 3,
+    name: 'wrkload API',
+    link: 'https://github.com/kilimanjjjaro/wrkload-api',
+    description:
+      'Is an easy-to-use API REST developed to be implemented as backend by an app. Gives the possibility to a user to keep organized and documented the time he was working on his tasks.',
+    stacks: [
+      'JavaScript',
+      'Node JS',
+      'MongoDb',
+      'Express',
+      'JWT Authentication'
+    ],
+    role: 'Backend Development',
+    year: '2023'
+  },
+
+  {
+    id: 4,
+    name: 'Plan Ovalo',
+    link: 'https://planovalo.automotoresmataderos.com.ar/',
+    description:
+      "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world.",
+    stacks: ['HTML', 'JavaScript', 'PHP', 'CSS', 'SCSS', 'BEMIT'],
+    role: 'Frontend Development',
+    image: '/images/projects/plan-ovalo/poster.jpg',
+    year: '2023'
+  },
+  {
+    id: 5,
+    name: 'Mujeres al Mundo',
+    link: 'https://www.mujeresalmundo.hsbc.com.ar/',
+    description:
+      "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world.",
+    stacks: ['HTML', 'JavaScript', 'PHP', 'CSS', 'SCSS', 'BEMIT'],
+    role: 'Frontend Development',
+    image: '/images/projects/mam/poster.jpg',
+    year: '2022'
   },
   {
     id: 6,
-    name: 'Royal Enfield',
-    link: '#',
+    name: 'Plantemos un arbol',
+    link: 'https://www.bio-land.com/plantemos-un-arbol/',
     description:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
-    role: 'Backend Development',
-    image: '/images/projects/wrkload/poster.jpg',
-    year: '2021'
+      "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world.",
+    stacks: ['WordPress', 'WPBakery', 'CSS'],
+    role: 'Frontend Development',
+    image: '/images/projects/plantemos-un-arbol/poster.jpg',
+    year: '2022'
   },
   {
     id: 7,
-    name: 'Royal Enfield',
-    link: '#',
+    name: 'Automotores Mataderos',
+    link: 'https://automotoresmataderos.com.ar/',
     description:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
-    role: 'Backend Development',
-    image: '/images/projects/wrkload/poster.jpg',
-    year: '2021'
-  },
-  {
-    id: 8,
-    name: 'Royal Enfield',
-    link: '#',
-    description:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
-    role: 'Backend Development',
-    image: '/images/projects/wrkload/poster.jpg',
-    year: '2021'
-  },
-  {
-    id: 9,
-    name: 'Royal Enfield',
-    link: '#',
-    description:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
-    role: 'Backend Development',
-    image: '/images/projects/wrkload/poster.jpg',
-    year: '2021'
-  },
-  {
-    id: 10,
-    name: 'Royal Enfield',
-    link: '#',
-    description:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
-    role: 'Backend Development',
-    image: '/images/projects/wrkload/poster.jpg',
-    year: '2021'
-  },
-  {
-    id: 11,
-    name: 'Royal Enfield',
-    link: '#',
-    description:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia.',
-    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT'],
-    role: 'Backend Development',
-    image: '/images/projects/wrkload/poster.jpg',
+      "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world.",
+    stacks: ['HTML', 'JavaScript', 'PHP', 'CSS', 'SCSS', 'BEMIT'],
+    role: 'Frontend Development',
+    image: '/images/projects/automotores-maderos/poster.jpg',
     year: '2021'
   }
 ]
