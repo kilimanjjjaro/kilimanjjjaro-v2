@@ -132,7 +132,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     link: 'https://volvotestdrive.com.ar/',
     description:
       "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world.",
-    stacks: ['TypeScript', 'Astro', 'Tailwind', 'PHP'],
+    stacks: ['TypeScript', 'React', 'Tailwind', 'PHP'],
     role: 'Frontend Development',
     image: '/images/projects/volvo-test-drive/poster.jpg',
     year: '2023'
@@ -143,13 +143,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     link: 'https://github.com/kilimanjjjaro/dolarg-api',
     description:
       'Is an API to get the most commonly dollar quotes of Argentina. The data is updated from Monday to Friday at 11 AM and 16 PM Argentina time.',
-    stacks: [
-      'TypeScript',
-      'Hono',
-      'Wrangler',
-      'Cloudflare Wordkers',
-      'Scrapping'
-    ],
+    stacks: ['TypeScript', 'Hono', 'Cloudflare Wordkers', 'Scrapping'],
     role: 'Backend Development',
     year: '2023'
   },
@@ -162,9 +156,10 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     stacks: [
       'JavaScript',
       'Node JS',
-      'MongoDb',
+      'MongoDB',
       'Express',
-      'JWT Authentication'
+      'JWT Authentication',
+      'Cookies'
     ],
     role: 'Backend Development',
     year: '2023'
@@ -176,7 +171,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     link: 'https://planovalo.automotoresmataderos.com.ar/',
     description:
       "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world.",
-    stacks: ['HTML', 'JavaScript', 'PHP', 'CSS', 'SCSS', 'BEMIT'],
+    stacks: ['TypeScript', 'Astro', 'Tailwind', 'PHP'],
     role: 'Frontend Development',
     image: '/images/projects/plan-ovalo/poster.jpg',
     year: '2023'
