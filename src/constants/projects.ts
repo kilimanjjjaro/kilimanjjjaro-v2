@@ -131,7 +131,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     name: 'Volvo Test Drive',
     link: 'https://volvotestdrive.com.ar/',
     description:
-      "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world.",
+      'Landing page developed for Volvo Argentina (through ATOMO Agency) with the objective of simplifying the request for test drives.',
     stacks: ['TypeScript', 'React', 'Tailwind', 'PHP'],
     role: 'Frontend Development',
     image: '/images/projects/volvo-test-drive/poster.jpg',
@@ -142,7 +142,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     name: 'DolArg API',
     link: 'https://github.com/kilimanjjjaro/dolarg-api',
     description:
-      'Is an API to get the most commonly dollar quotes of Argentina. The data is updated from Monday to Friday at 11 AM and 16 PM Argentina time.',
+      'REST API to get the most commonly dollar quotes of Argentina. The data is updated from Monday to Friday at 11 AM and 16 PM local time.',
     stacks: ['TypeScript', 'Hono', 'Cloudflare Wordkers', 'Scrapping'],
     role: 'Backend Development',
     year: '2023'
@@ -152,7 +152,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     name: 'wrkload API',
     link: 'https://github.com/kilimanjjjaro/wrkload-api',
     description:
-      'Is an easy-to-use API REST developed to be implemented as backend by an app. Gives the possibility to a user to keep organized and documented the time he was working on his tasks.',
+      'REST API developed to be implemented as the backend for an application. It includes all the functionalities needed to develop a CRUD.',
     stacks: [
       'JavaScript',
       'Node JS',
@@ -170,7 +170,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     name: 'Plan Ovalo',
     link: 'https://planovalo.automotoresmataderos.com.ar/',
     description:
-      "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world.",
+      'Landing page developed for a Ford dealership. Its objective is to inform about the financing plan and provide a means of communication.',
     stacks: ['TypeScript', 'Astro', 'Tailwind', 'PHP'],
     role: 'Frontend Development',
     image: '/images/projects/plan-ovalo/poster.jpg',
@@ -189,10 +189,10 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
   },
   {
     id: 6,
-    name: 'Plantemos un arbol',
+    name: 'Plantemos un Árbol',
     link: 'https://www.bio-land.com/plantemos-un-arbol/',
     description:
-      "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world.",
+      "It's a landing page developed (through circulo.digital) for an environmental awareness campaign driven by BioLand.",
     stacks: ['WordPress', 'WPBakery', 'CSS'],
     role: 'Frontend Development',
     image: '/images/projects/plantemos-un-arbol/poster.jpg',
@@ -203,10 +203,10 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     name: 'Automotores Mataderos',
     link: 'https://automotoresmataderos.com.ar/',
     description:
-      "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world.",
+      "Project developed for a Ford dealership. It's an institutional page and its objective is to contain information about the dealership and the brand.",
     stacks: ['HTML', 'JavaScript', 'PHP', 'CSS', 'SCSS', 'BEMIT'],
     role: 'Frontend Development',
-    image: '/images/projects/automotores-maderos/poster.jpg',
+    image: '/images/projects/automotores-mataderos/poster.jpg',
     year: '2021'
   }
 ]

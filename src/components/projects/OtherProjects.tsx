@@ -69,6 +69,8 @@ export default function OtherProjects() {
           <a
             key={project.id}
             href={project.link}
+            target='_blank'
+            rel='noopener noreferrer'
             onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
             onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
           >
@@ -79,7 +81,7 @@ export default function OtherProjects() {
                   variants={OTHER_PROJECT_VARIANTS}
                   transition={{ duration: 1.5, ease: 'easeInOut' }}
                 >
-                  <div className='flex gap-[6px] items-center w-[30%] text-2xl'>
+                  <div className='flex gap-[6px] items-center w-[30%] text-2xl flex-wrap'>
                     <h4 className='relative duration-700 ease-in-out text-kili-white before:h-[2px] before:scale-x-0 before:absolute before:-bottom-2 before:left-0 before:right-0 before:block before:bg-current before:origin-left group-hover:before:scale-x-100 before:transition-transform before:ease-in group-hover:before:ease-out before:duration-700 after:delay-700 group-hover:before:delay-0 after:h-[2px] after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:bg-kili-dark-gray after:origin-left after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform after:ease-in group-hover:after:ease-out after:duration-700 group-hover:after:delay-700'>
                       {project.name}
                     </h4>
