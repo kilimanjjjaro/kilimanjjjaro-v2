@@ -2,7 +2,8 @@
 
 const nextConfig = {
   images: {
-    domains: ['mill3.studio']
+    domains: ['mill3.studio'],
+    formats: ['image/avif', 'image/webp']
   }
 }
 

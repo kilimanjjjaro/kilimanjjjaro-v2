@@ -92,8 +92,8 @@ export default function FeaturedProject({
             alt={project.name}
             width={640}
             height={401}
-            quality={90}
-            priority
+            quality={100}
+            loading='lazy'
           />
         </motion.div>
         <FeaturedProjectName projectId={project.id} isHovered={isHovered}>

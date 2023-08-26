@@ -3,8 +3,8 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useLenis } from '@studio-freight/react-lenis'
-import TextButton from '@/components/shared/TextButton'
 import { useStore } from '@/store/store'
+import TextLink from '@/components/shared/TextLink'
 import { ArrowCornerIcon } from '@/icons/ArrowCornerIcon'
 import { CURSOR_STATUS, SECTIONS } from '@/constants/general'
 
@@ -23,16 +23,6 @@ export default function Footer() {
   })
   const y = useTransform(scrollYProgress, [0, 1], ['-35%', '0%'])
 
-  const handleClick = (slug: string) => {
-    const elementRef = document.getElementById(slug)
-
-    if (elementRef != null) {
-      lenis.scrollTo(elementRef, {
-        duration: 2
-      })
-    }
-  }
-
   return (
     <footer
       id='lets-talk'
@@ -44,13 +34,13 @@ export default function Footer() {
           {SECTIONS.filter((section) => section.slug !== 'lets-talk').map(
             (section) => (
               <li key={section.slug}>
-                <TextButton
+                <TextLink
                   className='text-3xl text-kili-white before:bg-kili-white after:bg-kili-white'
-                  handler={() => handleClick(section.slug)}
+                  href={`/#${section.slug}`}
                   underlined
                 >
                   {section.name}
-                </TextButton>
+                </TextLink>
               </li>
             )
           )}

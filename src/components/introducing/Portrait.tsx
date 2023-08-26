@@ -25,7 +25,12 @@ export default function Portrait() {
         ease: [0.17, 0.84, 0.44, 1]
       }}
     >
-      <Image src={portraitImage} alt='Kilimanjjjaro' quality={90} priority />
+      <Image
+        src={portraitImage}
+        alt='Kilimanjjjaro'
+        quality={90}
+        loading='lazy'
+      />
     </motion.div>
   )
 }

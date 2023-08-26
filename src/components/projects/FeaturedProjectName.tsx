@@ -26,7 +26,7 @@ export default function FeaturedProjectName({
   return (
     <motion.h3
       ref={projectNameEl}
-      className='fixed top-0 max-w-[640px] left-0 overflow-hidden pointer-events-none'
+      className='fixed top-0 left-0 overflow-hidden pointer-events-none'
       style={{ x, y }}
     >
       <motion.span

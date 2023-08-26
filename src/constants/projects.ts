@@ -26,8 +26,8 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     backgroundColor: '#7686b7',
     link: '/#',
     presentation: {
-      background: '/images/projects/wrkload/background.jpg',
-      poster: '/images/projects/wrkload/poster.jpg',
+      background: '/images/projects/wrkload/background.webp',
+      poster: '/images/projects/wrkload/poster.webp',
       heroVideo: '/images/projects/wrkload/hero-video.mp4'
     },
     gallery: [
@@ -54,8 +54,8 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     backgroundColor: '#ed3414',
     link: 'https://royalenfieldmadero.com.ar/',
     presentation: {
-      background: '/images/projects/royal-enfield/background.jpg',
-      poster: '/images/projects/royal-enfield/poster.jpg',
+      background: '/images/projects/royal-enfield/background.webp',
+      poster: '/images/projects/royal-enfield/poster.webp',
       heroVideo: '/images/projects/royal-enfield/hero-video.mp4'
     },
     gallery: [
@@ -82,8 +82,8 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     backgroundColor: '#d31aed',
     link: 'https://threads-clone-kilimanjjjaro.vercel.app/',
     presentation: {
-      background: '/images/projects/threads-clone/background.jpg',
-      poster: '/images/projects/threads-clone/poster.jpg',
+      background: '/images/projects/threads-clone/background.webp',
+      poster: '/images/projects/threads-clone/poster.webp',
       heroVideo: '/images/projects/threads-clone/hero-video.mp4'
     },
     gallery: [
@@ -106,11 +106,11 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     stacks: ['HTML', 'CSS', 'JavaScript', 'PHP'],
     role: 'UX/UI Design — Frontend Development',
     year: '2017',
-    backgroundColor: '#fff',
+    backgroundColor: '#111111',
     link: 'https://kilimanjjjaro-v1.pages.dev/',
     presentation: {
-      background: '/images/projects/kilimanjjjaro-v1/background.jpg',
-      poster: '/images/projects/kilimanjjjaro-v1/poster.jpg',
+      background: '/images/projects/kilimanjjjaro-v1/background.webp',
+      poster: '/images/projects/kilimanjjjaro-v1/poster.webp',
       heroVideo: '/images/projects/kilimanjjjaro-v1/hero-video.mp4'
     },
     gallery: [
@@ -134,7 +134,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
       'Landing page developed for Volvo Argentina (through ATOMO Agency) with the objective of simplifying the request for test drives.',
     stacks: ['TypeScript', 'React', 'Tailwind', 'PHP'],
     role: 'Frontend Development',
-    image: '/images/projects/volvo-test-drive/poster.jpg',
+    image: '/images/projects/volvo-test-drive/poster.webp',
     year: '2023'
   },
   {
@@ -173,7 +173,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
       'Landing page developed for a Ford dealership. Its objective is to inform about the financing plan and provide a means of communication.',
     stacks: ['TypeScript', 'Astro', 'Tailwind', 'PHP'],
     role: 'Frontend Development',
-    image: '/images/projects/plan-ovalo/poster.jpg',
+    image: '/images/projects/plan-ovalo/poster.webp',
     year: '2023'
   },
   {
@@ -184,7 +184,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
       "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world.",
     stacks: ['HTML', 'JavaScript', 'PHP', 'CSS', 'SCSS', 'BEMIT'],
     role: 'Frontend Development',
-    image: '/images/projects/mam/poster.jpg',
+    image: '/images/projects/mam/poster.webp',
     year: '2022'
   },
   {
@@ -195,7 +195,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
       "It's a landing page developed (through circulo.digital) for an environmental awareness campaign driven by BioLand.",
     stacks: ['WordPress', 'WPBakery', 'CSS'],
     role: 'Frontend Development',
-    image: '/images/projects/plantemos-un-arbol/poster.jpg',
+    image: '/images/projects/plantemos-un-arbol/poster.webp',
     year: '2022'
   },
   {
@@ -206,7 +206,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
       "Project developed for a Ford dealership. It's an institutional page and its objective is to contain information about the dealership and the brand.",
     stacks: ['HTML', 'JavaScript', 'PHP', 'CSS', 'SCSS', 'BEMIT'],
     role: 'Frontend Development',
-    image: '/images/projects/automotores-mataderos/poster.jpg',
+    image: '/images/projects/automotores-mataderos/poster.webp',
     year: '2021'
   }
 ]

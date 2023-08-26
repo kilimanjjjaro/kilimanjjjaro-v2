@@ -17,7 +17,14 @@ export default function Grid({ project }: Props) {
         loop
         muted
       />
-      <Image src={project.gallery[0]} width={824} height={1508} alt='' />
+      <Image
+        src={project.gallery[0]}
+        width={824}
+        height={1508}
+        alt=''
+        quality={100}
+        loading='lazy'
+      />
       <video src={project.gallery[1]} autoPlay playsInline loop muted />
       <div className='flex flex-col gap-36'>
         <div>
@@ -69,6 +76,7 @@ export default function Grid({ project }: Props) {
         width={824}
         height={1508}
         alt={project.name}
+        loading='lazy'
       />
     </section>
   )

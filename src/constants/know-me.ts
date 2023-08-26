@@ -43,7 +43,7 @@ export const EXPERIENCE = [
 export const EDUCATION = [
   {
     year: '2011 — Present',
-    name: 'I love documentation, so what else do I need?'
+    name: 'well... I love documentation, what else do I need?'
   },
   {
     year: '2011 - 2017',

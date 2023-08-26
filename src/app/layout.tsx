@@ -1,4 +1,4 @@
-import { Analytics } from '@vercel/analytics/react'
+// import { Analytics } from '@vercel/analytics/react'
 import NavBar from '@/components/navbar/NavBar'
 import ContactFormModal from '@/components/contact-form/ContactFormModal'
 import Footer from '@/components/footer/Footer'
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: ChildrenType }) {
         </div>
         <ScrollPercentage />
         <CustomCursor />
-        <Analytics />
+        {/* <Analytics /> */}
       </body>
     </html>
   )
