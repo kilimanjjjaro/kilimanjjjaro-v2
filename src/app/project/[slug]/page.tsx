@@ -1,4 +1,3 @@
-import { useMemo } from 'react'
 import type { Metadata } from 'next'
 import Header from '@/components/project/Header'
 import Grid from '@/components/project/Grid'
@@ -28,9 +27,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function Project({ params }: Props) {
-  const project = useMemo(
-    () => FEATURED_PROJECTS.find((project) => project.slug === params.slug),
-    [params.slug]
+  const project = FEATURED_PROJECTS.find(
+    (project) => project.slug === params.slug
+  )
+
+  const otherProjects = FEATURED_PROJECTS.filter(
+    (project) => project.slug !== params.slug
   )
 
   if (project === undefined) {
@@ -45,7 +47,7 @@ export default function Project({ params }: Props) {
     <main className='bg-kili-dark-gray'>
       <Header project={project} />
       <Grid project={project} />
-      <OtherProjects />
+      <OtherProjects projects={otherProjects} />
     </main>
   )
 }

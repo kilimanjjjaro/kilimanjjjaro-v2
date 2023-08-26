@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion'
+import { Balancer } from 'react-wrap-balancer'
 import {
   OTHER_PROJECT_HR_VARIANTS,
   OTHER_PROJECT_VARIANTS
 } from '@/constants/variants'
-import { EXPERIENCE_AND_EDUCATION } from '@/constants/know-me'
+import { EDUCATION } from '@/constants/know-me'
 
-export default function ExperienceAndEducation() {
+export default function Education() {
   return (
     <article className='overflow-hidden'>
       <motion.div
@@ -13,14 +14,14 @@ export default function ExperienceAndEducation() {
         variants={OTHER_PROJECT_VARIANTS}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       >
-        <h3 className='w-[30%] text-4xl text-kili-white'>
-          Experience & Education
-        </h3>
+        <h3 className='w-[30%] text-4xl text-kili-white'>Education</h3>
         <ul className='grid flex-1 grid-cols-3 gap-10 text-2xl'>
-          {EXPERIENCE_AND_EDUCATION.map((experience) => (
+          {EDUCATION.map((experience) => (
             <li key={experience.year} className='flex flex-col gap-2'>
               <span className='text-kili-white'>{experience.year}</span>
-              <span className='text-kili-light-gray'>{experience.name}</span>
+              <span className='text-kili-light-gray'>
+                <Balancer>{experience.name}</Balancer>
+              </span>
             </li>
           ))}
         </ul>

@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect } from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
@@ -74,12 +73,6 @@ export default function NavBar() {
           !isVisible && '-translate-y-16'
         )}
       >
-        <Link
-          className='leading-none tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray hover:text-kili-white'
-          href='/project/wrkload'
-        >
-          Test page transition
-        </Link>
         <LanguageSelector />
         <button
           className='flex flex-col gap-2 cursor-pointer group'

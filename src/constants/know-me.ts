@@ -2,17 +2,17 @@ export const APPROACH = [
   {
     title: 'Front end Development',
     description:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia, Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit.'
+      'Frontend development is the field where I most enjoy playing. I ensure that the project receives attention down to the smallest detail, with a focus on UX, performance and accessibility.'
   },
   {
     title: 'Back end Development',
     description:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia, Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit.'
+      'Developing the logic of an project is one of the things I love to do without compromising on the code being sustainable and the outcome achieving good performance.'
   },
   {
     title: 'Mobile & Web Design',
     description:
-      'Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit, ligula quis lacinia, Lorem ipsum dolor sit amet, adipiscing elit. Integer non auctor turpis. Donec blandit.'
+      'As a graduate in Graphic Design, I love designing projects that look good and function effectively, providing users with a comfortable and enjoyable experience while using them.'
   }
 ]
 
@@ -25,9 +25,9 @@ export const CLIENTS = [
   'Volvo'
 ]
 
-export const EXPERIENCE_AND_EDUCATION = [
+export const EXPERIENCE = [
   {
-    year: '2017 — 2023',
+    year: '2017 — Present',
     name: 'Freelance'
   },
   {
@@ -37,5 +37,16 @@ export const EXPERIENCE_AND_EDUCATION = [
   {
     year: '2011 — 2017',
     name: 'Full Stack JavaScript Developer at Circulo'
+  }
+]
+
+export const EDUCATION = [
+  {
+    year: '2011 — Present',
+    name: 'I love documentation, so what else do I need?'
+  },
+  {
+    year: '2011 - 2017',
+    name: 'Graphic Designer at Universidad Nacional del Nordeste'
   }
 ]

@@ -5,7 +5,8 @@ import { motion, useInView } from 'framer-motion'
 import ParallaxHeadline from '@/components/shared/ParallaxHeadline'
 import Approach from '@/components/know-me/Approach'
 import Clients from '@/components/know-me/Clients'
-import ExperienceAndEducation from '@/components/know-me/ExperienceAndEducation'
+import Experience from '@/components/know-me/Experience'
+import Education from '@/components/know-me/Education'
 import { OTHER_PROJECTS_VARIANTS } from '@/constants/variants'
 
 export default function KnowMe() {
@@ -29,7 +30,8 @@ export default function KnowMe() {
         >
           <Approach />
           <Clients />
-          <ExperienceAndEducation />
+          <Experience />
+          <Education />
         </motion.div>
       </section>
     </section>

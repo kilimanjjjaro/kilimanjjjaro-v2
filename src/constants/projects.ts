@@ -152,7 +152,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     name: 'wrkload API',
     link: 'https://github.com/kilimanjjjaro/wrkload-api',
     description:
-      'REST API developed to be implemented as the backend for an application. It includes all the functionalities needed to develop a CRUD.',
+      'REST API developed to be implemented as the backend for an application. It includes all the functionalities needed to develop a task app.',
     stacks: [
       'JavaScript',
       'Node JS',

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Balancer } from 'react-wrap-balancer'
 import {
   OTHER_PROJECT_HR_VARIANTS,
   OTHER_PROJECT_VARIANTS
@@ -17,7 +18,9 @@ export default function Approach() {
         {APPROACH.map((approach) => (
           <div key={approach.title} className='flex-1 text-2xl'>
             <h4 className='mb-10 text-kili-white'>{approach.title}</h4>
-            <p className='text-kili-light-gray'>{approach.description}</p>
+            <p className='text-kili-light-gray'>
+              <Balancer>{approach.description}</Balancer>
+            </p>
           </div>
         ))}
       </motion.div>
