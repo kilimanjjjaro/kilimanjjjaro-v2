@@ -29,7 +29,6 @@ export default function LanguageSelector() {
     <div className='relative flex justify-end'>
       <button
         className='overflow-hidden leading-none tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray hover:text-kili-white'
-        aria-label='Select language'
         onClick={() => setShowSelector(!showSelector)}
         onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
         onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
