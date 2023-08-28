@@ -28,24 +28,15 @@ export default function Grid({ project }: Props) {
       <video src={project.gallery[1]} autoPlay playsInline loop muted />
       <div className='flex flex-col gap-36'>
         <div>
+          <h3 className='mb-10 text-xl leading-tight text-kili-light-gray'>
+            Year
+          </h3>
+          <p className='text-4xl text-kili-white'>{project.year}</p>
+        </div>
+        <div>
           <p className='text-4xl leading-tight text-kili-white'>
             <Balancer>{project.sectionDescription}</Balancer>
           </p>
-        </div>
-        <div>
-          <h3 className='mb-10 text-xl leading-tight text-kili-light-gray'>
-            Stacks
-          </h3>
-          <ul className='flex flex-wrap flex-1 gap-4'>
-            {project.stacks.map((stack, index) => (
-              <li
-                key={index}
-                className='px-5 pt-2 pb-[7px] text-4xl border-2 rounded-full text-kili-white border-kili-light-gray'
-              >
-                {stack}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
       <video
@@ -65,9 +56,18 @@ export default function Grid({ project }: Props) {
         </div>
         <div>
           <h3 className='mb-10 text-xl leading-tight text-kili-light-gray'>
-            Year
+            Stacks
           </h3>
-          <p className='text-4xl text-kili-white'>{project.year}</p>
+          <ul className='flex flex-wrap flex-1 gap-4'>
+            {project.stacks.map((stack, index) => (
+              <li
+                key={index}
+                className='px-5 pt-2 pb-[7px] text-4xl border-2 rounded-full text-kili-white border-kili-light-gray'
+              >
+                {stack}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
       <video src={project.gallery[5]} autoPlay playsInline loop muted />

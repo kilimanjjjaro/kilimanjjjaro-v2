@@ -1,7 +1,6 @@
 import StackSelector from '@/components/introducing/StackSelector'
 import SkillsCarousel from '@/components/introducing/SkillsCarousel'
 import LetsTalkButton from '@/components/introducing/LetsTalkButton'
-import SeeProjectsButton from '@/components/introducing/SeeProjectsButton'
 import Headline from '@/components/introducing/Headline'
 import Paragraph from '@/components/introducing/Paragraph'
 import Portrait from '@/components/introducing/Portrait'
@@ -14,10 +13,7 @@ export default function Introducing() {
         <div className='flex flex-col'>
           <Headline />
           <div className='grid items-end content-start grid-cols-2 gap-[19vw] justify-items-start'>
-            <div className='flex gap-20'>
-              <LetsTalkButton />
-              <SeeProjectsButton />
-            </div>
+            <LetsTalkButton />
             <Paragraph />
           </div>
         </div>

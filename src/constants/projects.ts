@@ -48,7 +48,7 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
       'Royal Enfield is a motorcycle brand based in India, known for its classic style and historical heritage. The company was founded in 1893 in Redditch, United Kingdom. Institutional websites was developed for three brand dealerships.',
     sectionDescription:
       'The dark mode was designed and developed throughout the application.',
-    stacks: ['HTML', 'JavaScript', 'PHP', 'CSS', 'SCSS', 'BEMIT'],
+    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
     role: 'Frontend Development',
     year: '2021',
     backgroundColor: '#ed3414',
@@ -101,9 +101,9 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     name: 'Kilimanjjjaro v1',
     slug: 'kilimanjjjaro-v1',
     headerDescription:
-      'This is the first version of my personal portfolio. It was designed and developed as a static website focused on simplicity.',
+      'This is the first version of my personal portfolio with a profile more focused on graphic design. It was designed and developed as a static website focused on simplicity.',
     sectionDescription: 'The website layout adapts to the projects.',
-    stacks: ['HTML', 'CSS', 'JavaScript', 'PHP'],
+    stacks: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
     role: 'UX/UI Design — Frontend Development',
     year: '2017',
     backgroundColor: '#111111',
@@ -131,8 +131,8 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     name: 'Volvo Test Drive',
     link: 'https://volvotestdrive.com.ar/',
     description:
-      'Landing page developed for Volvo Argentina (through ATOMO Agency) with the objective of simplifying the request for test drives.',
-    stacks: ['TypeScript', 'React', 'Tailwind', 'PHP'],
+      'Landing page developed for Volvo Argentina with the objective of simplifying the request for test drives.',
+    stacks: ['TypeScript', 'React', 'Tailwind'],
     role: 'Frontend Development',
     image: '/images/projects/volvo-test-drive/poster.webp',
     year: '2023'
@@ -153,14 +153,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     link: 'https://github.com/kilimanjjjaro/wrkload-api',
     description:
       'REST API developed to be implemented as the backend for an application. It includes all the functionalities needed to develop a task app.',
-    stacks: [
-      'JavaScript',
-      'Node JS',
-      'MongoDB',
-      'Express',
-      'JWT Authentication',
-      'Cookies'
-    ],
+    stacks: ['JavaScript', 'Node JS', 'MongoDB', 'Express', 'JWT Auth'],
     role: 'Backend Development',
     year: '2023'
   },
@@ -171,7 +164,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     link: 'https://planovalo.automotoresmataderos.com.ar/',
     description:
       'Landing page developed for a Ford dealership. Its objective is to inform about the financing plan and provide a means of communication.',
-    stacks: ['TypeScript', 'Astro', 'Tailwind', 'PHP'],
+    stacks: ['TypeScript', 'Astro', 'Tailwind'],
     role: 'Frontend Development',
     image: '/images/projects/plan-ovalo/poster.webp',
     year: '2023'
@@ -182,7 +175,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     link: 'https://www.mujeresalmundo.hsbc.com.ar/',
     description:
       "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world.",
-    stacks: ['HTML', 'JavaScript', 'PHP', 'CSS', 'SCSS', 'BEMIT'],
+    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
     role: 'Frontend Development',
     image: '/images/projects/mam/poster.webp',
     year: '2022'
@@ -192,7 +185,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     name: 'Plantemos un Árbol',
     link: 'https://www.bio-land.com/plantemos-un-arbol/',
     description:
-      "It's a landing page developed (through circulo.digital) for an environmental awareness campaign driven by BioLand.",
+      'Landing page developed for an environmental awareness campaign driven by BioLand.',
     stacks: ['WordPress', 'WPBakery', 'CSS'],
     role: 'Frontend Development',
     image: '/images/projects/plantemos-un-arbol/poster.webp',
@@ -204,7 +197,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     link: 'https://automotoresmataderos.com.ar/',
     description:
       "Project developed for a Ford dealership. It's an institutional page and its objective is to contain information about the dealership and the brand.",
-    stacks: ['HTML', 'JavaScript', 'PHP', 'CSS', 'SCSS', 'BEMIT'],
+    stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
     role: 'Frontend Development',
     image: '/images/projects/automotores-mataderos/poster.webp',
     year: '2021'
