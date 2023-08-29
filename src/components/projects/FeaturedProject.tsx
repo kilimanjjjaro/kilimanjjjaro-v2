@@ -1,7 +1,6 @@
 'use client'
 
 import { useRef, useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import clsx from 'clsx'
@@ -19,27 +18,34 @@ export default function FeaturedProject({
 }) {
   const { setCursorStatus } = useStore()
   const projectEl = useRef<HTMLElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
   const [isHovered, setIsHovered] = useState<number | null>(null)
   const isInView = useInView(projectEl, { once: true })
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = async () => {
     const sectionEl = document.getElementById('projects')
 
-    if (sectionEl === null) return
+    if (sectionEl === null || videoRef.current === null) return
 
     setIsHovered(project.id)
     setCursorStatus(CURSOR_STATUS.HIDDEN)
     sectionEl.style.backgroundColor = project.backgroundColor
+
+    videoRef.current.currentTime = 1
+    await videoRef.current.play()
   }
 
   const handleMouseLeave = () => {
     const sectionEl = document.getElementById('projects')
 
-    if (sectionEl === null) return
+    if (sectionEl === null || videoRef.current === null) return
 
     setIsHovered(null)
     setCursorStatus(CURSOR_STATUS.DEFAULT)
     sectionEl.style.backgroundColor = ''
+
+    videoRef.current.currentTime = 0
+    videoRef.current.pause()
   }
 
   return (
@@ -86,14 +92,13 @@ export default function FeaturedProject({
             delay: 0.5
           }}
         >
-          <Image
+          <video
+            ref={videoRef}
             className='w-auto h-auto transition-transform duration-700 ease-in-out scale-90 group-hover:scale-100'
-            src={project.presentation.poster}
-            alt={project.name}
-            width={640}
-            height={401}
-            quality={100}
-            loading='lazy'
+            src={project.presentation.video}
+            playsInline
+            loop
+            muted
           />
         </motion.div>
         <FeaturedProjectName projectId={project.id} isHovered={isHovered}>
