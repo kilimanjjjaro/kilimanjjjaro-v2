@@ -28,17 +28,8 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     presentation: {
       background: '/images/projects/wrkload/background.webp',
       poster: '/images/projects/wrkload/poster.webp',
-      heroVideo: '/images/projects/wrkload/hero-video.mp4'
-    },
-    gallery: [
-      '/images/projects/wrkload/gallery-1.webp',
-      '/images/projects/wrkload/gallery-2.mp4',
-      '/images/projects/wrkload/gallery-3.webp',
-      '/images/projects/wrkload/gallery-4.mp4',
-      '/images/projects/wrkload/gallery-5.webp',
-      '/images/projects/wrkload/gallery-6.mp4',
-      '/images/projects/wrkload/gallery-7.webp'
-    ]
+      video: '/images/projects/wrkload/hero-video.webm'
+    }
   },
   {
     id: 2,
@@ -56,17 +47,8 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     presentation: {
       background: '/images/projects/royal-enfield/background.webp',
       poster: '/images/projects/royal-enfield/poster.webp',
-      heroVideo: '/images/projects/royal-enfield/hero-video.mp4'
-    },
-    gallery: [
-      '/images/projects/royal-enfield/gallery-1.webp',
-      '/images/projects/royal-enfield/gallery-2.mp4',
-      '/images/projects/royal-enfield/gallery-3.webp',
-      '/images/projects/royal-enfield/gallery-4.mp4',
-      '/images/projects/royal-enfield/gallery-5.webp',
-      '/images/projects/royal-enfield/gallery-6.mp4',
-      '/images/projects/royal-enfield/gallery-7.webp'
-    ]
+      video: '/images/projects/royal-enfield/hero-video.webm'
+    }
   },
   {
     id: 3,
@@ -84,17 +66,8 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     presentation: {
       background: '/images/projects/threads-clone/background.webp',
       poster: '/images/projects/threads-clone/poster.webp',
-      heroVideo: '/images/projects/threads-clone/hero-video.mp4'
-    },
-    gallery: [
-      '/images/projects/threads-clone/gallery-1.webp',
-      '/images/projects/threads-clone/gallery-2.mp4',
-      '/images/projects/threads-clone/gallery-3.webp',
-      '/images/projects/threads-clone/gallery-4.mp4',
-      '/images/projects/threads-clone/gallery-5.webp',
-      '/images/projects/threads-clone/gallery-6.mp4',
-      '/images/projects/threads-clone/gallery-7.webp'
-    ]
+      video: '/images/projects/threads-clone/hero-video.webm'
+    }
   },
   {
     id: 4,
@@ -111,17 +84,8 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     presentation: {
       background: '/images/projects/kilimanjjjaro-v1/background.webp',
       poster: '/images/projects/kilimanjjjaro-v1/poster.webp',
-      heroVideo: '/images/projects/kilimanjjjaro-v1/hero-video.mp4'
-    },
-    gallery: [
-      '/images/projects/kilimanjjjaro-v1/gallery-1.webp',
-      '/images/projects/kilimanjjjaro-v1/gallery-2.mp4',
-      '/images/projects/kilimanjjjaro-v1/gallery-3.webp',
-      '/images/projects/kilimanjjjaro-v1/gallery-4.mp4',
-      '/images/projects/kilimanjjjaro-v1/gallery-5.webp',
-      '/images/projects/kilimanjjjaro-v1/gallery-6.mp4',
-      '/images/projects/kilimanjjjaro-v1/gallery-7.webp'
-    ]
+      video: '/images/projects/kilimanjjjaro-v1/hero-video.webm'
+    }
   }
 ]
 

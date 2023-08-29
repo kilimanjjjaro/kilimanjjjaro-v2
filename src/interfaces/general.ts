@@ -55,9 +55,8 @@ export interface FeaturedProjectInterface {
   presentation: {
     background: string
     poster: string
-    heroVideo: string
+    video: string
   }
-  gallery: string[]
   backgroundColor: string
   year: string
   link: string

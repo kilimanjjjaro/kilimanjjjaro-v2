@@ -11,21 +11,27 @@ export default function Grid({ project }: Props) {
     <section id='blur' className='grid grid-cols-3 px-40 pb-36 gap-36'>
       <video
         className='col-span-3'
-        src={project.presentation.heroVideo}
+        src={project.presentation.video}
         autoPlay
         playsInline
         loop
         muted
       />
       <Image
-        src={project.gallery[0]}
+        src={`/images/projects/${project.slug}/gallery-1.webp`}
         width={824}
         height={1508}
         alt=''
         quality={100}
         loading='lazy'
       />
-      <video src={project.gallery[1]} autoPlay playsInline loop muted />
+      <video
+        src={`/images/projects/${project.slug}/gallery-2.webm`}
+        autoPlay
+        playsInline
+        loop
+        muted
+      />
       <div className='flex flex-col gap-36'>
         <div>
           <h3 className='mb-10 text-xl leading-tight text-kili-light-gray'>
@@ -41,7 +47,7 @@ export default function Grid({ project }: Props) {
       </div>
       <video
         className='col-span-3'
-        src={project.gallery[3]}
+        src={`/images/projects/${project.slug}/gallery-3.webm`}
         autoPlay
         playsInline
         loop
@@ -70,9 +76,15 @@ export default function Grid({ project }: Props) {
           </ul>
         </div>
       </div>
-      <video src={project.gallery[5]} autoPlay playsInline loop muted />
+      <video
+        src={`/images/projects/${project.slug}/gallery-4.webm`}
+        autoPlay
+        playsInline
+        loop
+        muted
+      />
       <Image
-        src={project.gallery[6]}
+        src={`/images/projects/${project.slug}/gallery-5.webp`}
         width={824}
         height={1508}
         alt={project.name}
