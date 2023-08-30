@@ -94,8 +94,9 @@ export default function FeaturedProject({
         >
           <video
             ref={videoRef}
-            className='w-auto h-auto transition-transform duration-700 ease-in-out scale-90 group-hover:scale-100'
+            className='w-full transition-transform duration-700 ease-in-out scale-[.85] aspect-video group-hover:scale-100'
             src={project.presentation.video}
+            poster={project.presentation.poster}
             playsInline
             loop
             muted

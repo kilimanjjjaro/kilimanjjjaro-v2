@@ -10,7 +10,7 @@ export default function Grid({ project }: Props) {
   return (
     <section id='blur' className='grid grid-cols-3 px-40 pb-36 gap-36'>
       <video
-        className='col-span-3'
+        className='w-full col-span-3 aspect-video'
         src={project.presentation.video}
         autoPlay
         playsInline
@@ -19,13 +19,14 @@ export default function Grid({ project }: Props) {
       />
       <Image
         src={`/images/projects/${project.slug}/gallery-1.webp`}
-        width={824}
-        height={1508}
+        width={437}
+        height={778}
         alt=''
         quality={100}
         loading='lazy'
       />
       <video
+        className='w-full'
         src={`/images/projects/${project.slug}/gallery-2.webm`}
         autoPlay
         playsInline
@@ -46,7 +47,7 @@ export default function Grid({ project }: Props) {
         </div>
       </div>
       <video
-        className='col-span-3'
+        className='w-full col-span-3 aspect-video'
         src={`/images/projects/${project.slug}/gallery-3.webm`}
         autoPlay
         playsInline
@@ -85,8 +86,8 @@ export default function Grid({ project }: Props) {
       />
       <Image
         src={`/images/projects/${project.slug}/gallery-5.webp`}
-        width={824}
-        height={1508}
+        width={437}
+        height={778}
         alt={project.name}
         loading='lazy'
       />
