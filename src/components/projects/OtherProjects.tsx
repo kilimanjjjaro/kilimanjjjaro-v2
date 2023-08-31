@@ -125,7 +125,7 @@ export default function OtherProjects() {
                     alt={project.name}
                     width={400}
                     height={250}
-                    quality={100}
+                    quality={90}
                   />
                 </div>
               )}
