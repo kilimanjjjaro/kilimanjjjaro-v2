@@ -7,10 +7,36 @@ import CustomCursor from '@/components/CustomCursor'
 import SmoothScroll from '@/components/SmoothScroll'
 import { neueHaasGroteskDisplayFont } from '@/utils/fonts'
 import type { ChildrenType } from '@/interfaces/general'
+import type { Metadata } from 'next'
 import '@/app/globals.css'
 
-export const metadata = {
-  title: 'Kilimanjjjaro'
+export const metadata: Metadata = {
+  title: 'Kilimanjjjaro',
+  description: 'Kilimanjjjaro is a digital product studio based in Berlin.',
+  openGraph: {
+    title: 'Kilimanjjjaro',
+    description: 'Kilimanjjjaro is a digital product studio based in Berlin.',
+    images: [
+      {
+        url: 'https://kilimanjjjaro.com/images/og-image.png',
+        width: 1200,
+        height: 630
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@kilimanjjjaro',
+    title: 'Kilimanjjjaro',
+    description: 'Kilimanjjjaro is a digital product studio based in Berlin.',
+    images: [
+      {
+        url: 'https://kilimanjjjaro.com/images/og-image.png',
+        width: 1200,
+        height: 630
+      }
+    ]
+  }
 }
 
 export default function RootLayout({ children }: { children: ChildrenType }) {

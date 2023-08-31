@@ -22,7 +22,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: project.name,
     description: project.headerDescription,
-    keywords: `${project.name}, ${project.stacks.join(', ')}`
+    keywords: `${project.name}, ${project.stacks.join(', ')}`,
+    openGraph: {
+      title: project.name,
+      description: project.headerDescription,
+      images: [
+        {
+          url: project.presentation.poster,
+          width: 1200,
+          height: 630
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@kilimanjjjaro',
+      title: project.name,
+      description: project.headerDescription,
+      images: [
+        {
+          url: project.presentation.poster,
+          width: 1200,
+          height: 630
+        }
+      ]
+    }
   }
 }
 
