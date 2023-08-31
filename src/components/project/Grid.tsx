@@ -22,8 +22,7 @@ export default function Grid({ project }: Props) {
         width={437}
         height={778}
         alt=''
-        quality={100}
-        loading='lazy'
+        quality={90}
       />
       <video
         className='w-full'
@@ -78,6 +77,7 @@ export default function Grid({ project }: Props) {
         </div>
       </div>
       <video
+        className='w-full'
         src={`/images/projects/${project.slug}/gallery-4.webm`}
         autoPlay
         playsInline
@@ -89,6 +89,7 @@ export default function Grid({ project }: Props) {
         width={437}
         height={778}
         alt={project.name}
+        quality={90}
         loading='lazy'
       />
     </section>

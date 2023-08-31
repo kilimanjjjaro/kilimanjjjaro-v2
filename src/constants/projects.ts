@@ -38,7 +38,7 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     headerDescription:
       'Royal Enfield is a motorcycle brand based in India, known for its classic style and historical heritage. The company was founded in 1893 in Redditch, United Kingdom. Institutional websites was developed for three brand dealerships.',
     sectionDescription:
-      'The dark mode was designed and developed throughout the application.',
+      'The Royal Enfield motorcycle is the main element in all sections of the website.',
     stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
     role: 'Frontend Development',
     year: '2021',
