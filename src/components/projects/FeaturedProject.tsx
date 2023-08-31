@@ -31,7 +31,6 @@ export default function FeaturedProject({
     setCursorStatus(CURSOR_STATUS.HIDDEN)
     sectionEl.style.backgroundColor = project.backgroundColor
 
-    videoRef.current.currentTime = 1
     await videoRef.current.play()
   }
 
@@ -44,7 +43,6 @@ export default function FeaturedProject({
     setCursorStatus(CURSOR_STATUS.DEFAULT)
     sectionEl.style.backgroundColor = ''
 
-    videoRef.current.currentTime = 0
     videoRef.current.pause()
   }
 

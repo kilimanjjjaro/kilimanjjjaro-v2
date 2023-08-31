@@ -75,7 +75,8 @@ export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
     slug: 'kilimanjjjaro-v1',
     headerDescription:
       'This is the first version of my personal portfolio with a profile more focused on graphic design. It was designed and developed as a static website focused on simplicity.',
-    sectionDescription: 'The website layout adapts to the projects.',
+    sectionDescription:
+      "The UI theme adapts to the project's identity. The site coexists with light and dark versions.",
     stacks: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
     role: 'UX/UI Design — Frontend Development',
     year: '2017',
