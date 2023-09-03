@@ -1,6 +1,6 @@
 // import { Analytics } from '@vercel/analytics/react'
 import NavBar from '@/components/navbar/NavBar'
-import ContactFormModal from '@/components/contact-form/ContactFormModal'
+import FormModal from '@/components/contact-form/FormModal'
 import Footer from '@/components/footer/Footer'
 import ScrollPercentage from '@/components/ScrollPercentage'
 import CustomCursor from '@/components/CustomCursor'
@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: ChildrenType }) {
         >
           <SmoothScroll>{children}</SmoothScroll>
           <Footer />
-          <ContactFormModal />
+          <FormModal />
         </div>
         <ScrollPercentage />
         <CustomCursor />

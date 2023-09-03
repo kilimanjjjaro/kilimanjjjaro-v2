@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import FocusTrap from 'focus-trap-react'
 import CommandLine from '@/components/contact-form/CommandLine'
 import Fields from '@/components/contact-form/Fields'
+import Warning from '@/components/contact-form/Warning'
 import { useStore } from '@/store/store'
 import { ArrowRightIcon } from '@/icons/ArrowRightIcon'
 import { firaMonoFont } from '@/utils/fonts'
@@ -13,9 +14,10 @@ interface Props {
   handleDrag: React.PointerEventHandler<HTMLElement>
 }
 
-export default function ContactForm({ handleDrag }: Props) {
+export default function Form({ handleDrag }: Props) {
   const { setShowContactForm, setCursorStatus } = useStore()
   const [renderFields, setRenderFields] = useState(false)
+  const [showWarning, setShowWarning] = useState(false)
   const [step, setStep] = useState(1)
   const [error, setError] = useState(false)
   const [success, setSuccess] = useState(false)
@@ -37,6 +39,7 @@ export default function ContactForm({ handleDrag }: Props) {
       const status: number = 400
 
       if (status === 200) {
+        console.log('Success')
         setSuccess(true)
         setError(false)
         form.reset()
@@ -44,6 +47,7 @@ export default function ContactForm({ handleDrag }: Props) {
         throw new Error('Something went wrong')
       }
     } catch (err) {
+      console.error(err)
       setError(true)
     } finally {
       setIsLoading(false)
@@ -71,11 +75,37 @@ export default function ContactForm({ handleDrag }: Props) {
     }
   }, [])
 
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (!showWarning && event.key === 'Escape') {
+        setShowWarning(true)
+      }
+
+      if (showWarning && event.key === 'Enter') {
+        event.preventDefault()
+        setShowContactForm(false)
+      }
+
+      if (showWarning && event.key !== 'Enter') {
+        setShowWarning(false)
+      }
+    },
+    [setShowContactForm, showWarning]
+  )
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [handleKeyDown])
+
   return (
     <FocusTrap>
       <motion.form
         onSubmit={handleSubmit}
-        className='w-[700px] bg-[#030303] relative rounded-md overflow-hidden shadow-lg pointer-events-auto'
+        className='w-[700px] bg-[#030303] relative rounded-md shadow-lg overflow-hidden pointer-events-auto'
         initial={{
           y: '90dvh',
           scale: 0.5
@@ -98,7 +128,7 @@ export default function ContactForm({ handleDrag }: Props) {
         }}
       >
         <motion.header
-          className='bg-[#101010] flex gap-4 items-center px-4 h-10 cursor-grab active:cursor-grabbing active:select-none'
+          className='flex items-center h-10 gap-4 px-4 bg-kili-light-gray/30 cursor-grab active:cursor-grabbing active:select-none'
           onPointerDown={handleDrag}
           onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
           onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
@@ -137,6 +167,7 @@ export default function ContactForm({ handleDrag }: Props) {
               <Fields step={step} setStep={setStep} />
             </div>
           )}
+          {showWarning && <Warning setShowWarning={setShowWarning} />}
         </main>
         {renderFields && (
           <button

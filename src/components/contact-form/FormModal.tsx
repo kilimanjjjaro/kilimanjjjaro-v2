@@ -2,10 +2,10 @@
 
 import { useRef } from 'react'
 import { AnimatePresence, motion, useDragControls } from 'framer-motion'
-import ContactForm from '@/components/contact-form/ContactForm'
+import ContactForm from '@/components/contact-form/Form'
 import { useStore } from '@/store/store'
 
-export default function ContactFormModal() {
+export default function FormModal() {
   const { showContactForm } = useStore()
   const dragConstraintsRef = useRef<HTMLDivElement>(null)
   const dragControls = useDragControls()
