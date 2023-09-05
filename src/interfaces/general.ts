@@ -72,3 +72,9 @@ export interface OtherProjectInterface {
   role: string
   year: string
 }
+
+declare global {
+  interface Window {
+    letsTalk: () => void
+  }
+}
