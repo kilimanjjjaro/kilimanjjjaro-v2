@@ -5,7 +5,7 @@ import Footer from '@/components/footer/Footer'
 import ScrollPercentage from '@/components/ScrollPercentage'
 import CustomCursor from '@/components/CustomCursor'
 import SmoothScroll from '@/components/SmoothScroll'
-import ConsoleLogMessage from '@/components/ConsoleLogMessage'
+import MessageForDevs from '@/components/MessageForDevs'
 import { neueHaasGroteskDisplayFont } from '@/utils/fonts'
 import type { ChildrenType } from '@/interfaces/general'
 import type { Metadata } from 'next'
@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: ChildrenType }) {
         </div>
         <ScrollPercentage />
         <CustomCursor />
-        <ConsoleLogMessage />
+        <MessageForDevs />
         {/* <Analytics /> */}
       </body>
     </html>
