@@ -4,6 +4,8 @@ import { useEffect } from 'react'
 
 const EMAIL_ADDRESS = 'hello@kilimanjjjaro.com'
 const EMAIL_SUBJECT = 'From your console log 🙃'
+const LINKEDIN_URL = 'https://www.linkedin.com/in/kilimanjjjaro'
+const GITHUB_URL = 'https://github.com/kilimanjjjaro'
 
 export default function MessageForDevs() {
   useEffect(() => {
@@ -15,9 +17,8 @@ export default function MessageForDevs() {
 
     const email = () => {
       console.info(
-        '%cWe can talk by email %chello@kilimanjjjaro.com',
-        'color: #F8F8F8; background-color: #090909; font-size: 20px; padding: 20px 20px 10px 20px;',
-        'color: #F8F8F8; background-color: #090909; font-size: 20px; padding: 10px 20px 20px 20px;'
+        `%cWe can talk by email. ${EMAIL_ADDRESS}`,
+        'color: #F8F8F8; background-color: #090909; font-size: 20px; padding: 18px 20px 18px 20px;'
       )
 
       window.open(`mailto:${EMAIL_ADDRESS}?subject=${EMAIL_SUBJECT}`)
@@ -27,24 +28,22 @@ export default function MessageForDevs() {
 
     const linkedin = () => {
       console.info(
-        '%cYou can find me on LinkedIn %clinkedin.com/in/kilimanjjjaro/',
-        'color: #F8F8F8; background-color: #090909; font-size: 20px; padding: 20px 20px 10px 20px;',
-        'color: #F8F8F8; background-color: #090909; font-size: 20px; padding: 10px 20px 20px 20px;'
+        `%cYou can find me on LinkedIn. ${LINKEDIN_URL}`,
+        'color: #F8F8F8; background-color: #090909; font-size: 20px; padding: 18px 20px 18px 20px;'
       )
 
-      window.open('https://www.linkedin.com/in/kilimanjjjaro/')
+      window.open(LINKEDIN_URL)
 
       return 'Opening LinkedIn...'
     }
 
     const github = () => {
       console.info(
-        '%cYou can find me on GitHub %cgithub.com/kilimanjjjaro',
-        'color: #F8F8F8; background-color: #090909; font-size: 20px; padding: 20px 20px 10px 20px;',
-        'color: #F8F8F8; background-color: #090909; font-size: 20px; padding: 10px 20px 20px 20px;'
+        `%cYou can find me on GitHub. ${GITHUB_URL}`,
+        'color: #F8F8F8; background-color: #090909; font-size: 20px; padding: 18px 20px 18px 20px;'
       )
 
-      window.open('https://github.com/kilimanjjjaro')
+      window.open(GITHUB_URL)
 
       return 'Opening GitHub...'
     }
