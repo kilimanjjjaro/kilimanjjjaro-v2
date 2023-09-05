@@ -75,6 +75,8 @@ export interface OtherProjectInterface {
 
 declare global {
   interface Window {
-    letsTalk: () => void
+    email: () => string
+    linkedin: () => string
+    github: () => string
   }
 }
