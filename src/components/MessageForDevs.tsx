@@ -1,11 +1,12 @@
 'use client'
 
 import { useEffect } from 'react'
-
-const EMAIL_ADDRESS = 'hello@kilimanjjjaro.com'
-const EMAIL_SUBJECT = 'From your console log 🙃'
-const LINKEDIN_URL = 'https://www.linkedin.com/in/kilimanjjjaro'
-const GITHUB_URL = 'https://github.com/kilimanjjjaro'
+import {
+  EMAIL_ADDRESS,
+  EMAIL_SUBJECT,
+  GITHUB_URL,
+  LINKEDIN_URL
+} from '@/constants/message-for-devs'
 
 export default function MessageForDevs() {
   useEffect(() => {
