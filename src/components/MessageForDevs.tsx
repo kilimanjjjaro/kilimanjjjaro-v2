@@ -17,7 +17,7 @@ export default function MessageForDevs() {
 
     const email = () => {
       console.info(
-        `%cWe can talk by email. ${EMAIL_ADDRESS}`,
+        `%cWe can talk by: ${EMAIL_ADDRESS}`,
         'color: #F8F8F8; background-color: #090909; font-size: 20px; padding: 18px 20px 18px 20px;'
       )
 
@@ -28,7 +28,7 @@ export default function MessageForDevs() {
 
     const linkedin = () => {
       console.info(
-        `%cYou can find me on LinkedIn. ${LINKEDIN_URL}`,
+        `%cYou can find me on: ${LINKEDIN_URL}`,
         'color: #F8F8F8; background-color: #090909; font-size: 20px; padding: 18px 20px 18px 20px;'
       )
 
@@ -39,7 +39,7 @@ export default function MessageForDevs() {
 
     const github = () => {
       console.info(
-        `%cYou can find me on GitHub. ${GITHUB_URL}`,
+        `%cYou can find me on: ${GITHUB_URL}`,
         'color: #F8F8F8; background-color: #090909; font-size: 20px; padding: 18px 20px 18px 20px;'
       )
 
