@@ -19,7 +19,7 @@ export default function Warning({ setShowWarning }: Props) {
           />
         </div>
         <div className='p-6'>
-          <h3 className='mb-4 text-lg text-kili-white'>Are you sure?</h3>
+          <h3 className='mb-4 text-lg text-kili-white'>Close terminal</h3>
           <p className='text-kili-light-gray'>
             Press{' '}
             <kbd className='px-1 mx-1 text-sm pb-[1px] rounded-md border border-kili-light-gray'>
