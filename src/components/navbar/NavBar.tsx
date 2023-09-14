@@ -1,13 +1,11 @@
 'use client'
 
 import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
-import { useLenis } from '@studio-freight/react-lenis'
 import Navigation from '@/components/navbar/Navigation'
 import LanguageSelector from '@/components/navbar/LanguageSelector'
-import TextButton from '@/components/shared/TextButton'
 import useNavBar from '@/hooks/useNavBar'
 import { useStore } from '@/store/store'
 import {
@@ -19,13 +17,6 @@ import { CURSOR_STATUS } from '@/constants/general'
 export default function NavBar() {
   const { navBarStatus, setNavBarStatus, setCursorStatus } = useStore()
   const { isVisible } = useNavBar()
-  const router = useRouter()
-  const lenis = useLenis()
-
-  const handleClick = () => {
-    router.push('/')
-    lenis.scrollTo(0, { duration: 2 })
-  }
 
   useEffect(() => {
     const wrapperEl = document.getElementById('page-wrapper')
@@ -65,7 +56,7 @@ export default function NavBar() {
           !isVisible && '-translate-y-16'
         )}
       >
-        <TextButton handler={handleClick}>Kilimanjjjaro</TextButton>
+        <Link href='/'>Kilimanjjjaro</Link>
       </h1>
       <div
         className={clsx(

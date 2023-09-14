@@ -2,6 +2,7 @@
 import NavBar from '@/components/navbar/NavBar'
 import FormModal from '@/components/contact-form/FormModal'
 import Footer from '@/components/footer/Footer'
+import PageTransition from '@/components/PageTransition'
 import ScrollPercentage from '@/components/ScrollPercentage'
 import CustomCursor from '@/components/CustomCursor'
 import SmoothScroll from '@/components/SmoothScroll'
@@ -46,18 +47,17 @@ export default function RootLayout({ children }: { children: ChildrenType }) {
       <body
         className={`bg-kili-black font-neue-haas-grotesk-display antialiased ${neueHaasGroteskDisplayFont}`}
       >
-        <NavBar />
-        <div
-          id='page-wrapper'
-          className='transition-transform duration-[1.7s] ease-kili-in'
-        >
-          <SmoothScroll>{children}</SmoothScroll>
-          <Footer />
-          <FormModal />
-        </div>
-        <ScrollPercentage />
-        <CustomCursor />
-        <MessageForDevs />
+        <SmoothScroll>
+          <NavBar />
+          <PageTransition>
+            {children}
+            <Footer />
+            <ScrollPercentage />
+            <FormModal />
+            <MessageForDevs />
+          </PageTransition>
+          <CustomCursor />
+        </SmoothScroll>
         {/* <Analytics /> */}
       </body>
     </html>

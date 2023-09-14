@@ -10,11 +10,12 @@
   },
   "dependencies": {
     "@camwiegert/typical": "^0.1.1",
+    "@gimwa/next-page-transition": "^1.0.3",
     "@motionone/utils": "10.15.1",
-    "@studio-freight/react-lenis": "0.0.26",
+    "@studio-freight/react-lenis": "0.0.28",
     "@vercel/analytics": "^1.0.2",
     "clsx": "2.0.0",
-    "eslint": "8.48.0",
+    "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
     "focus-trap-react": "^10.2.1",
     "framer-motion": "10.16.4",
@@ -27,7 +28,7 @@
     "zustand": "4.4.1"
   },
   "devDependencies": {
-    "@types/node": "20.5.9",
+    "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",

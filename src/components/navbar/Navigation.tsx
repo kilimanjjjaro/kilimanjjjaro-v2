@@ -1,17 +1,11 @@
-import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
+import TextLink from '@/components/shared/TextLink'
 import { useStore } from '@/store/store'
 import { SECTIONS, CURSOR_STATUS } from '@/constants/general'
 import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/constants/variants'
 
 export default function Navigation() {
   const { navBarStatus, setNavBarStatus, setCursorStatus } = useStore()
-  const router = useRouter()
-
-  const handleClick = async (hash: string) => {
-    setNavBarStatus(false)
-    router.push(`/#${hash}`)
-  }
 
   return (
     <motion.nav
@@ -23,17 +17,21 @@ export default function Navigation() {
       <ul className='flex flex-col gap-5'>
         {SECTIONS.map((section) => (
           <li key={section.slug} className='overflow-hidden'>
-            <motion.button
+            <motion.span
               className='overflow-hidden text-9xl text-kili-white group'
               variants={NAVBAR_LI_VARIANTS}
-              onClick={async () => await handleClick(section.slug)}
               onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
               onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
             >
               <span className='block group-hover:animate-translate-y'>
-                {section.name}
+                <TextLink
+                  href={`/#${section.slug}`}
+                  onClick={() => setNavBarStatus(false)}
+                >
+                  {section.name}
+                </TextLink>
               </span>
-            </motion.button>
+            </motion.span>
           </li>
         ))}
       </ul>

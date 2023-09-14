@@ -11,13 +11,15 @@ interface Props {
   className?: string
   href: string
   underlined?: boolean
+  onClick?: () => void
 }
 
 export default function TextLink({
   children,
   className,
   href,
-  underlined
+  underlined,
+  onClick
 }: Props) {
   const { setCursorStatus } = useStore()
 
@@ -31,6 +33,7 @@ export default function TextLink({
       href={href}
       onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
       onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+      onClick={onClick}
     >
       {children}
     </Link>
