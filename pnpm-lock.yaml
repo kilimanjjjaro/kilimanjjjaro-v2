@@ -8,9 +8,6 @@ dependencies:
   '@camwiegert/typical':
     specifier: ^0.1.1
     version: 0.1.1
-  '@gimwa/next-page-transition':
-    specifier: ^1.0.3
-    version: 1.0.3
   '@motionone/utils':
     specifier: 10.15.1
     version: 10.15.1
@@ -159,20 +156,6 @@ packages:
     resolution: {integrity: sha512-1S8uAY/MTJqVx0SC4epBq+N2yhuwtNwLbJYNZyhL2pO1ZVKn5HFXav5T41Ryzy9K9V7ZId2JB2oy/W4aCd9/2w==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
-
-  /@gimwa/next-page-transition@1.0.3:
-    resolution: {integrity: sha512-0SO9CaW9Kz8Ejl69JpwYiVSodGFiZUkw85mznnd6JeyLqvCLheZ5deTBOTwRwMO/wzr7R0a5s/F/xzHeoPG8lQ==}
-    dependencies:
-      framer-motion: 10.16.4(react-dom@18.2.0)(react@18.2.0)
-      next: 13.4.19(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@opentelemetry/api'
-      - babel-plugin-macros
-      - sass
-    dev: false
 
   /@humanwhocodes/config-array@0.11.11:
     resolution: {integrity: sha512-N2brEuAadi0CcdeMXUkhbZB84eskAc8MEX1By6qEchoVywSgXPIjou4rYsl0V3Hj0ZnuGycGCjdNgockbzeWNA==}

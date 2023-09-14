@@ -21,7 +21,12 @@ export default function SmoothScroll({ children }: { children: ChildrenType }) {
 
   return (
     <ReactLenis root>
-      {children}
+      <div
+        id='page-wrapper'
+        className='transition-transform duration-[1.7s] ease-kili-in'
+      >
+        {children}
+      </div>
     </ReactLenis>
   )
 }

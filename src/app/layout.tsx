@@ -1,8 +1,6 @@
-// import { Analytics } from '@vercel/analytics/react'
 import NavBar from '@/components/navbar/NavBar'
 import FormModal from '@/components/contact-form/FormModal'
 import Footer from '@/components/footer/Footer'
-import PageTransition from '@/components/PageTransition'
 import ScrollPercentage from '@/components/ScrollPercentage'
 import CustomCursor from '@/components/CustomCursor'
 import SmoothScroll from '@/components/SmoothScroll'
@@ -47,18 +45,15 @@ export default function RootLayout({ children }: { children: ChildrenType }) {
       <body
         className={`bg-kili-black font-neue-haas-grotesk-display antialiased ${neueHaasGroteskDisplayFont}`}
       >
+        <NavBar />
         <SmoothScroll>
-          <NavBar />
-          <PageTransition>
-            {children}
-            <Footer />
-            <ScrollPercentage />
-            <FormModal />
-            <MessageForDevs />
-          </PageTransition>
-          <CustomCursor />
+          {children}
+          <Footer />
         </SmoothScroll>
-        {/* <Analytics /> */}
+        <ScrollPercentage />
+        <FormModal />
+        <MessageForDevs />
+        <CustomCursor />
       </body>
     </html>
   )
