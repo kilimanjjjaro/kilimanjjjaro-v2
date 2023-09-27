@@ -1,8 +1,12 @@
+import { useRef } from 'react'
 import clsx from 'clsx'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Balancer from 'react-wrap-balancer'
+import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon'
 import { useStore } from '@/lib/store/store'
+import useCursorPosition from '@/lib/hooks/useCursorPosition'
+import useElementDimensions from '@/lib/hooks/useElementDimensions'
 import {
   OTHER_PROJECT_HR_VARIANTS,
   OTHER_PROJECT_VARIANTS
@@ -16,6 +20,13 @@ interface Props {
 
 export default function OtherProject({ project }: Props) {
   const { setCursorStatus } = useStore()
+  const visitButtonEl = useRef<HTMLHeadingElement>(null)
+  const elementDimensions = useElementDimensions({ ref: visitButtonEl })
+  const { x, y } = useCursorPosition({
+    trigger: true,
+    translateX: elementDimensions.width / 2,
+    translateY: elementDimensions.height / 2
+  })
 
   return (
     <a
@@ -23,10 +34,10 @@ export default function OtherProject({ project }: Props) {
       href={project.link}
       target='_blank'
       rel='noopener noreferrer'
-      onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+      onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HIDDEN)}
       onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
     >
-      <article className='relative flex items-center group'>
+      <article className='relative flex items-center group cursor-none'>
         <div className='overflow-hidden'>
           <motion.div
             className='flex items-center pt-10 pb-[42px] gap-x-10'
@@ -77,6 +88,15 @@ export default function OtherProject({ project }: Props) {
             />
           </div>
         )}
+        <motion.span
+          ref={visitButtonEl}
+          className='fixed top-0 left-0 z-10 overflow-hidden pointer-events-none'
+          style={{ x, y }}
+        >
+          <span className='block text-6xl leading-none text-center transition-transform duration-700 ease-in-out translate-y-[110%] rotate-6 text-kili-white group-hover:translate-y-0 group-hover:rotate-0'>
+            Launch <ArrowRightIcon className='inline-block w-10' />
+          </span>
+        </motion.span>
       </article>
     </a>
   )

@@ -32,10 +32,12 @@ export default function FeaturedProjectName({
       <motion.span
         className='block leading-none text-center text-kili-white text-9xl'
         initial={{
-          y: '105%'
+          y: '122%',
+          rotate: 6
         }}
         animate={{
-          y: isHovered === projectId ? '0%' : '105%'
+          y: isHovered === projectId ? '0%' : '122%',
+          rotate: isHovered === projectId ? 0 : 6
         }}
         transition={{
           duration: 0.7,
