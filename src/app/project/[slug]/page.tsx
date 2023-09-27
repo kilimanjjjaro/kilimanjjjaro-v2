@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: project.name,
+    metadataBase: new URL('http://localhost:3000'),
     description: project.headerDescription,
     keywords: `${project.name}, ${project.stacks.join(', ')}`,
     openGraph: {

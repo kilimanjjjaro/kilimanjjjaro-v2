@@ -1,8 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useStore } from '@/store/store'
 
 export default function Headline() {
+  const { setIntroRunning } = useStore()
+
   return (
     <motion.div
       initial={{
@@ -72,6 +75,7 @@ export default function Headline() {
               ease: [0.17, 0.84, 0.44, 1],
               delay: 0.5
             }}
+            onAnimationComplete={() => setIntroRunning(false)}
           >
             experiences.
           </motion.span>

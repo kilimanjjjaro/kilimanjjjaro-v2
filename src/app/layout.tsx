@@ -13,6 +13,7 @@ import '@/app/globals.css'
 export const metadata: Metadata = {
   title: 'Kilimanjjjaro',
   description: 'Kilimanjjjaro is a digital product studio based in Berlin.',
+  metadataBase: new URL('http://localhost:3000'),
   openGraph: {
     title: 'Kilimanjjjaro',
     description: 'Kilimanjjjaro is a digital product studio based in Berlin.',
