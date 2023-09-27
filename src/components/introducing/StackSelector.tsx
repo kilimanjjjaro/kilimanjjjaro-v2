@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
-import { PlusIcon } from '@/icons/PlusIcon'
+import { PlusIcon } from '@/components/icons/PlusIcon'
 import { useStore } from '@/lib/store/store'
 import {
   STACKS_LI_VARIANTS,

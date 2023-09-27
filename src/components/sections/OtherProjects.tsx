@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import OtherProject from '@/components/projects/OtherProject'
-import { PlusIcon } from '@/icons/PlusIcon'
+import { PlusIcon } from '@/components/icons/PlusIcon'
 import { useStore } from '@/lib/store/store'
 import { OTHER_PROJECTS_VARIANTS } from '@/lib/constants/variants'
 import { OTHER_PROJECTS } from '@/lib/constants/projects'

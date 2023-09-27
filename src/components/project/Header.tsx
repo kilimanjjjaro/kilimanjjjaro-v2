@@ -2,7 +2,7 @@
 
 import Balancer from 'react-wrap-balancer'
 import ParallaxHeadline from '@/components/shared/ParallaxHeadline'
-import { ArrowCornerIcon } from '@/icons/ArrowCornerIcon'
+import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
 import type { FeaturedProjectInterface } from '@/lib/interfaces/general'
 
 interface Props {

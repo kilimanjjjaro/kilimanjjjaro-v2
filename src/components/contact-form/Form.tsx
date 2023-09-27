@@ -6,7 +6,7 @@ import CommandLine from '@/components/contact-form/CommandLine'
 import Fields from '@/components/contact-form/Fields'
 import Warning from '@/components/contact-form/Warning'
 import { useStore } from '@/lib/store/store'
-import { ArrowRightIcon } from '@/icons/ArrowRightIcon'
+import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon'
 import { firaMonoFont } from '@/lib/utils/fonts'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 
