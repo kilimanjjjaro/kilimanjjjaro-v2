@@ -1,7 +1,7 @@
 'use client'
 
 import TextButton from '@/components/shared/TextButton'
-import { useStore } from '@/store/store'
+import { useStore } from '@/lib/store/store'
 
 export default function LetsTalkButton() {
   const { setShowContactForm } = useStore()

@@ -1,4 +1,4 @@
-import { CURSOR_STATUS } from '@/constants/general'
+import { CURSOR_STATUS } from '@/lib/constants/general'
 import type { Swiper } from 'swiper'
 
 export type ChildrenType = React.ReactNode

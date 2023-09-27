@@ -1,5 +1,5 @@
-import { STACKS } from '@/constants/general'
-import { SKILLS } from '@/constants/skills'
+import { STACKS } from '@/lib/constants/general'
+import { SKILLS } from '@/lib/constants/skills'
 
 export default function updateStacks() {
   return STACKS.map((stack) => {

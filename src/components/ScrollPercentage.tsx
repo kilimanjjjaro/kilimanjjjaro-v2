@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
-import useScroll from '@/hooks/useScroll'
+import useScroll from '@/lib/hooks/useScroll'
 
 export default function ScrollPercentage() {
   const [showScrollPercentage, setShowScrollPercentage] = useState(false)

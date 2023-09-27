@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import TextLink from '@/components/shared/TextLink'
-import { useStore } from '@/store/store'
-import { SECTIONS, CURSOR_STATUS } from '@/constants/general'
-import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/constants/variants'
+import { useStore } from '@/lib/store/store'
+import { SECTIONS, CURSOR_STATUS } from '@/lib/constants/general'
+import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/lib/constants/variants'
 
 export default function Navigation() {
   const { navBarStatus, setNavBarStatus, setCursorStatus } = useStore()

@@ -7,7 +7,7 @@ import Approach from '@/components/know-me/Approach'
 import Clients from '@/components/know-me/Clients'
 import Experience from '@/components/know-me/Experience'
 import Education from '@/components/know-me/Education'
-import { OTHER_PROJECTS_VARIANTS } from '@/constants/variants'
+import { OTHER_PROJECTS_VARIANTS } from '@/lib/constants/variants'
 
 export default function KnowMe() {
   const sectionEl = useRef<HTMLElement>(null)

@@ -1,6 +1,6 @@
 'use client'
 
-import useSplitText from '@/hooks/useSplitText'
+import useSplitText from '@/lib/hooks/useSplitText'
 
 export default function Headline() {
   const { elRef } = useSplitText()

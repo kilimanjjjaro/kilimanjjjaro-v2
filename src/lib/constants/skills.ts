@@ -1,4 +1,4 @@
-import type { SkillInterface } from '@/interfaces/general'
+import type { SkillInterface } from '@/lib/interfaces/general'
 
 export const SKILLS: SkillInterface[] = [
   {

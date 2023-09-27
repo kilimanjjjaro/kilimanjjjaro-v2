@@ -4,10 +4,13 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
 import { PlusIcon } from '@/icons/PlusIcon'
-import { useStore } from '@/store/store'
-import { STACKS_LI_VARIANTS, STACKS_UL_VARIANTS } from '@/constants/variants'
-import type { StackInterface } from '@/interfaces/general'
-import { CURSOR_STATUS } from '@/constants/general'
+import { useStore } from '@/lib/store/store'
+import {
+  STACKS_LI_VARIANTS,
+  STACKS_UL_VARIANTS
+} from '@/lib/constants/variants'
+import type { StackInterface } from '@/lib/interfaces/general'
+import { CURSOR_STATUS } from '@/lib/constants/general'
 
 export default function StackSelector() {
   const {

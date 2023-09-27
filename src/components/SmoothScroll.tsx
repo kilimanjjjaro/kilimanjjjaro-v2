@@ -2,8 +2,8 @@
 
 import { useEffect } from 'react'
 import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
-import { useStore } from '@/store/store'
-import type { ChildrenType } from '@/interfaces/general'
+import { useStore } from '@/lib/store/store'
+import type { ChildrenType } from '@/lib/interfaces/general'
 
 export default function SmoothScroll({ children }: { children: ChildrenType }) {
   const { navBarStatus, introRunning } = useStore()

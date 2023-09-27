@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import useElementDimensions from '@/hooks/useElementDimensions'
-import useCursorPosition from '@/hooks/useCursorPosition'
-import { useStore } from '@/store/store'
-import { CURSOR_STATUS } from '@/constants/general'
+import useElementDimensions from '@/lib/hooks/useElementDimensions'
+import useCursorPosition from '@/lib/hooks/useCursorPosition'
+import { useStore } from '@/lib/store/store'
+import { CURSOR_STATUS } from '@/lib/constants/general'
 
 export default function CustomCursor() {
   const { cursorStatus } = useStore()

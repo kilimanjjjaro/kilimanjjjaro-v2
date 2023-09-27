@@ -3,7 +3,7 @@
 import { useRef } from 'react'
 import { AnimatePresence, motion, useDragControls } from 'framer-motion'
 import ContactForm from '@/components/contact-form/Form'
-import { useStore } from '@/store/store'
+import { useStore } from '@/lib/store/store'
 
 export default function FormModal() {
   const { showContactForm } = useStore()

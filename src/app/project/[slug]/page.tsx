@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Header from '@/components/project/Header'
 import Grid from '@/components/project/Grid'
 import OtherProjects from '@/components/project/OtherProjects'
-import { FEATURED_PROJECTS } from '@/constants/projects'
+import { FEATURED_PROJECTS } from '@/lib/constants/projects'
 
 interface Props {
   params: { slug: string }

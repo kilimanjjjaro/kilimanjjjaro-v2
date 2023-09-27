@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useStore } from '@/store/store'
+import { useStore } from '@/lib/store/store'
 
 export default function useSkillsCarousel() {
   const [isNextArrow, setIsNextArrow] = useState(true)

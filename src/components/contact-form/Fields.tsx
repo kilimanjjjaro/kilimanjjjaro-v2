@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { useStore } from '@/store/store'
-import { CURSOR_STATUS } from '@/constants/general'
+import { useStore } from '@/lib/store/store'
+import { CURSOR_STATUS } from '@/lib/constants/general'
 
 interface Props {
   step: number

@@ -2,8 +2,8 @@ import { motion } from 'framer-motion'
 import {
   OTHER_PROJECT_HR_VARIANTS,
   OTHER_PROJECT_VARIANTS
-} from '@/constants/variants'
-import { CLIENTS } from '@/constants/know-me'
+} from '@/lib/constants/variants'
+import { CLIENTS } from '@/lib/constants/know-me'
 
 export default function Clients() {
   return (

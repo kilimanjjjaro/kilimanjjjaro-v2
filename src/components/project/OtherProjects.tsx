@@ -1,9 +1,9 @@
 'use client'
 
-import { useStore } from '@/store/store'
-import { CURSOR_STATUS } from '@/constants/general'
+import { useStore } from '@/lib/store/store'
+import { CURSOR_STATUS } from '@/lib/constants/general'
 import Link from 'next/link'
-import { FeaturedProjectInterface } from '@/interfaces/general'
+import { FeaturedProjectInterface } from '@/lib/interfaces/general'
 
 export default function OtherProjects({
   projects

@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import OtherProject from '@/components/projects/OtherProject'
 import { PlusIcon } from '@/icons/PlusIcon'
-import { useStore } from '@/store/store'
-import { OTHER_PROJECTS_VARIANTS } from '@/constants/variants'
-import { OTHER_PROJECTS } from '@/constants/projects'
-import { CURSOR_STATUS } from '@/constants/general'
+import { useStore } from '@/lib/store/store'
+import { OTHER_PROJECTS_VARIANTS } from '@/lib/constants/variants'
+import { OTHER_PROJECTS } from '@/lib/constants/projects'
+import { CURSOR_STATUS } from '@/lib/constants/general'
 
 export default function OtherProjects() {
   const { setCursorStatus, setShowContactForm } = useStore()

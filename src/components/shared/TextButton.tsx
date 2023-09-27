@@ -1,8 +1,8 @@
 import { MouseEventHandler } from 'react'
 import clsx from 'clsx'
-import { useStore } from '@/store/store'
-import { CURSOR_STATUS } from '@/constants/general'
-import type { ChildrenType } from '@/interfaces/general'
+import { useStore } from '@/lib/store/store'
+import { CURSOR_STATUS } from '@/lib/constants/general'
+import type { ChildrenType } from '@/lib/interfaces/general'
 
 interface Props {
   children: ChildrenType

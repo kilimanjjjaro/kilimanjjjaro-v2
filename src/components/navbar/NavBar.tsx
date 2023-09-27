@@ -6,13 +6,13 @@ import { motion } from 'framer-motion'
 import clsx from 'clsx'
 import Navigation from '@/components/navbar/Navigation'
 import LanguageSelector from '@/components/navbar/LanguageSelector'
-import useNavBar from '@/hooks/useNavBar'
-import { useStore } from '@/store/store'
+import useNavBar from '@/lib/hooks/useNavBar'
+import { useStore } from '@/lib/store/store'
 import {
   NAVBAR_BUTTON_ONE_VARIANTS,
   NAVBAR_BUTTON_TWO_VARIANTS
-} from '@/constants/variants'
-import { CURSOR_STATUS } from '@/constants/general'
+} from '@/lib/constants/variants'
+import { CURSOR_STATUS } from '@/lib/constants/general'
 
 export default function NavBar() {
   const { navBarStatus, setNavBarStatus, setCursorStatus } = useStore()

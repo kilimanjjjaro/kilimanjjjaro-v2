@@ -6,7 +6,7 @@ import {
   EMAIL_SUBJECT,
   GITHUB_URL,
   LINKEDIN_URL
-} from '@/constants/message-for-devs'
+} from '@/lib/constants/message-for-devs'
 
 export default function MessageForDevs() {
   useEffect(() => {

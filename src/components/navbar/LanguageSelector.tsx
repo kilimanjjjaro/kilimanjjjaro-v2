@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { useStore } from '@/store/store'
-import useNavBar from '@/hooks/useNavBar'
+import { useStore } from '@/lib/store/store'
+import useNavBar from '@/lib/hooks/useNavBar'
 import {
   LANGUAGES_LI_VARIANTS,
   LANGUAGES_UL_VARIANTS
-} from '@/constants/variants'
-import { CURSOR_STATUS, LANGUAGES } from '@/constants/general'
-import type { LanguageInterface } from '@/interfaces/general'
+} from '@/lib/constants/variants'
+import { CURSOR_STATUS, LANGUAGES } from '@/lib/constants/general'
+import type { LanguageInterface } from '@/lib/interfaces/general'
 
 export default function LanguageSelector() {
   const { selectedLanguage, setSelectedLanguage, setCursorStatus } = useStore()

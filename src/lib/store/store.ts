@@ -1,7 +1,7 @@
 import { create } from 'zustand'
-import updateStacks from '@/utils/updateStacks'
-import { LANGUAGES } from '@/constants/general'
-import type { StoreInterface } from '@/interfaces/general'
+import updateStacks from '@/lib/utils/updateStacks'
+import { LANGUAGES } from '@/lib/constants/general'
+import type { StoreInterface } from '@/lib/interfaces/general'
 
 const updatedStacks = updateStacks()
 

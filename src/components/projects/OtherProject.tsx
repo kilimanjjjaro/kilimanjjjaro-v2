@@ -2,13 +2,13 @@ import clsx from 'clsx'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Balancer from 'react-wrap-balancer'
-import { useStore } from '@/store/store'
+import { useStore } from '@/lib/store/store'
 import {
   OTHER_PROJECT_HR_VARIANTS,
   OTHER_PROJECT_VARIANTS
-} from '@/constants/variants'
-import { CURSOR_STATUS } from '@/constants/general'
-import { OtherProjectInterface } from '@/interfaces/general'
+} from '@/lib/constants/variants'
+import { CURSOR_STATUS } from '@/lib/constants/general'
+import { OtherProjectInterface } from '@/lib/interfaces/general'
 
 interface Props {
   project: OtherProjectInterface

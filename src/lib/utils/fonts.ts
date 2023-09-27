@@ -4,7 +4,7 @@ import { Fira_Mono } from 'next/font/google'
 const neueHaasGroteskDisplay = localFont({
   src: [
     {
-      path: '../../public/fonts/neue-haas-grotesk-display-roman.woff2',
+      path: '../../../public/fonts/neue-haas-grotesk-display-roman.woff2',
       weight: '400',
       style: 'normal'
     }

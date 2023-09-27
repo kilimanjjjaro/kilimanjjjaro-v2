@@ -4,10 +4,10 @@ import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import clsx from 'clsx'
-import { useStore } from '@/store/store'
+import { useStore } from '@/lib/store/store'
 import FeaturedProjectName from '@/components/projects/FeaturedProjectName'
-import type { FeaturedProjectInterface } from '@/interfaces/general'
-import { CURSOR_STATUS } from '@/constants/general'
+import type { FeaturedProjectInterface } from '@/lib/interfaces/general'
+import { CURSOR_STATUS } from '@/lib/constants/general'
 
 interface Props {
   className?: string

@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import FeaturedProject from '@/components/projects/FeaturedProject'
-import { FEATURED_PROJECTS } from '@/constants/projects'
+import { FEATURED_PROJECTS } from '@/lib/constants/projects'
 
 export default function FeaturedProjects() {
   return (

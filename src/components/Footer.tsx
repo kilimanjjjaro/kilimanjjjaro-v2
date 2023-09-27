@@ -3,10 +3,10 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useLenis } from '@studio-freight/react-lenis'
-import { useStore } from '@/store/store'
+import { useStore } from '@/lib/store/store'
 import TextLink from '@/components/shared/TextLink'
 import { ArrowCornerIcon } from '@/icons/ArrowCornerIcon'
-import { CURSOR_STATUS, SECTIONS } from '@/constants/general'
+import { CURSOR_STATUS, SECTIONS } from '@/lib/constants/general'
 
 const SOCIAL_LINKS = [
   { name: 'GitHub', link: '#' },

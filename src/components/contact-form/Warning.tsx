@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { neueHaasGroteskDisplayFont } from '@/utils/fonts'
+import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
 
 interface Props {
   setShowWarning: React.Dispatch<React.SetStateAction<boolean>>

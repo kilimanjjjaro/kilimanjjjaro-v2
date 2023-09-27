@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import { useRef } from 'react'
-import useCursorPosition from '@/hooks/useCursorPosition'
-import useElementDimensions from '@/hooks/useElementDimensions'
-import type { ChildrenType } from '@/interfaces/general'
+import useCursorPosition from '@/lib/hooks/useCursorPosition'
+import useElementDimensions from '@/lib/hooks/useElementDimensions'
+import type { ChildrenType } from '@/lib/interfaces/general'
 
 interface Props {
   children: ChildrenType

@@ -1,4 +1,7 @@
-import type { LanguageInterface, StackInterface } from '@/interfaces/general'
+import type {
+  LanguageInterface,
+  StackInterface
+} from '@/lib/interfaces/general'
 
 export const LANGUAGES: LanguageInterface[] = [
   { id: 'en', name: 'English' },

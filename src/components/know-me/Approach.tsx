@@ -3,8 +3,8 @@ import { Balancer } from 'react-wrap-balancer'
 import {
   OTHER_PROJECT_HR_VARIANTS,
   OTHER_PROJECT_VARIANTS
-} from '@/constants/variants'
-import { APPROACH } from '@/constants/know-me'
+} from '@/lib/constants/variants'
+import { APPROACH } from '@/lib/constants/know-me'
 
 export default function Approach() {
   return (
