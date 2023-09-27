@@ -10,23 +10,18 @@ export default function SmoothScroll({ children }: { children: ChildrenType }) {
   const lenis = useLenis()
 
   useEffect(() => {
-    if (lenis === undefined) return
+    const headerEl = document.querySelector('main header')
 
-    if (navBarStatus || introRunning) {
+    if (lenis === undefined || headerEl === null) return
+
+    const headerIsVisible = window.scrollY < 100
+
+    if ((navBarStatus || introRunning) && headerIsVisible) {
       lenis.stop()
     } else {
       lenis.start()
     }
   }, [lenis, navBarStatus, introRunning])
 
-  return (
-    <ReactLenis root>
-      <div
-        id='page-wrapper'
-        className='transition-transform duration-[1.7s] ease-kili-in'
-      >
-        {children}
-      </div>
-    </ReactLenis>
-  )
+  return <ReactLenis root>{children}</ReactLenis>
 }

@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
@@ -17,20 +16,6 @@ import { CURSOR_STATUS } from '@/lib/constants/general'
 export default function NavBar() {
   const { navBarStatus, setNavBarStatus, setCursorStatus } = useStore()
   const { isVisible } = useNavBar()
-
-  useEffect(() => {
-    const wrapperEl = document.getElementById('page-wrapper')
-
-    if (wrapperEl === null) return
-
-    if (navBarStatus) {
-      wrapperEl.classList.add('-translate-y-3')
-      wrapperEl.classList.add('scale-[1.3]')
-    } else {
-      wrapperEl.classList.remove('-translate-y-3')
-      wrapperEl.classList.remove('scale-[1.3]')
-    }
-  }, [navBarStatus])
 
   return (
     <motion.header

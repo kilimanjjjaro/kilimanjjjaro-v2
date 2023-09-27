@@ -17,17 +17,19 @@ export default function Footer() {
   const { setCursorStatus, setShowContactForm } = useStore()
   const footerEl = useRef<HTMLElement>(null)
   const lenis = useLenis()
+
   const { scrollYProgress } = useScroll({
     target: footerEl,
     offset: ['start end', 'end end']
   })
+
   const y = useTransform(scrollYProgress, [0, 1], ['-35%', '0%'])
 
   return (
     <footer
       id='lets-talk'
       ref={footerEl}
-      className='px-40 pt-24 pb-16 overflow-hidden'
+      className='px-40 pt-24 pb-16 overflow-hidden bg-kili-black'
     >
       <motion.div initial={{ y: 0 }} style={{ y }}>
         <ul className='flex justify-between mb-48'>
@@ -37,6 +39,12 @@ export default function Footer() {
                 <TextLink
                   className='text-3xl text-kili-white before:bg-kili-white after:bg-kili-white'
                   href={`/#${section.slug}`}
+                  onClick={() =>
+                    lenis.scrollTo(`#${section.slug}`, {
+                      duration: 2,
+                      offset: section.slug === 'featured-projects' ? -160 : 0
+                    })
+                  }
                   underlined
                 >
                   {section.name}
