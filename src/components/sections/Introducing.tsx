@@ -4,11 +4,18 @@ import LetsTalkButton from '@/components/introducing/LetsTalkButton'
 import Headline from '@/components/introducing/Headline'
 import Paragraph from '@/components/introducing/Paragraph'
 import Portrait from '@/components/introducing/Portrait'
+import ParallaxHeadline from '../shared/ParallaxHeadline'
 
 export default function Introducing() {
   return (
-    <section id='introducing' className='pt-24 '>
-      <div className='flex flex-col items-center px-40 pb-36'>
+    <section id='introducing' className='pt-32 bg-kili-dark-gray'>
+      <ParallaxHeadline
+        className='leading-none text-kili-white text-10xl'
+        baseVelocity={-3}
+      >
+        Introducing Me
+      </ParallaxHeadline>
+      <div className='flex flex-col items-center px-40 py-32'>
         <Portrait />
         <div className='flex flex-col'>
           <Headline />
@@ -18,7 +25,7 @@ export default function Introducing() {
           </div>
         </div>
       </div>
-      <div className='flex flex-col gap-20 pb-20 overflow-hidden'>
+      <div className='flex flex-col gap-20 px-40 pb-24 overflow-hidden'>
         <StackSelector />
         <SkillsCarousel />
       </div>

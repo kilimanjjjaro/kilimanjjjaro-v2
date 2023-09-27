@@ -54,4 +54,8 @@ input:-webkit-autofill:focus {
     height: 100vh;
     height: 100dvh;
   }
+
+  .text-balance {
+    text-wrap: balance;
+  }
 }

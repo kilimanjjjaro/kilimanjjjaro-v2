@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: ChildrenType }) {
   return (
     <html lang='en'>
       <body
-        className={`bg-kili-black font-neue-haas-grotesk-display antialiased ${neueHaasGroteskDisplayFont}`}
+        className={`bg-kili-black font-neue-haas-grotesk-display antialiased transition-colors duration-700 ease-in-out ${neueHaasGroteskDisplayFont}`}
       >
         <NavBar />
         <SmoothScroll>

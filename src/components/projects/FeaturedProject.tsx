@@ -9,13 +9,12 @@ import FeaturedProjectName from '@/components/projects/FeaturedProjectName'
 import type { FeaturedProjectInterface } from '@/interfaces/general'
 import { CURSOR_STATUS } from '@/constants/general'
 
-export default function FeaturedProject({
-  className,
-  project
-}: {
+interface Props {
   className?: string
   project: FeaturedProjectInterface
-}) {
+}
+
+export default function FeaturedProject({ className, project }: Props) {
   const { setCursorStatus } = useStore()
   const projectEl = useRef<HTMLElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -23,26 +22,22 @@ export default function FeaturedProject({
   const isInView = useInView(projectEl, { once: true })
 
   const handleMouseEnter = async () => {
-    const sectionEl = document.getElementById('projects')
-
-    if (sectionEl === null || videoRef.current === null) return
+    if (videoRef.current === null) return
 
     setIsHovered(project.id)
     setCursorStatus(CURSOR_STATUS.HIDDEN)
-    sectionEl.style.backgroundColor = project.backgroundColor
+    document.body.style.backgroundColor = project.backgroundColor
 
     videoRef.current.currentTime = 1
     await videoRef.current.play()
   }
 
   const handleMouseLeave = () => {
-    const sectionEl = document.getElementById('projects')
-
-    if (sectionEl === null || videoRef.current === null) return
+    if (videoRef.current === null) return
 
     setIsHovered(null)
     setCursorStatus(CURSOR_STATUS.DEFAULT)
-    sectionEl.style.backgroundColor = ''
+    document.body.style.backgroundColor = ''
 
     videoRef.current.currentTime = 0
     videoRef.current.pause()

@@ -14,14 +14,14 @@ export default function KnowMe() {
   const isInView = useInView(sectionEl, { once: true })
 
   return (
-    <section id='know-me' className='pt-32 bg-kili-dark-gray'>
+    <section id='know-me' className='pt-32 pb-40 bg-kili-dark-gray'>
       <ParallaxHeadline
         className='leading-none text-kili-white text-10xl'
         baseVelocity={-3}
       >
         Know Me
       </ParallaxHeadline>
-      <section ref={sectionEl} className='px-40 pt-32 pb-36'>
+      <section ref={sectionEl} className='px-40 pt-32'>
         <motion.div
           variants={OTHER_PROJECTS_VARIANTS}
           initial='hidden'

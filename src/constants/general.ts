@@ -6,8 +6,9 @@ export const LANGUAGES: LanguageInterface[] = [
 ]
 
 export const SECTIONS = [
+  { slug: 'featured-projects', name: 'Featured Projects' },
   { slug: 'introducing', name: 'Introducing' },
-  { slug: 'projects', name: 'Projects' },
+  { slug: 'other-projects', name: 'Other Projects' },
   { slug: 'know-me', name: 'Know me' },
   { slug: 'lets-talk', name: "Let's talk!" }
 ]

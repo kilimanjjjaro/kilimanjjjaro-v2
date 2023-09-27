@@ -19,7 +19,7 @@ export default function Headline() {
         ease: [0.17, 0.84, 0.44, 1]
       }}
     >
-      <h2 className='text-kili-white text-[200px] flex flex-col leading-[1.03]'>
+      <h2 className='text-kili-white text-[200px] flex flex-col leading-[1.03] mix-blend-difference'>
         <span className='overflow-hidden'>
           <motion.span
             className='block'

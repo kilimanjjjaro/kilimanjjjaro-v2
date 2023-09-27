@@ -35,7 +35,7 @@ export default function SkillsCarousel() {
   return (
     <div
       ref={sectionEl}
-      className='relative px-40 cursor-none'
+      className='relative cursor-none'
       onMouseMove={(event) => handleMouseMove(event)}
       onMouseEnter={() => handleMouse(true)}
       onMouseLeave={() => handleMouse(false)}
