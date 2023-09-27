@@ -12,7 +12,7 @@ import {
   OTHER_PROJECT_VARIANTS
 } from '@/lib/constants/variants'
 import { CURSOR_STATUS } from '@/lib/constants/general'
-import { OtherProjectInterface } from '@/lib/interfaces/general'
+import { OtherProjectInterface } from '@/lib/interfaces/projects'
 
 interface Props {
   project: OtherProjectInterface

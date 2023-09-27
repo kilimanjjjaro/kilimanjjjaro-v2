@@ -1,7 +1,7 @@
 import type {
   FeaturedProjectInterface,
   OtherProjectInterface
-} from '@/lib/interfaces/general'
+} from '@/lib/interfaces/projects'
 
 export const FEATURED_PROJECTS: FeaturedProjectInterface[] = [
   {

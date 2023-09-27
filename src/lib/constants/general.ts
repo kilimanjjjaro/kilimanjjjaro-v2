@@ -1,9 +1,4 @@
-import type {
-  LanguageInterface,
-  StackInterface
-} from '@/lib/interfaces/general'
-
-export const LANGUAGES: LanguageInterface[] = [
+export const LANGUAGES = [
   { id: 'en', name: 'English' },
   { id: 'es', name: 'Spanish' }
 ]
@@ -16,7 +11,7 @@ export const SECTIONS = [
   { slug: 'lets-talk', name: "Let's talk!" }
 ]
 
-export const STACKS: StackInterface[] = [
+export const STACKS = [
   {
     id: 1,
     name: 'Frontend',

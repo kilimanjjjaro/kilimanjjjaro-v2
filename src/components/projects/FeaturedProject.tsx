@@ -6,7 +6,7 @@ import { motion, useInView } from 'framer-motion'
 import clsx from 'clsx'
 import { useStore } from '@/lib/store/store'
 import FeaturedProjectName from '@/components/projects/FeaturedProjectName'
-import type { FeaturedProjectInterface } from '@/lib/interfaces/general'
+import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 
 interface Props {

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
-import type { FeaturedProjectInterface } from '@/lib/interfaces/general'
+import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
 
 interface Props {
   project: FeaturedProjectInterface
