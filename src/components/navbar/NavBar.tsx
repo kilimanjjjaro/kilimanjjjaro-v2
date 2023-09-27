@@ -44,9 +44,9 @@ export default function NavBar() {
         opacity: 1
       }}
       transition={{
-        duration: 3,
+        duration: 2.5,
         ease: 'easeIn',
-        delay: 1.3
+        delay: 2.5
       }}
     >
       <Navigation />

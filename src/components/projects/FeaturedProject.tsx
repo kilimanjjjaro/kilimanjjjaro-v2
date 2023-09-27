@@ -3,11 +3,10 @@
 import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
-import clsx from 'clsx'
 import { useStore } from '@/lib/store/store'
 import FeaturedProjectName from '@/components/projects/FeaturedProjectName'
-import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
 import { CURSOR_STATUS } from '@/lib/constants/general'
+import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
 
 interface Props {
   className?: string
@@ -44,13 +43,10 @@ export default function FeaturedProject({ className, project }: Props) {
   }
 
   return (
-    <Link href={`/project/${project.slug}`}>
+    <Link className={className} href={`/project/${project.slug}`}>
       <article
         ref={projectEl}
-        className={clsx(
-          'relative flex justify-center items-center aspect-[18/25] p-5 group cursor-none',
-          className
-        )}
+        className='relative flex justify-center items-center aspect-[18/25] p-5 group cursor-none'
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >

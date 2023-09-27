@@ -7,7 +7,7 @@ import { CURSOR_STATUS } from '@/lib/constants/general'
 import { useStore } from '@/lib/store/store'
 
 export default function ScrollButton() {
-  const { setCursorStatus } = useStore()
+  const { setCursorStatus, setIntroRunning } = useStore()
   const [isScrolling, setIsScrolling] = useState(false)
   const lenis = useLenis()
 
@@ -33,6 +33,7 @@ export default function ScrollButton() {
       onClick={handleClick}
       onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
       onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+      onAnimationComplete={() => setIntroRunning(false)}
       initial={{
         display: 'none',
         opacity: 0
@@ -43,7 +44,7 @@ export default function ScrollButton() {
               display: 'block',
               opacity: 0,
               transition: {
-                duration: 2,
+                duration: 2.5,
                 ease: 'easeOut'
               }
             }
@@ -51,9 +52,9 @@ export default function ScrollButton() {
               display: 'block',
               opacity: 1,
               transition: {
-                duration: 3,
+                duration: 2.5,
                 ease: 'easeIn',
-                delay: 2
+                delay: 2.5
               }
             }
       }
