@@ -11,10 +11,16 @@ import type { Metadata } from 'next'
 import '@/app/globals.css'
 
 export const metadata: Metadata = {
-  title: 'Kilimanjjjaro',
+  title: {
+    template: '%s — Kilimanjjjaro',
+    default: 'Kilimanjjjaro'
+  },
   description: 'Kilimanjjjaro is a creative studio focused on web experiences.',
   openGraph: {
-    title: 'Kilimanjjjaro',
+    title: {
+      template: '%s — Kilimanjjjaro',
+      default: 'Kilimanjjjaro'
+    },
     description:
       'Kilimanjjjaro is a creative studio focused on web experiences.',
     images: [
