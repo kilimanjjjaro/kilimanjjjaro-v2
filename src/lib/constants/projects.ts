@@ -108,7 +108,7 @@ export const OTHER_PROJECTS: OtherProjectInterface[] = [
     link: 'https://github.com/kilimanjjjaro/dolarg-api',
     description:
       'REST API to get the most commonly dollar quotes of Argentina. The data is updated from Monday to Friday at 11 AM and 16 PM local time.',
-    stacks: ['TypeScript', 'Hono', 'Cloudflare Wordkers', 'Scrapping'],
+    stacks: ['TypeScript', 'Hono', 'Cloudflare Workers', 'Scrapping'],
     role: 'Backend Development',
     year: '2023'
   },
