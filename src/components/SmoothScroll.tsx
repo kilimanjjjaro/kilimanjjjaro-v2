@@ -4,12 +4,10 @@ import { useEffect, useState } from 'react'
 import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
 import { useStore } from '@/lib/store/store'
 import type { ChildrenType } from '@/lib/interfaces/general'
-import { usePathname } from 'next/navigation'
 
 export default function SmoothScroll({ children }: { children: ChildrenType }) {
   const [stopScrolling, setStopScrolling] = useState(true)
   const { navBarStatus, introRunning } = useStore()
-  const pathname = usePathname()
   const lenis = useLenis()
 
   useEffect(() => {
@@ -28,12 +26,7 @@ export default function SmoothScroll({ children }: { children: ChildrenType }) {
       setStopScrolling(false)
     }
 
-    if (
-      (navBarStatus || introRunning) &&
-      headerIsVisible &&
-      stopScrolling &&
-      pathname === '/'
-    ) {
+    if ((navBarStatus || introRunning) && headerIsVisible && stopScrolling) {
       lenis.stop()
     } else {
       lenis.start()
