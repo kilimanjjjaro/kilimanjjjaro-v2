@@ -21,11 +21,9 @@ export default function NavBar() {
     <motion.header
       className='relative'
       initial={{
-        display: 'none',
         opacity: 0
       }}
       animate={{
-        display: 'block',
         opacity: 1
       }}
       transition={{
@@ -37,9 +35,11 @@ export default function NavBar() {
       <Navigation />
       <h1
         className={clsx(
-          'fixed left-8 top-12 leading-none tracking-wide transition duration-1000 ease-in-out text-kili-light-gray hover:text-kili-white z-40 mix-blend-difference',
+          'fixed left-8 top-12 leading-none tracking-wide transition duration-700 ease-in-out text-kili-light-gray hover:text-kili-white z-40 mix-blend-difference',
           !isVisible && '-translate-y-16'
         )}
+        onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+        onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
       >
         <Link href='/'>Kilimanjjjaro</Link>
       </h1>

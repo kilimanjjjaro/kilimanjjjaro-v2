@@ -28,7 +28,7 @@ export default function LanguageSelector() {
   return (
     <div className='relative flex justify-end'>
       <button
-        className='overflow-hidden leading-none tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray hover:text-kili-white'
+        className='overflow-hidden leading-none tracking-wide transition-colors duration-700 ease-in-out text-kili-light-gray hover:text-kili-white'
         onClick={() => setShowSelector(!showSelector)}
         onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
         onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
@@ -44,7 +44,7 @@ export default function LanguageSelector() {
         {LANGUAGES.map((language) => (
           <li key={language.id} className='overflow-hidden'>
             <motion.button
-              className='overflow-hidden leading-none tracking-wide transition-colors duration-1000 ease-in-out text-kili-white hover:text-kili-light-gray'
+              className='overflow-hidden leading-none tracking-wide transition-colors duration-700 ease-in-out text-kili-white hover:text-kili-light-gray'
               onClick={() => handleClick({ language })}
               onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
               onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}

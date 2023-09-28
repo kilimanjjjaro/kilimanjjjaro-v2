@@ -1,8 +1,11 @@
 'use client'
 
+import { useStore } from '@/lib/store/store'
 import { motion } from 'framer-motion'
 
 export default function Headline() {
+  const { setIntroRunning } = useStore()
+
   return (
     <motion.div
       initial={{
@@ -16,7 +19,7 @@ export default function Headline() {
         ease: [0.17, 0.84, 0.44, 1]
       }}
     >
-      <h2 className='text-kili-white text-[200px] flex flex-col leading-[1.03] mix-blend-difference'>
+      <h2 className='text-kili-white text-[200px] flex flex-col leading-[1.03]'>
         <span className='overflow-hidden'>
           <motion.span
             className='block'
@@ -72,6 +75,7 @@ export default function Headline() {
               ease: [0.17, 0.84, 0.44, 1],
               delay: 0.5
             }}
+            onAnimationComplete={() => setIntroRunning(false)}
           >
             experiences.
           </motion.span>

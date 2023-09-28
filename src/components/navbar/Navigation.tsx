@@ -9,36 +9,35 @@ export default function Navigation() {
 
   return (
     <motion.nav
-      className='fixed inset-0 z-40 items-end justify-between hidden p-8 bg-kili-dark-gray mix-blend-normal'
+      className='fixed inset-0 z-40 items-end justify-between hidden p-8 bg-kili-dark-gray'
       variants={NAVBAR_VARIANTS}
       initial='closed'
       animate={navBarStatus ? 'open' : 'closed'}
     >
-      <ul className='flex flex-col gap-5'>
+      <ul className='flex flex-col gap-4'>
         {SECTIONS.map((section) => (
           <li key={section.slug} className='overflow-hidden'>
             <motion.span
-              className='overflow-hidden text-9xl text-kili-white group'
+              className='block overflow-hidden text-[12vh] leading-none text-kili-white group'
               variants={NAVBAR_LI_VARIANTS}
               onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
               onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
             >
-              <span className='block group-hover:animate-translate-y'>
-                <TextLink
-                  href={`/#${section.slug}`}
-                  onClick={() => setNavBarStatus(false)}
-                >
+              <TextLink
+                href={`/#${section.slug}`}
+                onClick={() => setNavBarStatus(false)}
+              >
+                <span className='block py-1 group-hover:animate-translate-y'>
                   {section.name}
-                </TextLink>
-              </span>
+                </span>
+              </TextLink>
             </motion.span>
           </li>
         ))}
       </ul>
-      <ul className='flex flex-col items-end gap-5'>
+      <ul className='flex flex-col items-end gap-5 text-5xl text-kili-white'>
         <li className='overflow-hidden group'>
           <motion.a
-            className='block text-5xl transition-transform duration-700 ease-in-out text-kili-white group-hover:animate-translate-y'
             href='#'
             onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
             onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
@@ -48,12 +47,13 @@ export default function Navigation() {
             }
             transition={{ duration: 1.3, ease: [0.77, 0, 0.18, 1], delay: 0.2 }}
           >
-            GitHub
+            <span className='block transition-transform duration-700 ease-in-out group-hover:animate-translate-y'>
+              GitHub
+            </span>
           </motion.a>
         </li>
         <li className='overflow-hidden group'>
           <motion.a
-            className='block text-5xl transition-transform duration-700 ease-in-out text-kili-white group-hover:animate-translate-y'
             href='#'
             onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
             onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
@@ -63,7 +63,9 @@ export default function Navigation() {
             }
             transition={{ duration: 1.3, ease: [0.77, 0, 0.18, 1] }}
           >
-            LinkedIn
+            <span className='block transition-transform duration-700 ease-in-out group-hover:animate-translate-y'>
+              LinkedIn
+            </span>
           </motion.a>
         </li>
       </ul>

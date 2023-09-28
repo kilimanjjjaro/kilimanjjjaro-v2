@@ -40,7 +40,6 @@ export const NAVBAR_VARIANTS = {
       duration: 1.7,
       ease: [0.77, 0, 0.18, 1],
       staggerChildren: 0.2,
-      delayChildren: 0.5,
       staggerDirection: -1
     }
   },
@@ -68,7 +67,7 @@ export const NAVBAR_LI_VARIANTS = {
     }
   },
   closed: {
-    y: '120%',
+    y: '130%',
     rotate: 4,
     transition: {
       duration: 1.3,
