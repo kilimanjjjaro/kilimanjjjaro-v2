@@ -21,7 +21,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: project.name,
-    metadataBase: new URL('http://localhost:3000'),
     description: project.headerDescription,
     keywords: `${project.name}, ${project.stacks.join(', ')}`,
     openGraph: {
@@ -30,23 +29,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [
         {
           url: project.presentation.poster,
-          width: 1200,
-          height: 630
+          width: 1000,
+          height: 627
         }
-      ]
-    },
-    twitter: {
-      card: 'summary_large_image',
-      site: '@kilimanjjjaro',
-      title: project.name,
-      description: project.headerDescription,
-      images: [
-        {
-          url: project.presentation.poster,
-          width: 1200,
-          height: 630
-        }
-      ]
+      ],
+      siteName: 'Kilimanjjjaro',
+      type: 'website',
+      url: `https://kilimanjjjaro.com/project/${project.slug}`
     }
   }
 }

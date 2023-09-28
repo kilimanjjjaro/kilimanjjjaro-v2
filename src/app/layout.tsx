@@ -12,31 +12,21 @@ import '@/app/globals.css'
 
 export const metadata: Metadata = {
   title: 'Kilimanjjjaro',
-  description: 'Kilimanjjjaro is a digital product studio based in Berlin.',
-  metadataBase: new URL('http://localhost:3000'),
+  description: 'Kilimanjjjaro is a creative studio focused on web experiences.',
   openGraph: {
     title: 'Kilimanjjjaro',
-    description: 'Kilimanjjjaro is a digital product studio based in Berlin.',
+    description:
+      'Kilimanjjjaro is a creative studio focused on web experiences.',
     images: [
       {
         url: 'https://kilimanjjjaro.com/images/og-image.png',
         width: 1200,
         height: 630
       }
-    ]
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: '@kilimanjjjaro',
-    title: 'Kilimanjjjaro',
-    description: 'Kilimanjjjaro is a digital product studio based in Berlin.',
-    images: [
-      {
-        url: 'https://kilimanjjjaro.com/images/og-image.png',
-        width: 1200,
-        height: 630
-      }
-    ]
+    ],
+    siteName: 'Kilimanjjjaro',
+    type: 'website',
+    url: 'https://kilimanjjjaro.com'
   }
 }
 
