@@ -18,7 +18,10 @@ export default function FeaturedProject({ className, project }: Props) {
   const projectEl = useRef<HTMLElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isHovered, setIsHovered] = useState<number | null>(null)
-  const isInView = useInView(projectEl, { once: true })
+  const isInView = useInView(projectEl, {
+    once: true,
+    amount: 0.3
+  })
 
   const handleMouseEnter = async () => {
     if (videoRef.current === null) return

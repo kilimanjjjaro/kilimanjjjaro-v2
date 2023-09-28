@@ -13,12 +13,12 @@ export default function OtherProjects() {
   const { setCursorStatus, setShowContactForm } = useStore()
   const sectionEl = useRef<HTMLElement>(null)
   const totalNumberOfProjects = useRef(OTHER_PROJECTS.length)
-  const [visibleItems, setVisibleItems] = useState(3)
+  const [visibleItems, setVisibleItems] = useState(2)
   const isInView = useInView(sectionEl, { once: true })
   const [buttonText, setButtonText] = useState('Load more')
 
   const handleShowMore = () => {
-    setVisibleItems((prevItems) => prevItems + 2)
+    setVisibleItems((prevItems) => prevItems + 1)
 
     if (visibleItems >= totalNumberOfProjects.current) setShowContactForm(true)
   }
@@ -26,7 +26,7 @@ export default function OtherProjects() {
   useEffect(() => {
     const restOfProjects = totalNumberOfProjects.current - visibleItems
 
-    if (visibleItems > 3) {
+    if (visibleItems > 2) {
       setButtonText(`There are ${restOfProjects} more projects`)
     }
 
@@ -74,7 +74,7 @@ export default function OtherProjects() {
           </motion.span>
         </span>
       </h3>
-      <motion.div
+      <motion.section
         className='mt-10'
         variants={OTHER_PROJECTS_VARIANTS}
         initial='hidden'
@@ -84,7 +84,7 @@ export default function OtherProjects() {
         {OTHER_PROJECTS.slice(0, visibleItems).map((project) => (
           <OtherProject key={project.id} project={project} />
         ))}
-      </motion.div>
+      </motion.section>
       <motion.button
         className='flex items-center gap-2 mt-10 text-2xl text-kili-white group'
         onClick={handleShowMore}
