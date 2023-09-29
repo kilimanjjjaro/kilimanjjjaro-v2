@@ -10,7 +10,7 @@ import { getScopedI18n } from '@/lib/locales/server'
 export default async function Introducing() {
   const t = await getScopedI18n('introducing')
 
-  console.log(t('description'))
+  console.log('description', t('description'))
 
   return (
     <section id='introducing' className='pt-32 bg-kili-dark-gray'>
