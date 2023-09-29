@@ -29,6 +29,9 @@ dependencies:
   next:
     specifier: 13.5.3
     version: 13.5.3(react-dom@18.2.0)(react@18.2.0)
+  next-international:
+    specifier: ^1.0.1
+    version: 1.0.1
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -2017,6 +2020,10 @@ packages:
       side-channel: 1.0.4
     dev: true
 
+  /international-types@0.8.0:
+    resolution: {integrity: sha512-cJwagIBzMG0FTK81TABeSBU0eReIXWmvW18m/URn8ZA+GLoWIcdL43kfjArwHVmZJ1n+IFchsBj8tQLYUqmwnA==}
+    dev: false
+
   /is-array-buffer@3.0.2:
     resolution: {integrity: sha512-y+FyyR/w8vfIRq4eQcM1EYgSTnmHXPqaF+IgzgraytCFq5Xh8lllDVmAZolPJiZttZLeFSINPYMaEJ7/vWUa1w==}
     dependencies:
@@ -2417,6 +2424,14 @@ packages:
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
+
+  /next-international@1.0.1:
+    resolution: {integrity: sha512-oIwIJnMkhMtTvebVSaOYEyGznpIIMPo2D69I+aSt0JFh+kPzB1s2oSLaAQ9CuhzXiiUDPiAgMB5OPSkk1HR3yg==}
+    dependencies:
+      client-only: 0.0.1
+      international-types: 0.8.0
+      server-only: 0.0.1
+    dev: false
 
   /next@13.5.3(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-4Nt4HRLYDW/yRpJ/QR2t1v63UOMS55A38dnWv3UDOWGezuY0ZyFO1ABNbD7mulVzs9qVhgy2+ppjdsANpKP1mg==}
@@ -2963,6 +2978,10 @@ packages:
     dependencies:
       lru-cache: 6.0.0
     dev: true
+
+  /server-only@0.0.1:
+    resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
+    dev: false
 
   /set-function-name@2.0.1:
     resolution: {integrity: sha512-tMNCiqYVkXIZgc2Hnoy2IvC/f8ezc5koaRFkCjrpWzGpCd3qbZXPzVy9MAZzK1ch/X0jvSkojys3oqJN0qCmdA==}

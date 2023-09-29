@@ -3,10 +3,7 @@ import Header from '@/components/project/Header'
 import Grid from '@/components/project/Grid'
 import OtherProjects from '@/components/project/OtherProjects'
 import { FEATURED_PROJECTS } from '@/lib/constants/projects'
-
-interface Props {
-  params: { slug: string }
-}
+import { setStaticParamsLocale } from 'next-international/server'
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = FEATURED_PROJECTS.find(
@@ -40,7 +37,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+interface Props {
+  params: { slug: string; locale: string }
+}
+
 export default function Project({ params }: Props) {
+  setStaticParamsLocale(params.locale)
+
   const project = FEATURED_PROJECTS.find(
     (project) => project.slug === params.slug
   )

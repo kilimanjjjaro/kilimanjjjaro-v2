@@ -6,6 +6,7 @@ import CustomCursor from '@/components/CustomCursor'
 import SmoothScroll from '@/components/SmoothScroll'
 import MessageForDevs from '@/components/MessageForDevs'
 import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
+import { getStaticParams } from '@/lib/locales/server'
 import type { ChildrenType } from '@/lib/interfaces/general'
 import type { Metadata } from 'next'
 import '@/app/globals.css'
@@ -34,6 +35,10 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://kilimanjjjaro.com'
   }
+}
+
+export function generateStaticParams() {
+  return getStaticParams()
 }
 
 export default function RootLayout({ children }: { children: ChildrenType }) {
