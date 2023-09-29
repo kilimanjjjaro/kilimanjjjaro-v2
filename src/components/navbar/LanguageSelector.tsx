@@ -8,15 +8,19 @@ import {
 } from '@/lib/constants/variants'
 import { CURSOR_STATUS, LANGUAGES } from '@/lib/constants/general'
 import type { LanguageInterface } from '@/lib/interfaces/general'
+import { useChangeLocale } from '@/lib/locales/client'
 
 export default function LanguageSelector() {
   const { selectedLanguage, setSelectedLanguage, setCursorStatus } = useStore()
   const [showSelector, setShowSelector] = useState(false)
   const { isVisible } = useNavBar()
+  const changeLocale = useChangeLocale()
 
   const handleClick = ({ language }: { language: LanguageInterface }) => {
     setSelectedLanguage(language)
     setShowSelector(false)
+    // @ts-expect-error
+    changeLocale(language.id)
   }
 
   useEffect(() => {
