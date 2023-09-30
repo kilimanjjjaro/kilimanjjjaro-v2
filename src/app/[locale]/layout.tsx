@@ -5,6 +5,7 @@ import ScrollPercentage from '@/components/ScrollPercentage'
 import CustomCursor from '@/components/CustomCursor'
 import SmoothScroll from '@/components/SmoothScroll'
 import MessageForDevs from '@/components/MessageForDevs'
+import Providers from '@/components/Providers'
 import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
 import { getStaticParams } from '@/lib/locales/server'
 import type { ChildrenType } from '@/lib/interfaces/general'
@@ -47,15 +48,17 @@ export default function RootLayout({ children }: { children: ChildrenType }) {
       <body
         className={`bg-kili-black font-neue-haas-grotesk-display antialiased transition-colors duration-700 ease-in-out ${neueHaasGroteskDisplayFont}`}
       >
-        <NavBar />
-        <SmoothScroll>
-          {children}
-          <Footer />
-        </SmoothScroll>
-        <ScrollPercentage />
-        <FormModal />
-        <MessageForDevs />
-        <CustomCursor />
+        <Providers>
+          <NavBar />
+          <SmoothScroll>
+            {children}
+            <Footer />
+          </SmoothScroll>
+          <ScrollPercentage />
+          <FormModal />
+          <MessageForDevs />
+          <CustomCursor />
+        </Providers>
       </body>
     </html>
   )

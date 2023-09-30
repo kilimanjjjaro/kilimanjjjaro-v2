@@ -4,13 +4,11 @@ import LetsTalkButton from '@/components/introducing/LetsTalkButton'
 import Headline from '@/components/introducing/Headline'
 import Paragraph from '@/components/introducing/Paragraph'
 import Portrait from '@/components/introducing/Portrait'
-import ParallaxHeadline from '../shared/ParallaxHeadline'
+import ParallaxHeadline from '@/components/shared/ParallaxHeadline'
 import { getScopedI18n } from '@/lib/locales/server'
 
 export default async function Introducing() {
-  const t = await getScopedI18n('introducing')
-
-  console.log('description', t('description'))
+  const t = await getScopedI18n('home.introducing')
 
   return (
     <section id='introducing' className='pt-32 bg-kili-dark-gray'>
@@ -18,7 +16,7 @@ export default async function Introducing() {
         className='leading-none text-kili-white text-10xl'
         baseVelocity={-3}
       >
-        Introducing Me
+        {t('headline')}
       </ParallaxHeadline>
       <div className='flex flex-col items-center px-40 py-32'>
         <Portrait />

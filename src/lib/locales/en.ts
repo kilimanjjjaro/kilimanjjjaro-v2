@@ -1,5 +1,10 @@
 export default {
-  introducing: {
-    description: 'asdasdasd'
+  home: {
+    header: {
+      headline: ['Thinking', 'future', '—', 'proff', 'experiences.']
+    },
+    introducing: {
+      headline: 'Introducing Me'
+    }
   }
 } as const

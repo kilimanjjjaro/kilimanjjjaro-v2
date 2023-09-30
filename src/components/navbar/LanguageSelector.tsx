@@ -2,18 +2,19 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useStore } from '@/lib/store/store'
 import useNavBar from '@/lib/hooks/useNavBar'
+import { useChangeLocale, useCurrentLocale } from '@/lib/locales/client'
 import {
   LANGUAGES_LI_VARIANTS,
   LANGUAGES_UL_VARIANTS
 } from '@/lib/constants/variants'
 import { CURSOR_STATUS, LANGUAGES } from '@/lib/constants/general'
 import type { LanguageInterface } from '@/lib/interfaces/general'
-import { useChangeLocale } from '@/lib/locales/client'
 
 export default function LanguageSelector() {
   const { selectedLanguage, setSelectedLanguage, setCursorStatus } = useStore()
   const [showSelector, setShowSelector] = useState(false)
   const { isVisible } = useNavBar()
+  const currentLocale = useCurrentLocale()
   const changeLocale = useChangeLocale()
 
   const handleClick = ({ language }: { language: LanguageInterface }) => {
@@ -27,7 +28,13 @@ export default function LanguageSelector() {
     if (!isVisible) {
       setShowSelector(false)
     }
-  }, [isVisible])
+
+    const language = LANGUAGES.find((language) => language.id === currentLocale)
+
+    if (language !== undefined) {
+      setSelectedLanguage(language)
+    }
+  }, [isVisible, currentLocale, setSelectedLanguage])
 
   return (
     <div className='relative flex justify-end'>
