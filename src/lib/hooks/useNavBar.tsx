@@ -13,11 +13,11 @@ export default function useNavBar() {
       setVersion(1)
     }
 
-    if (currentScrollPos >= 40) {
+    if (currentScrollPos >= 50) {
       setVersion(2)
     }
 
-    if (currentScrollPos < window.innerHeight / 2) return
+    if (currentScrollPos < window.innerHeight * 0.75) return
 
     prevScrollPos.current =
       prevScrollPos.current !== currentScrollPos

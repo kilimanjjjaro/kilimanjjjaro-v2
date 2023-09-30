@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import LanguageSelector from '@/components/navbar/LanguageSelector'
 import { useStore } from '@/lib/store/store'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 
@@ -32,10 +31,7 @@ export default function SmallVersion() {
         ease: 'easeInOut'
       }}
     >
-      <ul className='flex items-center gap-8 leading-none'>
-        <li>
-          <LanguageSelector />
-        </li>
+      <ul className='flex items-center leading-none'>
         <li>
           <button
             className='flex flex-col gap-2 cursor-pointer group'

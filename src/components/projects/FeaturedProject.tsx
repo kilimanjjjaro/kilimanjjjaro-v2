@@ -45,8 +45,16 @@ export default function FeaturedProject({ className, project }: Props) {
     videoRef.current.pause()
   }
 
+  const resetBackgroundColor = () => {
+    document.body.style.backgroundColor = ''
+  }
+
   return (
-    <Link className={className} href={`/project/${project.slug}`}>
+    <Link
+      className={className}
+      href={`/project/${project.slug}`}
+      onClick={resetBackgroundColor}
+    >
       <article
         ref={projectEl}
         className='relative flex justify-center items-center aspect-[18/25] p-5 group cursor-none'

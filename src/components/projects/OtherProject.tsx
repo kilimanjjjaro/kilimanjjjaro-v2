@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Balancer from 'react-wrap-balancer'
-import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon'
+import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
 import { useStore } from '@/lib/store/store'
 import useCursorPosition from '@/lib/hooks/useCursorPosition'
 import useElementDimensions from '@/lib/hooks/useElementDimensions'
@@ -93,8 +93,8 @@ export default function OtherProject({ project }: Props) {
           className='fixed top-0 left-0 z-10 overflow-hidden pointer-events-none'
           style={{ x, y }}
         >
-          <span className='block text-6xl leading-none text-center transition-transform duration-700 ease-in-out translate-y-[110%] rotate-6 text-kili-white group-hover:translate-y-0 group-hover:rotate-0'>
-            Launch <ArrowRightIcon className='inline-block w-10' />
+          <span className='flex items-center gap-3 text-6xl leading-none text-center transition-transform duration-700 ease-in-out translate-y-[110%] rotate-6 text-kili-white group-hover:translate-y-0 group-hover:rotate-0'>
+            Launch <ArrowCornerIcon className='w-6' />
           </span>
         </motion.span>
       </article>

@@ -46,7 +46,7 @@ export const EDUCATION = [
     name: 'well... I love documentation, what else do I need?'
   },
   {
-    year: '2011 - 2017',
+    year: '2011 — 2017',
     name: 'Graphic Designer at Universidad Nacional del Nordeste'
   }
 ]
