@@ -1,0 +1,71 @@
+import { motion } from 'framer-motion'
+import { useLenis } from '@studio-freight/react-lenis'
+import TextLink from '@/components/shared/TextLink'
+import TextButton from '@/components/shared/TextButton'
+import LanguageSelector from '@/components/navbar/LanguageSelector'
+import { useStore } from '@/lib/store/store'
+import { SECTIONS, CURSOR_STATUS } from '@/lib/constants/general'
+
+export default function LargeVersion() {
+  const { setCursorStatus, setShowContactForm } = useStore()
+  const lenis = useLenis()
+
+  return (
+    <motion.nav
+      initial={{
+        opacity: 0
+      }}
+      animate={{
+        opacity: 1
+      }}
+      exit={{
+        opacity: 0,
+        transition: {
+          duration: 0.7,
+          ease: 'easeInOut'
+        }
+      }}
+      transition={{
+        duration: 0.7,
+        ease: 'easeInOut'
+      }}
+    >
+      <ul className='flex gap-4 leading-none'>
+        {SECTIONS.map((section) => (
+          <li
+            key={section.slug}
+            onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+            onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+          >
+            <TextLink
+              className='tracking-wide transition-colors duration-700 ease-in-out text-kili-light-gray hover:text-kili-white'
+              href={`/#${section.slug}`}
+              onClick={() =>
+                lenis.scrollTo(`#${section.slug}`, {
+                  duration: 2,
+                  offset: section.slug === 'featured-projects' ? -160 : 0
+                })
+              }
+            >
+              {section.name}
+            </TextLink>
+          </li>
+        ))}
+        <li
+          onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+          onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+        >
+          <TextButton
+            className='tracking-wide transition-colors duration-700 ease-in-out text-kili-light-gray hover:text-kili-white'
+            onClick={() => setShowContactForm(true)}
+          >
+            Let's talk!
+          </TextButton>
+        </li>
+        <li className='ml-4'>
+          <LanguageSelector />
+        </li>
+      </ul>
+    </motion.nav>
+  )
+}

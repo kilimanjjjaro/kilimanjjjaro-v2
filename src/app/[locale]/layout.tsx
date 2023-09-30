@@ -11,6 +11,7 @@ import { getStaticParams } from '@/lib/locales/server'
 import type { ChildrenType } from '@/lib/interfaces/general'
 import type { Metadata } from 'next'
 import '@/app/globals.css'
+import Navigation from '@/components/navbar/Navigation'
 
 export const metadata: Metadata = {
   title: {
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: { children: ChildrenType }) {
         className={`bg-kili-black font-neue-haas-grotesk-display antialiased transition-colors duration-700 ease-in-out ${neueHaasGroteskDisplayFont}`}
       >
         <Providers>
+          <Navigation />
           <NavBar />
           <SmoothScroll>
             {children}

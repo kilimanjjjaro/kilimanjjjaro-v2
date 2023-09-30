@@ -1,25 +1,34 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { usePathname } from 'next/navigation'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useLenis } from '@studio-freight/react-lenis'
 import clsx from 'clsx'
-import Navigation from '@/components/navbar/Navigation'
-import LanguageSelector from '@/components/navbar/LanguageSelector'
+import LargeVersion from '@/components/navbar/LargeVersion'
+import SmallVersion from '@/components/navbar/SmallVersion'
 import useNavBar from '@/lib/hooks/useNavBar'
 import { useStore } from '@/lib/store/store'
-import {
-  NAVBAR_BUTTON_ONE_VARIANTS,
-  NAVBAR_BUTTON_TWO_VARIANTS
-} from '@/lib/constants/variants'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 
 export default function NavBar() {
-  const { navBarStatus, setNavBarStatus, setCursorStatus } = useStore()
-  const { isVisible } = useNavBar()
+  const { setCursorStatus } = useStore()
+  const { version, isVisible } = useNavBar()
+  const lenis = useLenis()
+  const pathname = usePathname()
+
+  const handleClick = () => {
+    if (pathname !== '/') return
+
+    lenis.scrollTo(0, { duration: 2 })
+  }
 
   return (
     <motion.header
-      className='relative'
+      className={clsx(
+        'fixed left-8 right-8 z-50 pt-12 mix-blend-difference flex justify-between transition-transform duration-700 ease-in-out',
+        !isVisible && '-translate-y-16'
+      )}
       initial={{
         opacity: 0
       }}
@@ -32,51 +41,20 @@ export default function NavBar() {
         delay: 2
       }}
     >
-      <Navigation />
       <h1
         className={clsx(
-          'fixed left-8 top-12 leading-none tracking-wide transition duration-700 ease-in-out text-kili-light-gray hover:text-kili-white z-40 mix-blend-difference',
-          !isVisible && '-translate-y-16'
+          'leading-none tracking-wide transition-colors duration-700 ease-in-out text-kili-light-gray hover:text-kili-white'
         )}
         onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
         onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+        onClick={handleClick}
       >
         <Link href='/'>Kilimanjjjaro</Link>
       </h1>
-      <div
-        className={clsx(
-          'fixed flex items-center gap-8 right-8 top-12 leading-none transition-transform tracking-wide duration-700 ease-in-out z-40 mix-blend-difference',
-          !isVisible && '-translate-y-16'
-        )}
-      >
-        <LanguageSelector />
-        <button
-          className='flex flex-col gap-2 cursor-pointer group'
-          onClick={() => setNavBarStatus(!navBarStatus)}
-          onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-          onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
-          aria-label='Toggle navigation menu'
-        >
-          <motion.div
-            className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-700 group-hover:bg-kili-white'
-            variants={NAVBAR_BUTTON_ONE_VARIANTS}
-            animate={navBarStatus ? 'open' : 'closed'}
-            transition={{
-              duration: 0.7,
-              ease: 'easeInOut'
-            }}
-          />
-          <motion.div
-            className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-700 group-hover:bg-kili-white'
-            variants={NAVBAR_BUTTON_TWO_VARIANTS}
-            animate={navBarStatus ? 'open' : 'closed'}
-            transition={{
-              duration: 0.7,
-              ease: 'easeInOut'
-            }}
-          />
-        </button>
-      </div>
+      <AnimatePresence>
+        {version === 1 && <LargeVersion key='large-nav' />}
+        {version === 2 && <SmallVersion key='small-nav' />}
+      </AnimatePresence>
     </motion.header>
   )
 }

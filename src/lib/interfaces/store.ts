@@ -8,6 +8,8 @@ import type {
 export interface StoreInterface {
   navBarStatus: boolean
   setNavBarStatus: (navBarStatus: boolean) => void
+  navBarVersion: number
+  setNavBarVersion: (navBarVersion: number) => void
   stacks: StackInterface[]
   selectedStack: StackInterface
   setSelectedStack: (selectedStack: StackInterface) => void

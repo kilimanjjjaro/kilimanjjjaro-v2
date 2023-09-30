@@ -8,6 +8,7 @@ interface Props {
 export default function Warning({ setShowWarning }: Props) {
   return (
     <div
+      role='dialog'
       className={`absolute inset-0 z-10 flex items-center justify-center bg-kili-black/95 backdrop-blur-sm ${neueHaasGroteskDisplayFont}`}
     >
       <motion.div className='absolute flex flex-col items-center w-64 overflow-hidden text-center rounded-md bg-kili-dark-gray'>

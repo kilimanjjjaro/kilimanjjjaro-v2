@@ -8,6 +8,8 @@ const updatedStacks = updateStacks()
 export const useStore = create<StoreInterface>((set) => ({
   navBarStatus: false,
   setNavBarStatus: (navBarStatus) => set(() => ({ navBarStatus })),
+  navBarVersion: 0,
+  setNavBarVersion: (navBarVersion) => set(() => ({ navBarVersion })),
   stacks: updatedStacks,
   selectedStack: updatedStacks[0],
   setSelectedStack: (selectedStack) => set(() => ({ selectedStack })),

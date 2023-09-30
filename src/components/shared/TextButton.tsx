@@ -7,14 +7,14 @@ import type { ChildrenType } from '@/lib/interfaces/general'
 interface Props {
   children: ChildrenType
   className?: string
-  handler: MouseEventHandler<HTMLButtonElement>
+  onClick: MouseEventHandler<HTMLButtonElement>
   underlined?: boolean
 }
 
 export default function TextButton({
   children,
   className,
-  handler,
+  onClick,
   underlined
 }: Props) {
   const { setCursorStatus } = useStore()
@@ -26,7 +26,7 @@ export default function TextButton({
           'relative before:h-[1px] before:scale-x-100 before:absolute mb-2 before:-bottom-2 before:left-0 before:right-0 before:block before:origin-right hover:before:scale-x-0 before:transition-transform before:ease-in hover:before:ease-out before:duration-700 before:delay-700 hover:before:delay-0 after:h-[1px] after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:ease-in hover:after:ease-out after:duration-700 hover:after:delay-700',
         className ?? ''
       )}
-      onClick={handler}
+      onClick={onClick}
       onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
       onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
     >

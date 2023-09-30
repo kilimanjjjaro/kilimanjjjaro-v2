@@ -35,7 +35,6 @@ export const NAVBAR_BUTTON_VARIANTS = {
 export const NAVBAR_VARIANTS = {
   open: {
     y: '0%',
-    display: 'flex',
     transition: {
       duration: 1.7,
       ease: [0.77, 0, 0.18, 1],
@@ -50,9 +49,6 @@ export const NAVBAR_VARIANTS = {
       ease: [0.77, 0, 0.18, 1],
       staggerChildren: 0.2,
       staggerDirection: -1
-    },
-    transitionEnd: {
-      display: 'none'
     }
   }
 }

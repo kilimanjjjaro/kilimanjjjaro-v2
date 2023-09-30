@@ -9,7 +9,7 @@ export default function LetsTalkButton() {
   return (
     <TextButton
       className='text-3xl text-kili-white before:bg-kili-white after:bg-kili-white'
-      handler={() => setShowContactForm(true)}
+      onClick={() => setShowContactForm(true)}
       underlined
     >
       Let's talk!

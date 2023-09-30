@@ -27,31 +27,28 @@ export default function Footer() {
 
   return (
     <footer
-      id='lets-talk'
       ref={footerEl}
       className='px-40 pt-24 pb-16 overflow-hidden bg-kili-black'
     >
       <motion.div initial={{ y: 0 }} style={{ y }}>
         <ul className='flex justify-between mb-48'>
-          {SECTIONS.filter((section) => section.slug !== 'lets-talk').map(
-            (section) => (
-              <li key={section.slug}>
-                <TextLink
-                  className='text-3xl text-kili-white before:bg-kili-white after:bg-kili-white'
-                  href={`/#${section.slug}`}
-                  onClick={() =>
-                    lenis.scrollTo(`#${section.slug}`, {
-                      duration: 2,
-                      offset: section.slug === 'featured-projects' ? -160 : 0
-                    })
-                  }
-                  underlined
-                >
-                  {section.name}
-                </TextLink>
-              </li>
-            )
-          )}
+          {SECTIONS.map((section) => (
+            <li key={section.slug}>
+              <TextLink
+                className='text-3xl text-kili-white before:bg-kili-white after:bg-kili-white'
+                href={`/#${section.slug}`}
+                onClick={() =>
+                  lenis.scrollTo(`#${section.slug}`, {
+                    duration: 2,
+                    offset: section.slug === 'featured-projects' ? -160 : 0
+                  })
+                }
+                underlined
+              >
+                {section.name}
+              </TextLink>
+            </li>
+          ))}
         </ul>
         <div className='flex items-end justify-between'>
           <button
