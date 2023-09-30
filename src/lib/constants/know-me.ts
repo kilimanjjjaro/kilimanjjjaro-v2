@@ -1,11 +1,11 @@
 export const APPROACH = [
   {
-    title: 'Front end Development',
+    title: 'Frontend Development',
     description:
       'Frontend development is the field where I most enjoy playing. I ensure that the project receives attention down to the smallest detail, with a focus on UX, performance and accessibility.'
   },
   {
-    title: 'Back end Development',
+    title: 'Backend Development',
     description:
       'Developing the logic of an project is one of the things I love to do without compromising on the code being sustainable and the outcome achieving good performance.'
   },
@@ -27,16 +27,16 @@ export const CLIENTS = [
 
 export const EXPERIENCE = [
   {
+    year: '2021 — Present',
+    name: 'Full Stack JavaScript Developer at Circulo'
+  },
+  {
     year: '2017 — Present',
     name: 'Freelance'
   },
   {
     year: '2017 — 2021',
-    name: 'Graphic Designer & Front-end Developer at M&C'
-  },
-  {
-    year: '2011 — 2017',
-    name: 'Full Stack JavaScript Developer at Circulo'
+    name: 'Frontend Developer & Graphic Designer at M&C'
   }
 ]
 
