@@ -14,7 +14,7 @@ export default function SmoothScroll({ children }: { children: ChildrenType }) {
 
     if (headerEl === null) return
 
-    const headerIsVisible = window.scrollY < 10
+    const headerIsVisible = headerEl.getBoundingClientRect().top === 0
 
     if (navBarStatus || (headerIsVisible && introRunning)) {
       lenis?.stop()

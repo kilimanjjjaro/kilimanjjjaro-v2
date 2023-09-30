@@ -18,6 +18,7 @@ export default function Headline() {
         duration: 3,
         ease: [0.17, 0.84, 0.44, 1]
       }}
+      onAnimationStart={() => setIntroRunning(true)}
     >
       <h2 className='text-kili-white text-[200px] flex flex-col leading-[1.03]'>
         <span className='overflow-hidden'>
