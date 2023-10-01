@@ -5,9 +5,9 @@ export const LANGUAGES = [
 
 export const SECTIONS = [
   { slug: 'featured-projects', name: 'Featured Projects' },
-  { slug: 'introducing', name: 'Introducing' },
+  { slug: 'introducing', name: 'Introducing Me' },
   { slug: 'other-projects', name: 'Other Projects' },
-  { slug: 'know-me', name: 'Know me' }
+  { slug: 'know-me', name: 'Know Me' }
 ]
 
 export const STACKS = [

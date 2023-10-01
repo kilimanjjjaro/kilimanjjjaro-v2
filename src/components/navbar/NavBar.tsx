@@ -26,7 +26,7 @@ export default function NavBar() {
   return (
     <motion.header
       className={clsx(
-        'fixed left-8 right-8 z-50 pt-12 mix-blend-difference flex justify-between transition-transform duration-700 ease-in-out',
+        'fixed left-8 right-8 z-50 top-12 mix-blend-difference flex justify-between transition-transform duration-700 ease-in-out',
         !isVisible && '-translate-y-16'
       )}
       initial={{

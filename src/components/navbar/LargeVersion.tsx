@@ -62,8 +62,7 @@ export default function LargeVersion() {
             Let's talk!
           </TextButton>
         </li>
-        <span className='tracking-wide text-kili-light-gray'>—</span>
-        <li>
+        <li className='ml-20'>
           <LanguageSelector />
         </li>
       </ul>
