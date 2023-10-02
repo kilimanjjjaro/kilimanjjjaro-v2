@@ -19,10 +19,8 @@ export default function Home({
       <FeaturedProjects />
       <Introducing />
       <LessButBetter />
-      <div className='sticky top-0'>
-        <OtherProjects />
-        <KnowMe />
-      </div>
+      <OtherProjects />
+      <KnowMe />
     </main>
   )
 }

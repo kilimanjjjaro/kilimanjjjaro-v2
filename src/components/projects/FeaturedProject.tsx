@@ -99,7 +99,6 @@ export default function FeaturedProject({ className, project }: Props) {
             className='w-full transition-transform duration-700 ease-in-out scale-[.85] aspect-video group-hover:scale-100'
             src={project.presentation.video}
             poster={project.presentation.poster}
-            playsInline
             loop
             muted
           />

@@ -1,11 +1,32 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { useInView } from 'framer-motion'
+import {
+  motion,
+  useInView,
+  useScroll,
+  useSpring,
+  useTransform
+} from 'framer-motion'
 
 export default function LessButBetter() {
+  const sectionRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
-  const videoIsInView = useInView(videoRef, { amount: 1 })
+  const videoIsInView = useInView(videoRef, { margin: '0px 0px 200px 0px' })
+  const { scrollYProgress: scrollY } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end end']
+  })
+
+  const scaleX = useSpring(scrollY, {
+    stiffness: 5000,
+    damping: 400
+  })
+
+  const sectionBg = useTransform(scaleX, [0.3, 1], ['#0D0D0D', '#090909'])
+
+  const videoScale = useTransform(scaleX, [0, 1], [1, 0.45])
+  const headlineScale = useTransform(scaleX, [0, 1], [3.5, 1])
 
   useEffect(() => {
     if (videoIsInView) {
@@ -16,23 +37,26 @@ export default function LessButBetter() {
   }, [videoIsInView])
 
   return (
-    <>
-      <section className='sticky top-0 flex items-center justify-center px-40 py-40'>
-        <video
-          ref={videoRef}
-          style={{ width: '70%' }}
-          src='images/projects/kilimanjjjaro-v1/hero-video.webm'
-          poster='images/projects/kilimanjjjaro-v1/poster.webp'
-          playsInline
-          loop
-          muted
-        />
-      </section>
-      <section className='flex justify-center w-full h-screen'>
-        <h3 className='text-kili-white text-[14vw] mix-blend-difference'>
-          <span>Less,</span> <span>but</span> <span>Better</span>
-        </h3>
-      </section>
-    </>
+    <motion.section
+      ref={sectionRef}
+      className='flex items-center justify-center'
+      style={{ backgroundColor: sectionBg }}
+    >
+      <motion.video
+        ref={videoRef}
+        className='w-full h-auto aspect-video'
+        style={{ scale: videoScale }}
+        src='images/projects/kilimanjjjaro-v1/hero-video.webm'
+        poster='images/projects/kilimanjjjaro-v1/poster.webp'
+        loop
+        muted
+      />
+      <motion.h3
+        className='absolute -mt-3 text-kili-white text-center text-[14vw] mix-blend-difference'
+        style={{ scale: headlineScale }}
+      >
+        <span>Less,</span> <span>but</span> <span>Better</span>
+      </motion.h3>
+    </motion.section>
   )
 }
