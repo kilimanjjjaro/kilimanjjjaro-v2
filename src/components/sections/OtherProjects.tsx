@@ -37,13 +37,13 @@ export default function OtherProjects() {
     if (visibleItems >= totalNumberOfProjects.current) {
       setButtonText("There's no more. Do you want to be part?")
     }
-  }, [visibleItems])
+  }, [visibleItems, isInView])
 
   return (
     <section
       id='other-projects'
       ref={sectionEl}
-      className='px-40 pb-40 pt-36 bg-kili-black'
+      className='px-40 py-40 bg-kili-black'
     >
       <h3 className='flex flex-col w-1/2 leading-none text-kili-white text-7xl'>
         <span className='overflow-hidden'>

@@ -4,6 +4,7 @@ import Introducing from '@/components/sections/Introducing'
 import OtherProjects from '@/components/sections/OtherProjects'
 import KnowMe from '@/components/sections/KnowMe'
 import { setStaticParamsLocale } from 'next-international/server'
+import LessButBetter from '@/components/sections/LessButBetter'
 
 export default function Home({
   params: { locale }
@@ -17,8 +18,11 @@ export default function Home({
       <Header />
       <FeaturedProjects />
       <Introducing />
-      <OtherProjects />
-      <KnowMe />
+      <LessButBetter />
+      <div className='sticky top-0'>
+        <OtherProjects />
+        <KnowMe />
+      </div>
     </main>
   )
 }
