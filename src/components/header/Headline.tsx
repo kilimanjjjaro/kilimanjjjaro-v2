@@ -1,12 +1,10 @@
 'use client'
 
-import { useScopedI18n } from '@/lib/locales/client'
 import { useStore } from '@/lib/store/store'
 import { motion } from 'framer-motion'
 
-export default function Headline() {
+export default function Headline({ headline }: { headline: string[] }) {
   const { setIntroRunning } = useStore()
-  const t = useScopedI18n('home.header')
 
   return (
     <motion.div
@@ -39,7 +37,7 @@ export default function Headline() {
               ease: [0.17, 0.84, 0.44, 1]
             }}
           >
-            {t('headline.0')}{' '}
+            {headline[0]}{' '}
           </motion.span>
         </span>
         <span className='-my-4 overflow-hidden'>
@@ -59,9 +57,8 @@ export default function Headline() {
               delay: 0.3
             }}
           >
-            {t('headline.1')}{' '}
-            <span className='-mr-[6px]'>{t('headline.2')}</span>{' '}
-            {t('headline.3')}
+            {headline[1]} <span className='-mr-[6px]'>{headline[2]}</span>{' '}
+            {headline[3]}
           </motion.span>
         </span>
         <span className='ml-24 overflow-hidden'>
@@ -82,7 +79,7 @@ export default function Headline() {
             }}
             onAnimationComplete={() => setIntroRunning(false)}
           >
-            {t('headline.4')}
+            {headline[4]}
           </motion.span>
         </span>
       </h2>

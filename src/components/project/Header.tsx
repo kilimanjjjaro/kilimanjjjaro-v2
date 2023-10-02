@@ -28,7 +28,7 @@ export default function Header({ project }: Props) {
           target='_blank'
           rel='noopener noreferrer'
         >
-          Launch
+          Visit
           <ArrowCornerIcon className='w-4 h-4' />
         </a>
       </div>

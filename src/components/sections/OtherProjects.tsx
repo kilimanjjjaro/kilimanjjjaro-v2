@@ -4,12 +4,14 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import OtherProject from '@/components/projects/OtherProject'
 import { PlusIcon } from '@/components/icons/PlusIcon'
+import { useScopedI18n } from '@/lib/locales/client'
 import { useStore } from '@/lib/store/store'
 import { OTHER_PROJECTS_VARIANTS } from '@/lib/constants/variants'
 import { OTHER_PROJECTS } from '@/lib/constants/projects'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 
 export default function OtherProjects() {
+  const t = useScopedI18n('home.otherProjects')
   const { setCursorStatus, setShowContactForm } = useStore()
   const sectionEl = useRef<HTMLElement>(null)
   const totalNumberOfProjects = useRef(OTHER_PROJECTS.length)
@@ -26,18 +28,20 @@ export default function OtherProjects() {
   useEffect(() => {
     const restOfProjects = totalNumberOfProjects.current - visibleItems
 
+    setButtonText(t('moreProjectsButtons.0'))
+
     if (visibleItems > 2) {
-      setButtonText(`There are ${restOfProjects} more projects`)
+      setButtonText(t('moreProjectsButtons.1', { number: restOfProjects }))
     }
 
     if (visibleItems === totalNumberOfProjects.current - 1) {
-      setButtonText(`There are ${restOfProjects} more project`)
+      setButtonText(t('moreProjectsButtons.2'))
     }
 
     if (visibleItems >= totalNumberOfProjects.current) {
-      setButtonText("There's no more. Do you want to be part?")
+      setButtonText(t('moreProjectsButtons.3'))
     }
-  }, [visibleItems, isInView])
+  }, [visibleItems, isInView, t])
 
   return (
     <section
@@ -56,7 +60,7 @@ export default function OtherProjects() {
               ease: 'easeInOut'
             }}
           >
-            And other equally
+            {t('headline.0')}
           </motion.span>
         </span>
         <span className='overflow-hidden'>
@@ -70,7 +74,7 @@ export default function OtherProjects() {
               delay: 0.2
             }}
           >
-            important projects...
+            {t('headline.1')}
           </motion.span>
         </span>
       </h3>

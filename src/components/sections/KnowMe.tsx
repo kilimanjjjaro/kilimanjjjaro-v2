@@ -7,9 +7,11 @@ import Approach from '@/components/know-me/Approach'
 import Clients from '@/components/know-me/Clients'
 import Experience from '@/components/know-me/Experience'
 import Education from '@/components/know-me/Education'
+import { useScopedI18n } from '@/lib/locales/client'
 import { OTHER_PROJECTS_VARIANTS } from '@/lib/constants/variants'
 
 export default function KnowMe() {
+  const t = useScopedI18n('home.knowMe')
   const sectionEl = useRef<HTMLElement>(null)
   const isInView = useInView(sectionEl, { once: true })
 
@@ -19,7 +21,7 @@ export default function KnowMe() {
         className='leading-none text-kili-white text-10xl'
         baseVelocity={-3}
       >
-        Know Me
+        {t('sectionTitle')}
       </ParallaxHeadline>
       <section ref={sectionEl} className='px-40 pt-32'>
         <motion.div

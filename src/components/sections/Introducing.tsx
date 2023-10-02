@@ -2,7 +2,7 @@ import StackSelector from '@/components/introducing/StackSelector'
 import SkillsCarousel from '@/components/introducing/SkillsCarousel'
 import LetsTalkButton from '@/components/introducing/LetsTalkButton'
 import Headline from '@/components/introducing/Headline'
-import Paragraph from '@/components/introducing/Paragraph'
+import Description from '@/components/introducing/Description'
 import Portrait from '@/components/introducing/Portrait'
 import ParallaxHeadline from '@/components/shared/ParallaxHeadline'
 import { getScopedI18n } from '@/lib/locales/server'
@@ -16,15 +16,15 @@ export default async function Introducing() {
         className='leading-none text-kili-white text-10xl'
         baseVelocity={-3}
       >
-        {t('headline')}
+        {t('sectionTitle')}
       </ParallaxHeadline>
       <div className='flex flex-col items-center px-40 py-32'>
         <Portrait />
         <div className='flex flex-col'>
-          <Headline />
+          <Headline headline={t('headline', { number: 5 })} />
           <div className='grid items-end content-start grid-cols-2 gap-[19vw] justify-items-start'>
-            <LetsTalkButton />
-            <Paragraph />
+            <LetsTalkButton buttonText={t('buttonText')} />
+            <Description description={t('description')} />
           </div>
         </div>
       </div>
