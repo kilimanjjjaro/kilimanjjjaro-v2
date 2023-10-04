@@ -49,7 +49,7 @@ export default {
       'Enviar mensaje',
       'Enviando...',
       'Intentar de nuevo',
-      '¡Enviado!'
+      '¡Mensaje enviado!'
     ],
     errorMessage: 'Algo salió mal =(',
     successMessage: '¡Gracias por tu mensaje =)',

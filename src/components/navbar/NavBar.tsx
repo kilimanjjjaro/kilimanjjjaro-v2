@@ -32,9 +32,11 @@ export default function NavBar({ locale }: { locale: string }) {
         !isVisible && '-translate-y-16'
       )}
       initial={{
+        display: 'none',
         opacity: 0
       }}
       animate={{
+        display: 'flex',
         opacity: 1
       }}
       transition={{

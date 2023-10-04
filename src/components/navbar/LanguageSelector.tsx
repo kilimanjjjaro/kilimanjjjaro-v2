@@ -24,9 +24,9 @@ export default function LanguageSelector({ locale }: { locale: string }) {
   const changeLocale = useChangeLocale()
 
   const handleClick = ({ language }: { language: LanguageInterface }) => {
+    setNavBarStatus(false)
     setSelectedLanguage(language)
     setShowSelector(false)
-    setNavBarStatus(false)
     // @ts-expect-error
     changeLocale(language.id)
   }

@@ -45,7 +45,7 @@ export default {
       email: 'Your email',
       message: 'Your message'
     },
-    sendButton: ['Send message', 'Sending...', 'Try again!', 'Sent!'],
+    sendButton: ['Send message', 'Sending...', 'Try again!', 'Message sent!'],
     successMessage: 'Thanks for your message =)',
     errorMessage: 'Something went wrong =(',
     suggestionMessage: 'You can make line breaks with Shift + Enter!',
