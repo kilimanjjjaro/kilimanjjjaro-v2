@@ -55,7 +55,10 @@ export default function ParallaxHeadline({
   return (
     <div className='flex overflow-hidden whitespace-nowrap flex-nowrap'>
       <motion.h2
-        className={clsx('flex flex-nowrap whitespace-nowrap', className)}
+        className={clsx(
+          'flex flex-nowrap whitespace-nowrap pb-[2px]',
+          className
+        )}
         style={{ x }}
       >
         <span className='mr-6'>{children} — </span>

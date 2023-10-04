@@ -12,10 +12,7 @@ export default async function Header({ project }: Props) {
   const t = await getScopedI18n('project')
   return (
     <header className='flex flex-col min-h-screen gap-y-36 pt-44 pb-36'>
-      <ParallaxHeadline
-        className='leading-none text-kili-white text-10xl'
-        baseVelocity={-3}
-      >
+      <ParallaxHeadline className='text-kili-white text-10xl' baseVelocity={-3}>
         {project.name}
       </ParallaxHeadline>
       <div className='flex flex-col items-start w-4/6 px-40 gap-y-36'>

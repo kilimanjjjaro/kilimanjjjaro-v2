@@ -16,10 +16,7 @@ export default async function Introducing() {
 
   return (
     <section id='introducing-me' className='pt-32 bg-kili-dark-gray'>
-      <ParallaxHeadline
-        className='leading-none text-kili-white text-10xl'
-        baseVelocity={-3}
-      >
+      <ParallaxHeadline className='text-kili-white text-10xl' baseVelocity={-3}>
         {t('sectionTitle')}
       </ParallaxHeadline>
       <div className='flex flex-col items-center px-40 py-32'>
