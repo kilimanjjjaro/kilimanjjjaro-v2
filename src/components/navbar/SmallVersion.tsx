@@ -6,8 +6,9 @@ import {
   NAVBAR_BUTTON_ONE_VARIANTS,
   NAVBAR_BUTTON_TWO_VARIANTS
 } from '@/lib/constants/variants'
+import LanguageSelector from './LanguageSelector'
 
-export default function SmallVersion() {
+export default function SmallVersion({ locale }: { locale: string }) {
   const { setCursorStatus, setNavBarStatus, navBarStatus } = useStore()
 
   return (
@@ -31,7 +32,10 @@ export default function SmallVersion() {
         ease: 'easeInOut'
       }}
     >
-      <ul className='flex items-center leading-none'>
+      <ul className='flex items-center gap-10 leading-none'>
+        <li>
+          <LanguageSelector locale={locale} />
+        </li>
         <li>
           <button
             className='flex flex-col gap-2 cursor-pointer group'

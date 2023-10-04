@@ -9,7 +9,7 @@ export default function useNavBar() {
     const currentScrollPos = window.scrollY
     const isScrollingUp = prevScrollPos.current > currentScrollPos
 
-    if (currentScrollPos < 10) {
+    if (currentScrollPos < 2) {
       setVersion(1)
     }
 
@@ -17,7 +17,7 @@ export default function useNavBar() {
       setVersion(2)
     }
 
-    if (currentScrollPos < window.innerHeight * 0.75) return
+    if (currentScrollPos < window.innerHeight) return
 
     prevScrollPos.current =
       prevScrollPos.current !== currentScrollPos

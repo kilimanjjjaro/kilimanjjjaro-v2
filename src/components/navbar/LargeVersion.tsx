@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import { useLenis } from '@studio-freight/react-lenis'
 import TextLink from '@/components/shared/TextLink'
 import TextButton from '@/components/shared/TextButton'
-import LanguageSelector from '@/components/navbar/LanguageSelector'
 import { useStore } from '@/lib/store/store'
 import { SECTIONS, CURSOR_STATUS } from '@/lib/constants/general'
 
@@ -37,7 +36,7 @@ export default function LargeVersion({ locale }: { locale: string }) {
         ease: 'easeInOut'
       }}
     >
-      <ul className='flex gap-4 leading-none'>
+      <ul className='flex gap-10 leading-none'>
         {sections.map((section) => (
           <li
             key={section.slug}
@@ -68,9 +67,6 @@ export default function LargeVersion({ locale }: { locale: string }) {
           >
             {letsTalkText}
           </TextButton>
-        </li>
-        <li className='ml-20'>
-          <LanguageSelector locale={locale} />
         </li>
       </ul>
     </motion.nav>

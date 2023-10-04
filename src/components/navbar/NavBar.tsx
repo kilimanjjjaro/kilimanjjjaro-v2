@@ -53,7 +53,7 @@ export default function NavBar({ locale }: { locale: string }) {
       </h1>
       <AnimatePresence>
         {version === 1 && <LargeVersion key='large-nav' locale={locale} />}
-        {version === 2 && <SmallVersion key='small-nav' />}
+        {version === 2 && <SmallVersion key='small-nav' locale={locale} />}
       </AnimatePresence>
     </motion.header>
   )
