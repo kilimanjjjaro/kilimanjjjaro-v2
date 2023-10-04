@@ -18,7 +18,9 @@ export default function NavBar({ locale }: { locale: string }) {
   const pathname = usePathname()
 
   const handleClick = () => {
-    if (pathname !== '/') return
+    const allowedPaths = ['/', '/en', '/es']
+
+    if (!allowedPaths.includes(pathname)) return
 
     lenis.scrollTo(0, { duration: 2 })
   }
