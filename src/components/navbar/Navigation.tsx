@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import TextButton from '@/components/shared/TextButton'
 import TextLink from '@/components/shared/TextLink'
@@ -26,6 +26,14 @@ export default function Navigation({
   const sections = useMemo(() => {
     return locale === 'en' ? SECTIONS.en : SECTIONS.es
   }, [locale])
+
+  useEffect(() => {
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        setNavBarStatus(false)
+      }
+    })
+  }, [setNavBarStatus])
 
   return (
     <AnimatePresence>
