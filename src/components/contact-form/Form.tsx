@@ -1,8 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import {
-  // @ts-expect-error
-  experimental_useFormState
-} from 'react-dom'
+import { experimental_useFormState } from 'react-dom'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import CommandLine from '@/components/contact-form/CommandLine'
@@ -70,7 +67,7 @@ export default function Form({ handleDrag }: Props) {
   }, [])
 
   useEffect(() => {
-    if (state.success === true) {
+    if (state.success) {
       setSuccess(true)
       setError(false)
 
@@ -85,7 +82,7 @@ export default function Form({ handleDrag }: Props) {
       }
     }
 
-    if (state.error === true) {
+    if (state.error) {
       setError(true)
       setSuccess(false)
 
