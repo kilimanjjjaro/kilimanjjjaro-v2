@@ -1,20 +1,26 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import OtherProject from '@/components/projects/OtherProject'
 import { PlusIcon } from '@/components/icons/PlusIcon'
 import { useScopedI18n } from '@/lib/locales/client'
 import { useStore } from '@/lib/store/store'
-import { OTHER_PROJECTS_VARIANTS } from '@/lib/constants/variants'
-import { OTHER_PROJECTS } from '@/lib/constants/projects'
+import { MORE_PROJECTS_VARIANTS } from '@/lib/constants/variants'
+import { MORE_PROJECTS } from '@/lib/constants/projects'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 
-export default function OtherProjects() {
-  const t = useScopedI18n('home.otherProjects')
+export default function MoreProjects({
+  locale,
+  headline
+}: {
+  locale: string
+  headline: string[]
+}) {
+  const t = useScopedI18n('home.moreProjects')
   const { setCursorStatus, setShowContactForm } = useStore()
   const sectionEl = useRef<HTMLElement>(null)
-  const totalNumberOfProjects = useRef(OTHER_PROJECTS.length)
+  const totalNumberOfProjects = useRef(MORE_PROJECTS.en.length)
   const [visibleItems, setVisibleItems] = useState(2)
   const isInView = useInView(sectionEl, { once: true })
   const [buttonText, setButtonText] = useState('Load more')
@@ -43,9 +49,13 @@ export default function OtherProjects() {
     }
   }, [visibleItems, isInView, t])
 
+  const moreProjects = useMemo(() => {
+    return locale === 'en' ? MORE_PROJECTS.en : MORE_PROJECTS.es
+  }, [locale])
+
   return (
     <section
-      id='other-projects'
+      id='more-projects'
       ref={sectionEl}
       className='px-40 pb-40 bg-kili-black'
     >
@@ -80,13 +90,17 @@ export default function OtherProjects() {
       </h3>
       <motion.section
         className='mt-10'
-        variants={OTHER_PROJECTS_VARIANTS}
+        variants={MORE_PROJECTS_VARIANTS}
         initial='hidden'
         animate={isInView ? 'show' : 'hidden'}
         transition={{ duration: 0, staggerChildren: 0.3 }}
       >
-        {OTHER_PROJECTS.slice(0, visibleItems).map((project) => (
-          <OtherProject key={project.id} project={project} />
+        {moreProjects.slice(0, visibleItems).map((project) => (
+          <OtherProject
+            key={project.id}
+            project={project}
+            visitButton={t('visitButton')}
+          />
         ))}
       </motion.section>
       <motion.button

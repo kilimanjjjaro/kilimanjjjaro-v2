@@ -2,13 +2,16 @@ import clsx from 'clsx'
 import FeaturedProject from '@/components/projects/FeaturedProject'
 import { FEATURED_PROJECTS } from '@/lib/constants/projects'
 
-export default function FeaturedProjects() {
+export default async function FeaturedProjects({ locale }: { locale: string }) {
+  const featuredProjects =
+    locale === 'en' ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
+
   return (
     <section
       id='featured-projects'
       className='grid justify-center grid-cols-2 gap-40 px-40 pb-40 gap-y-0 gap-x-56'
     >
-      {FEATURED_PROJECTS.map((project) => (
+      {featuredProjects.map((project) => (
         <FeaturedProject
           className={clsx(project.id % 2 === 0 && 'mt-56')}
           key={project.id}

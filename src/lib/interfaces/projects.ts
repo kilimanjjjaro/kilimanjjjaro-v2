@@ -26,3 +26,13 @@ export interface OtherProjectInterface {
   role: string
   year: string
 }
+
+export interface FeaturedProjectsInterface {
+  en: FeaturedProjectInterface[]
+  es: FeaturedProjectInterface[]
+}
+
+export interface MoreProjectsInterface {
+  en: OtherProjectInterface[]
+  es: OtherProjectInterface[]
+}

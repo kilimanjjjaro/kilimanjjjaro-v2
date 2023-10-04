@@ -1,5 +1,6 @@
 'use client'
 
+import { useMemo } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import TextButton from '@/components/shared/TextButton'
 import TextLink from '@/components/shared/TextLink'
@@ -7,7 +8,7 @@ import { useStore } from '@/lib/store/store'
 import { SECTIONS, CURSOR_STATUS } from '@/lib/constants/general'
 import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/lib/constants/variants'
 
-export default function Navigation() {
+export default function Navigation({ locale }: { locale: string }) {
   const { navBarStatus, setNavBarStatus, setCursorStatus, setShowContactForm } =
     useStore()
 
@@ -15,6 +16,10 @@ export default function Navigation() {
     setNavBarStatus(false)
     setShowContactForm(true)
   }
+
+  const sections = useMemo(() => {
+    return locale === 'en' ? SECTIONS.en : SECTIONS.es
+  }, [locale])
 
   return (
     <AnimatePresence>
@@ -27,7 +32,7 @@ export default function Navigation() {
           exit='closed'
         >
           <ul className='flex flex-col gap-4'>
-            {SECTIONS.map((section) => (
+            {sections.map((section) => (
               <li key={section.slug} className='overflow-hidden'>
                 <motion.span
                   className='block overflow-hidden text-[12vh] leading-none text-kili-white group'

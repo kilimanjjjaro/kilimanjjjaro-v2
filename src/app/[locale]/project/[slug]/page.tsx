@@ -1,12 +1,19 @@
-import type { Metadata } from 'next'
+import { useMemo } from 'react'
+import { setStaticParamsLocale } from 'next-international/server'
 import Header from '@/components/project/Header'
 import Grid from '@/components/project/Grid'
 import OtherProjects from '@/components/project/OtherProjects'
 import { FEATURED_PROJECTS } from '@/lib/constants/projects'
-import { setStaticParamsLocale } from 'next-international/server'
+import type { Metadata } from 'next'
+
+interface Props {
+  params: { slug: string; locale: string }
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const project = FEATURED_PROJECTS.find(
+  const featuredProjects =
+    params.locale === 'en' ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
+  const project = featuredProjects.find(
     (project) => project.slug === params.slug
   )
 
@@ -37,20 +44,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-interface Props {
-  params: { slug: string; locale: string }
-}
-
 export default function Project({ params }: Props) {
   setStaticParamsLocale(params.locale)
 
-  const project = FEATURED_PROJECTS.find(
-    (project) => project.slug === params.slug
-  )
+  const projects = useMemo(() => {
+    return params.locale === 'en' ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
+  }, [params.locale])
 
-  const otherProjects = FEATURED_PROJECTS.filter(
-    (project) => project.slug !== params.slug
-  )
+  const project = projects.find((project) => project.slug === params.slug)
+
+  const otherProjects = useMemo(() => {
+    return projects.filter((project) => project.slug !== params.slug)
+  }, [params.slug, projects])
 
   if (project === undefined) {
     return (

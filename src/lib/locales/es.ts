@@ -6,16 +6,16 @@ export default {
     introducing: {
       sectionTitle: 'Presentándome',
       headline:
-        'Desarrollador Full Stack de JavaScript y Diseñador UI/UX con +{number} años de experiencia laboral.',
+        'Desarrollador Full Stack de JavaScript y Diseñador UI/UX con +{experience} años de experiencia laboral.',
       description:
-        '<i>— Hola,</i> mi nombre es Gonzalo y tengo 30 años. En mi experiencia aprendí que la diferencia radica en cuidar los detalles y aplicar buenas prácticas. Me entusiasma abordar soluciones de manera eficiente y simple.',
-      buttonText: '¡Hablemos!'
+        '<i>— Hola,</i> mi nombre es Gonzalo y tengo {yearsOld} años. En mi experiencia aprendí que la diferencia radica en cuidar los detalles y aplicar buenas prácticas. Me entusiasma abordar soluciones de manera eficiente y simple.',
+      letsTalkButton: '¡Hablemos!'
     },
     lessButBetter: {
       headline: 'Menos, pero mejor.'
     },
-    otherProjects: {
-      headline: ['Y otros proyectos', 'igualmente importantes...'],
+    moreProjects: {
+      headline: ['Más proyectos', 'igual de importantes...'],
       visitButton: 'Visitar',
       moreProjectsButtons: [
         'Cargar más',
@@ -24,8 +24,12 @@ export default {
         'No hay más. ¿Quieres ser parte?'
       ]
     },
-    knowMe: {
+    knowledge: {
       sectionTitle: 'Conóceme'
     }
+  },
+  footer: {
+    letsTalk: '¡Hablemos!',
+    goToTop: 'Ir arriba'
   }
 } as const

@@ -7,7 +7,6 @@ import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
 import { useStore } from '@/lib/store/store'
 import useCursorPosition from '@/lib/hooks/useCursorPosition'
 import useElementDimensions from '@/lib/hooks/useElementDimensions'
-import { useScopedI18n } from '@/lib/locales/client'
 import {
   OTHER_PROJECT_HR_VARIANTS,
   OTHER_PROJECT_VARIANTS
@@ -17,10 +16,10 @@ import { OtherProjectInterface } from '@/lib/interfaces/projects'
 
 interface Props {
   project: OtherProjectInterface
+  visitButton: string
 }
 
-export default function OtherProject({ project }: Props) {
-  const t = useScopedI18n('home.otherProjects')
+export default function OtherProject({ project, visitButton }: Props) {
   const { setCursorStatus } = useStore()
   const visitButtonEl = useRef<HTMLHeadingElement>(null)
   const elementDimensions = useElementDimensions({ ref: visitButtonEl })
@@ -96,7 +95,7 @@ export default function OtherProject({ project }: Props) {
           style={{ x, y }}
         >
           <span className='flex items-center gap-3 text-6xl leading-none text-center transition-transform duration-700 ease-in-out translate-y-[110%] rotate-6 text-kili-white group-hover:translate-y-0 group-hover:rotate-0'>
-            {t('visitButton')} <ArrowCornerIcon className='w-6' />
+            {visitButton} <ArrowCornerIcon className='w-6' />
           </span>
         </motion.span>
       </article>

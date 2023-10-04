@@ -1,9 +1,6 @@
 import { CURSOR_STATUS } from '@/lib/constants/general'
 import type { Swiper } from 'swiper'
-import type {
-  LanguageInterface,
-  StackInterface
-} from '@/lib/interfaces/general'
+import type { StackInterface } from '@/lib/interfaces/general'
 
 export interface StoreInterface {
   navBarStatus: boolean
@@ -15,8 +12,6 @@ export interface StoreInterface {
   setSelectedStack: (selectedStack: StackInterface) => void
   shouldMoveToStart: boolean
   setShouldMoveToStart: (shouldMoveToStart: boolean) => void
-  selectedLanguage: LanguageInterface
-  setSelectedLanguage: (selectedLanguage: LanguageInterface) => void
   cursorStatus: (typeof CURSOR_STATUS)[keyof typeof CURSOR_STATUS]
   setCursorStatus: (
     cursorStatus: (typeof CURSOR_STATUS)[keyof typeof CURSOR_STATUS]

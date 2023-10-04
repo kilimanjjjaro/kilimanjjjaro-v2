@@ -1,12 +1,17 @@
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Balancer } from 'react-wrap-balancer'
 import {
   OTHER_PROJECT_HR_VARIANTS,
   OTHER_PROJECT_VARIANTS
 } from '@/lib/constants/variants'
-import { EDUCATION } from '@/lib/constants/know-me'
+import { EDUCATION } from '@/lib/constants/knowledge'
 
-export default function Education() {
+export default function Education({ locale }: { locale: string }) {
+  const education = useMemo(() => {
+    return locale === 'en' ? EDUCATION.en : EDUCATION.es
+  }, [locale])
+
   return (
     <article className='overflow-hidden'>
       <motion.div
@@ -16,11 +21,11 @@ export default function Education() {
       >
         <h3 className='w-[30%] text-4xl text-kili-white'>Education</h3>
         <ul className='grid flex-1 grid-cols-3 gap-10 text-2xl'>
-          {EDUCATION.map((experience) => (
-            <li key={experience.year} className='flex flex-col gap-2'>
-              <span className='text-kili-white'>{experience.year}</span>
+          {education.map((education) => (
+            <li key={education.year} className='flex flex-col gap-2'>
+              <span className='text-kili-white'>{education.year}</span>
               <span className='text-kili-light-gray'>
-                <Balancer>{experience.name}</Balancer>
+                <Balancer>{education.name}</Balancer>
               </span>
             </li>
           ))}

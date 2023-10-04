@@ -11,7 +11,7 @@ import useNavBar from '@/lib/hooks/useNavBar'
 import { useStore } from '@/lib/store/store'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 
-export default function NavBar() {
+export default function NavBar({ locale }: { locale: string }) {
   const { setCursorStatus } = useStore()
   const { version, isVisible } = useNavBar()
   const lenis = useLenis()
@@ -52,7 +52,7 @@ export default function NavBar() {
         <Link href='/'>Kilimanjjjaro</Link>
       </h1>
       <AnimatePresence>
-        {version === 1 && <LargeVersion key='large-nav' />}
+        {version === 1 && <LargeVersion key='large-nav' locale={locale} />}
         {version === 2 && <SmallVersion key='small-nav' />}
       </AnimatePresence>
     </motion.header>

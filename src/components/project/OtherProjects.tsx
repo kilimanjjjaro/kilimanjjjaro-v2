@@ -5,7 +5,7 @@ import { CURSOR_STATUS } from '@/lib/constants/general'
 import Link from 'next/link'
 import { FeaturedProjectInterface } from '@/lib/interfaces/projects'
 
-export default function OtherProjects({
+export default function MoreProjects({
   projects
 }: {
   projects: FeaturedProjectInterface[]

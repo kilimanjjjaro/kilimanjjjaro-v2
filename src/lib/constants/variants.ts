@@ -138,7 +138,7 @@ export const LANGUAGES_LI_VARIANTS = {
   }
 }
 
-export const OTHER_PROJECTS_VARIANTS = {
+export const MORE_PROJECTS_VARIANTS = {
   hidden: {
     opacity: 0
   },

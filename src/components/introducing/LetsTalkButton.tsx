@@ -3,7 +3,11 @@
 import TextButton from '@/components/shared/TextButton'
 import { useStore } from '@/lib/store/store'
 
-export default function LetsTalkButton({ buttonText }: { buttonText: string }) {
+export default function LetsTalkButton({
+  letsTalkButton
+}: {
+  letsTalkButton: string
+}) {
   const { setShowContactForm } = useStore()
 
   return (
@@ -12,7 +16,7 @@ export default function LetsTalkButton({ buttonText }: { buttonText: string }) {
       onClick={() => setShowContactForm(true)}
       underlined
     >
-      {buttonText}
+      {letsTalkButton}
     </TextButton>
   )
 }

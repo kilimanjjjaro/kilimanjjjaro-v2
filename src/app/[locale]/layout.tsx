@@ -1,3 +1,4 @@
+import Navigation from '@/components/navbar/Navigation'
 import NavBar from '@/components/navbar/NavBar'
 import FormModal from '@/components/contact-form/FormModal'
 import Footer from '@/components/Footer'
@@ -7,54 +8,93 @@ import SmoothScroll from '@/components/SmoothScroll'
 import MessageForDevs from '@/components/MessageForDevs'
 import Providers from '@/components/Providers'
 import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
-import { getStaticParams } from '@/lib/locales/server'
+import {
+  getCurrentLocale,
+  getScopedI18n,
+  getStaticParams
+} from '@/lib/locales/server'
 import type { ChildrenType } from '@/lib/interfaces/general'
 import type { Metadata } from 'next'
 import '@/app/globals.css'
-import Navigation from '@/components/navbar/Navigation'
+import { METADATA } from '@/lib/constants/metadata'
 
-export const metadata: Metadata = {
-  title: {
-    template: '%s — Kilimanjjjaro',
-    default: 'Kilimanjjjaro'
-  },
-  description: 'Kilimanjjjaro is a creative studio focused on web experiences.',
-  openGraph: {
+interface MetadataProps {
+  params: { locale: string }
+}
+
+interface LayoutProps {
+  children: ChildrenType
+}
+
+export async function generateMetadata({
+  params
+}: MetadataProps): Promise<Metadata> {
+  const metadata = params.locale === 'en' ? METADATA.en : METADATA.es
+
+  const fullMetadata: Metadata = {
     title: {
       template: '%s — Kilimanjjjaro',
       default: 'Kilimanjjjaro'
     },
-    description:
-      'Kilimanjjjaro is a creative studio focused on web experiences.',
-    images: [
-      {
-        url: 'https://kilimanjjjaro.com/images/og-image.png',
-        width: 1200,
-        height: 630
+    alternates: {
+      canonical: '/',
+      languages: {
+        en: '/',
+        es: '/es'
       }
-    ],
-    siteName: 'Kilimanjjjaro',
-    type: 'website',
-    url: 'https://kilimanjjjaro.com'
+    },
+    description: metadata.description,
+    openGraph: {
+      title: {
+        template: '%s — Kilimanjjjaro',
+        default: 'Kilimanjjjaro'
+      },
+      description: metadata.description,
+      images: [
+        {
+          url: 'https://kilimanjjjaro.com/images/og-image.png',
+          width: 1200,
+          height: 630
+        }
+      ],
+      siteName: 'Kilimanjjjaro',
+      type: 'website',
+      url: metadata.url,
+      locale: params.locale
+    }
   }
+
+  return fullMetadata
 }
 
 export function generateStaticParams() {
   return getStaticParams()
 }
 
-export default function RootLayout({ children }: { children: ChildrenType }) {
+export default async function RootLayout({ children }: LayoutProps) {
+  const t = await getScopedI18n('footer')
+  const locale = getCurrentLocale()
+
+  const htmlLang = locale === 'en' ? 'en' : 'es'
+
+  const goToTopButton = t('goToTop')
+  const letsTalkButton = t('letsTalk')
+
   return (
-    <html lang='en'>
+    <html lang={htmlLang}>
       <body
         className={`bg-kili-black font-neue-haas-grotesk-display antialiased transition-colors duration-700 ease-in-out ${neueHaasGroteskDisplayFont}`}
       >
         <Providers>
-          <Navigation />
-          <NavBar />
+          <Navigation locale={locale} />
+          <NavBar locale={locale} />
           <SmoothScroll>
             {children}
-            <Footer />
+            <Footer
+              locale={locale}
+              goToTop={goToTopButton}
+              letsTalk={letsTalkButton}
+            />
           </SmoothScroll>
           <ScrollPercentage />
           <FormModal />

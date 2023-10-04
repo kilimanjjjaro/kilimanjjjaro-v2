@@ -1,6 +1,5 @@
 import { create } from 'zustand'
 import updateStacks from '@/lib/utils/updateStacks'
-import { LANGUAGES } from '@/lib/constants/general'
 import type { StoreInterface } from '@/lib/interfaces/store'
 
 const updatedStacks = updateStacks()
@@ -16,8 +15,6 @@ export const useStore = create<StoreInterface>((set) => ({
   shouldMoveToStart: false,
   setShouldMoveToStart: (shouldMoveToStart) =>
     set(() => ({ shouldMoveToStart })),
-  selectedLanguage: LANGUAGES[0],
-  setSelectedLanguage: (selectedLanguage) => set(() => ({ selectedLanguage })),
   cursorStatus: 'default',
   setCursorStatus: (cursorStatus) => set(() => ({ cursorStatus })),
   swiperInstance: null,

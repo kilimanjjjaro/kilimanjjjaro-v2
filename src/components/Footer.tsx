@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useMemo, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useLenis } from '@studio-freight/react-lenis'
 import { useStore } from '@/lib/store/store'
@@ -13,7 +13,15 @@ const SOCIAL_LINKS = [
   { name: 'LinkedIn', link: '#' }
 ]
 
-export default function Footer() {
+export default function Footer({
+  locale,
+  letsTalk,
+  goToTop
+}: {
+  locale: string
+  letsTalk: string
+  goToTop: string
+}) {
   const { setCursorStatus, setShowContactForm } = useStore()
   const footerEl = useRef<HTMLElement>(null)
   const lenis = useLenis()
@@ -25,6 +33,10 @@ export default function Footer() {
 
   const y = useTransform(scrollYProgress, [0, 1], ['-35%', '0%'])
 
+  const sections = useMemo(() => {
+    return locale === 'en' ? SECTIONS.en : SECTIONS.es
+  }, [locale])
+
   return (
     <footer
       ref={footerEl}
@@ -32,7 +44,7 @@ export default function Footer() {
     >
       <motion.div initial={{ y: 0 }} style={{ y }}>
         <ul className='flex justify-between mb-48'>
-          {SECTIONS.map((section) => (
+          {sections.map((section) => (
             <li key={section.slug}>
               <TextLink
                 className='text-3xl text-kili-white before:bg-kili-white after:bg-kili-white'
@@ -58,7 +70,7 @@ export default function Footer() {
             onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
           >
             <span className='flex items-center leading-none translate-y-0 gap-14 text-kili-white text-10xl group-hover:animate-translate-y'>
-              Let's talk!
+              {letsTalk}
               <ArrowCornerIcon className='w-10 h-10' />
             </span>
           </button>
@@ -82,7 +94,7 @@ export default function Footer() {
                 onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
                 onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
               >
-                Go to top
+                {goToTop}
               </button>
             </li>
           </ul>

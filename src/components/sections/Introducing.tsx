@@ -6,12 +6,16 @@ import Description from '@/components/introducing/Description'
 import Portrait from '@/components/introducing/Portrait'
 import ParallaxHeadline from '@/components/shared/ParallaxHeadline'
 import { getScopedI18n } from '@/lib/locales/server'
+import { YEARS_OF_EXPERIENCE, YEARS_OLD } from '@/lib/constants/general'
 
 export default async function Introducing() {
   const t = await getScopedI18n('home.introducing')
 
+  const headline = t('headline', { experience: YEARS_OF_EXPERIENCE })
+  const description = t('description', { yearsOld: YEARS_OLD })
+
   return (
-    <section id='introducing' className='pt-32 bg-kili-dark-gray'>
+    <section id='introducing-me' className='pt-32 bg-kili-dark-gray'>
       <ParallaxHeadline
         className='leading-none text-kili-white text-10xl'
         baseVelocity={-3}
@@ -21,10 +25,10 @@ export default async function Introducing() {
       <div className='flex flex-col items-center px-40 py-32'>
         <Portrait />
         <div className='flex flex-col'>
-          <Headline headline={t('headline', { number: 5 })} />
+          <Headline headline={headline} />
           <div className='grid items-end content-start grid-cols-2 gap-[19vw] justify-items-start'>
-            <LetsTalkButton buttonText={t('buttonText')} />
-            <Description description={t('description')} />
+            <LetsTalkButton letsTalkButton={t('letsTalkButton')} />
+            <Description description={description} />
           </div>
         </div>
       </div>

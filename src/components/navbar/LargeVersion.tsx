@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { useLenis } from '@studio-freight/react-lenis'
 import TextLink from '@/components/shared/TextLink'
@@ -6,9 +7,15 @@ import LanguageSelector from '@/components/navbar/LanguageSelector'
 import { useStore } from '@/lib/store/store'
 import { SECTIONS, CURSOR_STATUS } from '@/lib/constants/general'
 
-export default function LargeVersion() {
+export default function LargeVersion({ locale }: { locale: string }) {
   const { setCursorStatus, setShowContactForm } = useStore()
   const lenis = useLenis()
+
+  const sections = useMemo(() => {
+    return locale === 'en' ? SECTIONS.en : SECTIONS.es
+  }, [locale])
+
+  const letsTalkText = locale === 'en' ? "Let's talk!" : '¡Hablemos!'
 
   return (
     <motion.nav
@@ -31,7 +38,7 @@ export default function LargeVersion() {
       }}
     >
       <ul className='flex gap-4 leading-none'>
-        {SECTIONS.map((section) => (
+        {sections.map((section) => (
           <li
             key={section.slug}
             onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
@@ -59,11 +66,11 @@ export default function LargeVersion() {
             className='tracking-wide transition-colors duration-700 ease-in-out text-kili-light-gray hover:text-kili-white'
             onClick={() => setShowContactForm(true)}
           >
-            Let's talk!
+            {letsTalkText}
           </TextButton>
         </li>
         <li className='ml-20'>
-          <LanguageSelector />
+          <LanguageSelector locale={locale} />
         </li>
       </ul>
     </motion.nav>

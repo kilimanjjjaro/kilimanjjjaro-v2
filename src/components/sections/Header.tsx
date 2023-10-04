@@ -14,7 +14,7 @@ export default async function Header() {
   ]
 
   return (
-    <header className='relative flex items-center justify-center min-h-screen'>
+    <header className='relative flex items-center justify-center min-h-screen overflow-hidden'>
       <Headline headline={headline} />
       <ScrollButton />
     </header>

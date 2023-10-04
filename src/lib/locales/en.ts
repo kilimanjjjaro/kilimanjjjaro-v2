@@ -6,15 +6,15 @@ export default {
     introducing: {
       sectionTitle: 'Introducing Me',
       headline:
-        'Full Stack JavaScript Developer & UX/UI Designer with +{number} years of work experience.',
+        'Full Stack JavaScript Developer & UX/UI Designer with +{experience} years of work experience.',
       description:
-        '<i>— Hello,</i> my name is Gonzalo and I am 30 years old. In my experience, I learned that the difference lies in taking care of the details and applying good practices. I am excited to approach solutions in an efficient and simple way.',
-      buttonText: "Let's talk!"
+        '<i>— Hello,</i> my name is Gonzalo and I am {yearsOld} years old. In my experience, I learned that the difference lies in taking care of the details and applying good practices. I am excited to approach solutions in an efficient and simple way.',
+      letsTalkButton: "Let's talk!"
     },
     lessButBetter: {
       headline: 'Less, but better.'
     },
-    otherProjects: {
+    moreProjects: {
       headline: ['And more equally', 'important projects...'],
       visitButton: 'Visit',
       moreProjectsButtons: [
@@ -24,8 +24,12 @@ export default {
         "There's no more. Do you want to be part?"
       ]
     },
-    knowMe: {
-      sectionTitle: 'Know Me'
+    knowledge: {
+      sectionTitle: 'Knowledge'
     }
+  },
+  footer: {
+    letsTalk: 'Let’s talk!',
+    goToTop: 'Go to top'
   }
 } as const

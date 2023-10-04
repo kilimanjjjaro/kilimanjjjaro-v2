@@ -1,21 +1,26 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
+import TextButton from '@/components/shared/TextButton'
 import { useStore } from '@/lib/store/store'
 import useNavBar from '@/lib/hooks/useNavBar'
-import { useChangeLocale, useCurrentLocale } from '@/lib/locales/client'
+import { useChangeLocale } from '@/lib/locales/client'
 import {
   LANGUAGES_LI_VARIANTS,
   LANGUAGES_UL_VARIANTS
 } from '@/lib/constants/variants'
 import { CURSOR_STATUS, LANGUAGES } from '@/lib/constants/general'
 import type { LanguageInterface } from '@/lib/interfaces/general'
-import TextButton from '../shared/TextButton'
 
-export default function LanguageSelector() {
-  const { selectedLanguage, setSelectedLanguage, setCursorStatus } = useStore()
+export default function LanguageSelector({ locale }: { locale: string }) {
+  const { setCursorStatus } = useStore()
+  const languages = useMemo(() => {
+    return locale === 'en' ? LANGUAGES.en : LANGUAGES.es
+  }, [locale])
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    locale === 'en' ? languages[0] : languages[1]
+  )
   const [showSelector, setShowSelector] = useState(false)
   const { isVisible } = useNavBar()
-  const currentLocale = useCurrentLocale()
   const changeLocale = useChangeLocale()
 
   const handleClick = ({ language }: { language: LanguageInterface }) => {
@@ -29,13 +34,7 @@ export default function LanguageSelector() {
     if (!isVisible) {
       setShowSelector(false)
     }
-
-    const language = LANGUAGES.find((language) => language.id === currentLocale)
-
-    if (language !== undefined) {
-      setSelectedLanguage(language)
-    }
-  }, [isVisible, currentLocale, setSelectedLanguage])
+  }, [isVisible, locale])
 
   return (
     <div className='relative flex justify-end'>
@@ -51,7 +50,7 @@ export default function LanguageSelector() {
         animate={showSelector ? 'open' : 'closed'}
         transition={{ duration: 0.7, ease: 'easeInOut' }}
       >
-        {LANGUAGES.map((language) => (
+        {languages.map((language) => (
           <li key={language.id} className='overflow-hidden'>
             <motion.button
               className='leading-none tracking-wide transition-colors duration-700 ease-in-out text-kili-white hover:text-kili-light-gray'

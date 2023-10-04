@@ -1,14 +1,30 @@
-export const LANGUAGES = [
-  { id: 'en', name: 'English' },
-  { id: 'es', name: 'Spanish' }
-]
+import getYearsOld from '@/lib/utils/getYearsOld'
 
-export const SECTIONS = [
-  { slug: 'featured-projects', name: 'Featured Projects' },
-  { slug: 'introducing', name: 'Introducing Me' },
-  { slug: 'other-projects', name: 'Other Projects' },
-  { slug: 'know-me', name: 'Know Me' }
-]
+export const LANGUAGES = {
+  en: [
+    { id: 'en', name: 'English' },
+    { id: 'es', name: 'Spanish' }
+  ],
+  es: [
+    { id: 'en', name: 'Inglés' },
+    { id: 'es', name: 'Español' }
+  ]
+}
+
+export const SECTIONS = {
+  en: [
+    { slug: 'featured-projects', name: 'Featured Projects' },
+    { slug: 'introducing', name: 'Introducing Me' },
+    { slug: 'more-projects', name: 'More Projects' },
+    { slug: 'knowledge', name: 'Knowledge' }
+  ],
+  es: [
+    { slug: 'featured-projects', name: 'Proyectos' },
+    { slug: 'introducing', name: 'Presentándome' },
+    { slug: 'more-projects', name: 'Más Proyectos' },
+    { slug: 'knowledge', name: 'Conocimientos' }
+  ]
+}
 
 export const STACKS = [
   {
@@ -38,4 +54,6 @@ export const CURSOR_STATUS = {
   FEATURED: 'featured'
 }
 
-export const INTRO_ANIMATION_DURATION = 6
+export const YEARS_OLD = getYearsOld()
+
+export const YEARS_OF_EXPERIENCE = new Date().getFullYear() - 2017
