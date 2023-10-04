@@ -21,8 +21,8 @@ export default function Content({ locale }: { locale: string }) {
         transition={{ duration: 0, staggerChildren: 0.3 }}
       >
         <Approach locale={locale} />
-        <Experience locale={locale} />
         <Education locale={locale} />
+        <Experience locale={locale} />
         <Clients />
       </motion.div>
     </section>

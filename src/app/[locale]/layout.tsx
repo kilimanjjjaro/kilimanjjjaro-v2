@@ -86,8 +86,6 @@ export default async function RootLayout({ children }: LayoutProps) {
         className={`bg-kili-black font-neue-haas-grotesk-display antialiased transition-colors duration-700 ease-in-out ${neueHaasGroteskDisplayFont}`}
       >
         <Providers>
-          <Navigation locale={locale} letsTalk={letsTalkButton} />
-          <NavBar locale={locale} />
           <SmoothScroll>
             {children}
             <Footer
@@ -99,6 +97,8 @@ export default async function RootLayout({ children }: LayoutProps) {
           <ScrollPercentage />
           <FormModal />
           <MessageForDevs />
+          <Navigation locale={locale} letsTalk={letsTalkButton} />
+          <NavBar locale={locale} />
           <CustomCursor />
         </Providers>
       </body>

@@ -1,30 +1,36 @@
-import { useEffect, useState } from 'react'
 import { experimental_useFormStatus } from 'react-dom'
 import clsx from 'clsx'
 import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon'
 import { useStore } from '@/lib/store/store'
 import { CURSOR_STATUS } from '@/lib/constants/general'
-import type { InitialStateFormInterface } from '@/lib/interfaces/form'
+import { useScopedI18n } from '@/lib/locales/client'
+import { useEffect, useRef } from 'react'
 
-export default function Button({ error, success }: InitialStateFormInterface) {
+interface Props {
+  error: boolean
+  success: boolean
+  shouldFocus: boolean
+}
+
+export default function Button({ error, success, shouldFocus }: Props) {
+  const t = useScopedI18n('contactForm')
   const { setCursorStatus } = useStore()
   const { pending } = experimental_useFormStatus()
-  const [isSended, setIsSended] = useState(false)
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    if (success) {
-      setIsSended(true)
-
-      const timeout = setTimeout(() => {
-        setIsSended(false)
-      }, 3000)
-
-      return () => clearTimeout(timeout)
+    if (shouldFocus) {
+      buttonRef.current?.focus()
     }
-  }, [success])
+  }, [shouldFocus])
+
+  const renderWelcomeText = !error && !success && !pending
+  const renderSuccessText = success && !error && !pending
+  const renderErrorText = error && !success && !pending
 
   return (
     <button
+      ref={buttonRef}
       className={clsx(
         'flex absolute bottom-8 right-9 items-center gap-2 text-lg text-kili-white bg-[#030303] py-1 px-3',
         pending && 'cursor-not-allowed animate-pulse'
@@ -34,20 +40,20 @@ export default function Button({ error, success }: InitialStateFormInterface) {
       onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
       onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
     >
-      {error && !pending && (
+      {renderWelcomeText && (
         <>
-          Try again!
+          {t('sendButton.0')}
           <ArrowRightIcon className='w-3' />
         </>
       )}
-      {!error && !isSended && !pending && (
+      {renderErrorText && (
         <>
-          Send message
+          {t('sendButton.2')}
           <ArrowRightIcon className='w-3' />
         </>
       )}
-      {isSended && !error && 'Sent!'}
-      {pending && 'Sending...'}
+      {renderSuccessText && t('sendButton.3')}
+      {pending && t('sendButton.1')}
     </button>
   )
 }

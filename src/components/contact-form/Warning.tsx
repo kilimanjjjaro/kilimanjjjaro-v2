@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion'
 import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
+import { useScopedI18n } from '@/lib/locales/client'
 
 interface Props {
   setShowWarning: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export default function Warning({ setShowWarning }: Props) {
+  const t = useScopedI18n('contactForm')
+
   return (
     <div
       role='dialog'
@@ -20,17 +23,19 @@ export default function Warning({ setShowWarning }: Props) {
           />
         </div>
         <div className='p-6'>
-          <h3 className='mb-4 text-lg text-kili-white'>Close terminal</h3>
+          <h3 className='mb-4 text-lg text-kili-white'>
+            {t('warningModal.headline')}
+          </h3>
           <p className='text-kili-light-gray'>
-            Press{' '}
+            {t('warningModal.description.0')}{' '}
             <kbd className='px-1 mx-1 text-sm pb-[1px] rounded-md border border-kili-light-gray'>
-              enter
+              {t('warningModal.description.1')}
             </kbd>{' '}
-            if you are sure or{' '}
+            {t('warningModal.description.2')}{' '}
             <kbd className='px-1 mx-1 text-sm pb-[1px] rounded-md border border-kili-light-gray'>
-              any
+              {t('warningModal.description.3')}
             </kbd>{' '}
-            key to keep writing.
+            {t('warningModal.description.4')}
           </p>
         </div>
       </motion.div>

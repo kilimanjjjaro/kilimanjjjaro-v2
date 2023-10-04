@@ -13,6 +13,7 @@ import { useStore } from '@/lib/store/store'
 import sendForm from '@/lib/actions/sendForm'
 import { firaMonoFont } from '@/lib/utils/fonts'
 import { CURSOR_STATUS } from '@/lib/constants/general'
+import { useScopedI18n } from '@/lib/locales/client'
 import { FORM_DEFAULT_STATE } from '@/lib/constants/form'
 
 interface Props {
@@ -20,9 +21,12 @@ interface Props {
 }
 
 export default function Form({ handleDrag }: Props) {
+  const t = useScopedI18n('contactForm')
   const [state, formAction] = useFormState(sendForm, FORM_DEFAULT_STATE)
   const { setShowContactForm, setCursorStatus } = useStore()
   const formRef = useRef<HTMLFormElement>(null)
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState(false)
   const [renderFields, setRenderFields] = useState(false)
   const [showWarning, setShowWarning] = useState(false)
   const [step, setStep] = useState(1)
@@ -63,7 +67,27 @@ export default function Form({ handleDrag }: Props) {
   }, [])
 
   useEffect(() => {
-    if (state.success === true) formRef.current?.reset()
+    if (state.success === true) {
+      setSuccess(true)
+      setError(false)
+
+      const timeout = setTimeout(() => {
+        setSuccess(false)
+        setStep(1)
+        formRef.current?.reset()
+      }, 2000)
+
+      return () => {
+        clearTimeout(timeout)
+      }
+    }
+
+    if (state.error === true) {
+      setError(true)
+      setSuccess(false)
+
+      formRef.current?.focus()
+    }
   }, [state])
 
   useEffect(() => {
@@ -73,6 +97,11 @@ export default function Form({ handleDrag }: Props) {
       document.removeEventListener('keydown', handleKeyDown)
     }
   }, [handleKeyDown])
+
+  const renderWelcomeMessage = step <= 2 && !error && !success
+  const renderSuccessMessage = success && !error
+  const renderSuggestionMessage = step > 2 && !error && !success
+  const renderErrorMessage = error && !success
 
   return (
     <motion.form
@@ -125,24 +154,23 @@ export default function Form({ handleDrag }: Props) {
             <div
               className={clsx(
                 'absolute top-0 left-0 flex items-center justify-between bg-[#00ff00] w-full h-6 px-4 text-sm',
-                state.error === true && 'bg-red-600'
+                error && 'bg-red-600'
               )}
             >
               <span>GNU nano 2.8.4</span>
-              {step <= 2 && state.error === false && (
-                <span>Please, fill in the form =)</span>
-              )}
-              {step === 3 && state.error === false && (
-                <span>You can press Tab + Enter to send</span>
-              )}
-              {state.error === true && <span>Something went wrong =(</span>}
+              {renderWelcomeMessage && <span>{t('welcomeMessage')}</span>}
+              {renderSuggestionMessage && <span>{t('suggestionMessage')}</span>}
+              {renderSuccessMessage && <span>{t('successMessage')}</span>}
+              {renderErrorMessage && <span>{t('errorMessage')}</span>}
             </div>
             <Fields step={step} setStep={setStep} />
           </div>
         )}
         {showWarning && <Warning setShowWarning={setShowWarning} />}
       </main>
-      {renderFields && <Button error={state.error} success={state.success} />}
+      {renderFields && (
+        <Button error={error} success={success} shouldFocus={step === 4} />
+      )}
     </motion.form>
   )
 }

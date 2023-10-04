@@ -38,5 +38,32 @@ export default {
   footer: {
     letsTalk: '¡Hablemos!',
     goToTop: 'Ir arriba'
+  },
+  contactForm: {
+    fields: {
+      name: 'Tu nombre',
+      email: 'Tu email',
+      message: 'Tu mensaje'
+    },
+    sendButton: [
+      'Enviar mensaje',
+      'Enviando...',
+      'Intentar de nuevo',
+      '¡Enviado!'
+    ],
+    errorMessage: 'Algo salió mal =(',
+    successMessage: '¡Gracias por tu mensaje =)',
+    suggestionMessage: 'Puedes hacer saltos de línea con Shift + Enter!',
+    welcomeMessage: 'Por favor, completa el formulario =)',
+    warningModal: {
+      headline: '¿Cerrar la terminal?',
+      description: [
+        'Presiona',
+        'enter',
+        'si estás seguro o',
+        'cualquier',
+        'tecla para seguir escribiendo.'
+      ]
+    }
   }
 } as const
