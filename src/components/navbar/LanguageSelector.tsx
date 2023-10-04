@@ -12,7 +12,7 @@ import { CURSOR_STATUS, LANGUAGES } from '@/lib/constants/general'
 import type { LanguageInterface } from '@/lib/interfaces/general'
 
 export default function LanguageSelector({ locale }: { locale: string }) {
-  const { setCursorStatus } = useStore()
+  const { setCursorStatus, setNavBarStatus } = useStore()
   const languages = useMemo(() => {
     return locale === 'en' ? LANGUAGES.en : LANGUAGES.es
   }, [locale])
@@ -26,6 +26,7 @@ export default function LanguageSelector({ locale }: { locale: string }) {
   const handleClick = ({ language }: { language: LanguageInterface }) => {
     setSelectedLanguage(language)
     setShowSelector(false)
+    setNavBarStatus(false)
     // @ts-expect-error
     changeLocale(language.id)
   }

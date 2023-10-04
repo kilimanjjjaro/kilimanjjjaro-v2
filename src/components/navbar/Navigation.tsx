@@ -8,7 +8,13 @@ import { useStore } from '@/lib/store/store'
 import { SECTIONS, CURSOR_STATUS } from '@/lib/constants/general'
 import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/lib/constants/variants'
 
-export default function Navigation({ locale }: { locale: string }) {
+export default function Navigation({
+  locale,
+  letsTalk
+}: {
+  locale: string
+  letsTalk: string
+}) {
   const { navBarStatus, setNavBarStatus, setCursorStatus, setShowContactForm } =
     useStore()
 
@@ -60,7 +66,7 @@ export default function Navigation({ locale }: { locale: string }) {
               >
                 <TextButton onClick={() => openContactModal()}>
                   <span className='block py-1 group-hover:animate-translate-y'>
-                    Let's talk!
+                    {letsTalk}
                   </span>
                 </TextButton>
               </motion.span>

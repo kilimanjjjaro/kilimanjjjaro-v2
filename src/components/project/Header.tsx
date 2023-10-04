@@ -1,15 +1,15 @@
-// 'use client'
-
 import Balancer from 'react-wrap-balancer'
 import ParallaxHeadline from '@/components/shared/ParallaxHeadline'
 import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
+import { getScopedI18n } from '@/lib/locales/server'
 import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
 
 interface Props {
   project: FeaturedProjectInterface
 }
 
-export default function Header({ project }: Props) {
+export default async function Header({ project }: Props) {
+  const t = await getScopedI18n('project')
   return (
     <header className='flex flex-col min-h-screen gap-y-36 pt-44 pb-36'>
       <ParallaxHeadline
@@ -28,7 +28,7 @@ export default function Header({ project }: Props) {
           target='_blank'
           rel='noopener noreferrer'
         >
-          Visit
+          {t('visitButton')}
           <ArrowCornerIcon className='w-4 h-4' />
         </a>
       </div>

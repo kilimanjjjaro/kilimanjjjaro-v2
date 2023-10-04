@@ -1,12 +1,15 @@
 import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
+import { getScopedI18n } from '@/lib/locales/server'
 import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
 
 interface Props {
   project: FeaturedProjectInterface
 }
 
-export default function Grid({ project }: Props) {
+export default async function Grid({ project }: Props) {
+  const t = await getScopedI18n('project')
+
   return (
     <section id='blur' className='grid grid-cols-3 px-40 pb-36 gap-36'>
       <video
@@ -35,7 +38,7 @@ export default function Grid({ project }: Props) {
       <div className='flex flex-col gap-36'>
         <div>
           <h3 className='mb-10 text-xl leading-tight text-kili-light-gray'>
-            Year
+            {t('yearHeadline')}
           </h3>
           <p className='text-4xl text-kili-white'>{project.year}</p>
         </div>
@@ -56,13 +59,13 @@ export default function Grid({ project }: Props) {
       <div className='flex flex-col gap-36'>
         <div>
           <h3 className='mb-10 text-xl leading-tight text-kili-light-gray'>
-            Role
+            {t('roleHeadline')}
           </h3>
           <p className='text-4xl text-kili-white'>{project.role}</p>
         </div>
         <div>
           <h3 className='mb-10 text-xl leading-tight text-kili-light-gray'>
-            Stacks
+            {t('stacksHeadline')}
           </h3>
           <ul className='flex flex-wrap flex-1 gap-4'>
             {project.stacks.map((stack, index) => (

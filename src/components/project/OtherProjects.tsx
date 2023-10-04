@@ -27,7 +27,7 @@ export default function MoreProjects({
             {project.name}
             <div className='absolute w-[450px] overflow-hidden pointer-events-none'>
               <video
-                className='transition-transform duration-700 ease-in-out translate-y-[109%] rotate-6 group-hover:translate-y-0 group-hover:rotate-0'
+                className='transition-transform duration-700 ease-in-out translate-y-[110%] rotate-6 group-hover:translate-y-0 group-hover:rotate-0'
                 src={project.presentation.video}
                 autoPlay
                 playsInline

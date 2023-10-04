@@ -1,8 +1,8 @@
-import { useMemo } from 'react'
 import { setStaticParamsLocale } from 'next-international/server'
 import Header from '@/components/project/Header'
 import Grid from '@/components/project/Grid'
 import OtherProjects from '@/components/project/OtherProjects'
+import { getScopedI18n } from '@/lib/locales/server'
 import { FEATURED_PROJECTS } from '@/lib/constants/projects'
 import type { Metadata } from 'next'
 
@@ -17,10 +17,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     (project) => project.slug === params.slug
   )
 
+  const t = await getScopedI18n('project')
+
   if (project === undefined)
     return {
-      title: 'Project not found',
-      description: 'Project not found'
+      title: t('notFoundMessage'),
+      description: t('notFoundMessage')
     }
 
   return {
@@ -44,23 +46,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function Project({ params }: Props) {
+export default async function Project({ params }: Props) {
+  const t = await getScopedI18n('project')
   setStaticParamsLocale(params.locale)
 
-  const projects = useMemo(() => {
-    return params.locale === 'en' ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
-  }, [params.locale])
+  const projects =
+    params.locale === 'en' ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
 
   const project = projects.find((project) => project.slug === params.slug)
 
-  const otherProjects = useMemo(() => {
-    return projects.filter((project) => project.slug !== params.slug)
-  }, [params.slug, projects])
+  const otherProjects = projects.filter(
+    (project) => project.slug !== params.slug
+  )
 
   if (project === undefined) {
     return (
       <main className='flex items-center justify-center w-full h-screen leading-none text-8xl text-kili-white'>
-        Project not found
+        {t('notFoundMessage')}
       </main>
     )
   }

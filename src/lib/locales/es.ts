@@ -28,6 +28,13 @@ export default {
       sectionTitle: 'Conóceme'
     }
   },
+  project: {
+    visitButton: 'Visitar',
+    notFoundMessage: 'Proyecto no encontrado',
+    stacksHeadline: 'Tecnologías',
+    roleHeadline: 'Rol',
+    yearHeadline: 'Año'
+  },
   footer: {
     letsTalk: '¡Hablemos!',
     goToTop: 'Ir arriba'

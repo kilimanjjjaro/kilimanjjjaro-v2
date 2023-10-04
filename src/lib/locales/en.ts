@@ -28,6 +28,13 @@ export default {
       sectionTitle: 'Knowledge'
     }
   },
+  project: {
+    visitButton: 'Visit',
+    notFoundMessage: 'Project not found',
+    stacksHeadline: 'Stacks',
+    roleHeadline: 'Role',
+    yearHeadline: 'Year'
+  },
   footer: {
     letsTalk: 'Let’s talk!',
     goToTop: 'Go to top'

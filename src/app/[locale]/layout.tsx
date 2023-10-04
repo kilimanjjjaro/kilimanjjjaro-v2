@@ -86,7 +86,7 @@ export default async function RootLayout({ children }: LayoutProps) {
         className={`bg-kili-black font-neue-haas-grotesk-display antialiased transition-colors duration-700 ease-in-out ${neueHaasGroteskDisplayFont}`}
       >
         <Providers>
-          <Navigation locale={locale} />
+          <Navigation locale={locale} letsTalk={letsTalkButton} />
           <NavBar locale={locale} />
           <SmoothScroll>
             {children}
