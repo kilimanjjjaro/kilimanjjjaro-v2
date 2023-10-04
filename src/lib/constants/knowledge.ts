@@ -65,7 +65,7 @@ export const EXPERIENCE = {
       name: 'Desarrollador Full Stack de JavaScript en Circulo'
     },
     {
-      year: '2017 — Present',
+      year: '2017 — Presente',
       name: 'Freelance'
     },
     {

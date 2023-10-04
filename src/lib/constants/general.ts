@@ -14,13 +14,13 @@ export const LANGUAGES = {
 export const SECTIONS = {
   en: [
     { slug: 'featured-projects', name: 'Featured Projects' },
-    { slug: 'introducing', name: 'Introducing Me' },
+    { slug: 'introducing-me', name: 'Introducing Me' },
     { slug: 'more-projects', name: 'More Projects' },
     { slug: 'knowledge', name: 'Knowledge' }
   ],
   es: [
     { slug: 'featured-projects', name: 'Proyectos' },
-    { slug: 'introducing', name: 'Presentándome' },
+    { slug: 'introducing-me', name: 'Presentándome' },
     { slug: 'more-projects', name: 'Más Proyectos' },
     { slug: 'knowledge', name: 'Conocimientos' }
   ]
