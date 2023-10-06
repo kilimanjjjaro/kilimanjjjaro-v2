@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { deleteCookie } from 'cookies-next'
 import Balancer from 'react-wrap-balancer'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import clsx from 'clsx'
 import AnimatedText from '@/components/shared/AnimatedText'
+import { useScopedI18n } from '@/lib/i18n/client'
 import { firaMonoFont } from '@/lib/utils/fonts'
 import cookieImage from '../../public/images/cookie.webp'
-import { useScopedI18n } from '@/lib/i18n/client'
 
 export default function CookiesConsent() {
   const t = useScopedI18n('cookiesConsent')
@@ -37,13 +37,14 @@ export default function CookiesConsent() {
   }, [])
 
   return (
-    <motion.div
-      role='alert'
-      className='fixed flex-col left-8 bg-[#030303]/[0.97] backdrop-blur-sm z-10 w-auto max-w-[256px] overflow-hidden rounded-md bottom-8'
-      initial={{ y: 260 }}
-      animate={
-        showCookiesConsent
-          ? {
+    <AnimatePresence>
+      {showCookiesConsent && (
+        <motion.div
+          role='alert'
+          className='fixed flex-col left-8 bg-[#030303]/[0.97] backdrop-blur-sm z-10 w-auto max-w-[256px] overflow-hidden rounded-md bottom-8'
+          initial={{ y: 260 }}
+          animate={
+            showCookiesConsent && {
               y: 0,
               transition: {
                 duration: 1,
@@ -51,71 +52,63 @@ export default function CookiesConsent() {
                 delay: 0
               }
             }
-          : {
-              y: 260,
-              transition: {
-                duration: 1,
-                ease: 'easeInOut'
-              },
-              transitionEnd: {
-                display: 'none'
-              }
-            }
-      }
-      transition={{ delay: 5 }}
-    >
-      <header className='flex items-center w-full h-6 px-4 bg-kili-light-gray/30'>
-        <button
-          aria-label='Close cookies consent'
-          onClick={handleDecline}
-          className='w-3 h-3 transition-colors duration-700 bg-red-600 rounded-full hover:bg-kili-white'
-          onMouseEnter={() => setShowCloseWarning(true)}
-          onMouseLeave={() => setShowCloseWarning(false)}
-        />
-      </header>
-      <main className={`p-4 flex flex-col text-sm ${firaMonoFont}`}>
-        <h3 className='flex items-center gap-2 mb-2 text-kili-white'>
-          {t('headline')}
-          <Image
-            src={cookieImage}
-            width={18}
-            height={18}
-            alt='Cookies Consent'
-          />
-        </h3>
-        <p className='mb-3 text-kili-light-gray'>
-          <Balancer>{t('description')}</Balancer>
-        </p>
-        <div className='flex'>
-          <button
-            className='w-full h-8 rounded-md outline-none appearance-none bg-kili-white/0 text-kili-white'
-            onClick={handleDecline}
-          >
-            <AnimatedText
-              className='flex items-center justify-center w-full h-full text-center'
-              text={t('declineButton')}
+          }
+          exit={{ y: 260, transition: { duration: 1, ease: 'easeInOut' } }}
+          transition={{ delay: 5 }}
+        >
+          <header className='flex items-center w-full h-6 px-4 bg-kili-light-gray/30'>
+            <button
+              aria-label='Close cookies consent'
+              onClick={handleDecline}
+              className='w-3 h-3 transition-colors duration-700 bg-red-600 rounded-full hover:bg-kili-white'
+              onMouseEnter={() => setShowCloseWarning(true)}
+              onMouseLeave={() => setShowCloseWarning(false)}
             />
-          </button>
-          <button
-            className='w-full h-8 transition-colors duration-300 ease-in-out rounded-md outline-none appearance-none bg-kili-white/5 text-kili-white hover:text-kili-white xl:hover:bg-kili-white/10 focus:bg-kili-white'
-            onClick={handleAccept}
-          >
-            <AnimatedText
-              className='flex items-center justify-center w-full h-full text-center'
-              text={t('acceptButton')}
-            />
-          </button>
-          {/* <div
-              role='tooltip'
-              className={clsx(
-                'absolute text-xs text-kili-light-gray transition-opacity duration-300 ease-in-out w-full whitespace-nowrap',
-                showCloseWarning ? 'opacity-100' : 'opacity-0'
-              )}
-            >
-              ({t('closeWarning')})
-            </div> */}
-        </div>
-      </main>
-    </motion.div>
+          </header>
+          <main className={`p-4 flex flex-col text-sm ${firaMonoFont}`}>
+            <h3 className='flex items-center gap-2 mb-2 text-kili-white'>
+              {t('headline')}
+              <Image
+                src={cookieImage}
+                width={18}
+                height={18}
+                alt='Cookies Consent'
+              />
+            </h3>
+            <p className='mb-3 text-kili-light-gray'>
+              <Balancer>{t('description')}</Balancer>
+            </p>
+            <div className='flex gap-4'>
+              <button
+                className={clsx(
+                  'w-full h-8 pt-[1px] rounded-md outline-none transition-colors duration-500 ease-in-out appearance-none text-kili-white',
+                  showCloseWarning
+                    ? 'bg-kili-white/5 animate-pulse'
+                    : 'bg-kili-white/0'
+                )}
+                onClick={handleDecline}
+              >
+                <AnimatedText
+                  className='flex items-center justify-center w-full h-full text-center'
+                  text={t('declineButton')}
+                />
+              </button>
+              <button
+                className={clsx(
+                  'w-full h-8 transition-colors duration-500 ease-in-out rounded-md outline-none appearance-none text-kili-white hover:text-kili-white xl:hover:bg-kili-white/10 focus:bg-kili-white',
+                  showCloseWarning ? 'bg-kili-white/0' : 'bg-kili-white/5'
+                )}
+                onClick={handleAccept}
+              >
+                <AnimatedText
+                  className='flex items-center justify-center w-full h-full text-center'
+                  text={t('acceptButton')}
+                />
+              </button>
+            </div>
+          </main>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }
