@@ -60,12 +60,14 @@ export default function LargeVersion() {
           </li>
         ))}
         <li
+          className='ml-5'
           onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
           onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
         >
           <TextButton
-            className='tracking-wide transition-colors duration-700 ease-in-out text-kili-light-gray hover:text-kili-white'
+            className='tracking-wide transition-colors duration-700 ease-in-out text-kili-light-gray hover:text-kili-white before:bg-kili-light-gray after:bg-kili-light-gray'
             onClick={() => setShowContactForm(true)}
+            underlined
           >
             {letsTalkText}
           </TextButton>
