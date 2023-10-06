@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
+import Video from '@/components/project/Video'
 import { getScopedI18n } from '@/lib/i18n/server'
 import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
 
@@ -12,28 +13,20 @@ export default async function Grid({ project }: Props) {
 
   return (
     <section id='blur' className='grid grid-cols-3 px-40 pb-36 gap-36'>
-      <video
+      <Video
         className='w-full col-span-3 aspect-video'
         src={project.presentation.video}
-        autoPlay
-        playsInline
-        loop
-        muted
       />
       <Image
         src={`/images/projects/${project.slug}/gallery-1.webp`}
         width={437}
         height={778}
-        alt=''
+        alt={project.name}
         quality={90}
       />
-      <video
+      <Video
         className='w-full'
         src={`/images/projects/${project.slug}/gallery-2.webm`}
-        autoPlay
-        playsInline
-        loop
-        muted
       />
       <div className='flex flex-col gap-36'>
         <div>
@@ -48,13 +41,9 @@ export default async function Grid({ project }: Props) {
           </p>
         </div>
       </div>
-      <video
+      <Video
         className='w-full col-span-3 aspect-video'
         src={`/images/projects/${project.slug}/gallery-3.webm`}
-        autoPlay
-        playsInline
-        loop
-        muted
       />
       <div className='flex flex-col gap-36'>
         <div>
@@ -79,13 +68,9 @@ export default async function Grid({ project }: Props) {
           </ul>
         </div>
       </div>
-      <video
+      <Video
         className='w-full'
         src={`/images/projects/${project.slug}/gallery-4.webm`}
-        autoPlay
-        playsInline
-        loop
-        muted
       />
       <Image
         src={`/images/projects/${project.slug}/gallery-5.webp`}
