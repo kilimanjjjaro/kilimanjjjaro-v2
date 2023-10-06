@@ -4,20 +4,15 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import OtherProject from '@/components/projects/OtherProject'
 import { PlusIcon } from '@/components/icons/PlusIcon'
-import { useScopedI18n } from '@/lib/i18n/client'
+import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
 import { useStore } from '@/lib/store/store'
 import { MORE_PROJECTS_VARIANTS } from '@/lib/constants/variants'
 import { MORE_PROJECTS } from '@/lib/constants/projects'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 
-export default function MoreProjects({
-  locale,
-  headline
-}: {
-  locale: string
-  headline: string[]
-}) {
+export default function MoreProjects() {
   const t = useScopedI18n('home.moreProjects')
+  const currentLocale = useCurrentLocale()
   const { setCursorStatus, setShowContactForm } = useStore()
   const sectionEl = useRef<HTMLElement>(null)
   const totalNumberOfProjects = useRef(MORE_PROJECTS.en.length)
@@ -50,8 +45,8 @@ export default function MoreProjects({
   }, [visibleItems, isInView, t])
 
   const moreProjects = useMemo(() => {
-    return locale === 'en' ? MORE_PROJECTS.en : MORE_PROJECTS.es
-  }, [locale])
+    return currentLocale === 'en' ? MORE_PROJECTS.en : MORE_PROJECTS.es
+  }, [currentLocale])
 
   return (
     <section

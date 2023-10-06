@@ -9,11 +9,7 @@ import SmoothScroll from '@/components/SmoothScroll'
 import MessageForDevs from '@/components/MessageForDevs'
 import Providers from '@/components/Providers'
 import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
-import {
-  getCurrentLocale,
-  getScopedI18n,
-  getStaticParams
-} from '@/lib/i18n/server'
+import { getCurrentLocale, getStaticParams } from '@/lib/i18n/server'
 import type { ChildrenType } from '@/lib/interfaces/general'
 import type { Metadata } from 'next'
 import '@/app/globals.css'
@@ -73,22 +69,9 @@ export function generateStaticParams() {
 }
 
 export default async function RootLayout({ children }: LayoutProps) {
-  const footerT = await getScopedI18n('footer')
-  const cookiesConsentT = await getScopedI18n('cookiesConsent')
   const locale = getCurrentLocale()
 
   const htmlLang = locale === 'en' ? 'en' : 'es'
-
-  const goToTopButton = footerT('goToTop')
-  const letsTalkButton = footerT('letsTalk')
-
-  const cookiesConsentTexts = {
-    headline: cookiesConsentT('headline'),
-    description: cookiesConsentT('description'),
-    acceptButton: cookiesConsentT('acceptButton'),
-    declineButton: cookiesConsentT('declineButton'),
-    closeWarning: cookiesConsentT('closeWarning')
-  }
 
   return (
     <html lang={htmlLang}>
@@ -98,18 +81,14 @@ export default async function RootLayout({ children }: LayoutProps) {
         <Providers>
           <SmoothScroll>
             {children}
-            <Footer
-              locale={locale}
-              goToTop={goToTopButton}
-              letsTalk={letsTalkButton}
-            />
+            <Footer />
           </SmoothScroll>
-          <CookiesConsent texts={cookiesConsentTexts} />
+          <CookiesConsent />
           <ScrollPercentage />
           <FormModal />
           <MessageForDevs />
-          <Navigation locale={locale} letsTalk={letsTalkButton} />
-          <NavBar locale={locale} />
+          <Navigation />
+          <NavBar />
           <CustomCursor />
         </Providers>
       </body>

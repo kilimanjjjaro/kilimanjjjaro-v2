@@ -2,6 +2,6 @@ import { createI18nServer } from 'next-international/server'
 
 export const { getI18n, getScopedI18n, getStaticParams, getCurrentLocale } =
   createI18nServer({
-    en: async () => await import('../locales/en'),
-    es: async () => await import('../locales/es')
+    en: async () => await import('@/lib/locales/en'),
+    es: async () => await import('@/lib/locales/es')
   })

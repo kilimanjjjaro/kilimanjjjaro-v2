@@ -1,4 +1,5 @@
 import { createI18nClient } from 'next-international/client'
+import en from '@/lib/locales/en'
 
 export const {
   useI18n,
@@ -6,7 +7,12 @@ export const {
   I18nProviderClient,
   useChangeLocale,
   useCurrentLocale
-} = createI18nClient({
-  en: async () => await import('../locales/en'),
-  es: async () => await import('../locales/es')
-})
+} = createI18nClient(
+  {
+    en: async () => await import('../locales/en'),
+    es: async () => await import('../locales/es')
+  },
+  {
+    fallbackLocale: en
+  }
+)

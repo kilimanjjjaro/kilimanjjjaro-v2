@@ -5,16 +5,13 @@ import { AnimatePresence, motion } from 'framer-motion'
 import TextButton from '@/components/shared/TextButton'
 import TextLink from '@/components/shared/TextLink'
 import { useStore } from '@/lib/store/store'
+import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
 import { SECTIONS, CURSOR_STATUS } from '@/lib/constants/general'
 import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/lib/constants/variants'
 
-export default function Navigation({
-  locale,
-  letsTalk
-}: {
-  locale: string
-  letsTalk: string
-}) {
+export default function Navigation() {
+  const t = useScopedI18n('footer')
+  const currentLocale = useCurrentLocale()
   const { navBarStatus, setNavBarStatus, setCursorStatus, setShowContactForm } =
     useStore()
 
@@ -24,8 +21,8 @@ export default function Navigation({
   }
 
   const sections = useMemo(() => {
-    return locale === 'en' ? SECTIONS.en : SECTIONS.es
-  }, [locale])
+    return currentLocale === 'en' ? SECTIONS.en : SECTIONS.es
+  }, [currentLocale])
 
   useEffect(() => {
     window.addEventListener('keydown', (e) => {
@@ -74,7 +71,7 @@ export default function Navigation({
               >
                 <TextButton onClick={() => openContactModal()}>
                   <span className='block py-1 group-hover:animate-translate-y'>
-                    {letsTalk}
+                    {t('letsTalk')}
                   </span>
                 </TextButton>
               </motion.span>

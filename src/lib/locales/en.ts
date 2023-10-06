@@ -25,7 +25,11 @@ export default {
       ]
     },
     knowledge: {
-      sectionTitle: 'Knowledge'
+      sectionTitle: 'Knowledge',
+      educationTitle: 'Education',
+      experienceTitle: 'Experience',
+      clientsTitle: 'Clients',
+      approachTitle: 'Approach'
     }
   },
   project: {
@@ -64,7 +68,7 @@ export default {
   cookiesConsent: {
     headline: 'Hi, cookies here!',
     description:
-      'This website uses them to enhance the localization experience. You are free to accept or decline them.',
+      'I uses them to enhance the internationalization experience. You are free to accept or decline them.',
     acceptButton: 'Accept',
     declineButton: 'Decline',
     closeWarning: 'You will decline'

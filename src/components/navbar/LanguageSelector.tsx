@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import TextButton from '@/components/shared/TextButton'
 import { useStore } from '@/lib/store/store'
 import useNavBar from '@/lib/hooks/useNavBar'
-import { useChangeLocale } from '@/lib/i18n/client'
+import { useChangeLocale, useCurrentLocale } from '@/lib/i18n/client'
 import {
   LANGUAGES_LI_VARIANTS,
   LANGUAGES_UL_VARIANTS
@@ -11,13 +11,14 @@ import {
 import { CURSOR_STATUS, LANGUAGES } from '@/lib/constants/general'
 import type { LanguageInterface } from '@/lib/interfaces/general'
 
-export default function LanguageSelector({ locale }: { locale: string }) {
+export default function LanguageSelector() {
+  const currentLocale = useCurrentLocale()
   const { setCursorStatus, setNavBarStatus } = useStore()
   const languages = useMemo(() => {
-    return locale === 'en' ? LANGUAGES.en : LANGUAGES.es
-  }, [locale])
+    return currentLocale === 'en' ? LANGUAGES.en : LANGUAGES.es
+  }, [currentLocale])
   const [selectedLanguage, setSelectedLanguage] = useState(
-    locale === 'en' ? languages[0] : languages[1]
+    currentLocale === 'en' ? languages[0] : languages[1]
   )
   const [showSelector, setShowSelector] = useState(false)
   const { isVisible } = useNavBar()
@@ -35,7 +36,7 @@ export default function LanguageSelector({ locale }: { locale: string }) {
     if (!isVisible) {
       setShowSelector(false)
     }
-  }, [isVisible, locale])
+  }, [isVisible, currentLocale])
 
   return (
     <div className='relative flex justify-end'>

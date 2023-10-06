@@ -4,17 +4,19 @@ import { useLenis } from '@studio-freight/react-lenis'
 import TextLink from '@/components/shared/TextLink'
 import TextButton from '@/components/shared/TextButton'
 import { useStore } from '@/lib/store/store'
+import { useCurrentLocale } from '@/lib/i18n/client'
 import { SECTIONS, CURSOR_STATUS } from '@/lib/constants/general'
 
-export default function LargeVersion({ locale }: { locale: string }) {
+export default function LargeVersion() {
   const { setCursorStatus, setShowContactForm } = useStore()
   const lenis = useLenis()
+  const currentLocale = useCurrentLocale()
 
   const sections = useMemo(() => {
-    return locale === 'en' ? SECTIONS.en : SECTIONS.es
-  }, [locale])
+    return currentLocale === 'en' ? SECTIONS.en : SECTIONS.es
+  }, [currentLocale])
 
-  const letsTalkText = locale === 'en' ? "Let's talk!" : '¡Hablemos!'
+  const letsTalkText = currentLocale === 'en' ? "Let's talk!" : '¡Hablemos!'
 
   return (
     <motion.nav

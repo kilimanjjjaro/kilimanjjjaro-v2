@@ -1,8 +1,16 @@
 'use client'
 
+import { I18nProviderClient, useCurrentLocale } from '@/lib/i18n/client'
 import { ChildrenType } from '@/lib/interfaces/general'
-import { I18nProviderClient } from '@/lib/i18n/client'
 
-export default function Providers({ children }: { children: ChildrenType }) {
-  return <I18nProviderClient>{children}</I18nProviderClient>
+interface Props {
+  children: ChildrenType
+}
+
+export default function Providers({ children }: Props) {
+  const currentLocale = useCurrentLocale()
+
+  return (
+    <I18nProviderClient locale={currentLocale}>{children}</I18nProviderClient>
+  )
 }

@@ -2,7 +2,13 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-export default function AnimatedText({ text }: { text: string }) {
+export default function AnimatedText({
+  text,
+  className
+}: {
+  text: string
+  className?: string
+}) {
   const animationInterval = useRef<NodeJS.Timeout | null>(null)
   const [originalText, setOriginalText] = useState<string>(text)
   const [counter, setCounter] = useState<number>(0)
@@ -59,7 +65,11 @@ export default function AnimatedText({ text }: { text: string }) {
   }, [counter, text])
 
   return (
-    <span onMouseEnter={startAnimation} onMouseLeave={stopAnimation}>
+    <span
+      className={className}
+      onMouseEnter={startAnimation}
+      onMouseLeave={stopAnimation}
+    >
       {originalText}
     </span>
   )

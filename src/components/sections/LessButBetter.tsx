@@ -8,8 +8,10 @@ import {
   useSpring,
   useTransform
 } from 'framer-motion'
+import { useScopedI18n } from '@/lib/i18n/client'
 
-export default function LessButBetter({ headline }: { headline: string }) {
+export default function LessButBetter() {
+  const t = useScopedI18n('home.lessButBetter')
   const sectionRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const videoIsInView = useInView(videoRef, { margin: '0px 0px 200px 0px' })
@@ -55,7 +57,7 @@ export default function LessButBetter({ headline }: { headline: string }) {
         className='absolute leading-none -mt-3 text-kili-white text-center text-[12vw] mix-blend-difference'
         style={{ scale: headlineScale }}
       >
-        {headline}
+        {t('headline')}
       </motion.h3>
     </motion.section>
   )

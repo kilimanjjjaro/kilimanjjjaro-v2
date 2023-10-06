@@ -4,8 +4,10 @@ import {
   OTHER_PROJECT_VARIANTS
 } from '@/lib/constants/variants'
 import { CLIENTS } from '@/lib/constants/knowledge'
+import { useScopedI18n } from '@/lib/i18n/client'
 
 export default function Clients() {
+  const t = useScopedI18n('home.knowledge')
   return (
     <article className='overflow-hidden'>
       <motion.div
@@ -13,7 +15,9 @@ export default function Clients() {
         variants={OTHER_PROJECT_VARIANTS}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       >
-        <h3 className='w-[30%] text-4xl text-kili-white'>Clients</h3>
+        <h3 className='w-[30%] text-4xl text-kili-white'>
+          {t('clientsTitle')}
+        </h3>
         <ul className='grid flex-1 grid-cols-3 gap-10 text-2xl text-kili-white'>
           {CLIENTS.map((client) => (
             <li key={client}>{client}</li>

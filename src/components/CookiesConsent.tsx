@@ -9,18 +9,10 @@ import clsx from 'clsx'
 import AnimatedText from '@/components/shared/AnimatedText'
 import { firaMonoFont } from '@/lib/utils/fonts'
 import cookieImage from '../../public/images/cookie.webp'
+import { useScopedI18n } from '@/lib/i18n/client'
 
-interface Props {
-  texts: {
-    headline: string
-    description: string
-    acceptButton: string
-    declineButton: string
-    closeWarning: string
-  }
-}
-
-export default function CookiesConsent({ texts }: Props) {
+export default function CookiesConsent() {
+  const t = useScopedI18n('cookiesConsent')
   const [showCookiesConsent, setShowCookiesConsent] = useState(false)
   const [showCloseWarning, setShowCloseWarning] = useState(false)
 
@@ -47,8 +39,8 @@ export default function CookiesConsent({ texts }: Props) {
   return (
     <motion.div
       role='alert'
-      className='fixed flex-col left-8 bg-[#030303] z-10 w-64 overflow-hidden rounded-md bottom-8'
-      initial={{ y: 256 }}
+      className='fixed flex-col left-8 bg-[#030303]/[0.97] backdrop-blur-sm z-10 w-auto max-w-[256px] overflow-hidden rounded-md bottom-8'
+      initial={{ y: 260 }}
       animate={
         showCookiesConsent
           ? {
@@ -56,11 +48,11 @@ export default function CookiesConsent({ texts }: Props) {
               transition: {
                 duration: 1,
                 ease: 'easeInOut',
-                delay: 5
+                delay: 0
               }
             }
           : {
-              y: 256,
+              y: 260,
               transition: {
                 duration: 1,
                 ease: 'easeInOut'
@@ -83,7 +75,7 @@ export default function CookiesConsent({ texts }: Props) {
       </header>
       <main className={`p-4 flex flex-col text-sm ${firaMonoFont}`}>
         <h3 className='flex items-center gap-2 mb-2 text-kili-white'>
-          {texts.headline}{' '}
+          {t('headline')}
           <Image
             src={cookieImage}
             width={18}
@@ -92,34 +84,36 @@ export default function CookiesConsent({ texts }: Props) {
           />
         </h3>
         <p className='mb-3 text-kili-light-gray'>
-          <Balancer>{texts.description}</Balancer>
+          <Balancer>{t('description')}</Balancer>
         </p>
-        <div className='flex flex-col items-start gap-1'>
+        <div className='flex'>
           <button
-            className='flex gap-1 transition-colors duration-300 ease-in-out outline-none appearance-none text-kili-light-gray hover:text-kili-white focus:text-kili-white group'
+            className='w-full h-8 rounded-md outline-none appearance-none bg-kili-white/0 text-kili-white'
+            onClick={handleDecline}
+          >
+            <AnimatedText
+              className='flex items-center justify-center w-full h-full text-center'
+              text={t('declineButton')}
+            />
+          </button>
+          <button
+            className='w-full h-8 transition-colors duration-300 ease-in-out rounded-md outline-none appearance-none bg-kili-white/5 text-kili-white hover:text-kili-white xl:hover:bg-kili-white/10 focus:bg-kili-white'
             onClick={handleAccept}
           >
-            <span className='hidden group-focus:block'>-</span>
-            <AnimatedText text={texts.acceptButton} />
+            <AnimatedText
+              className='flex items-center justify-center w-full h-full text-center'
+              text={t('acceptButton')}
+            />
           </button>
-          <div className='flex items-center gap-2'>
-            <button
-              className='flex gap-1 transition-colors duration-300 ease-in-out outline-none appearance-none text-kili-light-gray hover:text-kili-white focus:text-kili-white group'
-              onClick={handleDecline}
-            >
-              <span className='hidden group-focus:block'>-</span>
-              <AnimatedText text={texts.declineButton} />
-            </button>
-            <div
+          {/* <div
               role='tooltip'
               className={clsx(
-                'text-xs text-kili-light-gray transition-opacity duration-300 ease-in-out w-full whitespace-nowrap',
+                'absolute text-xs text-kili-light-gray transition-opacity duration-300 ease-in-out w-full whitespace-nowrap',
                 showCloseWarning ? 'opacity-100' : 'opacity-0'
               )}
             >
-              ({texts.closeWarning})
-            </div>
-          </div>
+              ({t('closeWarning')})
+            </div> */}
         </div>
       </main>
     </motion.div>

@@ -1,13 +1,16 @@
 import { motion } from 'framer-motion'
 import { Balancer } from 'react-wrap-balancer'
+import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
 import {
   OTHER_PROJECT_HR_VARIANTS,
   OTHER_PROJECT_VARIANTS
 } from '@/lib/constants/variants'
 import { EXPERIENCE } from '@/lib/constants/knowledge'
 
-export default function Experience({ locale }: { locale: string }) {
-  const experience = locale === 'en' ? EXPERIENCE.en : EXPERIENCE.es
+export default function Experience() {
+  const t = useScopedI18n('home.knowledge')
+  const currentLocale = useCurrentLocale()
+  const experience = currentLocale === 'en' ? EXPERIENCE.en : EXPERIENCE.es
 
   return (
     <article className='overflow-hidden'>
@@ -16,7 +19,9 @@ export default function Experience({ locale }: { locale: string }) {
         variants={OTHER_PROJECT_VARIANTS}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       >
-        <h3 className='w-[30%] text-4xl text-kili-white'>Experience</h3>
+        <h3 className='w-[30%] text-4xl text-kili-white'>
+          {t('experienceTitle')}
+        </h3>
         <ul className='grid flex-1 grid-cols-3 gap-10 text-2xl'>
           {experience.map((experience) => (
             <li key={experience.year} className='flex flex-col gap-2'>

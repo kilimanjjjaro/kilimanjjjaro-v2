@@ -6,21 +6,16 @@ import { useLenis } from '@studio-freight/react-lenis'
 import { useStore } from '@/lib/store/store'
 import TextLink from '@/components/shared/TextLink'
 import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
+import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
 import { CURSOR_STATUS, SECTIONS, SOCIAL_LINKS } from '@/lib/constants/general'
 
-export default function Footer({
-  locale,
-  letsTalk,
-  goToTop
-}: {
-  locale: string
-  letsTalk: string
-  goToTop: string
-}) {
+export default function Footer() {
+  const t = useScopedI18n('footer')
   const { setCursorStatus, setShowContactForm } = useStore()
   const footerEl = useRef<HTMLElement>(null)
   const isInView = useInView(footerEl)
   const lenis = useLenis()
+  const currentLocale = useCurrentLocale()
 
   const { scrollYProgress } = useScroll({
     target: footerEl,
@@ -30,8 +25,8 @@ export default function Footer({
   const y = useTransform(scrollYProgress, [0, 1], ['-35%', '0%'])
 
   const sections = useMemo(() => {
-    return locale === 'en' ? SECTIONS.en : SECTIONS.es
-  }, [locale])
+    return currentLocale === 'en' ? SECTIONS.en : SECTIONS.es
+  }, [currentLocale])
 
   return (
     <footer
@@ -81,7 +76,7 @@ export default function Footer({
                 delay: 0.1
               }}
             >
-              {letsTalk}
+              {t('letsTalk')}
               <ArrowCornerIcon className='w-10 h-10' />
             </motion.span>
           </button>
@@ -107,7 +102,7 @@ export default function Footer({
                 onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
                 onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
               >
-                {goToTop}
+                {t('goToTop')}
               </button>
             </li>
           </ul>
