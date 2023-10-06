@@ -60,7 +60,7 @@ export default function CookiesConsent() {
             <button
               aria-label='Close cookies consent'
               onClick={handleDecline}
-              className='w-3 h-3 transition-colors duration-700 bg-red-600 rounded-full hover:bg-kili-white'
+              className='w-3 h-3 transition-colors duration-700 bg-red-600 rounded-full xl:hover:bg-kili-white'
               onMouseEnter={() => setShowCloseWarning(true)}
               onMouseLeave={() => setShowCloseWarning(false)}
             />
@@ -81,10 +81,10 @@ export default function CookiesConsent() {
             <div className='flex gap-4'>
               <button
                 className={clsx(
-                  'w-full h-8 pt-[1px] rounded-md outline-none transition-colors duration-500 ease-in-out appearance-none text-kili-white',
+                  'w-full h-8 pt-[1px] rounded-md outline-none transition-colors duration-500 ease-in-out appearance-none xl:hover:text-red-500 xl:hover:bg-red-500/10',
                   showCloseWarning
-                    ? 'bg-kili-white/5 animate-pulse'
-                    : 'bg-kili-white/0'
+                    ? 'bg-red-500/10 text-red-500'
+                    : 'bg-kili-white/0 text-kili-white'
                 )}
                 onClick={handleDecline}
               >
@@ -95,7 +95,7 @@ export default function CookiesConsent() {
               </button>
               <button
                 className={clsx(
-                  'w-full h-8 transition-colors duration-500 ease-in-out rounded-md outline-none appearance-none text-kili-white hover:text-kili-white xl:hover:bg-kili-white/10 focus:bg-kili-white',
+                  'w-full h-8 transition-colors duration-500 ease-in-out rounded-md outline-none appearance-none text-kili-white xl:hover:text-green-500 xl:hover:bg-green-500/10 focus:bg-kili-white',
                   showCloseWarning ? 'bg-kili-white/0' : 'bg-kili-white/5'
                 )}
                 onClick={handleAccept}

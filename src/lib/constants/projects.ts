@@ -24,7 +24,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       ],
       role: 'UX/UI Design — Frontend & Backend Development',
       year: '2023',
-      backgroundColor: '#7686b7',
+      backgroundColor: '#6174af',
       link: '/#',
       presentation: {
         background: '/images/projects/wrkload/background.webp',
@@ -43,7 +43,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
       role: 'Frontend Development',
       year: '2021',
-      backgroundColor: '#ed3414',
+      backgroundColor: '#bb1c1c',
       link: 'https://royalenfieldmadero.com.ar/',
       presentation: {
         background: '/images/projects/royal-enfield/background.webp',
@@ -62,7 +62,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       stacks: ['TypeScript', 'Qwik', 'Tailwind', 'Cloudinary'],
       role: 'Frontend Development',
       year: '2023',
-      backgroundColor: '#d31aed',
+      backgroundColor: '#dbb92f',
       link: 'https://threads-clone-kilimanjjjaro.vercel.app/',
       presentation: {
         background: '/images/projects/threads-clone/background.webp',
@@ -110,7 +110,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       ],
       role: 'Diseño UX/UI — Desarrollo Frontend & Backend',
       year: '2023',
-      backgroundColor: '#7686b7',
+      backgroundColor: '#6174af',
       link: '/#',
       presentation: {
         background: '/images/projects/wrkload/background.webp',
@@ -129,7 +129,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
       role: 'Desarrollo Frontend',
       year: '2021',
-      backgroundColor: '#ed3414',
+      backgroundColor: '#bb1c1c',
       link: 'https://royalenfieldmadero.com.ar/',
       presentation: {
         background: '/images/projects/royal-enfield/background.webp',
@@ -148,7 +148,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       stacks: ['TypeScript', 'Qwik', 'Tailwind', 'Cloudinary'],
       role: 'Desarrollo Frontend',
       year: '2023',
-      backgroundColor: '#d31aed',
+      backgroundColor: '#dbb92f',
       link: 'https://threads-clone-kilimanjjjaro.vercel.app/',
       presentation: {
         background: '/images/projects/threads-clone/background.webp',
