@@ -11,6 +11,11 @@ export const LANGUAGES = {
   ]
 }
 
+export const SOCIAL_LINKS = [
+  { name: 'GitHub', link: 'https://github.com/kilimanjjjaro' },
+  { name: 'LinkedIn', link: 'https://linkedin.com/in/kilimanjjjaro' }
+]
+
 export const SECTIONS = {
   en: [
     { slug: 'featured-projects', name: 'Featured Projects' },

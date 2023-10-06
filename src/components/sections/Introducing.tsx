@@ -5,7 +5,7 @@ import Headline from '@/components/introducing/Headline'
 import Description from '@/components/introducing/Description'
 import Portrait from '@/components/introducing/Portrait'
 import ParallaxHeadline from '@/components/shared/ParallaxHeadline'
-import { getScopedI18n } from '@/lib/locales/server'
+import { getScopedI18n } from '@/lib/i18n/server'
 import { YEARS_OF_EXPERIENCE, YEARS_OLD } from '@/lib/constants/general'
 
 export default async function Introducing() {

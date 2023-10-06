@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
-import { getScopedI18n } from '@/lib/locales/server'
+import { getScopedI18n } from '@/lib/i18n/server'
 import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
 
 interface Props {

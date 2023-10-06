@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon'
 import { useStore } from '@/lib/store/store'
 import { CURSOR_STATUS } from '@/lib/constants/general'
-import { useScopedI18n } from '@/lib/locales/client'
+import { useScopedI18n } from '@/lib/i18n/client'
 import { useEffect, useRef } from 'react'
 
 interface Props {

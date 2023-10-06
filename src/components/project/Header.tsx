@@ -1,7 +1,7 @@
 import Balancer from 'react-wrap-balancer'
 import ParallaxHeadline from '@/components/shared/ParallaxHeadline'
 import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
-import { getScopedI18n } from '@/lib/locales/server'
+import { getScopedI18n } from '@/lib/i18n/server'
 import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
 
 interface Props {

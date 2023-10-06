@@ -26,7 +26,8 @@ module.exports = {
       },
       animation: {
         'translate-y': 'translateY 1s ease-in-out',
-        typing: 'blink 1.2s step-start infinite'
+        typing: 'blink 1.2s step-start infinite',
+        'fade-in-cookies': 'fadeInCookies 1s 2s ease-in-out'
       },
       keyframes: {
         translateY: {
@@ -38,6 +39,10 @@ module.exports = {
         },
         blink: {
           '50%': { opacity: 0 }
+        },
+        fadeInCookies: {
+          '0%': { y: 256 },
+          '100%': { y: 0 }
         }
       }
     }

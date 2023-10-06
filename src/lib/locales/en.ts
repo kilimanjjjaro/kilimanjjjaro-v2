@@ -60,5 +60,13 @@ export default {
         'key to keep writing.'
       ]
     }
+  },
+  cookiesConsent: {
+    headline: 'Hi, cookies here!',
+    description:
+      'This website uses them to enhance the localization experience. You are free to accept or decline them.',
+    acceptButton: 'Accept',
+    declineButton: 'Decline',
+    closeWarning: 'You will decline'
   }
 } as const

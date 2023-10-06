@@ -1,15 +1,8 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import Link from 'next/link'
 
-interface Props {
-  text: string
-  link: string
-  className?: string
-}
-
-export default function AnimatedLink({ text, link, className }: Props) {
+export default function AnimatedText({ text }: { text: string }) {
   const animationInterval = useRef<NodeJS.Timeout | null>(null)
   const [originalText, setOriginalText] = useState<string>(text)
   const [counter, setCounter] = useState<number>(0)
@@ -23,9 +16,11 @@ export default function AnimatedLink({ text, link, className }: Props) {
 
       if (character !== ' ') {
         const progress = (i - 2) / (originalText.length - 2)
+
         const newLetter = letters.charAt(
           Math.floor(Math.random() * letters.length)
         )
+
         newText += Math.random() > progress ? newLetter : character
       } else {
         newText += ' '
@@ -41,6 +36,7 @@ export default function AnimatedLink({ text, link, className }: Props) {
         changeTextRandomly()
         setCounter((prevCounter) => prevCounter + 1)
       }, 100)
+
       animationInterval.current = interval
     }
   }
@@ -63,13 +59,8 @@ export default function AnimatedLink({ text, link, className }: Props) {
   }, [counter, text])
 
   return (
-    <Link
-      className={className}
-      href={link}
-      onMouseEnter={startAnimation}
-      onMouseLeave={stopAnimation}
-    >
+    <span onMouseEnter={startAnimation} onMouseLeave={stopAnimation}>
       {originalText}
-    </Link>
+    </span>
   )
 }

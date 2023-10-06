@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import TextButton from '@/components/shared/TextButton'
 import { useStore } from '@/lib/store/store'
 import useNavBar from '@/lib/hooks/useNavBar'
-import { useChangeLocale } from '@/lib/locales/client'
+import { useChangeLocale } from '@/lib/i18n/client'
 import {
   LANGUAGES_LI_VARIANTS,
   LANGUAGES_UL_VARIANTS

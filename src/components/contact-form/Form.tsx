@@ -10,7 +10,7 @@ import { useStore } from '@/lib/store/store'
 import sendForm from '@/lib/actions/sendForm'
 import { firaMonoFont } from '@/lib/utils/fonts'
 import { CURSOR_STATUS } from '@/lib/constants/general'
-import { useScopedI18n } from '@/lib/locales/client'
+import { useScopedI18n } from '@/lib/i18n/client'
 import { FORM_DEFAULT_STATE } from '@/lib/constants/form'
 
 interface Props {

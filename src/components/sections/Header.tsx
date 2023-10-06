@@ -1,6 +1,6 @@
 import ScrollButton from '@/components/header/ScrollButton'
 import Headline from '@/components/header/Headline'
-import { getScopedI18n } from '@/lib/locales/server'
+import { getScopedI18n } from '@/lib/i18n/server'
 
 export default async function Header() {
   const t = await getScopedI18n('home.header')

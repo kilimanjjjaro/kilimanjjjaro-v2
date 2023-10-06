@@ -2,6 +2,7 @@ import Navigation from '@/components/navbar/Navigation'
 import NavBar from '@/components/navbar/NavBar'
 import FormModal from '@/components/contact-form/FormModal'
 import Footer from '@/components/Footer'
+import CookiesConsent from '@/components/CookiesConsent'
 import ScrollPercentage from '@/components/ScrollPercentage'
 import CustomCursor from '@/components/CustomCursor'
 import SmoothScroll from '@/components/SmoothScroll'
@@ -12,7 +13,7 @@ import {
   getCurrentLocale,
   getScopedI18n,
   getStaticParams
-} from '@/lib/locales/server'
+} from '@/lib/i18n/server'
 import type { ChildrenType } from '@/lib/interfaces/general'
 import type { Metadata } from 'next'
 import '@/app/globals.css'
@@ -72,13 +73,22 @@ export function generateStaticParams() {
 }
 
 export default async function RootLayout({ children }: LayoutProps) {
-  const t = await getScopedI18n('footer')
+  const footerT = await getScopedI18n('footer')
+  const cookiesConsentT = await getScopedI18n('cookiesConsent')
   const locale = getCurrentLocale()
 
   const htmlLang = locale === 'en' ? 'en' : 'es'
 
-  const goToTopButton = t('goToTop')
-  const letsTalkButton = t('letsTalk')
+  const goToTopButton = footerT('goToTop')
+  const letsTalkButton = footerT('letsTalk')
+
+  const cookiesConsentTexts = {
+    headline: cookiesConsentT('headline'),
+    description: cookiesConsentT('description'),
+    acceptButton: cookiesConsentT('acceptButton'),
+    declineButton: cookiesConsentT('declineButton'),
+    closeWarning: cookiesConsentT('closeWarning')
+  }
 
   return (
     <html lang={htmlLang}>
@@ -94,6 +104,7 @@ export default async function RootLayout({ children }: LayoutProps) {
               letsTalk={letsTalkButton}
             />
           </SmoothScroll>
+          <CookiesConsent texts={cookiesConsentTexts} />
           <ScrollPercentage />
           <FormModal />
           <MessageForDevs />

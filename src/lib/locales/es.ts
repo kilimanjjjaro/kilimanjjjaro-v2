@@ -65,5 +65,13 @@ export default {
         'tecla para seguir escribiendo.'
       ]
     }
+  },
+  cookiesConsent: {
+    headline: 'Hola, cookies aquí!',
+    description:
+      'Este sitio web las utiliza para mejorar la experiencia de localización. Eres libre de aceptarlas o rechazarlas.',
+    acceptButton: 'Aceptar',
+    declineButton: 'Rechazar',
+    closeWarning: 'Vas a rechazar'
   }
 } as const

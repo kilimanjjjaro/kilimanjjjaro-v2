@@ -2,7 +2,7 @@ import { setStaticParamsLocale } from 'next-international/server'
 import Header from '@/components/project/Header'
 import Grid from '@/components/project/Grid'
 import OtherProjects from '@/components/project/OtherProjects'
-import { getScopedI18n } from '@/lib/locales/server'
+import { getScopedI18n } from '@/lib/i18n/server'
 import { FEATURED_PROJECTS } from '@/lib/constants/projects'
 import type { Metadata } from 'next'
 

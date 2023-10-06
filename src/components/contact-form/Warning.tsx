@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
-import { useScopedI18n } from '@/lib/locales/client'
+import { useScopedI18n } from '@/lib/i18n/client'
 
 interface Props {
   setShowWarning: React.Dispatch<React.SetStateAction<boolean>>

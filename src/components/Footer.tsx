@@ -1,17 +1,12 @@
 'use client'
 
 import { useMemo, useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useLenis } from '@studio-freight/react-lenis'
 import { useStore } from '@/lib/store/store'
 import TextLink from '@/components/shared/TextLink'
 import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
-import { CURSOR_STATUS, SECTIONS } from '@/lib/constants/general'
-
-const SOCIAL_LINKS = [
-  { name: 'GitHub', link: '#' },
-  { name: 'LinkedIn', link: '#' }
-]
+import { CURSOR_STATUS, SECTIONS, SOCIAL_LINKS } from '@/lib/constants/general'
 
 export default function Footer({
   locale,
@@ -24,6 +19,7 @@ export default function Footer({
 }) {
   const { setCursorStatus, setShowContactForm } = useStore()
   const footerEl = useRef<HTMLElement>(null)
+  const isInView = useInView(footerEl)
   const lenis = useLenis()
 
   const { scrollYProgress } = useScroll({
@@ -69,10 +65,25 @@ export default function Footer({
             onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
             onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
           >
-            <span className='flex items-center leading-none translate-y-0 gap-14 text-kili-white text-10xl group-hover:animate-translate-y'>
+            <motion.span
+              className='flex items-center leading-none translate-y-0 gap-14 text-kili-white text-10xl group-hover:animate-translate-y'
+              initial={{
+                y: '0%',
+                rotate: 0
+              }}
+              animate={{
+                y: isInView ? '0%' : '120%',
+                rotate: isInView ? 0 : 6
+              }}
+              transition={{
+                duration: 1.3,
+                ease: 'easeInOut',
+                delay: 0.1
+              }}
+            >
               {letsTalk}
               <ArrowCornerIcon className='w-10 h-10' />
-            </span>
+            </motion.span>
           </button>
           <ul className='flex flex-col items-end gap-4 mb-5'>
             {SOCIAL_LINKS.map((social) => (
@@ -82,6 +93,8 @@ export default function Footer({
                   href={social.link}
                   onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
                   onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
                   {social.name}
                 </a>

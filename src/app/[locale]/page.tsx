@@ -5,7 +5,7 @@ import Introducing from '@/components/sections/Introducing'
 import LessButBetter from '@/components/sections/LessButBetter'
 import MoreProjects from '@/components/sections/MoreProjects'
 import Knowledge from '@/components/sections/Knowledge'
-import { getScopedI18n } from '@/lib/locales/server'
+import { getScopedI18n } from '@/lib/i18n/server'
 
 export default async function Home({
   params: { locale }

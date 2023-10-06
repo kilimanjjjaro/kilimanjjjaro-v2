@@ -7,6 +7,6 @@ export const {
   useChangeLocale,
   useCurrentLocale
 } = createI18nClient({
-  en: async () => await import('./en'),
-  es: async () => await import('./es')
+  en: async () => await import('../locales/en'),
+  es: async () => await import('../locales/es')
 })
