@@ -34,9 +34,9 @@ export async function generateMetadata({
       default: 'Kilimanjjjaro'
     },
     alternates: {
-      canonical: '/en',
+      canonical: '/',
       languages: {
-        en: '/en',
+        en: '/',
         es: '/es'
       }
     },

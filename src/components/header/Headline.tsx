@@ -1,10 +1,14 @@
 'use client'
 
-import { useStore } from '@/lib/store/store'
+import clsx from 'clsx'
 import { motion } from 'framer-motion'
+import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
+import { useStore } from '@/lib/store/store'
 
-export default function Headline({ headline }: { headline: string[] }) {
+export default function Headline() {
+  const t = useScopedI18n('home.header')
   const { setIntroRunning } = useStore()
+  const currentLocale = useCurrentLocale()
 
   return (
     <motion.div
@@ -37,12 +41,15 @@ export default function Headline({ headline }: { headline: string[] }) {
               ease: [0.17, 0.84, 0.44, 1]
             }}
           >
-            {headline[0]}{' '}
+            {t('headline.0')}{' '}
           </motion.span>
         </span>
         <span className='-my-4 overflow-hidden'>
           <motion.span
-            className='flex items-center ml-64 gap-x-1'
+            className={clsx(
+              'flex items-center gap-x-1',
+              currentLocale === 'en' ? 'ml-64' : 'ml-96 -mt-4 mb-3'
+            )}
             initial={{
               y: '118%',
               rotate: 4
@@ -57,8 +64,9 @@ export default function Headline({ headline }: { headline: string[] }) {
               delay: 0.3
             }}
           >
-            {headline[1]} <span className='-mr-[6px]'>{headline[2]}</span>{' '}
-            {headline[3]}
+            {t('headline.1')}{' '}
+            <span className='-mr-[6px]'>{t('headline.2')}</span>{' '}
+            {t('headline.3')}
           </motion.span>
         </span>
         <span className='ml-24 overflow-hidden'>
@@ -79,7 +87,7 @@ export default function Headline({ headline }: { headline: string[] }) {
             }}
             onAnimationComplete={() => setIntroRunning(false)}
           >
-            {headline[4]}
+            {t('headline.4')}
           </motion.span>
         </span>
       </h2>

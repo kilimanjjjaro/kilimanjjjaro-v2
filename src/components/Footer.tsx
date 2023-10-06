@@ -8,6 +8,7 @@ import TextLink from '@/components/shared/TextLink'
 import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
 import { CURSOR_STATUS, SECTIONS, SOCIAL_LINKS } from '@/lib/constants/general'
+import { ArrowUpIcon } from './icons/ArrowUpIcon'
 
 export default function Footer() {
   const t = useScopedI18n('footer')
@@ -97,12 +98,12 @@ export default function Footer() {
             ))}
             <li className='overflow-hidden'>
               <button
-                className='block transition-colors duration-700 ease-in-out text-kili-light-gray hover:text-kili-white'
+                className='flex items-center gap-2 transition-colors duration-700 ease-in-out text-kili-light-gray hover:text-kili-white'
                 onClick={() => lenis.scrollTo(0, { duration: 2 })}
                 onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
                 onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
               >
-                {t('goToTop')}
+                {t('goToTop')} <ArrowUpIcon className='w-[11px]' />
               </button>
             </li>
           </ul>

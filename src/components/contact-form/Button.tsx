@@ -32,7 +32,7 @@ export default function Button({ error, success, shouldFocus }: Props) {
     <button
       ref={buttonRef}
       className={clsx(
-        'flex absolute bottom-8 right-9 items-center gap-2 text-lg text-kili-white bg-[#030303] py-1 px-3',
+        'flex absolute bottom-8 right-9 items-center gap-2 text-md rounded-md text-kili-white bg-[#030303] pb-2 pt-[10px] px-4 xl:hover:bg-kili-dark-gray transition-colors duration-700',
         pending && 'cursor-not-allowed animate-pulse'
       )}
       disabled={pending}
