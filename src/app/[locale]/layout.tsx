@@ -6,7 +6,6 @@ import FormModal from '@/components/contact-form/FormModal'
 import ScrollPercentage from '@/components/ScrollPercentage'
 import Navigation from '@/components/navbar/Navigation'
 import NavBar from '@/components/navbar/NavBar'
-import IntroAnimation from '@/components/IntroAnimation'
 import CustomCursor from '@/components/CustomCursor'
 import MessageForDevs from '@/components/MessageForDevs'
 import { getCurrentLocale, getStaticParams } from '@/lib/i18n/server'
@@ -81,13 +80,8 @@ export default async function RootLayout({ children }: LayoutProps) {
       >
         <Providers>
           <SmoothScroll>
-            <div
-              id='page-wrapper'
-              className='transition-transform duration-[2.5s] ease-kili-in scale-125'
-            >
-              {children}
-              <Footer />
-            </div>
+            {children}
+            <Footer />
           </SmoothScroll>
           <CookiesConsent />
           <FormModal />
@@ -95,7 +89,6 @@ export default async function RootLayout({ children }: LayoutProps) {
           <Navigation />
           <NavBar />
         </Providers>
-        <IntroAnimation />
         <CustomCursor />
         <MessageForDevs />
       </body>

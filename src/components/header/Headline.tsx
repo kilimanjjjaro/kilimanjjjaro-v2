@@ -3,9 +3,11 @@
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
+import { useStore } from '@/lib/store/store'
 
 export default function Headline() {
   const t = useScopedI18n('home.header')
+  const { setIntroRunning } = useStore()
   const currentLocale = useCurrentLocale()
 
   return (
@@ -20,6 +22,7 @@ export default function Headline() {
         duration: 3,
         ease: [0.17, 0.84, 0.44, 1]
       }}
+      onAnimationStart={() => setIntroRunning(true)}
     >
       <h2 className='text-kili-white text-[200px] flex flex-col leading-[1.03]'>
         <span className='overflow-hidden'>
@@ -82,6 +85,7 @@ export default function Headline() {
               ease: [0.17, 0.84, 0.44, 1],
               delay: 0.5
             }}
+            onAnimationComplete={() => setIntroRunning(false)}
           >
             {t('headline.4')}
           </motion.span>
