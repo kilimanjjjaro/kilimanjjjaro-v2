@@ -49,7 +49,7 @@ export default function CookiesConsent() {
           transition={{
             duration: 0.7,
             ease: 'easeInOut',
-            delay: 6
+            delay: 10
           }}
         >
           <header className='flex items-center w-full h-6 px-4 bg-kili-light-gray/30'>

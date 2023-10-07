@@ -21,7 +21,7 @@ export default function MoreProjects({
           onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
         >
           <Link
-            className='relative flex items-center justify-center h-48 leading-none transition-colors duration-700 ease-in-out border-8 rounded-full px-14 text-8xl text-kili-white border-kili-light-gray hover:border-kili-white group'
+            className='relative flex items-center justify-center h-48 leading-none transition-colors duration-700 ease-in-out border-8 rounded-full px-14 text-8xl text-kili-white border-kili-light-gray xl:hover:border-kili-white group'
             href={`/project/${project.slug}`}
           >
             {project.name}

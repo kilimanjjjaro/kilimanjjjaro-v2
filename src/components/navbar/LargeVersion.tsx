@@ -46,7 +46,7 @@ export default function LargeVersion() {
             onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
           >
             <TextLink
-              className='tracking-wide transition-colors duration-700 ease-in-out text-kili-light-gray hover:text-kili-white'
+              className='tracking-wide transition-colors duration-700 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
               href={`/#${section.slug}`}
               onClick={() =>
                 lenis.scrollTo(`#${section.slug}`, {
@@ -60,14 +60,12 @@ export default function LargeVersion() {
           </li>
         ))}
         <li
-          className='ml-5'
           onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
           onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
         >
           <TextButton
-            className='tracking-wide transition-colors duration-700 ease-in-out text-kili-light-gray hover:text-kili-white before:bg-kili-light-gray after:bg-kili-light-gray'
+            className='tracking-wide transition-colors duration-700 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
             onClick={() => setShowContactForm(true)}
-            underlined
           >
             {letsTalkText}
           </TextButton>

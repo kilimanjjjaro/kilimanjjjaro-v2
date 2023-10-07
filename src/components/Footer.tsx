@@ -85,7 +85,7 @@ export default function Footer() {
             {SOCIAL_LINKS.map((social) => (
               <li className='overflow-hidden' key={social.name}>
                 <a
-                  className='block transition-colors duration-700 ease-in-out text-kili-light-gray hover:text-kili-white'
+                  className='block transition-colors duration-700 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
                   href={social.link}
                   onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
                   onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
@@ -98,7 +98,7 @@ export default function Footer() {
             ))}
             <li className='overflow-hidden'>
               <button
-                className='flex items-center gap-2 transition-colors duration-700 ease-in-out text-kili-light-gray hover:text-kili-white'
+                className='flex items-center gap-2 transition-colors duration-700 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
                 onClick={() => lenis.scrollTo(0, { duration: 2 })}
                 onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
                 onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}

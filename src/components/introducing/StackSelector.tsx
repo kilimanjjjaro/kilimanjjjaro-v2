@@ -60,7 +60,7 @@ export default function StackSelector() {
           .map((stack) => (
             <li
               key={stack.id}
-              className='overflow-hidden leading-none transition-colors duration-700 ease-in-out hover:text-kili-light-gray'
+              className='overflow-hidden leading-none transition-colors duration-700 ease-in-out xl:hover:text-kili-light-gray'
             >
               <motion.button
                 onClick={() => handleClick(stack)}

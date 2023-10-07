@@ -138,7 +138,7 @@ export default function Form({ handleDrag }: Props) {
         <button
           aria-label='Close contact form'
           onClick={(event) => handleCloseClick(event)}
-          className='w-3 h-3 transition-colors duration-700 bg-red-600 rounded-full hover:bg-kili-white'
+          className='w-3 h-3 transition-colors duration-700 bg-red-600 rounded-full xl:hover:bg-kili-white'
         />
         <p className='text-sm tracking-wide text-kili-white'>
           ~/kilimanjjjaro/src

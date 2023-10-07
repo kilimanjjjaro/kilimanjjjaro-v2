@@ -1,19 +1,20 @@
-import Navigation from '@/components/navbar/Navigation'
-import NavBar from '@/components/navbar/NavBar'
-import FormModal from '@/components/contact-form/FormModal'
+import Providers from '@/components/Providers'
+import SmoothScroll from '@/components/SmoothScroll'
 import Footer from '@/components/Footer'
 import CookiesConsent from '@/components/CookiesConsent'
+import FormModal from '@/components/contact-form/FormModal'
 import ScrollPercentage from '@/components/ScrollPercentage'
+import Navigation from '@/components/navbar/Navigation'
+import NavBar from '@/components/navbar/NavBar'
+import IntroAnimation from '@/components/IntroAnimation'
 import CustomCursor from '@/components/CustomCursor'
-import SmoothScroll from '@/components/SmoothScroll'
 import MessageForDevs from '@/components/MessageForDevs'
-import Providers from '@/components/Providers'
-import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
 import { getCurrentLocale, getStaticParams } from '@/lib/i18n/server'
+import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
 import type { ChildrenType } from '@/lib/interfaces/general'
+import { METADATA } from '@/lib/constants/metadata'
 import type { Metadata } from 'next'
 import '@/app/globals.css'
-import { METADATA } from '@/lib/constants/metadata'
 
 interface MetadataProps {
   params: { locale: string }
@@ -69,9 +70,9 @@ export function generateStaticParams() {
 }
 
 export default async function RootLayout({ children }: LayoutProps) {
-  const locale = getCurrentLocale()
+  const currentLocale = getCurrentLocale()
 
-  const htmlLang = locale === 'en' ? 'en' : 'es'
+  const htmlLang = currentLocale === 'en' ? 'en' : 'es'
 
   return (
     <html lang={htmlLang}>
@@ -80,17 +81,23 @@ export default async function RootLayout({ children }: LayoutProps) {
       >
         <Providers>
           <SmoothScroll>
-            {children}
-            <Footer />
+            <div
+              id='page-wrapper'
+              className='transition-transform duration-[2.5s] ease-kili-in scale-125'
+            >
+              {children}
+              <Footer />
+            </div>
           </SmoothScroll>
           <CookiesConsent />
-          <ScrollPercentage />
           <FormModal />
-          <MessageForDevs />
+          <ScrollPercentage />
           <Navigation />
           <NavBar />
-          <CustomCursor />
         </Providers>
+        <IntroAnimation />
+        <CustomCursor />
+        <MessageForDevs />
       </body>
     </html>
   )
