@@ -55,7 +55,7 @@ export default function Navigation() {
                     onClick={() => setNavBarStatus(false)}
                     href={`/#${section.slug}`}
                   >
-                    <span className='block py-1 group-hover:animate-translate-y'>
+                    <span className='block py-1 xl:group-hover:animate-translate-y'>
                       {section.name}
                     </span>
                   </TextLink>
@@ -70,7 +70,7 @@ export default function Navigation() {
                 onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
               >
                 <TextButton onClick={() => openContactModal()}>
-                  <span className='block py-1 group-hover:animate-translate-y'>
+                  <span className='block py-1 xl:group-hover:animate-translate-y'>
                     {t('letsTalk')}
                   </span>
                 </TextButton>
@@ -95,7 +95,7 @@ export default function Navigation() {
                   delay: 0.2
                 }}
               >
-                <span className='block transition-transform duration-700 ease-in-out group-hover:animate-translate-y'>
+                <span className='block transition-transform duration-700 ease-in-out xl:group-hover:animate-translate-y'>
                   GitHub
                 </span>
               </motion.a>
@@ -113,7 +113,7 @@ export default function Navigation() {
                 }
                 transition={{ duration: 1.3, ease: [0.77, 0, 0.18, 1] }}
               >
-                <span className='block transition-transform duration-700 ease-in-out group-hover:animate-translate-y'>
+                <span className='block transition-transform duration-700 ease-in-out xl:group-hover:animate-translate-y'>
                   LinkedIn
                 </span>
               </motion.a>

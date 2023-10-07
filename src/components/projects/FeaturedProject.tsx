@@ -62,7 +62,7 @@ export default function FeaturedProject({ className, project }: Props) {
         onMouseLeave={handleMouseLeave}
       >
         <motion.div
-          className='top-0 left-0 absolute w-full h-full bg-center bg-[length:125%] group-hover:bg-[length:112%] transition-all ease-in-out duration-700'
+          className='top-0 left-0 absolute w-full h-full bg-center bg-[length:125%] xl:group-hover:bg-[length:112%] transition-all ease-in-out duration-700'
           style={{
             backgroundImage: `url('${project.presentation.background}')`
           }}
@@ -96,7 +96,7 @@ export default function FeaturedProject({ className, project }: Props) {
         >
           <video
             ref={videoRef}
-            className='w-full transition-transform duration-700 ease-in-out scale-[.85] aspect-video group-hover:scale-100'
+            className='w-full transition-transform duration-700 ease-in-out scale-[.85] aspect-video xl:group-hover:scale-100'
             src={project.presentation.video}
             poster={project.presentation.poster}
             loop

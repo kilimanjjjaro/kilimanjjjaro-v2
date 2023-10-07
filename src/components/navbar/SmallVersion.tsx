@@ -45,7 +45,7 @@ export default function SmallVersion() {
             aria-label='Toggle navigation menu'
           >
             <motion.div
-              className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-700 group-hover:bg-kili-white'
+              className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-700 xl:group-hover:bg-kili-white'
               variants={NAVBAR_BUTTON_ONE_VARIANTS}
               animate={navBarStatus ? 'open' : 'closed'}
               transition={{
@@ -54,7 +54,7 @@ export default function SmallVersion() {
               }}
             />
             <motion.div
-              className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-700 group-hover:bg-kili-white'
+              className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-700 xl:group-hover:bg-kili-white'
               variants={NAVBAR_BUTTON_TWO_VARIANTS}
               animate={navBarStatus ? 'open' : 'closed'}
               transition={{

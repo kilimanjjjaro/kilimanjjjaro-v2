@@ -62,7 +62,7 @@ export default function Footer() {
             onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
           >
             <motion.span
-              className='flex items-center leading-none translate-y-0 gap-14 text-kili-white text-10xl group-hover:animate-translate-y'
+              className='flex items-center leading-none translate-y-0 gap-14 text-kili-white text-10xl xl:group-hover:animate-translate-y'
               initial={{
                 y: '0%',
                 rotate: 0
@@ -98,12 +98,13 @@ export default function Footer() {
             ))}
             <li className='overflow-hidden'>
               <button
-                className='flex items-center gap-2 transition-colors duration-700 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
+                className='flex gap-2 overflow-hidden transition-colors duration-700 ease-in-out group text-kili-light-gray xl:hover:text-kili-white'
                 onClick={() => lenis.scrollTo(0, { duration: 2 })}
                 onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
                 onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
               >
-                {t('goToTop')} <ArrowUpIcon className='w-[11px]' />
+                {t('goToTop')}{' '}
+                <ArrowUpIcon className='w-[11px] self-center h-3 xl:group-hover:animate-translate-y' />
               </button>
             </li>
           </ul>

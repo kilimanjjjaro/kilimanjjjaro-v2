@@ -39,7 +39,7 @@ export default function StackSelector() {
           {selectedStack.name} Skills
           <PlusIcon
             className={clsx(
-              'duration-700 transition-transform ease-in-out w-4 group-hover:rotate-180',
+              'duration-700 transition-transform ease-in-out w-4 xl:group-hover:rotate-180',
               showSelector && '!-rotate-45'
             )}
           />
