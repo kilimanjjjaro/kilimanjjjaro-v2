@@ -15,16 +15,16 @@ dependencies:
     specifier: 0.0.36
     version: 0.0.36(@types/react@18.2.25)(react-dom@18.2.0)(react@18.2.0)
   '@vercel/analytics':
-    specifier: ^1.1.0
+    specifier: 1.1.0
     version: 1.1.0
   clsx:
     specifier: 2.0.0
     version: 2.0.0
   cookies-next:
-    specifier: ^4.0.0
+    specifier: 4.0.0
     version: 4.0.0
   focus-trap-react:
-    specifier: ^10.2.2
+    specifier: 10.2.2
     version: 10.2.2(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
   framer-motion:
     specifier: 10.16.4
@@ -33,7 +33,7 @@ dependencies:
     specifier: 13.5.4
     version: 13.5.4(react-dom@18.2.0)(react@18.2.0)
   next-international:
-    specifier: ^1.1.1
+    specifier: 1.1.1
     version: 1.1.1
   react:
     specifier: 18.2.0
@@ -42,19 +42,19 @@ dependencies:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
   react-wrap-balancer:
-    specifier: ^1.1.0
+    specifier: 1.1.0
     version: 1.1.0(react@18.2.0)
   sharp:
-    specifier: ^0.32.6
+    specifier: 0.32.6
     version: 0.32.6
   split-type:
     specifier: 0.3.3
     version: 0.3.3
   swiper:
-    specifier: ^10.3.1
+    specifier: 10.3.1
     version: 10.3.1
   zod:
-    specifier: ^3.22.4
+    specifier: 3.22.4
     version: 3.22.4
   zustand:
     specifier: 4.4.3
@@ -62,14 +62,14 @@ dependencies:
 
 devDependencies:
   '@types/node':
-    specifier: 20.8.2
-    version: 20.8.2
+    specifier: 20.8.3
+    version: 20.8.3
   '@types/react':
     specifier: 18.2.25
     version: 18.2.25
   '@types/react-dom':
-    specifier: 18.2.10
-    version: 18.2.10
+    specifier: 18.2.11
+    version: 18.2.11
   autoprefixer:
     specifier: 10.4.16
     version: 10.4.16(postcss@8.4.31)
@@ -423,19 +423,19 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
 
-  /@types/node@16.18.57:
-    resolution: {integrity: sha512-piPoDozdPaX1hNWFJQzzgWqE40gh986VvVx/QO9RU4qYRE55ld7iepDVgZ3ccGUw0R4wge0Oy1dd+3xOQNkkUQ==}
+  /@types/node@16.18.58:
+    resolution: {integrity: sha512-YGncyA25/MaVtQkjWW9r0EFBukZ+JulsLcVZBlGUfIb96OBMjkoRWwQo5IEWJ8Fj06Go3GHw+bjYDitv6BaGsA==}
     dev: false
 
-  /@types/node@20.8.2:
-    resolution: {integrity: sha512-Vvycsc9FQdwhxE3y3DzeIxuEJbWGDsnrxvMADzTDF/lcdR9/K+AQIeAghTQsHtotg/q0j3WEOYS/jQgSdWue3w==}
+  /@types/node@20.8.3:
+    resolution: {integrity: sha512-jxiZQFpb+NlH5kjW49vXxvxTjeeqlbsnTAdBTKpzEdPs9itay7MscYXz3Fo9VYFEsfQ6LJFitHad3faerLAjCw==}
     dev: true
 
   /@types/prop-types@15.7.8:
     resolution: {integrity: sha512-kMpQpfZKSCBqltAJwskgePRaYRFukDkm1oItcAbC3gNELR20XIBcN9VRgg4+m8DKsTfkWeA4m4Imp4DDuWy7FQ==}
 
-  /@types/react-dom@18.2.10:
-    resolution: {integrity: sha512-5VEC5RgXIk1HHdyN1pHlg0cOqnxHzvPGpMMyGAP5qSaDRmyZNDaQ0kkVAkK6NYlDhP6YBID3llaXlmAS/mdgCA==}
+  /@types/react-dom@18.2.11:
+    resolution: {integrity: sha512-zq6Dy0EiCuF9pWFW6I6k6W2LdpUixLE4P6XjXU1QHLfak3GPACQfLwEuHzY5pOYa4hzj1d0GxX/P141aFjZsyg==}
     dependencies:
       '@types/react': 18.2.25
     dev: true
@@ -1014,7 +1014,7 @@ packages:
     resolution: {integrity: sha512-3TyzeltFCGgdOlVOVTPClSq+YV9ZCdOyA3aHRZv9f5aSgg7EyI4NSvXFOCgzT/xIxeHR4Rz8/z5Tdo9oPqaVpA==}
     dependencies:
       '@types/cookie': 0.4.1
-      '@types/node': 16.18.57
+      '@types/node': 16.18.58
       cookie: 0.4.2
     dev: false
 
@@ -1818,7 +1818,7 @@ packages:
     engines: {node: '>=12.0.0'}
     dependencies:
       flatted: 3.2.9
-      keyv: 4.5.3
+      keyv: 4.5.4
       rimraf: 3.0.2
     dev: true
 
@@ -2388,8 +2388,8 @@ packages:
       object.values: 1.1.7
     dev: true
 
-  /keyv@4.5.3:
-    resolution: {integrity: sha512-QCiSav9WaX1PgETJ+SpNnx2PRRapJ/oRSXM4VO5OGYGSjrxbKPVFVhB3l2OCbLCk329N8qyAtsJjSjvVBWzEug==}
+  /keyv@4.5.4:
+    resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
     dependencies:
       json-buffer: 3.0.1
     dev: true
