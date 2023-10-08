@@ -1,4 +1,10 @@
 export default {
+  metadata: {
+    description:
+      'Kilimanjjjaro es un estudio creativo enfocado en experiencias web.',
+    url: 'https://kilimanjjjaro.com/es',
+    locale: 'es'
+  },
   home: {
     header: {
       headline: ['Experiencias', 'preparadas', ' ', ' ', 'para el futuro.']

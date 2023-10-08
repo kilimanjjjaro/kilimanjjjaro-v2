@@ -8,10 +8,14 @@ import Navigation from '@/components/navbar/Navigation'
 import NavBar from '@/components/navbar/NavBar'
 import CustomCursor from '@/components/CustomCursor'
 import MessageForDevs from '@/components/MessageForDevs'
-import { getCurrentLocale, getStaticParams } from '@/lib/i18n/server'
+import {
+  getCurrentLocale,
+  getScopedI18n,
+  getStaticParams
+} from '@/lib/i18n/server'
 import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
+import { LOCALES } from '@/lib/constants/general'
 import type { ChildrenType } from '@/lib/interfaces/general'
-import { METADATA } from '@/lib/constants/metadata'
 import type { Metadata } from 'next'
 import '@/app/globals.css'
 
@@ -19,20 +23,17 @@ interface MetadataProps {
   params: { locale: string }
 }
 
-interface LayoutProps {
-  children: ChildrenType
-}
-
 export async function generateMetadata({
   params
 }: MetadataProps): Promise<Metadata> {
-  const metadata = params.locale === 'en' ? METADATA.en : METADATA.es
+  const t = await getScopedI18n('metadata')
 
   const fullMetadata: Metadata = {
     title: {
       template: '%s — Kilimanjjjaro',
       default: 'Kilimanjjjaro'
     },
+    metadataBase: new URL(t('url')),
     alternates: {
       canonical: '/',
       languages: {
@@ -40,13 +41,13 @@ export async function generateMetadata({
         es: '/es'
       }
     },
-    description: metadata.description,
+    description: t('description'),
     openGraph: {
       title: {
         template: '%s — Kilimanjjjaro',
         default: 'Kilimanjjjaro'
       },
-      description: metadata.description,
+      description: t('description'),
       images: [
         {
           url: 'https://kilimanjjjaro.com/images/og-image.png',
@@ -56,7 +57,7 @@ export async function generateMetadata({
       ],
       siteName: 'Kilimanjjjaro',
       type: 'website',
-      url: metadata.url,
+      url: t('url'),
       locale: params.locale
     }
   }
@@ -68,10 +69,14 @@ export function generateStaticParams() {
   return getStaticParams()
 }
 
-export default async function RootLayout({ children }: LayoutProps) {
+export default async function RootLayout({
+  children
+}: {
+  children: ChildrenType
+}) {
   const currentLocale = getCurrentLocale()
 
-  const htmlLang = currentLocale === 'en' ? 'en' : 'es'
+  const htmlLang = currentLocale === LOCALES.en ? 'en' : 'es'
 
   return (
     <html lang={htmlLang}>

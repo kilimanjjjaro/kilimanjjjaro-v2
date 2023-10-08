@@ -8,7 +8,7 @@ import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
 import { useStore } from '@/lib/store/store'
 import { MORE_PROJECTS_VARIANTS } from '@/lib/constants/variants'
 import { MORE_PROJECTS } from '@/lib/constants/projects'
-import { CURSOR_STATUS } from '@/lib/constants/general'
+import { CURSOR_STATUS, LOCALES } from '@/lib/constants/general'
 
 export default function MoreProjects() {
   const t = useScopedI18n('home.moreProjects')
@@ -45,7 +45,7 @@ export default function MoreProjects() {
   }, [visibleItems, isInView, t])
 
   const moreProjects = useMemo(() => {
-    return currentLocale === 'en' ? MORE_PROJECTS.en : MORE_PROJECTS.es
+    return currentLocale === LOCALES.en ? MORE_PROJECTS.en : MORE_PROJECTS.es
   }, [currentLocale])
 
   return (

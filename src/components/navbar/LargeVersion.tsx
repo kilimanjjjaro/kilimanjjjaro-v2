@@ -5,7 +5,7 @@ import TextLink from '@/components/shared/TextLink'
 import TextButton from '@/components/shared/TextButton'
 import { useStore } from '@/lib/store/store'
 import { useCurrentLocale } from '@/lib/i18n/client'
-import { SECTIONS, CURSOR_STATUS } from '@/lib/constants/general'
+import { SECTIONS, CURSOR_STATUS, LOCALES } from '@/lib/constants/general'
 
 export default function LargeVersion() {
   const { setCursorStatus, setShowContactForm } = useStore()
@@ -13,10 +13,11 @@ export default function LargeVersion() {
   const currentLocale = useCurrentLocale()
 
   const sections = useMemo(() => {
-    return currentLocale === 'en' ? SECTIONS.en : SECTIONS.es
+    return currentLocale === LOCALES.en ? SECTIONS.en : SECTIONS.es
   }, [currentLocale])
 
-  const letsTalkText = currentLocale === 'en' ? "Let's talk!" : '¡Hablemos!'
+  const letsTalkText =
+    currentLocale === LOCALES.en ? "Let's talk!" : '¡Hablemos!'
 
   return (
     <motion.nav

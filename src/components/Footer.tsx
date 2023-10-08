@@ -6,9 +6,14 @@ import { useLenis } from '@studio-freight/react-lenis'
 import { useStore } from '@/lib/store/store'
 import TextLink from '@/components/shared/TextLink'
 import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
+import { ArrowUpIcon } from '@/components/icons/ArrowUpIcon'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
-import { CURSOR_STATUS, SECTIONS, SOCIAL_LINKS } from '@/lib/constants/general'
-import { ArrowUpIcon } from './icons/ArrowUpIcon'
+import {
+  CURSOR_STATUS,
+  LOCALES,
+  SECTIONS,
+  SOCIAL_LINKS
+} from '@/lib/constants/general'
 
 export default function Footer() {
   const t = useScopedI18n('footer')
@@ -26,7 +31,7 @@ export default function Footer() {
   const y = useTransform(scrollYProgress, [0, 1], ['-35%', '0%'])
 
   const sections = useMemo(() => {
-    return currentLocale === 'en' ? SECTIONS.en : SECTIONS.es
+    return currentLocale === LOCALES.en ? SECTIONS.en : SECTIONS.es
   }, [currentLocale])
 
   return (

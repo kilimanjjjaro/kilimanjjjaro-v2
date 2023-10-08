@@ -7,12 +7,13 @@ import {
   OTHER_PROJECT_HR_VARIANTS,
   OTHER_PROJECT_VARIANTS
 } from '@/lib/constants/variants'
+import { LOCALES } from '@/lib/constants/general'
 
 export default function Education() {
   const t = useScopedI18n('home.knowledge')
   const currentLocale = useCurrentLocale()
   const education = useMemo(() => {
-    return currentLocale === 'en' ? EDUCATION.en : EDUCATION.es
+    return currentLocale === LOCALES.en ? EDUCATION.en : EDUCATION.es
   }, [currentLocale])
 
   return (

@@ -2,11 +2,12 @@ import clsx from 'clsx'
 import FeaturedProject from '@/components/projects/FeaturedProject'
 import { getCurrentLocale } from '@/lib/i18n/server'
 import { FEATURED_PROJECTS } from '@/lib/constants/projects'
+import { LOCALES } from '@/lib/constants/general'
 
 export default async function FeaturedProjects() {
   const currentLocale = getCurrentLocale()
   const featuredProjects =
-    currentLocale === 'en' ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
+    currentLocale === LOCALES.en ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
 
   return (
     <section

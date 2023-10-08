@@ -6,7 +6,7 @@ import TextButton from '@/components/shared/TextButton'
 import TextLink from '@/components/shared/TextLink'
 import { useStore } from '@/lib/store/store'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
-import { SECTIONS, CURSOR_STATUS } from '@/lib/constants/general'
+import { SECTIONS, CURSOR_STATUS, LOCALES } from '@/lib/constants/general'
 import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/lib/constants/variants'
 
 export default function Navigation() {
@@ -21,7 +21,7 @@ export default function Navigation() {
   }
 
   const sections = useMemo(() => {
-    return currentLocale === 'en' ? SECTIONS.en : SECTIONS.es
+    return currentLocale === LOCALES.en ? SECTIONS.en : SECTIONS.es
   }, [currentLocale])
 
   useEffect(() => {

@@ -6,11 +6,13 @@ import {
   OTHER_PROJECT_VARIANTS
 } from '@/lib/constants/variants'
 import { EXPERIENCE } from '@/lib/constants/knowledge'
+import { LOCALES } from '@/lib/constants/general'
 
 export default function Experience() {
   const t = useScopedI18n('home.knowledge')
   const currentLocale = useCurrentLocale()
-  const experience = currentLocale === 'en' ? EXPERIENCE.en : EXPERIENCE.es
+  const experience =
+    currentLocale === LOCALES.en ? EXPERIENCE.en : EXPERIENCE.es
 
   return (
     <article className='overflow-hidden'>

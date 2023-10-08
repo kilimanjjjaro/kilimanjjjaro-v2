@@ -7,12 +7,13 @@ import {
   OTHER_PROJECT_VARIANTS
 } from '@/lib/constants/variants'
 import { APPROACH } from '@/lib/constants/knowledge'
+import { LOCALES } from '@/lib/constants/general'
 
 export default function Approach() {
   const t = useScopedI18n('home.knowledge')
   const currentLocale = useCurrentLocale()
   const approach = useMemo(() => {
-    return currentLocale === 'en' ? APPROACH.en : APPROACH.es
+    return currentLocale === LOCALES.en ? APPROACH.en : APPROACH.es
   }, [currentLocale])
 
   return (

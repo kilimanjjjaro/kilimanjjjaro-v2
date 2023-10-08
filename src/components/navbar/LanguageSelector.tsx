@@ -8,17 +8,17 @@ import {
   LANGUAGES_LI_VARIANTS,
   LANGUAGES_UL_VARIANTS
 } from '@/lib/constants/variants'
-import { CURSOR_STATUS, LANGUAGES } from '@/lib/constants/general'
+import { CURSOR_STATUS, LANGUAGES, LOCALES } from '@/lib/constants/general'
 import type { LanguageInterface } from '@/lib/interfaces/general'
 
 export default function LanguageSelector() {
   const currentLocale = useCurrentLocale()
   const { setCursorStatus, setNavBarStatus } = useStore()
   const languages = useMemo(() => {
-    return currentLocale === 'en' ? LANGUAGES.en : LANGUAGES.es
+    return currentLocale === LOCALES.en ? LANGUAGES.en : LANGUAGES.es
   }, [currentLocale])
   const [selectedLanguage, setSelectedLanguage] = useState(
-    currentLocale === 'en' ? languages[0] : languages[1]
+    currentLocale === LOCALES.en ? languages[0] : languages[1]
   )
   const [showSelector, setShowSelector] = useState(false)
   const { isVisible } = useNavBar()

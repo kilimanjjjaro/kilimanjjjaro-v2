@@ -4,6 +4,7 @@ export interface FeaturedProjectInterface {
   slug: string
   headerDescription: string
   sectionDescription: string
+  keyword: string
   stacks: string[]
   role: string
   presentation: {

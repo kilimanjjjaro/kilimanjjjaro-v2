@@ -1,4 +1,10 @@
 export default {
+  metadata: {
+    description:
+      'Kilimanjjjaro is a creative studio focused on web experiences.',
+    url: 'https://kilimanjjjaro.com',
+    locale: 'en'
+  },
   home: {
     header: {
       headline: ['Thinking', 'future', '—', 'proff', 'experiences.']

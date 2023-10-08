@@ -4,6 +4,7 @@ import Grid from '@/components/project/Grid'
 import OtherProjects from '@/components/project/OtherProjects'
 import { getScopedI18n } from '@/lib/i18n/server'
 import { FEATURED_PROJECTS } from '@/lib/constants/projects'
+import { LOCALES } from '@/lib/constants/general'
 import type { Metadata } from 'next'
 
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const featuredProjects =
-    params.locale === 'en' ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
+    params.locale === LOCALES.en ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
   const project = featuredProjects.find(
     (project) => project.slug === params.slug
   )
@@ -51,7 +52,7 @@ export default async function Project({ params }: Props) {
   setStaticParamsLocale(params.locale)
 
   const projects =
-    params.locale === 'en' ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
+    params.locale === LOCALES.en ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
 
   const project = projects.find((project) => project.slug === params.slug)
 

@@ -22,6 +22,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
         'Express',
         'Figma'
       ],
+      keyword: 'Simplicity',
       role: 'UX/UI Design — Frontend & Backend Development',
       year: '2023',
       backgroundColor: '#6174af',
@@ -41,6 +42,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       sectionDescription:
         'The Royal Enfield motorcycle is the main element in all sections of the website.',
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
+      keyword: 'Simplicity',
       role: 'Frontend Development',
       year: '2021',
       backgroundColor: '#bb1c1c',
@@ -60,6 +62,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       sectionDescription:
         "The project's goal is to learn about and experiment with Qwik.",
       stacks: ['TypeScript', 'Qwik', 'Tailwind', 'Cloudinary'],
+      keyword: 'Simplicity',
       role: 'Frontend Development',
       year: '2023',
       backgroundColor: '#dbb92f',
@@ -79,6 +82,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       sectionDescription:
         "The UI theme adapts to the project's identity. The site coexists with light and dark versions.",
       stacks: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+      keyword: 'Simplicity',
       role: 'UX/UI Design — Frontend Development',
       year: '2017',
       backgroundColor: '#111111',
@@ -108,6 +112,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
         'Express',
         'Figma'
       ],
+      keyword: 'Simplicity',
       role: 'Diseño UX/UI — Desarrollo Frontend & Backend',
       year: '2023',
       backgroundColor: '#6174af',
@@ -127,6 +132,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       sectionDescription:
         'La motocicleta es el elemento principal en todas las secciones del sitio web.',
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
+      keyword: 'Simplicity',
       role: 'Desarrollo Frontend',
       year: '2021',
       backgroundColor: '#bb1c1c',
@@ -146,6 +152,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       sectionDescription:
         'El principal objetivo del proyecto es aprender y experimentar con Qwik.',
       stacks: ['TypeScript', 'Qwik', 'Tailwind', 'Cloudinary'],
+      keyword: 'Simplicity',
       role: 'Desarrollo Frontend',
       year: '2023',
       backgroundColor: '#dbb92f',
@@ -165,6 +172,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       sectionDescription:
         'El tema de la UI se adapta a la identidad del proyecto. El sitio coexiste con versiones claras y oscuras.',
       stacks: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+      keyword: 'Simplicity',
       role: 'Diseño UX/UI — Desarrollo Frontend',
       year: '2017',
       backgroundColor: '#111111',

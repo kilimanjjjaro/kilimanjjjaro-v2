@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
 import { useStore } from '@/lib/store/store'
+import { LOCALES } from '@/lib/constants/general'
 
 export default function Headline() {
   const t = useScopedI18n('home.header')
@@ -48,7 +49,7 @@ export default function Headline() {
           <motion.span
             className={clsx(
               'flex items-center gap-x-1',
-              currentLocale === 'en' ? 'ml-64' : 'ml-96 -mt-4 mb-3'
+              currentLocale === LOCALES.en ? 'ml-64' : 'ml-96 -mt-4 mb-3'
             )}
             initial={{
               y: '118%',
