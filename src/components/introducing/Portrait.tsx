@@ -21,7 +21,7 @@ export default function Portrait() {
         }
       }
       transition={{
-        duration: 2.5,
+        duration: 3,
         ease: [0.17, 0.84, 0.44, 1]
       }}
     >

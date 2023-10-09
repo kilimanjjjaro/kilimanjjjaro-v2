@@ -20,7 +20,7 @@ export default function FeaturedProject({ className, project }: Props) {
   const [isHovered, setIsHovered] = useState<number | null>(null)
   const isInView = useInView(projectEl, {
     once: true,
-    amount: 0.3
+    amount: 0.2
   })
 
   const handleMouseEnter = async () => {
@@ -75,7 +75,7 @@ export default function FeaturedProject({ className, project }: Props) {
             }
           }
           transition={{
-            duration: 2.5,
+            duration: 3,
             ease: [0.17, 0.84, 0.44, 1]
           }}
         />
