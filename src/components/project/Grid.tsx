@@ -17,13 +17,13 @@ export default function Grid({ project }: Props) {
   const sectionRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll()
 
-  const scaleX = useSpring(scrollYProgress, {
+  const scrollY = useSpring(scrollYProgress, {
     stiffness: 5000,
     damping: 400
   })
 
-  const videoWidth = useTransform(scaleX, [0, 1], ['10vw', '90vw'])
-  const sectionY = useTransform(scaleX, [0, 1], ['0%', '-50%'])
+  const videoWidth = useTransform(scrollY, [0, 1], ['10vw', '90vw'])
+  const sectionY = useTransform(scrollY, [0, 1], ['0%', '-50%'])
 
   return (
     <>

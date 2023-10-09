@@ -45,7 +45,7 @@ body::-webkit-scrollbar {
 }
 
 .fadeInSplittedText {
-  transform: translateY(100%);
+  transform: translateY(130%) rotate(3deg);
 }
 
 .swiper {
@@ -73,5 +73,8 @@ input:-webkit-autofill:focus {
   .h-screen-compatible {
     height: 100vh;
     height: 100dvh;
+  }
+  .text-balance {
+    text-wrap: balance;
   }
 }

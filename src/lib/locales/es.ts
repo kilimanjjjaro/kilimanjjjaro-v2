@@ -14,7 +14,7 @@ export default {
       headline:
         'Desarrollador Full Stack de JavaScript y Diseñador UI/UX con +{experience} años de experiencia laboral.',
       description:
-        '<i>— Hola,</i> mi nombre es Gonzalo y tengo {yearsOld} años. En mi experiencia aprendí que la diferencia radica en cuidar los detalles y aplicar buenas prácticas. Me entusiasma abordar soluciones de manera eficiente y simple.',
+        '— Hola, mi nombre es Gonzalo y tengo {yearsOld} años. En mi experiencia aprendí que la diferencia radica en cuidar los detalles y aplicar buenas prácticas. Me entusiasma abordar soluciones de manera eficiente y simple.',
       letsTalkButton: '¡Hablemos!'
     },
     lessButBetter: {

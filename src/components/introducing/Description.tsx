@@ -1,15 +1,9 @@
-'use client'
-
-import useSplitText from '@/lib/hooks/useSplitText'
+import Balancer from 'react-wrap-balancer'
 
 export default function Description({ description }: { description: string }) {
-  const { elRef } = useSplitText()
-
   return (
-    <p
-      ref={elRef}
-      className='text-3xl leading-tight text-kili-white [&>span:first-child]:ml-7'
-      dangerouslySetInnerHTML={{ __html: description }}
-    />
+    <p className='text-3xl leading-tight text-kili-white [&>span]:first-letter:ml-7'>
+      <Balancer>{description}</Balancer>
+    </p>
   )
 }

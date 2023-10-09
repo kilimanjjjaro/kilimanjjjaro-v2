@@ -21,7 +21,7 @@ export default async function Introducing() {
       </ParallaxHeadline>
       <div className='flex flex-col items-center px-40 py-32'>
         <Portrait />
-        <div className='flex flex-col'>
+        <div className='flex flex-col mix-blend-difference'>
           <Headline headline={headline} />
           <div className='grid items-end content-start grid-cols-2 gap-[19vw] justify-items-start'>
             <LetsTalkButton letsTalkButton={t('letsTalkButton')} />
