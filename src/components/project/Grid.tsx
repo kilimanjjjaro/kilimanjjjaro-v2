@@ -141,10 +141,6 @@ export default function Grid({ project }: Props) {
             quality={90}
           />
         </motion.div>
-
-        <h2 className='absolute self-center text-center w-full text-[20vw] text-kili-white mix-blend-difference'>
-          {project.keyword}
-        </h2>
       </section>
 
       <section className='grid grid-cols-3 px-40 py-36 gap-36 bg-kili-dark-gray'>
