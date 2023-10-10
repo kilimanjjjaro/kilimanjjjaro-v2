@@ -2,7 +2,7 @@ import StackSelector from '@/components/introducing/StackSelector'
 import SkillsCarousel from '@/components/introducing/SkillsCarousel'
 import LetsTalkButton from '@/components/introducing/LetsTalkButton'
 import Headline from '@/components/introducing/Headline'
-import Description from '@/components/introducing/Description'
+import Biography from '@/components/introducing/Biography'
 import Portrait from '@/components/introducing/Portrait'
 import ParallaxHeadline from '@/components/shared/ParallaxHeadline'
 import { getScopedI18n } from '@/lib/i18n/server'
@@ -12,7 +12,7 @@ export default async function Introducing() {
   const t = await getScopedI18n('home.introducing')
 
   const headline = t('headline', { experience: YEARS_OF_EXPERIENCE })
-  const description = t('description', { yearsOld: YEARS_OLD })
+  const biography = t('biography', { yearsOld: YEARS_OLD })
 
   return (
     <section id='introducing-me' className='pt-32 bg-kili-dark-gray'>
@@ -25,7 +25,7 @@ export default async function Introducing() {
           <Headline headline={headline} />
           <div className='grid items-end content-start grid-cols-2 gap-[19vw] justify-items-start'>
             <LetsTalkButton letsTalkButton={t('letsTalkButton')} />
-            <Description description={description} />
+            <Biography biography={biography} />
           </div>
         </div>
       </div>
