@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { experimental_useFormState } from 'react-dom'
+import { useFormState } from 'react-dom'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import CommandLine from '@/components/contact-form/CommandLine'
@@ -19,10 +19,7 @@ interface Props {
 
 export default function Form({ handleDrag }: Props) {
   const t = useScopedI18n('contactForm')
-  const [state, formAction] = experimental_useFormState(
-    sendForm,
-    FORM_DEFAULT_STATE
-  )
+  const [state, formAction] = useFormState(sendForm, FORM_DEFAULT_STATE)
   const { setShowContactForm, setCursorStatus } = useStore()
   const formRef = useRef<HTMLFormElement>(null)
   const [success, setSuccess] = useState(false)

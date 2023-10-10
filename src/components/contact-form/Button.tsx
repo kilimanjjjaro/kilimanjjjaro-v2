@@ -1,4 +1,4 @@
-import { experimental_useFormStatus } from 'react-dom'
+import { useFormStatus } from 'react-dom'
 import clsx from 'clsx'
 import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon'
 import { useStore } from '@/lib/store/store'
@@ -15,7 +15,7 @@ interface Props {
 export default function Button({ error, success, shouldFocus }: Props) {
   const t = useScopedI18n('contactForm')
   const { setCursorStatus } = useStore()
-  const { pending } = experimental_useFormStatus()
+  const { pending } = useFormStatus()
   const buttonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
