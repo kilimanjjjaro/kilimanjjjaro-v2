@@ -6,6 +6,8 @@ export const BASE_URL = `${
     : 'http://localhost:3000'
 }`
 
+export const ADMIN_EMAIL = 'hola@kilimanjjjaro.com'
+
 export const LANGUAGES = {
   en: [
     { id: 'en', name: 'English' },

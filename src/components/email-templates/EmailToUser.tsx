@@ -11,6 +11,7 @@ import {
   Tailwind,
   Text
 } from '@react-email/components'
+import { BASE_URL } from '@/lib/constants/general'
 
 interface Props {
   name: string
@@ -20,10 +21,6 @@ interface Props {
 
 export default function EmailToUser({ name, email, message }: Props) {
   const previewText = 'Thanks for your message!'
-  const baseUrl =
-    process.env.VERCEL_URL !== undefined
-      ? `https://${process.env.VERCEL_URL}`
-      : ''
 
   return (
     <Html>
@@ -49,7 +46,7 @@ export default function EmailToUser({ name, email, message }: Props) {
               <strong>Hi {name}!</strong>
               <Img
                 className='inline ml-3'
-                src={`${baseUrl}/static/hand.png`}
+                src={`${BASE_URL}/static/hand.png`}
                 width='36'
                 height='36'
                 alt='Kilimanjjjaro'
@@ -60,17 +57,17 @@ export default function EmailToUser({ name, email, message }: Props) {
                 This is a confirmation that your message was sent successfully.
               </Text>
               <ul className='px-5 py-4 m-0 list-none border rounded-md bg-kili-white text-kili-black'>
-                <li>
+                <li className='m-0'>
                   <Text className='my-0'>
                     <u>Name:</u> {name}
                   </Text>
                 </li>
-                <li>
-                  <Text className='my-0'>
+                <li className='m-0'>
+                  <Text className='my-0 text-kili-black'>
                     <u>Email:</u> {email}
                   </Text>
                 </li>
-                <li>
+                <li className='m-0'>
                   <Text className='my-0'>
                     <u>Message:</u> {message}
                   </Text>
@@ -86,7 +83,7 @@ export default function EmailToUser({ name, email, message }: Props) {
             <Section className='m-0 text-kili-light-gray'>
               <Img
                 className='mb-3'
-                src={`${baseUrl}/static/kilimanjjjaro-logo.png`}
+                src={`${BASE_URL}/static/kilimanjjjaro-logo.png`}
                 width='36'
                 height='36'
                 alt='Kilimanjjjaro'

@@ -2,6 +2,7 @@
 import { Resend } from 'resend'
 import EmailToAdmin from '@/components/email-templates/EmailToAdmin'
 import EmailToUser from '@/components/email-templates/EmailToUser'
+import { ADMIN_EMAIL } from '@/lib/constants/general'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -17,16 +18,18 @@ export async function POST(request: Request) {
 
   try {
     const responseAdmin = await resend.emails.send({
-      from: 'Kilimanjjjaro <hola@kilimanjjjaro.com>',
-      to: 'delivered@resend.dev',
-      subject: `New message from ${body.name}}`,
+      from: `Kilimanjjjaro <${ADMIN_EMAIL}>`,
+      to: ADMIN_EMAIL,
+      subject: `New message from ${body.name}`,
+      reply_to: body.email,
       react: EmailToAdmin(body)
     })
 
     await resend.emails.send({
-      from: 'Kilimanjjjaro <hola@kilimanjjjaro.com>',
+      from: `Kilimanjjjaro <${ADMIN_EMAIL}>`,
       to: body.email,
       subject: 'Message received',
+      reply_to: ADMIN_EMAIL,
       react: EmailToUser(body)
     })
 
