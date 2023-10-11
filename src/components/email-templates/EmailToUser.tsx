@@ -20,7 +20,7 @@ interface Props {
 }
 
 export default function EmailToUser({ name, email, message }: Props) {
-  const previewText = 'Thanks for your message!'
+  const previewText = 'I will answer you as soon as possible.'
 
   return (
     <Html>
@@ -42,14 +42,14 @@ export default function EmailToUser({ name, email, message }: Props) {
       >
         <Body className='m-0 font-sans bg-black py-14'>
           <Container className='w-[480px] mx-auto px-6'>
-            <Heading as='h1' className='m-0 text-4xl text-kili-white'>
+            <Heading as='h1' className='m-0 text-4xl font-bold text-kili-white'>
               <strong>Hi {name}!</strong>
               <Img
                 className='inline ml-3'
-                src={`${BASE_URL}/static/hand.png`}
+                src={`${BASE_URL}/images/email/hand.png`}
                 width='36'
                 height='36'
-                alt='Kilimanjjjaro'
+                alt='Greeting'
               />
             </Heading>
             <Section className='mt-10 mb-12'>
@@ -63,7 +63,7 @@ export default function EmailToUser({ name, email, message }: Props) {
                   </Text>
                 </li>
                 <li className='m-0'>
-                  <Text className='my-0 text-kili-black'>
+                  <Text className='my-0 text-kili-black [&>a]:text-kili-black'>
                     <u>Email:</u> {email}
                   </Text>
                 </li>
@@ -74,7 +74,7 @@ export default function EmailToUser({ name, email, message }: Props) {
                 </li>
               </ul>
               <Text className='mt-5 mb-0 text-kili-white'>
-                I'll get back to you as soon as possible.
+                I will answer you as soon as possible.
               </Text>
               <Text className='m-0 text-kili-white'>
                 <i>Have a great day!</i>
@@ -83,7 +83,7 @@ export default function EmailToUser({ name, email, message }: Props) {
             <Section className='m-0 text-kili-light-gray'>
               <Img
                 className='mb-3'
-                src={`${BASE_URL}/static/kilimanjjjaro-logo.png`}
+                src={`${BASE_URL}/images/email/kilimanjjjaro-logo.png`}
                 width='36'
                 height='36'
                 alt='Kilimanjjjaro'
@@ -91,11 +91,11 @@ export default function EmailToUser({ name, email, message }: Props) {
               <Text className='mt-3 mb-0 text-xs'>
                 <Link
                   className='leading-5 underline text-kili-light-gray'
-                  href='https://notion.so'
+                  href='https://kilimanjjjaro.com'
                   target='_blank'
                   rel='noreferrer'
                 >
-                  Kilimanjjjaro.com
+                  kilimanjjjaro.com
                 </Link>
                 , a creative studio <br />
                 focused on web experiences.
