@@ -17,9 +17,7 @@ export default async function sendForm(prevState: any, payload: any) {
       message: payload.get('message')
     })
 
-    console.log(BASE_URL)
-
-    const response = await fetch(BASE_URL, {
+    const response = await fetch(`${BASE_URL}/api/send-mail`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
