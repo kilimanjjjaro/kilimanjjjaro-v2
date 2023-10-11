@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: 'Kilimanjjjaro <hola@kilimanjjjaro.com>',
       to: body.email,
-      subject: 'Thanks for your message!',
+      subject: 'Message received',
       react: EmailToUser(body)
     })
 
