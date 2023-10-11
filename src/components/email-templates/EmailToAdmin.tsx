@@ -63,7 +63,7 @@ export default function EmailToAdmin({ name, email, message }: Props) {
                   </Text>
                 </li>
                 <li>
-                  <Text className='my-0'>
+                  <Text className='my-0 text-kili-black'>
                     <u>Email:</u> {email}
                   </Text>
                 </li>
