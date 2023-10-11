@@ -56,14 +56,14 @@ export default function EmailToUser({ name, email, message }: Props) {
               <Text className='mt-0 mb-4 text-kili-white'>
                 This is a confirmation that your message was sent successfully.
               </Text>
-              <ul className='px-5 py-4 m-0 list-none border rounded-md bg-kili-white text-kili-black'>
+              <ul className='px-5 py-4 m-0 list-none border bg-kili-white text-kili-black'>
                 <li className='m-0'>
                   <Text className='my-0'>
                     <u>Name:</u> {name}
                   </Text>
                 </li>
                 <li className='m-0'>
-                  <Text className='my-0'>
+                  <Text className='my-0 [&>*]:text-kili-black'>
                     <u>Email:</u> {email}
                   </Text>
                 </li>
