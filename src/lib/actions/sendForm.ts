@@ -17,6 +17,8 @@ export default async function sendForm(prevState: any, payload: any) {
       message: payload.get('message')
     })
 
+    console.log(BASE_URL)
+
     const response = await fetch(BASE_URL, {
       method: 'POST',
       headers: {
