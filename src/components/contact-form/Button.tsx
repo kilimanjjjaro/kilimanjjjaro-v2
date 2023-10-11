@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
+import { useEffect, useRef } from 'react'
 // @ts-expect-error
 import { experimental_useFormStatus as useFormStatus } from 'react-dom'
 import clsx from 'clsx'
@@ -6,7 +7,6 @@ import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon'
 import { useStore } from '@/lib/store/store'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 import { useScopedI18n } from '@/lib/i18n/client'
-import { useEffect, useRef } from 'react'
 
 interface Props {
   error: boolean

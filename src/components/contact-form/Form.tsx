@@ -106,7 +106,7 @@ export default function Form({ handleDrag }: Props) {
     <motion.form
       ref={formRef}
       action={formAction}
-      className='w-[700px] bg-[#030303]/[.97] backdrop-blur-lg relative rounded-md shadow-lg overflow-hidden pointer-events-auto'
+      className='w-[700px] bg-[#030303] relative rounded-md shadow-lg overflow-hidden pointer-events-auto'
       initial={{
         y: '90dvh',
         scale: 0.5
