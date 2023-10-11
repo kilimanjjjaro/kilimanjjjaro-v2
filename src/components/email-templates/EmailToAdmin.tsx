@@ -40,7 +40,7 @@ export default function EmailToAdmin({ name, email, message }: Props) {
           }
         }}
       >
-        <Body className='m-0 font-sans bg-black py-14'>
+        <Body className='m-0 font-sans !bg-black py-14'>
           <Container className='w-[480px] mx-auto px-6'>
             <Heading as='h1' className='m-0 text-4xl font-bold text-kili-white'>
               <strong>Hi Gonzalo!</strong>
@@ -63,7 +63,7 @@ export default function EmailToAdmin({ name, email, message }: Props) {
                   </Text>
                 </li>
                 <li className='m-0'>
-                  <Text className='my-0 text-kili-black [&>a]:text-kili-black'>
+                  <Text className='my-0'>
                     <u>Email:</u> {email}
                   </Text>
                 </li>
