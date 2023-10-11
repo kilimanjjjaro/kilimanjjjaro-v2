@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { useFormState } from 'react-dom'
+// @ts-expect-error
+import { experimental_useFormState as useFormState } from 'react-dom'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import CommandLine from '@/components/contact-form/CommandLine'

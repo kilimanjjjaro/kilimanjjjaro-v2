@@ -1,4 +1,6 @@
-import { useFormStatus } from 'react-dom'
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+// @ts-expect-error
+import { experimental_useFormStatus as useFormStatus } from 'react-dom'
 import clsx from 'clsx'
 import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon'
 import { useStore } from '@/lib/store/store'

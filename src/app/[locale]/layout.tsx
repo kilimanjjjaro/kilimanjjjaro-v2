@@ -89,10 +89,10 @@ export default async function RootLayout({
             <Footer />
           </SmoothScroll>
           <CookiesConsent />
-          <FormModal />
           <ScrollPercentage />
           <Navigation />
           <NavBar />
+          <FormModal />
         </Providers>
         <CustomCursor />
         <MessageForDevs />

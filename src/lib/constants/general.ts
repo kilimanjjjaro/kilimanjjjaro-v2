@@ -1,5 +1,11 @@
 import getYearsOld from '@/lib/utils/getYearsOld'
 
+export const BASE_URL = `${
+  process.env.NODE_ENV === 'production'
+    ? 'https://kilimanjjjaro-portfolio.vercel.app'
+    : 'http://localhost:3000'
+}`
+
 export const LANGUAGES = {
   en: [
     { id: 'en', name: 'English' },
