@@ -16,7 +16,6 @@
     "@vercel/analytics": "1.1.1",
     "clsx": "2.0.0",
     "cookies-next": "4.0.0",
-    "focus-trap-react": "10.2.3",
     "framer-motion": "10.16.4",
     "next": "13.5.4",
     "next-international": "1.1.2",
