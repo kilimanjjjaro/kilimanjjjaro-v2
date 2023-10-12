@@ -39,7 +39,7 @@ export default function StackSelector() {
           {selectedStack.name} Skills
           <PlusIcon
             className={clsx(
-              'duration-700 transition-transform ease-in-out w-4 xl:group-hover:rotate-180',
+              'duration-1000 transition-transform ease-in-out w-4 xl:group-hover:rotate-180',
               showSelector && '!-rotate-45'
             )}
           />
@@ -50,7 +50,7 @@ export default function StackSelector() {
         variants={STACKS_UL_VARIANTS}
         animate={showSelector ? 'open' : 'closed'}
         transition={{
-          duration: 0.7,
+          duration: 1,
           ease: 'easeInOut',
           staggerChildren: 0.1
         }}
@@ -60,7 +60,7 @@ export default function StackSelector() {
           .map((stack) => (
             <li
               key={stack.id}
-              className='overflow-hidden leading-none transition-colors duration-700 ease-in-out xl:hover:text-kili-light-gray'
+              className='overflow-hidden leading-none transition-colors duration-1000 ease-in-out xl:hover:text-kili-light-gray'
             >
               <motion.button
                 onClick={() => handleClick(stack)}
@@ -68,7 +68,7 @@ export default function StackSelector() {
                 onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
                 variants={STACKS_LI_VARIANTS}
                 transition={{
-                  duration: 0.7,
+                  duration: 1,
                   ease: 'easeInOut'
                 }}
               >

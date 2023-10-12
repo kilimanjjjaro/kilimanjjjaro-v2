@@ -30,12 +30,12 @@ export default function LargeVersion() {
       exit={{
         opacity: 0,
         transition: {
-          duration: 0.7,
+          duration: 1,
           ease: 'easeInOut'
         }
       }}
       transition={{
-        duration: 0.7,
+        duration: 1,
         ease: 'easeInOut'
       }}
     >
@@ -47,7 +47,7 @@ export default function LargeVersion() {
             onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
           >
             <TextLink
-              className='tracking-wide transition-colors duration-700 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
+              className='tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
               href={`/#${section.slug}`}
               onClick={() =>
                 lenis.scrollTo(`#${section.slug}`, { duration: 2 })
@@ -62,7 +62,7 @@ export default function LargeVersion() {
           onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
         >
           <TextButton
-            className='tracking-wide transition-colors duration-700 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
+            className='tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
             onClick={() => setShowContactForm(true)}
           >
             {letsTalkText}

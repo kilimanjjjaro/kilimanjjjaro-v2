@@ -40,7 +40,7 @@ export default function FeaturedProjectName({
           rotate: isHovered === projectId ? 0 : 6
         }}
         transition={{
-          duration: 0.7,
+          duration: 1,
           ease: 'easeInOut'
         }}
       >

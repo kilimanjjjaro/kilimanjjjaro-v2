@@ -23,12 +23,12 @@ export default function SmallVersion() {
       exit={{
         opacity: 0,
         transition: {
-          duration: 0.7,
+          duration: 1,
           ease: 'easeInOut'
         }
       }}
       transition={{
-        duration: 0.7,
+        duration: 1,
         ease: 'easeInOut'
       }}
     >
@@ -45,20 +45,20 @@ export default function SmallVersion() {
             aria-label='Toggle navigation menu'
           >
             <motion.div
-              className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-700 xl:group-hover:bg-kili-white'
+              className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
               variants={NAVBAR_BUTTON_ONE_VARIANTS}
               animate={navBarStatus ? 'open' : 'closed'}
               transition={{
-                duration: 0.7,
+                duration: 1,
                 ease: 'easeInOut'
               }}
             />
             <motion.div
-              className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-700 xl:group-hover:bg-kili-white'
+              className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
               variants={NAVBAR_BUTTON_TWO_VARIANTS}
               animate={navBarStatus ? 'open' : 'closed'}
               transition={{
-                duration: 0.7,
+                duration: 1,
                 ease: 'easeInOut'
               }}
             />

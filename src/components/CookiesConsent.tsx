@@ -45,9 +45,9 @@ export default function CookiesConsent() {
           className='fixed flex-col left-8 bg-[#030303]/95 backdrop-blur-md z-10 w-auto max-w-[256px] overflow-hidden rounded-md bottom-8'
           initial={{ y: 265 }}
           animate={showCookiesConsent && { y: 0 }}
-          exit={{ y: 265, transition: { duration: 0.7, ease: 'easeInOut' } }}
+          exit={{ y: 265, transition: { duration: 1, ease: 'easeInOut' } }}
           transition={{
-            duration: 0.7,
+            duration: 1,
             ease: 'easeInOut',
             delay: 10
           }}
@@ -56,7 +56,7 @@ export default function CookiesConsent() {
             <button
               aria-label='Close cookies consent'
               onClick={handleDecline}
-              className='w-3 h-3 transition-colors duration-700 bg-red-600 rounded-full xl:hover:bg-kili-white'
+              className='w-3 h-3 transition-colors duration-1000 bg-red-600 rounded-full xl:hover:bg-kili-white'
               onMouseEnter={() => setShowCloseWarning(true)}
               onMouseLeave={() => setShowCloseWarning(false)}
             />
@@ -77,7 +77,7 @@ export default function CookiesConsent() {
             <div className='flex gap-4'>
               <TextButton
                 className={clsx(
-                  'w-full h-9 pt-[1px] rounded-md outline-none transition-colors duration-500 ease-in-out appearance-none xl:hover:text-red-500 xl:hover:bg-red-500/10',
+                  'w-full h-9 pt-[1px] rounded-md outline-none transition-colors duration-1000 ease-in-out appearance-none xl:hover:text-red-500 xl:hover:bg-red-500/10',
                   showCloseWarning
                     ? 'bg-red-500/10 text-red-500'
                     : 'bg-kili-white/0 text-kili-white'
@@ -91,7 +91,7 @@ export default function CookiesConsent() {
               </TextButton>
               <TextButton
                 className={clsx(
-                  'w-full h-9 pt-[1px] transition-colors duration-500 ease-in-out rounded-md outline-none appearance-none text-kili-white xl:hover:text-green-500 xl:hover:bg-green-500/10 focus:bg-kili-white',
+                  'w-full h-9 pt-[1px] transition-colors duration-1000 ease-in-out rounded-md outline-none appearance-none text-kili-white xl:hover:text-green-500 xl:hover:bg-green-500/10 focus:bg-kili-white',
                   showCloseWarning ? 'bg-kili-white/0' : 'bg-kili-white/5'
                 )}
                 onClick={handleAccept}

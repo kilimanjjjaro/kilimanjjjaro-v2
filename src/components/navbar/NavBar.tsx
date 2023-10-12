@@ -28,7 +28,7 @@ export default function NavBar() {
   return (
     <motion.header
       className={clsx(
-        'fixed left-8 right-8 z-50 top-12 mix-blend-difference flex justify-between transition-transform duration-700 ease-in-out',
+        'fixed left-8 right-8 z-50 top-12 mix-blend-difference flex justify-between transition-transform duration-1000 ease-in-out',
         !isVisible && '-translate-y-16'
       )}
       initial={{
@@ -47,7 +47,7 @@ export default function NavBar() {
     >
       <h1
         className={clsx(
-          'leading-none tracking-wide transition-colors duration-700 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
+          'leading-none tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
         )}
         onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
         onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}

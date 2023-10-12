@@ -24,7 +24,7 @@ export default function SmoothScroll({ children }: { children: ChildrenType }) {
   }, [lenis, navBarStatus, introRunning])
 
   return (
-    <ReactLenis root options={{ lerp: 1, duration: 2, smoothWheel: true }}>
+    <ReactLenis root options={{ lerp: 1, duration: 2 }}>
       {children}
     </ReactLenis>
   )

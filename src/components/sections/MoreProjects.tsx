@@ -58,8 +58,8 @@ export default function MoreProjects() {
         <span className='overflow-hidden'>
           <motion.span
             className='block'
-            initial={{ y: '100%' }}
-            animate={isInView && { y: '0%' }}
+            initial={{ y: '127%', rotate: 4 }}
+            animate={isInView && { y: '0%', rotate: 0 }}
             transition={{
               duration: 1.5,
               ease: 'easeInOut'
@@ -71,8 +71,8 @@ export default function MoreProjects() {
         <span className='overflow-hidden'>
           <motion.span
             className='block'
-            initial={{ y: '100%' }}
-            animate={isInView && { y: '0%' }}
+            initial={{ y: '127%', rotate: 4 }}
+            animate={isInView && { y: '0%', rotate: 0 }}
             transition={{
               duration: 1.5,
               ease: 'easeInOut',
@@ -109,7 +109,7 @@ export default function MoreProjects() {
       >
         {buttonText}
         {visibleItems < totalNumberOfProjects.current && (
-          <PlusIcon className='w-3 transition-transform duration-700 ease-in-out xl:group-hover:rotate-180' />
+          <PlusIcon className='w-3 transition-transform duration-1000 ease-in-out xl:group-hover:rotate-180' />
         )}
       </motion.button>
     </section>

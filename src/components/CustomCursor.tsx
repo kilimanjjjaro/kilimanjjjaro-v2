@@ -58,7 +58,7 @@ export default function CustomCursor() {
       variants={VARIANTS}
       animate={cursorVariant}
       transition={{
-        duration: 0.7,
+        duration: 1,
         ease: 'easeInOut'
       }}
     />

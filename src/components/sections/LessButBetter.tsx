@@ -15,20 +15,15 @@ export default function LessButBetter() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const videoIsInView = useInView(videoRef, { margin: '0px 0px 200px 0px' })
-  const { scrollYProgress: scrollY } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end end']
-  })
+  const { scrollYProgress: scrollY } = useScroll()
 
   const scaleX = useSpring(scrollY, {
     stiffness: 5000,
     damping: 400
   })
 
-  const sectionBg = useTransform(scaleX, [0.3, 1], ['#0D0D0D', '#090909'])
-
-  const videoScale = useTransform(scaleX, [0, 1], [1, 0.45])
-  const headlineScale = useTransform(scaleX, [0, 1], [3.5, 1])
+  const videoScale = useTransform(scaleX, [0.52, 0.85], [1, 0])
+  const headlineScale = useTransform(scaleX, [0.52, 0.85], [2, 0.3])
 
   useEffect(() => {
     if (videoIsInView) {
@@ -42,7 +37,6 @@ export default function LessButBetter() {
     <motion.section
       ref={sectionRef}
       className='relative flex items-center justify-center w-full overflow-hidden'
-      style={{ backgroundColor: sectionBg }}
     >
       <motion.video
         ref={videoRef}

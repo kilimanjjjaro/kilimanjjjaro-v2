@@ -46,7 +46,7 @@ export default function OtherProject({ project, visitButton }: Props) {
             transition={{ duration: 1.5, ease: 'easeInOut' }}
           >
             <div className='flex gap-[6px] items-center w-[30%] text-2xl flex-wrap'>
-              <h4 className='relative duration-700 ease-in-out text-kili-white before:h-[2px] before:scale-x-0 before:absolute before:-bottom-2 before:left-0 before:right-0 before:block before:bg-current before:origin-left xl:group-hover:before:scale-x-100 before:transition-transform before:ease-in xl:group-hover:before:ease-out before:duration-700 after:delay-700 xl:group-hover:before:delay-0 after:h-[2px] after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:bg-kili-dark-gray after:origin-left after:scale-x-0 xl:group-hover:after:scale-x-100 after:transition-transform after:ease-in xl:group-hover:after:ease-out after:duration-700 xl:group-hover:after:delay-700'>
+              <h4 className='relative duration-1000 ease-in-out text-kili-white before:h-[2px] before:scale-x-0 before:absolute before:-bottom-2 before:left-0 before:right-0 before:block before:bg-current before:origin-left xl:group-hover:before:scale-x-100 before:transition-transform before:ease-in xl:group-hover:before:ease-out before:duration-1000 after:delay-1000 xl:group-hover:before:delay-0 after:h-[2px] after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:bg-kili-dark-gray after:origin-left after:scale-x-0 xl:group-hover:after:scale-x-100 after:transition-transform after:ease-in xl:group-hover:after:ease-out after:duration-1000 xl:group-hover:after:delay-1000'>
                 {project.name}
               </h4>
               <span className='text-kili-light-gray'>— {project.role}</span>
@@ -80,7 +80,7 @@ export default function OtherProject({ project, visitButton }: Props) {
             )}
           >
             <Image
-              className='duration-700 ease-in-out transition-transform translate-y-[101%] xl:group-hover:translate-y-0'
+              className='duration-1000 ease-in-out transition-transform translate-y-[101%] xl:group-hover:translate-y-0'
               src={project.image}
               alt={project.name}
               width={400}
@@ -94,7 +94,7 @@ export default function OtherProject({ project, visitButton }: Props) {
           className='fixed top-0 left-0 z-10 overflow-hidden pointer-events-none'
           style={{ x, y }}
         >
-          <span className='flex items-center gap-3 text-6xl leading-none text-center transition-transform duration-700 ease-in-out translate-y-[110%] rotate-6 text-kili-white xl:group-hover:translate-y-0 xl:group-hover:rotate-0'>
+          <span className='flex items-center gap-3 text-6xl leading-none text-center transition-transform duration-1000 ease-in-out translate-y-[110%] rotate-6 text-kili-white xl:group-hover:translate-y-0 xl:group-hover:rotate-0'>
             {visitButton} <ArrowCornerIcon className='w-6' />
           </span>
         </motion.span>

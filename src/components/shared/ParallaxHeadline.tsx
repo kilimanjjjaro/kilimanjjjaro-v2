@@ -32,7 +32,7 @@ export default function ParallaxHeadline({
     damping: 50,
     stiffness: 400
   })
-  const velocityFactor = useTransform(smoothVelocity, [0, 2000], [0, 10], {
+  const velocityFactor = useTransform(smoothVelocity, [0, 2000], [0, 8], {
     clamp: false
   })
 

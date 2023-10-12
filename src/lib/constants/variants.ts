@@ -2,14 +2,14 @@ export const LOGO_VARIANTS = {
   open: {
     rotate: 360,
     transition: {
-      duration: 0.7,
+      duration: 1,
       ease: [0.85, 0.01, 0.4, 1]
     }
   },
   closed: {
     rotate: 0,
     transition: {
-      duration: 0.7,
+      duration: 1,
       delay: 0.5,
       ease: [0.85, 0.01, 0.4, 1]
     }
@@ -21,7 +21,7 @@ export const NAVBAR_BUTTON_VARIANTS = {
     y: ['0%', '-105%', '-105%', '105%', '105%', '0%'],
     opacity: [1, 1, 0, 0, 1, 1],
     transition: {
-      duration: 0.7,
+      duration: 1,
       ease: [0.85, 0.01, 0.4, 1],
       times: [0, 0.2, 0.4, 0.6, 0.8, 1]
     }
@@ -109,10 +109,12 @@ export const STACKS_UL_VARIANTS = {
 
 export const STACKS_LI_VARIANTS = {
   open: {
-    y: '0%'
+    y: '0%',
+    rotate: 0
   },
   closed: {
-    y: '100%'
+    y: '100%',
+    rotate: 3
   }
 }
 
@@ -149,10 +151,12 @@ export const MORE_PROJECTS_VARIANTS = {
 
 export const OTHER_PROJECT_VARIANTS = {
   hidden: {
-    y: '100%'
+    y: '100%',
+    rotate: 3
   },
   show: {
-    y: '0%'
+    y: '0%',
+    rotate: 0
   }
 }
 
