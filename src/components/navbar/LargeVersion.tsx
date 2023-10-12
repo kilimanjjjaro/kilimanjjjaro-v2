@@ -50,10 +50,7 @@ export default function LargeVersion() {
               className='tracking-wide transition-colors duration-700 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
               href={`/#${section.slug}`}
               onClick={() =>
-                lenis.scrollTo(`#${section.slug}`, {
-                  duration: 2,
-                  offset: section.slug === 'featured-projects' ? -160 : 0
-                })
+                lenis.scrollTo(`#${section.slug}`, { duration: 2 })
               }
             >
               {section.name}

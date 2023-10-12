@@ -12,7 +12,7 @@ export default async function FeaturedProjects() {
   return (
     <section
       id='featured-projects'
-      className='grid items-start justify-center grid-cols-2 gap-40 px-40 pb-40 gap-y-0 gap-x-56'
+      className='grid items-start justify-center grid-cols-2 gap-40 px-40 pb-40 pt-36 gap-y-0 gap-x-56'
     >
       {featuredProjects.map((project) => (
         <FeaturedProject

@@ -46,10 +46,7 @@ export default function Footer() {
                 className='text-3xl text-kili-white before:bg-kili-white after:bg-kili-white'
                 href={`/#${section.slug}`}
                 onClick={() =>
-                  lenis.scrollTo(`#${section.slug}`, {
-                    duration: 2,
-                    offset: section.slug === 'featured-projects' ? -160 : 0
-                  })
+                  lenis.scrollTo(`#${section.slug}`, { duration: 2 })
                 }
                 underlined
               >
