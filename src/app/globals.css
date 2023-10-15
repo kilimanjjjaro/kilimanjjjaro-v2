@@ -67,3 +67,16 @@ input:-webkit-autofill:focus {
   height: 100vh;
   height: 100dvh;
 }
+
+/* SKILLS CAROUSEL */
+
+.skills-carousel .swiper {
+  overflow: visible !important;
+}
+
+.skills-carousel .swiper-slide {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: auto !important;
+}
