@@ -5,7 +5,7 @@ import CookiesConsent from '@/components/CookiesConsent'
 import FormModal from '@/components/contact-form/FormModal'
 import ScrollPercentage from '@/components/ScrollPercentage'
 import Navigation from '@/components/navbar/Navigation'
-import NavBar from '@/components/navbar/NavBar'
+import Navbar from '@/components/navbar/Navbar'
 import CustomCursor from '@/components/CustomCursor'
 import MessageForDevs from '@/components/MessageForDevs'
 import {
@@ -91,7 +91,7 @@ export default async function RootLayout({
           <CookiesConsent />
           <ScrollPercentage />
           <Navigation />
-          <NavBar />
+          <Navbar />
           <FormModal />
         </Providers>
         <CustomCursor />

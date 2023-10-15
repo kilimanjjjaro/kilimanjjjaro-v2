@@ -1,54 +1,18 @@
-export const LOGO_VARIANTS = {
-  open: {
-    rotate: 360,
-    transition: {
-      duration: 1,
-      ease: [0.85, 0.01, 0.4, 1]
-    }
-  },
-  closed: {
-    rotate: 0,
-    transition: {
-      duration: 1,
-      delay: 0.5,
-      ease: [0.85, 0.01, 0.4, 1]
-    }
-  }
-}
-
-export const NAVBAR_BUTTON_VARIANTS = {
-  animate: {
-    y: ['0%', '-105%', '-105%', '105%', '105%', '0%'],
-    opacity: [1, 1, 0, 0, 1, 1],
-    transition: {
-      duration: 1,
-      ease: [0.85, 0.01, 0.4, 1],
-      times: [0, 0.2, 0.4, 0.6, 0.8, 1]
-    }
-  },
-  initial: {
-    y: 0,
-    opacity: 1
-  }
-}
-
 export const NAVBAR_VARIANTS = {
   open: {
     y: '0%',
     transition: {
-      duration: 1.7,
+      duration: 2,
       ease: [0.77, 0, 0.18, 1],
-      staggerChildren: 0.2,
+      staggerChildren: 0.1,
       staggerDirection: -1
     }
   },
   closed: {
     y: '100%',
     transition: {
-      duration: 1.7,
-      ease: [0.77, 0, 0.18, 1],
-      staggerChildren: 0.2,
-      staggerDirection: -1
+      duration: 2,
+      ease: [0.77, 0, 0.18, 1]
     }
   }
 }
@@ -58,7 +22,7 @@ export const NAVBAR_LI_VARIANTS = {
     y: '0%',
     rotate: 0,
     transition: {
-      duration: 1.3,
+      duration: 1.8,
       ease: [0.77, 0, 0.18, 1]
     }
   },
@@ -66,7 +30,7 @@ export const NAVBAR_LI_VARIANTS = {
     y: '130%',
     rotate: 4,
     transition: {
-      duration: 1.3,
+      duration: 1.8,
       ease: [0.77, 0, 0.18, 1]
     }
   }
@@ -140,7 +104,7 @@ export const LANGUAGES_LI_VARIANTS = {
   }
 }
 
-export const MORE_PROJECTS_VARIANTS = {
+export const OTHER_PROJECTS_VARIANTS = {
   hidden: {
     opacity: 0
   },

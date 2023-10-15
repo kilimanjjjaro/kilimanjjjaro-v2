@@ -3,10 +3,10 @@ import type { Swiper } from 'swiper'
 import type { StackInterface } from '@/lib/interfaces/general'
 
 export interface StoreInterface {
-  navBarStatus: boolean
-  setNavBarStatus: (navBarStatus: boolean) => void
-  navBarVersion: number
-  setNavBarVersion: (navBarVersion: number) => void
+  navbarStatus: boolean
+  setNavbarStatus: (navbarStatus: boolean) => void
+  navbarVersion: number
+  setNavbarVersion: (navbarVersion: number) => void
   stacks: StackInterface[]
   selectedStack: StackInterface
   setSelectedStack: (selectedStack: StackInterface) => void

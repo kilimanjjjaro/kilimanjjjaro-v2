@@ -6,7 +6,7 @@ import Approach from '@/components/knowledge/Approach'
 import Clients from '@/components/knowledge/Clients'
 import Experience from '@/components/knowledge/Experience'
 import Education from '@/components/knowledge/Education'
-import { MORE_PROJECTS_VARIANTS } from '@/lib/constants/variants'
+import { OTHER_PROJECTS_VARIANTS } from '@/lib/constants/variants'
 import { useScopedI18n } from '@/lib/i18n/client'
 import { useRef } from 'react'
 
@@ -22,7 +22,7 @@ export default function Knowledge() {
       </ParallaxHeadline>
       <section ref={sectionEl} className='px-40 pt-32'>
         <motion.div
-          variants={MORE_PROJECTS_VARIANTS}
+          variants={OTHER_PROJECTS_VARIANTS}
           initial='hidden'
           animate={isInView ? 'show' : 'hidden'}
           transition={{ duration: 0, staggerChildren: 0.3 }}

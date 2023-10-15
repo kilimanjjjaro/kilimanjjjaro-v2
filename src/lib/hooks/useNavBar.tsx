@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-export default function useNavBar() {
+export default function useNavbar() {
   const [isVisible, setIsVisible] = useState(true)
   const [version, setVersion] = useState(1)
   const prevScrollPos = useRef(0)

@@ -12,11 +12,11 @@ import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/lib/constants/variants'
 export default function Navigation() {
   const t = useScopedI18n('footer')
   const currentLocale = useCurrentLocale()
-  const { navBarStatus, setNavBarStatus, setCursorStatus, setShowContactForm } =
+  const { navbarStatus, setNavbarStatus, setCursorStatus, setShowContactForm } =
     useStore()
 
   const openContactModal = () => {
-    setNavBarStatus(false)
+    setNavbarStatus(false)
     setShowContactForm(true)
   }
 
@@ -27,19 +27,19 @@ export default function Navigation() {
   useEffect(() => {
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        setNavBarStatus(false)
+        setNavbarStatus(false)
       }
     })
-  }, [setNavBarStatus])
+  }, [setNavbarStatus])
 
   return (
     <AnimatePresence>
-      {navBarStatus && (
+      {navbarStatus && (
         <motion.nav
           className='fixed inset-0 z-40 flex items-end justify-between p-8 bg-kili-dark-gray'
           variants={NAVBAR_VARIANTS}
           initial='closed'
-          animate={navBarStatus ? 'open' : 'closed'}
+          animate={navbarStatus ? 'open' : 'closed'}
           exit='closed'
         >
           <ul className='flex flex-col gap-4'>
@@ -52,7 +52,7 @@ export default function Navigation() {
                   onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
                 >
                   <TextLink
-                    onClick={() => setNavBarStatus(false)}
+                    onClick={() => setNavbarStatus(false)}
                     href={`/#${section.slug}`}
                   >
                     <span className='block py-1 xl:group-hover:animate-translate-y'>
@@ -85,7 +85,7 @@ export default function Navigation() {
                 onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
                 initial={{ y: '110%', rotate: 4 }}
                 animate={
-                  navBarStatus
+                  navbarStatus
                     ? { y: '0%', rotate: 0 }
                     : { y: '110%', rotate: 4 }
                 }
@@ -107,7 +107,7 @@ export default function Navigation() {
                 onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
                 initial={{ y: '110%', rotate: 4 }}
                 animate={
-                  navBarStatus
+                  navbarStatus
                     ? { y: '0%', rotate: 0 }
                     : { y: '110%', rotate: 4 }
                 }

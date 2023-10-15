@@ -6,7 +6,7 @@ import { useStore } from '@/lib/store/store'
 import type { ChildrenType } from '@/lib/interfaces/general'
 
 export default function SmoothScroll({ children }: { children: ChildrenType }) {
-  const { navBarStatus, introRunning } = useStore()
+  const { navbarStatus, introRunning } = useStore()
   const lenis = useLenis()
 
   useEffect(() => {
@@ -16,12 +16,12 @@ export default function SmoothScroll({ children }: { children: ChildrenType }) {
 
     const headerIsVisible = headerEl.getBoundingClientRect().top === 0
 
-    if (navBarStatus || (headerIsVisible && introRunning)) {
+    if (navbarStatus || (headerIsVisible && introRunning)) {
       lenis?.stop()
     } else {
       lenis?.start()
     }
-  }, [lenis, navBarStatus, introRunning])
+  }, [lenis, navbarStatus, introRunning])
 
   return (
     <ReactLenis root options={{ lerp: 1, duration: 1.8 }}>

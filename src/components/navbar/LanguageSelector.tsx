@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import TextButton from '@/components/shared/TextButton'
 import { useStore } from '@/lib/store/store'
-import useNavBar from '@/lib/hooks/useNavBar'
+import useNavbar from '@/lib/hooks/useNavbar'
 import { useChangeLocale, useCurrentLocale } from '@/lib/i18n/client'
 import {
   LANGUAGES_LI_VARIANTS,
@@ -13,7 +13,7 @@ import type { LanguageInterface } from '@/lib/interfaces/general'
 
 export default function LanguageSelector() {
   const currentLocale = useCurrentLocale()
-  const { setCursorStatus, setNavBarStatus } = useStore()
+  const { setCursorStatus, setNavbarStatus } = useStore()
   const languages = useMemo(() => {
     return currentLocale === LOCALES.en ? LANGUAGES.en : LANGUAGES.es
   }, [currentLocale])
@@ -21,11 +21,11 @@ export default function LanguageSelector() {
     currentLocale === LOCALES.en ? languages[0] : languages[1]
   )
   const [showSelector, setShowSelector] = useState(false)
-  const { isVisible } = useNavBar()
+  const { isVisible } = useNavbar()
   const changeLocale = useChangeLocale()
 
   const handleClick = ({ language }: { language: LanguageInterface }) => {
-    setNavBarStatus(false)
+    setNavbarStatus(false)
     setSelectedLanguage(language)
     setShowSelector(false)
     // @ts-expect-error

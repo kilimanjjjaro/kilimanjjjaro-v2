@@ -7,11 +7,12 @@ import {
 } from '@/lib/constants/variants'
 
 export default function NavbarButton() {
-  const { setNavBarStatus, navBarStatus, setCursorStatus } = useStore()
+  const { setNavbarStatus, navbarStatus, setCursorStatus } = useStore()
+
   return (
     <button
       className='flex flex-col gap-2 cursor-pointer group'
-      onClick={() => setNavBarStatus(!navBarStatus)}
+      onClick={() => setNavbarStatus(!navbarStatus)}
       onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
       onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
       aria-label='Toggle navigation menu'
@@ -19,7 +20,7 @@ export default function NavbarButton() {
       <motion.div
         className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
         variants={NAVBAR_BUTTON_ONE_VARIANTS}
-        animate={navBarStatus ? 'open' : 'closed'}
+        animate={navbarStatus ? 'open' : 'closed'}
         transition={{
           duration: 1,
           ease: 'easeInOut'
@@ -28,7 +29,7 @@ export default function NavbarButton() {
       <motion.div
         className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
         variants={NAVBAR_BUTTON_TWO_VARIANTS}
-        animate={navBarStatus ? 'open' : 'closed'}
+        animate={navbarStatus ? 'open' : 'closed'}
         transition={{
           duration: 1,
           ease: 'easeInOut'

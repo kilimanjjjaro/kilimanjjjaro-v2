@@ -5,10 +5,10 @@ import type { StoreInterface } from '@/lib/interfaces/store'
 const updatedStacks = updateStacks()
 
 export const useStore = create<StoreInterface>((set) => ({
-  navBarStatus: false,
-  setNavBarStatus: (navBarStatus) => set(() => ({ navBarStatus })),
-  navBarVersion: 0,
-  setNavBarVersion: (navBarVersion) => set(() => ({ navBarVersion })),
+  navbarStatus: false,
+  setNavbarStatus: (navbarStatus) => set(() => ({ navbarStatus })),
+  navbarVersion: 0,
+  setNavbarVersion: (navbarVersion) => set(() => ({ navbarVersion })),
   stacks: updatedStacks,
   selectedStack: updatedStacks[0],
   setSelectedStack: (selectedStack) => set(() => ({ selectedStack })),

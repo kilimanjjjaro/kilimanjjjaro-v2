@@ -9,13 +9,13 @@ import LargeVersion from '@/components/navbar/LargeVersion'
 import SmallVersion from '@/components/navbar/SmallVersion'
 import NavbarButton from '@/components/navbar/NavbarButton'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
-import useNavBar from '@/lib/hooks/useNavBar'
+import useNavbar from '@/lib/hooks/useNavbar'
 import { useStore } from '@/lib/store/store'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 
-export default function NavBar() {
+export default function Navbar() {
   const { setCursorStatus } = useStore()
-  const { version, isVisible } = useNavBar()
+  const { version, isVisible } = useNavbar()
   const { isDesktop } = useMediaQuery()
   const lenis = useLenis()
   const pathname = usePathname()

@@ -6,7 +6,7 @@ import OtherProject from '@/components/projects/OtherProject'
 import { PlusIcon } from '@/components/icons/PlusIcon'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
 import { useStore } from '@/lib/store/store'
-import { MORE_PROJECTS_VARIANTS } from '@/lib/constants/variants'
+import { OTHER_PROJECTS_VARIANTS } from '@/lib/constants/variants'
 import { MORE_PROJECTS } from '@/lib/constants/projects'
 import { CURSOR_STATUS, LOCALES } from '@/lib/constants/general'
 
@@ -85,7 +85,7 @@ export default function MoreProjects() {
       </h3>
       <motion.section
         className='mt-10'
-        variants={MORE_PROJECTS_VARIANTS}
+        variants={OTHER_PROJECTS_VARIANTS}
         initial='hidden'
         animate={isInView ? 'show' : 'hidden'}
         transition={{ duration: 0, staggerChildren: 0.3 }}

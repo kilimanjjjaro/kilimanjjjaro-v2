@@ -22,8 +22,8 @@ export default function LessButBetter() {
     damping: 400
   })
 
-  const videoScale = useTransform(scaleX, [0.52, 0.85], [1, 0])
-  const headlineScale = useTransform(scaleX, [0.52, 0.85], [2, 0.3])
+  const videoScale = useTransform(scaleX, [0.52, 0.85], [1, -0.2])
+  const headlineScale = useTransform(scaleX, [0.52, 0.85], [2, 0])
 
   useEffect(() => {
     if (videoIsInView) {
