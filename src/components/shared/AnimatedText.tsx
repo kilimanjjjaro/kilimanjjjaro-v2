@@ -23,24 +23,19 @@ export default function AnimatedText({ text, className }: Props) {
 
   const changeTextRandomly = useCallback(() => {
     const originalLetters = originalText.split('')
-    let newText = ''
 
-    for (let i = 0; i < originalLetters.length; i++) {
-      const character = originalLetters[i]
+    const newText = originalLetters
+      .filter((character) => character !== ' ')
+      .map((_, index, arr) => {
+        const availableLetters = [...arr]
 
-      if (character !== ' ') {
-        const availableLetters = [...originalLetters]
+        availableLetters.splice(index, 1)
 
-        availableLetters.splice(i, 1)
-
-        const newLetter =
-          availableLetters[Math.floor(Math.random() * availableLetters.length)]
-
-        newText += newLetter
-      } else {
-        newText += ' '
-      }
-    }
+        return availableLetters[
+          Math.floor(Math.random() * availableLetters.length)
+        ]
+      })
+      .join('')
 
     setOriginalText(newText)
   }, [originalText])
