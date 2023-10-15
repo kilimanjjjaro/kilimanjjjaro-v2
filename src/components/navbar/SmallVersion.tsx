@@ -1,16 +1,8 @@
 import { motion } from 'framer-motion'
-import { useStore } from '@/lib/store/store'
-import { CURSOR_STATUS } from '@/lib/constants/general'
-
-import {
-  NAVBAR_BUTTON_ONE_VARIANTS,
-  NAVBAR_BUTTON_TWO_VARIANTS
-} from '@/lib/constants/variants'
 import LanguageSelector from '@/components/navbar/LanguageSelector'
+import NavbarButton from '@/components/navbar/NavbarButton'
 
 export default function SmallVersion() {
-  const { setCursorStatus, setNavBarStatus, navBarStatus } = useStore()
-
   return (
     <motion.nav
       className='absolute right-0'
@@ -37,32 +29,7 @@ export default function SmallVersion() {
           <LanguageSelector />
         </li>
         <li>
-          <button
-            className='flex flex-col gap-2 cursor-pointer group'
-            onClick={() => setNavBarStatus(!navBarStatus)}
-            onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-            onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
-            aria-label='Toggle navigation menu'
-          >
-            <motion.div
-              className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
-              variants={NAVBAR_BUTTON_ONE_VARIANTS}
-              animate={navBarStatus ? 'open' : 'closed'}
-              transition={{
-                duration: 1,
-                ease: 'easeInOut'
-              }}
-            />
-            <motion.div
-              className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
-              variants={NAVBAR_BUTTON_TWO_VARIANTS}
-              animate={navBarStatus ? 'open' : 'closed'}
-              transition={{
-                duration: 1,
-                ease: 'easeInOut'
-              }}
-            />
-          </button>
+          <NavbarButton />
         </li>
       </ul>
     </motion.nav>

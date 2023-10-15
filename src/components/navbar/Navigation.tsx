@@ -77,7 +77,7 @@ export default function Navigation() {
               </motion.span>
             </li>
           </ul>
-          <ul className='flex flex-col items-end gap-5 text-5xl text-kili-white'>
+          <ul className='flex flex-col items-end gap-5 text-5xl text-kili-light-gray'>
             <li className='overflow-hidden group'>
               <motion.a
                 href='#'

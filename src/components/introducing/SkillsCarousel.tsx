@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import * as Icons from '@/components/introducing/SkillIcons'
 import useSkillsCarousel from '@/lib/hooks/useSkillsCarousel'
 import useCursorPosition from '@/lib/hooks/useCursorPosition'
@@ -11,7 +12,6 @@ import { ArrowLongRightIcon } from '@/components/icons/ArrowLongRightIcon'
 import { ArrowLongLeftIcon } from '@/components/icons/ArrowLongLeftIcon'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 
-import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 
 export default function SkillsCarousel() {
@@ -35,7 +35,7 @@ export default function SkillsCarousel() {
   return (
     <div
       ref={sectionEl}
-      className='relative cursor-none'
+      className='relative cursor-none stacks'
       onMouseMove={(event) => handleMouseMove(event)}
       onMouseEnter={() => handleMouse(true)}
       onMouseLeave={() => handleMouse(false)}

@@ -2,9 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/*** SCROLLBAR ***/
+
 body {
   scrollbar-width: none;
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.contact-form::-webkit-scrollbar {
+  width: 16px;
+}
+
+.contact-form::-webkit-scrollbar-track {
+  background: #030303;
+}
+
+.contact-form::-webkit-scrollbar-thumb {
+  background-color: #7a7a7a;
+  border-radius: 20px;
+  border: 6px solid #030303;
+}
+
+/*** SMOOTH SCROLL ***/
 
 html.lenis {
   height: auto;
@@ -26,38 +48,7 @@ html.lenis {
   pointer-events: none;
 }
 
-body::-webkit-scrollbar {
-  display: none;
-}
-
-.contact-form-scrollbar::-webkit-scrollbar {
-  width: 16px;
-}
-
-.contact-form-scrollbar::-webkit-scrollbar-track {
-  background: #030303;
-}
-
-.contact-form-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #7a7a7a;
-  border-radius: 20px;
-  border: 6px solid #030303;
-}
-
-.fadeInSplittedText {
-  transform: translateY(130%) rotate(3deg);
-}
-
-.swiper {
-  overflow: visible !important;
-}
-
-.swiper-slide {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  width: auto !important;
-}
+/*** AUTOFILL STYLES ***/
 
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
@@ -65,16 +56,14 @@ input:-webkit-autofill:focus {
   -webkit-text-fill-color: #f8f8f8;
 }
 
-@layer utilities {
-  .min-h-screen-compatible {
-    min-height: 100vh;
-    min-height: 100dvh;
-  }
-  .h-screen-compatible {
-    height: 100vh;
-    height: 100dvh;
-  }
-  .text-balance {
-    text-wrap: balance;
-  }
+/*** MIN-HEIGHT SCREEN COMPATIBLE UNITS ***/
+
+.min-h-screen-compatible {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.h-screen-compatible {
+  height: 100vh;
+  height: 100dvh;
 }

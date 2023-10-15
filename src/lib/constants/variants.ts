@@ -75,7 +75,7 @@ export const NAVBAR_LI_VARIANTS = {
 export const NAVBAR_BUTTON_ONE_VARIANTS = {
   open: {
     rotate: 135,
-    translateY: 3
+    translateY: 5
   },
   closed: {
     rotate: 0,
@@ -86,7 +86,7 @@ export const NAVBAR_BUTTON_ONE_VARIANTS = {
 export const NAVBAR_BUTTON_TWO_VARIANTS = {
   open: {
     rotate: -135,
-    translateY: -7
+    translateY: -5
   },
   closed: {
     rotate: 0,

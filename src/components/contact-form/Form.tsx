@@ -145,7 +145,7 @@ export default function Form({ handleDrag }: Props) {
       </motion.header>
       <main
         data-lenis-prevent
-        className={`relative flex items-center justify-center p-9 h-[55dvh] overflow-y-auto ${firaMonoFont} contact-form-scrollbar overscroll-contain`}
+        className={`relative flex items-center justify-center p-9 h-[55dvh] overflow-y-auto ${firaMonoFont} contact-form overscroll-contain`}
       >
         {!renderFields && <CommandLine />}
         {renderFields && (

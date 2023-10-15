@@ -7,6 +7,8 @@ import { useLenis } from '@studio-freight/react-lenis'
 import clsx from 'clsx'
 import LargeVersion from '@/components/navbar/LargeVersion'
 import SmallVersion from '@/components/navbar/SmallVersion'
+import NavbarButton from '@/components/navbar/NavbarButton'
+import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import useNavBar from '@/lib/hooks/useNavBar'
 import { useStore } from '@/lib/store/store'
 import { CURSOR_STATUS } from '@/lib/constants/general'
@@ -14,6 +16,7 @@ import { CURSOR_STATUS } from '@/lib/constants/general'
 export default function NavBar() {
   const { setCursorStatus } = useStore()
   const { version, isVisible } = useNavBar()
+  const { isDesktop } = useMediaQuery()
   const lenis = useLenis()
   const pathname = usePathname()
 
@@ -28,7 +31,7 @@ export default function NavBar() {
   return (
     <motion.header
       className={clsx(
-        'fixed left-8 right-8 z-50 top-12 mix-blend-difference flex justify-between transition-transform duration-1000 ease-in-out',
+        'fixed left-6 right-6 md:left-8 md:right-8 z-50 top-10 items-center md:top-12 mix-blend-difference flex justify-between transition-transform duration-1000 ease-in-out',
         !isVisible && '-translate-y-16'
       )}
       initial={{
@@ -56,8 +59,33 @@ export default function NavBar() {
         <Link href='/'>Kilimanjjjaro</Link>
       </h1>
       <AnimatePresence>
-        {version === 1 && <LargeVersion key='large-nav' />}
-        {version === 2 && <SmallVersion key='small-nav' />}
+        {version === 1 && isDesktop && <LargeVersion key='large-nav' />}
+        {version === 2 && isDesktop && <SmallVersion key='small-nav' />}
+        {!isDesktop && (
+          <motion.div
+            key='nav-button'
+            className='absolute right-0'
+            initial={{
+              opacity: 0
+            }}
+            animate={{
+              opacity: 1
+            }}
+            exit={{
+              opacity: 0,
+              transition: {
+                duration: 1,
+                ease: 'easeInOut'
+              }
+            }}
+            transition={{
+              duration: 1,
+              ease: 'easeInOut'
+            }}
+          >
+            <NavbarButton />
+          </motion.div>
+        )}
       </AnimatePresence>
     </motion.header>
   )
