@@ -16,10 +16,10 @@ export default async function Home({
     <main>
       <Header />
       <FeaturedProjects />
-      <Introducing />
+      {/* <Introducing />
       <LessButBetter />
       <MoreProjects />
-      <Knowledge />
+      <Knowledge /> */}
     </main>
   )
 }
