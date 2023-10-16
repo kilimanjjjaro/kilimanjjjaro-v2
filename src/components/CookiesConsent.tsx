@@ -42,7 +42,7 @@ export default function CookiesConsent() {
       {showCookiesConsent && (
         <motion.div
           role='alert'
-          className='fixed flex-col left-8 bg-[#030303]/95 backdrop-blur-md z-10 w-auto max-w-[256px] overflow-hidden rounded-md bottom-8'
+          className='fixed flex-col bottom-6 left-6 xl:bottom-8 xl:left-8 bg-[#030303]/95 backdrop-blur-md z-10 w-auto max-w-[256px] overflow-hidden rounded-md'
           initial={{ y: 265 }}
           animate={showCookiesConsent && { y: 0 }}
           exit={{ y: 265, transition: { duration: 1, ease: 'easeInOut' } }}
@@ -61,7 +61,9 @@ export default function CookiesConsent() {
               onMouseLeave={() => setShowCloseWarning(false)}
             />
           </header>
-          <main className={`p-4 flex flex-col text-sm ${firaMonoFont}`}>
+          <main
+            className={`p-4 flex flex-col text-xs md:text-sm ${firaMonoFont}`}
+          >
             <h3 className='flex items-center gap-2 mb-2 text-kili-white'>
               {t('headline')}
               <Image
@@ -74,10 +76,10 @@ export default function CookiesConsent() {
             <p className='mb-3 text-kili-light-gray'>
               <Balancer>{t('description')}</Balancer>
             </p>
-            <div className='flex gap-4'>
+            <div className='flex gap-4 text-xs md:text-sm'>
               <TextButton
                 className={clsx(
-                  'w-full h-9 pt-[1px] rounded-md outline-none transition-colors duration-1000 ease-in-out appearance-none xl:hover:text-red-500 xl:hover:bg-red-500/10',
+                  'w-full h-8 xl:h-9 pt-[1px] rounded-md outline-none transition-colors duration-1000 ease-in-out appearance-none xl:hover:text-red-500 xl:hover:bg-red-500/10',
                   showCloseWarning
                     ? 'bg-red-500/10 text-red-500'
                     : 'bg-kili-white/0 text-kili-white'
@@ -91,7 +93,7 @@ export default function CookiesConsent() {
               </TextButton>
               <TextButton
                 className={clsx(
-                  'w-full h-9 pt-[1px] transition-colors duration-1000 ease-in-out rounded-md outline-none appearance-none text-kili-white xl:hover:text-green-500 xl:hover:bg-green-500/10 focus:bg-kili-white',
+                  'w-full h-8 xl:h-9 pt-[1px] transition-colors duration-1000 ease-in-out rounded-md outline-none appearance-none text-kili-white xl:hover:text-green-500 xl:hover:bg-green-500/10 focus:bg-kili-white',
                   showCloseWarning ? 'bg-kili-white/0' : 'bg-kili-white/5'
                 )}
                 onClick={handleAccept}

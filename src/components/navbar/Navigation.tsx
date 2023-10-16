@@ -7,7 +7,12 @@ import TextButton from '@/components/shared/TextButton'
 import TextLink from '@/components/shared/TextLink'
 import { useStore } from '@/lib/store/store'
 import { useCurrentLocale } from '@/lib/i18n/client'
-import { SECTIONS, CURSOR_STATUS, LOCALES } from '@/lib/constants/general'
+import {
+  SECTIONS,
+  CURSOR_STATUS,
+  LOCALES,
+  SOCIAL_LINKS
+} from '@/lib/constants/general'
 import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/lib/constants/variants'
 
 export default function Navigation() {
@@ -92,43 +97,32 @@ export default function Navigation() {
               </li>
             ))}
           </ul>
-          <ul className='absolute flex gap-5 bottom-6 xl:items-end xl:flex-col xl:static'>
-            <li className='overflow-hidden text-2xl transition-colors duration-1000 ease-in-out xl:text-5xl text-kili-light-gray xl:hover:text-kili-white'>
-              <motion.a
-                href='#'
-                onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-                onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
-                initial={{ y: '110%', rotate: 4 }}
-                animate={
-                  navbarStatus
-                    ? { y: '0%', rotate: 0 }
-                    : { y: '110%', rotate: 4 }
-                }
-                transition={{
-                  duration: 1.3,
-                  ease: [0.77, 0, 0.18, 1],
-                  delay: 0.2
-                }}
-              >
-                GitHub
-              </motion.a>
-            </li>
-            <li className='overflow-hidden text-2xl transition-colors duration-1000 ease-in-out xl:text-5xl text-kili-light-gray xl:hover:text-kili-white'>
-              <motion.a
-                href='#'
-                onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-                onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
-                initial={{ y: '110%', rotate: 4 }}
-                animate={
-                  navbarStatus
-                    ? { y: '0%', rotate: 0 }
-                    : { y: '110%', rotate: 4 }
-                }
-                transition={{ duration: 1.3, ease: [0.77, 0, 0.18, 1] }}
-              >
-                LinkedIn
-              </motion.a>
-            </li>
+          <ul className='absolute flex gap-5 bottom-8 xl:items-end xl:flex-col xl:static'>
+            {SOCIAL_LINKS.map((social) => (
+              <li key={social.name} className='overflow-hidden'>
+                <motion.a
+                  className='text-2xl transition-colors duration-1000 ease-in-out xl:text-5xl text-kili-light-gray xl:hover:text-kili-white'
+                  href={social.link}
+                  onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+                  onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  initial={{ y: '110%', rotate: 4 }}
+                  animate={
+                    navbarStatus
+                      ? { y: '0%', rotate: 0 }
+                      : { y: '110%', rotate: 4 }
+                  }
+                  transition={{
+                    duration: 1.3,
+                    ease: [0.77, 0, 0.18, 1],
+                    delay: 0.2
+                  }}
+                >
+                  {social.name}
+                </motion.a>
+              </li>
+            ))}
           </ul>
         </motion.nav>
       )}
