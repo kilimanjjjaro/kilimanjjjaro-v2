@@ -40,20 +40,22 @@ export default function Footer() {
     >
       <motion.div initial={{ y: 0 }} style={{ y }}>
         <ul className='flex justify-between mb-60'>
-          {sections.map((section) => (
-            <li key={section.slug}>
-              <TextLink
-                className='text-3xl text-kili-white before:bg-kili-white after:bg-kili-white'
-                href={`/#${section.slug}`}
-                onClick={() =>
-                  lenis.scrollTo(`#${section.slug}`, { duration: 2 })
-                }
-                underlined
-              >
-                {section.name}
-              </TextLink>
-            </li>
-          ))}
+          {sections
+            .filter((section) => section.slug !== 'lets-talk')
+            .map((section) => (
+              <li key={section.slug}>
+                <TextLink
+                  className='text-3xl text-kili-white before:bg-kili-white after:bg-kili-white'
+                  href={`/#${section.slug}`}
+                  onClick={() =>
+                    lenis.scrollTo(`#${section.slug}`, { duration: 2 })
+                  }
+                  underlined
+                >
+                  {section.name}
+                </TextLink>
+              </li>
+            ))}
         </ul>
         <div className='flex items-end justify-between'>
           <button

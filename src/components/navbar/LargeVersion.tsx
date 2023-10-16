@@ -5,10 +5,10 @@ import TextLink from '@/components/shared/TextLink'
 import TextButton from '@/components/shared/TextButton'
 import { useStore } from '@/lib/store/store'
 import { useCurrentLocale } from '@/lib/i18n/client'
-import { SECTIONS, CURSOR_STATUS, LOCALES } from '@/lib/constants/general'
+import { SECTIONS, LOCALES } from '@/lib/constants/general'
 
 export default function LargeVersion() {
-  const { setCursorStatus, setShowContactForm } = useStore()
+  const { setShowContactForm } = useStore()
   const lenis = useLenis()
   const currentLocale = useCurrentLocale()
 
@@ -43,31 +43,24 @@ export default function LargeVersion() {
         {sections.map((section) => (
           <li
             key={section.slug}
-            onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-            onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+            className='tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
           >
-            <TextLink
-              className='tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
-              href={`/#${section.slug}`}
-              onClick={() =>
-                lenis.scrollTo(`#${section.slug}`, { duration: 2 })
-              }
-            >
-              {section.name}
-            </TextLink>
+            {section.slug !== 'lets-talk' ? (
+              <TextLink
+                href={`/#${section.slug}`}
+                onClick={() =>
+                  lenis.scrollTo(`#${section.slug}`, { duration: 2 })
+                }
+              >
+                {section.name}
+              </TextLink>
+            ) : (
+              <TextButton onClick={() => setShowContactForm(true)}>
+                {letsTalkText}
+              </TextButton>
+            )}
           </li>
         ))}
-        <li
-          onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-          onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
-        >
-          <TextButton
-            className='tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
-            onClick={() => setShowContactForm(true)}
-          >
-            {letsTalkText}
-          </TextButton>
-        </li>
       </ul>
     </motion.nav>
   )

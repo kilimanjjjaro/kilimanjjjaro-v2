@@ -11,7 +11,7 @@ export default function NavbarButton() {
 
   return (
     <button
-      className='flex flex-col gap-2 cursor-pointer group'
+      className='flex flex-col gap-2 cursor-pointer group -mt-[1px]'
       onClick={() => setNavbarStatus(!navbarStatus)}
       onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
       onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}

@@ -6,12 +6,11 @@ import clsx from 'clsx'
 import TextButton from '@/components/shared/TextButton'
 import TextLink from '@/components/shared/TextLink'
 import { useStore } from '@/lib/store/store'
-import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
+import { useCurrentLocale } from '@/lib/i18n/client'
 import { SECTIONS, CURSOR_STATUS, LOCALES } from '@/lib/constants/general'
 import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/lib/constants/variants'
 
 export default function Navigation() {
-  const t = useScopedI18n('footer')
   const currentLocale = useCurrentLocale()
   const { navbarStatus, setNavbarStatus, setCursorStatus, setShowContactForm } =
     useStore()
@@ -49,18 +48,18 @@ export default function Navigation() {
     <AnimatePresence>
       {navbarStatus && (
         <motion.nav
-          className='fixed inset-0 z-40 flex items-end justify-between p-8 bg-kili-dark-gray'
+          className='fixed inset-0 z-40 flex items-center justify-center p-8 xl:items-end xl:justify-between bg-kili-dark-gray'
           variants={NAVBAR_VARIANTS}
           initial='closed'
           animate={navbarStatus ? 'open' : 'closed'}
           exit='closed'
         >
-          <ul className='relative flex flex-col items-start gap-4'>
+          <ul className='relative flex flex-col items-center gap-4 xl:items-start'>
             {sections.map((section) => (
               <li
                 key={section.slug}
                 className={clsx(
-                  'block text-kili-white text-9xl overflow-hidden transition-colors duration-1000 ease-in-out',
+                  'block text-kili-white text-[43px] leading-none text-center xl:text-left xl:text-9xl overflow-hidden transition-colors duration-1000 ease-in-out',
                   isHovering &&
                     hoveredSection !== section.slug &&
                     '!text-kili-light-gray'
@@ -86,15 +85,15 @@ export default function Navigation() {
                       className='block'
                       variants={NAVBAR_LI_VARIANTS}
                     >
-                      {t('letsTalk')}
+                      {section.name}
                     </motion.span>
                   </TextButton>
                 )}
               </li>
             ))}
           </ul>
-          <ul className='flex flex-col items-end gap-5'>
-            <li className='overflow-hidden text-5xl transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'>
+          <ul className='absolute flex gap-5 bottom-6 xl:items-end xl:flex-col xl:static'>
+            <li className='overflow-hidden text-2xl transition-colors duration-1000 ease-in-out xl:text-5xl text-kili-light-gray xl:hover:text-kili-white'>
               <motion.a
                 href='#'
                 onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
@@ -114,7 +113,7 @@ export default function Navigation() {
                 GitHub
               </motion.a>
             </li>
-            <li className='overflow-hidden text-5xl transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'>
+            <li className='overflow-hidden text-2xl transition-colors duration-1000 ease-in-out xl:text-5xl text-kili-light-gray xl:hover:text-kili-white'>
               <motion.a
                 href='#'
                 onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}

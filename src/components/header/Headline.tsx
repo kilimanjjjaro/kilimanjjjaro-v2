@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
 import { useStore } from '@/lib/store/store'
+import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import { LOCALES } from '@/lib/constants/general'
 
 export default function Headline() {
@@ -12,12 +13,33 @@ export default function Headline() {
   const { setIntroRunning } = useStore()
   const currentLocale = useCurrentLocale()
   const { scrollYProgress: scrollY } = useScroll()
+  const { isDesktop } = useMediaQuery()
 
-  const dashWidth = useTransform(scrollY, [0, 0.2], [140, 500])
-  const firstLineXEn = useTransform(scrollY, [0, 0.2], [-300, 0])
-  const firstLineXEs = useTransform(scrollY, [0, 0.2], [-120, 100])
-  const middleLineXEs = useTransform(scrollY, [0, 0.2], [139, 400])
-  const thirdLineX = useTransform(scrollY, [0, 0.2], [-20, -300])
+  const dashWidth = useTransform(
+    scrollY,
+    [0, isDesktop ? 0.2 : 0.3],
+    [isDesktop ? 140 : 35, isDesktop ? 500 : 35]
+  )
+  const firstLineXEn = useTransform(
+    scrollY,
+    [0, isDesktop ? 0.2 : 0.3],
+    [isDesktop ? -300 : 0, isDesktop ? 0 : 100]
+  )
+  const firstLineXEs = useTransform(
+    scrollY,
+    [0, isDesktop ? 0.2 : 0.3],
+    [isDesktop ? -120 : 0, 100]
+  )
+  const middleLineXEs = useTransform(
+    scrollY,
+    [0, isDesktop ? 0.2 : 0.3],
+    [isDesktop ? 139 : 0, 400]
+  )
+  const thirdLineX = useTransform(
+    scrollY,
+    [0, isDesktop ? 0.2 : 0.3],
+    [isDesktop ? -20 : 0, isDesktop ? -300 : -100]
+  )
 
   return (
     <motion.div
@@ -34,7 +56,7 @@ export default function Headline() {
       }}
       onAnimationStart={() => setIntroRunning(true)}
     >
-      <h2 className='text-[200px] flex items-center flex-col leading-[1.03] text-kili-white'>
+      <h2 className='text-6xl xl:text-[200px] flex items-center flex-col leading-[1.03] text-kili-white'>
         <motion.span
           className='relative overflow-hidden'
           style={{
@@ -60,9 +82,14 @@ export default function Headline() {
           </motion.span>
         </motion.span>
         <motion.span
-          className='-my-4 overflow-hidden'
+          className='overflow-hidden xl:-my-4'
           style={{
-            x: LOCALES.en === currentLocale ? 120 : middleLineXEs
+            x:
+              LOCALES.en === currentLocale && isDesktop
+                ? 120
+                : LOCALES.en === currentLocale && !isDesktop
+                ? 0
+                : middleLineXEs
           }}
         >
           <motion.span
@@ -84,7 +111,7 @@ export default function Headline() {
             {t('headline.1')}{' '}
             {currentLocale === LOCALES.en && (
               <motion.span
-                className='h-[14px] mt-5 ml-2 bg-current'
+                className='h-[4.5px] xl:h-[14px] xl:mt-5 xl:ml-2 bg-current'
                 style={{ width: dashWidth }}
               />
             )}{' '}

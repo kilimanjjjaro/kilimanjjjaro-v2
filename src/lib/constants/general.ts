@@ -30,7 +30,7 @@ export const SECTIONS = {
     { slug: 'introducing-me', name: 'Introducing Me' },
     { slug: 'more-projects', name: 'More Projects' },
     { slug: 'knowledge', name: 'Knowledge' },
-    { slug: 'lets-talk', name: "Let's Talk" }
+    { slug: 'lets-talk', name: "Let's Talk!" }
   ],
   es: [
     { slug: 'featured-projects', name: 'Proyectos' },
