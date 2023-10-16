@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, useMemo } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import clsx from 'clsx'
 import TextButton from '@/components/shared/TextButton'
 import TextLink from '@/components/shared/TextLink'
 import { useStore } from '@/lib/store/store'
@@ -14,6 +15,8 @@ export default function Navigation() {
   const currentLocale = useCurrentLocale()
   const { navbarStatus, setNavbarStatus, setCursorStatus, setShowContactForm } =
     useStore()
+  const [hoveredSection, setHoveredSection] = useState('')
+  const [isHovering, setIsHovering] = useState(false)
 
   const openContactModal = () => {
     setNavbarStatus(false)
@@ -23,6 +26,16 @@ export default function Navigation() {
   const sections = useMemo(() => {
     return currentLocale === LOCALES.en ? SECTIONS.en : SECTIONS.es
   }, [currentLocale])
+
+  const handleMouseEnter = useCallback((slug: string) => {
+    setIsHovering(true)
+    setHoveredSection(slug)
+  }, [])
+
+  const handleMouseLeave = useCallback(() => {
+    setIsHovering(false)
+    setHoveredSection('')
+  }, [])
 
   useEffect(() => {
     window.addEventListener('keydown', (e) => {
@@ -44,34 +57,44 @@ export default function Navigation() {
         >
           <ul className='relative flex flex-col items-start gap-4'>
             {sections.map((section) => (
-              <li key={section.slug} className='overflow-hidden'>
-                <TextLink
-                  onClick={() => setNavbarStatus(false)}
-                  href={`/#${section.slug}`}
-                >
-                  <motion.span
-                    className='block text-kili-white text-9xl'
-                    variants={NAVBAR_LI_VARIANTS}
+              <li
+                key={section.slug}
+                className={clsx(
+                  'block text-kili-white text-9xl overflow-hidden transition-colors duration-1000 ease-in-out',
+                  isHovering &&
+                    hoveredSection !== section.slug &&
+                    '!text-kili-light-gray'
+                )}
+                onMouseEnter={() => handleMouseEnter(section.slug)}
+                onMouseLeave={handleMouseLeave}
+              >
+                {section.slug !== 'lets-talk' ? (
+                  <TextLink
+                    onClick={() => setNavbarStatus(false)}
+                    href={`/#${section.slug}`}
                   >
-                    {section.name}
-                  </motion.span>
-                </TextLink>
+                    <motion.span
+                      className='block'
+                      variants={NAVBAR_LI_VARIANTS}
+                    >
+                      {section.name}
+                    </motion.span>
+                  </TextLink>
+                ) : (
+                  <TextButton onClick={() => openContactModal()}>
+                    <motion.span
+                      className='block'
+                      variants={NAVBAR_LI_VARIANTS}
+                    >
+                      {t('letsTalk')}
+                    </motion.span>
+                  </TextButton>
+                )}
               </li>
             ))}
-            <li className='overflow-hidden peer-[.isHovered]:opacity-90'>
-              <TextButton onClick={() => openContactModal()}>
-                <motion.span
-                  className='block text-kili-white text-9xl'
-                  variants={NAVBAR_LI_VARIANTS}
-                >
-                  {t('letsTalk')}
-                </motion.span>
-              </TextButton>
-            </li>
-            {/* <div className='absolute inset-0 bg-kili-dark-gray opacity-0 transition-all duration-1000 ease-in-out pointer-events-none peer-[.isHovered]:opacity-90' /> */}
           </ul>
-          <ul className='flex flex-col items-end gap-5 text-5xl text-kili-light-gray'>
-            <li className='overflow-hidden group'>
+          <ul className='flex flex-col items-end gap-5'>
+            <li className='overflow-hidden text-5xl transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'>
               <motion.a
                 href='#'
                 onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
@@ -88,12 +111,10 @@ export default function Navigation() {
                   delay: 0.2
                 }}
               >
-                <span className='block transition-transform duration-1000 ease-in-out xl:group-hover:animate-translate-y'>
-                  GitHub
-                </span>
+                GitHub
               </motion.a>
             </li>
-            <li className='overflow-hidden group'>
+            <li className='overflow-hidden text-5xl transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'>
               <motion.a
                 href='#'
                 onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
@@ -106,9 +127,7 @@ export default function Navigation() {
                 }
                 transition={{ duration: 1.3, ease: [0.77, 0, 0.18, 1] }}
               >
-                <span className='block transition-transform duration-1000 ease-in-out xl:group-hover:animate-translate-y'>
-                  LinkedIn
-                </span>
+                LinkedIn
               </motion.a>
             </li>
           </ul>
