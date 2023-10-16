@@ -42,40 +42,33 @@ export default function Navigation() {
           animate={navbarStatus ? 'open' : 'closed'}
           exit='closed'
         >
-          <ul className='flex flex-col gap-4'>
+          <ul className='relative flex flex-col items-start gap-4'>
             {sections.map((section) => (
               <li key={section.slug} className='overflow-hidden'>
-                <motion.span
-                  className='block overflow-hidden text-[12vh] leading-none text-kili-white group'
-                  variants={NAVBAR_LI_VARIANTS}
-                  onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-                  onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+                <TextLink
+                  onClick={() => setNavbarStatus(false)}
+                  href={`/#${section.slug}`}
                 >
-                  <TextLink
-                    onClick={() => setNavbarStatus(false)}
-                    href={`/#${section.slug}`}
+                  <motion.span
+                    className='block text-kili-white text-9xl'
+                    variants={NAVBAR_LI_VARIANTS}
                   >
-                    <span className='block py-1 xl:group-hover:animate-translate-y'>
-                      {section.name}
-                    </span>
-                  </TextLink>
-                </motion.span>
+                    {section.name}
+                  </motion.span>
+                </TextLink>
               </li>
             ))}
-            <li className='overflow-hidden'>
-              <motion.span
-                className='block overflow-hidden text-[12vh] leading-none text-kili-white group'
-                variants={NAVBAR_LI_VARIANTS}
-                onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-                onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
-              >
-                <TextButton onClick={() => openContactModal()}>
-                  <span className='block py-1 xl:group-hover:animate-translate-y'>
-                    {t('letsTalk')}
-                  </span>
-                </TextButton>
-              </motion.span>
+            <li className='overflow-hidden peer-[.isHovered]:opacity-90'>
+              <TextButton onClick={() => openContactModal()}>
+                <motion.span
+                  className='block text-kili-white text-9xl'
+                  variants={NAVBAR_LI_VARIANTS}
+                >
+                  {t('letsTalk')}
+                </motion.span>
+              </TextButton>
             </li>
+            {/* <div className='absolute inset-0 bg-kili-dark-gray opacity-0 transition-all duration-1000 ease-in-out pointer-events-none peer-[.isHovered]:opacity-90' /> */}
           </ul>
           <ul className='flex flex-col items-end gap-5 text-5xl text-kili-light-gray'>
             <li className='overflow-hidden group'>
