@@ -54,7 +54,7 @@ export default function Navigation() {
     <AnimatePresence>
       {navbarStatus && (
         <motion.nav
-          className='fixed inset-0 z-40 flex flex-col justify-between px-6 pt-32 pb-8 xl:p-8 xl:justify-end bg-kili-dark-gray'
+          className='fixed inset-0 z-40 flex flex-col justify-end gap-24 px-6 pt-32 pb-8 xl:p-8 xl:justify-end xl:gap-0 bg-kili-dark-gray'
           variants={NAVBAR_VARIANTS}
           initial='closed'
           animate={navbarStatus ? 'open' : 'closed'}
