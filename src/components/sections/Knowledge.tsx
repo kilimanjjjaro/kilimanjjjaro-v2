@@ -1,6 +1,6 @@
 'use client'
 
-import ParallaxHeadline from '@/components/shared/ParallaxHeadline'
+import HeadlineMarquee from '@/components/shared/HeadlineMarquee'
 import { motion, useInView } from 'framer-motion'
 import Approach from '@/components/knowledge/Approach'
 import Clients from '@/components/knowledge/Clients'
@@ -17,9 +17,9 @@ export default function Knowledge() {
 
   return (
     <section id='knowledge' className='pt-32 pb-40 bg-kili-dark-gray'>
-      <ParallaxHeadline className='text-kili-white text-10xl' baseVelocity={-3}>
+      <HeadlineMarquee className='text-kili-white text-10xl' baseVelocity={-3}>
         {t('sectionTitle')}
-      </ParallaxHeadline>
+      </HeadlineMarquee>
       <section ref={sectionEl} className='px-40 pt-32'>
         <motion.div
           variants={OTHER_PROJECTS_VARIANTS}

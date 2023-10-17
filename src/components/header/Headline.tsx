@@ -56,7 +56,7 @@ export default function Headline() {
       }}
       onAnimationStart={() => setIntroRunning(true)}
     >
-      <h2 className='text-6xl xl:text-[200px] flex items-center flex-col leading-[1.03] text-kili-white'>
+      <h2 className='text-[54px] xl:text-[200px] flex items-center flex-col leading-[1.03] text-kili-white'>
         <motion.span
           className='relative overflow-hidden'
           style={{

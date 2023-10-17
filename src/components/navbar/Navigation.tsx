@@ -14,6 +14,7 @@ import {
   SOCIAL_LINKS
 } from '@/lib/constants/general'
 import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/lib/constants/variants'
+import Balancer from 'react-wrap-balancer'
 
 export default function Navigation() {
   const currentLocale = useCurrentLocale()
@@ -53,77 +54,82 @@ export default function Navigation() {
     <AnimatePresence>
       {navbarStatus && (
         <motion.nav
-          className='fixed inset-0 z-40 flex items-center justify-center p-8 xl:items-end xl:justify-between bg-kili-dark-gray'
+          className='fixed inset-0 z-40 flex flex-col justify-between px-6 pt-32 pb-8 xl:p-8 xl:justify-end bg-kili-dark-gray'
           variants={NAVBAR_VARIANTS}
           initial='closed'
           animate={navbarStatus ? 'open' : 'closed'}
           exit='closed'
         >
-          <ul className='relative flex flex-col items-center gap-4 xl:items-start'>
-            {sections.map((section) => (
-              <li
-                key={section.slug}
-                className={clsx(
-                  'block text-kili-white text-[43px] leading-none text-center xl:text-left xl:text-9xl overflow-hidden transition-colors duration-1000 ease-in-out',
-                  isHovering &&
-                    hoveredSection !== section.slug &&
-                    '!text-kili-light-gray'
-                )}
-                onMouseEnter={() => handleMouseEnter(section.slug)}
-                onMouseLeave={handleMouseLeave}
-              >
-                {section.slug !== 'lets-talk' ? (
-                  <TextLink
-                    onClick={() => setNavbarStatus(false)}
-                    href={`/#${section.slug}`}
-                  >
-                    <motion.span
-                      className='block'
-                      variants={NAVBAR_LI_VARIANTS}
-                    >
-                      {section.name}
-                    </motion.span>
-                  </TextLink>
-                ) : (
-                  <TextButton onClick={() => openContactModal()}>
-                    <motion.span
-                      className='block'
-                      variants={NAVBAR_LI_VARIANTS}
-                    >
-                      {section.name}
-                    </motion.span>
-                  </TextButton>
-                )}
-              </li>
-            ))}
-          </ul>
-          <ul className='absolute flex gap-5 bottom-8 xl:items-end xl:flex-col xl:static'>
-            {SOCIAL_LINKS.map((social) => (
-              <li key={social.name} className='overflow-hidden'>
-                <motion.a
-                  className='text-2xl transition-colors duration-1000 ease-in-out xl:text-5xl text-kili-light-gray xl:hover:text-kili-white'
-                  href={social.link}
-                  onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-                  onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  initial={{ y: '110%', rotate: 4 }}
-                  animate={
-                    navbarStatus
-                      ? { y: '0%', rotate: 0 }
-                      : { y: '110%', rotate: 4 }
-                  }
-                  transition={{
-                    duration: 1.3,
-                    ease: [0.77, 0, 0.18, 1],
-                    delay: 0.2
-                  }}
+          <h2 className='text-3xl xl:text-7xl text-kili-light-gray md:hidden'>
+            <Balancer>A creative studio focused on web experiences.</Balancer>
+          </h2>
+          <div className='flex flex-col justify-between gap-10 xl:items-end xl:flex-row'>
+            <ul className='relative flex flex-col items-start gap-4 xl:-mb-3'>
+              {sections.map((section) => (
+                <li
+                  key={section.slug}
+                  className={clsx(
+                    'block text-kili-white text-3xl leading-none xl:text-9xl overflow-hidden transition-colors duration-1000 ease-in-out',
+                    isHovering &&
+                      hoveredSection !== section.slug &&
+                      '!text-kili-light-gray'
+                  )}
+                  onMouseEnter={() => handleMouseEnter(section.slug)}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  {social.name}
-                </motion.a>
-              </li>
-            ))}
-          </ul>
+                  {section.slug !== 'lets-talk' ? (
+                    <TextLink
+                      onClick={() => setNavbarStatus(false)}
+                      href={`/#${section.slug}`}
+                    >
+                      <motion.span
+                        className='block'
+                        variants={NAVBAR_LI_VARIANTS}
+                      >
+                        {section.name}
+                      </motion.span>
+                    </TextLink>
+                  ) : (
+                    <TextButton onClick={() => openContactModal()}>
+                      <motion.span
+                        className='block'
+                        variants={NAVBAR_LI_VARIANTS}
+                      >
+                        {section.name}
+                      </motion.span>
+                    </TextButton>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <ul className='flex gap-6 xl:items-end xl:flex-col xl:static'>
+              {SOCIAL_LINKS.map((social) => (
+                <li key={social.name} className='overflow-hidden'>
+                  <motion.a
+                    className='text-xl transition-colors duration-1000 ease-in-out xl:text-6xl text-kili-light-gray xl:hover:text-kili-white'
+                    href={social.link}
+                    onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+                    onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    initial={{ y: '110%', rotate: 4 }}
+                    animate={
+                      navbarStatus
+                        ? { y: '0%', rotate: 0 }
+                        : { y: '110%', rotate: 4 }
+                    }
+                    transition={{
+                      duration: 1.3,
+                      ease: [0.77, 0, 0.18, 1],
+                      delay: 0.2
+                    }}
+                  >
+                    {social.name}
+                  </motion.a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </motion.nav>
       )}
     </AnimatePresence>

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Balancer from 'react-wrap-balancer'
-import ParallaxHeadline from '@/components/shared/ParallaxHeadline'
+import HeadlineMarquee from '@/components/shared/HeadlineMarquee'
 import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
 import { useScopedI18n } from '@/lib/i18n/client'
 import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
@@ -16,9 +16,9 @@ export default function Header({ project }: Props) {
 
   return (
     <header className='flex flex-col min-h-screen gap-y-36 pt-44 pb-36'>
-      <ParallaxHeadline className='text-kili-white text-10xl' baseVelocity={-3}>
+      <HeadlineMarquee className='text-kili-white text-10xl' baseVelocity={-3}>
         {project.name}
-      </ParallaxHeadline>
+      </HeadlineMarquee>
       <div className='flex flex-col items-start w-4/6 px-40 gap-y-36'>
         <p className='text-4xl leading-tight text-kili-white'>
           <Balancer>{project.headerDescription}</Balancer>

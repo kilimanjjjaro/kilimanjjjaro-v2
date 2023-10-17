@@ -19,7 +19,7 @@ interface Props {
   className: string
 }
 
-export default function ParallaxHeadline({
+export default function HeadlineMarquee({
   children,
   baseVelocity = 100,
   className
@@ -53,7 +53,7 @@ export default function ParallaxHeadline({
   })
 
   return (
-    <div className='flex overflow-hidden whitespace-nowrap flex-nowrap'>
+    <div className='flex w-full overflow-hidden whitespace-nowrap flex-nowrap'>
       <motion.h2
         className={clsx(
           'flex flex-nowrap whitespace-nowrap pb-[2px]',
@@ -61,11 +61,11 @@ export default function ParallaxHeadline({
         )}
         style={{ x }}
       >
-        <span className='mr-6'>{children} — </span>
-        <span className='mr-6'>{children} — </span>
-        <span className='mr-6'>{children} — </span>
-        <span className='mr-6'>{children} — </span>
-        <span className='mr-6'>{children} — </span>
+        <span className='mr-[6px] xl:mr-6'>{children} — </span>
+        <span className='mr-[6px] xl:mr-6'>{children} — </span>
+        <span className='mr-[6px] xl:mr-6'>{children} — </span>
+        <span className='mr-[6px] xl:mr-6'>{children} — </span>
+        <span className='mr-[6px] xl:mr-6'>{children} — </span>
       </motion.h2>
     </div>
   )

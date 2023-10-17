@@ -12,7 +12,7 @@ export default function LetsTalkButton({
 
   return (
     <TextButton
-      className='text-3xl text-kili-white before:bg-kili-white after:bg-kili-white'
+      className='order-2 text-2xl xl:text-3xl xl:order-1 text-kili-white before:bg-kili-white after:bg-kili-white'
       onClick={() => setShowContactForm(true)}
       underlined
     >
