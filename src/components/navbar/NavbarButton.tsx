@@ -18,7 +18,7 @@ export default function NavbarButton() {
       aria-label='Toggle navigation menu'
     >
       <motion.div
-        className='w-6 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
+        className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
         variants={NAVBAR_BUTTON_ONE_VARIANTS}
         animate={navbarStatus ? 'open' : 'closed'}
         transition={{
@@ -27,7 +27,7 @@ export default function NavbarButton() {
         }}
       />
       <motion.div
-        className='w-6 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
+        className='w-7 h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
         variants={NAVBAR_BUTTON_TWO_VARIANTS}
         animate={navbarStatus ? 'open' : 'closed'}
         transition={{
