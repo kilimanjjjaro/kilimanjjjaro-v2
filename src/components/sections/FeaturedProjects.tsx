@@ -1,26 +1,39 @@
-import clsx from 'clsx'
+'use client'
+
+import { Swiper, SwiperSlide } from 'swiper/react'
 import FeaturedProject from '@/components/projects/FeaturedProject'
-import { getCurrentLocale } from '@/lib/i18n/server'
+import { useCurrentLocale } from '@/lib/i18n/client'
 import { FEATURED_PROJECTS } from '@/lib/constants/projects'
 import { LOCALES } from '@/lib/constants/general'
 
-export default async function FeaturedProjects() {
-  const currentLocale = getCurrentLocale()
+export default function FeaturedProjects() {
+  const currentLocale = useCurrentLocale()
   const featuredProjects =
     currentLocale === LOCALES.en ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
 
   return (
-    <section
+    <Swiper
+      tag='section'
       id='featured-projects'
-      className='grid items-start justify-center gap-40 px-6 pt-6 xl:grid-cols-2 xl:px-40 xl:pb-40 xl:pt-36 gap-y-0 xl:gap-x-56'
+      className='featured-projects-carousel'
+      slidesPerView='auto'
+      spaceBetween={24}
+      speed={700}
+      centeredSlides
+      centeredSlidesBounds
+      breakpoints={{
+        1280: {
+          enabled: false,
+          slidesPerView: 2,
+          spaceBetween: 0
+        }
+      }}
     >
       {featuredProjects.map((project) => (
-        <FeaturedProject
-          className={clsx(project.id % 2 === 0 && 'xl:mt-56')}
-          key={project.id}
-          project={project}
-        />
+        <SwiperSlide key={project.id}>
+          <FeaturedProject project={project} />
+        </SwiperSlide>
       ))}
-    </section>
+    </Swiper>
   )
 }

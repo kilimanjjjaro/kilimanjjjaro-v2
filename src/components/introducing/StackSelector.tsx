@@ -29,7 +29,7 @@ export default function StackSelector() {
   }
 
   return (
-    <div className='flex gap-10 text-4xl text-kili-white'>
+    <div className='flex gap-10 pl-6 text-4xl xl:pl-40 text-kili-white'>
       <button
         onClick={() => setShowSelector(!showSelector)}
         onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}

@@ -15,7 +15,7 @@ export default async function Introducing() {
   const biography = t('biography', { yearsOld: YEARS_OLD })
 
   return (
-    <section id='introducing-me' className='pt-32 bg-kili-dark-gray'>
+    <section id='introducing-me' className='pt-20 xl:pt-32 bg-kili-dark-gray'>
       <HeadlineMarquee
         className='text-6xl text-kili-white xl:text-10xl'
         baseVelocity={-3}
@@ -32,7 +32,7 @@ export default async function Introducing() {
           </div>
         </div>
       </div>
-      <div className='flex flex-col px-6 pb-24 overflow-hidden xl:gap-20 xl:px-40'>
+      <div className='flex flex-col pb-24 overflow-hidden xl:gap-20'>
         <StackSelector />
         <SkillsCarousel />
       </div>
