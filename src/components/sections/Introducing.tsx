@@ -15,24 +15,27 @@ export default async function Introducing() {
   const biography = t('biography', { yearsOld: YEARS_OLD })
 
   return (
-    <section id='introducing-me' className='pt-20 xl:pt-32 bg-kili-dark-gray'>
+    <section
+      id='introducing-me'
+      className='pt-20 pb-24 xl:pt-32 xl:pb-24 bg-kili-dark-gray'
+    >
       <HeadlineMarquee
         className='text-6xl text-kili-white xl:text-10xl'
         baseVelocity={-3}
       >
         {t('sectionTitle')}
       </HeadlineMarquee>
-      <div className='flex flex-col items-center gap-6 px-6 pt-20 xl:py-32 xl:gap-0 xl:px-40'>
+      <div className='flex flex-col items-center px-6 pt-12 xl:py-32 xl:px-40'>
         <Portrait />
-        <div className='flex flex-col gap-6 xl:gap-0 mix-blend-difference'>
+        <div className='flex flex-col gap-6 mt-10 xl:mt-0 xl:gap-0 mix-blend-difference'>
           <Headline headline={headline} />
           <div className='grid items-end content-start xl:grid-cols-2 gap-6 xl:gap-[19vw] justify-items-start'>
-            <LetsTalkButton letsTalkButton={t('letsTalkButton')} />
+            <LetsTalkButton />
             <Biography biography={biography} />
           </div>
         </div>
       </div>
-      <div className='flex flex-col pb-24 overflow-hidden xl:gap-20'>
+      <div className='flex flex-col gap-8 overflow-hidden mt-14 xl:gap-20 xl:mt-0'>
         <StackSelector />
         <SkillsCarousel />
       </div>

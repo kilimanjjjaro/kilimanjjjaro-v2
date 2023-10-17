@@ -2,12 +2,10 @@
 
 import TextButton from '@/components/shared/TextButton'
 import { useStore } from '@/lib/store/store'
+import { useScopedI18n } from '@/lib/i18n/client'
 
-export default function LetsTalkButton({
-  letsTalkButton
-}: {
-  letsTalkButton: string
-}) {
+export default function LetsTalkButton() {
+  const t = useScopedI18n('home.introducing')
   const { setShowContactForm } = useStore()
 
   return (
@@ -16,7 +14,7 @@ export default function LetsTalkButton({
       onClick={() => setShowContactForm(true)}
       underlined
     >
-      {letsTalkButton}
+      {t('letsTalkButton')}
     </TextButton>
   )
 }

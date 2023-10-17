@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
-        '10xl': ['10rem', '1']
+        '10xl': ['10rem', '1'],
+        '11xl': ['12rem', '1.01']
       },
       colors: {
         'kili-black': '#090909',

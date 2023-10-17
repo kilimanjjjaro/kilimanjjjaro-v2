@@ -7,7 +7,7 @@ export default {
   },
   home: {
     header: {
-      headline: ['Experiencias', 'preparadas', ' ', ' ', 'para el futuro.']
+      headline: ['Experiencias', 'preparadas', 'para el futuro.']
     },
     introducing: {
       sectionTitle: 'Presentándome',
