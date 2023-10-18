@@ -17,9 +17,6 @@ module.exports = {
         'kili-dark-gray': '#0D0D0D',
         'kili-light-gray': '#7A7A7A'
       },
-      transitionTimingFunction: {
-        'kili-in': 'cubic-bezier(0.77, 0, 0.18, 1)'
-      },
       boxShadow: {
         lg: [
           '0 10px 16px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5)'
@@ -27,8 +24,7 @@ module.exports = {
       },
       animation: {
         'translate-y': 'translateY 1s ease-in-out',
-        typing: 'blink 1.2s step-start infinite',
-        'fade-in-cookies': 'fadeInCookies 1s 2s ease-in-out'
+        typing: 'blink 1.2s step-start infinite'
       },
       keyframes: {
         translateY: {
@@ -40,10 +36,6 @@ module.exports = {
         },
         blink: {
           '50%': { opacity: 0 }
-        },
-        fadeInCookies: {
-          '0%': { y: 256 },
-          '100%': { y: 0 }
         }
       }
     }

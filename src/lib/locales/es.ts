@@ -49,6 +49,9 @@ export default {
     letsTalk: '¡Hablemos!',
     goToTop: 'Ir arriba'
   },
+  navbar: {
+    description: ['Un estudio creativo enfocado ', 'en experiencias web.']
+  },
   contactForm: {
     fields: {
       name: 'Tu nombre',

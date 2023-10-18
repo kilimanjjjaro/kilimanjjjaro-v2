@@ -49,6 +49,9 @@ export default {
     letsTalk: 'Let’s talk!',
     goToTop: 'Go to top'
   },
+  navbar: {
+    description: ['A creative studio focused ', 'on web experiences.']
+  },
   contactForm: {
     fields: {
       name: 'Your name',
