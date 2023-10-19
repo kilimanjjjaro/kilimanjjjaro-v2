@@ -93,14 +93,13 @@ export default function FeaturedProject({ project, index }: Props) {
               opacity: 0
             }}
             animate={
-              projectIsInView && {
+              videoIsInView && {
                 opacity: 1
               }
             }
             transition={{
               duration: 2,
-              ease: 'easeInOut',
-              delay: 0.5
+              ease: 'easeInOut'
             }}
           >
             <video
