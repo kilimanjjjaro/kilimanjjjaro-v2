@@ -9,9 +9,9 @@ import { LOCALES } from '@/lib/constants/general'
 
 export default function Headline() {
   const t = useScopedI18n('home.header')
+  const currentLocale = useCurrentLocale()
   const headlineRef = useRef<HTMLHeadingElement>(null)
   const { setIntroRunning } = useStore()
-  const currentLocale = useCurrentLocale()
   const { scrollYProgress } = useScroll()
 
   const y = useTransform(scrollYProgress, [0, 0.25], ['0%', '117%'])

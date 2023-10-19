@@ -70,7 +70,7 @@ export default function FeaturedProject({ project, index }: Props) {
     >
       <article className='relative flex flex-col aspect-[18/25] group cursor-none'>
         <motion.div
-          className='top-0 left-0 p-5 flex items-center xl:absolute w-full h-full bg-center bg-[length:125%] xl:group-hover:bg-[length:112%] transition-all ease-in-out duration-1000'
+          className='top-0 left-0 p-5 flex items-center xl:absolute w-full h-full bg-center bg-[length:125%] xl:group-hover:bg-[length:112%] transition-[background-size] ease-in-out duration-1000'
           style={{
             backgroundImage: `url('${project.presentation.background}')`
           }}
@@ -85,7 +85,7 @@ export default function FeaturedProject({ project, index }: Props) {
           transition={{
             duration: 3,
             ease: [0.17, 0.84, 0.44, 1],
-            delay: shouldDelay ? project.id * 1.3 : 0
+            delay: shouldDelay ? project.id * 1.1 : 0
           }}
         >
           <motion.div
