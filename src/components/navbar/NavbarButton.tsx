@@ -25,14 +25,14 @@ export default function NavbarButton() {
               exit={{
                 width: '0%',
                 transition: {
-                  duration: 0.8,
+                  duration: 1,
                   ease: 'easeInOut'
                 }
               }}
               transition={{
-                duration: 0.8,
+                duration: 1,
                 ease: 'easeInOut',
-                delay: 0.8
+                delay: 1
               }}
             />
             <motion.span
@@ -42,14 +42,14 @@ export default function NavbarButton() {
               exit={{
                 width: '0%',
                 transition: {
-                  duration: 0.8,
+                  duration: 1,
                   ease: 'easeInOut'
                 }
               }}
               transition={{
-                duration: 0.8,
+                duration: 1,
                 ease: 'easeInOut',
-                delay: 0.9
+                delay: 1
               }}
             />
           </div>
@@ -59,38 +59,38 @@ export default function NavbarButton() {
             key='open-button'
           >
             <motion.span
-              className='block h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
-              initial={{ width: '0%' }}
-              animate={{ width: '100%' }}
+              className='block w-full h-[2px] bg-kili-light-gray origin-right transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
+              initial={{ scaleX: '0%' }}
+              animate={{ scaleX: '100%' }}
               exit={{
-                width: '0%',
+                scaleX: '0%',
                 transition: {
-                  duration: 0.8,
+                  duration: 1,
                   ease: 'easeInOut'
                 }
               }}
               transition={{
-                duration: 0.8,
+                duration: 1,
                 ease: 'easeInOut',
-                delay: 0.8
+                delay: 1
               }}
             />
             <motion.span
-              className='block h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
-              initial={{ width: '0%' }}
-              animate={{ width: '100%' }}
+              className='block w-full h-[2px] bg-kili-light-gray origin-right transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
+              initial={{ scaleX: '0%' }}
+              animate={{ scaleX: '100%' }}
               exit={{
-                width: '0%',
+                scaleX: '0%',
                 transition: {
-                  duration: 0.8,
+                  duration: 1,
                   ease: 'easeInOut',
-                  delay: 0.1
+                  delay: 0.2
                 }
               }}
               transition={{
-                duration: 0.8,
+                duration: 1,
                 ease: 'easeInOut',
-                delay: 0.9
+                delay: 1.2
               }}
             />
           </div>
