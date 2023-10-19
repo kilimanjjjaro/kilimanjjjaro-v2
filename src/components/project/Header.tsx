@@ -2,9 +2,10 @@
 
 import Balancer from 'react-wrap-balancer'
 import HeadlineMarquee from '@/components/shared/HeadlineMarquee'
-import TextLink from '@/components/shared/TextLink'
 import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
+import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
+import { CURSOR_STATUS, UNDERLINED_STYLES } from '@/lib/constants/general'
 import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
 
 interface Props {
@@ -13,6 +14,7 @@ interface Props {
 
 export default function Header({ project }: Props) {
   const t = useScopedI18n('project')
+  const { setCursorStatus } = useStore()
 
   return (
     <header className='flex flex-col min-h-screen gap-y-36 pt-44 pb-36'>
@@ -23,16 +25,17 @@ export default function Header({ project }: Props) {
         <p className='text-4xl leading-tight text-kili-white'>
           <Balancer>{project.headerDescription}</Balancer>
         </p>
-        <TextLink
-          className='flex items-center gap-3 text-4xl text-kili-white before:bg-kili-white after:bg-kili-white'
+        <a
+          className={`flex items-center gap-3 text-4xl text-kili-white before:bg-kili-white after:bg-kili-white ${UNDERLINED_STYLES}`}
           href={project.link}
           target='_blank'
           rel='noopener noreferrer'
-          underlined
+          onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+          onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
         >
           {t('visitButton')}
           <ArrowCornerIcon className='w-4 h-4' />
-        </TextLink>
+        </a>
       </div>
     </header>
   )

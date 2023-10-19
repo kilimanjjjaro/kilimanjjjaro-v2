@@ -14,7 +14,7 @@ interface Props {
   shouldFocus: boolean
 }
 
-export default function Button({ error, success, shouldFocus }: Props) {
+export default function SubmitButton({ error, success, shouldFocus }: Props) {
   const t = useScopedI18n('contactForm')
   const { setCursorStatus } = useStore()
   const { pending } = useFormStatus()

@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { useLenis } from '@studio-freight/react-lenis'
-import TextLink from '@/components/shared/TextLink'
-import TextButton from '@/components/shared/TextButton'
+import Link from '@/components/shared/Link'
+import Button from '@/components/shared/Button'
 import { useStore } from '@/lib/store/store'
 import { useCurrentLocale } from '@/lib/i18n/client'
 import { SECTIONS, LOCALES } from '@/lib/constants/general'
@@ -46,18 +46,18 @@ export default function LargeVersion() {
             className='tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
           >
             {section.slug !== 'lets-talk' ? (
-              <TextLink
+              <Link
                 href={`/#${section.slug}`}
                 onClick={() =>
                   lenis.scrollTo(`#${section.slug}`, { duration: 2 })
                 }
               >
                 {section.name}
-              </TextLink>
+              </Link>
             ) : (
-              <TextButton onClick={() => setShowContactForm(true)}>
+              <Button onClick={() => setShowContactForm(true)}>
                 {letsTalkText}
-              </TextButton>
+              </Button>
             )}
           </li>
         ))}

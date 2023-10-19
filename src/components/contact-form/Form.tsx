@@ -7,7 +7,8 @@ import { motion } from 'framer-motion'
 import CommandLine from '@/components/contact-form/CommandLine'
 import Fields from '@/components/contact-form/Fields'
 import Warning from '@/components/contact-form/Warning'
-import Button from '@/components/contact-form/Button'
+import SubmitButton from '@/components/contact-form/SubmitButton'
+import Button from '@/components/shared/Button'
 import { useStore } from '@/lib/store/store'
 import sendForm from '@/lib/actions/sendForm'
 import { firaMonoFont } from '@/lib/utils/fonts'
@@ -134,7 +135,7 @@ export default function Form({ handleDrag }: Props) {
         onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
         onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
       >
-        <button
+        <Button
           aria-label='Close contact form'
           onClick={(event) => handleCloseClick(event)}
           className='w-3 h-3 transition-colors duration-1000 bg-red-600 rounded-full xl:hover:bg-kili-white'
@@ -168,7 +169,11 @@ export default function Form({ handleDrag }: Props) {
         {showWarning && <Warning setShowWarning={setShowWarning} />}
       </main>
       {renderFields && (
-        <Button error={error} success={success} shouldFocus={step === 4} />
+        <SubmitButton
+          error={error}
+          success={success}
+          shouldFocus={step === 4}
+        />
       )}
     </motion.form>
   )

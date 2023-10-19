@@ -36,28 +36,6 @@ export const NAVBAR_LI_VARIANTS = {
   }
 }
 
-export const NAVBAR_BUTTON_ONE_VARIANTS = {
-  open: {
-    rotate: 135,
-    translateY: 5
-  },
-  closed: {
-    rotate: 0,
-    translateY: 0
-  }
-}
-
-export const NAVBAR_BUTTON_TWO_VARIANTS = {
-  open: {
-    rotate: -135,
-    translateY: -5
-  },
-  closed: {
-    rotate: 0,
-    translateY: 0
-  }
-}
-
 export const STACKS_UL_VARIANTS = {
   open: {
     opacity: 1,

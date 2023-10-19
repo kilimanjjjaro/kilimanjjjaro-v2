@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
-import TextButton from '@/components/shared/TextButton'
+import Button from '@/components/shared/Button'
 import { useStore } from '@/lib/store/store'
 import useNavbar from '@/lib/hooks/useNavbar'
 import { useChangeLocale, useCurrentLocale } from '@/lib/i18n/client'
@@ -40,12 +40,12 @@ export default function LanguageSelector() {
 
   return (
     <div className='relative flex justify-end'>
-      <TextButton
+      <Button
         className='leading-none tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
         onClick={() => setShowSelector(!showSelector)}
       >
         {selectedLanguage.name}
-      </TextButton>
+      </Button>
       <motion.ul
         className='absolute flex-col items-end hidden gap-3 mt-3 top-full'
         variants={LANGUAGES_UL_VARIANTS}

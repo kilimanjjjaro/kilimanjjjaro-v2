@@ -3,8 +3,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import clsx from 'clsx'
-import TextButton from '@/components/shared/TextButton'
-import TextLink from '@/components/shared/TextLink'
+import Button from '@/components/shared/Button'
+import Link from '@/components/shared/Link'
 import { useStore } from '@/lib/store/store'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
 import { SECTIONS, LOCALES, SOCIAL_LINKS } from '@/lib/constants/general'
@@ -81,7 +81,7 @@ export default function Navigation() {
                   onMouseLeave={handleMouseLeave}
                 >
                   {section.slug !== 'lets-talk' ? (
-                    <TextLink
+                    <Link
                       onClick={() => setNavbarStatus(false)}
                       href={`/#${section.slug}`}
                     >
@@ -91,16 +91,16 @@ export default function Navigation() {
                       >
                         {section.name}
                       </motion.span>
-                    </TextLink>
+                    </Link>
                   ) : (
-                    <TextButton onClick={() => openContactModal()}>
+                    <Button onClick={() => openContactModal()}>
                       <motion.span
                         className='block'
                         variants={NAVBAR_LI_VARIANTS}
                       >
                         {section.name}
                       </motion.span>
-                    </TextButton>
+                    </Button>
                   )}
                 </li>
               ))}
@@ -108,14 +108,14 @@ export default function Navigation() {
             <ul className='flex gap-6 xl:items-end xl:flex-col xl:static'>
               {SOCIAL_LINKS.map((social) => (
                 <li key={social.name}>
-                  <TextLink
+                  <a
                     className='text-xl leading-none transition-colors duration-1000 ease-in-out xl:text-6xl text-kili-light-gray xl:hover:text-kili-white'
                     href={social.link}
                     target='_blank'
                     rel='noopener noreferrer'
                   >
                     {social.name}
-                  </TextLink>
+                  </a>
                 </li>
               ))}
             </ul>

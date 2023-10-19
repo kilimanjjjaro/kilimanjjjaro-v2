@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Button from '@/components/shared/Button'
 import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
 import { useScopedI18n } from '@/lib/i18n/client'
 
@@ -16,7 +17,7 @@ export default function Warning({ setShowWarning }: Props) {
     >
       <motion.div className='absolute flex flex-col items-center w-64 overflow-hidden text-center rounded-md bg-kili-dark-gray'>
         <div className='flex items-center w-full px-3 py-2 bg-kili-light-gray/30'>
-          <button
+          <Button
             className='w-3 h-3 transition-colors duration-1000 bg-red-600 rounded-full text-kili-black xl:hover:bg-kili-white'
             onClick={() => setShowWarning(false)}
             aria-label='Close warning'

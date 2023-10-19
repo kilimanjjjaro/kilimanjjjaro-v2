@@ -93,7 +93,7 @@ export default function EmailToAdmin({ name, email, message }: Props) {
                   className='leading-5 underline text-kili-light-gray'
                   href='https://kilimanjjjaro.com'
                   target='_blank'
-                  rel='noreferrer'
+                  rel='noopener noreferrer'
                 >
                   kilimanjjjaro.com
                 </Link>

@@ -7,13 +7,16 @@ import Balancer from 'react-wrap-balancer'
 import { AnimatePresence, motion } from 'framer-motion'
 import clsx from 'clsx'
 import AnimatedText from '@/components/shared/AnimatedText'
+import Button from '@/components/shared/Button'
+import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
 import { firaMonoFont } from '@/lib/utils/fonts'
+import { CURSOR_STATUS } from '@/lib/constants/general'
 import cookieImage from '../../public/images/cookie.webp'
-import TextButton from './shared/TextButton'
 
 export default function CookiesConsent() {
   const t = useScopedI18n('cookiesConsent')
+  const { setCursorStatus } = useStore()
   const [showCookiesConsent, setShowCookiesConsent] = useState(false)
   const [showCloseWarning, setShowCloseWarning] = useState(false)
 
@@ -29,6 +32,16 @@ export default function CookiesConsent() {
     deleteCookie('Next-Locale')
 
     setShowCookiesConsent(false)
+  }
+
+  const handleMouseEnter = () => {
+    setShowCloseWarning(true)
+    setCursorStatus(CURSOR_STATUS.HOVER)
+  }
+
+  const handleMouseLeave = () => {
+    setShowCloseWarning(false)
+    setCursorStatus(CURSOR_STATUS.DEFAULT)
   }
 
   useEffect(() => {
@@ -57,8 +70,8 @@ export default function CookiesConsent() {
               aria-label='Close cookies consent'
               onClick={handleDecline}
               className='w-3 h-3 transition-colors duration-1000 bg-red-600 rounded-full xl:hover:bg-kili-white'
-              onMouseEnter={() => setShowCloseWarning(true)}
-              onMouseLeave={() => setShowCloseWarning(false)}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             />
           </header>
           <main
@@ -77,7 +90,7 @@ export default function CookiesConsent() {
               <Balancer>{t('description')}</Balancer>
             </p>
             <div className='flex gap-4 text-xs md:text-sm'>
-              <TextButton
+              <Button
                 className={clsx(
                   'w-full h-8 xl:h-9 pt-[1px] rounded-md outline-none transition-colors duration-1000 ease-in-out appearance-none xl:hover:text-red-500 xl:hover:bg-red-500/10',
                   showCloseWarning
@@ -90,8 +103,8 @@ export default function CookiesConsent() {
                   className='flex items-center justify-center w-full h-full text-center'
                   text={t('declineButton')}
                 />
-              </TextButton>
-              <TextButton
+              </Button>
+              <Button
                 className={clsx(
                   'w-full h-8 xl:h-9 pt-[1px] transition-colors duration-1000 ease-in-out rounded-md outline-none appearance-none text-kili-white xl:hover:text-green-500 xl:hover:bg-green-500/10 focus:bg-kili-white',
                   showCloseWarning ? 'bg-kili-white/0' : 'bg-kili-white/5'
@@ -102,7 +115,7 @@ export default function CookiesConsent() {
                   className='flex items-center justify-center w-full h-full text-center'
                   text={t('acceptButton')}
                 />
-              </TextButton>
+              </Button>
             </div>
           </main>
         </motion.div>
