@@ -1,6 +1,7 @@
 export const ReactIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='100'
       height='100'
@@ -17,6 +18,7 @@ export const ReactIcon = () => {
 export const AstroIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='71'
       height='100'
@@ -33,6 +35,7 @@ export const AstroIcon = () => {
 export const NextJsIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='273'
       height='100'
@@ -49,6 +52,7 @@ export const NextJsIcon = () => {
 export const SvelteIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='85'
       height='100'
@@ -65,6 +69,7 @@ export const SvelteIcon = () => {
 export const QwikIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='211'
       height='100'
@@ -81,6 +86,7 @@ export const QwikIcon = () => {
 export const VueIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='99'
       height='100'
@@ -97,6 +103,7 @@ export const VueIcon = () => {
 export const NuxtIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='127'
       height='100'
@@ -113,6 +120,7 @@ export const NuxtIcon = () => {
 export const TailwindCssIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='120'
       height='100'
@@ -129,6 +137,7 @@ export const TailwindCssIcon = () => {
 export const TypeScriptIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='104'
       height='100'
@@ -145,6 +154,7 @@ export const TypeScriptIcon = () => {
 export const JavaScriptIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='101'
       height='100'
@@ -161,6 +171,7 @@ export const JavaScriptIcon = () => {
 export const HtmlIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='86'
       height='100'
@@ -177,6 +188,7 @@ export const HtmlIcon = () => {
 export const CssIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='86'
       height='100'
@@ -193,6 +205,7 @@ export const CssIcon = () => {
 export const NodeJsIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='89'
       height='100'
@@ -209,6 +222,7 @@ export const NodeJsIcon = () => {
 export const ExpressIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='298'
       height='100'
@@ -225,6 +239,7 @@ export const ExpressIcon = () => {
 export const NestJsIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='105'
       height='100'
@@ -241,6 +256,7 @@ export const NestJsIcon = () => {
 export const FirebaseIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='290'
       height='100'
@@ -257,6 +273,7 @@ export const FirebaseIcon = () => {
 export const SupabaseIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='98'
       height='100'
@@ -295,6 +312,7 @@ export const SupabaseIcon = () => {
 export const MongoDbIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='323'
       height='100'
@@ -311,6 +329,7 @@ export const MongoDbIcon = () => {
 export const PlaywrightIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='140'
       height='100'
@@ -331,6 +350,7 @@ export const PlaywrightIcon = () => {
 export const FigmaIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='76'
       height='100'
@@ -347,6 +367,7 @@ export const FigmaIcon = () => {
 export const XdIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='102'
       height='100'
@@ -363,6 +384,7 @@ export const XdIcon = () => {
 export const WordPressIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='101'
       height='100'
@@ -379,6 +401,7 @@ export const WordPressIcon = () => {
 export const ElementorIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='101'
       height='100'
@@ -395,6 +418,7 @@ export const ElementorIcon = () => {
 export const IllustratorIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='102'
       height='100'
@@ -411,6 +435,7 @@ export const IllustratorIcon = () => {
 export const PhotoshopIcon = () => {
   return (
     <svg
+      className='w-auto h-20 xl:h-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='102'
       height='100'

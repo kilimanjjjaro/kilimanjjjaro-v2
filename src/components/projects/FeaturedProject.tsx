@@ -85,7 +85,7 @@ export default function FeaturedProject({ project, index }: Props) {
           transition={{
             duration: 3,
             ease: [0.17, 0.84, 0.44, 1],
-            delay: shouldDelay ? project.id * 1.5 : 0
+            delay: shouldDelay ? project.id * 1.3 : 0
           }}
         >
           <motion.div
