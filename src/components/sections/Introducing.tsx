@@ -21,7 +21,7 @@ export default async function Introducing() {
     >
       <HeadlineMarquee
         className='text-6xl text-kili-white xl:text-10xl'
-        baseVelocity={-3}
+        baseVelocity={-2}
       >
         {t('sectionTitle')}
       </HeadlineMarquee>
