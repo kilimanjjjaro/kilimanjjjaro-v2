@@ -105,6 +105,7 @@ export default function Form({ handleDrag }: Props) {
 
   return (
     <motion.form
+      aria-label='Contact form'
       ref={formRef}
       action={formAction}
       className='w-[700px] bg-[#030303] relative rounded-md shadow-lg overflow-hidden pointer-events-auto'

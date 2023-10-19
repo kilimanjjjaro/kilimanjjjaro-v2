@@ -11,11 +11,11 @@ import { CURSOR_STATUS } from '@/lib/constants/general'
 import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
 
 interface Props {
-  className?: string
   project: FeaturedProjectInterface
+  index: number
 }
 
-export default function FeaturedProject({ project }: Props) {
+export default function FeaturedProject({ project, index }: Props) {
   const { setCursorStatus } = useStore()
   const projectEl = useRef<HTMLAnchorElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -58,6 +58,8 @@ export default function FeaturedProject({ project }: Props) {
     }
   }, [videoIsInView, isDesktop])
 
+  const shouldDelay = index < 2 && !isDesktop
+
   return (
     <Link
       ref={projectEl}
@@ -83,7 +85,7 @@ export default function FeaturedProject({ project }: Props) {
           transition={{
             duration: 3,
             ease: [0.17, 0.84, 0.44, 1],
-            delay: !isDesktop ? 2 : 0
+            delay: shouldDelay ? project.id * 1.5 : 0
           }}
         >
           <motion.div
@@ -110,6 +112,7 @@ export default function FeaturedProject({ project }: Props) {
               muted
               autoPlay={!isDesktop}
               playsInline={!isDesktop}
+              disableRemotePlayback
             />
           </motion.div>{' '}
         </motion.div>

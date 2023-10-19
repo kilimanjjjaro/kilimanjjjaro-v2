@@ -33,6 +33,7 @@ export default function MoreProjects({
                 playsInline
                 loop
                 muted
+                disableRemotePlayback
               />
             </div>
           </Link>

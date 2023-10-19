@@ -32,6 +32,7 @@ export default function Video({ className, src, autoPlay }: Props) {
       playsInline
       loop
       muted
+      disableRemotePlayback
     />
   )
 }

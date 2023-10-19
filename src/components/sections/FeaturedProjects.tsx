@@ -29,9 +29,9 @@ export default function FeaturedProjects() {
         }
       }}
     >
-      {featuredProjects.map((project) => (
+      {featuredProjects.map((project, index) => (
         <SwiperSlide key={project.id}>
-          <FeaturedProject project={project} />
+          <FeaturedProject project={project} index={index} />
         </SwiperSlide>
       ))}
     </Swiper>
