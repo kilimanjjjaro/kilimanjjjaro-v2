@@ -45,6 +45,9 @@ export default function ScrollButton() {
               transition: {
                 duration: 2.5,
                 ease: 'easeOut'
+              },
+              transitionEnd: {
+                display: 'none'
               }
             }
           : {
