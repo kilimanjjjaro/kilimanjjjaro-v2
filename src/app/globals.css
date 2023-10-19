@@ -103,7 +103,7 @@ input:-webkit-autofill:focus {
 }
 
 .featured-projects-carousel .swiper-slide {
-  width: calc(100% - 48px) !important;
+  width: calc(100% - 52px) !important;
 
   @media screen and (min-width: 1280px) {
     width: auto !important;

@@ -5,7 +5,7 @@ import NavbarButton from '@/components/navbar/NavbarButton'
 export default function SmallVersion() {
   return (
     <motion.nav
-      className='absolute right-0'
+      className='absolute right-0 flex items-center gap-10'
       initial={{
         opacity: 0
       }}
@@ -24,14 +24,8 @@ export default function SmallVersion() {
         ease: 'easeInOut'
       }}
     >
-      <ul className='flex items-center gap-10 leading-none'>
-        <li>
-          <LanguageSelector />
-        </li>
-        <li>
-          <NavbarButton />
-        </li>
-      </ul>
+      <LanguageSelector />
+      <NavbarButton />
     </motion.nav>
   )
 }
