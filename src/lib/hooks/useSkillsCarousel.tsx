@@ -50,10 +50,10 @@ export default function useSkillsCarousel() {
     if (swiperInstance === null) return
 
     if (isNextArrow) {
-      swiperInstance.slideNext()
+      swiperInstance.slideNext(1000)
     }
     if (!isNextArrow) {
-      swiperInstance.slidePrev()
+      swiperInstance.slidePrev(1000)
     }
   }
 
@@ -61,7 +61,7 @@ export default function useSkillsCarousel() {
     if (swiperInstance === null) return
 
     if (shouldMoveToStart) {
-      swiperInstance.slideTo(selectedStack.startIndex)
+      swiperInstance.slideTo(selectedStack.startIndex, 1000)
     }
   }, [selectedStack, shouldMoveToStart, swiperInstance])
 
