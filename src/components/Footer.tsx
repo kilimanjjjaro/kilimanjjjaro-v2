@@ -37,16 +37,16 @@ export default function Footer() {
   return (
     <footer
       ref={footerEl}
-      className='px-40 py-20 overflow-hidden bg-kili-black'
+      className='px-6 pt-20 pb-20 overlow-hidden xl:py-20 xl:px-40 bg-kili-black'
     >
       <motion.div initial={{ y: 0 }} style={{ y }}>
-        <ul className='flex justify-between mb-60'>
+        <ul className='flex flex-col justify-start gap-6 mb-32 xl:justify-between xl:gap-0 xl:flex-row xl:mb-60'>
           {sections
             .filter((section) => section.slug !== 'lets-talk')
             .map((section) => (
               <li key={section.slug}>
                 <Link
-                  className='text-3xl text-kili-white before:bg-kili-white after:bg-kili-white'
+                  className='text-2xl xl:text-3xl text-kili-white before:bg-kili-white after:bg-kili-white'
                   href={`/#${section.slug}`}
                   onClick={() =>
                     lenis.scrollTo(`#${section.slug}`, { duration: 2 })
@@ -58,13 +58,13 @@ export default function Footer() {
               </li>
             ))}
         </ul>
-        <div className='flex items-end justify-between'>
+        <div className='flex flex-col items-start justify-start gap-4 xl:items-end xl:justify-between xl:flex-row'>
           <Button
-            className='-mb-6 overflow-hidden leading-none transition-colors duration-1000 ease-in-out text-kili-white text-10xl xl:hover:text-kili-light-gray'
+            className='overflow-hidden text-6xl leading-none transition-colors duration-1000 ease-in-out xl:-mb-6 text-kili-white xl:text-10xl xl:hover:text-kili-light-gray'
             onClick={() => setShowContactForm(true)}
           >
             <motion.span
-              className='flex items-center gap-12'
+              className='flex items-center gap-4 xl:gap-12'
               initial={{
                 y: '111%',
                 rotate: 6
@@ -79,14 +79,14 @@ export default function Footer() {
               }}
             >
               {t('letsTalk')}
-              <ArrowCornerIcon className='w-10 h-10' />
+              <ArrowCornerIcon className='w-6 xl:w-10' />
             </motion.span>
           </Button>
-          <ul className='flex flex-col items-end gap-4 leading-none'>
+          <ul className='flex items-end gap-6 leading-none xl:gap-4 xl:flex-col'>
             {SOCIAL_LINKS.map((social) => (
               <li key={social.name}>
                 <motion.a
-                  className='block overflow-hidden transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
+                  className='block overflow-hidden text-xl transition-colors duration-1000 ease-in-out xl:text-base text-kili-light-gray xl:hover:text-kili-white'
                   href={social.link}
                   onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
                   onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
@@ -111,7 +111,7 @@ export default function Footer() {
             ))}
             <li>
               <Button
-                className='overflow-hidden transition-colors duration-1000 ease-in-out group text-kili-light-gray xl:hover:text-kili-white'
+                className='overflow-hidden text-xl transition-colors duration-1000 ease-in-out xl:text-base group text-kili-light-gray xl:hover:text-kili-white'
                 onClick={() => lenis.scrollTo(0, { duration: 2 })}
               >
                 <motion.span
