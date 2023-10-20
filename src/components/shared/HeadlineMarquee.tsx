@@ -55,17 +55,14 @@ export default function HeadlineMarquee({
   return (
     <div className='flex w-full overflow-hidden whitespace-nowrap flex-nowrap'>
       <motion.h2
-        className={clsx(
-          'flex flex-nowrap whitespace-nowrap pb-[2px]',
-          className
-        )}
+        className={clsx('flex flex-nowrap whitespace-nowrap pb-0.5', className)}
         style={{ x }}
       >
-        <span className='mr-[6px] xl:mr-6'>{children} — </span>
-        <span className='mr-[6px] xl:mr-6'>{children} — </span>
-        <span className='mr-[6px] xl:mr-6'>{children} — </span>
-        <span className='mr-[6px] xl:mr-6'>{children} — </span>
-        <span className='mr-[6px] xl:mr-6'>{children} — </span>
+        <span className='mr-1.5 xl:mr-6'>{children} — </span>
+        <span className='mr-1.5 xl:mr-6'>{children} — </span>
+        <span className='mr-1.5 xl:mr-6'>{children} — </span>
+        <span className='mr-1.5 xl:mr-6'>{children} — </span>
+        <span className='mr-1.5 xl:mr-6'>{children} — </span>
       </motion.h2>
     </div>
   )

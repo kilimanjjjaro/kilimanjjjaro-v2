@@ -50,7 +50,7 @@ export default function Navbar() {
     >
       <h1
         className={clsx(
-          'leading-none mt-[2px] tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
+          'leading-none mt-0.5 tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
         )}
         onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
         onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}

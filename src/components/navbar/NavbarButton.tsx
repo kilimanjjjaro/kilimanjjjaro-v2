@@ -19,7 +19,7 @@ export default function NavbarButton() {
           >
             <motion.span
               key='top-line'
-              className='block h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white translate-y-[5px] rotate-[135deg]'
+              className='block h-0.5 bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white translate-y-[5px] rotate-[135deg]'
               initial={{ width: '0%' }}
               animate={{ width: '100%' }}
               exit={{
@@ -36,7 +36,7 @@ export default function NavbarButton() {
               }}
             />
             <motion.span
-              className='block h-[2px] bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white translate-y-[-5px] rotate-[-135deg]'
+              className='block h-0.5 bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white translate-y-[-5px] rotate-[-135deg]'
               initial={{ width: '0%' }}
               animate={{ width: '100%' }}
               exit={{
@@ -59,7 +59,7 @@ export default function NavbarButton() {
             key='open-button'
           >
             <motion.span
-              className='block w-full h-[2px] bg-kili-light-gray origin-right transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
+              className='block w-full h-0.5 bg-kili-light-gray origin-right transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
               initial={{ scaleX: '0%' }}
               animate={{ scaleX: '100%' }}
               exit={{
@@ -76,7 +76,7 @@ export default function NavbarButton() {
               }}
             />
             <motion.span
-              className='block w-full h-[2px] bg-kili-light-gray origin-right transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
+              className='block w-full h-0.5 bg-kili-light-gray origin-right transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
               initial={{ scaleX: '0%' }}
               animate={{ scaleX: '100%' }}
               exit={{

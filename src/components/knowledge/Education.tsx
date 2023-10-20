@@ -38,7 +38,7 @@ export default function Education() {
         </ul>
       </motion.div>
       <motion.hr
-        className='w-full h-[2px] border-kili-light-gray origin-left'
+        className='w-full h-0.5 border-kili-light-gray origin-left'
         variants={OTHER_PROJECT_HR_VARIANTS}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       />

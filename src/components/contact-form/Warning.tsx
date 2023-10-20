@@ -29,11 +29,11 @@ export default function Warning({ setShowWarning }: Props) {
           </h3>
           <p className='text-kili-light-gray'>
             {t('warningModal.description.0')}{' '}
-            <kbd className='px-1 mx-1 text-sm pb-[1px] rounded-md border border-kili-light-gray'>
+            <kbd className='px-1 pb-px mx-1 text-sm border rounded-md border-kili-light-gray'>
               {t('warningModal.description.1')}
             </kbd>{' '}
             {t('warningModal.description.2')}{' '}
-            <kbd className='px-1 mx-1 text-sm pb-[1px] rounded-md border border-kili-light-gray'>
+            <kbd className='px-1 pb-px mx-1 text-sm border rounded-md border-kili-light-gray'>
               {t('warningModal.description.3')}
             </kbd>{' '}
             {t('warningModal.description.4')}

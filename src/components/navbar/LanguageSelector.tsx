@@ -39,7 +39,7 @@ export default function LanguageSelector() {
   }, [isVisible, currentLocale])
 
   return (
-    <div className='relative flex justify-end mt-[2px]'>
+    <div className='relative flex justify-end mt-0.5'>
       <Button
         className='leading-none tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
         onClick={() => setShowSelector(!showSelector)}

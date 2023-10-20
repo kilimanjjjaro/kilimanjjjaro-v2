@@ -22,7 +22,7 @@ export default function FeaturedProjects() {
       onSlideChangeTransitionStart={() => lenis?.stop()}
       onSlideChangeTransitionEnd={() => lenis?.start()}
       slidesPerView='auto'
-      spaceBetween={24}
+      spaceBetween={28}
       speed={300}
       centeredSlides
       centeredSlidesBounds

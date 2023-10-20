@@ -39,7 +39,7 @@ export default function LargeVersion() {
         ease: 'easeInOut'
       }}
     >
-      <ul className='flex gap-10 leading-none mt-[2px]'>
+      <ul className='flex gap-10 leading-none mt-0.5'>
         {sections.map((section) => (
           <li
             key={section.slug}

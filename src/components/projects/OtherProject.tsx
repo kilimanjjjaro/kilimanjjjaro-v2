@@ -45,8 +45,8 @@ export default function OtherProject({ project, visitButton }: Props) {
             variants={OTHER_PROJECT_VARIANTS}
             transition={{ duration: 1.5, ease: 'easeInOut' }}
           >
-            <div className='flex gap-[6px] items-center w-[30%] text-2xl flex-wrap'>
-              <h4 className='relative duration-1000 ease-in-out text-kili-white before:h-[2px] before:scale-x-0 before:absolute before:-bottom-2 before:left-0 before:right-0 before:block before:bg-current before:origin-left xl:group-hover:before:scale-x-100 before:transition-transform before:ease-in xl:group-hover:before:ease-out before:duration-1000 after:delay-1000 xl:group-hover:before:delay-0 after:h-[2px] after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:bg-kili-dark-gray after:origin-left after:scale-x-0 xl:group-hover:after:scale-x-100 after:transition-transform after:ease-in xl:group-hover:after:ease-out after:duration-1000 xl:group-hover:after:delay-1000'>
+            <div className='flex gap-1.5 items-center w-[30%] text-2xl flex-wrap'>
+              <h4 className='relative duration-1000 ease-in-out text-kili-white before:h-0.5 before:scale-x-0 before:absolute before:-bottom-2 before:left-0 before:right-0 before:block before:bg-current before:origin-left xl:group-hover:before:scale-x-100 before:transition-transform before:ease-in xl:group-hover:before:ease-out before:duration-1000 after:delay-1000 xl:group-hover:before:delay-0 after:h-0.5 after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:bg-kili-dark-gray after:origin-left after:scale-x-0 xl:group-hover:after:scale-x-100 after:transition-transform after:ease-in xl:group-hover:after:ease-out after:duration-1000 xl:group-hover:after:delay-1000'>
                 {project.name}
               </h4>
               <span className='text-kili-light-gray'>— {project.role}</span>
@@ -67,7 +67,7 @@ export default function OtherProject({ project, visitButton }: Props) {
             <p className='text-2xl text-kili-light-gray'>{project.year}</p>
           </motion.div>
           <motion.hr
-            className='w-full h-[2px] border-kili-light-gray origin-left'
+            className='w-full h-0.5 border-kili-light-gray origin-left'
             variants={OTHER_PROJECT_HR_VARIANTS}
             transition={{ duration: 1.5, ease: 'easeInOut' }}
           />
