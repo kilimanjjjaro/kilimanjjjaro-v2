@@ -30,7 +30,7 @@ export default function SmoothScroll({ children }: { children: ChildrenType }) {
       root
       options={{
         lerp: 1,
-        duration: isDesktop ? 2 : 1.1,
+        duration: isDesktop ? 2 : 1.2,
         smoothWheel: true,
         smoothTouch: true
       }}

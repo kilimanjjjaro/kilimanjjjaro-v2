@@ -1,53 +1,50 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import {
-  motion,
-  useInView,
-  useScroll,
-  useSpring,
-  useTransform
-} from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import { useScopedI18n } from '@/lib/i18n/client'
 
 export default function LessButBetter() {
   const t = useScopedI18n('home.lessButBetter')
   const sectionRef = useRef<HTMLDivElement>(null)
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const videoIsInView = useInView(videoRef, { margin: '0px 0px 200px 0px' })
-  const { scrollYProgress: scrollY } = useScroll()
-  const scaleX = useSpring(scrollY, {
-    stiffness: 5000,
-    damping: 400
-  })
+  const { isDesktop } = useMediaQuery()
+  const { scrollYProgress } = useScroll()
 
-  const videoScale = useTransform(scaleX, [0.52, 0.85], [1, -0.2])
-  const headlineScale = useTransform(scaleX, [0.52, 0.85], [2, 0])
+  const scrollRange = isDesktop ? [0.4, 0.8] : [0.3, 0.55]
+  const headlineScaleOutputRange = isDesktop ? [4.5, -1] : [4.5, 0]
+  const videoScaleOutputRange = isDesktop
+    ? ['6000px', '500px']
+    : ['3000px', '0px']
 
-  useEffect(() => {
-    if (videoIsInView) {
-      videoRef.current?.play().catch(() => {})
-    } else {
-      videoRef.current?.pause()
-    }
-  }, [videoIsInView])
+  const headlineScale = useTransform(
+    scrollYProgress,
+    scrollRange,
+    headlineScaleOutputRange
+  )
+  const videoScale = useTransform(
+    scrollYProgress,
+    scrollRange,
+    videoScaleOutputRange
+  )
 
   return (
     <motion.section
       ref={sectionRef}
-      className='relative flex items-center justify-center w-full overflow-hidden'
+      className='relative flex justify-center items-center w-full h-[60vh] overflow-hidden xl:h-screen'
     >
-      <motion.video
-        ref={videoRef}
-        className='w-full h-auto aspect-video'
-        style={{ scale: videoScale }}
-        src='images/projects/kilimanjjjaro-v1/hero-video.webm'
-        poster='images/projects/kilimanjjjaro-v1/poster.webp'
-        loop
-        muted
-      />
+      <motion.div className='absolute' style={{ width: videoScale }}>
+        <video
+          className='w-full aspect-video'
+          src='images/projects/kilimanjjjaro-v1/hero-video.webm'
+          autoPlay
+          loop
+          muted
+          disableRemotePlayback
+        />
+      </motion.div>
       <motion.h3
-        className='absolute leading-none -mt-3 text-kili-white text-center text-[12vw] mix-blend-difference'
+        className='absolute leading-none -mt-3 text-kili-white text-center text-[12vw] mix-blend-difference w-[190px] xl:w-auto'
         style={{ scale: headlineScale }}
       >
         {t('headline')}
