@@ -28,7 +28,7 @@ export default function Portrait() {
       <Image
         src={portraitImage}
         alt='Kilimanjjjaro'
-        quality={90}
+        quality={85}
         placeholder='blur'
       />
     </motion.div>

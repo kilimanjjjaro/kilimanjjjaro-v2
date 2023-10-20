@@ -37,7 +37,7 @@ export default function Grid({ project }: Props) {
           width={437}
           height={778}
           alt={project.name}
-          quality={90}
+          quality={85}
         />
         <Video
           className='w-full'
@@ -72,7 +72,7 @@ export default function Grid({ project }: Props) {
             width={437}
             height={778}
             alt={project.name}
-            quality={90}
+            quality={85}
           />
           <Video
             className='w-full'
@@ -85,7 +85,7 @@ export default function Grid({ project }: Props) {
             width={437}
             height={778}
             alt={project.name}
-            quality={90}
+            quality={85}
           />
           <Video
             className='w-full'
@@ -125,7 +125,7 @@ export default function Grid({ project }: Props) {
             width={437}
             height={778}
             alt={project.name}
-            quality={90}
+            quality={85}
           />
           <Video
             className='w-full'
@@ -138,7 +138,7 @@ export default function Grid({ project }: Props) {
             width={437}
             height={778}
             alt={project.name}
-            quality={90}
+            quality={85}
           />
         </motion.div>
       </section>
@@ -176,7 +176,7 @@ export default function Grid({ project }: Props) {
           width={437}
           height={778}
           alt={project.name}
-          quality={90}
+          quality={85}
           loading='lazy'
         />
       </section>
