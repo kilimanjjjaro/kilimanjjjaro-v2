@@ -20,10 +20,10 @@ export default {
     lessButBetter: {
       headline: 'Less, but better.'
     },
-    moreProjects: {
-      headline: ['And more equally', 'important projects...'],
+    otherProjects: {
+      headline: ['And other equally', 'important projects...'],
       visitButton: 'Visit',
-      moreProjectsButtons: [
+      otherProjectsButtons: [
         'Load more',
         'There are {number} more projects',
         'There are 1 more project',

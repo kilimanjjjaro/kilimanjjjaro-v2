@@ -33,7 +33,7 @@ export interface FeaturedProjectsInterface {
   es: FeaturedProjectInterface[]
 }
 
-export interface MoreProjectsInterface {
+export interface OtherProjectsInterface {
   en: OtherProjectInterface[]
   es: OtherProjectInterface[]
 }

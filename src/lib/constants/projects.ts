@@ -1,6 +1,6 @@
 import type {
   FeaturedProjectsInterface,
-  MoreProjectsInterface
+  OtherProjectsInterface
 } from '@/lib/interfaces/projects'
 
 export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
@@ -186,7 +186,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
   ]
 }
 
-export const MORE_PROJECTS: MoreProjectsInterface = {
+export const MORE_PROJECTS: OtherProjectsInterface = {
   en: [
     {
       id: 1,

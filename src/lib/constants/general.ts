@@ -28,15 +28,15 @@ export const SECTIONS = {
   en: [
     { slug: 'featured-projects', name: 'Featured Projects' },
     { slug: 'introducing-me', name: 'Introducing Me' },
-    { slug: 'more-projects', name: 'More Projects' },
+    { slug: 'other-projects', name: 'Other Projects' },
     { slug: 'knowledge', name: 'Knowledge' },
     { slug: 'lets-talk', name: "Let's Talk!" }
   ],
   es: [
     { slug: 'featured-projects', name: 'Proyectos' },
-    { slug: 'introducing-me', name: 'Presentándome' },
-    { slug: 'more-projects', name: 'Más Proyectos' },
-    { slug: 'knowledge', name: 'Conocimientos' },
+    { slug: 'introducing-me', name: 'Conóceme' },
+    { slug: 'other-projects', name: 'Otros Proyectos' },
+    { slug: 'knowledge', name: 'Sobre Mí' },
     { slug: 'lets-talk', name: '¡Hablemos!' }
   ]
 }

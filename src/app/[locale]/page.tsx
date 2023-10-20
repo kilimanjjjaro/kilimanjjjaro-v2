@@ -3,7 +3,7 @@ import Header from '@/components/sections/Header'
 import FeaturedProjects from '@/components/sections/FeaturedProjects'
 import Introducing from '@/components/sections/Introducing'
 import LessButBetter from '@/components/sections/LessButBetter'
-import MoreProjects from '@/components/sections/MoreProjects'
+import OtherProjects from '@/components/sections/OtherProjects'
 import Knowledge from '@/components/sections/Knowledge'
 
 export default async function Home({
@@ -18,7 +18,7 @@ export default async function Home({
       <FeaturedProjects />
       <Introducing />
       <LessButBetter />
-      <MoreProjects />
+      <OtherProjects />
       <Knowledge />
     </main>
   )

@@ -10,8 +10,8 @@ import { OTHER_PROJECTS_VARIANTS } from '@/lib/constants/variants'
 import { MORE_PROJECTS } from '@/lib/constants/projects'
 import { CURSOR_STATUS, LOCALES } from '@/lib/constants/general'
 
-export default function MoreProjects() {
-  const t = useScopedI18n('home.moreProjects')
+export default function OtherProjects() {
+  const t = useScopedI18n('home.otherProjects')
   const currentLocale = useCurrentLocale()
   const { setCursorStatus, setShowContactForm } = useStore()
   const sectionEl = useRef<HTMLElement>(null)
@@ -29,28 +29,28 @@ export default function MoreProjects() {
   useEffect(() => {
     const restOfProjects = totalNumberOfProjects.current - visibleItems
 
-    setButtonText(t('moreProjectsButtons.0'))
+    setButtonText(t('otherProjectsButtons.0'))
 
     if (visibleItems > 2) {
-      setButtonText(t('moreProjectsButtons.1', { number: restOfProjects }))
+      setButtonText(t('otherProjectsButtons.1', { number: restOfProjects }))
     }
 
     if (visibleItems === totalNumberOfProjects.current - 1) {
-      setButtonText(t('moreProjectsButtons.2'))
+      setButtonText(t('otherProjectsButtons.2'))
     }
 
     if (visibleItems >= totalNumberOfProjects.current) {
-      setButtonText(t('moreProjectsButtons.3'))
+      setButtonText(t('otherProjectsButtons.3'))
     }
   }, [visibleItems, isInView, t])
 
-  const moreProjects = useMemo(() => {
+  const otherProjects = useMemo(() => {
     return currentLocale === LOCALES.en ? MORE_PROJECTS.en : MORE_PROJECTS.es
   }, [currentLocale])
 
   return (
     <section
-      id='more-projects'
+      id='other-projects'
       ref={sectionEl}
       className='px-6 pt-20 pb-24 xl:pb-40 xl:px-40 xl:pt-36 bg-kili-black'
     >
@@ -90,7 +90,7 @@ export default function MoreProjects() {
         animate={isInView ? 'show' : 'hidden'}
         transition={{ duration: 0, staggerChildren: 0.3 }}
       >
-        {moreProjects.slice(0, visibleItems).map((project) => (
+        {otherProjects.slice(0, visibleItems).map((project) => (
           <OtherProject
             key={project.id}
             project={project}

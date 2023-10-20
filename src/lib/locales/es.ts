@@ -10,7 +10,7 @@ export default {
       headline: ['Experiencias', 'preparadas', 'para el futuro.']
     },
     introducing: {
-      sectionTitle: 'Presentándome',
+      sectionTitle: 'Conóceme',
       headline:
         'Desarrollador Full Stack de JavaScript y Diseñador UI/UX con +{experience} años de experiencia laboral.',
       biography:
@@ -20,10 +20,10 @@ export default {
     lessButBetter: {
       headline: 'Menos, pero mejor.'
     },
-    moreProjects: {
-      headline: ['Más proyectos', 'igual de importantes...'],
+    otherProjects: {
+      headline: ['Otros proyectos', 'igual de importantes...'],
       visitButton: 'Visitar',
-      moreProjectsButtons: [
+      otherProjectsButtons: [
         'Cargar más',
         'Hay {number} proyectos más',
         'Hay 1 proyecto más',
@@ -31,7 +31,7 @@ export default {
       ]
     },
     knowledge: {
-      sectionTitle: 'Conóceme',
+      sectionTitle: 'Sobre Mí',
       educationTitle: 'Educación',
       experienceTitle: 'Experiencia',
       clientsTitle: 'Clientes',
