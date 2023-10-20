@@ -16,11 +16,17 @@ export default function Knowledge() {
   const isInView = useInView(sectionEl, { once: true })
 
   return (
-    <section id='knowledge' className='pt-32 pb-40 bg-kili-dark-gray'>
-      <HeadlineMarquee className='text-kili-white text-10xl' baseVelocity={-3}>
+    <section
+      id='knowledge'
+      className='pt-20 pb-24 xl:pt-32 xl:pb-40 bg-kili-dark-gray'
+    >
+      <HeadlineMarquee
+        className='text-6xl text-kili-white xl:text-10xl'
+        baseVelocity={-3}
+      >
         {t('sectionTitle')}
       </HeadlineMarquee>
-      <section ref={sectionEl} className='px-40 pt-32'>
+      <section ref={sectionEl} className='px-6 pt-12 xl:px-40 xl:pt-32'>
         <motion.div
           variants={OTHER_PROJECTS_VARIANTS}
           initial='hidden'

@@ -84,7 +84,7 @@ export default function OtherProjects() {
         </span>
       </h3>
       <motion.section
-        className='mt-10'
+        className='mt-6 xl:mt-10'
         variants={OTHER_PROJECTS_VARIANTS}
         initial='hidden'
         animate={isInView ? 'show' : 'hidden'}

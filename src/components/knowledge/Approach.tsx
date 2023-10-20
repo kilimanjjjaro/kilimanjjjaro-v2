@@ -19,17 +19,19 @@ export default function Approach() {
   return (
     <article className='overflow-hidden'>
       <motion.div
-        className='flex pb-[82px] gap-x-10'
+        className='flex flex-col gap-6 xl:flex-row pb-6 xl:pb-[82px] xl:gap-10'
         variants={OTHER_PROJECT_VARIANTS}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       >
-        <h3 className='w-[30%] text-4xl text-kili-white'>
+        <h3 className='xl:w-[30%] text-4xl text-kili-white'>
           {t('approachTitle')}
         </h3>
         {approach.map((approach) => (
-          <div key={approach.title} className='flex-1 text-2xl'>
-            <h4 className='mb-10 text-kili-white'>{approach.title}</h4>
-            <p className='text-kili-light-gray'>
+          <div key={approach.title} className='flex-1'>
+            <h4 className='mb-2 text-xl xl:text-2xl xl:mb-10 text-kili-white'>
+              {approach.title}
+            </h4>
+            <p className='text-xl text-kili-light-gray xl:text-2xl'>
               <Balancer>{approach.description}</Balancer>
             </p>
           </div>

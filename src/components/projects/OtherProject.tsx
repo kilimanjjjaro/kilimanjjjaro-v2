@@ -15,6 +15,9 @@ import {
 import { CURSOR_STATUS } from '@/lib/constants/general'
 import { OtherProjectInterface } from '@/lib/interfaces/projects'
 
+const UNDERLINE_STYLES =
+  'before:h-0.5 before:scale-x-0 before:absolute before:-bottom-2 before:left-0 before:right-0 before:block before:bg-current before:origin-left xl:group-hover:before:scale-x-100 before:transition-transform before:ease-in xl:group-hover:before:ease-out before:duration-1000 after:delay-1000 xl:group-hover:before:delay-0 after:h-0.5 after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:bg-kili-dark-gray after:origin-left after:scale-x-0 xl:group-hover:after:scale-x-100 after:transition-transform after:ease-in xl:group-hover:after:ease-out after:duration-1000 xl:group-hover:after:delay-1000'
+
 interface Props {
   project: OtherProjectInterface
   visitButton: string
@@ -43,17 +46,21 @@ export default function OtherProject({ project, visitButton }: Props) {
       <article className='relative flex flex-col items-center xl:flex-row group cursor-none'>
         <div className='order-2 overflow-hidden xl:order-1'>
           <motion.div
-            className='flex flex-col xl:flex-row gap-6 xl:items-center pt-6 xl:pt-10 pb-[26px] xl:pb-[42px] xl:gap-10'
+            className='flex flex-col xl:flex-row gap-4 xl:items-center pt-6 xl:pt-10 pb-6 xl:pb-[42px] xl:gap-10'
             variants={OTHER_PROJECT_VARIANTS}
             transition={{ duration: 1.5, ease: 'easeInOut' }}
           >
-            <div className='flex flex-col xl:flex-row xl:gap-1.5 xl:items-center xl:w-[30%] text-2xl xl:flex-wrap'>
-              <h4 className='relative duration-1000 ease-in-out text-kili-white before:h-0.5 before:scale-x-0 before:absolute before:-bottom-2 before:left-0 before:right-0 before:block before:bg-current before:origin-left xl:group-hover:before:scale-x-100 before:transition-transform before:ease-in xl:group-hover:before:ease-out before:duration-1000 after:delay-1000 xl:group-hover:before:delay-0 after:h-0.5 after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:bg-kili-dark-gray after:origin-left after:scale-x-0 xl:group-hover:after:scale-x-100 after:transition-transform after:ease-in xl:group-hover:after:ease-out after:duration-1000 xl:group-hover:after:delay-1000'>
+            <div className='flex flex-col xl:flex-row xl:gap-1.5 xl:items-center xl:w-[30%] xl:flex-wrap'>
+              <h4
+                className={`relative text-3xl duration-1000 ease-in-out xl:text-2xl text-kili-white ${UNDERLINE_STYLES}`}
+              >
                 {project.name}
               </h4>
-              <span className='text-kili-light-gray'>— {project.role}</span>
+              <span className='text-2xl text-kili-light-gray'>
+                {isDesktop && '—'} {project.role}
+              </span>
             </div>
-            <p className='flex-1 text-2xl text-kili-light-gray'>
+            <p className='flex-1 text-xl xl:text-2xl text-kili-light-gray'>
               <Balancer>{project.description}</Balancer>
             </p>
             <div className='flex flex-wrap flex-1 gap-2 text-sm text-kili-light-gray'>
@@ -77,7 +84,7 @@ export default function OtherProject({ project, visitButton }: Props) {
         {project.image !== undefined && (
           <div
             className={clsx(
-              'xl:absolute overflow-hidden mt-6 xl:mt-0 order-1 xl:order-2 right-10 z-10',
+              'xl:absolute overflow-hidden mt-8 xl:mt-0 order-1 xl:order-2 right-10 z-10',
               project.id % 2 === 0 ? 'xl:-rotate-3' : 'xl:rotate-3'
             )}
           >
