@@ -99,7 +99,7 @@ export default function OtherProjects() {
         ))}
       </motion.section>
       <motion.button
-        className='flex items-center gap-2 mt-6 text-2xl xl:mt-10 text-kili-white group'
+        className='flex items-center w-full gap-2 mt-6 text-2xl xl:w-auto xl:mt-10 text-kili-white group'
         onClick={handleShowMore}
         onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
         onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}

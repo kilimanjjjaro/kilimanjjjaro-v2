@@ -17,17 +17,19 @@ export default function Experience() {
   return (
     <article className='overflow-hidden'>
       <motion.div
-        className='flex flex-col gap-4 xl:flex-row pt-6 pb-6 xl:pb-[82px] xl:pt-0 xl:gap-10'
+        className='flex flex-col gap-4 xl:flex-row pt-6 pb-6 xl:pb-[82px] xl:pt-20 xl:gap-10'
         variants={OTHER_PROJECT_VARIANTS}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       >
         <h3 className='xl:w-[30%] text-4xl text-kili-white'>
           {t('experienceTitle')}
         </h3>
-        <ul className='grid flex-1 gap-6 text-2xl xl:gap-10 xl:grid-cols-3'>
+        <ul className='grid flex-1 gap-6 text-xl xl:text-2xl xl:gap-10 xl:grid-cols-3'>
           {experience.map((experience) => (
             <li key={experience.year} className='flex flex-col gap-1 xl:gap-2'>
-              <span className='text-kili-white'>{experience.year}</span>
+              <span className='mb-px text-kili-white xl:mb-0'>
+                {experience.year}
+              </span>
               <span className='text-kili-light-gray'>
                 <Balancer>{experience.name}</Balancer>
               </span>

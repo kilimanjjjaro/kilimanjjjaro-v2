@@ -11,14 +11,14 @@ export default function Clients() {
   return (
     <article className='overflow-hidden'>
       <motion.div
-        className='flex flex-col xl:flex-row pt-6 pb-6 xl:pb-[82px] gap-6 xl:gap-10'
+        className='flex flex-col xl:flex-row pt-6 pb-6 xl:pb-[82px] xl:pt-20 gap-6 xl:gap-10'
         variants={OTHER_PROJECT_VARIANTS}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       >
         <h3 className='w-[30%] text-4xl text-kili-white'>
           {t('clientsTitle')}
         </h3>
-        <ul className='grid flex-1 grid-cols-2 gap-4 text-2xl xl:gap-10 xl:grid-cols-3 text-kili-white'>
+        <ul className='grid flex-1 grid-cols-2 gap-4 text-xl xl:text-2xl xl:gap-2 xl:grid-cols-3 text-kili-white'>
           {CLIENTS.map((client) => (
             <li key={client}>{client}</li>
           ))}

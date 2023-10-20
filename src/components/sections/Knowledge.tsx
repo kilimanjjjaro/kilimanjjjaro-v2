@@ -28,6 +28,7 @@ export default function Knowledge() {
       </HeadlineMarquee>
       <section ref={sectionEl} className='px-6 pt-12 xl:px-40 xl:pt-32'>
         <motion.div
+          className='flex flex-col gap-6 xl:gap-0'
           variants={OTHER_PROJECTS_VARIANTS}
           initial='hidden'
           animate={isInView ? 'show' : 'hidden'}
