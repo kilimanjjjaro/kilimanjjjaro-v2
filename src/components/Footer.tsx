@@ -9,11 +9,16 @@ import Button from '@/components/shared/Button'
 import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
 import { ArrowUpIcon } from '@/components/icons/ArrowUpIcon'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
-import { LOCALES, SECTIONS, SOCIAL_LINKS } from '@/lib/constants/general'
+import {
+  CURSOR_STATUS,
+  LOCALES,
+  SECTIONS,
+  SOCIAL_LINKS
+} from '@/lib/constants/general'
 
 export default function Footer() {
   const t = useScopedI18n('footer')
-  const { setShowContactForm } = useStore()
+  const { setShowContactForm, setCursorStatus } = useStore()
   const footerEl = useRef<HTMLElement>(null)
   const lenis = useLenis()
   const currentLocale = useCurrentLocale()
@@ -83,6 +88,8 @@ export default function Footer() {
                 <motion.a
                   className='block overflow-hidden transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
                   href={social.link}
+                  onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
+                  onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
                   target='_blank'
                   rel='noopener noreferrer'
                   initial={{
