@@ -55,7 +55,7 @@ export default function CookiesConsent() {
       {showCookiesConsent && (
         <motion.div
           role='alert'
-          className='fixed flex-col bottom-6 left-6 xl:bottom-8 xl:left-8 bg-[#030303]/95 backdrop-blur-md z-10 w-auto max-w-[256px] overflow-hidden rounded-md'
+          className='fixed flex-col bottom-6 left-6 xl:bottom-8 xl:left-8 bg-[#030303]/95 backdrop-blur-md z-20 w-auto max-w-[256px] overflow-hidden rounded-md'
           initial={{ y: 265 }}
           animate={showCookiesConsent && { y: 0 }}
           exit={{ y: 265, transition: { duration: 1, ease: 'easeInOut' } }}
