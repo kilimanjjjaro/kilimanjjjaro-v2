@@ -52,9 +52,9 @@ export default function MoreProjects() {
     <section
       id='more-projects'
       ref={sectionEl}
-      className='px-40 pb-40 pt-36 bg-kili-black'
+      className='px-6 pt-20 pb-24 xl:pb-40 xl:px-40 xl:pt-36 bg-kili-black'
     >
-      <h3 className='flex flex-col w-1/2 leading-none text-kili-white text-7xl'>
+      <h3 className='flex flex-col text-4xl leading-none xl:w-1/2 text-kili-white xl:text-7xl'>
         <span className='overflow-hidden'>
           <motion.span
             className='block'
@@ -99,7 +99,7 @@ export default function MoreProjects() {
         ))}
       </motion.section>
       <motion.button
-        className='flex items-center gap-2 mt-10 text-2xl text-kili-white group'
+        className='flex items-center gap-2 mt-6 text-2xl xl:mt-10 text-kili-white group'
         onClick={handleShowMore}
         onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
         onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import Balancer from 'react-wrap-balancer'
 import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
 import { useStore } from '@/lib/store/store'
+import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import useCursorPosition from '@/lib/hooks/useCursorPosition'
 import useElementDimensions from '@/lib/hooks/useElementDimensions'
 import {
@@ -22,6 +23,7 @@ interface Props {
 export default function OtherProject({ project, visitButton }: Props) {
   const { setCursorStatus } = useStore()
   const visitButtonEl = useRef<HTMLHeadingElement>(null)
+  const { isDesktop } = useMediaQuery()
   const elementDimensions = useElementDimensions({ ref: visitButtonEl })
   const { x, y } = useCursorPosition({
     trigger: true,
@@ -38,14 +40,14 @@ export default function OtherProject({ project, visitButton }: Props) {
       onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HIDDEN)}
       onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
     >
-      <article className='relative flex items-center group cursor-none'>
-        <div className='overflow-hidden'>
+      <article className='relative flex flex-col items-center xl:flex-row group cursor-none'>
+        <div className='order-2 overflow-hidden xl:order-1'>
           <motion.div
-            className='flex items-center pt-10 pb-[42px] gap-x-10'
+            className='flex flex-col xl:flex-row gap-6 xl:items-center pt-6 xl:pt-10 pb-[26px] xl:pb-[42px] xl:gap-10'
             variants={OTHER_PROJECT_VARIANTS}
             transition={{ duration: 1.5, ease: 'easeInOut' }}
           >
-            <div className='flex gap-1.5 items-center w-[30%] text-2xl flex-wrap'>
+            <div className='flex flex-col xl:flex-row xl:gap-1.5 xl:items-center xl:w-[30%] text-2xl xl:flex-wrap'>
               <h4 className='relative duration-1000 ease-in-out text-kili-white before:h-0.5 before:scale-x-0 before:absolute before:-bottom-2 before:left-0 before:right-0 before:block before:bg-current before:origin-left xl:group-hover:before:scale-x-100 before:transition-transform before:ease-in xl:group-hover:before:ease-out before:duration-1000 after:delay-1000 xl:group-hover:before:delay-0 after:h-0.5 after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:bg-kili-dark-gray after:origin-left after:scale-x-0 xl:group-hover:after:scale-x-100 after:transition-transform after:ease-in xl:group-hover:after:ease-out after:duration-1000 xl:group-hover:after:delay-1000'>
                 {project.name}
               </h4>
@@ -75,18 +77,27 @@ export default function OtherProject({ project, visitButton }: Props) {
         {project.image !== undefined && (
           <div
             className={clsx(
-              'absolute overflow-hidden right-10 z-10',
-              project.id % 2 === 0 ? '-rotate-3' : 'rotate-3'
+              'xl:absolute overflow-hidden mt-6 xl:mt-0 order-1 xl:order-2 right-10 z-10',
+              project.id % 2 === 0 ? 'xl:-rotate-3' : 'xl:rotate-3'
             )}
           >
-            <Image
-              className='duration-1000 ease-in-out transition-transform translate-y-[101%] xl:group-hover:translate-y-0'
-              src={project.image}
-              alt={project.name}
-              width={400}
-              height={250}
-              quality={90}
-            />
+            <motion.span
+              className='block'
+              initial={
+                isDesktop ? { y: '0%', rotate: 0 } : { y: '110%', rotate: 3 }
+              }
+              animate={{ y: '0%', rotate: 0 }}
+              transition={{ duration: 1.5, ease: 'easeInOut' }}
+            >
+              <Image
+                className='duration-1000 ease-in-out transition-transform xl:translate-y-[101%] xl:group-hover:translate-y-0'
+                src={project.image}
+                alt={project.name}
+                width={400}
+                height={250}
+                quality={90}
+              />
+            </motion.span>
           </div>
         )}
         <motion.span

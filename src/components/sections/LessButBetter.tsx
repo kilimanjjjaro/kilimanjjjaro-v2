@@ -16,7 +16,6 @@ export default function LessButBetter() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const videoIsInView = useInView(videoRef, { margin: '0px 0px 200px 0px' })
   const { scrollYProgress: scrollY } = useScroll()
-
   const scaleX = useSpring(scrollY, {
     stiffness: 5000,
     damping: 400
