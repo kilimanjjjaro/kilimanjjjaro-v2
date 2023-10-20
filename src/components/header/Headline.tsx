@@ -14,8 +14,8 @@ export default function Headline() {
   const { setIntroRunning } = useStore()
   const { scrollYProgress } = useScroll()
 
-  const y = useTransform(scrollYProgress, [0, 0.25], ['0%', '117%'])
-  const rotate = useTransform(scrollYProgress, [0, 0.25], [0, 6])
+  const y = useTransform(scrollYProgress, [0, 0.15], ['0%', '117%'])
+  const rotate = useTransform(scrollYProgress, [0, 0.15], [0, 6])
 
   return (
     <motion.h2
