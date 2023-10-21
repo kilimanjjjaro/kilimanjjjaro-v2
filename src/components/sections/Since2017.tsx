@@ -44,7 +44,7 @@ export default function Since2017() {
         />
       </motion.div>
       <motion.h3
-        className='absolute leading-none -mt-3 text-kili-white text-center text-[12vw] mix-blend-exclusion w-[190px] xl:w-auto'
+        className='absolute leading-none -mt-3 text-kili-white text-center text-[12vw] mix-blend-difference w-[190px] xl:w-auto'
         style={{ scale: headlineScale }}
       >
         {t('headline')}
