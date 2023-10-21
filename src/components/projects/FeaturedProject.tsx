@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import Balancer from 'react-wrap-balancer'
 import { useStore } from '@/lib/store/store'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
@@ -23,6 +23,13 @@ export default function FeaturedProject({ project, index }: Props) {
   const { isDesktop } = useMediaQuery()
   const projectIsInView = useInView(projectEl, { once: true })
   const videoIsInView = useInView(videoRef, { amount: 'all' })
+  const { scrollYProgress } = useScroll()
+
+  const scrollOutputRange = isDesktop ? [0, 0.5] : [0, 0.3]
+  const bgPositionY = useTransform(scrollYProgress, scrollOutputRange, [
+    '0%',
+    '140%'
+  ])
 
   const handleMouseEnter = async () => {
     if (videoRef.current === null) return
@@ -31,7 +38,6 @@ export default function FeaturedProject({ project, index }: Props) {
     setCursorStatus(CURSOR_STATUS.HIDDEN)
     document.body.style.backgroundColor = project.backgroundColor
 
-    videoRef.current.currentTime = 1
     await videoRef.current.play()
   }
 
@@ -42,7 +48,6 @@ export default function FeaturedProject({ project, index }: Props) {
     setCursorStatus(CURSOR_STATUS.DEFAULT)
     document.body.style.backgroundColor = ''
 
-    videoRef.current.currentTime = 0
     videoRef.current.pause()
   }
 
@@ -72,9 +77,10 @@ export default function FeaturedProject({ project, index }: Props) {
     >
       <article className='relative flex flex-col aspect-[18/25] group cursor-none'>
         <motion.div
-          className='top-0 left-0 p-5 flex items-center xl:absolute w-full h-full bg-center bg-[length:125%] xl:group-hover:bg-[length:112%] transition-[background-size] ease-in-out duration-1000'
+          className='top-0 left-0 p-5 flex items-center xl:absolute w-full h-full bg-[length:130%] xl:group-hover:bg-[length:114%] transition-[background-size] ease-in-out duration-1000'
           style={{
-            backgroundImage: `url('${project.presentation.background}')`
+            backgroundImage: `url('${project.presentation.background}')`,
+            backgroundPositionY: bgPositionY
           }}
           initial={{
             clipPath: 'inset(100% 0% 0% 0%)'
