@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { useLenis } from '@studio-freight/react-lenis'
+import NavbarButton from '@/components/navbar/NavbarButton'
 import Link from '@/components/shared/Link'
 import Button from '@/components/shared/Button'
 import { useStore } from '@/lib/store/store'
@@ -15,9 +16,6 @@ export default function LargeVersion() {
   const sections = useMemo(() => {
     return currentLocale === LOCALES.en ? SECTIONS.en : SECTIONS.es
   }, [currentLocale])
-
-  const letsTalkText =
-    currentLocale === LOCALES.en ? "Let's talk!" : '¡Hablemos!'
 
   return (
     <motion.nav
@@ -43,7 +41,7 @@ export default function LargeVersion() {
         {sections.map((section) => (
           <li
             key={section.slug}
-            className='tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
+            className='hidden tracking-wide transition-colors duration-1000 ease-in-out xl:list-item text-kili-light-gray xl:hover:text-kili-white'
           >
             {section.slug !== 'lets-talk' ? (
               <Link
@@ -56,11 +54,14 @@ export default function LargeVersion() {
               </Link>
             ) : (
               <Button onClick={() => setShowContactForm(true)}>
-                {letsTalkText}
+                {section.name}
               </Button>
             )}
           </li>
         ))}
+        <li className='xl:hidden'>
+          <NavbarButton />
+        </li>
       </ul>
     </motion.nav>
   )

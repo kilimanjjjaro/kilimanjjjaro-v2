@@ -7,8 +7,6 @@ import { useLenis } from '@studio-freight/react-lenis'
 import clsx from 'clsx'
 import LargeVersion from '@/components/navbar/LargeVersion'
 import SmallVersion from '@/components/navbar/SmallVersion'
-import NavbarButton from '@/components/navbar/NavbarButton'
-import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import useNavbar from '@/lib/hooks/useNavbar'
 import { useStore } from '@/lib/store/store'
 import { CURSOR_STATUS } from '@/lib/constants/general'
@@ -16,7 +14,6 @@ import { CURSOR_STATUS } from '@/lib/constants/general'
 export default function Navbar() {
   const { setCursorStatus } = useStore()
   const { version, isVisible } = useNavbar()
-  const { isDesktop } = useMediaQuery()
   const lenis = useLenis()
   const pathname = usePathname()
 
@@ -59,33 +56,8 @@ export default function Navbar() {
         <Link href='/'>Kilimanjjjaro</Link>
       </h1>
       <AnimatePresence>
-        {version === 1 && isDesktop && <LargeVersion key='large-nav' />}
-        {version === 2 && isDesktop && <SmallVersion key='small-nav' />}
-        {!isDesktop && (
-          <motion.div
-            key='nav-button'
-            className='absolute right-0'
-            initial={{
-              opacity: 0
-            }}
-            animate={{
-              opacity: 1
-            }}
-            exit={{
-              opacity: 0,
-              transition: {
-                duration: 1,
-                ease: 'easeInOut'
-              }
-            }}
-            transition={{
-              duration: 1,
-              ease: 'easeInOut'
-            }}
-          >
-            <NavbarButton />
-          </motion.div>
-        )}
+        {version === 1 && <LargeVersion key='large-nav' />}
+        {version === 2 && <SmallVersion key='small-nav' />}
       </AnimatePresence>
     </motion.header>
   )

@@ -47,7 +47,7 @@ export default function LanguageSelector() {
         {selectedLanguage.name}
       </Button>
       <motion.ul
-        className='absolute flex-col items-end hidden gap-3 mt-3 top-full'
+        className='absolute flex-col items-end hidden gap-1.5 mt-3 top-full'
         variants={LANGUAGES_UL_VARIANTS}
         animate={showSelector ? 'open' : 'closed'}
         transition={{ duration: 1, ease: 'easeInOut' }}
