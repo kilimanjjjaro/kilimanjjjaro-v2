@@ -31,7 +31,7 @@ export default function Since2017() {
   return (
     <motion.section
       ref={sectionRef}
-      className='relative flex justify-center items-center w-full h-[60vh] overflow-hidden xl:h-screen bg-kili-light-gray'
+      className='relative flex justify-center items-center w-full h-[60vh] overflow-hidden xl:h-screen bg-[#676767]'
     >
       <motion.div className='absolute' style={{ width: videoScale }}>
         <video
