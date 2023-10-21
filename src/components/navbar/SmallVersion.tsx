@@ -5,7 +5,7 @@ import NavbarButton from '@/components/navbar/NavbarButton'
 export default function SmallVersion() {
   return (
     <motion.nav
-      className='absolute right-0 flex items-center gap-10'
+      className='absolute right-0 flex items-center gap-6 xl:gap-10'
       initial={{
         opacity: 0
       }}
