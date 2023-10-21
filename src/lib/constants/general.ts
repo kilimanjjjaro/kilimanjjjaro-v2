@@ -26,16 +26,14 @@ export const SOCIAL_LINKS = [
 
 export const SECTIONS = {
   en: [
-    { slug: 'featured-projects', name: 'Featured Projects' },
+    { slug: 'projects', name: 'Projects' },
     { slug: 'introducing-me', name: 'Introducing Me' },
-    { slug: 'other-projects', name: 'Other Projects' },
     { slug: 'knowledge', name: 'Knowledge' },
     { slug: 'lets-talk', name: "Let's Talk!" }
   ],
   es: [
-    { slug: 'featured-projects', name: 'Proyectos Destacados' },
+    { slug: 'projects', name: 'Proyectos' },
     { slug: 'introducing-me', name: 'Conóceme' },
-    { slug: 'other-projects', name: 'Otros Proyectos' },
     { slug: 'knowledge', name: 'Sobre Mí' },
     { slug: 'lets-talk', name: '¡Hablemos!' }
   ]
