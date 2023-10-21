@@ -1,9 +1,8 @@
 import { setStaticParamsLocale } from 'next-international/server'
 import Header from '@/components/sections/Header'
-import FeaturedProjects from '@/components/sections/FeaturedProjects'
+import Projects from '@/components/sections/Projects'
 import Introducing from '@/components/sections/Introducing'
-import LessButBetter from '@/components/sections/LessButBetter'
-import OtherProjects from '@/components/sections/OtherProjects'
+import Since2017 from '@/components/sections/Since2017'
 import Knowledge from '@/components/sections/Knowledge'
 
 export default async function Home({
@@ -15,10 +14,9 @@ export default async function Home({
   return (
     <main>
       <Header />
-      <FeaturedProjects />
+      <Projects />
       <Introducing />
-      <LessButBetter />
-      <OtherProjects />
+      <Since2017 />
       <Knowledge />
     </main>
   )

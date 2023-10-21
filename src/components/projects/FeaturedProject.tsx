@@ -51,7 +51,9 @@ export default function FeaturedProject({ project, index }: Props) {
   }
 
   useEffect(() => {
-    if (videoIsInView && !isDesktop) {
+    if (isDesktop) return
+
+    if (videoIsInView) {
       videoRef.current?.play().catch(() => {})
     } else {
       videoRef.current?.pause()
@@ -85,7 +87,7 @@ export default function FeaturedProject({ project, index }: Props) {
           transition={{
             duration: 3,
             ease: [0.17, 0.84, 0.44, 1],
-            delay: shouldDelay ? project.id * 1.1 : 0
+            delay: shouldDelay ? project.id * 1.04 : 0
           }}
         >
           <motion.div

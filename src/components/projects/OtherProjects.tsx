@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
+import Balancer from 'react-wrap-balancer'
 import OtherProject from '@/components/projects/OtherProject'
 import { PlusIcon } from '@/components/icons/PlusIcon'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
@@ -9,7 +10,6 @@ import { useStore } from '@/lib/store/store'
 import { OTHER_PROJECTS_VARIANTS } from '@/lib/constants/variants'
 import { MORE_PROJECTS } from '@/lib/constants/projects'
 import { CURSOR_STATUS, LOCALES } from '@/lib/constants/general'
-import Balancer from 'react-wrap-balancer'
 
 export default function OtherProjects() {
   const t = useScopedI18n('home.otherProjects')
@@ -50,11 +50,7 @@ export default function OtherProjects() {
   }, [currentLocale])
 
   return (
-    <section
-      id='other-projects'
-      ref={sectionEl}
-      className='px-6 pt-20 pb-24 xl:pb-40 xl:px-40 xl:pt-36 bg-kili-black'
-    >
+    <section ref={sectionEl} className='px-6 pb-24 xl:pb-40 xl:px-40'>
       <h3 className='flex flex-col text-4xl leading-none xl:w-1/2 text-kili-white xl:text-7xl'>
         <span className='overflow-hidden'>
           <motion.span

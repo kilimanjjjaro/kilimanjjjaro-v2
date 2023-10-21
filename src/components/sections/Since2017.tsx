@@ -5,17 +5,17 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import { useScopedI18n } from '@/lib/i18n/client'
 
-export default function LessButBetter() {
-  const t = useScopedI18n('home.lessButBetter')
+export default function Since2017() {
+  const t = useScopedI18n('home.since2017')
   const sectionRef = useRef<HTMLDivElement>(null)
   const { isDesktop } = useMediaQuery()
   const { scrollYProgress } = useScroll()
 
-  const scrollRange = isDesktop ? [0.4, 0.8] : [0.3, 0.55]
-  const headlineScaleOutputRange = isDesktop ? [4.5, -1] : [4.5, 0]
+  const scrollRange = isDesktop ? [0.5, 0.9] : [0.4, 0.8]
+  const headlineScaleOutputRange = isDesktop ? [4.5, -1] : [6, 0]
   const videoScaleOutputRange = isDesktop
-    ? ['6000px', '500px']
-    : ['3000px', '0px']
+    ? ['3000px', '0px']
+    : ['2000px', '-100px']
 
   const headlineScale = useTransform(
     scrollYProgress,
@@ -31,7 +31,7 @@ export default function LessButBetter() {
   return (
     <motion.section
       ref={sectionRef}
-      className='relative flex justify-center items-center w-full h-[60vh] overflow-hidden xl:h-screen'
+      className='relative flex justify-center items-center w-full h-[60vh] overflow-hidden xl:h-screen bg-kili-light-gray'
     >
       <motion.div className='absolute' style={{ width: videoScale }}>
         <video

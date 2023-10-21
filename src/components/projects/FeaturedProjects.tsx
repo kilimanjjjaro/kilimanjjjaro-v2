@@ -17,7 +17,6 @@ export default function FeaturedProjects() {
   return (
     <Swiper
       tag='section'
-      id='featured-projects'
       className='featured-projects-carousel'
       onSlideChangeTransitionStart={() => lenis?.stop()}
       onSlideChangeTransitionEnd={() => lenis?.start()}

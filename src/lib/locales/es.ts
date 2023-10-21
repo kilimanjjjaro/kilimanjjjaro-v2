@@ -18,8 +18,8 @@ export default {
         'Mi nombre es Gonzalo y tengo {yearsOld} años. En mi experiencia aprendí que la diferencia radica en cuidar los detalles y aplicar buenas prácticas. Me entusiasma abordar soluciones de manera eficiente y simple.',
       letsTalkButton: '¡Hablemos!'
     },
-    lessButBetter: {
-      headline: 'Menos, pero mejor.'
+    since2017: {
+      headline: 'Desde—2017.'
     },
     otherProjects: {
       headline: ['Otros proyectos', 'igual de importantes...'],
