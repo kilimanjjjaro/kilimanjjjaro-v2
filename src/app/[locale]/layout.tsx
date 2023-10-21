@@ -14,7 +14,6 @@ import {
   getStaticParams
 } from '@/lib/i18n/server'
 import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
-import { LOCALES } from '@/lib/constants/general'
 import type { ChildrenType } from '@/lib/interfaces/general'
 import type { Metadata } from 'next'
 import '@/app/globals.css'
@@ -45,14 +44,14 @@ export async function generateMetadata({
     openGraph: {
       title: {
         template: '%s — Kilimanjjjaro',
-        default: 'Kilimanjjjaro'
+        default: t('defaultTitle')
       },
       description: t('description'),
       images: [
         {
-          url: 'https://kilimanjjjaro.com/images/og-image.png',
-          width: 1200,
-          height: 630
+          url: 'https://kilimanjjjaro.com/images/og-image.jpg',
+          width: 1000,
+          height: 563
         }
       ],
       siteName: 'Kilimanjjjaro',
@@ -76,10 +75,8 @@ export default async function RootLayout({
 }) {
   const currentLocale = getCurrentLocale()
 
-  const htmlLang = currentLocale === LOCALES.en ? 'en' : 'es'
-
   return (
-    <html lang={htmlLang}>
+    <html lang={currentLocale}>
       <body
         className={`bg-kili-black font-neue-haas-grotesk-display antialiased transition-colors duration-1000 ease-in-out ${neueHaasGroteskDisplayFont}`}
       >
