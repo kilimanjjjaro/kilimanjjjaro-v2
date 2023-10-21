@@ -9,6 +9,7 @@ import { useStore } from '@/lib/store/store'
 import { OTHER_PROJECTS_VARIANTS } from '@/lib/constants/variants'
 import { MORE_PROJECTS } from '@/lib/constants/projects'
 import { CURSOR_STATUS, LOCALES } from '@/lib/constants/general'
+import Balancer from 'react-wrap-balancer'
 
 export default function OtherProjects() {
   const t = useScopedI18n('home.otherProjects')
@@ -99,7 +100,7 @@ export default function OtherProjects() {
         ))}
       </motion.section>
       <motion.button
-        className='flex items-center w-full gap-2 mt-6 text-2xl xl:w-auto xl:mt-10 text-kili-white group'
+        className='flex items-center w-full gap-2 mt-6 text-2xl text-left xl:w-auto xl:mt-10 text-kili-white group'
         onClick={handleShowMore}
         onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
         onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
@@ -107,7 +108,7 @@ export default function OtherProjects() {
         animate={isInView && { opacity: 1 }}
         transition={{ duration: 1.5, ease: 'easeInOut', delay: 2 }}
       >
-        {buttonText}
+        <Balancer>{buttonText}</Balancer>
         {visibleItems < totalNumberOfProjects.current && (
           <PlusIcon className='w-3 transition-transform duration-1000 ease-in-out xl:group-hover:rotate-180' />
         )}
