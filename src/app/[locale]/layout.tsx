@@ -31,7 +31,7 @@ export async function generateMetadata({
   const fullMetadata: Metadata = {
     title: {
       template: '%s — Kilimanjjjaro',
-      default: 'Kilimanjjjaro'
+      default: t('defaultTitle')
     },
     metadataBase: new URL(t('url')),
     alternates: {

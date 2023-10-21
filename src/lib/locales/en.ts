@@ -1,5 +1,6 @@
 export default {
   metadata: {
+    defaultTitle: 'Kilimanjjjaro — Creative web experiences',
     description:
       'Kilimanjjjaro is a creative studio focused on web experiences.',
     url: 'https://kilimanjjjaro.com',
