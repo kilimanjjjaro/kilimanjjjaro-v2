@@ -30,6 +30,7 @@ export default function Portrait() {
         alt='Kilimanjjjaro'
         quality={85}
         placeholder='blur'
+        priority
       />
     </motion.div>
   )

@@ -103,6 +103,7 @@ export default function OtherProject({ project, visitButton }: Props) {
                 width={400}
                 height={250}
                 quality={85}
+                priority
               />
             </motion.span>
           </div>
