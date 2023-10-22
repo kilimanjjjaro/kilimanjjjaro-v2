@@ -88,11 +88,7 @@ export default function OtherProjects() {
         transition={{ duration: 0, staggerChildren: 0.3 }}
       >
         {otherProjects.slice(0, visibleItems).map((project) => (
-          <OtherProject
-            key={project.id}
-            project={project}
-            visitButton={t('visitButton')}
-          />
+          <OtherProject key={project.id} project={project} />
         ))}
       </motion.section>
       <motion.button

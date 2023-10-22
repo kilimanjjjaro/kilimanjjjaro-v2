@@ -24,6 +24,7 @@ export default {
     otherProjects: {
       headline: ['And other equally', 'important projects...'],
       visitButton: 'Visit',
+      repositoryButton: 'Repository',
       otherProjectsButtons: [
         'Load more',
         'There are {number} more projects',
