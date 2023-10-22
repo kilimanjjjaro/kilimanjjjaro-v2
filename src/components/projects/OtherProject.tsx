@@ -101,6 +101,7 @@ export default function OtherProject({ project }: Props) {
               alt={`Image of ${project.name}`}
               width={400}
               height={250}
+              priority
             />
           </motion.div>
         </div>
