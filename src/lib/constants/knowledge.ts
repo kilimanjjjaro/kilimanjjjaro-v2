@@ -3,24 +3,24 @@ export const APPROACH = {
     {
       title: 'Frontend Development',
       description:
-        'Frontend development is the field where I most enjoy playing. I ensure that the project receives attention down to the smallest detail, with a special focus on UX, performance and accessibility.'
+        'Frontend development is the area for which I most enjoy writing lines of code. I make sure that the app receives special focus on UX, performance and accessibility.'
     },
     {
       title: 'Backend Development',
       description:
-        'Developing the logic of an project is one of the things I love to do without compromising on the code being sustainable and the outcome achieving good performance.'
+        'Developing the logic of an app is a challenge I always enjoy overcoming. I love doing it without compromising the sustainability of the code and prioritizing its performance.'
     },
     {
       title: 'Mobile & Web Design',
       description:
-        'As a graduate in Graphic Design, I love designing projects that look good and function effectively, providing users with a comfortable and enjoyable experience while using them.'
+        'As a developer and graduate graphic designer, I prioritize ensuring a good user experience with the app, and making sure the design is reproducible without high performance costs.'
     }
   ],
   es: [
     {
       title: 'Desarrollo Frontend',
       description:
-        'El desarrollo frontend es el campo donde más me divierto. Me aseguro de que el proyecto reciba atención hasta en el más mínimo detalle, con un enfoque en la experiencia del usuario, rendimiento y accesibilidad.'
+        'El desarrollo frontend es el área en la que más disfruto escribir líneas de código. Me aseguro de que la aplicación reciba un enfoque especial en la experiencia del usuario, el rendimiento y la accesibilidad.'
     },
     {
       title: 'Desarrollo Backend',
@@ -30,7 +30,7 @@ export const APPROACH = {
     {
       title: 'Diseño Web & Móvil',
       description:
-        'Como graduado en Diseño Gráfico, me encanta diseñar proyectos que luzcan bien y funcionen de manera efectiva, brindando a los usuarios una experiencia cómoda y placentera al utilizarlos.'
+        'Como desarrollador y diseñador gráfico graduado, priorizo que el usuario tenga una buena experiencia con la app, y que el diseño sea reproducible y que no tenga costos altos en rendimiento.'
     }
   ]
 }
@@ -48,7 +48,7 @@ export const EXPERIENCE = {
   en: [
     {
       year: '2021 — Present',
-      name: 'Full Stack JavaScript Developer at Circulo'
+      name: 'Full Stack Developer at Circulo'
     },
     {
       year: '2017 — Present',
@@ -62,7 +62,7 @@ export const EXPERIENCE = {
   es: [
     {
       year: '2021 — Presente',
-      name: 'Desarrollador Full Stack de JavaScript en Circulo'
+      name: 'Desarrollador Full Stack en Circulo'
     },
     {
       year: '2017 — Presente',
@@ -79,7 +79,7 @@ export const EDUCATION = {
   en: [
     {
       year: '2011 — Present',
-      name: 'well... I love documentation, what else do I need?'
+      name: 'As a self-taught person, I love documentation.'
     },
     {
       year: '2011 — 2017',
@@ -89,7 +89,7 @@ export const EDUCATION = {
   es: [
     {
       year: '2011 — Presente',
-      name: 'Me encanta la documentación, ¿qué más necesito?'
+      name: 'Como autodidacta, amo la documentación.'
     },
     {
       year: '2011 — 2017',
