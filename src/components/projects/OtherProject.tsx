@@ -97,12 +97,12 @@ export default function OtherProject({ project, visitButton }: Props) {
               transition={{ duration: 1.5, ease: 'easeInOut' }}
             >
               <Image
-                className='duration-1000 ease-in-out transition-transform xl:translate-y-[101%] xl:group-hover:translate-y-0'
+                className='duration-1000 ease-in-out aspect-[400/250] transition-transform xl:translate-y-[101%] xl:group-hover:translate-y-0'
                 src={project.image}
                 alt={project.name}
                 width={400}
                 height={250}
-                quality={85}
+                quality={60}
                 priority
               />
             </motion.span>
