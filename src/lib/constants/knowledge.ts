@@ -3,7 +3,7 @@ export const APPROACH = {
     {
       title: 'Frontend Development',
       description:
-        'Frontend development is the area for which I most enjoy writing lines of code. I make sure that the app receives special focus on UX, performance and accessibility.'
+        'This is the area for which I most enjoy writing lines of code. I make sure that the app receives special focus on UX, performance and accessibility.'
     },
     {
       title: 'Backend Development',
@@ -20,7 +20,7 @@ export const APPROACH = {
     {
       title: 'Desarrollo Frontend',
       description:
-        'El desarrollo frontend es el área en la que más disfruto escribir líneas de código. Me aseguro de que la aplicación reciba un enfoque especial en la experiencia del usuario, el rendimiento y la accesibilidad.'
+        'Este es el área en la que más disfruto escribir líneas de código. Me aseguro de que la aplicación reciba un enfoque especial en la experiencia del usuario, el rendimiento y la accesibilidad.'
     },
     {
       title: 'Desarrollo Backend',
