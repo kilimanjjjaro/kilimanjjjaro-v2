@@ -16,7 +16,8 @@ export default {
         'Full Stack JavaScript Developer & UX/UI Designer with +{experience} years of work experience.',
       biography:
         'My name is Gonzalo, and I am {yearsOld} years old. I love designing and developing user experiences that are timeless, simple, and perform well.',
-      letsTalkButton: "Let's talk!"
+      letsTalkButton: "Let's talk!",
+      portraitAlt: "Gonzalo's picture"
     },
     since2017: {
       headline: 'Since—2017.'

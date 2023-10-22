@@ -97,11 +97,14 @@ export default function OtherProject({ project }: Props) {
             transition={{ duration: 1.5, ease: 'easeInOut' }}
           >
             <Image
-              className='duration-1000 ease-in-out transition-transform xl:translate-y-[101%] xl:group-hover:translate-y-0 w-auto'
+              className={clsx(
+                'duration-1000 ease-in-out transition-transform xl:translate-y-[101%] xl:group-hover:translate-y-0',
+                project.isRepository ? 'aspect-[420/210]' : 'aspect-[420/264]'
+              )}
               src={project.image}
               alt={`Image of ${project.name}`}
-              width={isDesktop ? 360 : 400}
-              height={isDesktop ? 225 : 250}
+              width={project.isRepository ? 420 : 420}
+              height={project.isRepository ? 210 : 264}
               priority
               onLoadingComplete={() => setIsLoaded(true)}
             />
