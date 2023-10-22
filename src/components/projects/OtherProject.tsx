@@ -111,7 +111,7 @@ export default function OtherProject({ project }: Props) {
           </motion.div>
         </div>
         <motion.div
-          role='pointer'
+          role='tooltip'
           ref={visitButtonEl}
           className='fixed top-0 left-0 z-10 flex justify-center w-full overflow-hidden pointer-events-none'
           style={{ x, y }}

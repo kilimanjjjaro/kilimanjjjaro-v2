@@ -10,6 +10,7 @@ const UNDERLINE_STYLES =
 interface Props {
   children?: ChildrenType
   className?: string
+  ariaLabel?: string
   onClick: MouseEventHandler<HTMLButtonElement>
   underlined?: boolean
 }
@@ -18,6 +19,7 @@ export default function Button({
   children,
   className,
   onClick,
+  ariaLabel,
   underlined
 }: Props) {
   const { setCursorStatus } = useStore()
@@ -25,6 +27,7 @@ export default function Button({
   return (
     <button
       className={clsx(className ?? '', underlined === true && UNDERLINE_STYLES)}
+      aria-label={ariaLabel}
       onClick={onClick}
       onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
       onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}

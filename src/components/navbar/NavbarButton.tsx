@@ -8,7 +8,7 @@ export default function NavbarButton() {
   return (
     <Button
       className='relative flex items-center justify-center cursor-pointer w-7 h-7 group'
-      aria-label='Toggle navigation menu'
+      ariaLabel='Toggle navigation menu'
       onClick={() => setNavbarStatus(!navbarStatus)}
     >
       <AnimatePresence initial={false}>
