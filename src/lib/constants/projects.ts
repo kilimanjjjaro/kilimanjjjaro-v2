@@ -29,10 +29,22 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       backgroundColor: '#6174af',
       link: '/#',
       presentation: {
-        background: '/images/projects/wrkload/background.webp',
-        poster: '/images/projects/wrkload/poster.webp',
-        video: '/images/projects/wrkload/hero-video.webm'
-      }
+        background:
+          'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015500/kilimanjjjaro-portfolio/wrkload/background_tpyj7m.webp',
+        poster:
+          'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015501/kilimanjjjaro-portfolio/wrkload/poster_zshexi.webp',
+        video:
+          'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015501/kilimanjjjaro-portfolio/wrkload/hero-video_rbgipo.webm'
+      },
+      gallery: [
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015500/kilimanjjjaro-portfolio/wrkload/gallery-1_askbgt.webp',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015500/kilimanjjjaro-portfolio/wrkload/gallery-2_f07yju.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015501/kilimanjjjaro-portfolio/wrkload/gallery-3_luvb5a.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015501/kilimanjjjaro-portfolio/wrkload/gallery-4_cgtv65.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015501/kilimanjjjaro-portfolio/wrkload/gallery-5_xqisom.webp'
+      ],
+      metaImage:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698017297/kilimanjjjaro-portfolio/wrkload/og-image_wdhj5x.jpg'
     },
     {
       id: 2,
@@ -49,10 +61,22 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       backgroundColor: '#bb1c1c',
       link: 'https://royalenfieldmadero.com.ar/',
       presentation: {
-        background: '/images/projects/royal-enfield/background.webp',
-        poster: '/images/projects/royal-enfield/poster.webp',
-        video: '/images/projects/royal-enfield/hero-video.webm'
-      }
+        background:
+          'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015499/kilimanjjjaro-portfolio/royal-enfield/background_sta26k.webp',
+        poster:
+          'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015499/kilimanjjjaro-portfolio/royal-enfield/poster_mqsbnp.webp',
+        video:
+          'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015502/kilimanjjjaro-portfolio/royal-enfield/hero-video_yjmfjd.webm'
+      },
+      gallery: [
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015498/kilimanjjjaro-portfolio/royal-enfield/gallery-1_chagaw.webp',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015498/kilimanjjjaro-portfolio/royal-enfield/gallery-2_b0vbxo.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015499/kilimanjjjaro-portfolio/royal-enfield/gallery-3_zmflcg.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015499/kilimanjjjaro-portfolio/royal-enfield/gallery-4_x2jn5p.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015498/kilimanjjjaro-portfolio/royal-enfield/gallery-5_dehjpk.webp'
+      ],
+      metaImage:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015499/kilimanjjjaro-portfolio/royal-enfield/og-image_glaezm.jpg'
     },
     {
       id: 3,
@@ -69,10 +93,22 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       backgroundColor: '#dbb92f',
       link: 'https://threads-clone-kilimanjjjaro.vercel.app/',
       presentation: {
-        background: '/images/projects/threads-clone/background.webp',
-        poster: '/images/projects/threads-clone/poster.webp',
-        video: '/images/projects/kilimanjjjaro-v1/hero-video.webm'
-      }
+        background:
+          'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015500/kilimanjjjaro-portfolio/threads-clone/background_arpawn.webp',
+        poster:
+          'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015500/kilimanjjjaro-portfolio/threads-clone/poster_s9ynoa.webp',
+        video:
+          'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015499/kilimanjjjaro-portfolio/kilimanjjjaro-v1/hero-video_ldyk7e.webm'
+      },
+      gallery: [
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015496/kilimanjjjaro-portfolio/kilimanjjjaro-v1/gallery-1_kh43cp.webp',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015497/kilimanjjjaro-portfolio/kilimanjjjaro-v1/gallery-2_qitadi.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015498/kilimanjjjaro-portfolio/kilimanjjjaro-v1/gallery-3_efruld.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015499/kilimanjjjaro-portfolio/kilimanjjjaro-v1/gallery-4_wxx0tc.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015497/kilimanjjjaro-portfolio/kilimanjjjaro-v1/gallery-5_gax8jb.webp'
+      ],
+      metaImage:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015500/kilimanjjjaro-portfolio/threads-clone/og-image_vidxt0.jpg'
     },
     {
       id: 4,
@@ -89,10 +125,22 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       backgroundColor: '#111111',
       link: 'https://kilimanjjjaro-v1.pages.dev/',
       presentation: {
-        background: '/images/projects/kilimanjjjaro-v1/background.webp',
-        poster: '/images/projects/kilimanjjjaro-v1/poster.webp',
-        video: '/images/projects/kilimanjjjaro-v1/hero-video.webm'
-      }
+        background:
+          'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015496/kilimanjjjaro-portfolio/kilimanjjjaro-v1/background_d3mol3.webp',
+        poster:
+          'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015497/kilimanjjjaro-portfolio/kilimanjjjaro-v1/poster_srxeef.webp',
+        video:
+          'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015499/kilimanjjjaro-portfolio/kilimanjjjaro-v1/hero-video_ldyk7e.webm'
+      },
+      gallery: [
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015496/kilimanjjjaro-portfolio/kilimanjjjaro-v1/gallery-1_kh43cp.webp',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015497/kilimanjjjaro-portfolio/kilimanjjjaro-v1/gallery-2_qitadi.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015498/kilimanjjjaro-portfolio/kilimanjjjaro-v1/gallery-3_efruld.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015499/kilimanjjjaro-portfolio/kilimanjjjaro-v1/gallery-4_wxx0tc.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015497/kilimanjjjaro-portfolio/kilimanjjjaro-v1/gallery-5_gax8jb.webp'
+      ],
+      metaImage:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698017447/kilimanjjjaro-portfolio/kilimanjjjaro-v1/og-image_oui5s4.jpg'
     }
   ],
   es: [
@@ -119,10 +167,22 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       backgroundColor: '#6174af',
       link: '/#',
       presentation: {
-        background: '/images/projects/wrkload/background.webp',
-        poster: '/images/projects/wrkload/poster.webp',
-        video: '/images/projects/wrkload/hero-video.webm'
-      }
+        background:
+          'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015500/kilimanjjjaro-portfolio/wrkload/background_tpyj7m.webp',
+        poster:
+          'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015501/kilimanjjjaro-portfolio/wrkload/poster_zshexi.webp',
+        video:
+          'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015501/kilimanjjjaro-portfolio/wrkload/hero-video_rbgipo.webm'
+      },
+      gallery: [
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015500/kilimanjjjaro-portfolio/wrkload/gallery-1_askbgt.webp',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015500/kilimanjjjaro-portfolio/wrkload/gallery-2_f07yju.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015501/kilimanjjjaro-portfolio/wrkload/gallery-3_luvb5a.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015501/kilimanjjjaro-portfolio/wrkload/gallery-4_cgtv65.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015501/kilimanjjjaro-portfolio/wrkload/gallery-5_xqisom.webp'
+      ],
+      metaImage:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698017297/kilimanjjjaro-portfolio/wrkload/og-image_wdhj5x.jpg'
     },
     {
       id: 2,
@@ -139,10 +199,22 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       backgroundColor: '#bb1c1c',
       link: 'https://royalenfieldmadero.com.ar/',
       presentation: {
-        background: '/images/projects/royal-enfield/background.webp',
-        poster: '/images/projects/royal-enfield/poster.webp',
-        video: '/images/projects/royal-enfield/hero-video.webm'
-      }
+        background:
+          'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015499/kilimanjjjaro-portfolio/royal-enfield/background_sta26k.webp',
+        poster:
+          'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015499/kilimanjjjaro-portfolio/royal-enfield/poster_mqsbnp.webp',
+        video:
+          'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015502/kilimanjjjaro-portfolio/royal-enfield/hero-video_yjmfjd.webm'
+      },
+      gallery: [
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015498/kilimanjjjaro-portfolio/royal-enfield/gallery-1_chagaw.webp',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015498/kilimanjjjaro-portfolio/royal-enfield/gallery-2_b0vbxo.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015499/kilimanjjjaro-portfolio/royal-enfield/gallery-3_zmflcg.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015499/kilimanjjjaro-portfolio/royal-enfield/gallery-4_x2jn5p.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015498/kilimanjjjaro-portfolio/royal-enfield/gallery-5_dehjpk.webp'
+      ],
+      metaImage:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015499/kilimanjjjaro-portfolio/royal-enfield/og-image_glaezm.jpg'
     },
     {
       id: 3,
@@ -159,10 +231,22 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       backgroundColor: '#dbb92f',
       link: 'https://threads-clone-kilimanjjjaro.vercel.app/',
       presentation: {
-        background: '/images/projects/threads-clone/background.webp',
-        poster: '/images/projects/threads-clone/poster.webp',
-        video: '/images/projects/threads-clone/hero-video.webm'
-      }
+        background:
+          'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015500/kilimanjjjaro-portfolio/threads-clone/background_arpawn.webp',
+        poster:
+          'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015500/kilimanjjjaro-portfolio/threads-clone/poster_s9ynoa.webp',
+        video:
+          'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015499/kilimanjjjaro-portfolio/kilimanjjjaro-v1/hero-video_ldyk7e.webm'
+      },
+      gallery: [
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015498/kilimanjjjaro-portfolio/royal-enfield/gallery-1_chagaw.webp',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015498/kilimanjjjaro-portfolio/royal-enfield/gallery-2_b0vbxo.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015499/kilimanjjjaro-portfolio/royal-enfield/gallery-3_zmflcg.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015499/kilimanjjjaro-portfolio/royal-enfield/gallery-4_x2jn5p.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015498/kilimanjjjaro-portfolio/royal-enfield/gallery-5_dehjpk.webp'
+      ],
+      metaImage:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015500/kilimanjjjaro-portfolio/threads-clone/og-image_vidxt0.jpg'
     },
     {
       id: 4,
@@ -179,10 +263,22 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       backgroundColor: '#111111',
       link: 'https://kilimanjjjaro-v1.pages.dev/',
       presentation: {
-        background: '/images/projects/kilimanjjjaro-v1/background.webp',
-        poster: '/images/projects/kilimanjjjaro-v1/poster.webp',
-        video: '/images/projects/kilimanjjjaro-v1/hero-video.webm'
-      }
+        background:
+          'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015496/kilimanjjjaro-portfolio/kilimanjjjaro-v1/background_d3mol3.webp',
+        poster:
+          'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015497/kilimanjjjaro-portfolio/kilimanjjjaro-v1/poster_srxeef.webp',
+        video:
+          'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015499/kilimanjjjaro-portfolio/kilimanjjjaro-v1/hero-video_ldyk7e.webm'
+      },
+      gallery: [
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015496/kilimanjjjaro-portfolio/kilimanjjjaro-v1/gallery-1_kh43cp.webp',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015497/kilimanjjjaro-portfolio/kilimanjjjaro-v1/gallery-2_qitadi.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015498/kilimanjjjaro-portfolio/kilimanjjjaro-v1/gallery-3_efruld.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/video/upload/ac_none/v1698015499/kilimanjjjaro-portfolio/kilimanjjjaro-v1/gallery-4_wxx0tc.webm',
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015497/kilimanjjjaro-portfolio/kilimanjjjaro-v1/gallery-5_gax8jb.webp'
+      ],
+      metaImage:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698017447/kilimanjjjaro-portfolio/kilimanjjjaro-v1/og-image_oui5s4.jpg'
     }
   ]
 }
@@ -198,7 +294,8 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
         'Landing page developed for Volvo Argentina with the objective of simplifying the request for test drives.',
       stacks: ['TypeScript', 'React', 'Tailwind'],
       role: 'Frontend Development',
-      image: '/images/projects/volvo-test-drive/poster.webp',
+      image:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015500/kilimanjjjaro-portfolio/volvo-test-drive/poster_oonvgi.webp',
       year: '2023',
       isRepository: false
     },
@@ -238,7 +335,8 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
         'Landing page developed for a Ford dealership. Its objective is to inform about the financing plan and provide a means of communication.',
       stacks: ['TypeScript', 'Astro', 'Tailwind'],
       role: 'Frontend Development',
-      image: '/images/projects/plan-ovalo/poster.webp',
+      image:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015498/kilimanjjjaro-portfolio/plan-ovalo/poster_qywgbl.webp',
       year: '2023',
       isRepository: false
     },
@@ -251,7 +349,8 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
         "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world. Collaborative Project.",
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
       role: 'Frontend Development',
-      image: '/images/projects/mam/poster.webp',
+      image:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015497/kilimanjjjaro-portfolio/mam/poster_ri7amy.webp',
       year: '2022',
       isRepository: false
     },
@@ -264,7 +363,8 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
         'Landing page developed for an environmental awareness campaign driven by BioLand.',
       stacks: ['WordPress', 'WPBakery', 'CSS'],
       role: 'Frontend Development',
-      image: '/images/projects/plantemos-un-arbol/poster.webp',
+      image:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015497/kilimanjjjaro-portfolio/plantemos-un-arbol/poster_hgzx6i.webp',
       year: '2022',
       isRepository: false
     },
@@ -277,7 +377,8 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
         "Project developed for a Ford dealership. It's an institutional page and its objective is to contain information about the dealership and the brand.",
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
       role: 'Frontend Development',
-      image: '/images/projects/automotores-mataderos/poster.webp',
+      image:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015501/kilimanjjjaro-portfolio/automotores-mataderos/poster_fkuudg.webp',
       year: '2021',
       isRepository: false
     }
@@ -292,7 +393,8 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
         'Landing page desarrollada para Volvo Argentina. Su objetivo es simplificar la solicitud de pruebas de manejo.',
       stacks: ['TypeScript', 'React', 'Tailwind'],
       role: 'Desarrollo Frontend',
-      image: '/images/projects/volvo-test-drive/poster.webp',
+      image:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015500/kilimanjjjaro-portfolio/volvo-test-drive/poster_oonvgi.webp',
       year: '2023',
       isRepository: false
     },
@@ -332,7 +434,8 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
         'Landing page desarrollada para un concesionario de Ford. Su objetivo es informar sobre el plan de financiamiento y proporcionar un medio de comunicación.',
       stacks: ['TypeScript', 'Astro', 'Tailwind'],
       role: 'Desarrollo Frontend',
-      image: '/images/projects/plan-ovalo/poster.webp',
+      image:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015498/kilimanjjjaro-portfolio/plan-ovalo/poster_qywgbl.webp',
       year: '2023',
       isRepository: false
     },
@@ -345,7 +448,8 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
         'Es la comunidad del banco HSBC creada en 2019 para mujeres ambiciosas que buscan mejorar su liderazgo en el mundo empresarial.',
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
       role: 'Desarrollo Frontend',
-      image: '/images/projects/mam/poster.webp',
+      image:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015497/kilimanjjjaro-portfolio/mam/poster_ri7amy.webp',
       year: '2022',
       isRepository: false
     },
@@ -358,7 +462,8 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
         'Landing page desarrollada para una campaña de concienciación ambiental impulsada por BioLand.',
       stacks: ['WordPress', 'WPBakery', 'CSS'],
       role: 'Desarrollo Frontend',
-      image: '/images/projects/plantemos-un-arbol/poster.webp',
+      image:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015497/kilimanjjjaro-portfolio/plantemos-un-arbol/poster_hgzx6i.webp',
       year: '2022',
       isRepository: false
     },
@@ -371,7 +476,8 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
         'Proyecto desarrollado para una concesionaria de Ford. Es una página institucional y su objetivo es brindar información sobre la concesionaria y la marca.',
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
       role: 'Desarrollo Frontend',
-      image: '/images/projects/automotores-mataderos/poster.webp',
+      image:
+        'https://res.cloudinary.com/dfzzgyj7r/image/upload/v1698015501/kilimanjjjaro-portfolio/automotores-mataderos/poster_fkuudg.webp',
       year: '2021',
       isRepository: false
     }
