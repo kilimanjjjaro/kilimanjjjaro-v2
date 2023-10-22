@@ -3,7 +3,7 @@ export const APPROACH = {
     {
       title: 'Frontend Development',
       description:
-        'Frontend development is the field where I most enjoy playing. I ensure that the project receives attention down to the smallest detail, with a focus on UX, performance and accessibility.'
+        'Frontend development is the field where I most enjoy playing. I ensure that the project receives attention down to the smallest detail, with a special focus on UX, performance and accessibility.'
     },
     {
       title: 'Backend Development',
