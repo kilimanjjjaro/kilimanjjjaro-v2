@@ -191,6 +191,7 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
     {
       id: 1,
       name: 'Volvo Test Drive',
+      slug: 'volvo-test-drive',
       link: 'https://volvotestdrive.com.ar/',
       description:
         'Landing page developed for Volvo Argentina with the objective of simplifying the request for test drives.',
@@ -202,6 +203,7 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
     {
       id: 2,
       name: 'DolArg API',
+      slug: 'dolarg-api',
       link: 'https://github.com/kilimanjjjaro/dolarg-api',
       description:
         'REST API to get the most commonly dollar quotes of Argentina. The data is updated from Monday to Friday at 11 AM and 16 PM local time.',
@@ -212,6 +214,7 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
     {
       id: 3,
       name: 'wrkload API',
+      slug: 'wrkload-api',
       link: 'https://github.com/kilimanjjjaro/wrkload-api',
       description:
         'REST API developed to be implemented as the backend for an application. It includes all the functionalities needed to develop a task app.',
@@ -223,6 +226,7 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
     {
       id: 4,
       name: 'Plan Ovalo',
+      slug: 'plan-ovalo',
       link: 'https://planovalo.automotoresmataderos.com.ar/',
       description:
         'Landing page developed for a Ford dealership. Its objective is to inform about the financing plan and provide a means of communication.',
@@ -234,9 +238,10 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
     {
       id: 5,
       name: 'Mujeres al Mundo',
+      slug: 'mujeres-al-mundo',
       link: 'https://www.mujeresalmundo.hsbc.com.ar/',
       description:
-        "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world.",
+        "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world. Collaborative Project.",
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
       role: 'Frontend Development',
       image: '/images/projects/mam/poster.webp',
@@ -245,6 +250,7 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
     {
       id: 6,
       name: 'Plantemos un Árbol',
+      slug: 'plantemos-un-arbol',
       link: 'https://www.bio-land.com/plantemos-un-arbol/',
       description:
         'Landing page developed for an environmental awareness campaign driven by BioLand.',
@@ -256,6 +262,7 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
     {
       id: 7,
       name: 'Automotores Mataderos',
+      slug: 'automotores-mataderos',
       link: 'https://automotoresmataderos.com.ar/',
       description:
         "Project developed for a Ford dealership. It's an institutional page and its objective is to contain information about the dealership and the brand.",
@@ -269,6 +276,7 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
     {
       id: 1,
       name: 'Volvo Test Drive',
+      slug: 'volvo-test-drive',
       link: 'https://volvotestdrive.com.ar/',
       description:
         'Landing page desarrollada para Volvo Argentina. Su objetivo es simplificar la solicitud de pruebas de manejo.',
@@ -280,6 +288,7 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
     {
       id: 2,
       name: 'DolArg API',
+      slug: 'dolarg-api',
       link: 'https://github.com/kilimanjjjaro/dolarg-api',
       description:
         'API REST para obtener las cotizaciones más utilizadas del dólar en Argentina. Los datos se actualizan de lunes a viernes a las 11 AM y 4 PM, hora local.',
@@ -290,6 +299,7 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
     {
       id: 3,
       name: 'wrkload API',
+      slug: 'wrkload-api',
       link: 'https://github.com/kilimanjjjaro/wrkload-api',
       description:
         'API REST desarrollada para ser implementada como backend de una aplicación. Incluye todas las funcionalidades necesarias para desarrollar una aplicación de tareas.',
@@ -301,6 +311,7 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
     {
       id: 4,
       name: 'Plan Ovalo',
+      slug: 'plan-ovalo',
       link: 'https://planovalo.automotoresmataderos.com.ar/',
       description:
         'Landing page desarrollada para un concesionario de Ford. Su objetivo es informar sobre el plan de financiamiento y proporcionar un medio de comunicación.',
@@ -312,6 +323,7 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
     {
       id: 5,
       name: 'Mujeres al Mundo',
+      slug: 'mujeres-al-mundo',
       link: 'https://www.mujeresalmundo.hsbc.com.ar/',
       description:
         'Es la comunidad del banco HSBC creada en 2019 para mujeres ambiciosas que buscan mejorar su liderazgo en el mundo empresarial.',
@@ -323,6 +335,7 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
     {
       id: 6,
       name: 'Plantemos un Árbol',
+      slug: 'plantemos-un-arbol',
       link: 'https://www.bio-land.com/plantemos-un-arbol/',
       description:
         'Landing page desarrollada para una campaña de concienciación ambiental impulsada por BioLand.',
@@ -334,6 +347,7 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
     {
       id: 7,
       name: 'Automotores Mataderos',
+      slug: 'automotores-mataderos',
       link: 'https://automotoresmataderos.com.ar/',
       description:
         'Proyecto desarrollado para una concesionaria de Ford. Es una página institucional y su objetivo es brindar información sobre la concesionaria y la marca.',

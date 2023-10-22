@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -13,7 +13,7 @@ import {
   OTHER_PROJECT_VARIANTS
 } from '@/lib/constants/variants'
 import { CURSOR_STATUS } from '@/lib/constants/general'
-import { OtherProjectInterface } from '@/lib/interfaces/projects'
+import type { OtherProjectInterface } from '@/lib/interfaces/projects'
 
 const UNDERLINE_STYLES =
   'before:h-0.5 before:scale-x-0 before:absolute before:-bottom-2 before:left-0 before:right-0 before:block before:bg-current before:origin-left xl:group-hover:before:scale-x-100 before:transition-transform before:ease-in xl:group-hover:before:ease-out before:duration-1000 after:delay-1000 xl:group-hover:before:delay-0 after:h-0.5 after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:bg-kili-dark-gray after:origin-left after:scale-x-0 xl:group-hover:after:scale-x-100 after:transition-transform after:ease-in xl:group-hover:after:ease-out after:duration-1000 xl:group-hover:after:delay-1000'
@@ -26,6 +26,7 @@ interface Props {
 export default function OtherProject({ project, visitButton }: Props) {
   const { setCursorStatus } = useStore()
   const visitButtonEl = useRef<HTMLHeadingElement>(null)
+  const [projectImage, setProjectImage] = useState('')
   const { isDesktop } = useMediaQuery()
   const elementDimensions = useElementDimensions({ ref: visitButtonEl })
   const { x, y } = useCursorPosition({
@@ -33,6 +34,18 @@ export default function OtherProject({ project, visitButton }: Props) {
     translateX: elementDimensions.width / 2,
     translateY: elementDimensions.height / 2
   })
+
+  useEffect(() => {
+    if (project.image === undefined) {
+      const hash = crypto.randomUUID()
+
+      const image = `https://opengraph.githubassets.com/${hash}/kilimanjjjaro/${project.slug}`
+
+      setProjectImage(image)
+    } else {
+      setProjectImage(project.image)
+    }
+  }, [project])
 
   return (
     <a
@@ -81,7 +94,7 @@ export default function OtherProject({ project, visitButton }: Props) {
             transition={{ duration: 1.5, ease: 'easeInOut' }}
           />
         </div>
-        {project.image !== undefined && (
+        {projectImage !== '' && (
           <div
             className={clsx(
               'xl:absolute overflow-hidden mt-8 xl:mt-0 order-1 xl:order-2 right-10 z-10',
@@ -97,9 +110,9 @@ export default function OtherProject({ project, visitButton }: Props) {
               transition={{ duration: 1.5, ease: 'easeInOut' }}
             >
               <Image
-                className='duration-1000 ease-in-out aspect-[400/250] transition-transform xl:translate-y-[101%] xl:group-hover:translate-y-0'
-                src={project.image}
-                alt={project.name}
+                className='duration-1000 ease-in-out transition-transform xl:translate-y-[101%] xl:group-hover:translate-y-0'
+                src={projectImage}
+                alt={`Image of ${project.name}`}
                 width={400}
                 height={250}
                 quality={60}

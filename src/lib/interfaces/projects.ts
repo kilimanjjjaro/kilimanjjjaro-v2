@@ -19,6 +19,7 @@ export interface FeaturedProjectInterface {
 
 export interface OtherProjectInterface {
   id: number
+  slug: string
   name: string
   image?: string
   link: string

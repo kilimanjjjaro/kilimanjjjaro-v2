@@ -5,7 +5,7 @@ const nextConfig = {
     serverActions: true
   },
   images: {
-    domains: ['mill3.studio'],
+    domains: ['opengraph.githubassets.com'],
     formats: ['image/avif', 'image/webp']
   }
 }
