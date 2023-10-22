@@ -3,16 +3,14 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useLenis } from '@studio-freight/react-lenis'
 import FeaturedProject from '@/components/projects/FeaturedProject'
-import { useCurrentLocale } from '@/lib/i18n/client'
-import { FEATURED_PROJECTS } from '@/lib/constants/projects'
-import { LOCALES } from '@/lib/constants/general'
+import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
 
-export default function FeaturedProjects() {
-  const currentLocale = useCurrentLocale()
+interface Props {
+  projects: FeaturedProjectInterface[]
+}
+
+export default function FeaturedProjects({ projects }: Props) {
   const lenis = useLenis()
-
-  const featuredProjects =
-    currentLocale === LOCALES.en ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
 
   return (
     <Swiper
@@ -35,7 +33,7 @@ export default function FeaturedProjects() {
         }
       }}
     >
-      {featuredProjects.map((project, index) => (
+      {projects.map((project, index) => (
         <SwiperSlide key={project.id}>
           <FeaturedProject project={project} index={index} />
         </SwiperSlide>

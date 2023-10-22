@@ -25,7 +25,7 @@ export default async function Introducing() {
       >
         {t('sectionTitle')}
       </HeadlineMarquee>
-      <div className='flex flex-col items-center px-6 pt-12 xl:py-32 xl:px-40'>
+      <main className='flex flex-col items-center px-6 pt-12 xl:py-32 xl:px-40'>
         <Portrait />
         <div className='flex flex-col gap-6 mt-10 xl:mt-0 xl:gap-0 mix-blend-difference'>
           <Headline headline={headline} />
@@ -34,11 +34,11 @@ export default async function Introducing() {
             <Biography biography={biography} />
           </div>
         </div>
-      </div>
-      <div className='flex flex-col gap-8 overflow-hidden mt-14 xl:gap-20 xl:mt-0'>
+      </main>
+      <footer className='flex flex-col gap-8 overflow-hidden mt-14 xl:gap-20 xl:mt-0'>
         <StackSelector />
         <SkillsCarousel />
-      </div>
+      </footer>
     </section>
   )
 }

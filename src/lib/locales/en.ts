@@ -15,7 +15,7 @@ export default {
       headline:
         'Full Stack JavaScript Developer & UX/UI Designer with +{experience} years of work experience.',
       biography:
-        'My name is Gonzalo and I am {yearsOld} years old. In my experience, I learned that the difference lies in taking care of the details and applying good practices. I am excited to approach solutions in an efficient and simple way.',
+        'My name is Gonzalo and I am {yearsOld} years old. In my experience, I learned that the difference lies in taking care of the details and applying good practices.',
       letsTalkButton: "Let's talk!"
     },
     since2017: {

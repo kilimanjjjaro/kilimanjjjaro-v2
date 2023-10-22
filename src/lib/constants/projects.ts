@@ -1,3 +1,4 @@
+import { getGitHubImage } from '@/lib/utils/getGitHubImage'
 import type {
   FeaturedProjectsInterface,
   OtherProjectsInterface
@@ -186,7 +187,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
   ]
 }
 
-export const MORE_PROJECTS: OtherProjectsInterface = {
+export const OTHER_PROJECTS: OtherProjectsInterface = {
   en: [
     {
       id: 1,
@@ -198,7 +199,8 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
       stacks: ['TypeScript', 'React', 'Tailwind'],
       role: 'Frontend Development',
       image: '/images/projects/volvo-test-drive/poster.webp',
-      year: '2023'
+      year: '2023',
+      isRepository: false
     },
     {
       id: 2,
@@ -209,7 +211,9 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
         'REST API to get the most commonly dollar quotes of Argentina. The data is updated from Monday to Friday at 11 AM and 16 PM local time.',
       stacks: ['TypeScript', 'Hono', 'Cloudflare Workers', 'Scrapping'],
       role: 'Backend Development',
-      year: '2023'
+      image: getGitHubImage('dolarg-api'),
+      year: '2023',
+      isRepository: true
     },
     {
       id: 3,
@@ -220,7 +224,9 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
         'REST API developed to be implemented as the backend for an application. It includes all the functionalities needed to develop a task app.',
       stacks: ['JavaScript', 'Node JS', 'MongoDB', 'Express', 'JWT Auth'],
       role: 'Backend Development',
-      year: '2023'
+      image: getGitHubImage('wrkload-api'),
+      year: '2023',
+      isRepository: true
     },
 
     {
@@ -233,7 +239,8 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
       stacks: ['TypeScript', 'Astro', 'Tailwind'],
       role: 'Frontend Development',
       image: '/images/projects/plan-ovalo/poster.webp',
-      year: '2023'
+      year: '2023',
+      isRepository: false
     },
     {
       id: 5,
@@ -245,7 +252,8 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
       role: 'Frontend Development',
       image: '/images/projects/mam/poster.webp',
-      year: '2022'
+      year: '2022',
+      isRepository: false
     },
     {
       id: 6,
@@ -257,7 +265,8 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
       stacks: ['WordPress', 'WPBakery', 'CSS'],
       role: 'Frontend Development',
       image: '/images/projects/plantemos-un-arbol/poster.webp',
-      year: '2022'
+      year: '2022',
+      isRepository: false
     },
     {
       id: 7,
@@ -269,7 +278,8 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
       role: 'Frontend Development',
       image: '/images/projects/automotores-mataderos/poster.webp',
-      year: '2021'
+      year: '2021',
+      isRepository: false
     }
   ],
   es: [
@@ -283,7 +293,8 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
       stacks: ['TypeScript', 'React', 'Tailwind'],
       role: 'Desarrollo Frontend',
       image: '/images/projects/volvo-test-drive/poster.webp',
-      year: '2023'
+      year: '2023',
+      isRepository: false
     },
     {
       id: 2,
@@ -294,7 +305,9 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
         'API REST para obtener las cotizaciones más utilizadas del dólar en Argentina. Los datos se actualizan de lunes a viernes a las 11 AM y 4 PM, hora local.',
       stacks: ['TypeScript', 'Hono', 'Cloudflare Workers', 'Scrapping'],
       role: 'Desarrollo Backend',
-      year: '2023'
+      image: getGitHubImage('dolarg-api'),
+      year: '2023',
+      isRepository: false
     },
     {
       id: 3,
@@ -305,7 +318,9 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
         'API REST desarrollada para ser implementada como backend de una aplicación. Incluye todas las funcionalidades necesarias para desarrollar una aplicación de tareas.',
       stacks: ['JavaScript', 'Node JS', 'MongoDB', 'Express', 'JWT Auth'],
       role: 'Desarrollo Backend',
-      year: '2023'
+      image: getGitHubImage('wrkload-api'),
+      year: '2023',
+      isRepository: false
     },
 
     {
@@ -318,7 +333,8 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
       stacks: ['TypeScript', 'Astro', 'Tailwind'],
       role: 'Desarrollo Frontend',
       image: '/images/projects/plan-ovalo/poster.webp',
-      year: '2023'
+      year: '2023',
+      isRepository: false
     },
     {
       id: 5,
@@ -330,7 +346,8 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
       role: 'Desarrollo Frontend',
       image: '/images/projects/mam/poster.webp',
-      year: '2022'
+      year: '2022',
+      isRepository: false
     },
     {
       id: 6,
@@ -342,7 +359,8 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
       stacks: ['WordPress', 'WPBakery', 'CSS'],
       role: 'Desarrollo Frontend',
       image: '/images/projects/plantemos-un-arbol/poster.webp',
-      year: '2022'
+      year: '2022',
+      isRepository: false
     },
     {
       id: 7,
@@ -354,7 +372,8 @@ export const MORE_PROJECTS: OtherProjectsInterface = {
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
       role: 'Desarrollo Frontend',
       image: '/images/projects/automotores-mataderos/poster.webp',
-      year: '2021'
+      year: '2021',
+      isRepository: false
     }
   ]
 }

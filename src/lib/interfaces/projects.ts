@@ -21,12 +21,13 @@ export interface OtherProjectInterface {
   id: number
   slug: string
   name: string
-  image?: string
+  image: string
   link: string
   description: string
   stacks: string[]
   role: string
   year: string
+  isRepository: boolean
 }
 
 export interface FeaturedProjectsInterface {

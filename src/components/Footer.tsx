@@ -58,7 +58,7 @@ export default function Footer() {
               </li>
             ))}
         </ul>
-        <div className='flex flex-col items-start justify-start gap-4 xl:items-end xl:justify-between xl:flex-row'>
+        <section className='flex flex-col items-start justify-start gap-4 xl:items-end xl:justify-between xl:flex-row'>
           <Button
             className='overflow-hidden text-6xl leading-none transition-colors duration-1000 ease-in-out xl:-mb-6 text-kili-white xl:text-10xl xl:hover:text-kili-light-gray'
             onClick={() => setShowContactForm(true)}
@@ -135,7 +135,7 @@ export default function Footer() {
               </Button>
             </li>
           </ul>
-        </div>
+        </section>
       </motion.div>
     </footer>
   )

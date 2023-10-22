@@ -1,22 +1,26 @@
 'use client'
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Balancer from 'react-wrap-balancer'
 import OtherProject from '@/components/projects/OtherProject'
 import { PlusIcon } from '@/components/icons/PlusIcon'
-import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
+import { useScopedI18n } from '@/lib/i18n/client'
 import { useStore } from '@/lib/store/store'
 import { OTHER_PROJECTS_VARIANTS } from '@/lib/constants/variants'
-import { MORE_PROJECTS } from '@/lib/constants/projects'
-import { CURSOR_STATUS, LOCALES } from '@/lib/constants/general'
+import { OTHER_PROJECTS } from '@/lib/constants/projects'
+import { CURSOR_STATUS } from '@/lib/constants/general'
+import type { OtherProjectInterface } from '@/lib/interfaces/projects'
 
-export default function OtherProjects() {
+interface Props {
+  projects: OtherProjectInterface[]
+}
+
+export default function OtherProjects({ projects }: Props) {
   const t = useScopedI18n('home.otherProjects')
-  const currentLocale = useCurrentLocale()
   const { setCursorStatus, setShowContactForm } = useStore()
   const sectionEl = useRef<HTMLElement>(null)
-  const totalNumberOfProjects = useRef(MORE_PROJECTS.en.length)
+  const totalNumberOfProjects = useRef(OTHER_PROJECTS.en.length)
   const [visibleItems, setVisibleItems] = useState(2)
   const isInView = useInView(sectionEl, { once: true })
   const [buttonText, setButtonText] = useState('Load more')
@@ -44,10 +48,6 @@ export default function OtherProjects() {
       setButtonText(t('otherProjectsButtons.3'))
     }
   }, [visibleItems, isInView, t])
-
-  const otherProjects = useMemo(() => {
-    return currentLocale === LOCALES.en ? MORE_PROJECTS.en : MORE_PROJECTS.es
-  }, [currentLocale])
 
   return (
     <section ref={sectionEl} className='px-6 pb-24 xl:pb-40 xl:px-40'>
@@ -87,7 +87,7 @@ export default function OtherProjects() {
         animate={isInView ? 'show' : 'hidden'}
         transition={{ duration: 0, staggerChildren: 0.3 }}
       >
-        {otherProjects.slice(0, visibleItems).map((project) => (
+        {projects.slice(0, visibleItems).map((project) => (
           <OtherProject key={project.id} project={project} />
         ))}
       </motion.section>

@@ -76,7 +76,7 @@ export default function FeaturedProject({ project, index }: Props) {
       onMouseLeave={handleMouseLeave}
     >
       <article className='relative flex flex-col aspect-[18/25] group cursor-none'>
-        <motion.div
+        <motion.header
           className='top-0 left-0 p-5 flex items-center xl:absolute w-full h-full bg-[length:130%] xl:group-hover:bg-[length:114%] transition-[background-size] ease-in-out duration-1000'
           style={{
             backgroundImage: `url('${project.presentation.background}')`,
@@ -122,12 +122,12 @@ export default function FeaturedProject({ project, index }: Props) {
               disableRemotePlayback
             />
           </motion.div>{' '}
-        </motion.div>
+        </motion.header>
 
         <FeaturedProjectName projectId={project.id} isHovered={isHovered}>
           {project.name}
         </FeaturedProjectName>
-        <span className='left-0 mt-2 leading-tight xl:leading-none xl:mt-0 xl:absolute xl:text-xl xl:overflow-hidden top-full text-kili-light-gray xl:text-kili-white'>
+        <footer className='left-0 mt-2 leading-tight xl:leading-none xl:mt-0 xl:absolute xl:text-xl xl:overflow-hidden top-full text-kili-light-gray xl:text-kili-white'>
           <motion.span
             className='xl:block'
             initial={{
@@ -149,7 +149,7 @@ export default function FeaturedProject({ project, index }: Props) {
           >
             <Balancer>{project.role}</Balancer>
           </motion.span>
-        </span>
+        </footer>
       </article>
     </Link>
   )
