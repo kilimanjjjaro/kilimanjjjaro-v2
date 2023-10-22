@@ -9,6 +9,7 @@ import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import FeaturedProjectName from '@/components/projects/FeaturedProjectName'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
+import Image from 'next/image'
 
 interface Props {
   project: FeaturedProjectInterface
@@ -38,6 +39,7 @@ export default function FeaturedProject({ project, index }: Props) {
     setCursorStatus(CURSOR_STATUS.HIDDEN)
     document.body.style.backgroundColor = project.backgroundColor
 
+    videoRef.current.currentTime = 0
     await videoRef.current.play()
   }
 
@@ -80,7 +82,7 @@ export default function FeaturedProject({ project, index }: Props) {
           className='top-0 left-0 p-5 flex items-center xl:absolute w-full h-full bg-[length:130%] xl:group-hover:bg-[length:114%] transition-[background-size] ease-in-out duration-1000'
           style={{
             backgroundImage: `url('${project.presentation.background}')`,
-            backgroundPositionY: bgPositionY
+            backgroundPositionY: isDesktop ? bgPositionY : 'center'
           }}
           initial={{
             clipPath: 'inset(100% 0% 0% 0%)'
@@ -97,6 +99,7 @@ export default function FeaturedProject({ project, index }: Props) {
           }}
         >
           <motion.div
+            className='w-full relative transition-transform duration-1000 ease-in-out scale-100 xl:scale-[.85] aspect-video xl:group-hover:scale-100'
             initial={{
               opacity: 0
             }}
@@ -110,9 +113,18 @@ export default function FeaturedProject({ project, index }: Props) {
               ease: 'easeInOut'
             }}
           >
+            {isDesktop && (
+              <Image
+                className='absolute object-cover object-center xl:block'
+                src={project.presentation.poster}
+                alt={project.name}
+                fill
+                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+              />
+            )}
             <video
               ref={videoRef}
-              className='w-full transition-transform duration-1000 ease-in-out scale-100 xl:scale-[.85] aspect-video xl:group-hover:scale-100'
+              className='transition-opacity duration-1000 ease-in-out xl:opacity-0 xl:absolute xl:group-hover:opacity-100'
               src={project.presentation.video}
               poster={project.presentation.poster}
               loop

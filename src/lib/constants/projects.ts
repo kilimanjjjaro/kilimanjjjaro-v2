@@ -71,7 +71,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       presentation: {
         background: '/images/projects/threads-clone/background.webp',
         poster: '/images/projects/threads-clone/poster.webp',
-        video: '/images/projects/threads-clone/hero-video.webm'
+        video: '/images/projects/kilimanjjjaro-v1/hero-video.webm'
       }
     },
     {

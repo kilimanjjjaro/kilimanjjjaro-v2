@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import clsx from 'clsx'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -27,6 +27,7 @@ export default function OtherProject({ project }: Props) {
   const t = useScopedI18n('home.otherProjects')
   const { setCursorStatus } = useStore()
   const visitButtonEl = useRef<HTMLHeadingElement>(null)
+  const [isLoaded, setIsLoaded] = useState(false)
   const { isDesktop } = useMediaQuery()
   const elementDimensions = useElementDimensions({ ref: visitButtonEl })
   const { x, y } = useCursorPosition({
@@ -92,16 +93,17 @@ export default function OtherProject({ project }: Props) {
             initial={
               isDesktop ? { y: '0%', rotate: 0 } : { y: '110%', rotate: 3 }
             }
-            animate={{ y: '0%', rotate: 0 }}
+            animate={isLoaded && { y: '0%', rotate: 0 }}
             transition={{ duration: 1.5, ease: 'easeInOut' }}
           >
             <Image
-              className='duration-1000 ease-in-out transition-transform xl:translate-y-[101%] xl:group-hover:translate-y-0'
+              className='duration-1000 ease-in-out transition-transform xl:translate-y-[101%] xl:group-hover:translate-y-0 w-auto'
               src={project.image}
               alt={`Image of ${project.name}`}
-              width={400}
-              height={250}
+              width={isDesktop ? 360 : 400}
+              height={isDesktop ? 225 : 250}
               priority
+              onLoadingComplete={() => setIsLoaded(true)}
             />
           </motion.div>
         </div>
