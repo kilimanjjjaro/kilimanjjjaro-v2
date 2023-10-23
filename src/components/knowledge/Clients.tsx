@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import {
-  OTHER_PROJECT_HR_VARIANTS,
-  OTHER_PROJECT_VARIANTS
+  HR_LINE_VARIANTS,
+  KNOWLEDGE_ITEM_VARIANTS
 } from '@/lib/constants/variants'
 import { CLIENTS } from '@/lib/constants/knowledge'
 import { useScopedI18n } from '@/lib/i18n/client'
@@ -12,7 +12,7 @@ export default function Clients() {
     <article className='overflow-hidden'>
       <motion.div
         className='flex flex-col xl:flex-row pt-6 pb-6 xl:pb-[82px] xl:pt-20 gap-6 xl:gap-10'
-        variants={OTHER_PROJECT_VARIANTS}
+        variants={KNOWLEDGE_ITEM_VARIANTS}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       >
         <h3 className='w-[30%] text-4xl text-kili-white'>
@@ -26,7 +26,7 @@ export default function Clients() {
       </motion.div>
       <motion.hr
         className='w-full h-0.5 border-kili-light-gray origin-left'
-        variants={OTHER_PROJECT_HR_VARIANTS}
+        variants={HR_LINE_VARIANTS}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       />
     </article>

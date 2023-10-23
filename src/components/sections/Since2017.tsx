@@ -13,8 +13,8 @@ export default function Since2017() {
   const { scrollYProgress } = useScroll()
   const videoIsInView = useInView(sectionRef)
 
-  const scrollRange = isDesktop ? [0.5, 0.9] : [0.4, 0.8]
-  const headlineScaleOutputRange = isDesktop ? [4.5, -1] : [6, 0]
+  const scrollRange = [0.5, 0.9]
+  const headlineScaleOutputRange = isDesktop ? [4.5, -1] : [4, 0]
   const videoScaleOutputRange = isDesktop
     ? ['3000px', '0px']
     : ['2000px', '-100px']

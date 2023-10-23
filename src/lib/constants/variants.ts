@@ -91,9 +91,9 @@ export const OTHER_PROJECTS_VARIANTS = {
   }
 }
 
-export const OTHER_PROJECT_VARIANTS = {
+export const KNOWLEDGE_ITEM_VARIANTS = {
   hidden: {
-    y: '100%',
+    y: '110%',
     rotate: 3
   },
   show: {
@@ -102,7 +102,7 @@ export const OTHER_PROJECT_VARIANTS = {
   }
 }
 
-export const OTHER_PROJECT_HR_VARIANTS = {
+export const HR_LINE_VARIANTS = {
   hidden: {
     scaleX: '0%'
   },

@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import clsx from 'clsx'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import Balancer from 'react-wrap-balancer'
 import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
 import { useStore } from '@/lib/store/store'
@@ -9,10 +9,6 @@ import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import useCursorPosition from '@/lib/hooks/useCursorPosition'
 import useElementDimensions from '@/lib/hooks/useElementDimensions'
 import { useScopedI18n } from '@/lib/i18n/client'
-import {
-  OTHER_PROJECT_HR_VARIANTS,
-  OTHER_PROJECT_VARIANTS
-} from '@/lib/constants/variants'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 import type { OtherProjectInterface } from '@/lib/interfaces/projects'
 
@@ -26,8 +22,10 @@ interface Props {
 export default function OtherProject({ project }: Props) {
   const t = useScopedI18n('home.otherProjects')
   const { setCursorStatus } = useStore()
+  const projectRef = useRef<HTMLAnchorElement>(null)
   const visitButtonEl = useRef<HTMLHeadingElement>(null)
   const [isLoaded, setIsLoaded] = useState(false)
+  const projectIsInView = useInView(projectRef, { once: true })
   const { isDesktop } = useMediaQuery()
   const elementDimensions = useElementDimensions({ ref: visitButtonEl })
   const { x, y } = useCursorPosition({
@@ -38,6 +36,7 @@ export default function OtherProject({ project }: Props) {
 
   return (
     <a
+      ref={projectRef}
       key={project.id}
       href={project.link}
       target='_blank'
@@ -49,8 +48,16 @@ export default function OtherProject({ project }: Props) {
         <section className='order-2 overflow-hidden xl:order-1'>
           <motion.div
             className='flex flex-col xl:flex-row gap-4 xl:items-center pt-6 xl:pt-10 pb-6 xl:pb-[42px] xl:gap-10'
-            variants={OTHER_PROJECT_VARIANTS}
-            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            initial={{
+              y: '110%',
+              rotate: 3
+            }}
+            animate={projectIsInView && { y: '0%', rotate: 0 }}
+            transition={{
+              duration: 1.5,
+              ease: 'easeInOut',
+              delay: project.id * 0.3
+            }}
           >
             <header className='flex flex-col xl:flex-row xl:gap-1.5 xl:items-center xl:w-[30%] xl:flex-wrap'>
               <h4
@@ -79,8 +86,13 @@ export default function OtherProject({ project }: Props) {
           </motion.div>
           <motion.hr
             className='w-full h-0.5 border-kili-light-gray origin-left'
-            variants={OTHER_PROJECT_HR_VARIANTS}
-            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            initial={{ scaleX: '0%' }}
+            animate={projectIsInView && { scaleX: '100%' }}
+            transition={{
+              duration: 1.5,
+              ease: 'easeInOut',
+              delay: project.id * 0.3
+            }}
           />
         </section>
         <div
@@ -90,15 +102,24 @@ export default function OtherProject({ project }: Props) {
           )}
         >
           <motion.div
-            initial={
-              isDesktop ? { y: '0%', rotate: 0 } : { y: '110%', rotate: 3 }
+            initial={{
+              y: isDesktop ? '0%' : '107%',
+              rotate: isDesktop ? 0 : 3
+            }}
+            animate={
+              projectIsInView &&
+              isLoaded &&
+              !isDesktop && { y: '0%', rotate: 0 }
             }
-            animate={isLoaded && { y: '0%', rotate: 0 }}
-            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            transition={{
+              duration: 1.5,
+              ease: 'easeInOut',
+              delay: project.id * 0.3
+            }}
           >
             <Image
               className={clsx(
-                'duration-1000 ease-in-out transition-transform xl:translate-y-[101%] xl:group-hover:translate-y-0',
+                'block transition-transform duration-1000 ease-in-out xl:translate-y-[105%] xl:group-hover:translate-y-0',
                 project.isRepository ? 'aspect-[420/210]' : 'aspect-[420/264]'
               )}
               src={project.image}
@@ -117,7 +138,7 @@ export default function OtherProject({ project }: Props) {
           style={{ x, y }}
         >
           <span className='flex items-center gap-3 text-6xl leading-none text-center transition-transform duration-1000 ease-in-out translate-y-[124%] rotate-6 text-kili-white xl:group-hover:translate-y-0 xl:group-hover:rotate-0'>
-            {project.isRepository ? t('repositoryButton') : t('visitButton')}{' '}
+            {project.isRepository ? t('repositoryButton') : t('websiteButton')}{' '}
             <ArrowCornerIcon className='w-6' />
           </span>
         </motion.div>

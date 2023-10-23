@@ -2,8 +2,8 @@ import { motion } from 'framer-motion'
 import { Balancer } from 'react-wrap-balancer'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
 import {
-  OTHER_PROJECT_HR_VARIANTS,
-  OTHER_PROJECT_VARIANTS
+  HR_LINE_VARIANTS,
+  KNOWLEDGE_ITEM_VARIANTS
 } from '@/lib/constants/variants'
 import { EXPERIENCE } from '@/lib/constants/knowledge'
 import { LOCALES } from '@/lib/constants/general'
@@ -18,7 +18,7 @@ export default function Experience() {
     <article className='overflow-hidden'>
       <motion.div
         className='flex flex-col gap-4 xl:flex-row pt-6 pb-6 xl:pb-[82px] xl:pt-20 xl:gap-10'
-        variants={OTHER_PROJECT_VARIANTS}
+        variants={KNOWLEDGE_ITEM_VARIANTS}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       >
         <h3 className='xl:w-[30%] text-4xl text-kili-white'>
@@ -39,7 +39,7 @@ export default function Experience() {
       </motion.div>
       <motion.hr
         className='w-full h-0.5 border-kili-light-gray origin-left'
-        variants={OTHER_PROJECT_HR_VARIANTS}
+        variants={HR_LINE_VARIANTS}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       />
     </article>

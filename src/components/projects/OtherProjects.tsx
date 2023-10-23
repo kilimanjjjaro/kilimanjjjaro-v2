@@ -7,7 +7,6 @@ import OtherProject from '@/components/projects/OtherProject'
 import { PlusIcon } from '@/components/icons/PlusIcon'
 import { useScopedI18n } from '@/lib/i18n/client'
 import { useStore } from '@/lib/store/store'
-import { OTHER_PROJECTS_VARIANTS } from '@/lib/constants/variants'
 import { OTHER_PROJECTS } from '@/lib/constants/projects'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 import type { OtherProjectInterface } from '@/lib/interfaces/projects'
@@ -80,17 +79,11 @@ export default function OtherProjects({ projects }: Props) {
           </motion.span>
         </span>
       </h3>
-      <motion.section
-        className='mt-6 xl:mt-10'
-        variants={OTHER_PROJECTS_VARIANTS}
-        initial='hidden'
-        animate={isInView ? 'show' : 'hidden'}
-        transition={{ duration: 0, staggerChildren: 0.3 }}
-      >
+      <section className='mt-6 xl:mt-10'>
         {projects.slice(0, visibleItems).map((project) => (
           <OtherProject key={project.id} project={project} />
         ))}
-      </motion.section>
+      </section>
       <motion.button
         className='flex items-center w-full gap-2 mt-6 text-2xl text-left xl:w-auto xl:mt-10 text-kili-white group'
         onClick={handleShowMore}
