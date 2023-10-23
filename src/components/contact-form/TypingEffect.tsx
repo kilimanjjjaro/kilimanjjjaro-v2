@@ -1,17 +1,31 @@
-import { useEffect, useRef } from 'react'
-// @ts-expect-error
-import { type } from '@camwiegert/typical'
+import { useEffect, useState } from 'react'
+import useTypingEffect from '@/lib/hooks/useTypingEffect'
+
+const DURATION = 60
 
 interface Props {
   text: string
 }
 
 export default function TypingEffect({ text }: Props) {
-  const typicalRef = useRef(null)
+  const [textIndex, setTextIndex] = useState(0)
+  const textToShow = useTypingEffect(text, DURATION)
 
   useEffect(() => {
-    type(typicalRef.current, text)
+    const intervalId = setInterval(() => {
+      setTextIndex((prevIndex) =>
+        prevIndex >= text.length - 1 ? 0 : prevIndex + 1
+      )
+    }, 5000)
+
+    return () => {
+      clearInterval(intervalId)
+    }
   }, [text])
 
-  return <span ref={typicalRef} className='mr-1' />
+  return (
+    <span className='text-black dark:text-white' key={textIndex}>
+      {textToShow}
+    </span>
+  )
 }
