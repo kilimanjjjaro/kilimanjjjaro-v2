@@ -355,7 +355,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       slug: 'plantemos-un-arbol',
       link: 'https://www.bio-land.com/plantemos-un-arbol/',
       description:
-        'Landing page developed for an environmental awareness campaign driven by BioLand, an all-natural products company.',
+        'Landing page desarrollada para una campaña de concientización ambiental impulsada por BioLand, una empresa de productos totalmente naturales.',
       stacks: ['WordPress', 'WPBakery', 'CSS'],
       role: 'Desarrollo Frontend',
       image: '/images/projects/plantemos-un-arbol/poster.webp',
