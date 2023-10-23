@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import TypingEffect from '@/components/contact-form/TypingEffect'
+import TypingEffect from '@/components/shared/TypingEffect'
 
 const FOLDERS = [
   'app',

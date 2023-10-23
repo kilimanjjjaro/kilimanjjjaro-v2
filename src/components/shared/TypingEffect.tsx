@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react'
 
-export default function useTypingEffect(text: string, duration: number) {
+const DURATION = 65
+
+interface Props {
+  text: string
+}
+
+export default function TypingEffect({ text }: Props) {
   const [currentPosition, setCurrentPosition] = useState(0)
   const items = text.split('')
 
@@ -13,12 +19,12 @@ export default function useTypingEffect(text: string, duration: number) {
 
     const intervalId = setInterval(() => {
       setCurrentPosition((prevPosition) => prevPosition + 1)
-    }, duration)
+    }, DURATION)
 
     return () => {
       clearInterval(intervalId)
     }
-  }, [currentPosition, items, duration])
+  }, [currentPosition, items])
 
   return items.slice(0, currentPosition).join('')
 }
