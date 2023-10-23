@@ -56,7 +56,7 @@ export default function OtherProject({ project }: Props) {
             transition={{
               duration: 1.5,
               ease: 'easeInOut',
-              delay: project.id * 0.3
+              delay: isDesktop ? project.id * 0.3 : 0
             }}
           >
             <header className='flex flex-col xl:flex-row xl:gap-1.5 xl:items-center xl:w-[30%] xl:flex-wrap'>
@@ -91,7 +91,7 @@ export default function OtherProject({ project }: Props) {
             transition={{
               duration: 1.5,
               ease: 'easeInOut',
-              delay: project.id * 0.3
+              delay: isDesktop ? project.id * 0.3 : 0
             }}
           />
         </section>
@@ -114,7 +114,7 @@ export default function OtherProject({ project }: Props) {
             transition={{
               duration: 1.5,
               ease: 'easeInOut',
-              delay: project.id * 0.3
+              delay: isDesktop ? project.id * 0.3 : 0
             }}
           >
             <Image
