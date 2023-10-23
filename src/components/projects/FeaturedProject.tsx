@@ -26,11 +26,7 @@ export default function FeaturedProject({ project, index }: Props) {
   const videoIsInView = useInView(videoRef, { amount: 'all' })
   const { scrollYProgress } = useScroll()
 
-  const scrollOutputRange = isDesktop ? [0, 0.5] : [0, 0.3]
-  const bgPositionY = useTransform(scrollYProgress, scrollOutputRange, [
-    '0%',
-    '145%'
-  ])
+  const bgPositionY = useTransform(scrollYProgress, [0, 0.45], ['0%', '120%'])
 
   const handleMouseEnter = async () => {
     if (videoRef.current === null) return
