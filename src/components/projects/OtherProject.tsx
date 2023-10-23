@@ -10,6 +10,7 @@ import useCursorPosition from '@/lib/hooks/useCursorPosition'
 import useElementDimensions from '@/lib/hooks/useElementDimensions'
 import { useScopedI18n } from '@/lib/i18n/client'
 import { CURSOR_STATUS } from '@/lib/constants/general'
+import { HR_LINE_VARIANTS } from '@/lib/constants/variants'
 import type { OtherProjectInterface } from '@/lib/interfaces/projects'
 
 const UNDERLINE_STYLES =
@@ -48,10 +49,7 @@ export default function OtherProject({ project }: Props) {
         <section className='order-2 overflow-hidden xl:order-1'>
           <motion.div
             className='flex flex-col xl:flex-row gap-4 xl:items-center pt-6 xl:pt-10 pb-6 xl:pb-[42px] xl:gap-10'
-            initial={{
-              y: '110%',
-              rotate: 3
-            }}
+            initial={{ y: '110%', rotate: 3 }}
             animate={projectIsInView && { y: '0%', rotate: 0 }}
             transition={{
               duration: 1.5,
@@ -86,8 +84,9 @@ export default function OtherProject({ project }: Props) {
           </motion.div>
           <motion.hr
             className='w-full h-0.5 border-kili-light-gray origin-left'
-            initial={{ scaleX: '0%' }}
-            animate={projectIsInView && { scaleX: '100%' }}
+            initial='hidden'
+            variants={HR_LINE_VARIANTS}
+            animate={projectIsInView ? 'show' : 'hidden'}
             transition={{
               duration: 1.5,
               ease: 'easeInOut',
