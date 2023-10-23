@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: project.headerDescription,
       images: [
         {
-          url: project.metaImage,
+          url: `/images/projects/${project.slug}/og-image.jpg`,
           width: 1000,
           height: 563
         }

@@ -12,11 +12,9 @@ export interface FeaturedProjectInterface {
     poster: string
     video: string
   }
-  gallery: string[]
   backgroundColor: string
   year: string
   link: string
-  metaImage: string
 }
 
 export interface OtherProjectInterface {

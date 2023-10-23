@@ -5,8 +5,9 @@ const nextConfig = {
     serverActions: true
   },
   images: {
-    domains: ['opengraph.githubassets.com', 'res.cloudinary.com'],
-    formats: ['image/avif', 'image/webp']
+    domains: ['opengraph.githubassets.com'],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 31536000
   }
 }
 

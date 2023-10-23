@@ -29,7 +29,7 @@ export default function FeaturedProject({ project, index }: Props) {
   const scrollOutputRange = isDesktop ? [0, 0.5] : [0, 0.3]
   const bgPositionY = useTransform(scrollYProgress, scrollOutputRange, [
     '0%',
-    '140%'
+    '150%'
   ])
 
   const handleMouseEnter = async () => {
@@ -79,7 +79,7 @@ export default function FeaturedProject({ project, index }: Props) {
     >
       <article className='relative flex flex-col aspect-[18/25] group cursor-none'>
         <motion.header
-          className='top-0 left-0 p-5 flex items-center xl:absolute w-full h-full bg-[length:130%] xl:group-hover:bg-[length:114%] transition-[background-size] ease-in-out duration-1000'
+          className='top-0 left-0 p-5 flex items-center xl:absolute w-full h-full bg-[length:135%] xl:group-hover:bg-[length:114%] transition-[background-size] ease-in-out duration-1000'
           style={{
             backgroundImage: `url('${project.presentation.background}')`,
             backgroundPositionY: isDesktop ? bgPositionY : 'center'
@@ -124,7 +124,7 @@ export default function FeaturedProject({ project, index }: Props) {
             )}
             <video
               ref={videoRef}
-              className='transition-opacity duration-1000 ease-in-out xl:opacity-0 xl:absolute xl:group-hover:opacity-100'
+              className='transition-opacity duration-1000 ease-in-out xl:opacity-0 aspect-video xl:absolute xl:group-hover:opacity-100'
               src={project.presentation.video}
               poster={project.presentation.poster}
               loop

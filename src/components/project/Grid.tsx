@@ -33,13 +33,15 @@ export default function Grid({ project }: Props) {
           src={project.presentation.video}
         />
         <Image
-          src={project.gallery[0]}
+          src={`/images/projects/${project.slug}/gallery-1.webp`}
           width={437}
           height={778}
           alt={project.name}
-          quality={85}
         />
-        <Video className='w-full' src={project.gallery[1]} />
+        <Video
+          className='w-full'
+          src={`/images/projects/${project.slug}/gallery-2.webm`}
+        />
         <div className='flex flex-col gap-36'>
           <div>
             <h3 className='mb-10 text-xl leading-tight text-kili-light-gray'>
@@ -65,22 +67,28 @@ export default function Grid({ project }: Props) {
         >
           <Image
             className='w-full'
-            src={project.gallery[0]}
+            src={`/images/projects/${project.slug}/gallery-1.webp`}
             width={437}
             height={778}
             alt={project.name}
-            quality={85}
           />
-          <Video className='w-full' src={project.gallery[1]} autoPlay />
+          <Video
+            className='w-full'
+            src={`/images/projects/${project.slug}/gallery-2.webm`}
+            autoPlay
+          />
           <Image
             className='w-full'
-            src={project.gallery[0]}
+            src={`/images/projects/${project.slug}/gallery-1.webp`}
             width={437}
             height={778}
             alt={project.name}
-            quality={85}
           />
-          <Video className='w-full' src={project.gallery[1]} autoPlay />
+          <Video
+            className='w-full'
+            src={`/images/projects/${project.slug}/gallery-2.webm`}
+            autoPlay
+          />
         </motion.div>
 
         <motion.div
@@ -89,7 +97,7 @@ export default function Grid({ project }: Props) {
         >
           <Video
             className='w-full aspect-video'
-            src={project.gallery[2]}
+            src={`/images/projects/${project.slug}/gallery-3.webm`}
             autoPlay
           />
           <Video
@@ -103,23 +111,29 @@ export default function Grid({ project }: Props) {
           className='flex flex-col w-full gap-20'
           style={{ y: sectionY }}
         >
-          <Video className='w-full' src={project.gallery[3]} autoPlay />
-          <Image
+          <Video
             className='w-full'
-            src={project.gallery[4]}
-            width={437}
-            height={778}
-            alt={project.name}
-            quality={85}
+            src={`/images/projects/${project.slug}/gallery-4.webm`}
+            autoPlay
           />
-          <Video className='w-full' src={project.gallery[3]} autoPlay />
           <Image
             className='w-full'
-            src={project.gallery[4]}
+            src={`/images/projects/${project.slug}/gallery-5.webp`}
             width={437}
             height={778}
             alt={project.name}
-            quality={85}
+          />
+          <Video
+            className='w-full'
+            src={`/images/projects/${project.slug}/gallery-4.webm`}
+            autoPlay
+          />
+          <Image
+            className='w-full'
+            src={`/images/projects/${project.slug}/gallery-5.webp`}
+            width={437}
+            height={778}
+            alt={project.name}
           />
         </motion.div>
       </section>
@@ -148,13 +162,15 @@ export default function Grid({ project }: Props) {
             </ul>
           </div>
         </div>
-        <Video className='w-full' src={project.gallery[3]} />
+        <Video
+          className='w-full'
+          src={`/images/projects/${project.slug}/gallery-4.webm`}
+        />
         <Image
-          src={project.gallery[0]}
+          src={`/images/projects/${project.slug}/gallery-1.webp`}
           width={437}
           height={778}
           alt={project.name}
-          quality={85}
           loading='lazy'
         />
       </section>
