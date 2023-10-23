@@ -29,7 +29,7 @@ export default function FeaturedProject({ project, index }: Props) {
   const scrollOutputRange = isDesktop ? [0, 0.5] : [0, 0.3]
   const bgPositionY = useTransform(scrollYProgress, scrollOutputRange, [
     '0%',
-    '150%'
+    '145%'
   ])
 
   const handleMouseEnter = async () => {

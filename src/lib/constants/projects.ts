@@ -307,7 +307,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       role: 'Desarrollo Backend',
       image: getGitHubImage('dolarg-api'),
       year: '2023',
-      isRepository: false
+      isRepository: true
     },
     {
       id: 3,
@@ -320,7 +320,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       role: 'Desarrollo Backend',
       image: getGitHubImage('wrkload-api'),
       year: '2023',
-      isRepository: false
+      isRepository: true
     },
 
     {
