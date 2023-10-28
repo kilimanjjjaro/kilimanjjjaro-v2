@@ -1,16 +1,14 @@
-import {
-  Body,
-  Container,
-  Head,
-  Heading,
-  Html,
-  Img,
-  Link,
-  Preview,
-  Section,
-  Tailwind,
-  Text
-} from '@react-email/components'
+import { Html } from '@react-email/html'
+import { Head } from '@react-email/head'
+import { Preview } from '@react-email/preview'
+import { Tailwind } from '@react-email/tailwind'
+import { Body } from '@react-email/body'
+import { Container } from '@react-email/container'
+import { Heading } from '@react-email/heading'
+import { Img } from '@react-email/img'
+import { Section } from '@react-email/section'
+import { Text } from '@react-email/text'
+import { Link } from '@react-email/link'
 import { BASE_URL } from '@/lib/constants/general'
 
 interface Props {
