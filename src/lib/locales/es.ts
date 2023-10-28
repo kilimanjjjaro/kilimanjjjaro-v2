@@ -1,9 +1,9 @@
 export default {
   metadata: {
-    defaultTitle: 'Kilimanjjjaro — Experiencias web creativas',
+    defaultTitle: 'Monospace — Experiencias web creativas',
     description:
-      'Kilimanjjjaro es un estudio creativo enfocado en experiencias web.',
-    url: 'https://kilimanjjjaro.com/es',
+      'Monospace es un estudio creativo enfocado en experiencias web.',
+    url: 'https://monospace.ar/es',
     locale: 'es'
   },
   home: {

@@ -1,14 +1,13 @@
 export const METADATA = {
   en: {
-    description:
-      'Kilimanjjjaro is a creative studio focused on web experiences.',
-    url: 'https://kilimanjjjaro.com',
+    description: 'Monospace is a creative studio focused on web experiences.',
+    url: 'https://monospace.ar',
     locale: 'en'
   },
   es: {
     description:
-      'Kilimanjjjaro es un estudio creativo enfocado en experiencias web.',
-    url: 'https://kilimanjjjaro.com/es',
+      'Monospace es un estudio creativo enfocado en experiencias web.',
+    url: 'https://monospace.ar/es',
     locale: 'es'
   }
 }

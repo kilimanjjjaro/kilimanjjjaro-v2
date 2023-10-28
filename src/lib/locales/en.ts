@@ -1,9 +1,8 @@
 export default {
   metadata: {
-    defaultTitle: 'Kilimanjjjaro — Creative web experiences',
-    description:
-      'Kilimanjjjaro is a creative studio focused on web experiences.',
-    url: 'https://kilimanjjjaro.com',
+    defaultTitle: 'Monospace — Creative web experiences',
+    description: 'Monospace is a creative studio focused on web experiences.',
+    url: 'https://monospace.ar',
     locale: 'en'
   },
   home: {

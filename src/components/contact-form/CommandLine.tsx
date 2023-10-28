@@ -41,7 +41,7 @@ export default function CommandLine() {
   return (
     <div className='flex flex-col w-full h-full gap-6'>
       <div>
-        <p className='text-kili-light-gray'>~/kilimanjjjaro/src</p>
+        <p className='text-kili-light-gray'>~/monospace/src</p>
         <div className='text-lg text-kili-white'>
           {stepOne && <TypingEffect text='ls' />}
           <motion.span
@@ -71,7 +71,7 @@ export default function CommandLine() {
         animate={{ display: 'block' }}
         transition={{ delay: 2.1 }}
       >
-        <p className='text-kili-light-gray'>~/kilimanjjjaro/src</p>
+        <p className='text-kili-light-gray'>~/monospace/src</p>
         <div className='text-lg text-kili-white'>
           {stepTwo && <TypingEffect text='cd store && ls' />}
           <motion.span
@@ -101,7 +101,7 @@ export default function CommandLine() {
         animate={{ display: 'block' }}
         transition={{ delay: 4.1 }}
       >
-        <p className='text-kili-light-gray'>~/kilimanjjjaro/src/store</p>
+        <p className='text-kili-light-gray'>~/monospace/src/store</p>
         <div className='text-lg text-kili-white'>
           {stepThree && <TypingEffect text='nano messages.json' />}
           <span className='animate-typing'>|</span>

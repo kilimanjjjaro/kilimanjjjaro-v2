@@ -1,12 +1,9 @@
 'use client'
 
 import { useEffect } from 'react'
-import {
-  EMAIL_ADDRESS,
-  EMAIL_SUBJECT,
-  GITHUB_URL,
-  LINKEDIN_URL
-} from '@/lib/constants/message-for-devs'
+import { ADMIN_EMAIL, SOCIAL_LINKS } from '@/lib/constants/general'
+
+const EMAIL_SUBJECT = 'From your console log 🙃'
 
 export default function MessageForDevs() {
   useEffect(() => {
@@ -18,33 +15,33 @@ export default function MessageForDevs() {
 
     const email = () => {
       console.info(
-        `%cWe can talk by: ${EMAIL_ADDRESS}`,
+        `%cWe can talk by: ${ADMIN_EMAIL}`,
         'color: #F8F8F8; background-color: #090909; font-size: 20px; padding: 18px 20px 18px 20px;'
       )
 
-      window.open(`mailto:${EMAIL_ADDRESS}?subject=${EMAIL_SUBJECT}`)
+      window.open(`mailto:${ADMIN_EMAIL}?subject=${EMAIL_SUBJECT}`)
 
       return 'Opening email app...'
     }
 
     const linkedin = () => {
       console.info(
-        `%cYou can find me on: ${LINKEDIN_URL}`,
+        `%cYou can find me on: ${SOCIAL_LINKS[1].link}`,
         'color: #F8F8F8; background-color: #090909; font-size: 20px; padding: 18px 20px 18px 20px;'
       )
 
-      window.open(LINKEDIN_URL)
+      window.open(SOCIAL_LINKS[1].link)
 
       return 'Opening LinkedIn...'
     }
 
     const github = () => {
       console.info(
-        `%cYou can find me on: ${GITHUB_URL}`,
+        `%cYou can find me on: ${SOCIAL_LINKS[0].link}`,
         'color: #F8F8F8; background-color: #090909; font-size: 20px; padding: 18px 20px 18px 20px;'
       )
 
-      window.open(GITHUB_URL)
+      window.open(SOCIAL_LINKS[0].link)
 
       return 'Opening GitHub...'
     }

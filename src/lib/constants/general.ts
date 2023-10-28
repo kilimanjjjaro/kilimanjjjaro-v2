@@ -6,7 +6,7 @@ export const BASE_URL = `${
     : 'http://localhost:3000'
 }`
 
-export const ADMIN_EMAIL = 'hola@kilimanjjjaro.com'
+export const ADMIN_EMAIL = 'hello@monospace.ar'
 
 export const LANGUAGES = {
   en: [
@@ -20,8 +20,8 @@ export const LANGUAGES = {
 }
 
 export const SOCIAL_LINKS = [
-  { name: 'GitHub', link: 'https://github.com/kilimanjjjaro' },
-  { name: 'LinkedIn', link: 'https://linkedin.com/in/kilimanjjjaro' }
+  { name: 'GitHub', link: 'https://github.com/monospace' },
+  { name: 'LinkedIn', link: 'https://linkedin.com/in/monospace' }
 ]
 
 export const SECTIONS = {

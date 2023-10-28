@@ -206,7 +206,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       id: 2,
       name: 'DolArg API',
       slug: 'dolarg-api',
-      link: 'https://github.com/kilimanjjjaro/dolarg-api',
+      link: 'https://github.com/monospace/dolarg-api',
       description:
         'REST API to get the most commonly dollar quotes of Argentina. The data is updated from Monday to Friday at 11 AM and 16 PM local time.',
       stacks: ['TypeScript', 'Hono', 'Cloudflare Workers', 'Scrapping'],
@@ -219,7 +219,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       id: 3,
       name: 'wrkload API',
       slug: 'wrkload-api',
-      link: 'https://github.com/kilimanjjjaro/wrkload-api',
+      link: 'https://github.com/monospace/wrkload-api',
       description:
         'REST API developed to be implemented as the backend for an application. It includes all the functionalities needed to develop a task app.',
       stacks: ['JavaScript', 'Node JS', 'MongoDB', 'Express', 'JWT Auth'],
@@ -300,7 +300,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       id: 2,
       name: 'DolArg API',
       slug: 'dolarg-api',
-      link: 'https://github.com/kilimanjjjaro/dolarg-api',
+      link: 'https://github.com/monospace/dolarg-api',
       description:
         'API REST para obtener las cotizaciones más utilizadas del dólar en Argentina. Los datos se actualizan de lunes a viernes a las 11 AM y 4 PM, hora local.',
       stacks: ['TypeScript', 'Hono', 'Cloudflare Workers', 'Scrapping'],
@@ -313,7 +313,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       id: 3,
       name: 'wrkload API',
       slug: 'wrkload-api',
-      link: 'https://github.com/kilimanjjjaro/wrkload-api',
+      link: 'https://github.com/monospace/wrkload-api',
       description:
         'API REST desarrollada para ser implementada como backend de una aplicación. Incluye todas las funcionalidades necesarias para desarrollar una aplicación de tareas.',
       stacks: ['JavaScript', 'Node JS', 'MongoDB', 'Express', 'JWT Auth'],

@@ -81,19 +81,19 @@ export default function EmailToUser({ name, email, message }: Props) {
             <Section className='m-0 text-kili-light-gray'>
               <Img
                 className='mb-3'
-                src={`${BASE_URL}/images/email/kilimanjjjaro-logo.png`}
+                src={`${BASE_URL}/images/email/monospace-logo.png`}
                 width='36'
                 height='36'
-                alt='Kilimanjjjaro'
+                alt='Monospace Logo'
               />
               <Text className='mt-3 mb-0 text-xs'>
                 <Link
                   className='leading-5 underline text-kili-light-gray'
-                  href='https://kilimanjjjaro.com'
+                  href='https://monospace.ar'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  kilimanjjjaro.com
+                  monospace.com
                 </Link>
                 , a creative studio <br />
                 focused on web experiences.

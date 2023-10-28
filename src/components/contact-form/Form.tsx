@@ -139,9 +139,7 @@ export default function Form({ handleDrag }: Props) {
           onClick={(event) => handleCloseClick(event)}
           className='w-3 h-3 transition-colors duration-1000 bg-red-600 rounded-full xl:hover:bg-kili-white'
         />
-        <p className='text-sm tracking-wide text-kili-white'>
-          ~/kilimanjjjaro/src
-        </p>
+        <p className='text-sm tracking-wide text-kili-white'>~/monospace/src</p>
       </motion.header>
       <main
         data-lenis-prevent

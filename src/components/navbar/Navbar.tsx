@@ -53,7 +53,7 @@ export default function Navbar() {
         onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
         onClick={handleClick}
       >
-        <Link href='/'>Kilimanjjjaro</Link>
+        <Link href='/'>Monospace</Link>
       </h1>
       <AnimatePresence>
         {version === 1 && <LargeVersion key='large-nav' />}

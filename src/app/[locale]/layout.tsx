@@ -29,7 +29,7 @@ export async function generateMetadata({
 
   const fullMetadata: Metadata = {
     title: {
-      template: '%s — Kilimanjjjaro',
+      template: '%s — Monospace',
       default: t('defaultTitle')
     },
     metadataBase: new URL(t('url')),
@@ -43,18 +43,18 @@ export async function generateMetadata({
     description: t('description'),
     openGraph: {
       title: {
-        template: '%s — Kilimanjjjaro',
+        template: '%s — Monospace',
         default: t('defaultTitle')
       },
       description: t('description'),
       images: [
         {
-          url: 'https://kilimanjjjaro.com/images/og-image.jpg',
+          url: 'https://monospace.ar/images/og-image.jpg',
           width: 1000,
           height: 563
         }
       ],
-      siteName: 'Kilimanjjjaro',
+      siteName: 'Monospace',
       type: 'website',
       url: t('url'),
       locale: params.locale

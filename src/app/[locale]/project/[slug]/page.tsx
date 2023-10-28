@@ -40,9 +40,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           height: 563
         }
       ],
-      siteName: 'Kilimanjjjaro',
+      siteName: 'Monospace',
       type: 'website',
-      url: `https://kilimanjjjaro.com/project/${project.slug}`
+      url: `https://monospace.ar/project/${project.slug}`
     }
   }
 }
