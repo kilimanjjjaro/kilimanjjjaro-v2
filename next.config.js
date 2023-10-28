@@ -1,13 +1,15 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  experimental: {
-    serverActions: true
-  },
   images: {
-    domains: ['opengraph.githubassets.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'opengraph.githubassets.com'
+      }
+    ],
     formats: ['image/avif', 'image/webp'],
-    minimumCacheTTL: 31536000
+    minimumCacheTTL: 31536000,
   }
 }
 
