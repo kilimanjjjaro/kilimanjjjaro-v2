@@ -126,7 +126,7 @@ export default function OtherProject({ project }: Props) {
               width={project.isRepository ? 420 : 420}
               height={project.isRepository ? 210 : 264}
               priority
-              onLoadingComplete={() => setIsLoaded(true)}
+              onLoad={() => setIsLoaded(true)}
             />
           </motion.div>
         </div>

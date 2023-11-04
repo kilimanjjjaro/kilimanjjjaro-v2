@@ -14,6 +14,7 @@ import { ArrowLongLeftIcon } from '@/components/icons/ArrowLongLeftIcon'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 
 import 'swiper/css'
+import useMediaQuery from '@/lib/hooks/useMediaQuery'
 
 export default function SkillsCarousel() {
   const { setCursorStatus, setSwiperInstance } = useStore()
@@ -27,12 +28,16 @@ export default function SkillsCarousel() {
   })
   const { isNextArrow, sectionEl, handleMouseMove, handleChange, handleClick } =
     useSkillsCarousel()
+  const { isDesktop } = useMediaQuery()
   const lenis = useLenis()
 
   const handleMouse = (boolean: boolean) => {
     setIsHovered(boolean)
     setCursorStatus(boolean ? CURSOR_STATUS.HIDDEN : CURSOR_STATUS.DEFAULT)
   }
+
+  const handleSlideChangeStart = () => isDesktop ?? lenis?.stop()
+  const handleSlideChangeEnd = () => isDesktop ?? lenis?.start()
 
   return (
     <div
@@ -47,8 +52,8 @@ export default function SkillsCarousel() {
         className='skills-carousel'
         onSwiper={(swiper) => setSwiperInstance(swiper)}
         onSlideChange={handleChange}
-        onSlideChangeTransitionStart={() => lenis?.stop()}
-        onSlideChangeTransitionEnd={() => lenis?.start()}
+        onSlideChangeTransitionStart={handleSlideChangeStart}
+        onSlideChangeTransitionEnd={handleSlideChangeEnd}
         slidesPerView='auto'
         spaceBetween={56}
         speed={300}
