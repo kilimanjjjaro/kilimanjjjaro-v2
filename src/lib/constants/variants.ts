@@ -78,7 +78,7 @@ export const STACKS_LI_VARIANTS = {
   }
 }
 
-export const LANG_UL_VARIANTS = {
+export const LANGUAGES_UL_VARIANTS = {
   open: {
     display: 'flex',
     transition: {
@@ -93,14 +93,14 @@ export const LANG_UL_VARIANTS = {
   }
 }
 
-export const LANG_LI_VARIANTS = {
+export const LANGUAGES_LI_VARIANTS = {
   open: {
     y: '0%',
-    transition: { duration: 1, ease: 'easeInOut' }
+    transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
   },
   closed: {
     y: '100%',
-    transition: { duration: 1, ease: 'easeInOut' }
+    transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
   }
 }
 
@@ -130,5 +130,43 @@ export const HR_LINE_VARIANTS = {
   },
   show: {
     scaleX: '100%'
+  }
+}
+
+export const BUTTON_TEXT_VARIANTS = {
+  open: {
+    y: '0%',
+    transition: {
+      duration: 0.7,
+      ease: [0.77, 0, 0.18, 1]
+    }
+  },
+  closed: {
+    y: '100%',
+    transition: {
+      duration: 0.7,
+      ease: [0.77, 0, 0.18, 1],
+      delay: 0.1
+    }
+  }
+}
+
+export const BUTTON_UNDERLINE_VARIANTS = {
+  open: {
+    originX: 'right',
+    scaleX: 1,
+    transition: {
+      duration: 0.7,
+      ease: [0.77, 0, 0.18, 1],
+      delay: 0.1
+    }
+  },
+  closed: {
+    originX: 'left',
+    scaleX: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.77, 0, 0.18, 1]
+    }
   }
 }

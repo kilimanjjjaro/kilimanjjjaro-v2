@@ -8,6 +8,7 @@ import MonospaceLogo from '@/components/shared/MonospaceLogo'
 import { useStore } from '@/lib/store/store'
 import useNavbar from '@/lib/hooks/useNavbar'
 import { CURSOR_STATUS } from '@/lib/constants/general'
+import { BUTTON_UNDERLINE_VARIANTS } from '@/lib/constants/variants'
 
 export default function SmallNavigation() {
   const { navbarStatus, setNavbarStatus, setCursorStatus } = useStore()
@@ -53,7 +54,7 @@ export default function SmallNavigation() {
           </div>
           <button
             aria-label='Toggle navigation menu'
-            className='absolute right-0 flex flex-col gap-2.5 text-xl text-monospace-light-gray leading-none xl:hover:text-monospace-white transition-colors duration-700 ease-in-out'
+            className='absolute right-0 flex flex-col gap-2.5 text-xl text-monospace-light-gray leading-none xl:hover:text-monospace-white transition-colors duration-700 ease-in-out group'
             onClick={() => setNavbarStatus(!navbarStatus)}
             onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
             onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
@@ -99,25 +100,12 @@ export default function SmallNavigation() {
             <motion.span
               aria-hidden='true'
               className='w-full'
+              variants={BUTTON_UNDERLINE_VARIANTS}
               initial={{ scaleX: 0, originX: 'right' }}
-              animate={{
-                scaleX: 1,
-                transition: {
-                  duration: 0.7,
-                  ease: [0.77, 0, 0.18, 1],
-                  delay: 0.1
-                }
-              }}
-              exit={{
-                originX: 'left',
-                scaleX: 0,
-                transition: {
-                  duration: 0.7,
-                  ease: [0.77, 0, 0.18, 1]
-                }
-              }}
+              animate='open'
+              exit='closed'
             >
-              <div className='h-0.5 w-full bg-current' />
+              <div className='h-0.5 w-full bg-current xl:origin-right xl:group-hover:scale-x-0 xl:group-hover:origin-left xl:transition-transform xl:duration-700 xl:ease-in-out' />
             </motion.span>
           </button>
         </>

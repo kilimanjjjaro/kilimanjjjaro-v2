@@ -26,16 +26,16 @@ export const SOCIAL_LINKS = [
 
 export const SECTIONS = {
   en: [
+    { slug: '#top', name: 'Index' },
     { slug: 'projects', name: 'Projects' },
-    { slug: 'introducing-me', name: 'Introducing Me' },
     { slug: 'knowledge', name: 'Knowledge' },
     { slug: 'contact', name: 'Contact' }
   ],
   es: [
+    { slug: '#top', name: 'Inicio' },
     { slug: 'projects', name: 'Proyectos' },
-    { slug: 'introducing-me', name: 'Conóceme' },
-    { slug: 'knowledge', name: 'Sobre Mí' },
-    { slug: 'contact', name: 'Contact' }
+    { slug: 'knowledge', name: 'Conocimientos' },
+    { slug: 'contact', name: 'Contacto' }
   ]
 }
 

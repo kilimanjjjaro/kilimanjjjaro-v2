@@ -1,11 +1,13 @@
 import { MouseEventHandler } from 'react'
+import { motion } from 'framer-motion'
 import clsx from 'clsx'
 import { useStore } from '@/lib/store/store'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 import type { ChildrenType } from '@/lib/interfaces/general'
-
-const UNDERLINE_STYLES =
-  'relative mb-2.5 leading-none before:absolute before:-bottom-2 before:block before:scale-x-100 before:w-full before:origin-right before:bg-current before:translate-y-full xl:hover:before:scale-x-0 before:transition-transform before:ease-in xl:hover:before:ease-out before:duration-700 before:delay-1000 xl:hover:before:delay-0 after:block after:w-full after:origin-left after:scale-x-0 after:bg-current xl:hover:after:scale-x-100 after:transition-transform after:ease-in xl:hover:after:ease-out after:duration-700 xl:hover:after:delay-1000'
+import {
+  BUTTON_TEXT_VARIANTS,
+  BUTTON_UNDERLINE_VARIANTS
+} from '@/lib/constants/variants'
 
 interface Props {
   children?: ChildrenType
@@ -13,6 +15,7 @@ interface Props {
   ariaLabel?: string
   onClick: MouseEventHandler<HTMLButtonElement>
   underlined?: boolean
+  underlineTrigger?: boolean
 }
 
 export default function Button({
@@ -20,19 +23,49 @@ export default function Button({
   className,
   onClick,
   ariaLabel,
-  underlined = false
+  underlined = false,
+  underlineTrigger = false
 }: Props) {
   const { setCursorStatus } = useStore()
 
   return (
     <button
-      className={clsx(className ?? '', underlined && UNDERLINE_STYLES)}
+      className={clsx(
+        className ?? '',
+        underlined && 'flex flex-col gap-2.5 group'
+      )}
       aria-label={ariaLabel}
       onClick={onClick}
       onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
       onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
     >
-      {children}
+      {underlined ? (
+        <>
+          <span className='overflow-hidden'>
+            <motion.span
+              className='block leading-none'
+              variants={BUTTON_TEXT_VARIANTS}
+              initial={{ y: '100%' }}
+              animate={underlineTrigger ? 'open' : 'closed'}
+              exit='closed'
+            >
+              {children}
+            </motion.span>
+          </span>
+          <motion.span
+            className='w-full'
+            aria-hidden='true'
+            variants={BUTTON_UNDERLINE_VARIANTS}
+            initial={{ scaleX: 0, originX: 'right' }}
+            animate={underlineTrigger ? 'open' : 'closed'}
+            exit='closed'
+          >
+            <div className='h-0.5 w-full bg-current xl:origin-right xl:group-hover:scale-x-0 xl:group-hover:origin-left xl:transition-transform xl:duration-700 xl:ease-in-out' />
+          </motion.span>
+        </>
+      ) : (
+        children
+      )}
     </button>
   )
 }
