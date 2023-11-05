@@ -26,13 +26,13 @@ export const SOCIAL_LINKS = [
 
 export const SECTIONS = {
   en: [
-    { slug: '#top', name: 'Index' },
+    { slug: 'top', name: 'Index' },
     { slug: 'projects', name: 'Projects' },
     { slug: 'knowledge', name: 'Knowledge' },
     { slug: 'contact', name: 'Contact' }
   ],
   es: [
-    { slug: '#top', name: 'Inicio' },
+    { slug: 'top', name: 'Inicio' },
     { slug: 'projects', name: 'Proyectos' },
     { slug: 'knowledge', name: 'Conocimientos' },
     { slug: 'contact', name: 'Contacto' }
@@ -77,3 +77,8 @@ export const LOCALES = {
 }
 
 export const INTRO_ANIMATION_DURATION = 2500
+
+export const NAVIGATION_VARIANTS = {
+  large: 1,
+  small: 2
+}

@@ -5,7 +5,11 @@ import { motion } from 'framer-motion'
 import Button from '@/components/shared/Button'
 import useNavbar from '@/lib/hooks/useNavbar'
 import { useChangeLocale, useCurrentLocale } from '@/lib/i18n/client'
-import { LANGUAGES, LOCALES } from '@/lib/constants/general'
+import {
+  LANGUAGES,
+  LOCALES,
+  NAVIGATION_VARIANTS
+} from '@/lib/constants/general'
 import {
   LANGUAGES_LI_VARIANTS,
   LANGUAGES_UL_VARIANTS
@@ -33,7 +37,7 @@ export default function LanguageSelector() {
   }
 
   useEffect(() => {
-    if (version > 1) {
+    if (version === NAVIGATION_VARIANTS.small) {
       setShowSelector(false)
     }
   }, [version])
@@ -44,7 +48,7 @@ export default function LanguageSelector() {
         className='text-xl text-monospace-light-gray xl:hover:text-monospace-white transition-colors duration-700 ease-in-out'
         onClick={() => setShowSelector(!showSelector)}
         underlined
-        underlineTrigger={version === 1 ?? false}
+        underlineTrigger={version === NAVIGATION_VARIANTS.large ?? false}
       >
         {selectedLanguage.name}
       </Button>

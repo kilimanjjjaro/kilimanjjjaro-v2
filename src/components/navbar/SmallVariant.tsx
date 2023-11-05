@@ -7,10 +7,10 @@ import { useLenis } from '@studio-freight/react-lenis'
 import MonospaceLogo from '@/components/shared/MonospaceLogo'
 import { useStore } from '@/lib/store/store'
 import useNavbar from '@/lib/hooks/useNavbar'
-import { CURSOR_STATUS } from '@/lib/constants/general'
+import { CURSOR_STATUS, NAVIGATION_VARIANTS } from '@/lib/constants/general'
 import { BUTTON_UNDERLINE_VARIANTS } from '@/lib/constants/variants'
 
-export default function SmallNavigation() {
+export default function SmallVariant() {
   const { navbarStatus, setNavbarStatus, setCursorStatus } = useStore()
   const { version } = useNavbar()
   const pathname = usePathname()
@@ -26,7 +26,7 @@ export default function SmallNavigation() {
 
   return (
     <AnimatePresence>
-      {version > 1 && (
+      {version === NAVIGATION_VARIANTS.small && (
         <>
           <div className='absolute left-0'>
             <Link
