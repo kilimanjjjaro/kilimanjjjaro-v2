@@ -4,7 +4,6 @@ import SmoothScroll from '@/components/SmoothScroll'
 import Footer from '@/components/Footer'
 import CookiesConsent from '@/components/CookiesConsent'
 import FormModal from '@/components/contact-form/FormModal'
-import ScrollPercentage from '@/components/ScrollPercentage'
 import Navigation from '@/components/navbar/LargeNavigation'
 import Navbar from '@/components/navbar/Navbar'
 import CustomCursor from '@/components/CustomCursor'
@@ -17,6 +16,7 @@ import {
 import type { ChildrenType } from '@/lib/interfaces/general'
 import type { Metadata } from 'next'
 import '@/app/globals.css'
+import IntroAnimation from '@/components/header/IntroAnimation'
 
 interface MetadataProps {
   params: { locale: string }
@@ -78,7 +78,7 @@ export default async function RootLayout({
   return (
     <html lang={currentLocale}>
       <body
-        className={`bg-monospace-black font-neue-haas-grotesk-display antialiased transition-colors duration-1000 ease-in-out ${GeistSans.className} ${GeistMono.variable}`}
+        className={`bg-monospace-black font-geist-sans antialiased transition-colors duration-1000 ease-in-out ${GeistSans.variable} ${GeistMono.variable}`}
       >
         <Providers>
           <SmoothScroll>
@@ -90,6 +90,7 @@ export default async function RootLayout({
           <Navigation />
           <Navbar />
           <FormModal />
+          <IntroAnimation />
         </Providers>
         <CustomCursor />
         <MessageForDevs />

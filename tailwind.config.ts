@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-geist-sans), system-ui, sans-serif'],
-        mono: ['var(--font-geist-mono), system-ui, sans-serif']
+        'geist-sans': ['var(--font-geist-sans), system-ui, sans-serif'],
+        'geist-mono': ['var(--font-geist-mono), system-ui, sans-serif']
       },
       fontSize: {
         '10xl': ['10rem', '1'],

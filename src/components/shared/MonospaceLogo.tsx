@@ -1,20 +1,9 @@
-'use client'
-
-import clsx from 'clsx'
-
 interface Props {
-  className?: string
+  className: string
 }
 
 export default function MonospaceLogo({ className }: Props) {
   return (
-    <h1
-      className={clsx(
-        'font-mono leading-none',
-        className !== undefined && className
-      )}
-    >
-      Monospace
-    </h1>
+    <h1 className={`font-geist-mono leading-none ${className}`}>Monospace</h1>
   )
 }

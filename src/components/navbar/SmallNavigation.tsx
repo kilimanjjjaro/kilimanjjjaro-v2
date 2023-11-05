@@ -29,7 +29,7 @@ export default function SmallNavigation() {
         <>
           <div className='absolute left-0'>
             <Link
-              className='block text-xl text-monospace-white overflow-hidden'
+              className='block overflow-hidden'
               href='/'
               onClick={handleClick}
               onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
@@ -40,14 +40,14 @@ export default function SmallNavigation() {
                 initial={{ y: '118%' }}
                 animate={{
                   y: '0%',
-                  transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
+                  transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
                 }}
                 exit={{
                   y: '118%',
-                  transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
+                  transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
                 }}
               >
-                <MonospaceLogo />
+                <MonospaceLogo className='text-xl text-monospace-white' />
               </motion.span>
             </Link>
           </div>
@@ -65,16 +65,16 @@ export default function SmallNavigation() {
                   !navbarStatus
                     ? {
                         y: '0%',
-                        transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
+                        transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
                       }
                     : {
                         y: '100%',
-                        transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
+                        transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
                       }
                 }
                 exit={{
                   y: '100%',
-                  transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
+                  transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
                 }}
               >
                 Menu
@@ -85,11 +85,11 @@ export default function SmallNavigation() {
                   navbarStatus
                     ? {
                         y: '-100%',
-                        transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
+                        transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
                       }
                     : {
                         y: '0%',
-                        transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
+                        transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
                       }
                 }
               >
@@ -104,7 +104,7 @@ export default function SmallNavigation() {
                 scaleX: 1,
                 transition: {
                   duration: 1,
-                  ease: [0.65, 0.05, 0.36, 1],
+                  ease: [0.77, 0, 0.18, 1],
                   delay: 0.1
                 }
               }}
@@ -113,7 +113,7 @@ export default function SmallNavigation() {
                 scaleX: 0,
                 transition: {
                   duration: 1,
-                  ease: [0.65, 0.05, 0.36, 1]
+                  ease: [0.77, 0, 0.18, 1]
                 }
               }}
             >

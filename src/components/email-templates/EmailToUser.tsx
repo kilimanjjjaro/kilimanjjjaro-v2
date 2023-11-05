@@ -38,7 +38,7 @@ export default function EmailToUser({ name, email, message }: Props) {
           }
         }}
       >
-        <Body className='m-0 font-sans !bg-black py-14'>
+        <Body className='m-0 font-geist-sans !bg-black py-14'>
           <Container className='w-[480px] mx-auto px-6'>
             <Heading
               as='h1'

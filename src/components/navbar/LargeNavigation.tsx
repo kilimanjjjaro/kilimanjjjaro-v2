@@ -1,38 +1,27 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import Button from '@/components/shared/Button'
 import Link from '@/components/shared/Link'
 import { useStore } from '@/lib/store/store'
 import useNavbar from '@/lib/hooks/useNavbar'
 import { useCurrentLocale } from '@/lib/i18n/client'
-import {
-  SECTIONS,
-  LOCALES,
-  INTRO_ANIMATION_DURATION
-} from '@/lib/constants/general'
+import { SECTIONS, LOCALES } from '@/lib/constants/general'
 
 export default function LargeNavigation() {
   const currentLocale = useCurrentLocale()
   const { setNavbarStatus, setShowContactForm } = useStore()
-  const [shouldDelay, setShouldDelay] = useState(true)
   const { version } = useNavbar()
+
+  const sections = useMemo(() => {
+    return currentLocale === LOCALES.en ? SECTIONS.en : SECTIONS.es
+  }, [currentLocale])
 
   const openContactModal = () => {
     setNavbarStatus(false)
     setShowContactForm(true)
   }
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setShouldDelay(false)
-    }, INTRO_ANIMATION_DURATION)
-
-    return () => {
-      clearTimeout(timeout)
-    }
-  }, [])
 
   useEffect(() => {
     window.addEventListener('keydown', (e) => {
@@ -41,10 +30,6 @@ export default function LargeNavigation() {
       }
     })
   }, [setNavbarStatus])
-
-  const sections = useMemo(() => {
-    return currentLocale === LOCALES.en ? SECTIONS.en : SECTIONS.es
-  }, [currentLocale])
 
   return (
     <nav>
@@ -61,8 +46,8 @@ export default function LargeNavigation() {
                 y: version <= 1 ? '0%' : '118%',
                 transition: {
                   duration: 1,
-                  ease: [0.65, 0.05, 0.36, 1],
-                  delay: shouldDelay ? 2 + index * 0.1 : 0 + index * 0.1
+                  ease: [0.77, 0, 0.18, 1],
+                  delay: index * 0.1
                 }
               }}
             >

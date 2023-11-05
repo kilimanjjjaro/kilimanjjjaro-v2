@@ -18,16 +18,16 @@ export default function NavbarButton() {
             !navbarStatus
               ? {
                   y: '0%',
-                  transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
+                  transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
                 }
               : {
                   y: '100%',
-                  transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
+                  transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
                 }
           }
           exit={{
             y: '100%',
-            transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
+            transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
           }}
         >
           Menu
@@ -38,11 +38,11 @@ export default function NavbarButton() {
             navbarStatus
               ? {
                   y: '-100%',
-                  transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
+                  transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
                 }
               : {
                   y: '0%',
-                  transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
+                  transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
                 }
           }
         >
@@ -57,7 +57,7 @@ export default function NavbarButton() {
           scaleX: 1,
           transition: {
             duration: 1,
-            ease: [0.65, 0.05, 0.36, 1],
+            ease: [0.77, 0, 0.18, 1],
             delay: 0.1
           }
         }}
@@ -66,7 +66,7 @@ export default function NavbarButton() {
           scaleX: 0,
           transition: {
             duration: 1,
-            ease: [0.65, 0.05, 0.36, 1]
+            ease: [0.77, 0, 0.18, 1]
           }
         }}
       >

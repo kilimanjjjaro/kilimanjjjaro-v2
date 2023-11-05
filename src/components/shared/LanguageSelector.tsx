@@ -13,15 +13,16 @@ import type { LanguageInterface } from '@/lib/interfaces/general'
 export default function LanguageSelector() {
   const currentLocale = useCurrentLocale()
   const { setNavbarStatus } = useStore()
+  const [showSelector, setShowSelector] = useState(false)
+  const changeLocale = useChangeLocale()
+  const { version } = useNavbar()
+
   const languages = useMemo(() => {
     return currentLocale === LOCALES.en ? LANGUAGES.en : LANGUAGES.es
   }, [currentLocale])
   const [selectedLanguage, setSelectedLanguage] = useState(
     currentLocale === LOCALES.en ? languages[0] : languages[1]
   )
-  const [showSelector, setShowSelector] = useState(false)
-  const changeLocale = useChangeLocale()
-  const { version } = useNavbar()
 
   const handleClick = ({ language }: { language: LanguageInterface }) => {
     setNavbarStatus(false)
@@ -52,22 +53,22 @@ export default function LanguageSelector() {
                 ? {
                     y: '0%',
                     transition: {
-                      duration: 1.5,
-                      ease: [0.65, 0.05, 0.36, 1]
+                      duration: 1,
+                      ease: [0.77, 0, 0.18, 1]
                     }
                   }
                 : {
                     y: '100%',
                     transition: {
-                      duration: 1.5,
-                      ease: [0.65, 0.05, 0.36, 1],
+                      duration: 1,
+                      ease: [0.77, 0, 0.18, 1],
                       delay: 0.1
                     }
                   }
             }
             exit={{
               y: '100%',
-              transition: { duration: 1.5, ease: [0.65, 0.05, 0.36, 1] }
+              transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
             }}
           >
             {selectedLanguage.name}
@@ -82,8 +83,8 @@ export default function LanguageSelector() {
               ? {
                   scaleX: 1,
                   transition: {
-                    duration: 1.5,
-                    ease: [0.65, 0.05, 0.36, 1],
+                    duration: 1,
+                    ease: [0.77, 0, 0.18, 1],
                     delay: 0.1
                   }
                 }
@@ -91,16 +92,16 @@ export default function LanguageSelector() {
                   originX: 'left',
                   scaleX: 0,
                   transition: {
-                    duration: 1.5,
-                    ease: [0.65, 0.05, 0.36, 1]
+                    duration: 1,
+                    ease: [0.77, 0, 0.18, 1]
                   }
                 }
           }
           exit={{
             scaleX: 0,
             transition: {
-              duration: 1.5,
-              ease: [0.65, 0.05, 0.36, 1]
+              duration: 1,
+              ease: [0.77, 0, 0.18, 1]
             }
           }}
         >
