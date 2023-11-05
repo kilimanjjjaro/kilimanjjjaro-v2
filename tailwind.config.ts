@@ -10,7 +10,9 @@ const config: Config = {
     extend: {
       fontFamily: {
         'geist-sans': ['var(--font-geist-sans), system-ui, sans-serif'],
-        'geist-mono': ['var(--font-geist-mono), system-ui, sans-serif']
+        'geist-mono': [
+          'var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New"'
+        ]
       },
       fontSize: {
         '10xl': ['10rem', '1'],

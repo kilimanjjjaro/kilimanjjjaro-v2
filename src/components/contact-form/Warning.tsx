@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import Button from '@/components/shared/Button'
-import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
 import { useScopedI18n } from '@/lib/i18n/client'
 
 interface Props {
@@ -13,7 +12,7 @@ export default function Warning({ setShowWarning }: Props) {
   return (
     <div
       role='dialog'
-      className={`absolute inset-0 z-10 flex items-center justify-center bg-monospace-black/95 backdrop-blur-sm ${neueHaasGroteskDisplayFont}`}
+      className='absolute inset-0 z-10 flex items-center justify-center bg-monospace-black/95 backdrop-blur-sm'
     >
       <motion.div className='absolute flex flex-col items-center w-64 overflow-hidden text-center rounded-md bg-monospace-dark-gray'>
         <div className='flex items-center w-full px-3 py-2 bg-monospace-light-gray/30'>

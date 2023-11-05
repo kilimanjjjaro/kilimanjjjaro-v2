@@ -10,7 +10,6 @@ import AnimatedText from '@/components/shared/AnimatedText'
 import Button from '@/components/shared/Button'
 import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
-import { firaMonoFont } from '@/lib/utils/fonts'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 import cookieImage from '../../public/images/cookie.webp'
 
@@ -74,9 +73,7 @@ export default function CookiesConsent() {
               onMouseLeave={handleMouseLeave}
             />
           </header>
-          <main
-            className={`p-4 flex flex-col text-xs md:text-sm ${firaMonoFont}`}
-          >
+          <main className='p-4 flex flex-col text-xs md:text-sm font-geist-mono'>
             <h3 className='flex items-center gap-2 mb-2 text-monospace-white'>
               {t('headline')}
               <Image

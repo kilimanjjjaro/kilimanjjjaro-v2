@@ -9,7 +9,6 @@ import SubmitButton from '@/components/contact-form/SubmitButton'
 import Button from '@/components/shared/Button'
 import { useStore } from '@/lib/store/store'
 import sendForm from '@/lib/actions/sendForm'
-import { firaMonoFont } from '@/lib/utils/fonts'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 import { useScopedI18n } from '@/lib/i18n/client'
 import { FORM_DEFAULT_STATE } from '@/lib/constants/form'
@@ -145,7 +144,7 @@ export default function Form({ handleDrag }: Props) {
       </motion.header>
       <main
         data-lenis-prevent
-        className={`relative flex items-center justify-center p-9 h-[55dvh] overflow-y-auto ${firaMonoFont} contact-form overscroll-contain`}
+        className='relative flex items-center justify-center p-9 h-[55dvh] font-geist-mono overflow-y-auto contact-form overscroll-contain'
       >
         {!renderFields && <CommandLine />}
         {renderFields && (
