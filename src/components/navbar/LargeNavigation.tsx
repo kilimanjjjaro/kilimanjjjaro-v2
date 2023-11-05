@@ -37,7 +37,7 @@ export default function LargeNavigation() {
         {sections.map((section, index) => (
           <li
             key={section.slug}
-            className='text-monospace-light-gray text-xl leading-none transition-colors duration-1000 ease-in-out overflow-hidden'
+            className='text-monospace-light-gray text-xl leading-none overflow-hidden xl:hover:text-monospace-white transition-colors duration-700 ease-in-out'
           >
             <motion.span
               className='block'

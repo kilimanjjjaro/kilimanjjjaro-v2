@@ -58,7 +58,7 @@ export default function Fields({ step, setStep }: Props) {
 
   return (
     <>
-      <label className='flex flex-col transition-colors duration-1000 ease-in-out text-monospace-light-gray focus-within:text-monospace-white'>
+      <label className='flex flex-col transition-colors duration-700 ease-in-out text-monospace-light-gray focus-within:text-monospace-white'>
         {t('name')}:
         <input
           ref={nameInputRef}
@@ -72,7 +72,7 @@ export default function Fields({ step, setStep }: Props) {
           required
         />
       </label>
-      <label className='flex flex-col transition-colors duration-1000 ease-in-out text-monospace-light-gray focus-within:text-monospace-white'>
+      <label className='flex flex-col transition-colors duration-700 ease-in-out text-monospace-light-gray focus-within:text-monospace-white'>
         {t('email')}:
         <input
           ref={emailInputRef}
@@ -86,7 +86,7 @@ export default function Fields({ step, setStep }: Props) {
           required
         />
       </label>
-      <label className='flex flex-col transition-colors duration-1000 ease-in-out text-monospace-light-gray focus-within:text-monospace-white'>
+      <label className='flex flex-col transition-colors duration-700 ease-in-out text-monospace-light-gray focus-within:text-monospace-white'>
         {t('message')}:
         <textarea
           ref={textAreaRef}

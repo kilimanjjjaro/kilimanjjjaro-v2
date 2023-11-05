@@ -75,7 +75,7 @@ export default function FeaturedProject({ project, index }: Props) {
     >
       <article className='relative flex flex-col aspect-[18/25] group cursor-none'>
         <motion.header
-          className='top-0 left-0 p-5 flex items-center xl:absolute w-full h-full bg-[length:135%] xl:group-hover:bg-[length:114%] transition-[background-size] ease-in-out duration-1000'
+          className='top-0 left-0 p-5 flex items-center xl:absolute w-full h-full bg-[length:135%] xl:group-hover:bg-[length:114%] transition-[background-size] ease-in-out duration-700'
           style={{
             backgroundImage: `url('${project.presentation.background}')`,
             backgroundPositionY: isDesktop ? bgPositionY : 'center'
@@ -95,7 +95,7 @@ export default function FeaturedProject({ project, index }: Props) {
           }}
         >
           <motion.div
-            className='w-full relative transition-transform duration-1000 ease-in-out scale-100 xl:scale-[.85] aspect-video xl:group-hover:scale-100'
+            className='w-full relative transition-transform duration-700 ease-in-out scale-100 xl:scale-[.85] aspect-video xl:group-hover:scale-100'
             initial={{
               opacity: 0
             }}
@@ -120,7 +120,7 @@ export default function FeaturedProject({ project, index }: Props) {
             )}
             <video
               ref={videoRef}
-              className='transition-opacity duration-1000 ease-in-out xl:opacity-0 aspect-video xl:absolute xl:group-hover:opacity-100'
+              className='transition-opacity duration-700 ease-in-out xl:opacity-0 aspect-video xl:absolute xl:group-hover:opacity-100'
               src={project.presentation.video}
               poster={project.presentation.poster}
               loop

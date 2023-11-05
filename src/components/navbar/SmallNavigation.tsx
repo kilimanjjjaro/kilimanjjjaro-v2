@@ -53,7 +53,7 @@ export default function SmallNavigation() {
           </div>
           <button
             aria-label='Toggle navigation menu'
-            className='absolute right-0 flex flex-col gap-2.5 text-xl text-monospace-light-gray leading-none xl:hover:text-monospace-white transition-colors duration-1000 ease-in-out'
+            className='absolute right-0 flex flex-col gap-2.5 text-xl text-monospace-light-gray leading-none xl:hover:text-monospace-white transition-colors duration-700 ease-in-out'
             onClick={() => setNavbarStatus(!navbarStatus)}
             onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
             onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}

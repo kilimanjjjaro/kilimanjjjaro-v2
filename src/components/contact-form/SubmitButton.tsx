@@ -32,7 +32,7 @@ export default function SubmitButton({ error, success, shouldFocus }: Props) {
     <button
       ref={buttonRef}
       className={clsx(
-        'flex absolute bottom-8 right-9 items-center gap-2 text-md rounded-md text-monospace-white bg-[#030303] pb-2 pt-[10px] px-4 xl:hover:bg-monospace-dark-gray transition-colors duration-1000',
+        'flex absolute bottom-8 right-9 items-center gap-2 text-md rounded-md text-monospace-white bg-[#030303] pb-2 pt-[10px] px-4 xl:hover:bg-monospace-dark-gray transition-colors duration-700',
         pending && 'cursor-not-allowed animate-pulse'
       )}
       disabled={pending}

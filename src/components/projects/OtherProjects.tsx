@@ -95,7 +95,7 @@ export default function OtherProjects({ projects }: Props) {
       >
         <Balancer>{buttonText}</Balancer>
         {visibleItems < totalNumberOfProjects.current && (
-          <PlusIcon className='w-3 transition-transform duration-1000 ease-in-out xl:group-hover:rotate-180' />
+          <PlusIcon className='w-3 transition-transform duration-700 ease-in-out xl:group-hover:rotate-180' />
         )}
       </motion.button>
     </section>

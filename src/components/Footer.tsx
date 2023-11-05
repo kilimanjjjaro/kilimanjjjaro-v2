@@ -60,7 +60,7 @@ export default function Footer() {
         </ul>
         <section className='flex flex-col items-start justify-start gap-4 xl:items-end xl:justify-between xl:flex-row'>
           <Button
-            className='overflow-hidden text-6xl leading-none transition-colors duration-1000 ease-in-out xl:-mb-6 text-monospace-white xl:text-10xl xl:hover:text-monospace-light-gray'
+            className='overflow-hidden text-6xl leading-none transition-colors duration-700 ease-in-out xl:-mb-6 text-monospace-white xl:text-10xl xl:hover:text-monospace-light-gray'
             onClick={() => setShowContactForm(true)}
           >
             <motion.span
@@ -86,7 +86,7 @@ export default function Footer() {
             {SOCIAL_LINKS.map((social) => (
               <li key={social.name}>
                 <motion.a
-                  className='block overflow-hidden text-xl transition-colors duration-1000 ease-in-out xl:text-base text-monospace-light-gray xl:hover:text-monospace-white'
+                  className='block overflow-hidden text-xl transition-colors duration-700 ease-in-out xl:text-base text-monospace-light-gray xl:hover:text-monospace-white'
                   href={social.link}
                   onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
                   onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
@@ -111,7 +111,7 @@ export default function Footer() {
             ))}
             <li>
               <Button
-                className='overflow-hidden text-xl transition-colors duration-1000 ease-in-out xl:text-base group text-monospace-light-gray xl:hover:text-monospace-white'
+                className='overflow-hidden text-xl transition-colors duration-700 ease-in-out xl:text-base group text-monospace-light-gray xl:hover:text-monospace-white'
                 onClick={() => lenis.scrollTo(0, { duration: 2 })}
               >
                 <motion.span
