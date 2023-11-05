@@ -4,7 +4,6 @@ import { useRef } from 'react'
 import clsx from 'clsx'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
-import { useStore } from '@/lib/store/store'
 import { LOCALES } from '@/lib/constants/general'
 
 export default function Headline() {

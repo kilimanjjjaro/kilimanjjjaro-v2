@@ -19,7 +19,7 @@ dependencies:
     version: 0.0.6(react@18.2.0)
   '@react-email/heading':
     specifier: 0.0.9
-    version: 0.0.9(@types/react@18.2.34)
+    version: 0.0.9(@types/react@18.2.35)
   '@react-email/html':
     specifier: 0.0.6
     version: 0.0.6(react@18.2.0)
@@ -43,7 +43,7 @@ dependencies:
     version: 0.0.6(react@18.2.0)
   '@studio-freight/react-lenis':
     specifier: 0.0.36
-    version: 0.0.36(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
+    version: 0.0.36(@types/react@18.2.35)(react-dom@18.2.0)(react@18.2.0)
   '@vercel/analytics':
     specifier: 1.1.1
     version: 1.1.1
@@ -88,15 +88,15 @@ dependencies:
     version: 3.22.4
   zustand:
     specifier: 4.4.6
-    version: 4.4.6(@types/react@18.2.34)(react@18.2.0)
+    version: 4.4.6(@types/react@18.2.35)(react@18.2.0)
 
 devDependencies:
   '@types/node':
     specifier: 20.8.10
     version: 20.8.10
   '@types/react':
-    specifier: 18.2.34
-    version: 18.2.34
+    specifier: 18.2.35
+    version: 18.2.35
   '@types/react-dom':
     specifier: 18.2.14
     version: 18.2.14
@@ -386,7 +386,7 @@ packages:
     dev: false
     optional: true
 
-  /@radix-ui/react-compose-refs@1.0.1(@types/react@18.2.34)(react@18.2.0):
+  /@radix-ui/react-compose-refs@1.0.1(@types/react@18.2.35)(react@18.2.0):
     resolution: {integrity: sha512-fDSBgd44FKHa1FRMU59qBMPFcl2PZE+2nmqunj+BWFyYYjnhIDWL2ItDs3rrbJDQOtzt5nIebLCQc4QRfz6LJw==}
     peerDependencies:
       '@types/react': '*'
@@ -396,11 +396,11 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.23.2
-      '@types/react': 18.2.34
+      '@types/react': 18.2.35
       react: 18.2.0
     dev: false
 
-  /@radix-ui/react-slot@1.0.2(@types/react@18.2.34)(react@18.2.0):
+  /@radix-ui/react-slot@1.0.2(@types/react@18.2.35)(react@18.2.0):
     resolution: {integrity: sha512-YeTpuq4deV+6DusvVUW4ivBgnkHwECUu0BiN43L5UCDFgdhsRUWAghhTF5MbvNTPzmiFOx90asDSUjWuCNapwg==}
     peerDependencies:
       '@types/react': '*'
@@ -410,8 +410,8 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.23.2
-      '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.34)(react@18.2.0)
-      '@types/react': 18.2.34
+      '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.35)(react@18.2.0)
+      '@types/react': 18.2.35
       react: 18.2.0
     dev: false
 
@@ -441,11 +441,11 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-email/heading@0.0.9(@types/react@18.2.34):
+  /@react-email/heading@0.0.9(@types/react@18.2.35):
     resolution: {integrity: sha512-xzkcGlm+/aFrNlJZBKzxRKkRYJ2cRx92IqmSKAuGnwuKQ/uMKomXzPsHPu3Dclmnhn3wVKj4uprkgQOoxP6uXQ==}
     engines: {node: '>=16.0.0'}
     dependencies:
-      '@radix-ui/react-slot': 1.0.2(@types/react@18.2.34)(react@18.2.0)
+      '@radix-ui/react-slot': 1.0.2(@types/react@18.2.35)(react@18.2.0)
       react: 18.2.0
     transitivePeerDependencies:
       - '@types/react'
@@ -556,7 +556,7 @@ packages:
     resolution: {integrity: sha512-1I6EaWR9rxdFjIJtF52CtETJt9ngfY4AjawrJY5pLxCvHa/lQZ+1v2gTUntwNZkuks6E2It6YEXV6jnpnCZFjA==}
     dev: false
 
-  /@studio-freight/react-lenis@0.0.36(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0):
+  /@studio-freight/react-lenis@0.0.36(@types/react@18.2.35)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-BuwckWT8U96tILfrm2y3Q8cr1gXk2ITnpm3Q+aP7x/Ah/U+Bt2hJtjZqEJfnTAGhGLqTlhuk7YoX3/PYf/RNqQ==}
     peerDependencies:
       react: ^18.2.0
@@ -568,7 +568,7 @@ packages:
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      zustand: 4.4.6(@types/react@18.2.34)(react@18.2.0)
+      zustand: 4.4.6(@types/react@18.2.35)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
       - immer
@@ -612,11 +612,11 @@ packages:
   /@types/react-dom@18.2.14:
     resolution: {integrity: sha512-V835xgdSVmyQmI1KLV2BEIUgqEuinxp9O4G6g3FqO/SqLac049E53aysv0oEFD2kHfejeKU+ZqL2bcFWj9gLAQ==}
     dependencies:
-      '@types/react': 18.2.34
+      '@types/react': 18.2.35
     dev: true
 
-  /@types/react@18.2.34:
-    resolution: {integrity: sha512-U6eW/alrRk37FU/MS2RYMjx0Va2JGIVXELTODaTIYgvWGCV4Y4TfTUzG8DdmpDNIT0Xpj/R7GfyHOJJrDttcvg==}
+  /@types/react@18.2.35:
+    resolution: {integrity: sha512-LG3xpFZ++rTndV+/XFyX5vUP7NI9yxyk+MQvBDq+CVs8I9DLSc3Ymwb1Vmw5YDoeNeHN4PDZa3HylMKJYT9PNQ==}
     dependencies:
       '@types/prop-types': 15.7.9
       '@types/scheduler': 0.16.5
@@ -4171,7 +4171,7 @@ packages:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: false
 
-  /zustand@4.4.6(@types/react@18.2.34)(react@18.2.0):
+  /zustand@4.4.6(@types/react@18.2.35)(react@18.2.0):
     resolution: {integrity: sha512-Rb16eW55gqL4W2XZpJh0fnrATxYEG3Apl2gfHTyDSE965x/zxslTikpNch0JgNjJA9zK6gEFW8Fl6d1rTZaqgg==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
@@ -4186,7 +4186,7 @@ packages:
       react:
         optional: true
     dependencies:
-      '@types/react': 18.2.34
+      '@types/react': 18.2.35
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
