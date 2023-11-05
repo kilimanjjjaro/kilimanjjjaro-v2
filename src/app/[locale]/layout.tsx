@@ -8,6 +8,7 @@ import Navigation from '@/components/navbar/LargeNavigation'
 import Navbar from '@/components/navbar/Navbar'
 import CustomCursor from '@/components/CustomCursor'
 import MessageForDevs from '@/components/MessageForDevs'
+import IntroAnimation from '@/components/IntroAnimation'
 import {
   getCurrentLocale,
   getScopedI18n,
@@ -16,7 +17,6 @@ import {
 import type { ChildrenType } from '@/lib/interfaces/general'
 import type { Metadata } from 'next'
 import '@/app/globals.css'
-import IntroAnimation from '@/components/header/IntroAnimation'
 
 interface MetadataProps {
   params: { locale: string }

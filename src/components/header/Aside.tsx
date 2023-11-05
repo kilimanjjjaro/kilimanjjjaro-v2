@@ -19,13 +19,13 @@ export default function Aside() {
               animate={{
                 y: '0%',
                 transition: {
-                  duration: 1,
+                  duration: 0.7,
                   ease: [0.65, 0.05, 0.36, 1]
                 }
               }}
               exit={{
                 y: '110%',
-                transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
+                transition: { duration: 0.7, ease: [0.65, 0.05, 0.36, 1] }
               }}
             >
               <MonospaceLogo className='text-4xl text-monospace-white leading-none' />

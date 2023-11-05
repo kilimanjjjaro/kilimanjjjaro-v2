@@ -6,11 +6,11 @@ export default function useNavbar() {
   const handleScroll = useCallback(() => {
     const currentScrollPos = window.scrollY
 
-    if (currentScrollPos <= window.innerHeight * 0.1) {
+    if (currentScrollPos <= 1) {
       setVersion(1)
     }
 
-    if (currentScrollPos > window.innerHeight * 0.1) {
+    if (currentScrollPos > 1) {
       setVersion(2)
     }
   }, [])

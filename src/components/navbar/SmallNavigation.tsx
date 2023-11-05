@@ -40,11 +40,11 @@ export default function SmallNavigation() {
                 initial={{ y: '118%' }}
                 animate={{
                   y: '0%',
-                  transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
+                  transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
                 }}
                 exit={{
                   y: '118%',
-                  transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
+                  transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
                 }}
               >
                 <MonospaceLogo className='text-xl text-monospace-white' />
@@ -65,16 +65,16 @@ export default function SmallNavigation() {
                   !navbarStatus
                     ? {
                         y: '0%',
-                        transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
+                        transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
                       }
                     : {
                         y: '100%',
-                        transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
+                        transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
                       }
                 }
                 exit={{
                   y: '100%',
-                  transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
+                  transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
                 }}
               >
                 Menu
@@ -85,11 +85,11 @@ export default function SmallNavigation() {
                   navbarStatus
                     ? {
                         y: '-100%',
-                        transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
+                        transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
                       }
                     : {
                         y: '0%',
-                        transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
+                        transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
                       }
                 }
               >
@@ -103,7 +103,7 @@ export default function SmallNavigation() {
               animate={{
                 scaleX: 1,
                 transition: {
-                  duration: 1,
+                  duration: 0.7,
                   ease: [0.77, 0, 0.18, 1],
                   delay: 0.1
                 }
@@ -112,7 +112,7 @@ export default function SmallNavigation() {
                 originX: 'left',
                 scaleX: 0,
                 transition: {
-                  duration: 1,
+                  duration: 0.7,
                   ease: [0.77, 0, 0.18, 1]
                 }
               }}

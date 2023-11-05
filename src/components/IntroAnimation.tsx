@@ -1,15 +1,22 @@
 'use client'
 
 import { useEffect } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
 import { useLenis } from '@studio-freight/react-lenis'
-import { useStore } from '@/lib/store/store'
+import { motion, AnimatePresence } from 'framer-motion'
 import MonospaceLogo from '@/components/shared/MonospaceLogo'
-import { INTRO_ANIMATION_DURATION } from '@/lib/constants/general'
+import { useStore } from '@/lib/store/store'
 
 export default function IntroAnimation() {
   const { introRunning, setIntroRunning } = useStore()
   const lenis = useLenis()
+
+  useEffect(() => {
+    const headerIsVisible = scrollY <= 1
+
+    if (headerIsVisible) {
+      setIntroRunning(true)
+    }
+  }, [setIntroRunning])
 
   useEffect(() => {
     if (introRunning) {
@@ -19,20 +26,21 @@ export default function IntroAnimation() {
     }
   }, [introRunning, lenis])
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIntroRunning(false)
-    }, INTRO_ANIMATION_DURATION)
-
-    return () => {
-      clearTimeout(timeout)
-    }
-  }, [setIntroRunning])
-
   return (
     <AnimatePresence>
       {introRunning && (
-        <div className='fixed inset-0 flex items-center justify-center h-screen-compatible min-h-screen-compatible bg-monospace-black'>
+        <motion.div
+          className='fixed flex inset-0 items-center justify-center h-screen-compatible min-h-screen-compatible bg-monospace-black'
+          initial={{
+            opacity: 1
+          }}
+          animate={{
+            opacity: 1,
+            transition: { duration: 2 }
+          }}
+          onAnimationStart={() => setIntroRunning(true)}
+          onAnimationComplete={() => setIntroRunning(false)}
+        >
           <section className='flex flex-col gap-2'>
             <div className='overflow-hidden'>
               <motion.span
@@ -40,12 +48,12 @@ export default function IntroAnimation() {
                 initial={{ opacity: 0 }}
                 animate={{
                   opacity: 1,
-                  transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
+                  transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
                 }}
                 exit={{
                   opacity: 0,
                   transition: {
-                    duration: 1,
+                    duration: 0.7,
                     ease: [0.77, 0, 0.18, 1],
                     delay: 0.2
                   }
@@ -65,7 +73,7 @@ export default function IntroAnimation() {
                   animate={{
                     opacity: 1,
                     transition: {
-                      duration: 1,
+                      duration: 0.7,
                       ease: [0.77, 0, 0.18, 1],
                       delay: 0.1
                     }
@@ -73,7 +81,7 @@ export default function IntroAnimation() {
                   exit={{
                     opacity: 0,
                     transition: {
-                      duration: 1,
+                      duration: 0.7,
                       ease: [0.77, 0, 0.18, 1],
                       delay: 0.1
                     }
@@ -89,14 +97,14 @@ export default function IntroAnimation() {
                   animate={{
                     opacity: 1,
                     transition: {
-                      duration: 1,
+                      duration: 0.7,
                       ease: [0.77, 0, 0.18, 1],
                       delay: 0.2
                     }
                   }}
                   exit={{
                     opacity: 0,
-                    transition: { duration: 1, ease: [0.77, 0, 0.18, 1] }
+                    transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
                   }}
                 >
                   web studio.
@@ -104,7 +112,7 @@ export default function IntroAnimation() {
               </span>
             </h2>
           </section>
-        </div>
+        </motion.div>
       )}
     </AnimatePresence>
   )

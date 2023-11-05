@@ -45,7 +45,7 @@ export default function LargeNavigation() {
               animate={{
                 y: version <= 1 ? '0%' : '118%',
                 transition: {
-                  duration: 1,
+                  duration: 0.7,
                   ease: [0.77, 0, 0.18, 1],
                   delay: index * 0.1
                 }

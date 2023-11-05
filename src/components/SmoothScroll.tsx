@@ -12,13 +12,7 @@ export default function SmoothScroll({ children }: { children: ChildrenType }) {
   const lenis = useLenis()
 
   useEffect(() => {
-    const headerEl = document.querySelector('main header')
-
-    if (headerEl === null) return
-
-    const headerIsVisible = headerEl.getBoundingClientRect().top === 0
-
-    if (navbarStatus || headerIsVisible) {
+    if (navbarStatus) {
       lenis?.stop()
     } else {
       lenis?.start()
@@ -30,7 +24,7 @@ export default function SmoothScroll({ children }: { children: ChildrenType }) {
       root
       options={{
         lerp: 1,
-        duration: isDesktop ? 2 : 1.2,
+        duration: isDesktop ? 1.5 : 1.2,
         smoothWheel: true,
         smoothTouch: true
       }}
