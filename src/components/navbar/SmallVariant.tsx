@@ -12,7 +12,7 @@ import { BUTTON_UNDERLINE_VARIANTS } from '@/lib/constants/variants'
 
 export default function SmallVariant() {
   const { navbarStatus, setNavbarStatus, setCursorStatus } = useStore()
-  const { version } = useNavbar()
+  const { variant } = useNavbar()
   const pathname = usePathname()
   const lenis = useLenis()
 
@@ -26,7 +26,7 @@ export default function SmallVariant() {
 
   return (
     <AnimatePresence>
-      {version === NAVIGATION_VARIANTS.small && (
+      {variant === NAVIGATION_VARIANTS.small && (
         <>
           <div className='absolute left-0'>
             <Link

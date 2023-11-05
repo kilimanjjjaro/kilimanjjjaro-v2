@@ -19,9 +19,9 @@ const config: Config = {
         '11xl': ['12rem', '1.01']
       },
       colors: {
-        'monospace-black': '#070707',
+        'monospace-black': '#030303',
         'monospace-white': '#F8F8F8',
-        'monospace-dark-gray': '#0F0F0F',
+        'monospace-dark-gray': '#090909',
         'monospace-light-gray': '#7A7A7A'
       },
       boxShadow: {

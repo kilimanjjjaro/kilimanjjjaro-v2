@@ -7,11 +7,11 @@ import useNavbar from '@/lib/hooks/useNavbar'
 import { NAVIGATION_VARIANTS } from '@/lib/constants/general'
 
 export default function Aside() {
-  const { version } = useNavbar()
+  const { variant } = useNavbar()
 
   return (
     <AnimatePresence>
-      {version === NAVIGATION_VARIANTS.large && (
+      {variant === NAVIGATION_VARIANTS.large && (
         <aside className='fixed z-10 bottom-0 px-20 pb-16 w-full flex items-center justify-between'>
           <div className='overflow-hidden'>
             <motion.span

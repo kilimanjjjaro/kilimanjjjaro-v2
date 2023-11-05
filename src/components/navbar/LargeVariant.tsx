@@ -12,7 +12,7 @@ import { SECTIONS, LOCALES, NAVIGATION_VARIANTS } from '@/lib/constants/general'
 export default function LargeVariant() {
   const { setNavbarStatus, setShowContactForm } = useStore()
   const currentLocale = useCurrentLocale()
-  const { version } = useNavbar()
+  const { variant } = useNavbar()
 
   const sections = useMemo(() => {
     return currentLocale === LOCALES.en ? SECTIONS.en : SECTIONS.es
@@ -35,7 +35,7 @@ export default function LargeVariant() {
               className='block'
               initial={{ y: '118%' }}
               animate={{
-                y: version === NAVIGATION_VARIANTS.large ? '0%' : '118%',
+                y: variant === NAVIGATION_VARIANTS.large ? '0%' : '118%',
                 transition: {
                   duration: 0.7,
                   ease: [0.77, 0, 0.18, 1],

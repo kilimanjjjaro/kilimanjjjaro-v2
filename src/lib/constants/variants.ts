@@ -18,19 +18,18 @@ export const CURSOR_VARIANTS = {
 
 export const NAVBAR_VARIANTS = {
   open: {
-    y: '0%',
+    clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
     transition: {
-      duration: 2,
-      ease: [0.65, 0.05, 0.36, 1],
-      staggerChildren: 0.1,
-      staggerDirection: -1
+      duration: 1,
+      ease: [0.77, 0, 0.18, 1],
+      delayChildren: 0.1
     }
   },
   closed: {
-    y: '100%',
+    clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)',
     transition: {
-      duration: 2,
-      ease: [0.65, 0.05, 0.36, 1]
+      duration: 1,
+      ease: [0.77, 0, 0.18, 1]
     }
   }
 }
@@ -38,18 +37,16 @@ export const NAVBAR_VARIANTS = {
 export const NAVBAR_LI_VARIANTS = {
   open: {
     y: '0%',
-    rotate: 0,
     transition: {
-      duration: 1.8,
-      ease: [0.65, 0.05, 0.36, 1]
+      duration: 1,
+      ease: [0.77, 0, 0.18, 1]
     }
   },
   closed: {
-    y: '130%',
-    rotate: 4,
+    y: '118%',
     transition: {
-      duration: 1.8,
-      ease: [0.65, 0.05, 0.36, 1]
+      duration: 1,
+      ease: [0.77, 0, 0.18, 1]
     }
   }
 }

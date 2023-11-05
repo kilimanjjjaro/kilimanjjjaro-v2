@@ -20,7 +20,7 @@ export default function LanguageSelector() {
   const currentLocale = useCurrentLocale()
   const [showSelector, setShowSelector] = useState(false)
   const changeLocale = useChangeLocale()
-  const { version } = useNavbar()
+  const { variant } = useNavbar()
 
   const languages = useMemo(() => {
     return currentLocale === LOCALES.en ? LANGUAGES.en : LANGUAGES.es
@@ -37,10 +37,10 @@ export default function LanguageSelector() {
   }
 
   useEffect(() => {
-    if (version === NAVIGATION_VARIANTS.small) {
+    if (variant === NAVIGATION_VARIANTS.small) {
       setShowSelector(false)
     }
-  }, [version])
+  }, [variant])
 
   return (
     <div className='flex justify-center'>
@@ -48,7 +48,7 @@ export default function LanguageSelector() {
         className='text-xl text-monospace-light-gray xl:hover:text-monospace-white transition-colors duration-700 ease-in-out'
         onClick={() => setShowSelector(!showSelector)}
         underlined
-        underlineTrigger={version === NAVIGATION_VARIANTS.large ?? false}
+        underlineTrigger={variant === NAVIGATION_VARIANTS.large}
       >
         {selectedLanguage.name}
       </Button>
