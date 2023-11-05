@@ -45,7 +45,7 @@ export default function StackSelector() {
   }
 
   return (
-    <div className='flex gap-10 pl-6 text-4xl xl:pl-40 text-kili-white'>
+    <div className='flex gap-10 pl-6 text-4xl xl:pl-40 text-monospace-white'>
       <button
         className='z-20 xl:z-0'
         onClick={() => handleClickOnSelector()}
@@ -74,7 +74,7 @@ export default function StackSelector() {
       >
         {!isDesktop && (
           <motion.div
-            className='fixed bottom-0 left-0 w-full h-screen origin-bottom bg-gradient-to-t from-kili-black to-kili-black/0'
+            className='fixed bottom-0 left-0 w-full h-screen origin-bottom bg-gradient-to-t from-monospace-black to-monospace-black/0'
             initial={{ scaleY: '0%' }}
             animate={showSelector ? { scaleY: '100%' } : { scaleY: '0%' }}
             transition={{
@@ -88,7 +88,7 @@ export default function StackSelector() {
           .map((stack) => (
             <li
               key={stack.id}
-              className='overflow-hidden leading-none transition-colors duration-1000 ease-in-out xl:hover:text-kili-light-gray'
+              className='overflow-hidden leading-none transition-colors duration-1000 ease-in-out xl:hover:text-monospace-light-gray'
             >
               <motion.button
                 onClick={() => handleClickOnSkills(stack)}

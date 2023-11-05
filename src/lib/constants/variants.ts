@@ -1,9 +1,27 @@
+export const CURSOR_VARIANTS = {
+  hidden: {
+    scale: 0,
+    borderColor: 'rgba(248, 248, 248, 0)',
+    backgroundColor: 'rgba(248, 248, 248, 0)'
+  },
+  visible: {
+    scale: 1,
+    borderColor: 'rgba(248, 248, 248, 1)',
+    backgroundColor: 'rgba(248, 248, 248, 0)'
+  },
+  hover: {
+    scale: 0.4,
+    backgroundColor: 'rgba(248, 248, 248, 1)',
+    borderColor: 'rgba(248, 248, 248, 0)'
+  }
+}
+
 export const NAVBAR_VARIANTS = {
   open: {
     y: '0%',
     transition: {
       duration: 2,
-      ease: [0.77, 0, 0.18, 1],
+      ease: [0.65, 0.05, 0.36, 1],
       staggerChildren: 0.1,
       staggerDirection: -1
     }
@@ -12,7 +30,7 @@ export const NAVBAR_VARIANTS = {
     y: '100%',
     transition: {
       duration: 2,
-      ease: [0.77, 0, 0.18, 1]
+      ease: [0.65, 0.05, 0.36, 1]
     }
   }
 }
@@ -23,7 +41,7 @@ export const NAVBAR_LI_VARIANTS = {
     rotate: 0,
     transition: {
       duration: 1.8,
-      ease: [0.77, 0, 0.18, 1]
+      ease: [0.65, 0.05, 0.36, 1]
     }
   },
   closed: {
@@ -31,7 +49,7 @@ export const NAVBAR_LI_VARIANTS = {
     rotate: 4,
     transition: {
       duration: 1.8,
-      ease: [0.77, 0, 0.18, 1]
+      ease: [0.65, 0.05, 0.36, 1]
     }
   }
 }
@@ -60,25 +78,29 @@ export const STACKS_LI_VARIANTS = {
   }
 }
 
-export const LANGUAGES_UL_VARIANTS = {
+export const LANG_UL_VARIANTS = {
   open: {
-    opacity: 1,
-    display: 'flex'
+    display: 'flex',
+    transition: {
+      delay: 0
+    }
   },
   closed: {
-    opacity: 0,
-    transitionEnd: {
-      display: 'none'
+    display: 'none',
+    transition: {
+      delay: 0.7
     }
   }
 }
 
-export const LANGUAGES_LI_VARIANTS = {
+export const LANG_LI_VARIANTS = {
   open: {
-    y: '0%'
+    y: '0%',
+    transition: { duration: 1, ease: 'easeInOut' }
   },
   closed: {
-    y: '-100%'
+    y: '100%',
+    transition: { duration: 1, ease: 'easeInOut' }
   }
 }
 

@@ -135,7 +135,7 @@ export default function FeaturedProject({ project, index }: Props) {
         <FeaturedProjectName projectId={project.id} isHovered={isHovered}>
           {project.name}
         </FeaturedProjectName>
-        <footer className='left-0 mt-2 leading-tight xl:leading-none xl:mt-0 xl:absolute xl:text-xl xl:overflow-hidden top-full text-kili-light-gray xl:text-kili-white'>
+        <footer className='left-0 mt-2 leading-tight xl:leading-none xl:mt-0 xl:absolute xl:text-xl xl:overflow-hidden top-full text-monospace-light-gray xl:text-monospace-white'>
           <motion.span
             className='xl:block'
             initial={{

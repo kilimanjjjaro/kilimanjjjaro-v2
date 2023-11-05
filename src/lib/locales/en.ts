@@ -15,7 +15,7 @@ export default {
         'Full Stack JavaScript Developer & UX/UI Designer with +{experience} years of work experience.',
       biography:
         'My name is Gonzalo, and I am {yearsOld} years old. I love designing and developing user experiences that are timeless, simple, and perform well.',
-      letsTalkButton: "Let's talk!",
+      contactButton: 'Contact',
       portraitAlt: "Gonzalo's picture"
     },
     since2017: {
@@ -48,7 +48,7 @@ export default {
     yearHeadline: 'Year'
   },
   footer: {
-    letsTalk: 'Let’s talk!',
+    contact: 'Contact',
     goToTop: 'Go to top'
   },
   navbar: {

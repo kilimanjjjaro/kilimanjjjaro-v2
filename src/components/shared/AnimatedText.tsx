@@ -53,7 +53,7 @@ export default function AnimatedText({ text, className }: Props) {
       const interval = setInterval(() => {
         changeTextRandomly()
         setCounter((prevCounter) => prevCounter + 1)
-      }, 140)
+      }, 120)
 
       animationInterval.current = interval
     }
@@ -69,7 +69,7 @@ export default function AnimatedText({ text, className }: Props) {
   }, [text])
 
   useEffect(() => {
-    if (counter >= 6) {
+    if (counter >= 5) {
       clearInterval(animationInterval.current as NodeJS.Timeout)
       setCounter(0)
       setOriginalText(text)

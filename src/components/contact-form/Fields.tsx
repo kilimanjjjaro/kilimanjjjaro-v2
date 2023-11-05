@@ -58,7 +58,7 @@ export default function Fields({ step, setStep }: Props) {
 
   return (
     <>
-      <label className='flex flex-col transition-colors duration-1000 ease-in-out text-kili-light-gray focus-within:text-kili-white'>
+      <label className='flex flex-col transition-colors duration-1000 ease-in-out text-monospace-light-gray focus-within:text-monospace-white'>
         {t('name')}:
         <input
           ref={nameInputRef}
@@ -66,13 +66,13 @@ export default function Fields({ step, setStep }: Props) {
           onChange={() => setStep(1)}
           onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
           onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
-          className='text-lg placeholder-opacity-100 bg-transparent outline-none text-kili-white focus:outline-none'
+          className='text-lg placeholder-opacity-100 bg-transparent outline-none text-monospace-white focus:outline-none'
           type='text'
           name='name'
           required
         />
       </label>
-      <label className='flex flex-col transition-colors duration-1000 ease-in-out text-kili-light-gray focus-within:text-kili-white'>
+      <label className='flex flex-col transition-colors duration-1000 ease-in-out text-monospace-light-gray focus-within:text-monospace-white'>
         {t('email')}:
         <input
           ref={emailInputRef}
@@ -80,13 +80,13 @@ export default function Fields({ step, setStep }: Props) {
           onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
           onKeyDown={(event) => handleKeyDown({ event, nextStep: 3 })}
           onChange={() => setStep(2)}
-          className='text-lg placeholder-opacity-100 bg-transparent outline-none text-kili-white focus:outline-none'
+          className='text-lg placeholder-opacity-100 bg-transparent outline-none text-monospace-white focus:outline-none'
           type='email'
           name='email'
           required
         />
       </label>
-      <label className='flex flex-col transition-colors duration-1000 ease-in-out text-kili-light-gray focus-within:text-kili-white'>
+      <label className='flex flex-col transition-colors duration-1000 ease-in-out text-monospace-light-gray focus-within:text-monospace-white'>
         {t('message')}:
         <textarea
           ref={textAreaRef}
@@ -94,7 +94,7 @@ export default function Fields({ step, setStep }: Props) {
           onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
           onChange={handleChange}
           onKeyDown={(event) => handleKeyDown({ event, nextStep: 4 })}
-          className='text-lg bg-transparent outline-none resize-none h-7 text-kili-white focus:outline-none peer/message'
+          className='text-lg bg-transparent outline-none resize-none h-7 text-monospace-white focus:outline-none peer/message'
           name='message'
           rows={1}
           required

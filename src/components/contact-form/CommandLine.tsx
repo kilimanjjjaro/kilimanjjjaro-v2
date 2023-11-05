@@ -41,8 +41,8 @@ export default function CommandLine() {
   return (
     <div className='flex flex-col w-full h-full gap-6'>
       <div>
-        <p className='text-kili-light-gray'>~/monospace/src</p>
-        <div className='text-lg text-kili-white'>
+        <p className='text-monospace-light-gray'>~/monospace/src</p>
+        <div className='text-lg text-monospace-white'>
           {stepOne && <TypingEffect text='ls' />}
           <motion.span
             initial={{ display: 'inline' }}
@@ -61,7 +61,7 @@ export default function CommandLine() {
         transition={{ delay: 2.1 }}
       >
         {FOLDERS.map((folder) => (
-          <p key={folder} className='text-lg text-kili-white'>
+          <p key={folder} className='text-lg text-monospace-white'>
             {folder}
           </p>
         ))}
@@ -71,8 +71,8 @@ export default function CommandLine() {
         animate={{ display: 'block' }}
         transition={{ delay: 2.1 }}
       >
-        <p className='text-kili-light-gray'>~/monospace/src</p>
-        <div className='text-lg text-kili-white'>
+        <p className='text-monospace-light-gray'>~/monospace/src</p>
+        <div className='text-lg text-monospace-white'>
           {stepTwo && <TypingEffect text='cd store && ls' />}
           <motion.span
             initial={{ display: 'inline' }}
@@ -91,7 +91,7 @@ export default function CommandLine() {
         transition={{ delay: 4.1 }}
       >
         {FILES.map((folder) => (
-          <p key={folder} className='text-lg text-kili-white'>
+          <p key={folder} className='text-lg text-monospace-white'>
             {folder}
           </p>
         ))}
@@ -101,8 +101,8 @@ export default function CommandLine() {
         animate={{ display: 'block' }}
         transition={{ delay: 4.1 }}
       >
-        <p className='text-kili-light-gray'>~/monospace/src/store</p>
-        <div className='text-lg text-kili-white'>
+        <p className='text-monospace-light-gray'>~/monospace/src/store</p>
+        <div className='text-lg text-monospace-white'>
           {stepThree && <TypingEffect text='nano messages.json' />}
           <span className='animate-typing'>|</span>
         </div>

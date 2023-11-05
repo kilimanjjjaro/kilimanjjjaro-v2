@@ -28,16 +28,16 @@ export default function Experience() {
         animate={isInView ? 'show' : 'hidden'}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       >
-        <h3 className='xl:w-[30%] text-4xl text-kili-white'>
+        <h3 className='xl:w-[30%] text-4xl text-monospace-white'>
           {t('experienceTitle')}
         </h3>
         <ul className='grid flex-1 gap-6 text-xl xl:text-2xl xl:gap-10 xl:grid-cols-3'>
           {experience.map((experience) => (
             <li key={experience.year} className='flex flex-col gap-1 xl:gap-2'>
-              <span className='mb-px text-kili-white xl:mb-0'>
+              <span className='mb-px text-monospace-white xl:mb-0'>
                 {experience.year}
               </span>
-              <span className='text-kili-light-gray'>
+              <span className='text-monospace-light-gray'>
                 <Balancer>{experience.name}</Balancer>
               </span>
             </li>
@@ -45,7 +45,7 @@ export default function Experience() {
         </ul>
       </motion.div>
       <motion.hr
-        className='w-full h-0.5 border-kili-light-gray origin-left'
+        className='w-full h-0.5 border-monospace-light-gray origin-left'
         initial='hidden'
         variants={HR_LINE_VARIANTS}
         animate={isInView ? 'show' : 'hidden'}

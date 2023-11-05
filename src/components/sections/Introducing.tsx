@@ -1,6 +1,6 @@
 import StackSelector from '@/components/introducing/StackSelector'
 import SkillsCarousel from '@/components/introducing/SkillsCarousel'
-import LetsTalkButton from '@/components/introducing/LetsTalkButton'
+import ContactButton from '@/components/introducing/ContactButton'
 import Headline from '@/components/introducing/Headline'
 import Biography from '@/components/introducing/Biography'
 import Portrait from '@/components/introducing/Portrait'
@@ -17,10 +17,10 @@ export default async function Introducing() {
   return (
     <section
       id='introducing-me'
-      className='pt-20 pb-24 xl:pt-32 xl:pb-24 bg-kili-dark-gray'
+      className='pt-20 pb-24 xl:pt-32 xl:pb-24 bg-monospace-dark-gray'
     >
       <HeadlineMarquee
-        className='text-6xl text-kili-white xl:text-10xl'
+        className='text-6xl text-monospace-white xl:text-10xl'
         baseVelocity={-2}
       >
         {t('sectionTitle')}
@@ -30,7 +30,7 @@ export default async function Introducing() {
         <div className='flex flex-col gap-6 mt-10 xl:mt-0 xl:gap-0 mix-blend-difference'>
           <Headline headline={headline} />
           <div className='grid items-end content-start xl:grid-cols-2 gap-6 xl:gap-[19vw] justify-items-start'>
-            <LetsTalkButton />
+            <ContactButton />
             <Biography biography={biography} />
           </div>
         </div>

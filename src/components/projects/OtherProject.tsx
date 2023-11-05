@@ -14,7 +14,7 @@ import { HR_LINE_VARIANTS } from '@/lib/constants/variants'
 import type { OtherProjectInterface } from '@/lib/interfaces/projects'
 
 const UNDERLINE_STYLES =
-  'before:h-0.5 before:scale-x-0 before:absolute before:-bottom-2 before:left-0 before:right-0 before:block before:bg-current before:origin-left xl:group-hover:before:scale-x-100 before:transition-transform before:ease-in xl:group-hover:before:ease-out before:duration-1000 after:delay-1000 xl:group-hover:before:delay-0 after:h-0.5 after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:bg-kili-dark-gray after:origin-left after:scale-x-0 xl:group-hover:after:scale-x-100 after:transition-transform after:ease-in xl:group-hover:after:ease-out after:duration-1000 xl:group-hover:after:delay-1000'
+  'before:h-0.5 before:scale-x-0 before:absolute before:-bottom-2 before:left-0 before:right-0 before:block before:bg-current before:origin-left xl:group-hover:before:scale-x-100 before:transition-transform before:ease-in xl:group-hover:before:ease-out before:duration-1000 after:delay-1000 xl:group-hover:before:delay-0 after:h-0.5 after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:bg-monospace-dark-gray after:origin-left after:scale-x-0 xl:group-hover:after:scale-x-100 after:transition-transform after:ease-in xl:group-hover:after:ease-out after:duration-1000 xl:group-hover:after:delay-1000'
 
 interface Props {
   project: OtherProjectInterface
@@ -59,31 +59,31 @@ export default function OtherProject({ project }: Props) {
           >
             <header className='flex flex-col xl:flex-row xl:gap-1.5 xl:items-center xl:w-[30%] xl:flex-wrap'>
               <h4
-                className={`relative text-3xl duration-1000 ease-in-out xl:text-2xl text-kili-white ${UNDERLINE_STYLES}`}
+                className={`relative text-3xl duration-1000 ease-in-out xl:text-2xl text-monospace-white ${UNDERLINE_STYLES}`}
               >
                 {project.name}
               </h4>
-              <span className='text-2xl text-kili-light-gray'>
+              <span className='text-2xl text-monospace-light-gray'>
                 {isDesktop && '—'} {project.role}
               </span>
             </header>
-            <p className='flex-1 text-xl xl:text-2xl text-kili-light-gray'>
+            <p className='flex-1 text-xl xl:text-2xl text-monospace-light-gray'>
               <Balancer>{project.description}</Balancer>
             </p>
-            <ul className='flex flex-wrap flex-1 gap-2 text-sm text-kili-light-gray'>
+            <ul className='flex flex-wrap flex-1 gap-2 text-sm text-monospace-light-gray'>
               {project.stacks.map((stack, index) => (
                 <li
                   key={index}
-                  className='px-[10px] py-[3px] border rounded-full border-kili-light-gray'
+                  className='px-[10px] py-[3px] border rounded-full border-monospace-light-gray'
                 >
                   {stack}
                 </li>
               ))}
             </ul>
-            <p className='text-2xl text-kili-light-gray'>{project.year}</p>
+            <p className='text-2xl text-monospace-light-gray'>{project.year}</p>
           </motion.div>
           <motion.hr
-            className='w-full h-0.5 border-kili-light-gray origin-left'
+            className='w-full h-0.5 border-monospace-light-gray origin-left'
             initial='hidden'
             variants={HR_LINE_VARIANTS}
             animate={projectIsInView ? 'show' : 'hidden'}
@@ -136,7 +136,7 @@ export default function OtherProject({ project }: Props) {
           className='fixed top-0 left-0 z-10 flex justify-center w-full overflow-hidden pointer-events-none'
           style={{ x, y }}
         >
-          <span className='flex items-center gap-3 text-6xl leading-none text-center transition-transform duration-1000 ease-in-out translate-y-[124%] rotate-6 text-kili-white xl:group-hover:translate-y-0 xl:group-hover:rotate-0'>
+          <span className='flex items-center gap-3 text-6xl leading-none text-center transition-transform duration-1000 ease-in-out translate-y-[124%] rotate-6 text-monospace-white xl:group-hover:translate-y-0 xl:group-hover:rotate-0'>
             {project.isRepository ? t('repositoryButton') : t('websiteButton')}{' '}
             <ArrowCornerIcon className='w-6' />
           </span>

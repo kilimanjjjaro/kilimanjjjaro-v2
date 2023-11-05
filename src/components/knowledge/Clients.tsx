@@ -22,17 +22,17 @@ export default function Clients() {
         animate={isInView ? 'show' : 'hidden'}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       >
-        <h3 className='w-[30%] text-4xl text-kili-white'>
+        <h3 className='w-[30%] text-4xl text-monospace-white'>
           {t('clientsTitle')}
         </h3>
-        <ul className='grid flex-1 grid-cols-2 gap-4 text-xl xl:text-2xl xl:gap-2 xl:grid-cols-3 text-kili-white'>
+        <ul className='grid flex-1 grid-cols-2 gap-4 text-xl xl:text-2xl xl:gap-2 xl:grid-cols-3 text-monospace-white'>
           {CLIENTS.map((client) => (
             <li key={client}>{client}</li>
           ))}
         </ul>
       </motion.div>
       <motion.hr
-        className='w-full h-0.5 border-kili-light-gray origin-left'
+        className='w-full h-0.5 border-monospace-light-gray origin-left'
         initial='hidden'
         variants={HR_LINE_VARIANTS}
         animate={isInView ? 'show' : 'hidden'}

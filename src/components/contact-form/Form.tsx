@@ -129,7 +129,7 @@ export default function Form({ handleDrag }: Props) {
       }}
     >
       <motion.header
-        className='flex items-center h-10 gap-4 px-4 bg-kili-light-gray/30 cursor-grab active:cursor-grabbing active:select-none'
+        className='flex items-center h-10 gap-4 px-4 bg-monospace-light-gray/30 cursor-grab active:cursor-grabbing active:select-none'
         onPointerDown={handleDrag}
         onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
         onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
@@ -137,9 +137,11 @@ export default function Form({ handleDrag }: Props) {
         <Button
           aria-label='Close contact form'
           onClick={(event) => handleCloseClick(event)}
-          className='w-3 h-3 transition-colors duration-1000 bg-red-600 rounded-full xl:hover:bg-kili-white'
+          className='w-3 h-3 transition-colors duration-1000 bg-red-600 rounded-full xl:hover:bg-monospace-white'
         />
-        <p className='text-sm tracking-wide text-kili-white'>~/monospace/src</p>
+        <p className='text-sm tracking-wide text-monospace-white'>
+          ~/monospace/src
+        </p>
       </motion.header>
       <main
         data-lenis-prevent

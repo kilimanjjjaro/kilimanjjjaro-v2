@@ -1,101 +1,77 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import { useStore } from '@/lib/store/store'
+import { motion } from 'framer-motion'
 import Button from '@/components/shared/Button'
+import { useStore } from '@/lib/store/store'
 
 export default function NavbarButton() {
-  const { setNavbarStatus, navbarStatus } = useStore()
+  const { navbarStatus, setNavbarStatus } = useStore()
 
   return (
     <Button
-      className='relative flex items-center justify-center cursor-pointer w-7 h-7 group'
-      ariaLabel='Toggle navigation menu'
+      aria-label='Toggle navigation menu'
+      className='absolute right-0 flex flex-col gap-2.5 text-xl text-monospace-light-gray leading-none xl:hover:text-monospace-white transition-colors duration-1000 ease-in-out'
       onClick={() => setNavbarStatus(!navbarStatus)}
     >
-      <AnimatePresence initial={false}>
-        {navbarStatus ? (
-          <div
-            className='absolute flex flex-col items-center justify-center w-full gap-2'
-            key='close-button'
-          >
-            <motion.span
-              key='top-line'
-              className='block h-0.5 bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white translate-y-[5px] rotate-[135deg]'
-              initial={{ width: '0%' }}
-              animate={{ width: '100%' }}
-              exit={{
-                width: '0%',
-                transition: {
-                  duration: 1,
-                  ease: 'easeInOut'
+      <span className='relative flex flex-col items-center justify-start h-5 overflow-hidden'>
+        <motion.span
+          initial={{ y: '100%' }}
+          animate={
+            !navbarStatus
+              ? {
+                  y: '0%',
+                  transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
                 }
-              }}
-              transition={{
-                duration: 1,
-                ease: 'easeInOut',
-                delay: 1
-              }}
-            />
-            <motion.span
-              className='block h-0.5 bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white translate-y-[-5px] rotate-[-135deg]'
-              initial={{ width: '0%' }}
-              animate={{ width: '100%' }}
-              exit={{
-                width: '0%',
-                transition: {
-                  duration: 1,
-                  ease: 'easeInOut'
+              : {
+                  y: '100%',
+                  transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
                 }
-              }}
-              transition={{
-                duration: 1,
-                ease: 'easeInOut',
-                delay: 1
-              }}
-            />
-          </div>
-        ) : (
-          <div
-            className='absolute flex flex-col w-full gap-2'
-            key='open-button'
-          >
-            <motion.span
-              className='block w-full h-0.5 bg-kili-light-gray origin-right transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
-              initial={{ scaleX: '0%' }}
-              animate={{ scaleX: '100%' }}
-              exit={{
-                scaleX: '0%',
-                transition: {
-                  duration: 1,
-                  ease: 'easeInOut'
+          }
+          exit={{
+            y: '100%',
+            transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
+          }}
+        >
+          Menu
+        </motion.span>
+        <motion.span
+          initial={{ y: '0%' }}
+          animate={
+            navbarStatus
+              ? {
+                  y: '-100%',
+                  transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
                 }
-              }}
-              transition={{
-                duration: 1,
-                ease: 'easeInOut',
-                delay: 1
-              }}
-            />
-            <motion.span
-              className='block w-full h-0.5 bg-kili-light-gray origin-right transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
-              initial={{ scaleX: '0%' }}
-              animate={{ scaleX: '100%' }}
-              exit={{
-                scaleX: '0%',
-                transition: {
-                  duration: 1,
-                  ease: 'easeInOut',
-                  delay: 0.2
+              : {
+                  y: '0%',
+                  transition: { duration: 1, ease: [0.65, 0.05, 0.36, 1] }
                 }
-              }}
-              transition={{
-                duration: 1,
-                ease: 'easeInOut',
-                delay: 1.2
-              }}
-            />
-          </div>
-        )}
-      </AnimatePresence>
+          }
+        >
+          Close
+        </motion.span>
+      </span>
+      <motion.span
+        aria-hidden='true'
+        className='w-full'
+        initial={{ scaleX: 0, originX: 'right' }}
+        animate={{
+          scaleX: 1,
+          transition: {
+            duration: 1,
+            ease: [0.65, 0.05, 0.36, 1],
+            delay: 0.1
+          }
+        }}
+        exit={{
+          originX: 'left',
+          scaleX: 0,
+          transition: {
+            duration: 1,
+            ease: [0.65, 0.05, 0.36, 1]
+          }
+        }}
+      >
+        <div className='h-0.5 w-full bg-current' />
+      </motion.span>
     </Button>
   )
 }

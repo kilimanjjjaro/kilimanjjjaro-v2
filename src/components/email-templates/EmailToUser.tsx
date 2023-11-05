@@ -29,10 +29,10 @@ export default function EmailToUser({ name, email, message }: Props) {
           theme: {
             extend: {
               colors: {
-                'kili-black': '#090909',
-                'kili-white': '#F8F8F8',
-                'kili-dark-gray': '#0D0D0D',
-                'kili-light-gray': '#7A7A7A'
+                'monospace-black': '#090909',
+                'monospace-white': '#F8F8F8',
+                'monospace-dark-gray': '#0D0D0D',
+                'monospace-light-gray': '#7A7A7A'
               }
             }
           }
@@ -40,7 +40,10 @@ export default function EmailToUser({ name, email, message }: Props) {
       >
         <Body className='m-0 font-sans !bg-black py-14'>
           <Container className='w-[480px] mx-auto px-6'>
-            <Heading as='h1' className='m-0 text-4xl font-bold text-kili-white'>
+            <Heading
+              as='h1'
+              className='m-0 text-4xl font-bold text-monospace-white'
+            >
               <strong>Hi {name}!</strong>
               <Img
                 className='inline ml-3'
@@ -51,17 +54,17 @@ export default function EmailToUser({ name, email, message }: Props) {
               />
             </Heading>
             <Section className='mt-10 mb-12'>
-              <Text className='mt-0 mb-4 text-kili-white'>
+              <Text className='mt-0 mb-4 text-monospace-white'>
                 This is a confirmation that your message was sent successfully.
               </Text>
-              <ul className='px-5 py-4 m-0 list-none border bg-kili-white text-kili-black'>
+              <ul className='px-5 py-4 m-0 list-none border bg-monospace-white text-monospace-black'>
                 <li className='m-0'>
                   <Text className='my-0'>
                     <u>Name:</u> {name}
                   </Text>
                 </li>
                 <li className='m-0'>
-                  <Text className='my-0 [&>*]:text-kili-black'>
+                  <Text className='my-0 [&>*]:text-monospace-black'>
                     <u>Email:</u> {email}
                   </Text>
                 </li>
@@ -71,14 +74,14 @@ export default function EmailToUser({ name, email, message }: Props) {
                   </Text>
                 </li>
               </ul>
-              <Text className='mt-5 mb-0 text-kili-white'>
+              <Text className='mt-5 mb-0 text-monospace-white'>
                 I will answer you as soon as possible.
               </Text>
-              <Text className='m-0 text-kili-white'>
+              <Text className='m-0 text-monospace-white'>
                 <i>Have a great day!</i>
               </Text>
             </Section>
-            <Section className='m-0 text-kili-light-gray'>
+            <Section className='m-0 text-monospace-light-gray'>
               <Img
                 className='mb-3'
                 src={`${BASE_URL}/images/email/monospace-logo.png`}
@@ -88,7 +91,7 @@ export default function EmailToUser({ name, email, message }: Props) {
               />
               <Text className='mt-3 mb-0 text-xs'>
                 <Link
-                  className='leading-5 underline text-kili-light-gray'
+                  className='leading-5 underline text-monospace-light-gray'
                   href='https://monospace.ar'
                   target='_blank'
                   rel='noopener noreferrer'

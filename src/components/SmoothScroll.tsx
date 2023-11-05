@@ -7,7 +7,7 @@ import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import type { ChildrenType } from '@/lib/interfaces/general'
 
 export default function SmoothScroll({ children }: { children: ChildrenType }) {
-  const { navbarStatus, introRunning } = useStore()
+  const { navbarStatus } = useStore()
   const { isDesktop } = useMediaQuery()
   const lenis = useLenis()
 
@@ -18,12 +18,12 @@ export default function SmoothScroll({ children }: { children: ChildrenType }) {
 
     const headerIsVisible = headerEl.getBoundingClientRect().top === 0
 
-    if (navbarStatus || (headerIsVisible && introRunning)) {
+    if (navbarStatus || headerIsVisible) {
       lenis?.stop()
     } else {
       lenis?.start()
     }
-  }, [lenis, navbarStatus, introRunning])
+  }, [lenis, navbarStatus])
 
   return (
     <ReactLenis

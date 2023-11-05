@@ -11,7 +11,6 @@ export default function Headline() {
   const t = useScopedI18n('home.header')
   const currentLocale = useCurrentLocale()
   const headlineRef = useRef<HTMLHeadingElement>(null)
-  const { setIntroRunning } = useStore()
   const { scrollYProgress } = useScroll()
 
   const y = useTransform(scrollYProgress, [0, 0.2], ['0%', '117%'])
@@ -20,7 +19,7 @@ export default function Headline() {
   return (
     <motion.h2
       ref={headlineRef}
-      className='flex flex-col items-center text-6xl text-center xl:text-11xl text-kili-white'
+      className='flex flex-col items-center text-6xl text-center xl:text-11xl text-monospace-white'
       initial={{
         scale: 1.3
       }}
@@ -31,7 +30,6 @@ export default function Headline() {
         duration: 3,
         ease: [0.17, 0.84, 0.44, 1]
       }}
-      onAnimationStart={() => setIntroRunning(true)}
     >
       <span
         className={clsx(
@@ -103,7 +101,6 @@ export default function Headline() {
             ease: [0.17, 0.84, 0.44, 1],
             delay: 0.5
           }}
-          onAnimationComplete={() => setIntroRunning(false)}
         >
           {t('headline.2')}
         </motion.span>

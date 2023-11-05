@@ -44,13 +44,13 @@ export default function Grid({ project }: Props) {
         />
         <div className='flex flex-col gap-36'>
           <div>
-            <h3 className='mb-10 text-xl leading-tight text-kili-light-gray'>
+            <h3 className='mb-10 text-xl leading-tight text-monospace-light-gray'>
               {t('yearHeadline')}
             </h3>
-            <p className='text-4xl text-kili-white'>{project.year}</p>
+            <p className='text-4xl text-monospace-white'>{project.year}</p>
           </div>
           <div>
-            <p className='text-4xl leading-tight text-kili-white'>
+            <p className='text-4xl leading-tight text-monospace-white'>
               <Balancer>{project.sectionDescription}</Balancer>
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function Grid({ project }: Props) {
 
       <section
         ref={sectionRef}
-        className='flex w-full h-screen gap-20 overflow-hidden bg-kili-black'
+        className='flex w-full h-screen gap-20 overflow-hidden bg-monospace-black'
       >
         <motion.div
           className='flex flex-col w-full gap-20 -mt-40'
@@ -138,23 +138,23 @@ export default function Grid({ project }: Props) {
         </motion.div>
       </section>
 
-      <section className='grid grid-cols-3 px-40 py-36 gap-36 bg-kili-dark-gray'>
+      <section className='grid grid-cols-3 px-40 py-36 gap-36 bg-monospace-dark-gray'>
         <div className='flex flex-col gap-36'>
           <div>
-            <h3 className='mb-10 text-xl leading-tight text-kili-light-gray'>
+            <h3 className='mb-10 text-xl leading-tight text-monospace-light-gray'>
               {t('roleHeadline')}
             </h3>
-            <p className='text-4xl text-kili-white'>{project.role}</p>
+            <p className='text-4xl text-monospace-white'>{project.role}</p>
           </div>
           <div>
-            <h3 className='mb-10 text-xl leading-tight text-kili-light-gray'>
+            <h3 className='mb-10 text-xl leading-tight text-monospace-light-gray'>
               {t('stacksHeadline')}
             </h3>
             <ul className='flex flex-wrap flex-1 gap-4'>
               {project.stacks.map((stack, index) => (
                 <li
                   key={index}
-                  className='px-5 pt-2 pb-[7px] text-4xl border-2 rounded-full text-kili-white border-kili-light-gray'
+                  className='px-5 pt-2 pb-[7px] text-4xl border-2 rounded-full text-monospace-white border-monospace-light-gray'
                 >
                   {stack}
                 </li>

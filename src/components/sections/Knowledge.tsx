@@ -11,10 +11,10 @@ export default async function Knowledge() {
   return (
     <section
       id='knowledge'
-      className='pt-20 pb-24 xl:pt-32 xl:pb-40 bg-kili-dark-gray'
+      className='pt-20 pb-24 xl:pt-32 xl:pb-40 bg-monospace-dark-gray'
     >
       <HeadlineMarquee
-        className='text-6xl text-kili-white xl:text-10xl'
+        className='text-6xl text-monospace-white xl:text-10xl'
         baseVelocity={-3}
       >
         {t('sectionTitle')}

@@ -65,11 +65,11 @@ export default function CookiesConsent() {
             delay: 10
           }}
         >
-          <header className='flex items-center w-full h-6 px-4 bg-kili-light-gray/30'>
+          <header className='flex items-center w-full h-6 px-4 bg-monospace-light-gray/30'>
             <button
               aria-label='Close cookies consent'
               onClick={handleDecline}
-              className='w-3 h-3 transition-colors duration-1000 bg-red-600 rounded-full xl:hover:bg-kili-white'
+              className='w-3 h-3 transition-colors duration-1000 bg-red-600 rounded-full xl:hover:bg-monospace-white'
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             />
@@ -77,7 +77,7 @@ export default function CookiesConsent() {
           <main
             className={`p-4 flex flex-col text-xs md:text-sm ${firaMonoFont}`}
           >
-            <h3 className='flex items-center gap-2 mb-2 text-kili-white'>
+            <h3 className='flex items-center gap-2 mb-2 text-monospace-white'>
               {t('headline')}
               <Image
                 src={cookieImage}
@@ -86,7 +86,7 @@ export default function CookiesConsent() {
                 alt='Cookies Consent'
               />
             </h3>
-            <p className='mb-3 text-kili-light-gray'>
+            <p className='mb-3 text-monospace-light-gray'>
               <Balancer>{t('description')}</Balancer>
             </p>
             <div className='flex gap-4 text-xs md:text-sm'>
@@ -95,7 +95,7 @@ export default function CookiesConsent() {
                   'w-full h-8 xl:h-9 pt-px rounded-md outline-none transition-colors duration-1000 ease-in-out appearance-none xl:hover:text-red-500 xl:hover:bg-red-500/10',
                   showCloseWarning
                     ? 'bg-red-500/10 text-red-500'
-                    : 'bg-kili-white/0 text-kili-white'
+                    : 'bg-monospace-white/0 text-monospace-white'
                 )}
                 onClick={handleDecline}
               >
@@ -106,8 +106,10 @@ export default function CookiesConsent() {
               </Button>
               <Button
                 className={clsx(
-                  'w-full h-8 xl:h-9 pt-px transition-colors duration-1000 ease-in-out rounded-md outline-none appearance-none text-kili-white xl:hover:text-green-500 xl:hover:bg-green-500/10 focus:bg-kili-white',
-                  showCloseWarning ? 'bg-kili-white/0' : 'bg-kili-white/5'
+                  'w-full h-8 xl:h-9 pt-px transition-colors duration-1000 ease-in-out rounded-md outline-none appearance-none text-monospace-white xl:hover:text-green-500 xl:hover:bg-green-500/10 focus:bg-monospace-white',
+                  showCloseWarning
+                    ? 'bg-monospace-white/0'
+                    : 'bg-monospace-white/5'
                 )}
                 onClick={handleAccept}
               >

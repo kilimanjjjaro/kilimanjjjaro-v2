@@ -1,10 +1,11 @@
+import { GeistSans, GeistMono } from 'geist/font'
 import Providers from '@/components/Providers'
 import SmoothScroll from '@/components/SmoothScroll'
 import Footer from '@/components/Footer'
 import CookiesConsent from '@/components/CookiesConsent'
 import FormModal from '@/components/contact-form/FormModal'
 import ScrollPercentage from '@/components/ScrollPercentage'
-import Navigation from '@/components/navbar/Navigation'
+import Navigation from '@/components/navbar/LargeNavigation'
 import Navbar from '@/components/navbar/Navbar'
 import CustomCursor from '@/components/CustomCursor'
 import MessageForDevs from '@/components/MessageForDevs'
@@ -13,7 +14,6 @@ import {
   getScopedI18n,
   getStaticParams
 } from '@/lib/i18n/server'
-import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
 import type { ChildrenType } from '@/lib/interfaces/general'
 import type { Metadata } from 'next'
 import '@/app/globals.css'
@@ -78,7 +78,7 @@ export default async function RootLayout({
   return (
     <html lang={currentLocale}>
       <body
-        className={`bg-kili-black font-neue-haas-grotesk-display antialiased transition-colors duration-1000 ease-in-out ${neueHaasGroteskDisplayFont}`}
+        className={`bg-monospace-black font-neue-haas-grotesk-display antialiased transition-colors duration-1000 ease-in-out ${GeistSans.className} ${GeistMono.variable}`}
       >
         <Providers>
           <SmoothScroll>
@@ -86,7 +86,7 @@ export default async function RootLayout({
             <Footer />
           </SmoothScroll>
           <CookiesConsent />
-          <ScrollPercentage />
+          {/* <ScrollPercentage /> */}
           <Navigation />
           <Navbar />
           <FormModal />

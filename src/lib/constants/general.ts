@@ -2,7 +2,7 @@ import getYearsOld from '@/lib/utils/getYearsOld'
 
 export const BASE_URL = `${
   process.env.NODE_ENV === 'production'
-    ? 'https://kilimanjjjaro-portfolio.vercel.app'
+    ? 'https://monospace-frontend.vercel.app'
     : 'http://localhost:3000'
 }`
 
@@ -29,13 +29,13 @@ export const SECTIONS = {
     { slug: 'projects', name: 'Projects' },
     { slug: 'introducing-me', name: 'Introducing Me' },
     { slug: 'knowledge', name: 'Knowledge' },
-    { slug: 'lets-talk', name: "Let's Talk!" }
+    { slug: 'contact', name: 'Contact' }
   ],
   es: [
     { slug: 'projects', name: 'Proyectos' },
     { slug: 'introducing-me', name: 'Conóceme' },
     { slug: 'knowledge', name: 'Sobre Mí' },
-    { slug: 'lets-talk', name: '¡Hablemos!' }
+    { slug: 'contact', name: 'Contact' }
   ]
 }
 
@@ -75,3 +75,5 @@ export const LOCALES = {
   en: 'en',
   es: 'es'
 }
+
+export const INTRO_ANIMATION_DURATION = 2000

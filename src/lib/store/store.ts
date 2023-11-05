@@ -21,6 +21,6 @@ export const useStore = create<StoreInterface>((set) => ({
   setSwiperInstance: (swiperInstance) => set(() => ({ swiperInstance })),
   showContactForm: false,
   setShowContactForm: (showContactForm) => set(() => ({ showContactForm })),
-  introRunning: false,
+  introRunning: true,
   setIntroRunning: (introRunning) => set(() => ({ introRunning }))
 }))

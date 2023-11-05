@@ -62,14 +62,14 @@ export default async function Project({ params }: Props) {
 
   if (project === undefined) {
     return (
-      <main className='flex items-center justify-center w-full h-screen leading-none text-8xl text-kili-white'>
+      <main className='flex items-center justify-center w-full h-screen leading-none text-8xl text-monospace-white'>
         {t('notFoundMessage')}
       </main>
     )
   }
 
   return (
-    <main className='bg-kili-dark-gray'>
+    <main className='bg-monospace-dark-gray'>
       <Header project={project} />
       <Grid project={project} />
       <OtherProjects projects={otherProjects} />
