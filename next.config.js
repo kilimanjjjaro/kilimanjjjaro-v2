@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  swcMinify: true,
   images: {
     remotePatterns: [
       {
@@ -9,7 +10,14 @@ const nextConfig = {
       }
     ],
     formats: ['image/avif', 'image/webp'],
-    minimumCacheTTL: 31536000,
+    minimumCacheTTL: 31536000
+  },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.(glsl)$/,
+      type: 'asset/source'
+    })
+    return config
   }
 }
 
