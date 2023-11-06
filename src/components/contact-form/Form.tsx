@@ -136,7 +136,7 @@ export default function Form({ handleDrag }: Props) {
         <Button
           aria-label='Close contact form'
           onClick={(event) => handleCloseClick(event)}
-          className='w-3 h-3 transition-colors duration-700 bg-red-600 rounded-full xl:hover:bg-monospace-white'
+          className='w-3 h-3 transition-colors duration-1000 bg-red-600 rounded-full xl:hover:bg-monospace-white'
         />
         <p className='text-sm tracking-wide text-monospace-white'>
           ~/monospace/src

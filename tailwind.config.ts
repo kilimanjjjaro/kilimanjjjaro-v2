@@ -21,19 +21,18 @@ const config: Config = {
       colors: {
         'monospace-black': '#030303',
         'monospace-white': '#F8F8F8',
-        'monospace-dark-gray': '#090909',
+        'monospace-dark-gray': '#080808',
         'monospace-light-gray': '#7A7A7A'
       },
       boxShadow: {
         lg: '0 10px 16px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5)'
       },
       animation: {
-        'translate-y': 'translateY 1s ease-in-out',
+        'translate-y': 'translateY 1s ease-in-out-monospace',
         typing: 'blink 1.2s step-start infinite'
       },
       transitionTimingFunction: {
-        'out-monospace': 'cubic-bezier(0.22, 0.61, 0.36, 1)',
-        'in-monospace': 'cubic-bezier(0.55, 0.06, 0.68, 0.19)'
+        'in-out-monospace': 'cubic-bezier(0.77, 0, 0.18, 1)'
       },
       keyframes: {
         translateY: {

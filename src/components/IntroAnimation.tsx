@@ -10,21 +10,27 @@ export default function IntroAnimation() {
   const { introRunning, setIntroRunning } = useStore()
   const lenis = useLenis()
 
+  const handleAnimationStart = () => {
+    setIntroRunning(true)
+    lenis?.stop()
+  }
+
+  const handleAnimationComplete = () => {
+    setIntroRunning(false)
+    window.sessionStorage.setItem('__QUICK_ACCESS_SESSION__', 'true')
+    lenis?.start()
+  }
+
   useEffect(() => {
     const headerIsVisible = scrollY <= 1
+    const quickAccessSession = window.sessionStorage.getItem(
+      '__QUICK_ACCESS_SESSION__'
+    )
 
-    if (headerIsVisible) {
+    if (headerIsVisible && quickAccessSession === null) {
       setIntroRunning(true)
     }
   }, [setIntroRunning])
-
-  useEffect(() => {
-    if (introRunning) {
-      lenis?.stop()
-    } else {
-      lenis?.start()
-    }
-  }, [introRunning, lenis])
 
   return (
     <AnimatePresence>
@@ -38,8 +44,8 @@ export default function IntroAnimation() {
             opacity: 1,
             transition: { duration: 2 }
           }}
-          onAnimationStart={() => setIntroRunning(true)}
-          onAnimationComplete={() => setIntroRunning(false)}
+          onAnimationStart={handleAnimationStart}
+          onAnimationComplete={handleAnimationComplete}
         >
           <section className='flex flex-col gap-2'>
             <div className='overflow-hidden'>

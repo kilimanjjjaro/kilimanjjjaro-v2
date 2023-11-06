@@ -29,7 +29,7 @@ export default function LargeVariant() {
         {sections.map((section, index) => (
           <li
             key={section.slug}
-            className='text-monospace-light-gray text-xl leading-none overflow-hidden xl:hover:text-monospace-white transition-colors duration-700 ease-in-out'
+            className='text-monospace-light-gray text-xl leading-none overflow-hidden xl:hover:text-monospace-white transition-colors duration-1000 ease-in-out-monospace'
           >
             <motion.span
               className='block'

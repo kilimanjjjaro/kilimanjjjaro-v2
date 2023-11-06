@@ -45,7 +45,7 @@ export default function LanguageSelector() {
   return (
     <div className='flex justify-center'>
       <Button
-        className='text-xl text-monospace-light-gray xl:hover:text-monospace-white transition-colors duration-700 ease-in-out'
+        className='text-xl text-monospace-light-gray xl:hover:text-monospace-white transition-colors duration-1000 ease-in-out-monospace'
         onClick={() => setShowSelector(!showSelector)}
         underlined
         underlineTrigger={variant === NAVIGATION_VARIANTS.large}
@@ -62,7 +62,7 @@ export default function LanguageSelector() {
           .map((language) => (
             <li key={language.id}>
               <Button
-                className='text-xl text-monospace-white xl:hover:text-monospace-light-gray overflow-hidden transition-colors duration-700 ease-in-out'
+                className='text-xl text-monospace-white xl:hover:text-monospace-light-gray overflow-hidden transition-colors duration-1000 ease-in-out-monospace'
                 onClick={() => changeLanguage({ language })}
               >
                 <motion.span

@@ -76,7 +76,7 @@ export const LOCALES = {
   es: 'es'
 }
 
-export const INTRO_ANIMATION_DURATION = 2500
+export const INTRO_ANIMATION_DURATION = 2.3
 
 export const NAVIGATION_VARIANTS = {
   large: 1,

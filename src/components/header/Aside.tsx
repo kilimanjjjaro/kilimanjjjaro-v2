@@ -3,11 +3,15 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import MonospaceLogo from '@/components/shared/MonospaceLogo'
 import LanguageSelector from '@/components/shared/LanguageSelector'
+import { useStore } from '@/lib/store/store'
 import useNavbar from '@/lib/hooks/useNavbar'
 import { NAVIGATION_VARIANTS } from '@/lib/constants/general'
 
 export default function Aside() {
+  const { introRunning } = useStore()
   const { variant } = useNavbar()
+
+  if (introRunning) return null
 
   return (
     <AnimatePresence>
@@ -16,7 +20,7 @@ export default function Aside() {
           <div className='overflow-hidden'>
             <motion.span
               className='block'
-              initial={{ y: '110%' }}
+              initial={{ y: '115%' }}
               animate={{
                 y: '0%',
                 transition: {
@@ -25,7 +29,7 @@ export default function Aside() {
                 }
               }}
               exit={{
-                y: '110%',
+                y: '115%',
                 transition: { duration: 0.7, ease: [0.65, 0.05, 0.36, 1] }
               }}
             >

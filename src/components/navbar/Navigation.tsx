@@ -6,8 +6,9 @@ import clsx from 'clsx'
 import Button from '@/components/shared/Button'
 import Link from '@/components/shared/Link'
 import { useStore } from '@/lib/store/store'
+import useNavbar from '@/lib/hooks/useNavbar'
 import { useCurrentLocale } from '@/lib/i18n/client'
-import { SECTIONS, LOCALES } from '@/lib/constants/general'
+import { SECTIONS, LOCALES, NAVIGATION_VARIANTS } from '@/lib/constants/general'
 import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/lib/constants/variants'
 
 export default function Navigation() {
@@ -15,6 +16,7 @@ export default function Navigation() {
   const { navbarStatus, setNavbarStatus, setShowContactForm } = useStore()
   const [hoveredSection, setHoveredSection] = useState('')
   const [isHovering, setIsHovering] = useState(false)
+  const { variant } = useNavbar()
 
   const sections = useMemo(() => {
     return currentLocale === LOCALES.en ? SECTIONS.en : SECTIONS.es
@@ -41,7 +43,9 @@ export default function Navigation() {
         setNavbarStatus(false)
       }
     })
-  }, [setNavbarStatus])
+
+    if (variant === NAVIGATION_VARIANTS.large) setNavbarStatus(false)
+  }, [setNavbarStatus, variant])
 
   return (
     <AnimatePresence>
@@ -60,7 +64,7 @@ export default function Navigation() {
               <li
                 key={section.slug}
                 className={clsx(
-                  'block text-3xl font-geist-mono text-monospace-white leading-none xl:text-9xl xl:leading-[1.1] overflow-hidden xl:transition-colors xl:duration-700 xl:ease-in-out',
+                  'block text-3xl font-geist-mono text-monospace-white leading-none xl:text-9xl xl:leading-[1.1] overflow-hidden transition-colors duration-1000 xl:ease-in-out-monospace',
                   isHovering &&
                     hoveredSection !== section.slug &&
                     '!text-monospace-light-gray'

@@ -78,7 +78,7 @@ export default async function RootLayout({
   return (
     <html lang={currentLocale}>
       <body
-        className={`bg-monospace-black font-geist-sans antialiased transition-colors duration-700 ease-in-out ${GeistSans.variable} ${GeistMono.variable}`}
+        className={`bg-monospace-black font-geist-sans antialiased transition-colors duration-1000 ease-in-out-monospace ${GeistSans.variable} ${GeistMono.variable}`}
       >
         <Providers>
           <SmoothScroll>

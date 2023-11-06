@@ -59,7 +59,7 @@ export default function OtherProject({ project }: Props) {
           >
             <header className='flex flex-col xl:flex-row xl:gap-1.5 xl:items-center xl:w-[30%] xl:flex-wrap'>
               <h4
-                className={`relative text-3xl duration-700 ease-in-out xl:text-2xl text-monospace-white ${UNDERLINE_STYLES}`}
+                className={`relative text-3xl duration-1000 ease-in-out-monospace xl:text-2xl text-monospace-white ${UNDERLINE_STYLES}`}
               >
                 {project.name}
               </h4>
@@ -118,7 +118,7 @@ export default function OtherProject({ project }: Props) {
           >
             <Image
               className={clsx(
-                'block transition-transform duration-700 ease-in-out xl:translate-y-[105%] xl:group-hover:translate-y-0',
+                'block transition-transform duration-1000 ease-in-out-monospace xl:translate-y-[105%] xl:group-hover:translate-y-0',
                 project.isRepository ? 'aspect-[420/210]' : 'aspect-[420/264]'
               )}
               src={project.image}
@@ -136,7 +136,7 @@ export default function OtherProject({ project }: Props) {
           className='fixed top-0 left-0 z-10 flex justify-center w-full overflow-hidden pointer-events-none'
           style={{ x, y }}
         >
-          <span className='flex items-center gap-3 text-6xl leading-none text-center transition-transform duration-700 ease-in-out translate-y-[124%] rotate-6 text-monospace-white xl:group-hover:translate-y-0 xl:group-hover:rotate-0'>
+          <span className='flex items-center gap-3 text-6xl leading-none text-center transition-transform duration-1000 ease-in-out-monospace translate-y-[124%] rotate-6 text-monospace-white xl:group-hover:translate-y-0 xl:group-hover:rotate-0'>
             {project.isRepository ? t('repositoryButton') : t('websiteButton')}{' '}
             <ArrowCornerIcon className='w-6' />
           </span>

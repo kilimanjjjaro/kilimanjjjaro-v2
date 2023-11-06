@@ -60,7 +60,7 @@ export default function Button({
             animate={underlineTrigger ? 'open' : 'closed'}
             exit='closed'
           >
-            <div className='h-0.5 w-full bg-current xl:origin-right xl:group-hover:scale-x-0 xl:group-hover:origin-left xl:transition-transform xl:duration-700 xl:ease-in-out' />
+            <div className='h-0.5 w-full bg-current xl:origin-right xl:group-hover:scale-x-0 xl:group-hover:origin-left transition-transform duration-1000 xl:ease-in-out-monospace' />
           </motion.span>
         </>
       ) : (
