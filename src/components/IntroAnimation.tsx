@@ -22,14 +22,11 @@ export default function IntroAnimation() {
   }
 
   useEffect(() => {
-    const headerIsVisible = scrollY <= 1
     const quickAccessSession = window.sessionStorage.getItem(
       '__QUICK_ACCESS_SESSION__'
     )
 
-    if (headerIsVisible && quickAccessSession === null) {
-      setIntroRunning(true)
-    }
+    if (quickAccessSession === null) setIntroRunning(true)
   }, [setIntroRunning])
 
   return (

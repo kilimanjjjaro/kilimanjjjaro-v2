@@ -30,7 +30,7 @@ export default function ScrollPercentage() {
       role='status'
       aria-label='Scroll percentage'
       className={clsx(
-        'fixed bottom-6 right-6 xl:bottom-8 xl:right-8 tracking-wide flex text-xs xl:text-base justify-center min-w-[45px] xl:min-w-[58px] pt-2 pb-1.5 px-2 xl:px-3 xl:pt-[10px] xl:pb-2 transition-transform ease-in-out-monospace duration-1000 xl:leading-none leading-none z-10 rounded-full bg-monospace-white/60 text-monospace-black backdrop-blur-sm',
+        'fixed bottom-6 right-6 xl:bottom-8 xl:right-8 tracking-wide flex text-xs xl:text-base justify-center min-w-[45px] xl:min-w-[58px] pt-2 pb-1.5 px-2 xl:px-3 xl:pt-[10px] xl:pb-2 transition-transform ease-in-out duration-700 xl:leading-none leading-none z-10 rounded-full bg-monospace-white/60 text-monospace-black backdrop-blur-sm',
         showScrollPercentage ? 'translate-y-0' : 'translate-y-[68px]'
       )}
     >

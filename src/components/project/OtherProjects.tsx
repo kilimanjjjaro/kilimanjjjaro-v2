@@ -21,13 +21,13 @@ export default function OtherProjects({
           onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
         >
           <Link
-            className='relative flex items-center justify-center h-48 leading-none transition-colors duration-1000 ease-in-out-monospace border-8 rounded-full px-14 text-8xl text-monospace-white border-monospace-light-gray xl:hover:border-monospace-white group'
+            className='relative flex items-center justify-center h-48 leading-none transition-colors duration-700 ease-in-out border-8 rounded-full px-14 text-8xl text-monospace-white border-monospace-light-gray xl:hover:border-monospace-white group'
             href={`/project/${project.slug}`}
           >
             {project.name}
             <div className='absolute w-[450px] overflow-hidden pointer-events-none'>
               <video
-                className='transition-transform duration-1000 ease-in-out-monospace translate-y-[110%] rotate-6 xl:group-hover:translate-y-0 xl:group-hover:rotate-0'
+                className='transition-transform duration-700 ease-in-out translate-y-[110%] rotate-6 xl:group-hover:translate-y-0 xl:group-hover:rotate-0'
                 src={project.presentation.video}
                 autoPlay
                 playsInline

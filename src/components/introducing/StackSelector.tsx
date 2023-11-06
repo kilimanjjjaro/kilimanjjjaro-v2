@@ -56,7 +56,7 @@ export default function StackSelector() {
           {selectedStack.name} Skills
           <PlusIcon
             className={clsx(
-              'duration-700 transition-transform ease-in-out-monospace w-4 xl:group-hover:rotate-180',
+              'duration-700 transition-transform ease-in-out w-4 xl:group-hover:rotate-180',
               showSelector && '!-rotate-45'
             )}
           />
@@ -88,7 +88,7 @@ export default function StackSelector() {
           .map((stack) => (
             <li
               key={stack.id}
-              className='overflow-hidden leading-none transition-colors duration-1000 ease-in-out-monospace xl:hover:text-monospace-light-gray'
+              className='overflow-hidden leading-none transition-colors duration-700 ease-in-out xl:hover:text-monospace-light-gray'
             >
               <motion.button
                 onClick={() => handleClickOnSkills(stack)}

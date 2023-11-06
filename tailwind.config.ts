@@ -28,11 +28,8 @@ const config: Config = {
         lg: '0 10px 16px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5)'
       },
       animation: {
-        'translate-y': 'translateY 1s ease-in-out-monospace',
+        'translate-y': 'translateY 1s ease-in-out',
         typing: 'blink 1.2s step-start infinite'
-      },
-      transitionTimingFunction: {
-        'in-out-monospace': 'cubic-bezier(0.77, 0, 0.18, 1)'
       },
       keyframes: {
         translateY: {

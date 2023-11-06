@@ -17,7 +17,7 @@ export default function Warning({ setShowWarning }: Props) {
       <motion.div className='absolute flex flex-col items-center w-64 overflow-hidden text-center rounded-md bg-monospace-dark-gray'>
         <div className='flex items-center w-full px-3 py-2 bg-monospace-light-gray/30'>
           <Button
-            className='w-3 h-3 transition-colors duration-1000 bg-red-600 rounded-full text-monospace-black xl:hover:bg-monospace-white'
+            className='w-3 h-3 transition-colors duration-700 bg-red-600 rounded-full text-monospace-black xl:hover:bg-monospace-white'
             onClick={() => setShowWarning(false)}
             aria-label='Close warning'
           />

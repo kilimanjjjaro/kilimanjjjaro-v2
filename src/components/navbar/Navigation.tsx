@@ -64,7 +64,7 @@ export default function Navigation() {
               <li
                 key={section.slug}
                 className={clsx(
-                  'block text-3xl font-geist-mono text-monospace-white leading-none xl:text-9xl xl:leading-[1.1] overflow-hidden transition-colors duration-1000 xl:ease-in-out-monospace',
+                  'block text-3xl font-geist-mono text-monospace-white leading-none xl:text-9xl xl:leading-[1.1] overflow-hidden transition-colors duration-700 xl:ease-in-out-monospace',
                   isHovering &&
                     hoveredSection !== section.slug &&
                     '!text-monospace-light-gray'
