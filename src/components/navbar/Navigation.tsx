@@ -47,7 +47,7 @@ export default function Navigation() {
     <AnimatePresence>
       {navbarStatus && (
         <motion.nav
-          className='z-40 fixed inset-0 px-6 pt-32 pb-8 bg-monospace-dark-gray xl:px-20 xl:justify-end xl:gap-0'
+          className='z-40 fixed inset-0 flex justify-center items-center px-6 pt-32 pb-8 bg-monospace-dark-gray xl:px-20 xl:py-16'
           variants={NAVBAR_VARIANTS}
           initial={{
             clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)'
