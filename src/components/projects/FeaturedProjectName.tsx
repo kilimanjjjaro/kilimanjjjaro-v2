@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import useCursorPosition from '@/lib/hooks/useCursorPosition'
 import useElementDimensions from '@/lib/hooks/useElementDimensions'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
-import type { ChildrenType } from '@/lib/interfaces/general'
+import type { ChildrenType } from '@/lib/types/general'
 
 interface Props {
   children: ChildrenType

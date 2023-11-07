@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import updateStacks from '@/lib/utils/updateStacks'
-import type { StoreInterface } from '@/lib/interfaces/store'
+import type { StoreInterface } from '@/lib/types/store'
 
 const updatedStacks = updateStacks()
 

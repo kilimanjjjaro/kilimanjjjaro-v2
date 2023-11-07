@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import clsx from 'clsx'
 import { useStore } from '@/lib/store/store'
 import { CURSOR_STATUS } from '@/lib/constants/general'
-import type { ChildrenType } from '@/lib/interfaces/general'
+import type { ChildrenType } from '@/lib/types/general'
 import {
   BUTTON_TEXT_VARIANTS,
   BUTTON_UNDERLINE_VARIANTS

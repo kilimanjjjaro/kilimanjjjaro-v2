@@ -14,7 +14,7 @@ import {
   LANGUAGES_LI_VARIANTS,
   LANGUAGES_UL_VARIANTS
 } from '@/lib/constants/variants'
-import type { LanguageInterface } from '@/lib/interfaces/general'
+import type { LanguageInterface } from '@/lib/types/general'
 
 export default function LanguageSelector() {
   const currentLocale = useCurrentLocale()

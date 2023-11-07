@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 import Video from '@/components/project/Video'
 import { useScopedI18n } from '@/lib/i18n/client'
-import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
+import type { FeaturedProjectInterface } from '@/lib/types/projects'
 import { useRef } from 'react'
 
 interface Props {

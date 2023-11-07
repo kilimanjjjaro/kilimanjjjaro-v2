@@ -1,7 +1,7 @@
 'use client'
 
 import { I18nProviderClient, useCurrentLocale } from '@/lib/i18n/client'
-import { ChildrenType } from '@/lib/interfaces/general'
+import type { ChildrenType } from '@/lib/types/general'
 
 interface Props {
   children: ChildrenType

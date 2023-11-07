@@ -9,7 +9,7 @@ import { useScopedI18n } from '@/lib/i18n/client'
 import { useStore } from '@/lib/store/store'
 import { OTHER_PROJECTS } from '@/lib/constants/projects'
 import { CURSOR_STATUS } from '@/lib/constants/general'
-import type { OtherProjectInterface } from '@/lib/interfaces/projects'
+import type { OtherProjectInterface } from '@/lib/types/projects'
 
 interface Props {
   projects: OtherProjectInterface[]

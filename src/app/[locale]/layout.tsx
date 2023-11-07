@@ -14,7 +14,7 @@ import {
   getScopedI18n,
   getStaticParams
 } from '@/lib/i18n/server'
-import type { ChildrenType } from '@/lib/interfaces/general'
+import type { ChildrenType } from '@/lib/types/general'
 import type { Metadata } from 'next'
 import '@/app/globals.css'
 

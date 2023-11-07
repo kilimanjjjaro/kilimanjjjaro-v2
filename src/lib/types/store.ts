@@ -1,6 +1,6 @@
 import { CURSOR_STATUS } from '@/lib/constants/general'
 import type { Swiper } from 'swiper'
-import type { StackInterface } from '@/lib/interfaces/general'
+import type { StackInterface } from '@/lib/types/general'
 
 export interface StoreInterface {
   navbarStatus: boolean

@@ -3,7 +3,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useLenis } from '@studio-freight/react-lenis'
 import FeaturedProject from '@/components/projects/FeaturedProject'
-import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
+import type { FeaturedProjectInterface } from '@/lib/types/projects'
 
 interface Props {
   projects: FeaturedProjectInterface[]

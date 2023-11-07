@@ -11,7 +11,7 @@ import {
   STACKS_LI_VARIANTS,
   STACKS_UL_VARIANTS
 } from '@/lib/constants/variants'
-import type { StackInterface } from '@/lib/interfaces/general'
+import type { StackInterface } from '@/lib/types/general'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 
 export default function StackSelector() {
