@@ -4,27 +4,23 @@ import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import PixalatedImage from '@/components/scenes/hero-header/PixalatedImage'
 
-export default function HeroHeaderScene() {
-  const frustumSize = 1
-  const width = 360
-  const height = 480
+const FRUSTUM_SIZE = 1
+const CANVAS_WIDTH = 360
+const CANVAS_HEIGHT = 480
 
+export default function HeroHeaderScene() {
   return (
     <Canvas
-      style={{ width, height }}
+      style={{ width: CANVAS_WIDTH, height: CANVAS_HEIGHT }}
       onCreated={({ gl }) => {
         gl.setClearColor(0x000000, 0)
-        gl.setSize(width, height)
       }}
       orthographic
       camera={{
-        position: [0, 0, 2],
-        left: frustumSize / -2,
-        right: frustumSize / 2,
-        top: frustumSize / 2,
-        bottom: frustumSize / -2,
-        fov: 70,
-        aspect: width / height,
+        left: FRUSTUM_SIZE / -2,
+        right: FRUSTUM_SIZE / 2,
+        top: FRUSTUM_SIZE / 2,
+        bottom: FRUSTUM_SIZE / -2,
         near: -1000,
         far: 1000,
         zoom: 1000

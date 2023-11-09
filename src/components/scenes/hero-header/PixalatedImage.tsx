@@ -6,11 +6,7 @@ import { ThreeEvent, useFrame, useThree } from '@react-three/fiber'
 import fragmentShader from '../../../lib/shaders/fragment.glsl'
 import vertexShader from '../../../lib/shaders/vertex.glsl'
 
-interface Props {
-  src: string
-}
-
-const SIZE = 16
+const SIZE = 24
 
 const MOUSE_POSITION_DEFAULT_STATE = {
   x: 0,
@@ -21,10 +17,7 @@ const MOUSE_POSITION_DEFAULT_STATE = {
   vY: 0
 }
 
-export default function Picture({ src }: Props) {
-  const state = useThree()
-  const mouse = useRef(MOUSE_POSITION_DEFAULT_STATE)
-
+const createDataTexture = () => {
   const size = SIZE * SIZE
   const data = new Float32Array(4 * size)
 
@@ -36,34 +29,39 @@ export default function Picture({ src }: Props) {
     data[index] = random
     data[index + 1] = random
     data[index + 2] = random
-    data[index + 3] = 255
+    data[index + 3] = 1
   }
 
-  const dataTexture = new THREE.DataTexture(
+  return new THREE.DataTexture(
     data,
     SIZE,
     SIZE,
     THREE.RGBAFormat,
     THREE.FloatType
   )
+}
 
-  dataTexture.magFilter = THREE.NearestFilter
-  dataTexture.minFilter = THREE.NearestFilter
+const dataTexture = createDataTexture()
 
-  dataTexture.needsUpdate = true
+dataTexture.magFilter = THREE.NearestFilter
+dataTexture.minFilter = THREE.NearestFilter
+
+export default function Picture({ src }: { src: string }) {
+  const canvasSize = useThree((state) => state.size)
+  const pointerCoordinates = useRef(MOUSE_POSITION_DEFAULT_STATE)
 
   useFrame(() => {
     const dataArray = dataTexture.image.data
 
     for (let i = 0; i < dataArray.length; i += 4) {
-      dataArray[i] *= 0.95
-      dataArray[i + 1] *= 0.95
-      dataArray[i + 2] *= 0.95
-      dataArray[i + 3] = 255
+      dataArray[i] *= 0.99
+      dataArray[i + 1] *= 0.99
+      dataArray[i + 2] *= 0.99
+      dataArray[i + 3] = 1
     }
 
-    const gridMouseX = SIZE * mouse.current.x
-    const gridMouseY = SIZE * (1 - mouse.current.y)
+    const gridMouseX = SIZE * pointerCoordinates.current.x
+    const gridMouseY = SIZE * (1 - pointerCoordinates.current.y)
     const maxDistance = SIZE / 4
 
     for (let i = 0; i < SIZE; i++) {
@@ -78,16 +76,16 @@ export default function Picture({ src }: Props) {
 
           if (distance < 1) power = 1
 
-          dataArray[index] += 100 * mouse.current.vX * power
-          dataArray[index + 1] -= 100 * mouse.current.vY * power
-          dataArray[index + 2] += 100 * mouse.current.vX * power
-          dataArray[index + 3] = 255
+          dataArray[index] += pointerCoordinates.current.vX * power
+          dataArray[index + 1] -= pointerCoordinates.current.vY * power
+          dataArray[index + 2] += pointerCoordinates.current.vX * power
+          dataArray[index + 3] = 1
         }
       }
     }
 
-    mouse.current.vX *= 0.95
-    mouse.current.vY *= 0.95
+    pointerCoordinates.current.vX *= 0.99
+    pointerCoordinates.current.vY *= 0.99
 
     dataTexture.needsUpdate = true
   })
@@ -100,18 +98,16 @@ export default function Picture({ src }: Props) {
   }
 
   const handlePointMove = (event: ThreeEvent<PointerEvent>) => {
-    if (event.target === null) return
-
-    const { width, height } = state.size
+    const { width, height } = canvasSize
 
     const x = event.offsetX / width
     const y = event.offsetY / height
-    const prevX = mouse.current.x
-    const prevY = mouse.current.y
+    const prevX = pointerCoordinates.current.x
+    const prevY = pointerCoordinates.current.y
     const vX = prevX - x
     const vY = prevY - y
 
-    mouse.current = { x, y, prevX, prevY, vX, vY }
+    pointerCoordinates.current = { x, y, prevX, prevY, vX, vY }
   }
 
   return (
