@@ -1,28 +1,39 @@
 'use client'
 
-import { Suspense, useState } from 'react'
+import { Suspense, useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { PerformanceMonitor } from '@react-three/drei'
-import Text from '@/components/scenes/hero-header/Text'
+import PixalatedImage from '@/components/scenes/hero-header/PixalatedImage'
 
 export default function HeroHeaderScene() {
-  const [dpr, setDpr] = useState(1.5)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  const frustumSize = 1
+  const width = 360
+  const height = 480
 
   return (
     <Canvas
-      style={{ width: '100vw', height: '100dvh' }}
-      camera={{ position: [0, 0, 5], fov: 10 }}
+      ref={canvasRef}
+      style={{ width, height }}
       onCreated={({ gl }) => {
         gl.setClearColor(0x000000, 0)
       }}
-      dpr={dpr}
+      orthographic
+      camera={{
+        position: [0, 0, 2],
+        left: frustumSize / -2,
+        right: frustumSize / 2,
+        top: frustumSize / 2,
+        bottom: frustumSize / -2,
+        fov: 70,
+        aspect: width / height,
+        near: -1000,
+        far: 1000,
+        zoom: 1000
+      }}
     >
-      <PerformanceMonitor
-        onIncline={() => setDpr(2)}
-        onDecline={() => setDpr(1)}
-      />
       <Suspense fallback={null}>
-        <Text text='Future_proff' />
+        <PixalatedImage src='/images/portrait.webp' />
       </Suspense>
     </Canvas>
   )

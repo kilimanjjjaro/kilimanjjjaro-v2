@@ -1,57 +1,124 @@
 'use client'
 
-import { Suspense, useRef } from 'react'
+import { useRef } from 'react'
 import * as THREE from 'three'
-import { OrbitControls } from '@react-three/drei'
-import { Canvas, useFrame } from '@react-three/fiber'
-import fragmentShader from '../../lib/shaders/fragment.glsl'
-import vertexShader from '../../lib/shaders/vertex.glsl'
+import { useFrame } from '@react-three/fiber'
+import fragmentShader from '../../../lib/shaders/fragment.glsl'
+import vertexShader from '../../../lib/shaders/vertex.glsl'
 
-const UNIFORMS = {
-  progress: { value: 0 }
+interface Props {
+  src: string
 }
 
-const Picture = () => {
-  const planeMesh = useRef<THREE.Mesh>(null)
-  const elapsedTime = useRef(0)
+const SIZE = 24
 
-  useFrame(() => {
-    if (planeMesh.current === null) return
+const MOUSE_POSITION_DEFAULT_STATE = {
+  x: 0,
+  y: 0,
+  prevX: 0,
+  prevY: 0,
+  vX: 0,
+  vY: 0
+}
 
-    elapsedTime.current += 0.01
+export default function Picture({ src }: Props) {
+  const mousePosition = useRef(MOUSE_POSITION_DEFAULT_STATE)
 
-    planeMesh.current.rotation.x = 0.2 * elapsedTime.current
-    planeMesh.current.rotation.y = 0.1 * elapsedTime.current
+  const size = SIZE * SIZE
+  const data = new Float32Array(4 * size)
+
+  for (let i = 0; i < size; i++) {
+    const random = Math.random()
+
+    const index = i * 4
+
+    data[index] = random
+    data[index + 1] = random
+    data[index + 2] = random
+    data[index + 3] = 255
+  }
+
+  const dataTexture = new THREE.DataTexture(
+    data,
+    SIZE,
+    SIZE,
+    THREE.RGBAFormat,
+    THREE.FloatType
+  )
+
+  dataTexture.magFilter = THREE.NearestFilter
+  dataTexture.minFilter = THREE.NearestFilter
+
+  dataTexture.needsUpdate = true
+
+  useFrame(({ pointer }) => {
+    const dataArray = dataTexture.image.data
+
+    for (let i = 0; i < dataArray.length; i += 4) {
+      dataArray[i] *= 0.99
+      dataArray[i + 1] *= 0.99
+      dataArray[i + 2] *= 0.99
+      dataArray[i + 3] = 255
+    }
+
+    mousePosition.current.x = pointer.x
+    mousePosition.current.y = pointer.y
+    mousePosition.current.vX =
+      mousePosition.current.prevX - mousePosition.current.x
+    mousePosition.current.vY =
+      mousePosition.current.prevY - mousePosition.current.y
+
+    mousePosition.current.prevX = mousePosition.current.x
+    mousePosition.current.prevY = mousePosition.current.y
+
+    const gridMouseX = SIZE * mousePosition.current.x
+    const gridMouseY = SIZE * (1 - mousePosition.current.y)
+    const maxDistance = SIZE / 4
+
+    for (let i = 0; i < SIZE; i++) {
+      for (let j = 0; j < SIZE; j++) {
+        const distance = (gridMouseX - i) ** 2 + (gridMouseY - j) ** 2
+        const maxDistanceSquared = maxDistance ** 2
+
+        if (distance < maxDistanceSquared) {
+          const index = 4 * (i + SIZE * j)
+
+          let power = maxDistance / Math.sqrt(distance)
+
+          if (distance < 1) power = 1
+
+          dataArray[index] += 100 * mousePosition.current.vX * power
+          dataArray[index + 1] -= 100 * mousePosition.current.vY * power
+          dataArray[index + 2] += 100 * mousePosition.current.vX * power
+          dataArray[index + 3] = 255
+        }
+      }
+    }
+
+    mousePosition.current.vX *= 0.99
+    mousePosition.current.vY *= 0.99
+
+    dataTexture.needsUpdate = true
   })
+
+  const uniforms = {
+    time: { value: 0 },
+    resolution: { value: new THREE.Vector4() },
+    uTexture: { value: new THREE.TextureLoader().load(src) },
+    uDataTexture: { value: dataTexture }
+  }
 
   return (
     <>
-      <OrbitControls enableZoom={false} />
-      <mesh ref={planeMesh}>
-        <planeGeometry args={[0.36, 0.48, 256, 256]} />
+      <mesh>
+        <planeGeometry args={[0.36, 0.48, 1, 1]} />
         <shaderMaterial
           side={THREE.DoubleSide}
-          uniforms={UNIFORMS} // Uniforms are values that are passed from the application to the shader
+          uniforms={uniforms} // Uniforms are values that are passed from the application to the shader
           vertexShader={vertexShader} // Vertex shader is used to calculate the position of the vertices to create a shape
           fragmentShader={fragmentShader} // Fragment shader is used to calculate the color of each pixel
         />
       </mesh>
     </>
-  )
-}
-
-export default function PixalatedImage() {
-  return (
-    <Canvas
-      style={{ width: '100vw', height: '100dvh' }}
-      camera={{ position: [0, 0, 5], fov: 10 }}
-      onCreated={({ gl }) => {
-        gl.setClearColor(0x000000, 0)
-      }}
-    >
-      <Suspense fallback={null}>
-        <Picture />
-      </Suspense>
-    </Canvas>
   )
 }
