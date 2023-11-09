@@ -1,22 +1,20 @@
 'use client'
 
-import { Suspense, useRef } from 'react'
+import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import PixalatedImage from '@/components/scenes/hero-header/PixalatedImage'
 
 export default function HeroHeaderScene() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-
   const frustumSize = 1
   const width = 360
   const height = 480
 
   return (
     <Canvas
-      ref={canvasRef}
       style={{ width, height }}
       onCreated={({ gl }) => {
         gl.setClearColor(0x000000, 0)
+        gl.setSize(width, height)
       }}
       orthographic
       camera={{
