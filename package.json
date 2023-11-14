@@ -23,6 +23,7 @@
     "@react-email/text": "0.0.6",
     "@react-three/drei": "9.88.13",
     "@react-three/fiber": "8.15.10",
+    "@react-three/postprocessing": "^2.15.11",
     "@studio-freight/react-lenis": "0.0.36",
     "clsx": "2.0.0",
     "cookies-next": "4.0.0",

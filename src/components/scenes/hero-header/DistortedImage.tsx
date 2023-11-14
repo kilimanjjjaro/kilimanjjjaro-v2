@@ -3,9 +3,11 @@ import * as THREE from 'three'
 import { useTexture } from '@react-three/drei'
 import { useControls } from 'leva'
 import { DISTORTED_IMAGE_SHADERS } from '@/lib/shaders/distorted-image'
+import { useFrame } from '@react-three/fiber'
 
 const SHADER_MATERIAL = new THREE.ShaderMaterial({
   uniforms: {
+    uTime: { value: 0 },
     uTexture: { value: null },
     uDistortionTexture: { value: null },
     uDistortionStrength: { value: 0 }
@@ -24,8 +26,8 @@ interface Props {
 export default function DistortedImage({ image }: Props) {
   const { uDistortionStrength } = useControls({
     uDistortionStrength: {
-      value: -1,
-      min: -1,
+      value: -2,
+      min: -2,
       max: 0,
       step: 0.01
     }
@@ -42,6 +44,10 @@ export default function DistortedImage({ image }: Props) {
 
   useEffect(() => {
     SHADER_MATERIAL.uniforms.uDistortionStrength.value = uDistortionStrength
+  })
+
+  useFrame(({ clock }) => {
+    SHADER_MATERIAL.uniforms.uTime.value += 0.00005
   })
 
   return (
