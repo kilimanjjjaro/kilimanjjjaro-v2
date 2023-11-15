@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import * as THREE from 'three'
-import { HEADER_BACKGROUND_SHADERS } from '@/lib/shaders/header-background'
+import { HEADER_BACKGROUND_SHADERS } from '@/lib/shaders/liquid-background'
 import { useFrame } from '@react-three/fiber'
 
 const SPHERE_GEOMETRY = new THREE.SphereGeometry(2, 256, 256)
@@ -14,7 +14,7 @@ const SHADER_MATERIAL = new THREE.ShaderMaterial({
   side: THREE.DoubleSide
 })
 
-export default function HeaderBackground() {
+export default function LiquidBackground() {
   const meshRef = useRef<THREE.Mesh>(null)
   const time = useRef(0)
 

@@ -3,9 +3,9 @@
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { EffectComposer, Noise, Vignette } from '@react-three/postprocessing'
-import HeaderBackground from '@/components/scenes/hero-header/HeaderBackground'
+import LiquidBackground from '@/components/scenes/liquid-background/LiquidBackground'
 
-export default function HeroHeader() {
+export default function LiquidBackgroundScene() {
   return (
     <Canvas
       className='!absolute inset-0'
@@ -13,10 +13,10 @@ export default function HeroHeader() {
       camera={{ position: [1, 0, 0] }}
     >
       <Suspense fallback={null}>
-        <HeaderBackground />
+        <LiquidBackground />
       </Suspense>
       <EffectComposer>
-        <Noise opacity={0.08} />
+        <Noise opacity={0.03} />
         <Vignette eskil={false} offset={0.1} darkness={1.1} />
       </EffectComposer>
     </Canvas>

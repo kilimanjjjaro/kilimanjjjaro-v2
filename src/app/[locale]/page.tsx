@@ -14,10 +14,10 @@ export default async function Home({
   return (
     <main>
       <Header />
-      <Projects />
+      {/* <Projects />
       <Introducing />
       <Since2017 />
-      <Knowledge />
+      <Knowledge /> */}
     </main>
   )
 }

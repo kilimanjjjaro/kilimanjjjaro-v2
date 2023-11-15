@@ -1,6 +1,5 @@
 import { GeistSans, GeistMono } from 'geist/font'
 import Providers from '@/components/Providers'
-import SmoothScroll from '@/components/SmoothScroll'
 import Footer from '@/components/Footer'
 import CookiesConsent from '@/components/CookiesConsent'
 import FormModal from '@/components/contact-form/FormModal'
@@ -81,12 +80,9 @@ export default async function RootLayout({
         className={`bg-monospace-black font-geist-sans antialiased transition-colors duration-700 ease-in-out ${GeistSans.variable} ${GeistMono.variable}`}
       >
         <Providers>
-          <SmoothScroll>
-            {children}
-            <Footer />
-          </SmoothScroll>
+          {children}
+          <Footer />
           <CookiesConsent />
-          {/* <ScrollPercentage /> */}
           <Navigation />
           <Navbar />
           <FormModal />
