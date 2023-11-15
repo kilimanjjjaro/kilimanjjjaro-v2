@@ -17,7 +17,7 @@ export default function LiquidBackgroundScene() {
       </Suspense>
       <EffectComposer>
         <Noise opacity={0.03} />
-        <Vignette eskil={false} offset={0.1} darkness={1.1} />
+        <Vignette eskil={false} offset={0.3} darkness={1} />
       </EffectComposer>
     </Canvas>
   )

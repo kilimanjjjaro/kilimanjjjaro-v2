@@ -1,6 +1,5 @@
 export const HEADER_BACKGROUND_SHADERS = {
   fragmentShader: `
-    float PI = 3.141592653589793238;
     uniform float uTime;
 
     varying vec2 vUv;
@@ -37,7 +36,7 @@ export const HEADER_BACKGROUND_SHADERS = {
     float lines(vec2 uv, float offset) {
       float numberOfLines = 70.0;
 
-      return smoothstep(0.0, 0.2 + offset * 0.5, abs(0.5 * (sin(uv.x * numberOfLines) + offset * 2.0)));
+      return smoothstep(0.0, 0.2 + offset * 0.5, abs(0.55 * (sin(uv.x * numberOfLines) + offset * 2.0)));
     }
 
     mat2 rotate2d(float angle) {
@@ -62,7 +61,6 @@ export const HEADER_BACKGROUND_SHADERS = {
     }
   `,
   vertexShader: `
-    float PI = 3.141592653589793238;
     uniform float uTime;
 
     varying vec2 vUv;
