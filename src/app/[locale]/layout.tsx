@@ -1,11 +1,11 @@
-import { GeistSans, GeistMono } from 'geist/font'
+import { GeistSans } from 'geist/font/sans'
+import { GeistMono } from 'geist/font/mono'
 import Providers from '@/components/Providers'
 import Footer from '@/components/Footer'
 import CookiesConsent from '@/components/CookiesConsent'
 import FormModal from '@/components/contact-form/FormModal'
 import Navigation from '@/components/navbar/Navigation'
 import Navbar from '@/components/navbar/Navbar'
-import CustomCursor from '@/components/CustomCursor'
 import MessageForDevs from '@/components/MessageForDevs'
 import IntroAnimation from '@/components/IntroAnimation'
 import {
@@ -16,6 +16,7 @@ import {
 import type { ChildrenType } from '@/lib/types/general'
 import type { Metadata } from 'next'
 import '@/app/globals.css'
+import ScrollPercentage from '@/components/ScrollPercentage'
 
 interface MetadataProps {
   params: { locale: string }
@@ -88,7 +89,7 @@ export default async function RootLayout({
           <FormModal />
           <IntroAnimation />
         </Providers>
-        <CustomCursor />
+        <ScrollPercentage />
         <MessageForDevs />
       </body>
     </html>

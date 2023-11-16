@@ -7,7 +7,10 @@ export default {
   },
   home: {
     header: {
-      headline: ['Thinking', 'future—proff', 'experiences.']
+      headline: {
+        ariaLabel: 'Future_proff web experiences.',
+        text: ['Future_proff', 'web experiences.']
+      }
     },
     introducing: {
       sectionTitle: 'Introducing Me',

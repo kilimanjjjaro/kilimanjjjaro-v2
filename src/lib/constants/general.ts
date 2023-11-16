@@ -82,3 +82,5 @@ export const NAVIGATION_VARIANTS = {
   large: 1,
   small: 2
 }
+
+export const MAGIC_KEYS = ['m', 'n', 's', 'p', 'c']

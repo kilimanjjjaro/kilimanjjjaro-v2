@@ -8,7 +8,10 @@ export default {
   },
   home: {
     header: {
-      headline: ['Experiencias', 'preparadas', 'para el futuro.']
+      headline: {
+        ariaLabel: 'Experiencias para el futuro.',
+        text: ['Experiencias', 'para el futuro.']
+      }
     },
     introducing: {
       sectionTitle: 'Conóceme',

@@ -26,15 +26,21 @@ export default function ScrollPercentage() {
   }, [scrollPercentage, lastScrollPercentage])
 
   return (
-    <div
-      role='status'
-      aria-label='Scroll percentage'
-      className={clsx(
-        'fixed bottom-6 right-6 xl:bottom-8 xl:right-8 tracking-wide flex text-xs xl:text-base justify-center min-w-[45px] xl:min-w-[58px] pt-2 pb-1.5 px-2 xl:px-3 xl:pt-[10px] xl:pb-2 transition-transform ease-in-out duration-700 xl:leading-none leading-none z-10 rounded-full bg-monospace-white/60 text-monospace-black backdrop-blur-sm',
-        showScrollPercentage ? 'translate-y-0' : 'translate-y-[68px]'
-      )}
-    >
-      {scrollPercentage}%
-    </div>
+    <aside className='fixed top-0 bottom-0 right-20 flex items-center mix-blend-difference pointer-events-none'>
+      <div
+        role='status'
+        aria-label='Scroll percentage'
+        className='text-monospace-white font-geist-mono text-lg text-right leading-none overflow-hidden z-10'
+      >
+        <span
+          className={clsx(
+            'flex justify-center transition-transform ease-in-out duration-700',
+            showScrollPercentage ? 'translate-y-0' : 'translate-y-full'
+          )}
+        >
+          {scrollPercentage}%
+        </span>
+      </div>
+    </aside>
   )
 }

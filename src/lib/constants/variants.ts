@@ -93,10 +93,12 @@ export const LANGUAGES_UL_VARIANTS = {
 export const LANGUAGES_LI_VARIANTS = {
   open: {
     y: '0%',
+    opacity: 1,
     transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
   },
   closed: {
-    y: '100%',
+    y: '-100%',
+    opacity: 0,
     transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
   }
 }

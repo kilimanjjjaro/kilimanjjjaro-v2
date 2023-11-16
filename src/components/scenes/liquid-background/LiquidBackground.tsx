@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { HEADER_BACKGROUND_SHADERS } from '@/lib/shaders/liquid-background'
 import { useFrame } from '@react-three/fiber'
@@ -18,29 +18,36 @@ export default function LiquidBackground() {
   const meshRef = useRef<THREE.Mesh>(null)
   const time = useRef(0)
 
+  useLayoutEffect(() => {
+    if (meshRef.current === null) return
+
+    meshRef.current.position.x = 1.05
+    meshRef.current.position.y = -1.05
+  }, [])
+
   useFrame(({ pointer }) => {
     if (meshRef.current === null) return
 
-    time.current += 0.001
+    time.current += 0.002
 
     SHADER_MATERIAL.uniforms.uTime.value = time.current
 
     meshRef.current.rotation.z = THREE.MathUtils.lerp(
       meshRef.current.rotation.z,
       pointer.x,
-      0.001
+      0.002
     )
 
     meshRef.current.rotation.y = THREE.MathUtils.lerp(
       meshRef.current.rotation.y,
       pointer.x,
-      0.001
+      0.002
     )
 
     meshRef.current.rotation.x = THREE.MathUtils.lerp(
       meshRef.current.rotation.x,
       pointer.y,
-      0.001
+      0.002
     )
   })
 

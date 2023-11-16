@@ -2,10 +2,9 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 import MonospaceLogo from '@/components/shared/MonospaceLogo'
-import LanguageSelector from '@/components/shared/LanguageSelector'
 import { useStore } from '@/lib/store/store'
 import useNavbar from '@/lib/hooks/useNavbar'
-import { NAVIGATION_VARIANTS } from '@/lib/constants/general'
+import { MAGIC_KEYS, NAVIGATION_VARIANTS } from '@/lib/constants/general'
 
 export default function Aside() {
   const { introRunning } = useStore()
@@ -36,8 +35,38 @@ export default function Aside() {
               <MonospaceLogo className='text-4xl text-monospace-white leading-none' />
             </motion.span>
           </div>
-          <div className='overflow-hidden'>
-            <LanguageSelector />
+          <div className='flex gap-2 font-geist-mono text-sm [&>kbd]:bg-monospace-light-gray [&>kbd]:px-1.5 [&>kbd]:rounded-sm overflow-hidden'>
+            <motion.span
+              className='text-monospace-light-gray mr-0.5'
+              initial={{ y: '118%' }}
+              animate={{ y: '0%' }}
+              transition={{ duration: 0.7, ease: [0.77, 0, 0.18, 1] }}
+              exit={{ y: '118%' }}
+            >
+              magic keys
+            </motion.span>
+            {MAGIC_KEYS.map((key, index) => (
+              <motion.kbd
+                key={key}
+                initial={{ y: '118%' }}
+                animate={{ y: '0%' }}
+                transition={{
+                  duration: 0.7,
+                  ease: [0.77, 0, 0.18, 1],
+                  delay: index * 0.05
+                }}
+                exit={{
+                  y: '118%',
+                  transition: {
+                    duration: 0.7,
+                    ease: [0.77, 0, 0.18, 1],
+                    delay: index * 0.05
+                  }
+                }}
+              >
+                {key}
+              </motion.kbd>
+            ))}
           </div>
         </aside>
       )}

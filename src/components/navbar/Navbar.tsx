@@ -1,18 +1,27 @@
 'use client'
 
+import { AnimatePresence } from 'framer-motion'
 import LargeVariant from '@/components/navbar/LargeVariant'
 import SmallVariant from '@/components/navbar/SmallVariant'
+import useNavbar from '@/lib/hooks/useNavbar'
 import { useStore } from '@/lib/store/store'
+import { NAVIGATION_VARIANTS } from '@/lib/constants/general'
 
 export default function Navbar() {
   const { introRunning } = useStore()
+  const { variant } = useNavbar()
 
   if (introRunning) return null
 
   return (
     <header className='fixed flex items-start left-20 right-20 z-50 top-16 mix-blend-difference'>
-      <LargeVariant />
-      <SmallVariant />
+      <AnimatePresence>
+        {variant === NAVIGATION_VARIANTS.large ? (
+          <LargeVariant key='large-navbar' />
+        ) : (
+          <SmallVariant key='small-navbar' />
+        )}
+      </AnimatePresence>
     </header>
   )
 }

@@ -53,7 +53,7 @@ export default function LanguageSelector() {
         {selectedLanguage.name}
       </Button>
       <motion.ul
-        className='absolute flex-col items-center hidden gap-2 mb-2 bottom-full'
+        className='absolute flex-col items-center hidden gap-2 mt-2 top-full'
         variants={LANGUAGES_UL_VARIANTS}
         animate={showSelector ? 'open' : 'closed'}
       >
@@ -62,12 +62,12 @@ export default function LanguageSelector() {
           .map((language) => (
             <li key={language.id}>
               <Button
-                className='text-xl text-monospace-white xl:hover:text-monospace-light-gray overflow-hidden transition-colors duration-700 ease-in-out'
+                className='text-xl text-monospace-light-gray xl:hover:text-monospace-white overflow-hidden transition-colors duration-700 ease-in-out'
                 onClick={() => changeLanguage({ language })}
               >
                 <motion.span
                   className='block'
-                  initial={{ y: '100%' }}
+                  initial={{ y: '-100%', opacity: 0 }}
                   variants={LANGUAGES_LI_VARIANTS}
                   animate={showSelector ? 'open' : 'closed'}
                 >

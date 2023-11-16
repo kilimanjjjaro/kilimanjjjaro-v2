@@ -69,7 +69,7 @@ export default function IntroAnimation() {
               aria-label='A solo creative web studio.'
               className='ml-[70px] flex flex-col font-geist-sans text-2xl text-monospace-light-gray leading-none'
             >
-              <span className='overflow-hidden' aria-hidden='true'>
+              <span className='overflow-hidden' aria-hidden>
                 <motion.span
                   className='block'
                   initial={{ opacity: 0 }}
@@ -93,7 +93,7 @@ export default function IntroAnimation() {
                   A solo creative
                 </motion.span>
               </span>{' '}
-              <span className='overflow-hidden' aria-hidden='true'>
+              <span className='overflow-hidden' aria-hidden>
                 <motion.span
                   className='block'
                   initial={{ opacity: 0 }}

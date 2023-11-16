@@ -54,7 +54,7 @@ export default function Button({
           </span>
           <motion.span
             className='w-full'
-            aria-hidden='true'
+            aria-hidden
             variants={BUTTON_UNDERLINE_VARIANTS}
             initial={{ scaleX: 0, originX: 'right' }}
             animate={underlineTrigger ? 'open' : 'closed'}

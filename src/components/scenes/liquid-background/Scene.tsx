@@ -2,7 +2,12 @@
 
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { EffectComposer, Noise, Vignette } from '@react-three/postprocessing'
+import {
+  EffectComposer,
+  N8AO,
+  Noise,
+  Vignette
+} from '@react-three/postprocessing'
 import LiquidBackground from '@/components/scenes/liquid-background/LiquidBackground'
 
 export default function LiquidBackgroundScene() {
@@ -16,8 +21,9 @@ export default function LiquidBackgroundScene() {
         <LiquidBackground />
       </Suspense>
       <EffectComposer>
-        <Noise opacity={0.03} />
-        <Vignette eskil={false} offset={0.3} darkness={1} />
+        <Noise opacity={0.05} />
+        <N8AO aoRadius={2} intensity={1} />
+        <Vignette eskil={false} offset={0.1} darkness={0.5} />
       </EffectComposer>
     </Canvas>
   )

@@ -34,9 +34,9 @@ export const HEADER_BACKGROUND_SHADERS = {
     }
 
     float lines(vec2 uv, float offset) {
-      float numberOfLines = 70.0;
+      float numberOfLines = 50.0;
 
-      return smoothstep(0.0, 0.2 + offset * 0.5, abs(0.55 * (sin(uv.x * numberOfLines) + offset * 2.0)));
+      return smoothstep(0.0, 0.3 + offset * 0.5, abs(0.55 * (sin(uv.x * numberOfLines) + offset * 2.0)));
     }
 
     mat2 rotate2d(float angle) {
@@ -46,12 +46,12 @@ export const HEADER_BACKGROUND_SHADERS = {
     void main()	{
       float n = noise(vPosition + uTime);
 
-      vec3 baseFirstColor = vec3(0.0/255.0, 10.0/255.0, 253.0/255.0);
-      vec3 baseSecondColor = vec3(85.0/255.0, 0.0/255.0, 192.0/255.0);
-      vec3 accentColor = vec3(0.3/255.0, 0.3/255.0, 0.3/255.0);
+      vec3 baseFirstColor = vec3(0.5/255.0, 0.5/255.0, 0.5/255.0);
+      vec3 baseSecondColor = vec3(1./255.0, 1./255.0, 1./255.0);
+      vec3 accentColor = vec3(0.4/255.0, 0.4/255.0, 0.4/255.0);
       vec2 baseUV = rotate2d(n) * vPosition.xy * 0.1;
 
-      float basePattern = lines(baseUV, 0.59);
+      float basePattern = lines(baseUV, 0.5);
       float secondBasePattern = lines(baseUV, 0.1);
 
       vec3 baseColor = mix(baseSecondColor, baseFirstColor, basePattern);
