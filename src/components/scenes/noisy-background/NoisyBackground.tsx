@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 import { NOISY_BACKGROUND_SHADERS } from '@/lib/shaders/noisy-background'
+import { useStore } from '@/lib/store/store'
 
 const SPHERE_GEOMETRY = new THREE.SphereGeometry(2, 256, 256)
 
@@ -15,6 +16,7 @@ const SHADER_MATERIAL = new THREE.ShaderMaterial({
 })
 
 export default function NoisyBackground() {
+  const successCombination = useStore((state) => state.successCombination)
   const meshRef = useRef<THREE.Mesh>(null)
   const time = useRef(0)
 
@@ -43,6 +45,8 @@ export default function NoisyBackground() {
       0.0013
     )
   })
+
+  console.log('successCombination', successCombination)
 
   return (
     <mesh ref={meshRef} geometry={SPHERE_GEOMETRY} material={SHADER_MATERIAL} />

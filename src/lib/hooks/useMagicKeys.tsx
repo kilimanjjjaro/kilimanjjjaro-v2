@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { useStore } from '@/lib/store/store'
 import { getRandomMagicKey } from '@/lib/utils/getRandomMagicKey'
 import { validateKeyCombination } from '@/lib/utils/validateCombination'
 import { MAGIC_KEYS, SUCCESS_KEY_COMBINATION } from '@/lib/constants/general'
@@ -14,7 +15,8 @@ interface Props {
 
 export default function useMagicKeys({ enableGame, references }: Props) {
   const [currentCombination, setCurrentCombination] = useState<string[]>([])
-  const [successCombination, setSuccessCombination] = useState(false)
+  const successCombination = useStore((state) => state.successCombination)
+  const setSuccessCombination = useStore((state) => state.setSuccessCombination)
   const [nextKey, setNextKey] = useState(SUCCESS_KEY_COMBINATION[0])
   const [wrongKey, setWrongKey] = useState('')
 

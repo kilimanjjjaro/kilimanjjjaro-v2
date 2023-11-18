@@ -26,7 +26,7 @@ export default function ScrollPercentage() {
   }, [scrollPercentage, lastScrollPercentage])
 
   return (
-    <aside className='fixed top-0 bottom-0 right-20 flex items-center mix-blend-difference pointer-events-none'>
+    <aside className='fixed top-0 bottom-0 right-16 flex items-center mix-blend-difference pointer-events-none'>
       <div
         role='status'
         aria-label='Scroll percentage'

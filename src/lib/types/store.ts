@@ -24,7 +24,13 @@ export interface SkillsSliceInterface {
   setShouldMoveToStart: (shouldMoveToStart: boolean) => void
 }
 
+export interface MagicKeysSliceInterface {
+  successCombination: boolean
+  setSuccessCombination: (successCombination: boolean) => void
+}
+
 export interface StoreInterface
   extends GeneralSliceInterface,
     NavbarSliceInterface,
-    SkillsSliceInterface {}
+    SkillsSliceInterface,
+    MagicKeysSliceInterface {}
