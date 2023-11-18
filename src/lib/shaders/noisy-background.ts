@@ -1,4 +1,4 @@
-export const HEADER_BACKGROUND_SHADERS = {
+export const NOISY_BACKGROUND_SHADERS = {
   fragmentShader: `
     uniform float uTime;
 

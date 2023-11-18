@@ -33,7 +33,7 @@ export default function IntroAnimation() {
     <AnimatePresence>
       {introRunning && (
         <motion.div
-          className='fixed flex inset-0 items-center justify-center h-screen-compatible min-h-screen-compatible bg-monospace-black'
+          className='fixed flex inset-0 items-center justify-center h-screen-compatible min-h-screen-compatible'
           initial={{
             opacity: 1
           }}

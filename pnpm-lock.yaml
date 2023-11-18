@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@14islands/r3f-scroll-rig':
     specifier: ^8.12.3
-    version: 8.12.3(@react-three/drei@9.88.15)(@react-three/fiber@8.15.11)(react-dom@18.2.0)(react@18.2.0)(three@0.158.0)
+    version: 8.12.3(@react-three/drei@9.88.16)(@react-three/fiber@8.15.11)(react-dom@18.2.0)(react@18.2.0)(three@0.158.0)
   '@motionone/utils':
     specifier: 10.16.3
     version: 10.16.3
@@ -45,8 +45,8 @@ dependencies:
     specifier: 0.0.6
     version: 0.0.6(react@18.2.0)
   '@react-three/drei':
-    specifier: 9.88.15
-    version: 9.88.15(@react-three/fiber@8.15.11)(@types/three@0.158.2)(react-dom@18.2.0)(react@18.2.0)(three@0.158.0)
+    specifier: 9.88.16
+    version: 9.88.16(@react-three/fiber@8.15.11)(@types/three@0.158.2)(react-dom@18.2.0)(react@18.2.0)(three@0.158.0)
   '@react-three/fiber':
     specifier: 8.15.11
     version: 8.15.11(react-dom@18.2.0)(react@18.2.0)(three@0.158.0)
@@ -54,14 +54,14 @@ dependencies:
     specifier: ^2.15.11
     version: 2.15.11(@react-three/fiber@8.15.11)(@types/three@0.158.2)(react@18.2.0)(three@0.158.0)
   '@studio-freight/react-lenis':
-    specifier: 0.0.36
-    version: 0.0.36(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
+    specifier: 0.0.37
+    version: 0.0.37(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
   clsx:
     specifier: 2.0.0
     version: 2.0.0
   cookies-next:
-    specifier: 4.0.0
-    version: 4.0.0
+    specifier: 4.1.0
+    version: 4.1.0
   framer-motion:
     specifier: 10.16.5
     version: 10.16.5(react-dom@18.2.0)(react@18.2.0)
@@ -104,8 +104,8 @@ dependencies:
 
 devDependencies:
   '@types/node':
-    specifier: 20.9.0
-    version: 20.9.0
+    specifier: 20.9.1
+    version: 20.9.1
   '@types/react':
     specifier: 18.2.37
     version: 18.2.37
@@ -148,7 +148,7 @@ packages:
       lerp: 1.0.3
     dev: false
 
-  /@14islands/r3f-scroll-rig@8.12.3(@react-three/drei@9.88.15)(@react-three/fiber@8.15.11)(react-dom@18.2.0)(react@18.2.0)(three@0.158.0):
+  /@14islands/r3f-scroll-rig@8.12.3(@react-three/drei@9.88.16)(@react-three/fiber@8.15.11)(react-dom@18.2.0)(react@18.2.0)(three@0.158.0):
     resolution: {integrity: sha512-3vk+OQhhNoBQO9zd91jyjaUWpfBiXcgHSyjZMY9TaReoXkKY0JfEcWDzKa8wpmGoK9SFCkW3/rp8ttK/GlL1ag==}
     peerDependencies:
       '@react-three/drei': '>=9.0.0'
@@ -164,7 +164,7 @@ packages:
     dependencies:
       '@14islands/lerp': 1.0.3
       '@juggle/resize-observer': 3.4.0
-      '@react-three/drei': 9.88.15(@react-three/fiber@8.15.11)(@types/three@0.158.2)(react-dom@18.2.0)(react@18.2.0)(three@0.158.0)
+      '@react-three/drei': 9.88.16(@react-three/fiber@8.15.11)(@types/three@0.158.2)(react-dom@18.2.0)(react@18.2.0)(three@0.158.0)
       '@react-three/fiber': 8.15.11(react-dom@18.2.0)(react@18.2.0)(three@0.158.0)
       '@studio-freight/lenis': 1.0.27
       '@types/query-string': 6.3.0
@@ -642,8 +642,8 @@ packages:
     resolution: {integrity: sha512-POu8Mk0hIU3lRXB3bGIGe4VHIwwDsQyoD1F394OK7STTiX9w4dG3cTLljjYswkQN+hDSHRrj4O36kuVa7KPU8Q==}
     dev: false
 
-  /@react-three/drei@9.88.15(@react-three/fiber@8.15.11)(@types/three@0.158.2)(react-dom@18.2.0)(react@18.2.0)(three@0.158.0):
-    resolution: {integrity: sha512-nWnLLKZ14TzrBfIPzVRK74mi/iHBNyAFJChIJipWO7/Ad51p8LRd6dUdzCvbu1de2L7siip++JQnqoi0rvXaYg==}
+  /@react-three/drei@9.88.16(@react-three/fiber@8.15.11)(@types/three@0.158.2)(react-dom@18.2.0)(react@18.2.0)(three@0.158.0):
+    resolution: {integrity: sha512-AcDTRVmXL81KYQvEz7XSxUqj0W5s8c5XgtYzAx+ttB86tEAxp3r7DXc6ZZdMAUZyfw5BSPHx9hKMHr4xmoFdPg==}
     peerDependencies:
       '@react-three/fiber': '>=8.0'
       react: '>=18.0'
@@ -773,8 +773,8 @@ packages:
     resolution: {integrity: sha512-1I6EaWR9rxdFjIJtF52CtETJt9ngfY4AjawrJY5pLxCvHa/lQZ+1v2gTUntwNZkuks6E2It6YEXV6jnpnCZFjA==}
     dev: false
 
-  /@studio-freight/react-lenis@0.0.36(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-BuwckWT8U96tILfrm2y3Q8cr1gXk2ITnpm3Q+aP7x/Ah/U+Bt2hJtjZqEJfnTAGhGLqTlhuk7YoX3/PYf/RNqQ==}
+  /@studio-freight/react-lenis@0.0.37(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-PdGKqqsURlJuzkr0nmsQILJ4BH48skVy5HNXAozP1Lcs0GFpGdE/2c9SAUs2eZ2cW5+LJdY+F4PJ6T0B94ykcg==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -821,8 +821,8 @@ packages:
     resolution: {integrity: sha512-k0N7BqGhJoJzdh6MuQg1V1ragJiXTh8VUBAZTWjJ9cUq23SG0F0xavOwZbhiP4J3y20xd6jxKx+xNUhkMAi76Q==}
     dev: false
 
-  /@types/node@20.9.0:
-    resolution: {integrity: sha512-nekiGu2NDb1BcVofVcEKMIwzlx4NjHlcjhoxxKBNLtz15Y1z7MYf549DFvkHSId02Ax6kGwWntIBPC3l/JZcmw==}
+  /@types/node@20.9.1:
+    resolution: {integrity: sha512-HhmzZh5LSJNS5O8jQKpJ/3ZcrrlG6L70hpGqMIAoM9YVD0YBRNWYsfwcXq8VnSjlNpCpgLzMXdiPo+dxcvSmiA==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -1263,7 +1263,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.22.1
-      caniuse-lite: 1.0.30001562
+      caniuse-lite: 1.0.30001563
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -1339,8 +1339,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001562
-      electron-to-chromium: 1.4.586
+      caniuse-lite: 1.0.30001563
+      electron-to-chromium: 1.4.587
       node-releases: 2.0.13
       update-browserslist-db: 1.0.13(browserslist@4.22.1)
     dev: true
@@ -1397,8 +1397,8 @@ packages:
       three: 0.158.0
     dev: false
 
-  /caniuse-lite@1.0.30001562:
-    resolution: {integrity: sha512-kfte3Hym//51EdX4239i+Rmp20EsLIYGdPkERegTgU19hQWCRhsRFGKHTliUlsry53tv17K7n077Kqa0WJU4ng==}
+  /caniuse-lite@1.0.30001563:
+    resolution: {integrity: sha512-na2WUmOxnwIZtwnFI2CZ/3er0wdNzU7hN+cPYz/z2ajHThnkWjNBOpEPP4n+4r2WPM847JaMotaJE3bnfzjyKw==}
 
   /chalk@4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
@@ -1492,8 +1492,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /cookies-next@4.0.0:
-    resolution: {integrity: sha512-3TyzeltFCGgdOlVOVTPClSq+YV9ZCdOyA3aHRZv9f5aSgg7EyI4NSvXFOCgzT/xIxeHR4Rz8/z5Tdo9oPqaVpA==}
+  /cookies-next@4.1.0:
+    resolution: {integrity: sha512-BREVc4TJT4NwXfyKjdjnYFXM6iRns+MYpCd34ClXuYqeisXnkPkbq7Ok9xaqi9mHmV6H2rwPE+p3EpMz4pF/kQ==}
     dependencies:
       '@types/cookie': 0.4.1
       '@types/node': 16.18.61
@@ -1688,8 +1688,8 @@ packages:
       semver: 7.5.4
     dev: false
 
-  /electron-to-chromium@1.4.586:
-    resolution: {integrity: sha512-qMa+E6yf1fNQbg3G66pHLXeJUP5CCCzNat1VPczOZOqgI2w4u+8y9sQnswMdGs5m4C1rOePq37EVBr/nsPQY7w==}
+  /electron-to-chromium@1.4.587:
+    resolution: {integrity: sha512-RyJX0q/zOkAoefZhB9XHghGeATVP0Q3mwA253XD/zj2OeXc+JZB9pCaEv6R578JUYaWM9PRhye0kXvd/V1cQ3Q==}
     dev: true
 
   /emoji-regex@8.0.0:
@@ -3267,7 +3267,7 @@ packages:
       '@next/env': 14.0.3
       '@swc/helpers': 0.5.2
       busboy: 1.6.0
-      caniuse-lite: 1.0.30001562
+      caniuse-lite: 1.0.30001563
       postcss: 8.4.31
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)

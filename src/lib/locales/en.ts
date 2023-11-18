@@ -8,8 +8,8 @@ export default {
   home: {
     header: {
       headline: {
-        ariaLabel: 'Future_proff web experiences.',
-        text: ['Future_proff', 'web experiences.']
+        ariaLabel: 'Future_proff web experiences',
+        text: ['Future_pr0ff', 'web exper1ences']
       }
     },
     introducing: {

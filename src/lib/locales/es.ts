@@ -10,7 +10,7 @@ export default {
     header: {
       headline: {
         ariaLabel: 'Experiencias para el futuro.',
-        text: ['Experiencias', 'para el futuro.']
+        text: ['Experiencias', 'para el futuro']
       }
     },
     introducing: {

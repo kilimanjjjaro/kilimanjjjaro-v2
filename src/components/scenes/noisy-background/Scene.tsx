@@ -1,5 +1,3 @@
-'use client'
-
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import {
@@ -8,9 +6,9 @@ import {
   Noise,
   Vignette
 } from '@react-three/postprocessing'
-import LiquidBackground from '@/components/scenes/liquid-background/LiquidBackground'
+import NoisyBackground from '@/components/scenes/noisy-background/NoisyBackground'
 
-export default function LiquidBackgroundScene() {
+export default function NoisyBackgroundScene() {
   return (
     <Canvas
       className='!absolute inset-0'
@@ -18,7 +16,7 @@ export default function LiquidBackgroundScene() {
       camera={{ position: [1, 0, 0] }}
     >
       <Suspense fallback={null}>
-        <LiquidBackground />
+        <NoisyBackground />
       </Suspense>
       <EffectComposer>
         <Noise opacity={0.05} />

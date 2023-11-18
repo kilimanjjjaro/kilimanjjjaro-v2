@@ -9,7 +9,7 @@ export default function Headline() {
   return (
     <h2
       aria-label={t('ariaLabel')}
-      className='flex flex-col gap-1 font-geist-mono text-6xl xl:text-[115px] text-monospace-white mix-blend-difference'
+      className='flex flex-col gap-1 font-geist-mono text-6xl xl:text-[120px] xl:leading-[1.05] text-monospace-white mix-blend-difference'
     >
       <span aria-hidden className='overflow-hidden'>
         <motion.span
