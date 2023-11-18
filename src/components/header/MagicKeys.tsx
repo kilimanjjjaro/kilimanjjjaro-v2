@@ -1,9 +1,13 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { getRandomMagicKey } from '@/lib/utils/getRandomMagicKey'
-import { MAGIC_KEYS } from '@/lib/constants/general'
+import { MAGIC_KEYS, SUCCESS_KEY_COMBINATION } from '@/lib/constants/general'
+import { validateKeyCombination } from '@/lib/utils/validateCombination'
 
 export default function MagicKeys() {
+  const [nextKey, setNextKey] = useState(SUCCESS_KEY_COMBINATION[0])
+  const [currentCombination, setCurrentCombination] = useState<string[]>([])
+  const [correctCombination, setCorrectCombination] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const keysRef = useRef<HTMLDivElement>(null)
   const textRef = useRef<HTMLSpanElement>(null)
@@ -94,6 +98,33 @@ export default function MagicKeys() {
       clearTimeout(timeout)
     }
   }, [randomizeKeys, setCorrectKeys, updateText])
+
+  useEffect(() => {
+    const isCombinationEntered = validateKeyCombination(currentCombination)
+
+    if (isCombinationEntered) {
+      setCurrentCombination([])
+      setNextKey(SUCCESS_KEY_COMBINATION[0])
+      setCorrectCombination(true)
+    }
+
+    const handleKeydown = (event: KeyboardEvent) => {
+      const keyCode = event.code
+
+      if (correctCombination) setCorrectCombination(false)
+
+      if (keyCode === nextKey) {
+        setCurrentCombination((prev) => [...prev, keyCode])
+        setNextKey(SUCCESS_KEY_COMBINATION[currentCombination.length + 1])
+      }
+    }
+
+    window.addEventListener('keydown', handleKeydown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeydown)
+    }
+  }, [currentCombination, nextKey, correctCombination])
 
   return (
     <div
