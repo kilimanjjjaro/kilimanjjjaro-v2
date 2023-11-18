@@ -9,7 +9,7 @@ export default function MagicKeys() {
   const containerRef = useRef<HTMLDivElement>(null)
   const textRef = useRef<HTMLSpanElement>(null)
   const keysRef = useRef<HTMLDivElement>(null)
-  const { isCorrectCombination, currentCombination, wrongKey } = useMagicKeys({
+  const { successCombination, currentCombination, wrongKey } = useMagicKeys({
     enableGame,
     references: { containerRef, keysRef, textRef }
   })
@@ -32,7 +32,7 @@ export default function MagicKeys() {
           transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
         }}
       >
-        {isCorrectCombination ? 'Well done!' : 'Magic keys'}
+        {successCombination ? 'Well done!' : 'Magic keys'}
       </motion.span>
       <div ref={keysRef} className='flex gap-2'>
         {MAGIC_KEYS.map((key, index) => (
