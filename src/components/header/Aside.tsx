@@ -12,7 +12,7 @@ export default function Aside() {
   return (
     <AnimatePresence>
       {variant === NAVIGATION_VARIANTS.large && (
-        <aside className='fixed z-10 bottom-0 px-16 pb-16 w-full flex items-center justify-between'>
+        <aside className='fixed z-10 bottom-0 px-16 pb-16 w-full flex items-center justify-between mix-blend-difference'>
           <div className='overflow-hidden'>
             <motion.span
               className='block'

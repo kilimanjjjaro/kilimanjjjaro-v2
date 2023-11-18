@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useStore } from '@/lib/store/store'
-import { getRandomMagicKey } from '@/lib/utils/getRandomMagicKey'
+import { getRandomNumber } from '@/lib/utils/getRandomNumber'
 import { validateKeyCombination } from '@/lib/utils/validateCombination'
 import { MAGIC_KEYS, SUCCESS_KEY_COMBINATION } from '@/lib/constants/general'
 
@@ -50,7 +50,7 @@ export default function useMagicKeys({ enableGame, references }: Props) {
 
     keys.forEach((key, index) => {
       setTimeout(() => {
-        key.innerText = getRandomMagicKey()
+        key.innerText = getRandomNumber({ max: 2 }).toString()
       }, index * 50)
     })
   }, [references.keysRef])
@@ -155,7 +155,8 @@ export default function useMagicKeys({ enableGame, references }: Props) {
     nextKey,
     successCombination,
     enableGame,
-    randomizeKeys
+    randomizeKeys,
+    setSuccessCombination
   ])
 
   useEffect(() => {

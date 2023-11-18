@@ -106,3 +106,28 @@ export const MAGIC_KEYS = [
   }
 ]
 export const SUCCESS_KEY_COMBINATION = ['KeyM', 'KeyN', 'KeyS', 'KeyP', 'KeyC']
+
+export const GRADIENTS = {
+  default: {
+    firstColor: [0.3 / 255.0, 0.3 / 255.0, 0.3 / 255.0],
+    secondColor: [0.4 / 255.0, 0.4 / 255.0, 0.4 / 255.0],
+    accentColor: [0.2 / 255.0, 0.2 / 255.0, 0.2 / 255.0]
+  },
+  random: [
+    {
+      firstColor: [200 / 255.0, 0 / 255.0, 20 / 255.0],
+      secondColor: [20 / 255.0, 0 / 255.0, 0 / 255.0],
+      accentColor: [100 / 255.0, 20 / 255.0, 50 / 255.0]
+    },
+    {
+      firstColor: [255 / 255.0, 150 / 255.0, 0 / 255.0],
+      secondColor: [255 / 255.0, 0 / 255.0, 0 / 255.0],
+      accentColor: [255 / 255.0, 5 / 255.0, 0 / 255.0]
+    },
+    {
+      firstColor: [255 / 255.0, 0 / 255.0, 0 / 255.0],
+      secondColor: [255 / 255.0, 0 / 255.0, 0 / 255.0],
+      accentColor: [0 / 255.0, 0 / 255.0, 50 / 255.0]
+    }
+  ]
+}

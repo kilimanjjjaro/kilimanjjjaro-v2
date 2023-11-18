@@ -1,11 +1,6 @@
 import { Suspense, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
-import {
-  EffectComposer,
-  Bloom,
-  Noise,
-  Vignette
-} from '@react-three/postprocessing'
+import { EffectComposer, Noise, Vignette } from '@react-three/postprocessing'
 import NoisyBackground from '@/components/scenes/noisy-background/NoisyBackground'
 import { PerformanceMonitor } from '@react-three/drei'
 
@@ -16,7 +11,7 @@ export default function NoisyBackgroundScene() {
     <Canvas
       className='!absolute inset-0'
       style={{ width: '100%', height: '100%' }}
-      camera={{ position: [1, 0, 0] }}
+      camera={{ position: [0, 0, -2] }}
       dpr={dpr}
     >
       <PerformanceMonitor
@@ -27,14 +22,7 @@ export default function NoisyBackgroundScene() {
           <NoisyBackground />
         </Suspense>
         <EffectComposer disableNormalPass>
-          <Bloom
-            mipmapBlur
-            levels={9}
-            intensity={1.5}
-            luminanceThreshold={1}
-            luminanceSmoothing={1}
-          />
-          <Noise opacity={0.05} />
+          <Noise opacity={0.4} />
           <Vignette eskil={false} offset={0.1} darkness={0.5} />
         </EffectComposer>
       </PerformanceMonitor>

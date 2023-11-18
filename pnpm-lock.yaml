@@ -68,6 +68,9 @@ dependencies:
   geist:
     specifier: 1.1.0
     version: 1.1.0(next@14.0.3)
+  maath:
+    specifier: ^0.10.4
+    version: 0.10.4(@types/three@0.158.2)(three@0.158.0)
   next:
     specifier: 14.0.3
     version: 14.0.3(react-dom@18.2.0)(react@18.2.0)
@@ -3120,6 +3123,16 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
+
+  /maath@0.10.4(@types/three@0.158.2)(three@0.158.0):
+    resolution: {integrity: sha512-neHNZ302rFJzXih8r9o1tUfMouO0WKO/as5n1kX72IZvXv5qIRJyWJ2hdXBj/dCZorvnFOBLSkY8SdPmjfeXLw==}
+    peerDependencies:
+      '@types/three': '>=0.144.0'
+      three: '>=0.144.0'
+    dependencies:
+      '@types/three': 0.158.2
+      three: 0.158.0
+    dev: false
 
   /maath@0.6.0(@types/three@0.158.2)(three@0.158.0):
     resolution: {integrity: sha512-dSb2xQuP7vDnaYqfoKzlApeRcR2xtN8/f7WV/TMAkBC8552TwTLtOO0JTcSygkYMjNDPoo6V01jTw/aPi4JrMw==}
