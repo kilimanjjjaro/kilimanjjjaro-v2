@@ -1,21 +1,14 @@
-import { CURSOR_STATUS } from '@/lib/constants/general'
 import type { Swiper } from 'swiper'
 import type { StackInterface } from '@/lib/types/general'
 
-export interface StoreInterface {
+export interface NavbarSliceInterface {
   navbarStatus: boolean
   setNavbarStatus: (navbarStatus: boolean) => void
   navbarVersion: number
   setNavbarVersion: (navbarVersion: number) => void
-  stacks: StackInterface[]
-  selectedStack: StackInterface
-  setSelectedStack: (selectedStack: StackInterface) => void
-  shouldMoveToStart: boolean
-  setShouldMoveToStart: (shouldMoveToStart: boolean) => void
-  cursorStatus: (typeof CURSOR_STATUS)[keyof typeof CURSOR_STATUS]
-  setCursorStatus: (
-    cursorStatus: (typeof CURSOR_STATUS)[keyof typeof CURSOR_STATUS]
-  ) => void
+}
+
+export interface GeneralSliceInterface {
   swiperInstance: Swiper | null
   setSwiperInstance: (swiperInstance: Swiper) => void
   showContactForm: boolean
@@ -23,3 +16,15 @@ export interface StoreInterface {
   introRunning: boolean
   setIntroRunning: (introRunning: boolean) => void
 }
+
+export interface SkillsSliceInterface {
+  selectedStack: StackInterface
+  setSelectedStack: (selectedStack: StackInterface) => void
+  shouldMoveToStart: boolean
+  setShouldMoveToStart: (shouldMoveToStart: boolean) => void
+}
+
+export interface StoreInterface
+  extends GeneralSliceInterface,
+    NavbarSliceInterface,
+    SkillsSliceInterface {}

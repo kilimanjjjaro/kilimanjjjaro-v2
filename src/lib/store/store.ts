@@ -1,26 +1,11 @@
 import { create } from 'zustand'
-import updateStacks from '@/lib/utils/updateStacks'
+import { createGeneralSlice } from '@/lib/store/slices/general'
+import { createNavbarSlice } from '@/lib/store/slices/navbar'
+import { createSkillsSlice } from '@/lib/store/slices/skills'
 import type { StoreInterface } from '@/lib/types/store'
 
-const updatedStacks = updateStacks()
-
-export const useStore = create<StoreInterface>((set) => ({
-  navbarStatus: false,
-  setNavbarStatus: (navbarStatus) => set(() => ({ navbarStatus })),
-  navbarVersion: 0,
-  setNavbarVersion: (navbarVersion) => set(() => ({ navbarVersion })),
-  stacks: updatedStacks,
-  selectedStack: updatedStacks[0],
-  setSelectedStack: (selectedStack) => set(() => ({ selectedStack })),
-  shouldMoveToStart: false,
-  setShouldMoveToStart: (shouldMoveToStart) =>
-    set(() => ({ shouldMoveToStart })),
-  cursorStatus: 'default',
-  setCursorStatus: (cursorStatus) => set(() => ({ cursorStatus })),
-  swiperInstance: null,
-  setSwiperInstance: (swiperInstance) => set(() => ({ swiperInstance })),
-  showContactForm: false,
-  setShowContactForm: (showContactForm) => set(() => ({ showContactForm })),
-  introRunning: false,
-  setIntroRunning: (introRunning) => set(() => ({ introRunning }))
+export const useStore = create<StoreInterface>((...a) => ({
+  ...createGeneralSlice(...a),
+  ...createNavbarSlice(...a),
+  ...createSkillsSlice(...a)
 }))
