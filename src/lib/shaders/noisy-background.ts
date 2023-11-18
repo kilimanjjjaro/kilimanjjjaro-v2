@@ -48,7 +48,7 @@ export const NOISY_BACKGROUND_SHADERS = {
 
       vec3 baseFirstColor = vec3(0.5/255.0, 0.5/255.0, 0.5/255.0);
       vec3 baseSecondColor = vec3(1./255.0, 1./255.0, 1./255.0);
-      vec3 accentColor = vec3(0.5/255.0, 0.5/255.0, 0.5/255.0);
+      vec3 accentColor = vec3(0.4/255.0, 0.4/255.0, 0.4/255.0);
       vec2 baseUV = rotate2d(n) * vPosition.xy * 0.1;
 
       float basePattern = lines(baseUV, 0.5);
