@@ -83,5 +83,23 @@ export const NAVIGATION_VARIANTS = {
   small: 2
 }
 
-export const MAGIC_KEYS = ['m', 'n', 's', 'p', 'c']
+export const MAGIC_KEYS = [
+  { char: 'm', code: 'KeyM' },
+  {
+    char: 'n',
+    code: 'KeyN'
+  },
+  {
+    char: 's',
+    code: 'KeyS'
+  },
+  {
+    char: 'p',
+    code: 'KeyP'
+  },
+  {
+    char: 'c',
+    code: 'KeyC'
+  }
+]
 export const SUCCESS_KEY_COMBINATION = ['KeyM', 'KeyN', 'KeyS', 'KeyP', 'KeyC']

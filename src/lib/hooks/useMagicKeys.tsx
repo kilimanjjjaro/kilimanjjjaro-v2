@@ -1,0 +1,168 @@
+import { useCallback, useEffect, useState } from 'react'
+import { getRandomMagicKey } from '@/lib/utils/getRandomMagicKey'
+import { validateKeyCombination } from '@/lib/utils/validateCombination'
+import { MAGIC_KEYS, SUCCESS_KEY_COMBINATION } from '@/lib/constants/general'
+
+interface Props {
+  enableGame: boolean
+  references: {
+    containerRef: React.MutableRefObject<HTMLDivElement | null>
+    keysRef: React.MutableRefObject<HTMLDivElement | null>
+    textRef: React.MutableRefObject<HTMLSpanElement | null>
+  }
+}
+
+export default function useMagicKeys({ enableGame, references }: Props) {
+  const [currentCombination, setCurrentCombination] = useState<string[]>([])
+  const [isCorrectCombination, setIsCorrectCombination] = useState(false)
+  const [nextKey, setNextKey] = useState(SUCCESS_KEY_COMBINATION[0])
+  const [wrongKey, setWrongKey] = useState('')
+
+  const updateText = useCallback(() => {
+    if (references.textRef.current === null || isCorrectCombination) return
+
+    const magicTextEl = references.textRef.current
+
+    const actualText = magicTextEl.innerText
+
+    const actualFirstWord = actualText.split(' ')[0]
+    const newFirstWord = actualFirstWord === 'Magic' ? 'Press' : 'Magic'
+
+    const characters = actualFirstWord.split('')
+
+    characters.forEach((char, index) => {
+      setTimeout(() => {
+        magicTextEl.innerText = magicTextEl.innerText.replace(
+          char,
+          newFirstWord[index]
+        )
+      }, index * 50)
+    })
+  }, [isCorrectCombination, references.textRef])
+
+  const randomizeKeys = useCallback(() => {
+    if (references.keysRef.current === null) return
+
+    const magicKeysEl = references.keysRef.current
+    const keys = Array.from(magicKeysEl.children) as HTMLDivElement[]
+
+    keys.forEach((key, index) => {
+      setTimeout(() => {
+        key.innerText = getRandomMagicKey()
+      }, index * 50)
+    })
+  }, [references.keysRef])
+
+  const setCorrectKeys = useCallback(() => {
+    if (references.keysRef.current === null) return
+
+    const magicKeysEl = references.keysRef.current
+    const keys = Array.from(magicKeysEl.children) as HTMLDivElement[]
+
+    keys.forEach((key, index) => {
+      setTimeout(() => {
+        key.innerText = MAGIC_KEYS[index].char
+      }, index * 50)
+    })
+  }, [references.keysRef])
+
+  useEffect(() => {
+    if (references.containerRef.current == null) return
+
+    const containerEl = references.containerRef.current
+
+    let timeout: NodeJS.Timeout
+
+    const handleMouseEnter = () => {
+      if (isCorrectCombination) return
+
+      updateText()
+
+      clearTimeout(timeout)
+
+      timeout = setTimeout(() => {
+        setCorrectKeys()
+      }, 200)
+    }
+
+    const handleMouseLeave = () => {
+      if (isCorrectCombination) return
+
+      updateText()
+
+      clearTimeout(timeout)
+
+      timeout = setTimeout(() => {
+        randomizeKeys()
+      }, 200)
+    }
+
+    containerEl.addEventListener('mouseenter', handleMouseEnter)
+    containerEl.addEventListener('mouseleave', handleMouseLeave)
+
+    return () => {
+      containerEl.removeEventListener('mouseenter', handleMouseEnter)
+      containerEl.removeEventListener('mouseleave', handleMouseLeave)
+      clearTimeout(timeout)
+    }
+  }, [
+    randomizeKeys,
+    setCorrectKeys,
+    updateText,
+    isCorrectCombination,
+    references.containerRef
+  ])
+
+  useEffect(() => {
+    if (!enableGame) return
+
+    const isCorrect = validateKeyCombination(currentCombination)
+
+    if (isCorrect) {
+      setIsCorrectCombination(true)
+
+      setTimeout(() => {
+        setCurrentCombination([])
+        setNextKey(SUCCESS_KEY_COMBINATION[0])
+        setIsCorrectCombination(false)
+        randomizeKeys()
+      }, 5000)
+    }
+
+    const handleKeydown = (event: KeyboardEvent) => {
+      const keyCode = event.code
+
+      if (isCorrectCombination) setIsCorrectCombination(false)
+
+      if (keyCode === nextKey) {
+        setCurrentCombination((prev) => [...prev, keyCode])
+        setNextKey(SUCCESS_KEY_COMBINATION[currentCombination.length + 1])
+        setWrongKey('')
+      } else {
+        setWrongKey(nextKey)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeydown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeydown)
+    }
+  }, [
+    currentCombination,
+    nextKey,
+    isCorrectCombination,
+    enableGame,
+    randomizeKeys
+  ])
+
+  useEffect(() => {
+    randomizeKeys()
+  }, [randomizeKeys])
+
+  return {
+    currentCombination,
+    wrongKey,
+    isCorrectCombination
+  }
+}
