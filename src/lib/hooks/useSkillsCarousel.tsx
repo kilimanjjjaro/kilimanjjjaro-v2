@@ -5,13 +5,11 @@ import { STACKS } from '../constants/general'
 export default function useSkillsCarousel() {
   const [isNextArrow, setIsNextArrow] = useState(true)
   const sectionEl = useRef<HTMLInputElement>(null)
-  const {
-    selectedStack,
-    setSelectedStack,
-    shouldMoveToStart,
-    setShouldMoveToStart,
-    swiperInstance
-  } = useStore()
+  const selectedStack = useStore((state) => state.selectedStack)
+  const setSelectedStack = useStore((state) => state.setSelectedStack)
+  const shouldMoveToStart = useStore((state) => state.shouldMoveToStart)
+  const setShouldMoveToStart = useStore((state) => state.setShouldMoveToStart)
+  const swiperInstance = useStore((state) => state.swiperInstance)
 
   const handleMouseMove = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>

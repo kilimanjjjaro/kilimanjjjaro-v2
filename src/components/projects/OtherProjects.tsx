@@ -8,7 +8,6 @@ import { PlusIcon } from '@/components/icons/PlusIcon'
 import { useScopedI18n } from '@/lib/i18n/client'
 import { useStore } from '@/lib/store/store'
 import { OTHER_PROJECTS } from '@/lib/constants/projects'
-import { CURSOR_STATUS } from '@/lib/constants/general'
 import type { OtherProjectInterface } from '@/lib/types/projects'
 
 interface Props {
@@ -17,7 +16,7 @@ interface Props {
 
 export default function OtherProjects({ projects }: Props) {
   const t = useScopedI18n('home.otherProjects')
-  const { setCursorStatus, setShowContactForm } = useStore()
+  const setShowContactForm = useStore((state) => state.setShowContactForm)
   const sectionEl = useRef<HTMLElement>(null)
   const totalNumberOfProjects = useRef(OTHER_PROJECTS.en.length)
   const [visibleItems, setVisibleItems] = useState(2)
@@ -87,8 +86,6 @@ export default function OtherProjects({ projects }: Props) {
       <motion.button
         className='flex items-center w-full gap-2 mt-6 text-2xl text-left xl:w-auto xl:mt-10 text-monospace-white group'
         onClick={handleShowMore}
-        onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-        onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
         initial={{ opacity: 0 }}
         animate={isInView && { opacity: 1 }}
         transition={{ duration: 1.5, ease: 'easeInOut', delay: 2 }}

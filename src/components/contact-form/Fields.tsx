@@ -1,9 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
-import { CURSOR_STATUS } from '@/lib/constants/general'
 
 interface Props {
   step: number
@@ -12,7 +10,6 @@ interface Props {
 
 export default function Fields({ step, setStep }: Props) {
   const t = useScopedI18n('contactForm.fields')
-  const { setCursorStatus } = useStore()
   const textAreaRef = useRef<HTMLTextAreaElement>(null)
   const nameInputRef = useRef<HTMLInputElement>(null)
   const emailInputRef = useRef<HTMLInputElement>(null)
@@ -64,8 +61,6 @@ export default function Fields({ step, setStep }: Props) {
           ref={nameInputRef}
           onKeyDown={(event) => handleKeyDown({ event, nextStep: 2 })}
           onChange={() => setStep(1)}
-          onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-          onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
           className='text-lg placeholder-opacity-100 bg-transparent outline-none text-monospace-white focus:outline-none'
           type='text'
           name='name'
@@ -76,8 +71,6 @@ export default function Fields({ step, setStep }: Props) {
         {t('email')}:
         <input
           ref={emailInputRef}
-          onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-          onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
           onKeyDown={(event) => handleKeyDown({ event, nextStep: 3 })}
           onChange={() => setStep(2)}
           className='text-lg placeholder-opacity-100 bg-transparent outline-none text-monospace-white focus:outline-none'
@@ -90,8 +83,6 @@ export default function Fields({ step, setStep }: Props) {
         {t('message')}:
         <textarea
           ref={textAreaRef}
-          onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-          onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
           onChange={handleChange}
           onKeyDown={(event) => handleKeyDown({ event, nextStep: 4 })}
           className='text-lg bg-transparent outline-none resize-none h-7 text-monospace-white focus:outline-none peer/message'

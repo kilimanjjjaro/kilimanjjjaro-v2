@@ -9,7 +9,6 @@ import SubmitButton from '@/components/contact-form/SubmitButton'
 import Button from '@/components/shared/Button'
 import { useStore } from '@/lib/store/store'
 import sendForm from '@/lib/actions/sendForm'
-import { CURSOR_STATUS } from '@/lib/constants/general'
 import { useScopedI18n } from '@/lib/i18n/client'
 import { FORM_DEFAULT_STATE } from '@/lib/constants/form'
 
@@ -20,7 +19,7 @@ interface Props {
 export default function Form({ handleDrag }: Props) {
   const t = useScopedI18n('contactForm')
   const [state, formAction] = useFormState(sendForm, FORM_DEFAULT_STATE)
-  const { setShowContactForm, setCursorStatus } = useStore()
+  const setShowContactForm = useStore((state) => state.setShowContactForm)
   const formRef = useRef<HTMLFormElement>(null)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false)
@@ -130,8 +129,6 @@ export default function Form({ handleDrag }: Props) {
       <motion.header
         className='flex items-center h-10 gap-4 px-4 bg-monospace-light-gray/30 cursor-grab active:cursor-grabbing active:select-none'
         onPointerDown={handleDrag}
-        onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-        onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
       >
         <Button
           aria-label='Close contact form'

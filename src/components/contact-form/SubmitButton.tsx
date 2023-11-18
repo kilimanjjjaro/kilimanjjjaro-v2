@@ -2,8 +2,6 @@ import { useEffect, useRef } from 'react'
 import { useFormStatus } from 'react-dom'
 import clsx from 'clsx'
 import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon'
-import { useStore } from '@/lib/store/store'
-import { CURSOR_STATUS } from '@/lib/constants/general'
 import { useScopedI18n } from '@/lib/i18n/client'
 
 interface Props {
@@ -14,7 +12,6 @@ interface Props {
 
 export default function SubmitButton({ error, success, shouldFocus }: Props) {
   const t = useScopedI18n('contactForm')
-  const { setCursorStatus } = useStore()
   const { pending } = useFormStatus()
   const buttonRef = useRef<HTMLButtonElement>(null)
 
@@ -37,8 +34,6 @@ export default function SubmitButton({ error, success, shouldFocus }: Props) {
       )}
       disabled={pending}
       aria-disabled={pending}
-      onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-      onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
     >
       {renderWelcomeText && (
         <>

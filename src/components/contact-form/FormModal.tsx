@@ -6,7 +6,7 @@ import ContactForm from '@/components/contact-form/Form'
 import { useStore } from '@/lib/store/store'
 
 export default function FormModal() {
-  const { showContactForm } = useStore()
+  const showContactForm = useStore((state) => state.showContactForm)
   const dragConstraintsRef = useRef<HTMLDivElement>(null)
   const dragControls = useDragControls()
 

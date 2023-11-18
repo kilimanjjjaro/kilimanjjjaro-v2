@@ -11,12 +11,11 @@ import useElementDimensions from '@/lib/hooks/useElementDimensions'
 import { useStore } from '@/lib/store/store'
 import { ArrowLongRightIcon } from '@/components/icons/ArrowLongRightIcon'
 import { ArrowLongLeftIcon } from '@/components/icons/ArrowLongLeftIcon'
-import { CURSOR_STATUS } from '@/lib/constants/general'
 
 import 'swiper/css'
 
 export default function SkillsCarousel() {
-  const { setCursorStatus, setSwiperInstance } = useStore()
+  const setSwiperInstance = useStore((state) => state.setSwiperInstance)
   const arrowEl = useRef<HTMLDivElement>(null)
   const [isHovered, setIsHovered] = useState(false)
   const elementDimensions = useElementDimensions({ ref: arrowEl })
@@ -29,18 +28,13 @@ export default function SkillsCarousel() {
     useSkillsCarousel()
   const lenis = useLenis()
 
-  const handleMouse = (boolean: boolean) => {
-    setIsHovered(boolean)
-    setCursorStatus(boolean ? CURSOR_STATUS.HIDDEN : CURSOR_STATUS.DEFAULT)
-  }
-
   return (
     <div
       ref={sectionEl}
       className='relative px-[26px] cursor-none xl:px-40'
       onMouseMove={(event) => handleMouseMove(event)}
-      onMouseEnter={() => handleMouse(true)}
-      onMouseLeave={() => handleMouse(false)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       onClick={handleClick}
     >
       <Swiper

@@ -4,12 +4,10 @@ import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import Balancer from 'react-wrap-balancer'
 import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
-import { useStore } from '@/lib/store/store'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import useCursorPosition from '@/lib/hooks/useCursorPosition'
 import useElementDimensions from '@/lib/hooks/useElementDimensions'
 import { useScopedI18n } from '@/lib/i18n/client'
-import { CURSOR_STATUS } from '@/lib/constants/general'
 import { HR_LINE_VARIANTS } from '@/lib/constants/variants'
 import type { OtherProjectInterface } from '@/lib/types/projects'
 
@@ -22,7 +20,6 @@ interface Props {
 
 export default function OtherProject({ project }: Props) {
   const t = useScopedI18n('home.otherProjects')
-  const { setCursorStatus } = useStore()
   const projectRef = useRef<HTMLAnchorElement>(null)
   const visitButtonEl = useRef<HTMLHeadingElement>(null)
   const [isLoaded, setIsLoaded] = useState(false)
@@ -42,8 +39,6 @@ export default function OtherProject({ project }: Props) {
       href={project.link}
       target='_blank'
       rel='noopener noreferrer'
-      onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HIDDEN)}
-      onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
     >
       <article className='relative flex flex-col items-center xl:flex-row group cursor-none'>
         <section className='order-2 overflow-hidden xl:order-1'>

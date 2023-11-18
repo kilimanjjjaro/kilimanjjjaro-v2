@@ -4,10 +4,8 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import Balancer from 'react-wrap-balancer'
-import { useStore } from '@/lib/store/store'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import FeaturedProjectName from '@/components/projects/FeaturedProjectName'
-import { CURSOR_STATUS } from '@/lib/constants/general'
 import type { FeaturedProjectInterface } from '@/lib/types/projects'
 import Image from 'next/image'
 
@@ -17,7 +15,6 @@ interface Props {
 }
 
 export default function FeaturedProject({ project, index }: Props) {
-  const { setCursorStatus } = useStore()
   const projectEl = useRef<HTMLAnchorElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isHovered, setIsHovered] = useState<number | null>(null)
@@ -32,7 +29,6 @@ export default function FeaturedProject({ project, index }: Props) {
     if (videoRef.current === null) return
 
     setIsHovered(project.id)
-    setCursorStatus(CURSOR_STATUS.HIDDEN)
     document.body.style.backgroundColor = project.backgroundColor
 
     videoRef.current.currentTime = 0
@@ -43,7 +39,6 @@ export default function FeaturedProject({ project, index }: Props) {
     if (videoRef.current === null) return
 
     setIsHovered(null)
-    setCursorStatus(CURSOR_STATUS.DEFAULT)
     document.body.style.backgroundColor = ''
 
     videoRef.current.pause()

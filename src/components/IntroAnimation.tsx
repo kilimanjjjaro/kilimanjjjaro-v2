@@ -7,7 +7,8 @@ import MonospaceLogo from '@/components/shared/MonospaceLogo'
 import { useStore } from '@/lib/store/store'
 
 export default function IntroAnimation() {
-  const { introRunning, setIntroRunning } = useStore()
+  const introRunning = useStore((state) => state.introRunning)
+  const setIntroRunning = useStore((state) => state.setIntroRunning)
   const lenis = useLenis()
 
   const handleAnimationStart = () => {

@@ -6,11 +6,11 @@ import { motion } from 'framer-motion'
 import { useLenis } from '@studio-freight/react-lenis'
 import MonospaceLogo from '@/components/shared/MonospaceLogo'
 import { useStore } from '@/lib/store/store'
-import { CURSOR_STATUS } from '@/lib/constants/general'
 import { BUTTON_UNDERLINE_VARIANTS } from '@/lib/constants/variants'
 
 export default function SmallVariant() {
-  const { navbarStatus, setNavbarStatus, setCursorStatus } = useStore()
+  const navbarStatus = useStore((state) => state.navbarStatus)
+  const setNavbarStatus = useStore((state) => state.setNavbarStatus)
   const pathname = usePathname()
   const lenis = useLenis()
 
@@ -25,13 +25,7 @@ export default function SmallVariant() {
   return (
     <>
       <div className='absolute left-0'>
-        <Link
-          className='block overflow-hidden'
-          href='/'
-          onClick={goToTop}
-          onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-          onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
-        >
+        <Link className='block overflow-hidden' href='/' onClick={goToTop}>
           <motion.span
             className='block'
             initial={{ y: '118%' }}
@@ -52,8 +46,6 @@ export default function SmallVariant() {
         aria-label='Toggle navigation menu'
         className='absolute right-0 flex flex-col gap-2.5 text-xl text-monospace-light-gray leading-none xl:hover:text-monospace-white transition-colors duration-700 ease-in-out group'
         onClick={() => setNavbarStatus(!navbarStatus)}
-        onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-        onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
       >
         <span className='relative flex flex-col items-center justify-start h-5 overflow-hidden'>
           <motion.span

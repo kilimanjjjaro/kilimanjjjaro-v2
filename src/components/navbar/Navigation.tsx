@@ -13,7 +13,9 @@ import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/lib/constants/variants'
 
 export default function Navigation() {
   const currentLocale = useCurrentLocale()
-  const { navbarStatus, setNavbarStatus, setShowContactForm } = useStore()
+  const navbarStatus = useStore((state) => state.navbarStatus)
+  const setNavbarStatus = useStore((state) => state.setNavbarStatus)
+  const setShowContactForm = useStore((state) => state.setShowContactForm)
   const [hoveredSection, setHoveredSection] = useState('')
   const [isHovering, setIsHovering] = useState(false)
   const { variant } = useNavbar()

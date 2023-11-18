@@ -7,7 +7,7 @@ import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import type { ChildrenType } from '@/lib/types/general'
 
 export default function SmoothScroll({ children }: { children: ChildrenType }) {
-  const { navbarStatus } = useStore()
+  const navbarStatus = useStore((state) => state.navbarStatus)
   const { isDesktop } = useMediaQuery()
   const lenis = useLenis()
 

@@ -12,16 +12,13 @@ import {
   STACKS_UL_VARIANTS
 } from '@/lib/constants/variants'
 import type { StackInterface } from '@/lib/types/general'
-import { CURSOR_STATUS } from '@/lib/constants/general'
+import { STACKS } from '@/lib/constants/general'
 
 export default function StackSelector() {
-  const {
-    selectedStack,
-    setSelectedStack,
-    stacks,
-    setShouldMoveToStart,
-    setCursorStatus
-  } = useStore()
+  const selectedStack = useStore((state) => state.selectedStack)
+  const setSelectedStack = useStore((state) => state.setSelectedStack)
+  const setShouldMoveToStart = useStore((state) => state.setShouldMoveToStart)
+
   const [showSelector, setShowSelector] = useState(false)
   const { isDesktop } = useMediaQuery()
   const lenis = useLenis()
@@ -46,12 +43,7 @@ export default function StackSelector() {
 
   return (
     <div className='flex gap-10 pl-6 text-4xl xl:pl-40 text-monospace-white'>
-      <button
-        className='z-20 xl:z-0'
-        onClick={() => handleClickOnSelector()}
-        onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-        onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
-      >
+      <button className='z-20 xl:z-0' onClick={() => handleClickOnSelector()}>
         <h2 className='flex items-center gap-4 leading-none group'>
           {selectedStack.name} Skills
           <PlusIcon
@@ -83,17 +75,14 @@ export default function StackSelector() {
             }}
           />
         )}
-        {stacks
-          .filter((stack) => stack.id !== selectedStack.id)
-          .map((stack) => (
+        {STACKS.filter((stack) => stack.id !== selectedStack.id).map(
+          (stack) => (
             <li
               key={stack.id}
               className='overflow-hidden leading-none transition-colors duration-700 ease-in-out xl:hover:text-monospace-light-gray'
             >
               <motion.button
                 onClick={() => handleClickOnSkills(stack)}
-                onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-                onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
                 variants={STACKS_LI_VARIANTS}
                 transition={{
                   duration: 1,
@@ -103,7 +92,8 @@ export default function StackSelector() {
                 {stack.name} Skills
               </motion.button>
             </li>
-          ))}
+          )
+        )}
       </motion.ul>
     </div>
   )

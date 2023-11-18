@@ -8,14 +8,12 @@ import { AnimatePresence, motion } from 'framer-motion'
 import clsx from 'clsx'
 import AnimatedText from '@/components/shared/AnimatedText'
 import Button from '@/components/shared/Button'
-import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
-import { CURSOR_STATUS } from '@/lib/constants/general'
+
 import cookieImage from '../../public/images/cookie.webp'
 
 export default function CookiesConsent() {
   const t = useScopedI18n('cookiesConsent')
-  const { setCursorStatus } = useStore()
   const [showCookiesConsent, setShowCookiesConsent] = useState(false)
   const [showCloseWarning, setShowCloseWarning] = useState(false)
 
@@ -31,16 +29,6 @@ export default function CookiesConsent() {
     deleteCookie('Next-Locale')
 
     setShowCookiesConsent(false)
-  }
-
-  const handleMouseEnter = () => {
-    setShowCloseWarning(true)
-    setCursorStatus(CURSOR_STATUS.HOVER)
-  }
-
-  const handleMouseLeave = () => {
-    setShowCloseWarning(false)
-    setCursorStatus(CURSOR_STATUS.DEFAULT)
   }
 
   useEffect(() => {
@@ -69,8 +57,8 @@ export default function CookiesConsent() {
               aria-label='Close cookies consent'
               onClick={handleDecline}
               className='w-3 h-3 transition-colors duration-700 bg-red-600 rounded-full xl:hover:bg-monospace-white'
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
+              onMouseEnter={() => setShowCloseWarning(true)}
+              onMouseLeave={() => setShowCloseWarning(false)}
             />
           </header>
           <main className='p-4 flex flex-col text-xs md:text-sm font-geist-mono'>

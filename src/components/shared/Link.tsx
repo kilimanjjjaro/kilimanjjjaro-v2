@@ -2,8 +2,6 @@
 
 import NextLink from 'next/link'
 import clsx from 'clsx'
-import { useStore } from '@/lib/store/store'
-import { CURSOR_STATUS } from '@/lib/constants/general'
 import type { ChildrenType } from '@/lib/types/general'
 
 const UNDERLINE_STYLES =
@@ -28,16 +26,12 @@ export default function Link({
   target,
   rel
 }: Props) {
-  const { setCursorStatus } = useStore()
-
   return (
     <NextLink
       className={clsx(className ?? '', underlined === true && UNDERLINE_STYLES)}
       href={href}
       target={target}
       rel={rel}
-      onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-      onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
       onClick={onClick}
     >
       {children}

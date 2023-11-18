@@ -10,7 +10,8 @@ import { useCurrentLocale } from '@/lib/i18n/client'
 import { SECTIONS, LOCALES } from '@/lib/constants/general'
 
 export default function LargeVariant() {
-  const { setNavbarStatus, setShowContactForm } = useStore()
+  const setNavbarStatus = useStore((state) => state.setNavbarStatus)
+  const setShowContactForm = useStore((state) => state.setShowContactForm)
   const currentLocale = useCurrentLocale()
 
   const sections = useMemo(() => {

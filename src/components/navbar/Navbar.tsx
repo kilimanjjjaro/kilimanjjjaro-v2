@@ -8,7 +8,7 @@ import { useStore } from '@/lib/store/store'
 import { NAVIGATION_VARIANTS } from '@/lib/constants/general'
 
 export default function Navbar() {
-  const { introRunning } = useStore()
+  const introRunning = useStore((state) => state.introRunning)
   const { variant } = useNavbar()
 
   if (introRunning) return null

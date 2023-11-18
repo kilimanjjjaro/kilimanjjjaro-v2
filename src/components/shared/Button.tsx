@@ -1,8 +1,6 @@
 import { MouseEventHandler } from 'react'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
-import { useStore } from '@/lib/store/store'
-import { CURSOR_STATUS } from '@/lib/constants/general'
 import type { ChildrenType } from '@/lib/types/general'
 import {
   BUTTON_TEXT_VARIANTS,
@@ -26,8 +24,6 @@ export default function Button({
   underlined = false,
   underlineTrigger = false
 }: Props) {
-  const { setCursorStatus } = useStore()
-
   return (
     <button
       className={clsx(
@@ -36,8 +32,6 @@ export default function Button({
       )}
       aria-label={ariaLabel}
       onClick={onClick}
-      onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-      onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
     >
       {underlined ? (
         <>

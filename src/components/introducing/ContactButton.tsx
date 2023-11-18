@@ -6,7 +6,7 @@ import { useScopedI18n } from '@/lib/i18n/client'
 
 export default function ContactButton() {
   const t = useScopedI18n('home.introducing')
-  const { setShowContactForm } = useStore()
+  const setShowContactForm = useStore((state) => state.setShowContactForm)
 
   return (
     <Button

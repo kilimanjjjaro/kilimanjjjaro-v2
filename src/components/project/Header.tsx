@@ -3,9 +3,7 @@
 import Balancer from 'react-wrap-balancer'
 import HeadlineMarquee from '@/components/shared/HeadlineMarquee'
 import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
-import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
-import { CURSOR_STATUS } from '@/lib/constants/general'
 import type { FeaturedProjectInterface } from '@/lib/types/projects'
 
 const UNDERLINE_STYLES =
@@ -17,7 +15,6 @@ interface Props {
 
 export default function Header({ project }: Props) {
   const t = useScopedI18n('project')
-  const { setCursorStatus } = useStore()
 
   return (
     <header className='flex flex-col min-h-screen gap-y-36 pt-44 pb-36'>
@@ -36,8 +33,6 @@ export default function Header({ project }: Props) {
           href={project.link}
           target='_blank'
           rel='noopener noreferrer'
-          onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-          onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
         >
           {t('visitButton')}
           <ArrowCornerIcon className='w-4 h-4' />
