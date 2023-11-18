@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useStore } from '@/lib/store/store'
+import { STACKS } from '../constants/general'
 
 export default function useSkillsCarousel() {
   const [isNextArrow, setIsNextArrow] = useState(true)
@@ -7,7 +8,6 @@ export default function useSkillsCarousel() {
   const {
     selectedStack,
     setSelectedStack,
-    stacks,
     shouldMoveToStart,
     setShouldMoveToStart,
     swiperInstance
@@ -32,7 +32,7 @@ export default function useSkillsCarousel() {
 
     const currentSlideIndex = swiperInstance.activeIndex
 
-    const stack = stacks.find(
+    const stack = STACKS.find(
       (stack) =>
         stack.startIndex <= currentSlideIndex &&
         stack.endIndex >= currentSlideIndex

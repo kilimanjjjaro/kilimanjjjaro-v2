@@ -1,7 +1,12 @@
 import { StateCreator } from 'zustand'
 import type { NavbarSliceInterface } from '@/lib/types/store'
 
-export const createNavbarSlice: StateCreator<NavbarSliceInterface> = (set) => ({
+export const createNavbarSlice: StateCreator<
+  NavbarSliceInterface,
+  [],
+  [],
+  NavbarSliceInterface
+> = (set) => ({
   navbarStatus: false,
   setNavbarStatus: (navbarStatus) => set(() => ({ navbarStatus })),
   navbarVersion: 0,
