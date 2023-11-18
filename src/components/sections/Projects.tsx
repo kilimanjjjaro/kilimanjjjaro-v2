@@ -16,7 +16,7 @@ export default async function Projects() {
   return (
     <section id='projects'>
       <FeaturedProjects projects={featuredProjects} />
-      {/* <OtherProjects projects={otherProjects} /> */}
+      <OtherProjects projects={otherProjects} />
     </section>
   )
 }
