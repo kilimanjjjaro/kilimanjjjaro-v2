@@ -14,12 +14,12 @@ interface Props {
 
 export default function useMagicKeys({ enableGame, references }: Props) {
   const [currentCombination, setCurrentCombination] = useState<string[]>([])
-  const [isCorrectCombination, setIsCorrectCombination] = useState(false)
+  const [successCombination, setSuccessCombination] = useState(false)
   const [nextKey, setNextKey] = useState(SUCCESS_KEY_COMBINATION[0])
   const [wrongKey, setWrongKey] = useState('')
 
   const updateText = useCallback(() => {
-    if (references.textRef.current === null || isCorrectCombination) return
+    if (references.textRef.current === null || successCombination) return
 
     const magicTextEl = references.textRef.current
 
@@ -38,7 +38,7 @@ export default function useMagicKeys({ enableGame, references }: Props) {
         )
       }, index * 50)
     })
-  }, [isCorrectCombination, references.textRef])
+  }, [successCombination, references.textRef])
 
   const randomizeKeys = useCallback(() => {
     if (references.keysRef.current === null) return
@@ -74,7 +74,7 @@ export default function useMagicKeys({ enableGame, references }: Props) {
     let timeout: NodeJS.Timeout
 
     const handleMouseEnter = () => {
-      if (isCorrectCombination) return
+      if (successCombination) return
 
       updateText()
 
@@ -86,7 +86,7 @@ export default function useMagicKeys({ enableGame, references }: Props) {
     }
 
     const handleMouseLeave = () => {
-      if (isCorrectCombination) return
+      if (successCombination) return
 
       updateText()
 
@@ -109,7 +109,7 @@ export default function useMagicKeys({ enableGame, references }: Props) {
     randomizeKeys,
     setCorrectKeys,
     updateText,
-    isCorrectCombination,
+    successCombination,
     references.containerRef
   ])
 
@@ -119,12 +119,12 @@ export default function useMagicKeys({ enableGame, references }: Props) {
     const isCorrect = validateKeyCombination(currentCombination)
 
     if (isCorrect) {
-      setIsCorrectCombination(true)
+      setSuccessCombination(true)
 
       setTimeout(() => {
         setCurrentCombination([])
         setNextKey(SUCCESS_KEY_COMBINATION[0])
-        setIsCorrectCombination(false)
+        setSuccessCombination(false)
         randomizeKeys()
       }, 5000)
     }
@@ -132,7 +132,7 @@ export default function useMagicKeys({ enableGame, references }: Props) {
     const handleKeydown = (event: KeyboardEvent) => {
       const keyCode = event.code
 
-      if (isCorrectCombination) setIsCorrectCombination(false)
+      if (successCombination) setSuccessCombination(false)
 
       if (keyCode === nextKey) {
         setCurrentCombination((prev) => [...prev, keyCode])
@@ -151,7 +151,7 @@ export default function useMagicKeys({ enableGame, references }: Props) {
   }, [
     currentCombination,
     nextKey,
-    isCorrectCombination,
+    successCombination,
     enableGame,
     randomizeKeys
   ])
@@ -163,6 +163,6 @@ export default function useMagicKeys({ enableGame, references }: Props) {
   return {
     currentCombination,
     wrongKey,
-    isCorrectCombination
+    successCombination
   }
 }
