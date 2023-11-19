@@ -67,19 +67,19 @@ export default function NoisyBackground() {
       damp3(
         SHADER_MATERIAL.uniforms.uBaseFirstColor.value,
         new THREE.Vector3(...firstColor),
-        3.2
+        4.2
       )
 
       damp3(
         SHADER_MATERIAL.uniforms.uBaseSecondColor.value,
         new THREE.Vector3(...secondColor),
-        3
+        4
       )
 
       damp3(
         SHADER_MATERIAL.uniforms.uAccentColor.value,
         new THREE.Vector3(...accentColor),
-        3.4
+        4.4
       )
     } else {
       damp3(
