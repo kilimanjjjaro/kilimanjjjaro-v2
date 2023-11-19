@@ -25,9 +25,14 @@ export default function useMagicKeys({ enableGame, references }: Props) {
 
     const magicTextEl = references.textRef.current
 
+    const correctWords = ['Magic', 'Press']
+
     const actualText = magicTextEl.innerText
 
     const actualFirstWord = actualText.split(' ')[0]
+
+    if (!correctWords.includes(actualFirstWord)) return
+
     const newFirstWord = actualFirstWord === 'Magic' ? 'Press' : 'Magic'
 
     const characters = actualFirstWord.split('')

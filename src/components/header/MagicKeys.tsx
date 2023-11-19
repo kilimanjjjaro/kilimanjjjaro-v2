@@ -17,7 +17,7 @@ export default function MagicKeys() {
   return (
     <div
       ref={containerRef}
-      className='flex gap-2 font-geist-mono text-sm overflow-hidden cursor-help'
+      className='flex gap-2 font-geist-mono text-sm overflow-hidden'
       onMouseEnter={() => setEnableGame(true)}
       onMouseLeave={() => setEnableGame(false)}
     >
