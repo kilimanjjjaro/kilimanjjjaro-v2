@@ -23,7 +23,8 @@ const SHADER_MATERIAL = new THREE.ShaderMaterial({
     },
     uAccentColor: {
       value: new THREE.Vector3(...GRADIENTS.default.accentColor)
-    }
+    },
+    uVelocity: { value: 0 }
   }
 })
 
@@ -32,9 +33,26 @@ export default function NoisyBackground() {
   const meshRef = useRef<THREE.Mesh>(null)
   const time = useRef(0)
   const randomIndex = useRef(0)
+  const mouse = useRef({ x: 0, y: 0, vX: 0, vY: 0 })
 
   useFrame(({ pointer }) => {
     if (meshRef.current === null) return
+
+    const { x, y } = pointer
+
+    const xVelocity = x - mouse.current.x
+    const yVelocity = y - mouse.current.y
+
+    mouse.current = {
+      x: pointer.x,
+      y: pointer.y,
+      vX: xVelocity,
+      vY: yVelocity
+    }
+
+    SHADER_MATERIAL.uniforms.uVelocity.value = Math.sqrt(
+      xVelocity * xVelocity + yVelocity * yVelocity
+    )
 
     time.current += 0.0006
 
@@ -42,22 +60,16 @@ export default function NoisyBackground() {
 
     meshRef.current.rotation.z = time.current
 
-    meshRef.current.rotation.z = THREE.MathUtils.lerp(
-      meshRef.current.rotation.z,
-      pointer.x,
-      0.0006
-    )
-
     meshRef.current.rotation.y = THREE.MathUtils.lerp(
       meshRef.current.rotation.y,
       pointer.x,
-      0.0006
+      0.002
     )
 
     meshRef.current.rotation.x = THREE.MathUtils.lerp(
       meshRef.current.rotation.x,
       pointer.y,
-      0.0006
+      0.002
     )
 
     if (successCombination) {
@@ -85,19 +97,19 @@ export default function NoisyBackground() {
       damp3(
         SHADER_MATERIAL.uniforms.uBaseFirstColor.value,
         new THREE.Vector3(...GRADIENTS.default.firstColor),
-        3
+        1
       )
 
       damp3(
         SHADER_MATERIAL.uniforms.uBaseSecondColor.value,
         new THREE.Vector3(...GRADIENTS.default.secondColor),
-        3.2
+        1.1
       )
 
       damp3(
         SHADER_MATERIAL.uniforms.uAccentColor.value,
         new THREE.Vector3(...GRADIENTS.default.accentColor),
-        3.4
+        1.2
       )
     }
   })

@@ -11,7 +11,7 @@ export default function NoisyBackgroundScene() {
     <Canvas
       className='!absolute inset-0'
       style={{ width: '100%', height: '100%' }}
-      camera={{ position: [0, 0, -2] }}
+      camera={{ position: [0, 0, 2] }}
       dpr={dpr}
     >
       <PerformanceMonitor
@@ -22,8 +22,8 @@ export default function NoisyBackgroundScene() {
           <NoisyBackground />
         </Suspense>
         <EffectComposer disableNormalPass>
-          <Noise opacity={0.4} />
-          <Vignette eskil={false} offset={0.1} darkness={0.5} />
+          <Noise opacity={0.5} />
+          <Vignette eskil={false} offset={0.1} darkness={0.6} />
         </EffectComposer>
       </PerformanceMonitor>
     </Canvas>

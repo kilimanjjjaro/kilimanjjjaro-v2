@@ -4,6 +4,7 @@ export const NOISY_BACKGROUND_SHADERS = {
     uniform vec3 uBaseFirstColor;
     uniform vec3 uBaseSecondColor;
     uniform vec3 uAccentColor;
+    uniform float uVelocity;
 
     varying vec2 vUv;
     varying vec3 vPosition;
@@ -39,7 +40,7 @@ export const NOISY_BACKGROUND_SHADERS = {
     float lines(vec2 uv, float offset) {
       float numberOfLines = 40.0;
 
-      return smoothstep(0.0, 0.3 + offset * 0.5, abs(0.55 * (sin(uv.x * numberOfLines) + offset * 2.0)));
+      return smoothstep(0.0, 0.5 + offset * 0.5, abs(0.5 * (sin(uv.x * numberOfLines) + offset * 1.0)));
     }
 
     mat2 rotate2d(float angle) {
