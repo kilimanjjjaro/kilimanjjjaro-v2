@@ -55,7 +55,7 @@ const createAttributes = () => {
 const ATTRIBUTES = createAttributes()
 
 const DUMMY = new THREE.Mesh(
-  new THREE.PlaneGeometry(3000, 3000),
+  new THREE.PlaneGeometry(5000, 5000),
   new THREE.MeshBasicMaterial()
 )
 
