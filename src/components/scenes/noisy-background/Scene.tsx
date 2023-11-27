@@ -15,8 +15,8 @@ export default function NoisyBackgroundScene() {
       <Suspense fallback={null}>
         <NoisyBackground />
       </Suspense>
-      <EffectComposer disableNormalPass>
-        <Noise opacity={0.2} />
+      <EffectComposer>
+        <Noise opacity={0.1} />
         <Vignette eskil={false} offset={0.1} darkness={0.6} />
       </EffectComposer>
     </Canvas>
