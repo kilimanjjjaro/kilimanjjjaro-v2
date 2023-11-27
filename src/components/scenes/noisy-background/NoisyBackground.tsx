@@ -7,7 +7,7 @@ import { useStore } from '@/lib/store/store'
 import { getRandomNumber } from '@/lib/utils/getRandomNumber'
 import { GRADIENTS } from '@/lib/constants/general'
 
-const SPHERE_GEOMETRY = new THREE.SphereGeometry(2, 256, 256)
+const SPHERE_GEOMETRY = new THREE.SphereGeometry(2, 1920, 1920)
 
 const SHADER_MATERIAL = new THREE.ShaderMaterial({
   fragmentShader: NOISY_BACKGROUND_SHADERS.fragmentShader,
@@ -33,17 +33,17 @@ export default function NoisyBackground() {
   const meshRef = useRef<THREE.Mesh>(null)
   const time = useRef(0)
   const randomIndex = useRef(0)
-  const mouse = useRef({ x: 0, y: 0, vX: 0, vY: 0 })
+  const pointerRef = useRef({ x: 0, y: 0, vX: 0, vY: 0 })
 
-  useFrame(({ pointer }) => {
+  useFrame(({ pointer, gl, events }) => {
     if (meshRef.current === null) return
 
     const { x, y } = pointer
 
-    const xVelocity = x - mouse.current.x
-    const yVelocity = y - mouse.current.y
+    const xVelocity = x - pointerRef.current.x
+    const yVelocity = y - pointerRef.current.y
 
-    mouse.current = {
+    pointerRef.current = {
       x: pointer.x,
       y: pointer.y,
       vX: xVelocity,

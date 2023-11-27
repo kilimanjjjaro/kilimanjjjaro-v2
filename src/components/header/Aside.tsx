@@ -4,15 +4,19 @@ import { AnimatePresence, motion } from 'framer-motion'
 import MagicKeys from '@/components/header/MagicKeys'
 import MonospaceLogo from '@/components/shared/MonospaceLogo'
 import useNavbar from '@/lib/hooks/useNavbar'
+import { useStore } from '@/lib/store/store'
 import { NAVIGATION_VARIANTS } from '@/lib/constants/general'
 
 export default function Aside() {
+  const introRunning = useStore((state) => state.introRunning)
   const { variant } = useNavbar()
+
+  if (introRunning) return
 
   return (
     <AnimatePresence>
       {variant === NAVIGATION_VARIANTS.large && (
-        <aside className='fixed z-10 bottom-0 px-16 pb-16 w-full flex items-center justify-between mix-blend-difference'>
+        <aside className='fixed z-10 bottom-0 px-14 pb-14 w-full flex items-center justify-between mix-blend-difference'>
           <div className='overflow-hidden'>
             <motion.span
               className='block'

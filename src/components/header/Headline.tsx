@@ -1,10 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
 
 export default function Headline() {
+  const introRunning = useStore((state) => state.introRunning)
   const t = useScopedI18n('home.header.headline')
+
+  if (introRunning) return
 
   return (
     <h2
@@ -21,11 +25,11 @@ export default function Headline() {
             y: '0%'
           }}
           transition={{
-            duration: 0.7,
+            duration: 1,
             ease: [0.77, 0, 0.18, 1]
           }}
         >
-          {t('text.0')}{' '}
+          {t('text.0')}
         </motion.span>
       </span>
       <span aria-hidden className='overflow-hidden xl:ml-40'>
@@ -38,7 +42,7 @@ export default function Headline() {
             y: '0%'
           }}
           transition={{
-            duration: 0.7,
+            duration: 1,
             ease: [0.77, 0, 0.18, 1],
             delay: 0.1
           }}

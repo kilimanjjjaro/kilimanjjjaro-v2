@@ -10,7 +10,7 @@ export default function DistortedTextureScene() {
       className='!absolute inset-0 w-full h-full'
       camera={{
         position: [0, 0, 1000],
-        fov: 95,
+        fov: 97,
         near: 0.1,
         far: 3000,
         aspect: 1920 / 1080

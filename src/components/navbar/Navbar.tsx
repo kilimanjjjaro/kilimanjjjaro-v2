@@ -14,7 +14,7 @@ export default function Navbar() {
   if (introRunning) return null
 
   return (
-    <header className='fixed flex items-start left-16 right-16 z-50 top-16 mix-blend-difference'>
+    <header className='fixed flex items-start left-14 right-14 z-50 top-14 mix-blend-difference'>
       <AnimatePresence>
         {variant === NAVIGATION_VARIANTS.large ? (
           <LargeVariant key='large-navbar' />
