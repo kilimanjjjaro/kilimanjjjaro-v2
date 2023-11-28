@@ -66,7 +66,7 @@ export default function AsciiImage() {
 
     for (let i = 0; i < COUNT; i++) {
       for (let j = 0; j < COUNT; j++) {
-        dummy.position.set(i * CELL_SIZE - 0.5, j * CELL_SIZE - 0.5, 0)
+        dummy.position.set(j * CELL_SIZE - 0.5, -i * CELL_SIZE + 0.5, 0)
 
         dummy.updateMatrix()
 
@@ -77,13 +77,41 @@ export default function AsciiImage() {
     }
 
     instancedMeshEl.current.instanceMatrix.needsUpdate = true
+
+    instancedMeshEl.current.geometry.setAttribute(
+      'a_instanceScale',
+      new THREE.InstancedBufferAttribute(scales, 1)
+    )
+  }, [])
+
+  useEffect(() => {
+    if (instancedMeshEl.current === null) return
+
+    const canvas = document.createElement('canvas')
+
+    const ctx = canvas.getContext('2d')
+
+    if (ctx === null) return
+
+    canvas.width = imageTexture.image.width
+    canvas.height = imageTexture.image.height
+
+    const scales = new Float32Array(COUNT ** 2)
+    ctx.drawImage(imageTexture.image, 0, 0, COUNT, COUNT)
+
+    const imageData = ctx.getImageData(0, 0, COUNT, COUNT)
+
+    for (let i = 0; i < imageData.data.length; i += 4) {
+      scales.set([1.0 - imageData.data[i] / 255], i / 4)
+    }
+
     instancedMeshEl.current.geometry.setAttribute(
       'a_instanceScale',
       new THREE.InstancedBufferAttribute(scales, 1)
     )
 
-    console.log(instancedMeshEl.current.geometry.attributes)
-  }, [])
+    instancedMeshEl.current.instanceMatrix.needsUpdate = true
+  }, [imageTexture])
 
   return (
     <instancedMesh
