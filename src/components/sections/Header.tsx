@@ -1,4 +1,4 @@
-import AsciiScene from '../scenes/ascii/Scene'
+import AsciiScene from '../scenes/ascii-image/Scene'
 
 export default function Header() {
   return (
