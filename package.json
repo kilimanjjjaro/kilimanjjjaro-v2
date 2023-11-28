@@ -21,7 +21,7 @@
     "@react-email/section": "0.0.10",
     "@react-email/tailwind": "0.0.12",
     "@react-email/text": "0.0.6",
-    "@react-three/drei": "9.88.17",
+    "@react-three/drei": "9.89.0",
     "@react-three/fiber": "8.15.11",
     "@react-three/postprocessing": "2.15.11",
     "@studio-freight/react-lenis": "0.0.38",
@@ -40,7 +40,7 @@
     "swiper": "11.0.5",
     "three": "0.158.0",
     "zod": "3.22.4",
-    "zustand": "4.4.6"
+    "zustand": "4.4.7"
   },
   "devDependencies": {
     "@types/node": "20.10.0",
