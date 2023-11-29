@@ -35,7 +35,7 @@ export default function NoisyBackground() {
   const randomIndex = useRef(0)
   const pointerRef = useRef({ x: 0, y: 0, vX: 0, vY: 0 })
 
-  useFrame(({ pointer, gl, events }) => {
+  useFrame(({ pointer }) => {
     if (meshRef.current === null) return
 
     const { x, y } = pointer
