@@ -38,7 +38,7 @@ export const NOISY_BACKGROUND_SHADERS = {
     }
 
     float lines(vec2 uv, float offset) {
-      float numberOfLines = 40.0;
+      float numberOfLines = 30.0;
 
       return smoothstep(0.0, 0.5 + offset * 0.5, abs(0.5 * (sin(uv.x * numberOfLines) + offset * 1.0)));
     }
@@ -52,7 +52,7 @@ export const NOISY_BACKGROUND_SHADERS = {
 
       vec2 baseUV = rotate2d(n) * vPosition.xy * 0.1;
 
-      float basePattern = lines(baseUV, 0.5);
+      float basePattern = lines(baseUV, 0.1);
       float secondBasePattern = lines(baseUV, 0.1);
 
       vec3 baseColor = mix(uBaseFirstColor, uBaseSecondColor, basePattern);
