@@ -4,6 +4,8 @@ interface Props {
 
 export default function MonospaceLogo({ className }: Props) {
   return (
-    <h1 className={`font-geist-mono leading-none ${className}`}>Monospace</h1>
+    <h1 className={`uppercase font-black leading-none ${className}`}>
+      Monospace
+    </h1>
   )
 }
