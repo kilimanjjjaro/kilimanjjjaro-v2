@@ -23,7 +23,6 @@ export default function SmoothScroll({ children }: { children: ChildrenType }) {
     <ReactLenis
       root
       options={{
-        lerp: 1,
         duration: isDesktop ? 1.5 : 1.2,
         smoothWheel: true,
         smoothTouch: true
