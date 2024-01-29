@@ -25,45 +25,63 @@ export default function LargeVariant() {
 
   return (
     <nav className='flex justify-between items-start w-full'>
-      <ul className='flex gap-20'>
-        {sections.map((section, index) => (
-          <li
-            key={section.slug}
-            className='text-monospace-light-gray text-xl leading-none overflow-hidden xl:hover:text-monospace-white transition-colors duration-700 ease-in-out'
-          >
-            <motion.div
-              className='block'
-              initial={{ y: '118%' }}
-              animate={{
-                y: '0%',
-                transition: {
-                  duration: 0.7,
-                  ease: [0.77, 0, 0.18, 1],
-                  delay: index * 0.1
-                }
-              }}
-              exit={{
-                y: '118%',
-                transition: {
-                  duration: 0.7,
-                  ease: [0.77, 0, 0.18, 1],
-                  delay: index * 0.1
-                }
-              }}
+      <h2 className='text-monospace-white text-xl leading-none overflow-hidden'>
+        <motion.span
+          className='block'
+          initial={{ y: '118%' }}
+          animate={{
+            y: '0%',
+            transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
+          }}
+          exit={{
+            y: '118%',
+            transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
+          }}
+        >
+          A solo future-proof web lab.
+        </motion.span>
+      </h2>
+      <div className='flex gap-20 items-start'>
+        <ul className='flex gap-20'>
+          {sections.map((section, index) => (
+            <li
+              key={section.slug}
+              className='text-monospace-light-gray text-xl leading-none overflow-hidden xl:hover:text-monospace-white transition-colors duration-700 ease-in-out'
             >
-              {section.slug !== 'contact' ? (
-                <Link href={`/#${section.slug}`}>{section.name}</Link>
-              ) : (
-                <Button onClick={() => openContactModal()}>
-                  {section.name}
-                </Button>
-              )}
-            </motion.div>
-          </li>
-        ))}
-      </ul>
-      <div className='overflow-hidden'>
-        <LanguageSelector />
+              <motion.div
+                className='block'
+                initial={{ y: '118%' }}
+                animate={{
+                  y: '0%',
+                  transition: {
+                    duration: 0.7,
+                    ease: [0.77, 0, 0.18, 1],
+                    delay: index * 0.1
+                  }
+                }}
+                exit={{
+                  y: '118%',
+                  transition: {
+                    duration: 0.7,
+                    ease: [0.77, 0, 0.18, 1],
+                    delay: index * 0.1
+                  }
+                }}
+              >
+                {section.slug !== 'contact' ? (
+                  <Link href={`/#${section.slug}`}>{section.name}</Link>
+                ) : (
+                  <Button onClick={() => openContactModal()}>
+                    {section.name}
+                  </Button>
+                )}
+              </motion.div>
+            </li>
+          ))}
+        </ul>
+        <div className='overflow-hidden'>
+          <LanguageSelector />
+        </div>
       </div>
     </nav>
   )
