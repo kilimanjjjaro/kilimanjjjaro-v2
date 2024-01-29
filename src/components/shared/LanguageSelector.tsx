@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Button from '@/components/shared/Button'
 import useNavbar from '@/lib/hooks/useNavbar'
@@ -22,11 +22,8 @@ export default function LanguageSelector() {
   const changeLocale = useChangeLocale()
   const { variant } = useNavbar()
 
-  const languages = useMemo(() => {
-    return currentLocale === LOCALES.en ? LANGUAGES.en : LANGUAGES.es
-  }, [currentLocale])
   const [selectedLanguage, setSelectedLanguage] = useState(
-    currentLocale === LOCALES.en ? languages[0] : languages[1]
+    currentLocale === LOCALES.en ? LANGUAGES[0] : LANGUAGES[1]
   )
 
   const changeLanguage = ({ language }: { language: LanguageInterface }) => {
@@ -37,7 +34,7 @@ export default function LanguageSelector() {
   }
 
   useEffect(() => {
-    if (variant === NAVIGATION_VARIANTS.small) {
+    if (variant === NAVIGATION_VARIANTS.SMALL) {
       setShowSelector(false)
     }
   }, [variant])
@@ -45,10 +42,10 @@ export default function LanguageSelector() {
   return (
     <div className='flex justify-center'>
       <Button
-        className='text-xl text-monospace-light-gray xl:hover:text-monospace-white transition-colors duration-700 ease-in-out'
+        className='text-xl text-monospace-white'
         onClick={() => setShowSelector(!showSelector)}
         underlined
-        underlineTrigger={variant === NAVIGATION_VARIANTS.large}
+        underlineTrigger={variant === NAVIGATION_VARIANTS.LARGE}
       >
         {selectedLanguage.name}
       </Button>
@@ -57,25 +54,25 @@ export default function LanguageSelector() {
         variants={LANGUAGES_UL_VARIANTS}
         animate={showSelector ? 'open' : 'closed'}
       >
-        {languages
-          .filter((language) => language.id !== selectedLanguage.id)
-          .map((language) => (
-            <li key={language.id}>
-              <Button
-                className='text-xl text-monospace-light-gray xl:hover:text-monospace-white overflow-hidden transition-colors duration-700 ease-in-out'
-                onClick={() => changeLanguage({ language })}
+        {LANGUAGES.filter(
+          (language) => language.id !== selectedLanguage.id
+        ).map((language) => (
+          <li key={language.id}>
+            <Button
+              className='text-xl text-monospace-light-gray xl:hover:text-monospace-white overflow-hidden transition-colors duration-700 ease-in-out'
+              onClick={() => changeLanguage({ language })}
+            >
+              <motion.span
+                className='block'
+                initial={{ y: '-100%', opacity: 0 }}
+                variants={LANGUAGES_LI_VARIANTS}
+                animate={showSelector ? 'open' : 'closed'}
               >
-                <motion.span
-                  className='block'
-                  initial={{ y: '-100%', opacity: 0 }}
-                  variants={LANGUAGES_LI_VARIANTS}
-                  animate={showSelector ? 'open' : 'closed'}
-                >
-                  {language.name}
-                </motion.span>
-              </Button>
-            </li>
-          ))}
+                {language.name}
+              </motion.span>
+            </Button>
+          </li>
+        ))}
       </motion.ul>
     </div>
   )

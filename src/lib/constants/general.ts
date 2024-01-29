@@ -9,16 +9,10 @@ export const BASE_URL = `${
 
 export const ADMIN_EMAIL = 'hello@monospace.ar'
 
-export const LANGUAGES = {
-  en: [
-    { id: 'en', name: 'English' },
-    { id: 'es', name: 'Spanish' }
-  ],
-  es: [
-    { id: 'en', name: 'Inglés' },
-    { id: 'es', name: 'Español' }
-  ]
-}
+export const LANGUAGES = [
+  { id: 'en', name: 'En' },
+  { id: 'es', name: 'Es' }
+]
 
 export const SOCIAL_LINKS = [
   { name: 'GitHub', link: 'https://github.com/monospace' },
@@ -29,14 +23,14 @@ export const SECTIONS = {
   en: [
     { slug: 'top', name: 'Index' },
     { slug: 'projects', name: 'Projects' },
-    { slug: 'knowledge', name: 'Knowledge' },
-    { slug: 'contact', name: 'Contact' }
+    { slug: 'studio', name: 'Studio' },
+    { slug: 'lets-talk', name: "Let's Talk!" }
   ],
   es: [
     { slug: 'top', name: 'Inicio' },
     { slug: 'projects', name: 'Proyectos' },
-    { slug: 'knowledge', name: 'Conocimientos' },
-    { slug: 'contact', name: 'Contacto' }
+    { slug: 'studio', name: 'Estudio' },
+    { slug: 'lets-talk', name: '¡Hablemos!' }
   ]
 }
 
@@ -82,8 +76,8 @@ export const LOCALES = {
 export const INTRO_ANIMATION_DURATION = 2.3
 
 export const NAVIGATION_VARIANTS = {
-  large: 1,
-  small: 2
+  LARGE: 1,
+  SMALL: 2
 }
 
 export const MAGIC_KEYS = [

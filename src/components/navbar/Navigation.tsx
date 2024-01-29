@@ -46,7 +46,7 @@ export default function Navigation() {
       }
     })
 
-    if (variant === NAVIGATION_VARIANTS.large) setNavbarStatus(false)
+    if (variant === NAVIGATION_VARIANTS.LARGE) setNavbarStatus(false)
   }, [setNavbarStatus, variant])
 
   return (

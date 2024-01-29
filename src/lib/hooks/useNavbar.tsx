@@ -2,17 +2,17 @@ import { useCallback, useEffect, useState } from 'react'
 import { NAVIGATION_VARIANTS } from '@/lib/constants/general'
 
 export default function useNavbar() {
-  const [variant, setVariant] = useState(NAVIGATION_VARIANTS.large)
+  const [variant, setVariant] = useState(NAVIGATION_VARIANTS.LARGE)
 
   const handleScroll = useCallback(() => {
     const currentScrollPos = window.scrollY
 
     if (currentScrollPos <= 1) {
-      setVariant(NAVIGATION_VARIANTS.large)
+      setVariant(NAVIGATION_VARIANTS.LARGE)
     }
 
     if (currentScrollPos > 1) {
-      setVariant(NAVIGATION_VARIANTS.small)
+      setVariant(NAVIGATION_VARIANTS.SMALL)
     }
   }, [])
 
