@@ -21,7 +21,7 @@ const config: Config = {
       colors: {
         'monospace-black': '#030303',
         'monospace-white': '#F8F8F8',
-        'monospace-dark-gray': '#080808',
+        'monospace-dark-gray': '#0A0A0A',
         'monospace-light-gray': '#7A7A7A'
       },
       boxShadow: {
