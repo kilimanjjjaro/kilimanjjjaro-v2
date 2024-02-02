@@ -1,8 +1,15 @@
+'use client'
+
+import { View } from '@react-three/drei'
 import Aside from '@/components/header/Aside'
+import NoisyBackground from '@/components/scenes/noisy-background/NoisyBackground'
 
 export default function Header() {
   return (
-    <header className='relative flex items-center justify-center px-6 pt-48 pb-44 xl:p-0 min-h-screen xl:w-full'>
+    <header className='relative min-h-screen w-full px-6 pb-44 pt-48 xl:p-0'>
+      <View className='fixed inset-0'>
+        <NoisyBackground />
+      </View>
       <Aside />
     </header>
   )

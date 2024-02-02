@@ -2,12 +2,12 @@
 
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import DistortedTexture from '@/components/scenes/distorted-texture/DistortedTexture'
+import DistortedTexture from '@/components/scenes/backup/distorted-texture/DistortedTexture'
 
 export default function DistortedTextureScene() {
   return (
     <Canvas
-      className='!absolute inset-0 w-full h-full'
+      className='!absolute inset-0 h-full w-full'
       camera={{
         position: [0, 0, 1000],
         fov: 97,

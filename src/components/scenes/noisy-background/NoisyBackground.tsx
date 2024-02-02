@@ -1,126 +1,134 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
-import { damp3 } from 'maath/easing'
-import { useFrame } from '@react-three/fiber'
-import { NOISY_BACKGROUND_SHADERS } from '@/lib/shaders/noisy-background'
-import { useStore } from '@/lib/store/store'
-import { getRandomNumber } from '@/lib/utils/getRandomNumber'
-import { GRADIENTS } from '@/lib/constants/general'
+import { useControls } from 'leva'
+import { BACKGROUND_SHADERS } from '@/lib/shaders/background'
+import { useFrame, useThree } from '@react-three/fiber'
+import { OrthographicCamera } from '@react-three/drei'
 
-const SPHERE_GEOMETRY = new THREE.SphereGeometry(2, 1920, 1920)
-
-const SHADER_MATERIAL = new THREE.ShaderMaterial({
-  fragmentShader: NOISY_BACKGROUND_SHADERS.fragmentShader,
-  vertexShader: NOISY_BACKGROUND_SHADERS.vertexShader,
-  side: THREE.DoubleSide,
-  uniforms: {
-    uTime: { value: 0 },
-    uBaseFirstColor: {
-      value: new THREE.Vector3(...GRADIENTS.default.firstColor)
-    },
-    uBaseSecondColor: {
-      value: new THREE.Vector3(...GRADIENTS.default.secondColor)
-    },
-    uAccentColor: {
-      value: new THREE.Vector3(...GRADIENTS.default.accentColor)
-    },
-    uVelocity: { value: 0 }
-  }
-})
+const UNIFORMS = {
+  uColor1: { value: new THREE.Vector3() },
+  uColor2: { value: new THREE.Vector3() },
+  uColor3: { value: new THREE.Vector3() },
+  uColorAccent: { value: new THREE.Color(0.0, 0.0, 0.0) },
+  uPlaneRes: { value: new THREE.Vector2(1.0, 1.0) },
+  uMouse2D: { value: new THREE.Vector2(1.0, 1.0) },
+  uLinesBlur: { value: 0 },
+  uNoise: { value: 0 },
+  uOffsetX: { value: 0 },
+  uOffsetY: { value: 0 },
+  uLinesAmount: { value: 0 },
+  uBackgroundScale: { value: 1 }
+}
 
 export default function NoisyBackground() {
-  const successCombination = useStore((state) => state.successCombination)
-  const meshRef = useRef<THREE.Mesh>(null)
-  const time = useRef(0)
-  const randomIndex = useRef(0)
-  const pointerRef = useRef({ x: 0, y: 0, vX: 0, vY: 0 })
+  const shaderMaterialRef = useRef<THREE.ShaderMaterial>(null)
+  const mouse2D = useRef(new THREE.Vector2(-0.42, 0.38))
+  const { viewport } = useThree()
 
-  useFrame(({ pointer }) => {
-    if (meshRef.current === null) return
+  const controls = useControls({
+    color1: '#2b2f3b',
+    color2: '#424b62',
+    color3: '#000000',
+    linesBlur: {
+      value: 0.4,
+      min: 0,
+      max: 1,
+      step: 0.0001
+    },
+    noiseAmount: {
+      value: 0.03,
+      min: 0,
+      max: 1,
+      step: 0.0001
+    },
+    offsetX: {
+      value: 0.98,
+      min: -5,
+      max: 5,
+      step: 0.000001
+    },
+    offsetY: {
+      value: 1.7,
+      min: -5,
+      max: 5,
+      step: 0.000001
+    },
+    linesAmount: {
+      value: 9.54,
+      min: 0,
+      max: 15,
+      step: 0.0001
+    },
+    mouseX: {
+      value: -0.42,
+      min: -1,
+      max: 1,
+      step: 0.000001
+    },
+    mouseY: {
+      value: 0.38,
+      min: -1,
+      max: 1,
+      step: 0.000001
+    },
+    enableMouse: true
+  })
 
-    const { x, y } = pointer
+  useFrame(() => {
+    if (shaderMaterialRef.current === null) return
 
-    const xVelocity = x - pointerRef.current.x
-    const yVelocity = y - pointerRef.current.y
-
-    pointerRef.current = {
-      x: pointer.x,
-      y: pointer.y,
-      vX: xVelocity,
-      vY: yVelocity
-    }
-
-    SHADER_MATERIAL.uniforms.uVelocity.value = Math.sqrt(
-      xVelocity * xVelocity + yVelocity * yVelocity
+    shaderMaterialRef.current.uniforms.uColor1.value = new THREE.Color(
+      controls.color1
+    ).toArray()
+    shaderMaterialRef.current.uniforms.uColor2.value = new THREE.Color(
+      controls.color2
+    ).toArray()
+    shaderMaterialRef.current.uniforms.uColor3.value = new THREE.Color(
+      controls.color3
+    ).toArray()
+    shaderMaterialRef.current.uniforms.uPlaneRes.value = new THREE.Vector2(
+      viewport.width,
+      viewport.height
     )
-
-    time.current += 0.0006
-
-    SHADER_MATERIAL.uniforms.uTime.value = time.current
-
-    meshRef.current.rotation.z = time.current
-
-    meshRef.current.rotation.y = THREE.MathUtils.lerp(
-      meshRef.current.rotation.y,
-      pointer.x,
-      0.002
+    shaderMaterialRef.current.uniforms.uMouse2D.value.lerp(
+      mouse2D.current,
+      0.015
     )
-
-    meshRef.current.rotation.x = THREE.MathUtils.lerp(
-      meshRef.current.rotation.x,
-      pointer.y,
-      0.002
-    )
-
-    if (successCombination) {
-      const { firstColor, secondColor, accentColor } =
-        GRADIENTS.random[randomIndex.current]
-
-      damp3(
-        SHADER_MATERIAL.uniforms.uBaseFirstColor.value,
-        new THREE.Vector3(...firstColor),
-        4.2
-      )
-
-      damp3(
-        SHADER_MATERIAL.uniforms.uBaseSecondColor.value,
-        new THREE.Vector3(...secondColor),
-        4
-      )
-
-      damp3(
-        SHADER_MATERIAL.uniforms.uAccentColor.value,
-        new THREE.Vector3(...accentColor),
-        4.4
-      )
-    } else {
-      damp3(
-        SHADER_MATERIAL.uniforms.uBaseFirstColor.value,
-        new THREE.Vector3(...GRADIENTS.default.firstColor),
-        1
-      )
-
-      damp3(
-        SHADER_MATERIAL.uniforms.uBaseSecondColor.value,
-        new THREE.Vector3(...GRADIENTS.default.secondColor),
-        1.1
-      )
-
-      damp3(
-        SHADER_MATERIAL.uniforms.uAccentColor.value,
-        new THREE.Vector3(...GRADIENTS.default.accentColor),
-        1.2
-      )
-    }
+    shaderMaterialRef.current.uniforms.uLinesBlur.value = controls.linesBlur
+    shaderMaterialRef.current.uniforms.uNoise.value = controls.noiseAmount
+    shaderMaterialRef.current.uniforms.uOffsetX.value = controls.offsetX
+    shaderMaterialRef.current.uniforms.uOffsetY.value = controls.offsetY
+    shaderMaterialRef.current.uniforms.uLinesAmount.value = controls.linesAmount
   })
 
   useEffect(() => {
-    if (successCombination) {
-      randomIndex.current = getRandomNumber({ max: GRADIENTS.random.length })
+    const mouseMoveHandler = (event: MouseEvent) => {
+      const x = (event.clientX / window.innerWidth) * 2 - 1
+      const y = -(event.clientY / window.innerHeight) * 2 + 1
+
+      if (controls.enableMouse) mouse2D.current.set(x, y)
     }
-  }, [successCombination])
+
+    mouse2D.current = new THREE.Vector2(controls.mouseX, controls.mouseY)
+
+    window.addEventListener('mousemove', mouseMoveHandler)
+
+    return () => {
+      window.removeEventListener('mousemove', mouseMoveHandler)
+    }
+  }, [controls])
 
   return (
-    <mesh ref={meshRef} geometry={SPHERE_GEOMETRY} material={SHADER_MATERIAL} />
+    <mesh>
+      <planeGeometry args={[viewport.width, viewport.height]} />
+      <shaderMaterial
+        ref={shaderMaterialRef}
+        uniforms={UNIFORMS}
+        fragmentShader={BACKGROUND_SHADERS.fragmentShader}
+        vertexShader={BACKGROUND_SHADERS.vertexShader}
+        side={THREE.FrontSide}
+      />
+      <OrthographicCamera args={[-1, 1, 1 - 1, -1000, 1000]} />
+    </mesh>
   )
 }
