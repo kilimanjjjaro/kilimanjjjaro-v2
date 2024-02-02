@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { useFrame, useLoader, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
-import { PARTICLE_TEXTURE_SHADERS } from '@/lib/shaders/particle-texture'
+import { PARTICLE_TEXTURE_SHADERS } from '@lib/shaders/particle-texture'
 
 const RANDOM_NUMBER = (min: number, max: number) => {
   return min + (max - min) * Math.random()

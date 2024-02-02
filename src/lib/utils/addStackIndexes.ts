@@ -1,5 +1,5 @@
-import { BASE_STACKS } from '@/lib/constants/general'
-import { SKILLS } from '@/lib/constants/skills'
+import { BASE_STACKS } from '@lib/constants/general'
+import { SKILLS } from '@lib/constants/skills'
 
 export default function addStackIndexes() {
   return BASE_STACKS.map((stack) => {

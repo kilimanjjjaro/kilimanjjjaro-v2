@@ -3,8 +3,8 @@
 import { useEffect } from 'react'
 import { useLenis } from '@studio-freight/react-lenis'
 import { motion, AnimatePresence } from 'framer-motion'
-import MonospaceLogo from '@/components/shared/MonospaceLogo'
-import { useStore } from '@/lib/store/store'
+import MonospaceLogo from '@components/shared/MonospaceLogo'
+import { useStore } from '@lib/store/store'
 
 export default function IntroAnimation() {
   const introRunning = useStore((state) => state.introRunning)
@@ -34,7 +34,7 @@ export default function IntroAnimation() {
     <AnimatePresence>
       {introRunning && (
         <motion.div
-          className='fixed flex inset-0 items-center justify-center h-screen-compatible min-h-screen-compatible'
+          className='h-screen-compatible min-h-screen-compatible fixed inset-0 flex items-center justify-center'
           initial={{
             opacity: 1
           }}
@@ -68,7 +68,7 @@ export default function IntroAnimation() {
             </div>
             <h2
               aria-label='A solo creative web studio.'
-              className='ml-[70px] flex flex-col font-geist-sans text-2xl text-monospace-light-gray leading-none'
+              className='ml-[70px] flex flex-col font-geist-sans text-2xl leading-none text-monospace-light-gray'
             >
               <span className='overflow-hidden' aria-hidden>
                 <motion.span

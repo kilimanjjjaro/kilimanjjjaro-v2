@@ -1,8 +1,8 @@
-import { getGitHubImage } from '@/lib/utils/getGitHubImage'
+import { getGitHubImage } from '@lib/utils/getGitHubImage'
 import type {
   FeaturedProjectsInterface,
   OtherProjectsInterface
-} from '@/lib/types/projects'
+} from '@lib/types/projects'
 
 export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
   en: [

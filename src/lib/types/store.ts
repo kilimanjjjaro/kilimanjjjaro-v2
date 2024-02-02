@@ -1,5 +1,5 @@
 import type { Swiper } from 'swiper'
-import type { StackInterface } from '@/lib/types/general'
+import type { StackInterface } from '@lib/types/general'
 
 export interface NavbarSliceInterface {
   navbarStatus: boolean

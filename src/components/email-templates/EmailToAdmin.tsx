@@ -9,7 +9,7 @@ import { Img } from '@react-email/img'
 import { Section } from '@react-email/section'
 import { Text } from '@react-email/text'
 import { Link } from '@react-email/link'
-import { BASE_URL } from '@/lib/constants/general'
+import { BASE_URL } from '@lib/constants/general'
 
 interface Props {
   name: string
@@ -38,26 +38,26 @@ export default function EmailToAdmin({ name, email, message }: Props) {
           }
         }}
       >
-        <Body className='m-0 font-geist-sans !bg-black py-14'>
-          <Container className='w-[480px] mx-auto px-6'>
+        <Body className='m-0 !bg-black py-14 font-geist-sans'>
+          <Container className='mx-auto w-[480px] px-6'>
             <Heading
               as='h1'
               className='m-0 text-4xl font-bold text-monospace-white'
             >
               <strong>Hi Gonzalo!</strong>
               <Img
-                className='inline ml-3'
+                className='ml-3 inline'
                 src={`${BASE_URL}/images/email/hand.png`}
                 width='36'
                 height='36'
                 alt='Greeting'
               />
             </Heading>
-            <Section className='mt-10 mb-12'>
-              <Text className='mt-0 mb-4 text-monospace-white'>
+            <Section className='mb-12 mt-10'>
+              <Text className='mb-4 mt-0 text-monospace-white'>
                 Someone just sent you a message through your website.
               </Text>
-              <ul className='px-5 py-4 m-0 list-none border bg-monospace-white text-monospace-black'>
+              <ul className='m-0 list-none border bg-monospace-white px-5 py-4 text-monospace-black'>
                 <li className='m-0'>
                   <Text className='my-0'>
                     <u>Name:</u> {name}
@@ -74,7 +74,7 @@ export default function EmailToAdmin({ name, email, message }: Props) {
                   </Text>
                 </li>
               </ul>
-              <Text className='mt-5 mb-0 text-monospace-white'>
+              <Text className='mb-0 mt-5 text-monospace-white'>
                 Don't forget to reply this as soon as possible.
               </Text>
               <Text className='m-0 text-monospace-white'>
@@ -89,9 +89,9 @@ export default function EmailToAdmin({ name, email, message }: Props) {
                 height='36'
                 alt='Monospace Logo'
               />
-              <Text className='mt-3 mb-0 text-xs'>
+              <Text className='mb-0 mt-3 text-xs'>
                 <Link
-                  className='leading-5 underline text-monospace-light-gray'
+                  className='leading-5 text-monospace-light-gray underline'
                   href='https://monospace.ar'
                   target='_blank'
                   rel='noopener noreferrer'

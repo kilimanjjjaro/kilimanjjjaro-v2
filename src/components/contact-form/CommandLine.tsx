@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import TypingEffect from '@/components/shared/TypingEffect'
+import TypingEffect from '@components/shared/TypingEffect'
 
 const FOLDERS = [
   'app',
@@ -39,7 +39,7 @@ export default function CommandLine() {
   }, [])
 
   return (
-    <div className='flex flex-col w-full h-full gap-6'>
+    <div className='flex h-full w-full flex-col gap-6'>
       <div>
         <p className='text-monospace-light-gray'>~/monospace/src</p>
         <div className='text-lg text-monospace-white'>

@@ -1,10 +1,10 @@
 import { setStaticParamsLocale } from 'next-international/server'
-import Header from '@/components/project/Header'
-import Grid from '@/components/project/Grid'
-import OtherProjects from '@/components/project/OtherProjects'
-import { getScopedI18n } from '@/lib/i18n/server'
-import { FEATURED_PROJECTS } from '@/lib/constants/projects'
-import { LOCALES } from '@/lib/constants/general'
+import Header from '@components/project/Header'
+import Grid from '@components/project/Grid'
+import OtherProjects from '@components/project/OtherProjects'
+import { getScopedI18n } from '@lib/i18n/server'
+import { FEATURED_PROJECTS } from '@lib/constants/projects'
+import { LOCALES } from '@lib/constants/general'
 import type { Metadata } from 'next'
 
 interface Props {
@@ -62,7 +62,7 @@ export default async function Project({ params }: Props) {
 
   if (project === undefined) {
     return (
-      <main className='flex items-center justify-center w-full h-screen leading-none text-8xl text-monospace-white'>
+      <main className='flex h-screen w-full items-center justify-center text-8xl leading-none text-monospace-white'>
         {t('notFoundMessage')}
       </main>
     )

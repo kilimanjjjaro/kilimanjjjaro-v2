@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
-import useScroll from '@/lib/hooks/useScroll'
+import useScroll from '@lib/hooks/useScroll'
 
 export default function ScrollPercentage() {
   const [showScrollPercentage, setShowScrollPercentage] = useState(false)
@@ -26,15 +26,15 @@ export default function ScrollPercentage() {
   }, [scrollPercentage, lastScrollPercentage])
 
   return (
-    <aside className='fixed top-0 bottom-0 right-16 flex items-center mix-blend-difference pointer-events-none'>
+    <aside className='pointer-events-none fixed bottom-0 right-16 top-0 flex items-center mix-blend-difference'>
       <div
         role='status'
         aria-label='Scroll percentage'
-        className='text-monospace-white font-geist-mono text-lg text-right leading-none overflow-hidden z-10'
+        className='z-10 overflow-hidden text-right font-geist-mono text-lg leading-none text-monospace-white'
       >
         <span
           className={clsx(
-            'flex justify-center transition-transform ease-in-out duration-700',
+            'flex justify-center transition-transform duration-700 ease-in-out',
             showScrollPercentage ? 'translate-y-0' : 'translate-y-full'
           )}
         >

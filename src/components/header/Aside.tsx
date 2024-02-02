@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useStore } from '@/lib/store/store'
+import { useStore } from '@lib/store/store'
 
 export default function Aside() {
   const introRunning = useStore((state) => state.introRunning)

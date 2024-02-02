@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import Balancer from 'react-wrap-balancer'
-import useMediaQuery from '@/lib/hooks/useMediaQuery'
-import FeaturedProjectName from '@/components/projects/FeaturedProjectName'
-import type { FeaturedProjectInterface } from '@/lib/types/projects'
+import useMediaQuery from '@lib/hooks/useMediaQuery'
+import FeaturedProjectName from '@components/projects/FeaturedProjectName'
+import type { FeaturedProjectInterface } from '@lib/types/projects'
 import Image from 'next/image'
 
 interface Props {

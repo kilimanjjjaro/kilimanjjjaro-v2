@@ -1,5 +1,5 @@
 import { createI18nClient } from 'next-international/client'
-import en from '@/lib/locales/en'
+import en from '@lib/locales/en'
 
 export const {
   useI18n,

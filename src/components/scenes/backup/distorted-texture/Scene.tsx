@@ -2,7 +2,7 @@
 
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import DistortedTexture from '@/components/scenes/backup/distorted-texture/DistortedTexture'
+import DistortedTexture from '@components/scenes/backup/distorted-texture/DistortedTexture'
 
 export default function DistortedTextureScene() {
   return (

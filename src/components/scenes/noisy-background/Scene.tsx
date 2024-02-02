@@ -2,7 +2,7 @@
 
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import NoisyBackground from '@/components/scenes/noisy-background/NoisyBackground'
+import NoisyBackground from '@components/scenes/noisy-background/NoisyBackground'
 
 export default function NoisyBackgroundScene() {
   return (

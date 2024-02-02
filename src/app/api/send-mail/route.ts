@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { Resend } from 'resend'
-import EmailToAdmin from '@/components/email-templates/EmailToAdmin'
-import EmailToUser from '@/components/email-templates/EmailToUser'
-import { ADMIN_EMAIL } from '@/lib/constants/general'
+import EmailToAdmin from '@components/email-templates/EmailToAdmin'
+import EmailToUser from '@components/email-templates/EmailToUser'
+import { ADMIN_EMAIL } from '@lib/constants/general'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 

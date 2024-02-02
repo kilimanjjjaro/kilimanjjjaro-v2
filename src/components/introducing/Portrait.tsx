@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import portraitImage from '../../../public/images/portrait.webp'
-import { useScopedI18n } from '@/lib/i18n/client'
+import { useScopedI18n } from '@lib/i18n/client'
 
 export default function Portrait() {
   const t = useScopedI18n('home.introducing')

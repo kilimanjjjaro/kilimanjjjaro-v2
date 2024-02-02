@@ -2,10 +2,10 @@ import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { damp3 } from 'maath/easing'
 import { useFrame } from '@react-three/fiber'
-import { NOISY_BACKGROUND_SHADERS } from '@/lib/shaders/noisy-background'
-import { useStore } from '@/lib/store/store'
-import { getRandomNumber } from '@/lib/utils/getRandomNumber'
-import { GRADIENTS } from '@/lib/constants/general'
+import { NOISY_BACKGROUND_SHADERS } from '@lib/shaders/noisy-background'
+import { useStore } from '@lib/store/store'
+import { getRandomNumber } from '@lib/utils/getRandomNumber'
+import { GRADIENTS } from '@lib/constants/general'
 
 const SPHERE_GEOMETRY = new THREE.SphereGeometry(2, 1920, 1920)
 

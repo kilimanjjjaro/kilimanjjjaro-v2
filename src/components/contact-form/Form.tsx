@@ -2,15 +2,15 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { useFormState } from 'react-dom'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
-import CommandLine from '@/components/contact-form/CommandLine'
-import Fields from '@/components/contact-form/Fields'
-import Warning from '@/components/contact-form/Warning'
-import SubmitButton from '@/components/contact-form/SubmitButton'
-import Button from '@/components/shared/Button'
-import { useStore } from '@/lib/store/store'
-import sendForm from '@/lib/actions/sendForm'
-import { useScopedI18n } from '@/lib/i18n/client'
-import { FORM_DEFAULT_STATE } from '@/lib/constants/form'
+import CommandLine from '@components/contact-form/CommandLine'
+import Fields from '@components/contact-form/Fields'
+import Warning from '@components/contact-form/Warning'
+import SubmitButton from '@components/contact-form/SubmitButton'
+import Button from '@components/shared/Button'
+import { useStore } from '@lib/store/store'
+import sendForm from '@lib/actions/sendForm'
+import { useScopedI18n } from '@lib/i18n/client'
+import { FORM_DEFAULT_STATE } from '@lib/constants/form'
 
 interface Props {
   handleDrag: React.PointerEventHandler<HTMLElement>
@@ -104,7 +104,7 @@ export default function Form({ handleDrag }: Props) {
       aria-label='Contact form'
       ref={formRef}
       action={formAction}
-      className='w-[700px] bg-[#030303] relative rounded-md shadow-lg overflow-hidden pointer-events-auto'
+      className='pointer-events-auto relative w-[700px] overflow-hidden rounded-md bg-[#030303] shadow-lg'
       initial={{
         y: '90dvh',
         scale: 0.5
@@ -127,13 +127,13 @@ export default function Form({ handleDrag }: Props) {
       }}
     >
       <motion.header
-        className='flex items-center h-10 gap-4 px-4 bg-monospace-light-gray/30 cursor-grab active:cursor-grabbing active:select-none'
+        className='flex h-10 cursor-grab items-center gap-4 bg-monospace-light-gray/30 px-4 active:cursor-grabbing active:select-none'
         onPointerDown={handleDrag}
       >
         <Button
           aria-label='Close contact form'
           onClick={(event) => handleCloseClick(event)}
-          className='w-3 h-3 transition-colors duration-700 bg-red-600 rounded-full xl:hover:bg-monospace-white'
+          className='h-3 w-3 rounded-full bg-red-600 transition-colors duration-700 xl:hover:bg-monospace-white'
         />
         <p className='text-sm tracking-wide text-monospace-white'>
           ~/monospace/src
@@ -141,14 +141,14 @@ export default function Form({ handleDrag }: Props) {
       </motion.header>
       <main
         data-lenis-prevent
-        className='relative flex items-center justify-center p-9 h-[55dvh] font-geist-mono overflow-y-auto contact-form overscroll-contain'
+        className='contact-form relative flex h-[55dvh] items-center justify-center overflow-y-auto overscroll-contain p-9 font-geist-mono'
       >
         {!renderFields && <CommandLine />}
         {renderFields && (
-          <div className='flex flex-col w-full h-full gap-6 py-6'>
+          <div className='flex h-full w-full flex-col gap-6 py-6'>
             <div
               className={clsx(
-                'absolute top-0 left-0 flex items-center justify-between bg-[#00ff00] w-full h-6 px-4 text-sm',
+                'absolute left-0 top-0 flex h-6 w-full items-center justify-between bg-[#00ff00] px-4 text-sm',
                 error && 'bg-red-600'
               )}
             >

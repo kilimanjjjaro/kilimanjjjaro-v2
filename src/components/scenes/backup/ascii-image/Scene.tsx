@@ -1,7 +1,7 @@
 'use client'
 
 import { Canvas } from '@react-three/fiber'
-import AsciiImage from '@/components/scenes/backup/ascii-image/AsciiImage'
+import AsciiImage from '@components/scenes/backup/ascii-image/AsciiImage'
 import { Suspense } from 'react'
 
 export default function AsciiScene() {

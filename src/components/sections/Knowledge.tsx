@@ -1,9 +1,9 @@
-import HeadlineMarquee from '@/components/shared/HeadlineMarquee'
-import Approach from '@/components/knowledge/Approach'
-import Clients from '@/components/knowledge/Clients'
-import Experience from '@/components/knowledge/Experience'
-import Education from '@/components/knowledge/Education'
-import { getScopedI18n } from '@/lib/i18n/server'
+import HeadlineMarquee from '@components/shared/HeadlineMarquee'
+import Approach from '@components/knowledge/Approach'
+import Clients from '@components/knowledge/Clients'
+import Experience from '@components/knowledge/Experience'
+import Education from '@components/knowledge/Education'
+import { getScopedI18n } from '@lib/i18n/server'
 
 export default async function Knowledge() {
   const t = await getScopedI18n('home.knowledge')
@@ -11,7 +11,7 @@ export default async function Knowledge() {
   return (
     <section
       id='knowledge'
-      className='pt-20 pb-24 xl:pt-32 xl:pb-40 bg-monospace-dark-gray'
+      className='bg-monospace-dark-gray pb-24 pt-20 xl:pb-40 xl:pt-32'
     >
       <HeadlineMarquee
         className='text-6xl text-monospace-white xl:text-10xl'

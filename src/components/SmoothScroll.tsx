@@ -2,9 +2,9 @@
 
 import { useEffect } from 'react'
 import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
-import { useStore } from '@/lib/store/store'
-import useMediaQuery from '@/lib/hooks/useMediaQuery'
-import type { ChildrenType } from '@/lib/types/general'
+import { useStore } from '@lib/store/store'
+import useMediaQuery from '@lib/hooks/useMediaQuery'
+import type { ChildrenType } from '@lib/types/general'
 
 export default function SmoothScroll({ children }: { children: ChildrenType }) {
   const navbarStatus = useStore((state) => state.navbarStatus)

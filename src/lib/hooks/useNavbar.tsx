@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { NAVIGATION_VARIANTS } from '@/lib/constants/general'
+import { NAVIGATION_VARIANTS } from '@lib/constants/general'
 
 export default function useNavbar() {
   const [variant, setVariant] = useState(NAVIGATION_VARIANTS.LARGE)

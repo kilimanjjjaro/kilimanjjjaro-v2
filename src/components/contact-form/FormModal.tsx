@@ -2,8 +2,8 @@
 
 import { useRef } from 'react'
 import { AnimatePresence, motion, useDragControls } from 'framer-motion'
-import ContactForm from '@/components/contact-form/Form'
-import { useStore } from '@/lib/store/store'
+import ContactForm from '@components/contact-form/Form'
+import { useStore } from '@lib/store/store'
 
 export default function FormModal() {
   const showContactForm = useStore((state) => state.showContactForm)
@@ -16,7 +16,7 @@ export default function FormModal() {
         <motion.div
           role='dialog'
           ref={dragConstraintsRef}
-          className='fixed inset-0 z-50 flex items-center justify-center pointer-events-none'
+          className='pointer-events-none fixed inset-0 z-50 flex items-center justify-center'
         >
           <motion.div
             drag

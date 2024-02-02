@@ -3,13 +3,13 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import clsx from 'clsx'
-import Button from '@/components/shared/Button'
-import Link from '@/components/shared/Link'
-import { useStore } from '@/lib/store/store'
-import useNavbar from '@/lib/hooks/useNavbar'
-import { useCurrentLocale } from '@/lib/i18n/client'
-import { SECTIONS, LOCALES, NAVIGATION_VARIANTS } from '@/lib/constants/general'
-import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/lib/constants/variants'
+import Button from '@components/shared/Button'
+import Link from '@components/shared/Link'
+import { useStore } from '@lib/store/store'
+import useNavbar from '@lib/hooks/useNavbar'
+import { useCurrentLocale } from '@lib/i18n/client'
+import { SECTIONS, LOCALES, NAVIGATION_VARIANTS } from '@lib/constants/general'
+import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@lib/constants/variants'
 
 export default function Navigation() {
   const currentLocale = useCurrentLocale()
@@ -53,7 +53,7 @@ export default function Navigation() {
     <AnimatePresence>
       {navbarStatus && (
         <motion.nav
-          className='z-40 fixed inset-0 flex justify-center items-center px-6 pt-32 pb-8 bg-monospace-dark-gray xl:px-20 xl:py-16'
+          className='fixed inset-0 z-40 flex items-center justify-center bg-monospace-dark-gray px-6 pb-8 pt-32 xl:px-20 xl:py-16'
           variants={NAVBAR_VARIANTS}
           initial={{
             clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)'
@@ -66,7 +66,7 @@ export default function Navigation() {
               <li
                 key={section.slug}
                 className={clsx(
-                  'block text-3xl font-geist-mono text-monospace-white leading-none xl:text-9xl xl:leading-[1.1] overflow-hidden transition-colors duration-700 xl:ease-in-out-monospace',
+                  'xl:ease-in-out-monospace block overflow-hidden font-geist-mono text-3xl leading-none text-monospace-white transition-colors duration-700 xl:text-9xl xl:leading-[1.1]',
                   isHovering &&
                     hoveredSection !== section.slug &&
                     '!text-monospace-light-gray'

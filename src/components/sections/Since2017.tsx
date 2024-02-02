@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from 'react'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
-import useMediaQuery from '@/lib/hooks/useMediaQuery'
-import { useScopedI18n } from '@/lib/i18n/client'
+import useMediaQuery from '@lib/hooks/useMediaQuery'
+import { useScopedI18n } from '@lib/i18n/client'
 
 export default function Since2017() {
   const t = useScopedI18n('home.since2017')
@@ -41,12 +41,12 @@ export default function Since2017() {
   return (
     <motion.section
       ref={sectionRef}
-      className='relative flex justify-center items-center w-full h-[60vh] overflow-hidden xl:h-screen bg-[#676767]'
+      className='relative flex h-[60vh] w-full items-center justify-center overflow-hidden bg-[#676767] xl:h-screen'
     >
       <motion.div className='absolute' style={{ width: videoScale }}>
         <video
           ref={videoRef}
-          className='w-full aspect-video'
+          className='aspect-video w-full'
           src='images/projects/kilimanjjjaro-v1/hero-video.webm'
           loop
           muted
@@ -55,7 +55,7 @@ export default function Since2017() {
         />
       </motion.div>
       <motion.h3
-        className='absolute leading-none -mt-3 text-monospace-white text-center text-[12vw] mix-blend-difference w-[190px] xl:w-auto'
+        className='absolute -mt-3 w-[190px] text-center text-[12vw] leading-none text-monospace-white mix-blend-difference xl:w-auto'
         style={{ scale: headlineScale }}
       >
         {t('headline')}

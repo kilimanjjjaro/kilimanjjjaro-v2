@@ -6,9 +6,9 @@ import { deleteCookie } from 'cookies-next'
 import Balancer from 'react-wrap-balancer'
 import { AnimatePresence, motion } from 'framer-motion'
 import clsx from 'clsx'
-import AnimatedText from '@/components/shared/AnimatedText'
-import Button from '@/components/shared/Button'
-import { useScopedI18n } from '@/lib/i18n/client'
+import AnimatedText from '@components/shared/AnimatedText'
+import Button from '@components/shared/Button'
+import { useScopedI18n } from '@lib/i18n/client'
 
 import cookieImage from '../../public/images/cookie.webp'
 
@@ -42,7 +42,7 @@ export default function CookiesConsent() {
       {showCookiesConsent && (
         <motion.div
           role='alert'
-          className='fixed flex-col bottom-6 left-6 xl:bottom-8 xl:left-8 bg-[#030303]/95 backdrop-blur-md z-20 w-auto max-w-[256px] overflow-hidden rounded-md'
+          className='fixed bottom-6 left-6 z-20 w-auto max-w-[256px] flex-col overflow-hidden rounded-md bg-[#030303]/95 backdrop-blur-md xl:bottom-8 xl:left-8'
           initial={{ y: 265 }}
           animate={showCookiesConsent && { y: 0 }}
           exit={{ y: 265, transition: { duration: 1, ease: 'easeInOut' } }}
@@ -52,17 +52,17 @@ export default function CookiesConsent() {
             delay: 10
           }}
         >
-          <header className='flex items-center w-full h-6 px-4 bg-monospace-light-gray/30'>
+          <header className='flex h-6 w-full items-center bg-monospace-light-gray/30 px-4'>
             <button
               aria-label='Close cookies consent'
               onClick={handleDecline}
-              className='w-3 h-3 transition-colors duration-700 bg-red-600 rounded-full xl:hover:bg-monospace-white'
+              className='h-3 w-3 rounded-full bg-red-600 transition-colors duration-700 xl:hover:bg-monospace-white'
               onMouseEnter={() => setShowCloseWarning(true)}
               onMouseLeave={() => setShowCloseWarning(false)}
             />
           </header>
-          <main className='p-4 flex flex-col text-xs md:text-sm font-geist-mono'>
-            <h3 className='flex items-center gap-2 mb-2 text-monospace-white'>
+          <main className='flex flex-col p-4 font-geist-mono text-xs md:text-sm'>
+            <h3 className='mb-2 flex items-center gap-2 text-monospace-white'>
               {t('headline')}
               <Image
                 src={cookieImage}
@@ -77,7 +77,7 @@ export default function CookiesConsent() {
             <div className='flex gap-4 text-xs md:text-sm'>
               <Button
                 className={clsx(
-                  'w-full h-8 xl:h-9 pt-px rounded-md outline-none transition-colors duration-700 ease-in-out appearance-none xl:hover:text-red-500 xl:hover:bg-red-500/10',
+                  'h-8 w-full appearance-none rounded-md pt-px outline-none transition-colors duration-700 ease-in-out xl:h-9 xl:hover:bg-red-500/10 xl:hover:text-red-500',
                   showCloseWarning
                     ? 'bg-red-500/10 text-red-500'
                     : 'bg-monospace-white/0 text-monospace-white'
@@ -85,13 +85,13 @@ export default function CookiesConsent() {
                 onClick={handleDecline}
               >
                 <AnimatedText
-                  className='flex items-center justify-center w-full h-full text-center'
+                  className='flex h-full w-full items-center justify-center text-center'
                   text={t('declineButton')}
                 />
               </Button>
               <Button
                 className={clsx(
-                  'w-full h-8 xl:h-9 pt-px transition-colors duration-700 ease-in-out rounded-md outline-none appearance-none text-monospace-white xl:hover:text-green-500 xl:hover:bg-green-500/10 focus:bg-monospace-white',
+                  'h-8 w-full appearance-none rounded-md pt-px text-monospace-white outline-none transition-colors duration-700 ease-in-out focus:bg-monospace-white xl:h-9 xl:hover:bg-green-500/10 xl:hover:text-green-500',
                   showCloseWarning
                     ? 'bg-monospace-white/0'
                     : 'bg-monospace-white/5'
@@ -99,7 +99,7 @@ export default function CookiesConsent() {
                 onClick={handleAccept}
               >
                 <AnimatedText
-                  className='flex items-center justify-center w-full h-full text-center'
+                  className='flex h-full w-full items-center justify-center text-center'
                   text={t('acceptButton')}
                 />
               </Button>

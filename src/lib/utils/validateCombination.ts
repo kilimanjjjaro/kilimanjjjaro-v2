@@ -1,4 +1,4 @@
-import { SUCCESS_KEY_COMBINATION } from '@/lib/constants/general'
+import { SUCCESS_KEY_COMBINATION } from '@lib/constants/general'
 
 export const validateKeyCombination = (combination: string[]) => {
   if (combination.length !== SUCCESS_KEY_COMBINATION.length) {

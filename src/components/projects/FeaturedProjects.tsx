@@ -1,7 +1,7 @@
 'use client'
 
-import FeaturedProject from '@/components/projects/FeaturedProject'
-import type { FeaturedProjectInterface } from '@/lib/types/projects'
+import FeaturedProject from '@components/projects/FeaturedProject'
+import type { FeaturedProjectInterface } from '@lib/types/projects'
 
 interface Props {
   projects: FeaturedProjectInterface[]

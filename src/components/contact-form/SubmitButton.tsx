@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { useFormStatus } from 'react-dom'
 import clsx from 'clsx'
-import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon'
-import { useScopedI18n } from '@/lib/i18n/client'
+import { ArrowRightIcon } from '@components/icons/ArrowRightIcon'
+import { useScopedI18n } from '@lib/i18n/client'
 
 interface Props {
   error: boolean
@@ -29,8 +29,8 @@ export default function SubmitButton({ error, success, shouldFocus }: Props) {
     <button
       ref={buttonRef}
       className={clsx(
-        'flex absolute bottom-8 right-9 items-center gap-2 text-md rounded-md text-monospace-white bg-[#030303] pb-2 pt-[10px] px-4 xl:hover:bg-monospace-dark-gray transition-colors duration-700',
-        pending && 'cursor-not-allowed animate-pulse'
+        'text-md absolute bottom-8 right-9 flex items-center gap-2 rounded-md bg-[#030303] px-4 pb-2 pt-[10px] text-monospace-white transition-colors duration-700 xl:hover:bg-monospace-dark-gray',
+        pending && 'animate-pulse cursor-not-allowed'
       )}
       disabled={pending}
       aria-disabled={pending}

@@ -2,12 +2,12 @@
 
 import { useMemo } from 'react'
 import { motion } from 'framer-motion'
-import Button from '@/components/shared/Button'
-import LanguageSelector from '@/components/shared/LanguageSelector'
-import Link from '@/components/shared/Link'
-import { useStore } from '@/lib/store/store'
-import { useCurrentLocale } from '@/lib/i18n/client'
-import { SECTIONS, LOCALES } from '@/lib/constants/general'
+import Button from '@components/shared/Button'
+import LanguageSelector from '@components/shared/LanguageSelector'
+import Link from '@components/shared/Link'
+import { useStore } from '@lib/store/store'
+import { useCurrentLocale } from '@lib/i18n/client'
+import { SECTIONS, LOCALES } from '@lib/constants/general'
 
 export default function LargeVariant() {
   const setNavbarStatus = useStore((state) => state.setNavbarStatus)
@@ -24,8 +24,8 @@ export default function LargeVariant() {
   }
 
   return (
-    <nav className='flex justify-between items-start w-full'>
-      <h2 className='text-monospace-white text-xl leading-none overflow-hidden'>
+    <nav className='flex w-full items-start justify-between'>
+      <h2 className='overflow-hidden text-xl leading-none text-monospace-white'>
         <motion.span
           className='block'
           initial={{ y: '118%' }}
@@ -41,12 +41,12 @@ export default function LargeVariant() {
           A solo future-proof web lab.
         </motion.span>
       </h2>
-      <div className='flex gap-20 items-start'>
+      <div className='flex items-start gap-20'>
         <ul className='flex gap-20'>
           {sections.map((section, index) => (
             <li
               key={section.slug}
-              className='text-monospace-light-gray text-xl leading-none overflow-hidden xl:hover:text-monospace-white transition-colors duration-700 ease-in-out'
+              className='overflow-hidden text-xl leading-none text-monospace-light-gray transition-colors duration-700 ease-in-out xl:hover:text-monospace-white'
             >
               <motion.div
                 className='block'

@@ -1,5 +1,5 @@
 import { StateCreator } from 'zustand'
-import type { GeneralSliceInterface } from '@/lib/types/store'
+import type { GeneralSliceInterface } from '@lib/types/store'
 
 export const createGeneralSlice: StateCreator<GeneralSliceInterface> = (
   set

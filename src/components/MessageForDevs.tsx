@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { ADMIN_EMAIL, SOCIAL_LINKS } from '@/lib/constants/general'
+import { ADMIN_EMAIL, SOCIAL_LINKS } from '@lib/constants/general'
 
 const EMAIL_SUBJECT = 'From your console log 🙃'
 

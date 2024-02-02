@@ -4,15 +4,12 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
 import { useLenis } from '@studio-freight/react-lenis'
-import { PlusIcon } from '@/components/icons/PlusIcon'
-import { useStore } from '@/lib/store/store'
-import useMediaQuery from '@/lib/hooks/useMediaQuery'
-import {
-  STACKS_LI_VARIANTS,
-  STACKS_UL_VARIANTS
-} from '@/lib/constants/variants'
-import type { StackInterface } from '@/lib/types/general'
-import { STACKS } from '@/lib/constants/general'
+import { PlusIcon } from '@components/icons/PlusIcon'
+import { useStore } from '@lib/store/store'
+import useMediaQuery from '@lib/hooks/useMediaQuery'
+import { STACKS_LI_VARIANTS, STACKS_UL_VARIANTS } from '@lib/constants/variants'
+import type { StackInterface } from '@lib/types/general'
+import { STACKS } from '@lib/constants/general'
 
 export default function StackSelector() {
   const selectedStack = useStore((state) => state.selectedStack)
@@ -42,20 +39,20 @@ export default function StackSelector() {
   }
 
   return (
-    <div className='flex gap-10 pl-6 text-4xl xl:pl-40 text-monospace-white'>
+    <div className='flex gap-10 pl-6 text-4xl text-monospace-white xl:pl-40'>
       <button className='z-20 xl:z-0' onClick={() => handleClickOnSelector()}>
-        <h2 className='flex items-center gap-4 leading-none group'>
+        <h2 className='group flex items-center gap-4 leading-none'>
           {selectedStack.name} Skills
           <PlusIcon
             className={clsx(
-              'duration-700 transition-transform ease-in-out w-4 xl:group-hover:rotate-180',
+              'w-4 transition-transform duration-700 ease-in-out xl:group-hover:rotate-180',
               showSelector && '!-rotate-45'
             )}
           />
         </h2>
       </button>
       <motion.ul
-        className='fixed left-0 right-0 z-10 flex-col items-center hidden gap-6 bottom-8 xl:gap-10 xl:flex-row xl:static'
+        className='fixed bottom-8 left-0 right-0 z-10 hidden flex-col items-center gap-6 xl:static xl:flex-row xl:gap-10'
         variants={STACKS_UL_VARIANTS}
         animate={showSelector ? 'open' : 'closed'}
         transition={{
@@ -66,7 +63,7 @@ export default function StackSelector() {
       >
         {!isDesktop && (
           <motion.div
-            className='fixed bottom-0 left-0 w-full h-screen origin-bottom bg-gradient-to-t from-monospace-black to-monospace-black/0'
+            className='fixed bottom-0 left-0 h-screen w-full origin-bottom bg-gradient-to-t from-monospace-black to-monospace-black/0'
             initial={{ scaleY: '0%' }}
             animate={showSelector ? { scaleY: '100%' } : { scaleY: '0%' }}
             transition={{

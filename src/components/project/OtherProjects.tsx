@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import type { FeaturedProjectInterface } from '@/lib/types/projects'
+import type { FeaturedProjectInterface } from '@lib/types/projects'
 
 export default function OtherProjects({
   projects
@@ -13,13 +13,13 @@ export default function OtherProjects({
       {projects.map((project) => (
         <h3 key={project.id}>
           <Link
-            className='relative flex items-center justify-center h-48 leading-none transition-colors duration-700 ease-in-out border-8 rounded-full px-14 text-8xl text-monospace-white border-monospace-light-gray xl:hover:border-monospace-white group'
+            className='group relative flex h-48 items-center justify-center rounded-full border-8 border-monospace-light-gray px-14 text-8xl leading-none text-monospace-white transition-colors duration-700 ease-in-out xl:hover:border-monospace-white'
             href={`/project/${project.slug}`}
           >
             {project.name}
-            <div className='absolute w-[450px] overflow-hidden pointer-events-none'>
+            <div className='pointer-events-none absolute w-[450px] overflow-hidden'>
               <video
-                className='transition-transform duration-700 ease-in-out translate-y-[110%] rotate-6 xl:group-hover:translate-y-0 xl:group-hover:rotate-0'
+                className='translate-y-[110%] rotate-6 transition-transform duration-700 ease-in-out xl:group-hover:translate-y-0 xl:group-hover:rotate-0'
                 src={project.presentation.video}
                 autoPlay
                 playsInline

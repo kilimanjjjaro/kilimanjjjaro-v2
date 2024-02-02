@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import useMediaQuery from '@/lib/hooks/useMediaQuery'
+import useMediaQuery from '@lib/hooks/useMediaQuery'
 
 interface Props {
   ref: React.RefObject<HTMLElement>

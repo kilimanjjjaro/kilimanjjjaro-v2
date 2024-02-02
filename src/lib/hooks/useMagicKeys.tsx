@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
-import { useStore } from '@/lib/store/store'
-import { getRandomNumber } from '@/lib/utils/getRandomNumber'
-import { validateKeyCombination } from '@/lib/utils/validateCombination'
-import { MAGIC_KEYS, SUCCESS_KEY_COMBINATION } from '@/lib/constants/general'
+import { useStore } from '@lib/store/store'
+import { getRandomNumber } from '@lib/utils/getRandomNumber'
+import { validateKeyCombination } from '@lib/utils/validateCombination'
+import { MAGIC_KEYS, SUCCESS_KEY_COMBINATION } from '@lib/constants/general'
 
 interface Props {
   enableGame: boolean

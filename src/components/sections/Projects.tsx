@@ -2,10 +2,10 @@
 
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import FeaturedProject from '@/components/projects/FeaturedProject'
-import { useCurrentLocale } from '@/lib/i18n/client'
-import { LOCALES } from '@/lib/constants/general'
-import { FEATURED_PROJECTS } from '@/lib/constants/projects'
+import FeaturedProject from '@components/projects/FeaturedProject'
+import { useCurrentLocale } from '@lib/i18n/client'
+import { LOCALES } from '@lib/constants/general'
+import { FEATURED_PROJECTS } from '@lib/constants/projects'
 
 export default function Projects() {
   const sectionEl = useRef<HTMLElement>(null)

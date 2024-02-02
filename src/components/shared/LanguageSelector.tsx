@@ -2,19 +2,15 @@
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import Button from '@/components/shared/Button'
-import useNavbar from '@/lib/hooks/useNavbar'
-import { useChangeLocale, useCurrentLocale } from '@/lib/i18n/client'
-import {
-  LANGUAGES,
-  LOCALES,
-  NAVIGATION_VARIANTS
-} from '@/lib/constants/general'
+import Button from '@components/shared/Button'
+import useNavbar from '@lib/hooks/useNavbar'
+import { useChangeLocale, useCurrentLocale } from '@lib/i18n/client'
+import { LANGUAGES, LOCALES, NAVIGATION_VARIANTS } from '@lib/constants/general'
 import {
   LANGUAGES_LI_VARIANTS,
   LANGUAGES_UL_VARIANTS
-} from '@/lib/constants/variants'
-import type { LanguageInterface } from '@/lib/types/general'
+} from '@lib/constants/variants'
+import type { LanguageInterface } from '@lib/types/general'
 
 export default function LanguageSelector() {
   const currentLocale = useCurrentLocale()
@@ -50,7 +46,7 @@ export default function LanguageSelector() {
         {selectedLanguage.name}
       </Button>
       <motion.ul
-        className='absolute flex-col items-center hidden gap-2 mt-2 top-full'
+        className='absolute top-full mt-2 hidden flex-col items-center gap-2'
         variants={LANGUAGES_UL_VARIANTS}
         animate={showSelector ? 'open' : 'closed'}
       >
@@ -59,7 +55,7 @@ export default function LanguageSelector() {
         ).map((language) => (
           <li key={language.id}>
             <Button
-              className='text-xl text-monospace-light-gray xl:hover:text-monospace-white overflow-hidden transition-colors duration-700 ease-in-out'
+              className='overflow-hidden text-xl text-monospace-light-gray transition-colors duration-700 ease-in-out xl:hover:text-monospace-white'
               onClick={() => changeLanguage({ language })}
             >
               <motion.span

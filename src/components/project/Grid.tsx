@@ -3,9 +3,9 @@
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
-import Video from '@/components/project/Video'
-import { useScopedI18n } from '@/lib/i18n/client'
-import type { FeaturedProjectInterface } from '@/lib/types/projects'
+import Video from '@components/project/Video'
+import { useScopedI18n } from '@lib/i18n/client'
+import type { FeaturedProjectInterface } from '@lib/types/projects'
 import { useRef } from 'react'
 
 interface Props {
@@ -27,9 +27,9 @@ export default function Grid({ project }: Props) {
 
   return (
     <>
-      <section className='grid grid-cols-3 px-40 pb-36 gap-36'>
+      <section className='grid grid-cols-3 gap-36 px-40 pb-36'>
         <Video
-          className='w-full col-span-3 aspect-video'
+          className='col-span-3 aspect-video w-full'
           src={project.presentation.video}
         />
         <Image
@@ -59,10 +59,10 @@ export default function Grid({ project }: Props) {
 
       <section
         ref={sectionRef}
-        className='flex w-full h-screen gap-20 overflow-hidden bg-monospace-black'
+        className='flex h-screen w-full gap-20 overflow-hidden bg-monospace-black'
       >
         <motion.div
-          className='flex flex-col w-full gap-20 -mt-40'
+          className='-mt-40 flex w-full flex-col gap-20'
           style={{ y: sectionY }}
         >
           <Image
@@ -92,23 +92,23 @@ export default function Grid({ project }: Props) {
         </motion.div>
 
         <motion.div
-          className='flex flex-col items-center h-auto gap-20 mt-40 aspect-video'
+          className='mt-40 flex aspect-video h-auto flex-col items-center gap-20'
           style={{ width: videoWidth, y: sectionY }}
         >
           <Video
-            className='w-full aspect-video'
+            className='aspect-video w-full'
             src={`/images/projects/${project.slug}/gallery-3.webm`}
             autoPlay
           />
           <Video
-            className='w-full aspect-video'
+            className='aspect-video w-full'
             src={project.presentation.video}
             autoPlay
           />
         </motion.div>
 
         <motion.div
-          className='flex flex-col w-full gap-20'
+          className='flex w-full flex-col gap-20'
           style={{ y: sectionY }}
         >
           <Video
@@ -138,7 +138,7 @@ export default function Grid({ project }: Props) {
         </motion.div>
       </section>
 
-      <section className='grid grid-cols-3 px-40 py-36 gap-36 bg-monospace-dark-gray'>
+      <section className='grid grid-cols-3 gap-36 bg-monospace-dark-gray px-40 py-36'>
         <div className='flex flex-col gap-36'>
           <div>
             <h3 className='mb-10 text-xl leading-tight text-monospace-light-gray'>
@@ -150,11 +150,11 @@ export default function Grid({ project }: Props) {
             <h3 className='mb-10 text-xl leading-tight text-monospace-light-gray'>
               {t('stacksHeadline')}
             </h3>
-            <ul className='flex flex-wrap flex-1 gap-4'>
+            <ul className='flex flex-1 flex-wrap gap-4'>
               {project.stacks.map((stack, index) => (
                 <li
                   key={index}
-                  className='px-5 pt-2 pb-[7px] text-4xl border-2 rounded-full text-monospace-white border-monospace-light-gray'
+                  className='rounded-full border-2 border-monospace-light-gray px-5 pb-[7px] pt-2 text-4xl text-monospace-white'
                 >
                   {stack}
                 </li>

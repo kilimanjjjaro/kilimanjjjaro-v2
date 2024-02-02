@@ -3,12 +3,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Balancer from 'react-wrap-balancer'
-import OtherProject from '@/components/projects/OtherProject'
-import { PlusIcon } from '@/components/icons/PlusIcon'
-import { useScopedI18n } from '@/lib/i18n/client'
-import { useStore } from '@/lib/store/store'
-import { OTHER_PROJECTS } from '@/lib/constants/projects'
-import type { OtherProjectInterface } from '@/lib/types/projects'
+import OtherProject from '@components/projects/OtherProject'
+import { PlusIcon } from '@components/icons/PlusIcon'
+import { useScopedI18n } from '@lib/i18n/client'
+import { useStore } from '@lib/store/store'
+import { OTHER_PROJECTS } from '@lib/constants/projects'
+import type { OtherProjectInterface } from '@lib/types/projects'
 
 interface Props {
   projects: OtherProjectInterface[]
@@ -48,8 +48,8 @@ export default function OtherProjects({ projects }: Props) {
   }, [visibleItems, isInView, t])
 
   return (
-    <section ref={sectionEl} className='px-6 pb-24 xl:pb-40 xl:px-40'>
-      <h3 className='flex flex-col text-4xl leading-none xl:w-1/2 text-monospace-white xl:text-7xl'>
+    <section ref={sectionEl} className='px-6 pb-24 xl:px-40 xl:pb-40'>
+      <h3 className='flex flex-col text-4xl leading-none text-monospace-white xl:w-1/2 xl:text-7xl'>
         <span className='overflow-hidden'>
           <motion.span
             className='block'
@@ -84,7 +84,7 @@ export default function OtherProjects({ projects }: Props) {
         ))}
       </section>
       <motion.button
-        className='flex items-center w-full gap-2 mt-6 text-2xl text-left xl:w-auto xl:mt-10 text-monospace-white group'
+        className='group mt-6 flex w-full items-center gap-2 text-left text-2xl text-monospace-white xl:mt-10 xl:w-auto'
         onClick={handleShowMore}
         initial={{ opacity: 0 }}
         animate={isInView && { opacity: 1 }}

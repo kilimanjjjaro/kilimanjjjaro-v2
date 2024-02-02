@@ -1,8 +1,8 @@
 'use client'
 
 import { View } from '@react-three/drei'
-import Aside from '@/components/header/Aside'
-import NoisyBackground from '@/components/scenes/noisy-background/NoisyBackground'
+import Aside from '@components/header/Aside'
+import NoisyBackground from '@components/scenes/noisy-background/NoisyBackground'
 
 export default function Header() {
   return (

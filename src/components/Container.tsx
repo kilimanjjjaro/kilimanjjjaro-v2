@@ -4,9 +4,9 @@ import { useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { View } from '@react-three/drei'
 import { Leva } from 'leva'
-import SmoothScroll from '@/components/SmoothScroll'
-import { I18nProviderClient, useCurrentLocale } from '@/lib/i18n/client'
-import type { ChildrenType } from '@/lib/types/general'
+import SmoothScroll from '@components/SmoothScroll'
+import { I18nProviderClient, useCurrentLocale } from '@lib/i18n/client'
+import type { ChildrenType } from '@lib/types/general'
 
 export default function Container({ children }: { children: ChildrenType }) {
   const containerEl = useRef<HTMLDivElement>(null)

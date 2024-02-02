@@ -1,20 +1,20 @@
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
-import Container from '@/components/Container'
-import Footer from '@/components/Footer'
-import CookiesConsent from '@/components/CookiesConsent'
-import FormModal from '@/components/contact-form/FormModal'
-import Navigation from '@/components/navbar/Navigation'
-import Navbar from '@/components/navbar/Navbar'
-import MessageForDevs from '@/components/MessageForDevs'
-import IntroAnimation from '@/components/IntroAnimation'
-import ScrollPercentage from '@/components/ScrollPercentage'
+import Container from '@components/Container'
+import Footer from '@components/Footer'
+import CookiesConsent from '@components/CookiesConsent'
+import FormModal from '@components/contact-form/FormModal'
+import Navigation from '@components/navbar/Navigation'
+import Navbar from '@components/navbar/Navbar'
+import MessageForDevs from '@components/MessageForDevs'
+import IntroAnimation from '@components/IntroAnimation'
+import ScrollPercentage from '@components/ScrollPercentage'
 import {
   getCurrentLocale,
   getScopedI18n,
   getStaticParams
-} from '@/lib/i18n/server'
-import type { ChildrenType } from '@/lib/types/general'
+} from '@lib/i18n/server'
+import type { ChildrenType } from '@lib/types/general'
 import type { Metadata } from 'next'
 import '@/app/globals.css'
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useStore } from '@/lib/store/store'
+import { useStore } from '@lib/store/store'
 import { STACKS } from '../constants/general'
 
 export default function useSkillsCarousel() {

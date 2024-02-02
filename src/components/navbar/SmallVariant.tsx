@@ -4,9 +4,9 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { useLenis } from '@studio-freight/react-lenis'
-import MonospaceLogo from '@/components/shared/MonospaceLogo'
-import { useStore } from '@/lib/store/store'
-import { BUTTON_UNDERLINE_VARIANTS } from '@/lib/constants/variants'
+import MonospaceLogo from '@components/shared/MonospaceLogo'
+import { useStore } from '@lib/store/store'
+import { BUTTON_UNDERLINE_VARIANTS } from '@lib/constants/variants'
 
 export default function SmallVariant() {
   const navbarStatus = useStore((state) => state.navbarStatus)
@@ -38,16 +38,16 @@ export default function SmallVariant() {
               transition: { duration: 0.7, ease: [0.77, 0, 0.18, 1] }
             }}
           >
-            <MonospaceLogo className='text-xl text-monospace-white xl:hover:text-monospace-light-gray transition-colors duration-700 ease-in-out' />
+            <MonospaceLogo className='text-xl text-monospace-white transition-colors duration-700 ease-in-out xl:hover:text-monospace-light-gray' />
           </motion.span>
         </Link>
       </div>
       <button
         aria-label='Toggle navigation menu'
-        className='absolute right-0 flex flex-col gap-2.5 text-xl text-monospace-light-gray leading-none xl:hover:text-monospace-white transition-colors duration-700 ease-in-out group'
+        className='group absolute right-0 flex flex-col gap-2.5 text-xl leading-none text-monospace-light-gray transition-colors duration-700 ease-in-out xl:hover:text-monospace-white'
         onClick={() => setNavbarStatus(!navbarStatus)}
       >
-        <span className='relative flex flex-col items-center justify-start h-5 overflow-hidden'>
+        <span className='relative flex h-5 flex-col items-center justify-start overflow-hidden'>
           <motion.span
             initial={{ y: '100%', opacity: 0 }}
             animate={
@@ -98,7 +98,7 @@ export default function SmallVariant() {
           animate='open'
           exit='closed'
         >
-          <div className='h-0.5 w-full bg-current xl:origin-right xl:group-hover:scale-x-0 xl:group-hover:origin-left transition-transform duration-700 ease-in-out' />
+          <div className='h-0.5 w-full bg-current transition-transform duration-700 ease-in-out xl:origin-right xl:group-hover:origin-left xl:group-hover:scale-x-0' />
         </motion.span>
       </button>
     </>

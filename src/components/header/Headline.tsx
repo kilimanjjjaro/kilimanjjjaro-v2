@@ -1,8 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useStore } from '@/lib/store/store'
-import { useScopedI18n } from '@/lib/i18n/client'
+import { useStore } from '@lib/store/store'
+import { useScopedI18n } from '@lib/i18n/client'
 
 export default function Headline() {
   const introRunning = useStore((state) => state.introRunning)
@@ -13,7 +13,7 @@ export default function Headline() {
   return (
     <h2
       aria-label={t('ariaLabel')}
-      className='flex flex-col gap-1 font-geist-mono text-6xl xl:text-9xl xl:leading-[1.05] text-monospace-white mix-blend-difference'
+      className='flex flex-col gap-1 font-geist-mono text-6xl text-monospace-white mix-blend-difference xl:text-9xl xl:leading-[1.05]'
     >
       <span aria-hidden className='overflow-hidden'>
         <motion.span

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { useControls } from 'leva'
-import { BACKGROUND_SHADERS } from '@/lib/shaders/background'
+import { BACKGROUND_SHADERS } from '@lib/shaders/background'
 import { useFrame, useThree } from '@react-three/fiber'
 import { OrthographicCamera } from '@react-three/drei'
 

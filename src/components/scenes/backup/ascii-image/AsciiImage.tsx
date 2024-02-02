@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import { useLoader } from '@react-three/fiber'
-import { ASCII_IMAGE_SHADERS } from '@/lib/shaders/ascii-image'
+import { ASCII_IMAGE_SHADERS } from '@lib/shaders/ascii-image'
 
 const SIZE = 1
 const COUNT = 40

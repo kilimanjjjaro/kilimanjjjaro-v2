@@ -1,11 +1,11 @@
 import { MouseEventHandler } from 'react'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
-import type { ChildrenType } from '@/lib/types/general'
+import type { ChildrenType } from '@lib/types/general'
 import {
   BUTTON_TEXT_VARIANTS,
   BUTTON_UNDERLINE_VARIANTS
-} from '@/lib/constants/variants'
+} from '@lib/constants/variants'
 
 interface Props {
   children?: ChildrenType
@@ -28,7 +28,7 @@ export default function Button({
     <button
       className={clsx(
         className ?? '',
-        underlined && 'flex flex-col gap-2.5 group'
+        underlined && 'group flex flex-col gap-2.5'
       )}
       aria-label={ariaLabel}
       onClick={onClick}
@@ -54,7 +54,7 @@ export default function Button({
             animate={underlineTrigger ? 'open' : 'closed'}
             exit='closed'
           >
-            <div className='h-0.5 w-full bg-current xl:origin-right xl:group-hover:scale-x-0 xl:group-hover:origin-left transition-transform duration-700 xl:ease-in-out-monospace' />
+            <div className='xl:ease-in-out-monospace h-0.5 w-full bg-current transition-transform duration-700 xl:origin-right xl:group-hover:origin-left xl:group-hover:scale-x-0' />
           </motion.span>
         </>
       ) : (

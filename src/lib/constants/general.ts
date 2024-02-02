@@ -1,5 +1,5 @@
-import getYearsOld from '@/lib/utils/getYearsOld'
-import addStackIndexes from '@/lib/utils/addStackIndexes'
+import getYearsOld from '@lib/utils/getYearsOld'
+import addStackIndexes from '@lib/utils/addStackIndexes'
 
 export const BASE_URL = `${
   process.env.NODE_ENV === 'production'
