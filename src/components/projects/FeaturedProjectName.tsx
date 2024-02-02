@@ -28,7 +28,7 @@ export default function FeaturedProjectName({
   return (
     <motion.h3
       ref={projectNameEl}
-      className='top-0 left-0 z-10 mt-6 overflow-hidden text-4xl leading-none pointer-events-none xl:fixed xl:selection:hidden xl:text-center text-monospace-white xl:text-10xl'
+      className='pointer-events-none left-0 top-0 z-10 mt-6 overflow-hidden text-4xl leading-none text-monospace-white xl:fixed xl:text-center xl:text-8xl xl:selection:hidden'
       style={isDesktop ? { x, y } : { x: 0, y: 0 }}
     >
       <motion.span

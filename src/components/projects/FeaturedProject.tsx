@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { motion, useInView, useScroll, useTransform } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import Balancer from 'react-wrap-balancer'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import FeaturedProjectName from '@/components/projects/FeaturedProjectName'
@@ -18,12 +18,9 @@ export default function FeaturedProject({ project, index }: Props) {
   const projectEl = useRef<HTMLAnchorElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isHovered, setIsHovered] = useState<number | null>(null)
-  const { isDesktop } = useMediaQuery()
   const projectIsInView = useInView(projectEl, { once: true })
   const videoIsInView = useInView(videoRef, { amount: 'all' })
-  const { scrollYProgress } = useScroll()
-
-  const bgPositionY = useTransform(scrollYProgress, [0, 0.45], ['0%', '120%'])
+  const { isDesktop } = useMediaQuery()
 
   const handleMouseEnter = async () => {
     if (videoRef.current === null) return
@@ -68,12 +65,11 @@ export default function FeaturedProject({ project, index }: Props) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <article className='relative flex flex-col aspect-[18/25] group cursor-none'>
-        <motion.header
-          className='top-0 left-0 p-5 flex items-center xl:absolute w-full h-full bg-[length:135%] xl:group-hover:bg-[length:114%] transition-[background-size] ease-in-out duration-700'
+      <article className='group relative flex aspect-[18/13] cursor-none flex-col'>
+        <motion.main
+          className='left-0 top-0 flex h-full w-full items-center bg-[length:110%] bg-center p-6 transition-[background-size] duration-700 ease-in-out xl:absolute xl:group-hover:bg-[length:100%]'
           style={{
-            backgroundImage: `url('${project.presentation.background}')`,
-            backgroundPositionY: isDesktop ? bgPositionY : 'center'
+            backgroundImage: `url('${project.presentation.background}')`
           }}
           initial={{
             clipPath: 'inset(100% 0% 0% 0%)'
@@ -90,7 +86,7 @@ export default function FeaturedProject({ project, index }: Props) {
           }}
         >
           <motion.div
-            className='w-full relative transition-transform duration-700 ease-in-out scale-100 xl:scale-[.85] aspect-video xl:group-hover:scale-100'
+            className='relative aspect-video w-full scale-100 transition-transform duration-700 ease-in-out xl:scale-[.82] xl:group-hover:scale-100'
             initial={{
               opacity: 0
             }}
@@ -115,7 +111,7 @@ export default function FeaturedProject({ project, index }: Props) {
             )}
             <video
               ref={videoRef}
-              className='transition-opacity duration-700 ease-in-out xl:opacity-0 aspect-video xl:absolute xl:group-hover:opacity-100'
+              className='aspect-video transition-opacity duration-700 ease-in-out xl:absolute xl:opacity-0 xl:group-hover:opacity-100'
               src={project.presentation.video}
               poster={project.presentation.poster}
               loop
@@ -125,12 +121,12 @@ export default function FeaturedProject({ project, index }: Props) {
               disableRemotePlayback
             />
           </motion.div>{' '}
-        </motion.header>
+        </motion.main>
 
         <FeaturedProjectName projectId={project.id} isHovered={isHovered}>
           {project.name}
         </FeaturedProjectName>
-        <footer className='left-0 mt-2 leading-tight xl:leading-none xl:mt-0 xl:absolute xl:text-xl xl:overflow-hidden top-full text-monospace-light-gray xl:text-monospace-white'>
+        <footer className='left-0 top-full mt-2 leading-tight text-monospace-light-gray xl:absolute xl:mt-0 xl:overflow-hidden xl:text-xl xl:leading-none xl:text-monospace-white'>
           <motion.span
             className='xl:block'
             initial={{
