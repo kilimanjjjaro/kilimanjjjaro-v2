@@ -1,6 +1,6 @@
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
-import Providers from '@/components/Providers'
+import Container from '@/components/Container'
 import Footer from '@/components/Footer'
 import CookiesConsent from '@/components/CookiesConsent'
 import FormModal from '@/components/contact-form/FormModal'
@@ -8,6 +8,7 @@ import Navigation from '@/components/navbar/Navigation'
 import Navbar from '@/components/navbar/Navbar'
 import MessageForDevs from '@/components/MessageForDevs'
 import IntroAnimation from '@/components/IntroAnimation'
+import ScrollPercentage from '@/components/ScrollPercentage'
 import {
   getCurrentLocale,
   getScopedI18n,
@@ -16,7 +17,6 @@ import {
 import type { ChildrenType } from '@/lib/types/general'
 import type { Metadata } from 'next'
 import '@/app/globals.css'
-import ScrollPercentage from '@/components/ScrollPercentage'
 
 interface MetadataProps {
   params: { locale: string }
@@ -80,7 +80,7 @@ export default async function RootLayout({
       <body
         className={`bg-monospace-black font-geist-sans antialiased transition-colors duration-700 ease-in-out ${GeistSans.variable} ${GeistMono.variable}`}
       >
-        <Providers>
+        <Container>
           {children}
           <Footer />
           <CookiesConsent />
@@ -88,7 +88,7 @@ export default async function RootLayout({
           <Navbar />
           <FormModal />
           <IntroAnimation />
-        </Providers>
+        </Container>
         <ScrollPercentage />
         <MessageForDevs />
       </body>
