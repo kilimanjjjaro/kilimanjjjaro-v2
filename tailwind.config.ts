@@ -42,6 +42,9 @@ const config: Config = {
         blink: {
           '50%': { opacity: '0' }
         }
+      },
+      lineHeight: {
+        'semi-tight': '1.2'
       }
     }
   },
