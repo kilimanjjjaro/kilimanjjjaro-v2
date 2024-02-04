@@ -1,14 +1,8 @@
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
+import SmoothScroll from '@components/SmoothScroll'
 import Container from '@components/Container'
-import Footer from '@components/Footer'
-import CookiesConsent from '@components/CookiesConsent'
-import FormModal from '@components/contact-form/FormModal'
-import Navigation from '@components/navbar/Navigation'
-import Navbar from '@components/navbar/Navbar'
 import MessageForDevs from '@components/MessageForDevs'
-import IntroAnimation from '@components/IntroAnimation'
-import ScrollPercentage from '@components/ScrollPercentage'
 import {
   getCurrentLocale,
   getScopedI18n,
@@ -80,16 +74,9 @@ export default async function RootLayout({
       <body
         className={`bg-monospace-black font-geist-sans antialiased transition-colors duration-700 ease-in-out ${GeistSans.variable} ${GeistMono.variable}`}
       >
-        <Container>
-          {children}
-          <Footer />
-          <CookiesConsent />
-          <Navigation />
-          <Navbar />
-          <FormModal />
-          <IntroAnimation />
-        </Container>
-        <ScrollPercentage />
+        <SmoothScroll>
+          <Container>{children}</Container>
+        </SmoothScroll>
         <MessageForDevs />
       </body>
     </html>

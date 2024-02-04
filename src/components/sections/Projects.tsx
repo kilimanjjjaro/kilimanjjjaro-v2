@@ -21,11 +21,7 @@ export default function Projects() {
     currentLocale === LOCALES.en ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
 
   return (
-    <motion.section
-      id='projects'
-      ref={sectionEl}
-      className='bg-monospace-black xl:px-44 xl:py-44'
-    >
+    <motion.section id='projects' ref={sectionEl} className='xl:px-44 xl:py-44'>
       <h2 className='mb-28 flex flex-col text-10xl font-semibold uppercase text-monospace-white'>
         <span className='translate-x-32'>Some projects </span>
         <span>to highlight</span>

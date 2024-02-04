@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { useControls } from 'leva'
-import { BACKGROUND_SHADERS } from '@lib/shaders/background'
+import { NOISY_BACKGROUND_SHADERS } from '@lib/shaders/noisy-background'
 import { useFrame, useThree } from '@react-three/fiber'
 import { OrthographicCamera } from '@react-three/drei'
 
@@ -124,8 +124,8 @@ export default function NoisyBackground() {
       <shaderMaterial
         ref={shaderMaterialRef}
         uniforms={UNIFORMS}
-        fragmentShader={BACKGROUND_SHADERS.fragmentShader}
-        vertexShader={BACKGROUND_SHADERS.vertexShader}
+        fragmentShader={NOISY_BACKGROUND_SHADERS.fragmentShader}
+        vertexShader={NOISY_BACKGROUND_SHADERS.vertexShader}
         side={THREE.FrontSide}
       />
       <OrthographicCamera args={[-1, 1, 1 - 1, -1000, 1000]} />
