@@ -1,9 +1,8 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
+import { useFrame, useThree } from '@react-three/fiber'
 import { useControls } from 'leva'
 import { NOISY_BACKGROUND_SHADERS } from '@lib/shaders/noisy-background'
-import { useFrame, useThree } from '@react-three/fiber'
-import { OrthographicCamera } from '@react-three/drei'
 
 const UNIFORMS = {
   uColor1: { value: new THREE.Vector3() },
@@ -128,7 +127,6 @@ export default function NoisyBackground() {
         vertexShader={NOISY_BACKGROUND_SHADERS.vertexShader}
         side={THREE.FrontSide}
       />
-      <OrthographicCamera args={[-1, 1, 1 - 1, -1000, 1000]} />
     </mesh>
   )
 }
