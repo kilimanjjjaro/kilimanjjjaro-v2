@@ -4,7 +4,6 @@ import { useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { View } from '@react-three/drei'
 import { Leva } from 'leva'
-import NoisyBackground from '@components/scenes/noisy-background/NoisyBackground'
 import Footer from '@components/Footer'
 import Navigation from '@components/navbar/Navigation'
 import Navbar from '@components/navbar/Navbar'
@@ -16,7 +15,6 @@ import type { ChildrenType } from '@lib/types/general'
 
 export default function Container({ children }: { children: ChildrenType }) {
   const containerEl = useRef<HTMLDivElement>(null)
-  const noisyBackgroundEl = useRef<HTMLDivElement>(null)
   const currentLocale = useCurrentLocale()
 
   return (
@@ -32,12 +30,6 @@ export default function Container({ children }: { children: ChildrenType }) {
           <View.Port />
         </Canvas>
         <div className='absolute left-0 top-0'>
-          <View
-            className='fixed inset-0'
-            track={noisyBackgroundEl as React.MutableRefObject<HTMLDivElement>}
-          >
-            <NoisyBackground />
-          </View>
           {children}
           <Footer />
           <Navigation />
