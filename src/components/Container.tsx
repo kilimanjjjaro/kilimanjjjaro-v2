@@ -29,7 +29,7 @@ export default function Container({ children }: { children: ChildrenType }) {
         >
           <View.Port />
         </Canvas>
-        <div className='absolute left-0 top-0'>
+        <div className='absolute inset-0'>
           {children}
           <Footer />
           <Navigation />
