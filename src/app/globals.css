@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .h-100-vh {
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .h-250-vh {
+    height: 250vh;
+    height: 250dvh;
+  }
+}
+
 /*** SCROLLBAR ***/
 
 body {
@@ -54,18 +66,6 @@ input:-webkit-autofill,
 input:-webkit-autofill:focus {
   box-shadow: 0 0 0 1000px #030303 inset;
   -webkit-text-fill-color: #f8f8f8;
-}
-
-/*** MIN-HEIGHT SCREEN COMPATIBLE UNITS ***/
-
-.min-h-screen-compatible {
-  min-height: 100vh;
-  min-height: 100dvh;
-}
-
-.h-screen-compatible {
-  height: 100vh;
-  height: 100dvh;
 }
 
 /* SKILLS CAROUSEL */
