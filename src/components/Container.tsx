@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { View } from '@react-three/drei'
 import { Leva } from 'leva'
+import NoisyBackground from '@components/scenes/NoisyBackground'
 import Footer from '@components/Footer'
 import Navigation from '@components/navbar/Navigation'
 import Navbar from '@components/navbar/Navbar'
@@ -25,10 +26,15 @@ export default function Container({ children }: { children: ChildrenType }) {
             position: 'fixed',
             inset: 0
           }}
-          eventSource={containerEl as React.MutableRefObject<HTMLDivElement>}
+          // @ts-expect-error
+          eventSource={containerEl}
         >
           <View.Port />
         </Canvas>
+        {/* @ts-expect-error */}
+        <View className='fixed inset-0'>
+          <NoisyBackground />
+        </View>
         <div className='absolute inset-0'>
           {children}
           <Footer />

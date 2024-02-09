@@ -36,7 +36,7 @@ export default function FadeTextOnScroll({
 }: FadeTextOnScrollProps) {
   const { scrollYProgress } = useScroll({
     target,
-    offset: ['start start', 'end end'],
+    offset: ['start center', 'end end'],
     layoutEffect: false
   })
 

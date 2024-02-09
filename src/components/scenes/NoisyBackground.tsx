@@ -10,7 +10,7 @@ const UNIFORMS = {
   uColor3: { value: new THREE.Vector3() },
   uColorAccent: { value: new THREE.Color(0.0, 0.0, 0.0) },
   uPlaneRes: { value: new THREE.Vector2(1.0, 1.0) },
-  uMouse2D: { value: new THREE.Vector2(1.0, 1.0) },
+  uMouse2D: { value: new THREE.Vector2(-0.42, 0.38) },
   uLinesBlur: { value: 0 },
   uNoise: { value: 0 },
   uOffsetX: { value: 0 },
@@ -22,7 +22,7 @@ const UNIFORMS = {
 export default function NoisyBackground() {
   const shaderMaterialRef = useRef<THREE.ShaderMaterial>(null)
   const mouse2D = useRef(new THREE.Vector2(-0.42, 0.38))
-  const { viewport } = useThree()
+  const viewport = useThree((state) => state.viewport)
 
   const controls = useControls({
     color1: '#2b2f3b',
@@ -69,8 +69,7 @@ export default function NoisyBackground() {
       min: -1,
       max: 1,
       step: 0.000001
-    },
-    enableMouse: true
+    }
   })
 
   useFrame(() => {
@@ -105,10 +104,8 @@ export default function NoisyBackground() {
       const x = (event.clientX / window.innerWidth) * 2 - 1
       const y = -(event.clientY / window.innerHeight) * 2 + 1
 
-      if (controls.enableMouse) mouse2D.current.set(x, y)
+      mouse2D.current.set(x, y)
     }
-
-    mouse2D.current = new THREE.Vector2(controls.mouseX, controls.mouseY)
 
     window.addEventListener('mousemove', mouseMoveHandler)
 
