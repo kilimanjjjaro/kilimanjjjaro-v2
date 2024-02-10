@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 export default function Aside() {
   const { scrollYProgress } = useScroll()
 
-  const y = useTransform(scrollYProgress, [0, 0.3], [0, 980])
+  const y = useTransform(scrollYProgress, [0, 0.3], ['0vh', '120vh'])
 
   return (
     <motion.div className='w-full overflow-hidden' style={{ y }}>

@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { View } from '@react-three/drei'
+import { Preload, View } from '@react-three/drei'
 import { Leva } from 'leva'
 import NoisyBackground from '@components/scenes/NoisyBackground'
 import Footer from '@components/Footer'
@@ -30,12 +30,13 @@ export default function Container({ children }: { children: ChildrenType }) {
           eventSource={containerEl}
         >
           <View.Port />
+          <Preload all />
         </Canvas>
         {/* @ts-expect-error */}
         <View className='fixed inset-0'>
           <NoisyBackground />
         </View>
-        <div className='absolute inset-0'>
+        <div className='absolute left-0 right-0 top-0'>
           {children}
           <Footer />
           <Navigation />
