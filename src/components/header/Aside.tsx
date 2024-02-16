@@ -1,14 +1,10 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 export default function Aside() {
-  const { scrollYProgress } = useScroll()
-
-  const y = useTransform(scrollYProgress, [0, 0.3], ['0vh', '120vh'])
-
   return (
-    <motion.div className='w-full overflow-hidden' style={{ y }}>
+    <motion.div className='w-full overflow-hidden'>
       <motion.svg
         className='fill-white'
         xmlns='http://www.w3.org/2000/svg'

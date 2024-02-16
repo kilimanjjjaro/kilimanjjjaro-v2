@@ -2,12 +2,11 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { motion, useInView } from 'framer-motion'
-import Balancer from 'react-wrap-balancer'
-import useMediaQuery from '@lib/hooks/useMediaQuery'
-import FeaturedProjectName from '@components/projects/FeaturedProjectName'
-import type { FeaturedProjectInterface } from '@lib/types/projects'
 import Image from 'next/image'
+import { motion, useInView } from 'framer-motion'
+import FeaturedProjectName from '@components/projects/FeaturedProjectName'
+import useMediaQuery from '@lib/hooks/useMediaQuery'
+import type { FeaturedProjectInterface } from '@lib/types/projects'
 
 interface Props {
   project: FeaturedProjectInterface
@@ -120,35 +119,11 @@ export default function FeaturedProject({ project, index }: Props) {
               playsInline={!isDesktop}
               disableRemotePlayback
             />
-          </motion.div>{' '}
+          </motion.div>
         </motion.main>
-
         <FeaturedProjectName projectId={project.id} isHovered={isHovered}>
           {project.name}
         </FeaturedProjectName>
-        <footer className='left-0 top-full mt-2 leading-tight text-monospace-light-gray xl:absolute xl:mt-0 xl:overflow-hidden xl:text-xl xl:leading-none xl:text-monospace-white'>
-          <motion.span
-            className='xl:block'
-            initial={{
-              y: '-105%'
-            }}
-            animate={
-              isDesktop
-                ? {
-                    y: isHovered === project.id ? '20%' : '-105%'
-                  }
-                : {
-                    y: '16px'
-                  }
-            }
-            transition={{
-              duration: 1,
-              ease: 'easeInOut'
-            }}
-          >
-            <Balancer>{project.role}</Balancer>
-          </motion.span>
-        </footer>
       </article>
     </Link>
   )

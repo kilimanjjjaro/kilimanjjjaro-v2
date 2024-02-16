@@ -2,6 +2,7 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import SmoothScroll from '@components/SmoothScroll'
 import Container from '@components/Container'
+import ScrollPercentage from '@components/ScrollPercentage'
 import MessageForDevs from '@components/MessageForDevs'
 import {
   getCurrentLocale,
@@ -72,11 +73,12 @@ export default async function RootLayout({
   return (
     <html lang={currentLocale}>
       <body
-        className={`bg-monospace-black font-geist-sans antialiased transition-colors duration-700 ease-in-out ${GeistSans.variable} ${GeistMono.variable}`}
+        className={`overflow-hidden bg-monospace-black font-geist-sans antialiased transition-colors duration-700 ease-in-out ${GeistSans.variable} ${GeistMono.variable}`}
       >
         <SmoothScroll>
           <Container>{children}</Container>
         </SmoothScroll>
+        <ScrollPercentage />
         <MessageForDevs />
       </body>
     </html>

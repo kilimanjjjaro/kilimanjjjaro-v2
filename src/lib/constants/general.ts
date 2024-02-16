@@ -125,3 +125,12 @@ export const GRADIENTS = {
     }
   ]
 }
+
+export const INITIAL_POINTER_VALUES = {
+  x: 0,
+  y: 0,
+  vX: 0,
+  vY: 0,
+  prevX: 0,
+  prevY: 0
+}

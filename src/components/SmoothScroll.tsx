@@ -3,12 +3,10 @@
 import { useEffect } from 'react'
 import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
 import { useStore } from '@lib/store/store'
-import useMediaQuery from '@lib/hooks/useMediaQuery'
 import type { ChildrenType } from '@lib/types/general'
 
 export default function SmoothScroll({ children }: { children: ChildrenType }) {
   const navbarStatus = useStore((state) => state.navbarStatus)
-  const { isDesktop } = useMediaQuery()
   const lenis = useLenis()
 
   useEffect(() => {
@@ -23,7 +21,7 @@ export default function SmoothScroll({ children }: { children: ChildrenType }) {
     <ReactLenis
       root
       options={{
-        duration: isDesktop ? 1.5 : 1.2,
+        duration: 1.5,
         smoothWheel: true,
         smoothTouch: true
       }}

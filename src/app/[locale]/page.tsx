@@ -10,11 +10,11 @@ export default async function Home({ params: { locale } }: Props) {
   setStaticParamsLocale(locale)
 
   return (
-    <>
+    <main>
       <Header />
-      <main>
+      <div className='sticky top-0'>
         <Projects />
-      </main>
-    </>
+      </div>
+    </main>
   )
 }
