@@ -31,7 +31,7 @@ export default function Headline() {
       void animate(
         headline.lines[0],
         { y: ['100%', '0%', '0%'], x: ['0%', '0%', '5%'] },
-        { duration: 1.3, ease: [0.65, 0.05, 0.36, 1], times: [0, 0.5, 1] }
+        { duration: 1.3, ease: [0.65, 0.05, 0.36, 1] }
       )
 
       void animate(
@@ -40,7 +40,6 @@ export default function Headline() {
         {
           duration: 1.3,
           ease: [0.65, 0.05, 0.36, 1],
-          times: [0, 0.5, 1],
           delay: 0.15
         }
       )
