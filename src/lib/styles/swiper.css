@@ -1,0 +1,48 @@
+/* SKILLS CAROUSEL */
+
+.skills-carousel.swiper {
+  overflow: visible !important;
+}
+
+.skills-carousel .swiper-slide {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: auto !important;
+}
+
+/* FEATURED PROJECTS CAROUSEL */
+
+.featured-projects-carousel.swiper {
+  padding: 24px 24px 100px 24px !important;
+
+  @media screen and (min-width: 1280px) {
+    padding: 144px 160px 160px 160px !important;
+  }
+}
+
+.featured-projects-carousel .swiper-wrapper {
+  @media screen and (min-width: 1280px) {
+    display: grid !important;
+    align-items: start !important;
+    justify-content: center !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 224px !important;
+    transform: unset !important;
+  }
+}
+
+.featured-projects-carousel .swiper-slide {
+  width: calc(100% - 52px) !important;
+
+  @media screen and (min-width: 1280px) {
+    width: auto !important;
+    transform: unset !important;
+  }
+}
+
+.featured-projects-carousel .swiper-slide:nth-child(even) {
+  @media screen and (min-width: 1280px) {
+    margin-top: 224px;
+  }
+}

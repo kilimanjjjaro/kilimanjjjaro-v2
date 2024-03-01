@@ -1,0 +1,7 @@
+/*** AUTOFILL STYLES ***/
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  box-shadow: 0 0 0 1000px #030303 inset;
+  -webkit-text-fill-color: #f8f8f8;
+}
