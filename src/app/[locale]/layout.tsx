@@ -2,8 +2,6 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import SmoothScroll from '@components/SmoothScroll'
 import Container from '@components/Container'
-import ScrollPercentage from '@components/ScrollPercentage'
-import MessageForDevs from '@components/MessageForDevs'
 import {
   getCurrentLocale,
   getScopedI18n,
@@ -15,6 +13,30 @@ import '@/app/globals.css'
 
 interface MetadataProps {
   params: { locale: string }
+}
+
+export function generateStaticParams() {
+  return getStaticParams()
+}
+
+export default async function RootLayout({
+  children
+}: {
+  children: ChildrenType
+}) {
+  const currentLocale = getCurrentLocale()
+
+  return (
+    <html lang={currentLocale}>
+      <body
+        className={`overflow-hidden bg-monospace-black font-geist-sans antialiased transition-colors duration-700 ease-in-out ${GeistSans.variable} ${GeistMono.variable}`}
+      >
+        <SmoothScroll>
+          <Container>{children}</Container>
+        </SmoothScroll>
+      </body>
+    </html>
+  )
 }
 
 export async function generateMetadata({
@@ -57,30 +79,4 @@ export async function generateMetadata({
   }
 
   return fullMetadata
-}
-
-export function generateStaticParams() {
-  return getStaticParams()
-}
-
-export default async function RootLayout({
-  children
-}: {
-  children: ChildrenType
-}) {
-  const currentLocale = getCurrentLocale()
-
-  return (
-    <html lang={currentLocale}>
-      <body
-        className={`overflow-hidden bg-monospace-black font-geist-sans antialiased transition-colors duration-700 ease-in-out ${GeistSans.variable} ${GeistMono.variable}`}
-      >
-        <SmoothScroll>
-          <Container>{children}</Container>
-        </SmoothScroll>
-        <ScrollPercentage />
-        <MessageForDevs />
-      </body>
-    </html>
-  )
 }

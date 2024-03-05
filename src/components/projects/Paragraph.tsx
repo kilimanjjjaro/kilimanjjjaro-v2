@@ -5,8 +5,7 @@ import SplitType from 'split-type'
 export default function Paragraph() {
   const paragraphEl = useRef<HTMLParagraphElement>(null)
   const paragraphIsInView = useInView(paragraphEl, {
-    once: true,
-    amount: 0.5
+    amount: 0.1
   })
 
   useEffect(() => {
@@ -32,17 +31,17 @@ export default function Paragraph() {
         paragraph.lines,
         { y: ['100%', '0%'] },
         { duration: 1, ease: [0.65, 0.05, 0.36, 1], delay: stagger(0.15) }
-      ).then(() => paragraph.revert())
+      )
     }
   }, [paragraphIsInView])
 
   return (
     <p
       ref={paragraphEl}
-      className='ml-[14vw] w-[45vw] text-balance text-5xl text-monospace-light-gray'
+      className='mb-24 ml-[14vw] w-[50vw] text-balance text-4xl text-monospace-light-gray'
     >
-      Since 2017 designing and developing for brands, agencies and independent
-      studios. Below you can see some of them.
+      <span className='text-monospace-white'>Design, code and play.</span> Below
+      you can find a selection of projects that blend these creative activities.
     </p>
   )
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import Balancer from 'react-wrap-balancer'
-import HeadlineMarquee from '@components/shared/HeadlineMarquee'
+// import HeadlineMarquee from '@components/shared/HeadlineMarquee'
 import { ArrowCornerIcon } from '@components/icons/ArrowCornerIcon'
 import { useScopedI18n } from '@lib/i18n/client'
 import type { FeaturedProjectInterface } from '@lib/types/projects'
@@ -18,12 +18,12 @@ export default function Header({ project }: Props) {
 
   return (
     <header className='flex min-h-screen flex-col gap-y-36 pb-36 pt-44'>
-      <HeadlineMarquee
+      {/* <HeadlineMarquee
         className='text-10xl text-monospace-white'
         baseVelocity={-3}
       >
         {project.name}
-      </HeadlineMarquee>
+      </HeadlineMarquee> */}
       <div className='flex w-4/6 flex-col items-start gap-y-36 px-40'>
         <p className='text-4xl leading-tight text-monospace-white'>
           <Balancer>{project.headerDescription}</Balancer>

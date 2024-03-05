@@ -1,65 +1,123 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import { motion, useInView, useScroll, useTransform } from 'framer-motion'
-import useMediaQuery from '@lib/hooks/useMediaQuery'
-import { useScopedI18n } from '@lib/i18n/client'
+import { useEffect, useRef, useState } from 'react'
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform
+} from 'framer-motion'
+import Image from 'next/image'
+
+const IMAGES = [
+  {
+    description: 'Description goes here',
+    source: '/images/projects/threads-clone/poster.webp',
+    styles: {
+      top: 0,
+      left: 0,
+      scale: 1
+    }
+  },
+  {
+    description: 'Description goes here',
+    source: '/images/projects/kilimanjjjaro-v1/poster.webp',
+    styles: {
+      top: 30,
+      left: 15,
+      scale: 0.9
+    }
+  },
+  {
+    description: 'Description goes here',
+    source: '/images/projects/wrkload/poster.webp',
+    styles: {
+      top: 0,
+      left: 0,
+      scale: 0.8
+    }
+  },
+  {
+    description: 'Description goes here',
+    source: '/images/projects/royal-enfield/poster.webp',
+    styles: {
+      top: 35,
+      left: 40,
+      scale: 0.7
+    }
+  },
+  {
+    description: 'Description goes here',
+    source: '/images/projects/volvo-test-drive/poster.webp',
+    styles: {
+      top: 6,
+      left: 40,
+      scale: 0.9
+    }
+  },
+  {
+    description: 'Description goes here',
+    source: '/images/projects/mam/poster.webp',
+    styles: {
+      top: 0,
+      left: 0,
+      scale: 0.6
+    }
+  }
+]
 
 export default function Since2017() {
-  const t = useScopedI18n('home.since2017')
   const sectionRef = useRef<HTMLDivElement>(null)
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const { isDesktop } = useMediaQuery()
-  const { scrollYProgress } = useScroll()
-  const videoIsInView = useInView(sectionRef)
+  const [imageIndex, setImageIndex] = useState(0)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start']
+  })
 
-  const scrollRange = [0.5, 0.9]
-  const headlineScaleOutputRange = isDesktop ? [4.5, -1] : [4, 0]
-  const videoScaleOutputRange = isDesktop
-    ? ['3000px', '0px']
-    : ['2000px', '-100px']
+  const x = useTransform(scrollYProgress, [0, 1], ['100vw', '-200vw'])
 
-  const headlineScale = useTransform(
-    scrollYProgress,
-    scrollRange,
-    headlineScaleOutputRange
-  )
-  const videoScale = useTransform(
-    scrollYProgress,
-    scrollRange,
-    videoScaleOutputRange
-  )
+  useMotionValueEvent(scrollYProgress, 'change', (scrollValue) => {
+    const totalImages = IMAGES.length
 
-  useEffect(() => {
-    if (videoIsInView) {
-      videoRef.current?.play().catch(() => {})
-    } else {
-      videoRef.current?.pause()
+    if (scrollValue > 0.2) {
+      const index = Math.min(Math.floor(scrollValue * totalImages), totalImages)
+
+      setImageIndex(index)
     }
-  }, [videoIsInView])
+  })
 
   return (
-    <motion.section
-      ref={sectionRef}
-      className='relative flex h-[60vh] w-full items-center justify-center overflow-hidden bg-[#676767] xl:h-screen'
-    >
-      <motion.div className='absolute' style={{ width: videoScale }}>
-        <video
-          ref={videoRef}
-          className='aspect-video w-full'
-          src='images/projects/kilimanjjjaro-v1/hero-video.webm'
-          loop
-          muted
-          disableRemotePlayback
-          preload='none'
-        />
-      </motion.div>
-      <motion.h3
-        className='absolute -mt-3 w-[190px] text-center text-[12vw] leading-none text-monospace-white mix-blend-difference xl:w-auto'
-        style={{ scale: headlineScale }}
-      >
-        {t('headline')}
-      </motion.h3>
-    </motion.section>
+    <section ref={sectionRef} className='h-250-vh'>
+      <div className='sticky top-0 flex h-dvh w-full items-center justify-center overflow-hidden bg-monospace-white'>
+        {IMAGES.map((image, index) => (
+          <motion.div
+            className='absolute opacity-0 transition-all duration-1000'
+            key={image.source}
+            style={{
+              top: `${image.styles.top}vh`,
+              left: `${image.styles.left}vw`,
+              opacity: index + 1 === imageIndex ? 1 : 0,
+              y: index + 1 === imageIndex ? '0%' : '50%',
+              scale: index + 1 === imageIndex ? image.styles.scale : 1,
+              transitionTimingFunction: 'cubic-bezier(0.65, 0.05, 0.36, 1)'
+            }}
+          >
+            <Image
+              src={image.source}
+              alt={image.description}
+              width={1000}
+              height={563}
+            />
+          </motion.div>
+        ))}
+        <motion.h3
+          ref={sectionRef}
+          className='w-full whitespace-nowrap text-[800px] font-medium text-monospace-white mix-blend-difference'
+          style={{ x }}
+        >
+          Since 2017
+        </motion.h3>
+      </div>
+    </section>
   )
 }

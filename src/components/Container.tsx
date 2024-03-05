@@ -5,6 +5,8 @@ import Navigation from '@components/navbar/Navigation'
 import Navbar from '@components/navbar/Navbar'
 import FormModal from '@components/contact-form/FormModal'
 import CookiesConsent from '@components/CookiesConsent'
+import ScrollPercentage from '@components/ScrollPercentage'
+import MessageForDevs from '@components/MessageForDevs'
 import { I18nProviderClient, useCurrentLocale } from '@lib/i18n/client'
 import type { ChildrenType } from '@lib/types/general'
 
@@ -19,6 +21,8 @@ export default function Container({ children }: { children: ChildrenType }) {
       <CookiesConsent />
       <Navigation />
       <Navbar />
+      <ScrollPercentage />
+      <MessageForDevs />
     </I18nProviderClient>
   )
 }

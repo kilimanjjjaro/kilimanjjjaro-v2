@@ -1,26 +1,19 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
-import Button from '@components/shared/Button'
 import useNavbar from '@lib/hooks/useNavbar'
 import { useChangeLocale, useCurrentLocale } from '@lib/i18n/client'
 import { LANGUAGES, LOCALES, NAVIGATION_VARIANTS } from '@lib/constants/general'
-import {
-  LANGUAGES_LI_VARIANTS,
-  LANGUAGES_UL_VARIANTS
-} from '@lib/constants/variants'
 import type { LanguageInterface } from '@lib/types/general'
 
 export default function LanguageSelector() {
   const currentLocale = useCurrentLocale()
   const [showSelector, setShowSelector] = useState(false)
-  const changeLocale = useChangeLocale()
-  const { variant } = useNavbar()
-
   const [selectedLanguage, setSelectedLanguage] = useState(
     currentLocale === LOCALES.en ? LANGUAGES[0] : LANGUAGES[1]
   )
+  const changeLocale = useChangeLocale()
+  const { variant } = useNavbar()
 
   const changeLanguage = ({ language }: { language: LanguageInterface }) => {
     setSelectedLanguage(language)
@@ -36,40 +29,33 @@ export default function LanguageSelector() {
   }, [variant])
 
   return (
-    <div className='flex justify-center'>
-      <Button
-        className='text-xl text-monospace-white'
+    <div className='relative flex justify-center gap-2'>
+      <button
+        className='text-xl text-monospace-light-gray transition-colors duration-700 ease-in-out xl:hover:text-monospace-white'
         onClick={() => setShowSelector(!showSelector)}
-        underlined
-        underlineTrigger={variant === NAVIGATION_VARIANTS.LARGE}
       >
         {selectedLanguage.name}
-      </Button>
-      <motion.ul
-        className='absolute top-full mt-2 hidden flex-col items-center gap-2'
-        variants={LANGUAGES_UL_VARIANTS}
-        animate={showSelector ? 'open' : 'closed'}
+      </button>
+      <ul
+        className={`absolute top-full flex-col items-center gap-2 ${!showSelector ? 'pointer-events-none' : 'pointer-events-auto'}`}
       >
         {LANGUAGES.filter(
           (language) => language.id !== selectedLanguage.id
         ).map((language) => (
           <li key={language.id}>
-            <Button
-              className='overflow-hidden text-xl text-monospace-light-gray transition-colors duration-700 ease-in-out xl:hover:text-monospace-white'
+            <button
+              className='overflow-hidden text-xl text-monospace-light-gray xl:hover:text-monospace-white'
               onClick={() => changeLanguage({ language })}
             >
-              <motion.span
-                className='block'
-                initial={{ y: '-100%', opacity: 0 }}
-                variants={LANGUAGES_LI_VARIANTS}
-                animate={showSelector ? 'open' : 'closed'}
+              <span
+                className={`block transition duration-700 ease-in-out ${showSelector ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
               >
                 {language.name}
-              </motion.span>
-            </Button>
+              </span>
+            </button>
           </li>
         ))}
-      </motion.ul>
+      </ul>
     </div>
   )
 }

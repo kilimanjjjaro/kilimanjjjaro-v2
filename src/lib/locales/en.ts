@@ -1,7 +1,8 @@
 export default {
   metadata: {
-    defaultTitle: 'Monospace — Creative web experiences',
-    description: 'Monospace is a creative studio focused on web experiences.',
+    defaultTitle: 'Monospace — Creative-driven web studio',
+    description:
+      'Monospace is a solo creative-driven web studio that focuses on future-proof experiences blending technology and design sense.',
     url: 'https://monospace.ar',
     locale: 'en'
   },

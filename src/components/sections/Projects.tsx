@@ -7,6 +7,7 @@ import { FEATURED_PROJECTS } from '@lib/constants/projects'
 import Paragraph from '@components/projects/Paragraph'
 import Headline from '@components/projects/Headline'
 import FeaturedProject from '@components/projects/FeaturedProject'
+import Button from '@components/projects/Button'
 
 export default function Projects() {
   const currentLocale = useCurrentLocale()
@@ -20,16 +21,16 @@ export default function Projects() {
   return (
     <section
       id='projects'
-      className='flex flex-col gap-36 bg-monospace-black p-36'
+      className='flex flex-col items-start bg-monospace-black px-36 py-48'
     >
       <Headline />
       <Paragraph />
-      <section className='grid grid-cols-2 gap-20'>
+      <section className='mb-10 grid w-full grid-cols-2 gap-20'>
         {projects.map((project, index) => (
           <FeaturedProject key={project.id} project={project} index={index} />
         ))}
-        P
       </section>
+      <Button />
     </section>
   )
 }
