@@ -81,7 +81,6 @@ export const NOISY_BACKGROUND_SHADERS = {
       float secondPattern = lines(baseUv, 1.0);
     
       vec3 baseColor = mix(col1, col2, basePattern);
-      // baseColor = mix(baseColor, col3, basePattern);
       vec3 secondBaseColor = mix(baseColor, col3, secondPattern);
       return secondBaseColor;
     }

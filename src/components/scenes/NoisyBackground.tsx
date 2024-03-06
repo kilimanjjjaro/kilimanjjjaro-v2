@@ -25,9 +25,12 @@ export default function NoisyBackground() {
   const viewport = useThree((state) => state.viewport)
 
   const controls = useControls({
-    color1: '#2b2f3b',
-    color2: '#424b62',
-    color3: '#000000',
+    // color1: '#2b2f3b',
+    // color2: '#424b62',
+    // color3: '#000000',
+    color1: '#e89a43',
+    color2: '#f5e554',
+    color3: '#0298ab',
     linesBlur: {
       value: 0.4,
       min: 0,
@@ -35,7 +38,7 @@ export default function NoisyBackground() {
       step: 0.0001
     },
     noiseAmount: {
-      value: 0.03,
+      value: 0.1,
       min: 0,
       max: 1,
       step: 0.0001
