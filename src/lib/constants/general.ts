@@ -2,7 +2,7 @@ import getYearsOld from '@/lib/utils/getYearsOld'
 
 export const BASE_URL = `${
   process.env.NODE_ENV === 'production'
-    ? 'https://kilimanjjjaro-portfolio.vercel.app'
+    ? 'https://kilimanjjjaro-v2.vercel.app'
     : 'http://localhost:3000'
 }`
 

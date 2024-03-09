@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { Resend } from 'resend'
 import EmailToAdmin from '@/components/email-templates/EmailToAdmin'
 import EmailToUser from '@/components/email-templates/EmailToUser'
 import { ADMIN_EMAIL } from '@/lib/constants/general'
 
-const resend = new Resend('re_5hSP612D_MNwEXcBRCcsHzkPGZQHsasNE')
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 interface BodyInterface {
   name: string
@@ -31,9 +30,6 @@ export async function POST(request: Request) {
       reply_to: ADMIN_EMAIL,
       react: EmailToUser(body)
     })
-
-    console.log(responseAdmin.error)
-    console.log(responseUser)
 
     if (responseAdmin.error !== null && responseUser.error !== null) {
       return Response.json({ status: 200 }, { status: 200 })

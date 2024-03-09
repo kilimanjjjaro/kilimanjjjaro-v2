@@ -10,8 +10,6 @@ const schema = z.object({
 })
 
 export default async function sendForm(prevState: any, payload: any) {
-  console.log('server-action-payload', payload)
-
   try {
     const body = schema.parse({
       name: payload.get('name'),
@@ -27,8 +25,6 @@ export default async function sendForm(prevState: any, payload: any) {
       body: JSON.stringify(body),
       cache: 'no-store'
     })
-
-    console.log('server-action-response', response)
 
     if (response.status === 200) {
       return { success: true, error: false }
