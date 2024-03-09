@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     console.log(responseAdmin)
     console.log(responseUser)
 
-    if (responseAdmin.error !== null && responseUser.error !== null) {
+    if (responseAdmin.error === null && responseUser.error === null) {
       return Response.json({ status: 200 }, { status: 200 })
     } else {
       throw new Error('Error sending email to admin')
