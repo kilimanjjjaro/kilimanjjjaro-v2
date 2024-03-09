@@ -9,13 +9,13 @@ import { useStore } from '@/lib/store/store'
 export default function ScrollButton() {
   const { setCursorStatus } = useStore()
   const [isScrolling, setIsScrolling] = useState(false)
-  const lenis = useLenis()
+  const lenis = useLenis(() => {})
 
   const handleClick = () => {
     const elementRef = document.getElementById('featured-projects')
 
     if (elementRef != null) {
-      lenis.scrollTo(elementRef, {
+      lenis?.scrollTo(elementRef, {
         duration: 1.5
       })
     }

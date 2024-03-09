@@ -10,7 +10,7 @@ import { SECTIONS, LOCALES } from '@/lib/constants/general'
 
 export default function LargeVersion() {
   const { setShowContactForm } = useStore()
-  const lenis = useLenis()
+  const lenis = useLenis(() => {})
   const currentLocale = useCurrentLocale()
 
   const sections = useMemo(() => {
@@ -47,7 +47,7 @@ export default function LargeVersion() {
               <Link
                 href={`/#${section.slug}`}
                 onClick={() =>
-                  lenis.scrollTo(`#${section.slug}`, { duration: 2 })
+                  lenis?.scrollTo(`#${section.slug}`, { duration: 2 })
                 }
               >
                 {section.name}

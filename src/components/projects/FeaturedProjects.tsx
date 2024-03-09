@@ -10,7 +10,7 @@ interface Props {
 }
 
 export default function FeaturedProjects({ projects }: Props) {
-  const lenis = useLenis()
+  const lenis = useLenis(() => {})
 
   return (
     <Swiper

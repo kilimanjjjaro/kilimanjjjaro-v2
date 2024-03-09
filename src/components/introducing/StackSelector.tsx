@@ -24,7 +24,7 @@ export default function StackSelector() {
   } = useStore()
   const [showSelector, setShowSelector] = useState(false)
   const { isDesktop } = useMediaQuery()
-  const lenis = useLenis()
+  const lenis = useLenis(() => {})
 
   const handleClickOnSelector = () => {
     setShowSelector(!showSelector)

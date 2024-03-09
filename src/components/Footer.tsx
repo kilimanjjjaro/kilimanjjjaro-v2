@@ -20,7 +20,7 @@ export default function Footer() {
   const t = useScopedI18n('footer')
   const { setShowContactForm, setCursorStatus } = useStore()
   const footerEl = useRef<HTMLElement>(null)
-  const lenis = useLenis()
+  const lenis = useLenis(() => {})
   const currentLocale = useCurrentLocale()
 
   const sections = useMemo(() => {
@@ -49,7 +49,7 @@ export default function Footer() {
                   className='text-2xl xl:text-3xl text-kili-white before:bg-kili-white after:bg-kili-white'
                   href={`/#${section.slug}`}
                   onClick={() =>
-                    lenis.scrollTo(`#${section.slug}`, { duration: 2 })
+                    lenis?.scrollTo(`#${section.slug}`, { duration: 2 })
                   }
                   underlined
                 >
@@ -112,7 +112,7 @@ export default function Footer() {
             <li>
               <Button
                 className='overflow-hidden text-xl transition-colors duration-1000 ease-in-out xl:text-base group text-kili-light-gray xl:hover:text-kili-white'
-                onClick={() => lenis.scrollTo(0, { duration: 2 })}
+                onClick={() => lenis?.scrollTo(0, { duration: 2 })}
               >
                 <motion.span
                   className='flex items-center gap-2'

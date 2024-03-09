@@ -14,7 +14,7 @@ import { CURSOR_STATUS } from '@/lib/constants/general'
 export default function Navbar() {
   const { setCursorStatus } = useStore()
   const { version, isVisible } = useNavbar()
-  const lenis = useLenis()
+  const lenis = useLenis(() => {})
   const pathname = usePathname()
 
   const handleClick = () => {
@@ -22,7 +22,7 @@ export default function Navbar() {
 
     if (!allowedPaths.includes(pathname)) return
 
-    lenis.scrollTo(0, { duration: 2 })
+    lenis?.scrollTo(0, { duration: 2 })
   }
 
   return (

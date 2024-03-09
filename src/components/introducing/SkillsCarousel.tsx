@@ -29,7 +29,7 @@ export default function SkillsCarousel() {
   const { isNextArrow, sectionEl, handleMouseMove, handleChange, handleClick } =
     useSkillsCarousel()
   const { isDesktop } = useMediaQuery()
-  const lenis = useLenis()
+  const lenis = useLenis(() => {})
 
   const handleMouse = (boolean: boolean) => {
     setIsHovered(boolean)
