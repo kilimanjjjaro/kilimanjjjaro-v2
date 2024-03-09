@@ -4,7 +4,7 @@ import EmailToAdmin from '@/components/email-templates/EmailToAdmin'
 import EmailToUser from '@/components/email-templates/EmailToUser'
 import { ADMIN_EMAIL } from '@/lib/constants/general'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resend = new Resend('re_5hSP612D_MNwEXcBRCcsHzkPGZQHsasNE')
 
 interface BodyInterface {
   name: string
