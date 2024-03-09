@@ -14,7 +14,6 @@ interface BodyInterface {
 
 export async function POST(request: Request) {
   const body: BodyInterface = await request.json()
-  let statusCode = 200
 
   try {
     const responseAdmin = await resend.emails.send({
@@ -25,7 +24,7 @@ export async function POST(request: Request) {
       react: EmailToAdmin(body)
     })
 
-    await resend.emails.send({
+    const responseUser = await resend.emails.send({
       from: `Kilimanjjjaro <${ADMIN_EMAIL}>`,
       to: body.email,
       subject: 'Message received',
@@ -33,15 +32,15 @@ export async function POST(request: Request) {
       react: EmailToUser(body)
     })
 
-    // @ts-expect-error
-    if (responseAdmin.statusCode && responseAdmin.statusCode !== 200) {
-      // @ts-expect-error
-      statusCode = response.statusCode
+    console.log(responseAdmin.error)
+    console.log(responseUser)
+
+    if (responseAdmin.error !== null && responseUser.error !== null) {
+      return Response.json({ status: 200 }, { status: 200 })
+    } else {
       throw new Error('Error sending email to admin')
     }
-
-    return Response.json({ status: statusCode }, { status: statusCode })
   } catch (error) {
-    return Response.json({ status: statusCode }, { status: statusCode })
+    return Response.json({ status: 400 }, { status: 400 })
   }
 }
