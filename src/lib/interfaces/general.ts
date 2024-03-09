@@ -14,8 +14,8 @@ export interface LanguageInterface {
 
 declare global {
   interface Window {
-    email: () => string
-    linkedin: () => string
-    github: () => string
+    kili_email: () => string
+    kili_linkedin: () => string
+    kili_github: () => string
   }
 }

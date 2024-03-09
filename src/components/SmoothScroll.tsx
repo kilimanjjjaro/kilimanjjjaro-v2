@@ -9,7 +9,7 @@ import type { ChildrenType } from '@/lib/interfaces/general'
 export default function SmoothScroll({ children }: { children: ChildrenType }) {
   const { navbarStatus, introRunning } = useStore()
   const { isDesktop } = useMediaQuery()
-  const lenis = useLenis()
+  const lenis = useLenis(() => {})
 
   useEffect(() => {
     const headerEl = document.querySelector('main header')
@@ -29,10 +29,8 @@ export default function SmoothScroll({ children }: { children: ChildrenType }) {
     <ReactLenis
       root
       options={{
-        lerp: 1,
         duration: isDesktop ? 2 : 1.2,
-        smoothWheel: true,
-        smoothTouch: true
+        smoothWheel: true
       }}
     >
       {children}

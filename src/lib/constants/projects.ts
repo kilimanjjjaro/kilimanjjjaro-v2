@@ -211,7 +211,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
         'REST API to get the most commonly dollar quotes of Argentina. The data is updated from Monday to Friday at 11 AM and 16 PM local time.',
       stacks: ['TypeScript', 'Hono', 'Cloudflare Workers', 'Scrapping'],
       role: 'Backend Development',
-      image: getGitHubImage('dolarg-api'),
+      image: '/images/projects/dolarg/og-image.jpg',
       year: '2023',
       isRepository: true
     },
@@ -224,7 +224,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
         'REST API developed to be implemented as the backend for an application. It includes all the functionalities needed to develop a task app.',
       stacks: ['JavaScript', 'Node JS', 'MongoDB', 'Express', 'JWT Auth'],
       role: 'Backend Development',
-      image: getGitHubImage('wrkload-api'),
+      image: '/images/projects/wrkload-api/og-image.jpg',
       year: '2023',
       isRepository: true
     },
