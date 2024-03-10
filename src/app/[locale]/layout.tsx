@@ -78,7 +78,7 @@ export default async function RootLayout({
   return (
     <html lang={currentLocale}>
       <body
-        className={`bg-kili-black font-neue-haas-grotesk-display antialiased xl:hover:overflow-hidden transition-colors duration-1000 ease-in-out ${neueHaasGroteskDisplayFont}`}
+        className={`bg-kili-black font-neue-haas-grotesk-display antialiased xl:overflow-hidden transition-colors duration-1000 ease-in-out ${neueHaasGroteskDisplayFont}`}
       >
         <Providers>
           <SmoothScroll>
