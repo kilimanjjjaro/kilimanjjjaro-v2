@@ -45,7 +45,7 @@ export default function StackSelector() {
   }
 
   return (
-    <div className='flex gap-10 pl-6 text-4xl xl:pl-40 text-kili-white'>
+    <div className='flex gap-10 pl-6 text-4xl xl:pl-20 2xl:pl-40 text-kili-white'>
       <button
         className='z-20 xl:z-0'
         onClick={() => handleClickOnSelector()}

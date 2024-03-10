@@ -87,6 +87,10 @@ input:-webkit-autofill:focus {
   padding: 24px 24px 100px 24px !important;
 
   @media screen and (min-width: 1280px) {
+    padding: 0px 80px 160px 80px !important;
+  }
+
+  @media screen and (min-width: 1600px) {
     padding: 144px 160px 160px 160px !important;
   }
 }
@@ -97,8 +101,12 @@ input:-webkit-autofill:focus {
     align-items: start !important;
     justify-content: center !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    column-gap: 224px !important;
+    column-gap: 80px !important;
     transform: unset !important;
+  }
+
+  @media screen and (min-width: 1600px) {
+    column-gap: 160px !important;
   }
 }
 
@@ -113,6 +121,10 @@ input:-webkit-autofill:focus {
 
 .featured-projects-carousel .swiper-slide:nth-child(even) {
   @media screen and (min-width: 1280px) {
-    margin-top: 224px;
+    margin-top: 80px;
+  }
+
+  @media screen and (min-width: 1600px) {
+    margin-top: 160px;
   }
 }

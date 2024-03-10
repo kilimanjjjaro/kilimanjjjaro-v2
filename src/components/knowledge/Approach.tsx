@@ -29,15 +29,15 @@ export default function Approach() {
         animate={isInView ? 'show' : 'hidden'}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       >
-        <h3 className='xl:w-[30%] text-4xl text-kili-white'>
+        <h3 className='xl:w-[30%] xl:text-3xl 2xl:text-4xl text-kili-white'>
           {t('approachTitle')}
         </h3>
         {approach.map((approach) => (
           <div key={approach.title} className='flex-1'>
-            <h4 className='mb-2 text-xl xl:text-2xl xl:mb-10 text-kili-white'>
+            <h4 className='mb-2 text-xl 2xl:text-2xl xl:mb-10 text-kili-white'>
               {approach.title}
             </h4>
-            <p className='text-xl text-kili-light-gray xl:text-2xl'>
+            <p className='text-xl text-kili-light-gray 2xl:text-2xl'>
               <Balancer>{approach.description}</Balancer>
             </p>
           </div>

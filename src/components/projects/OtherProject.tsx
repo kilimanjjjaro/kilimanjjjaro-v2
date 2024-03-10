@@ -58,15 +58,15 @@ export default function OtherProject({ project }: Props) {
           >
             <header className='flex flex-col xl:flex-row xl:gap-1.5 xl:items-center xl:w-[30%] xl:flex-wrap'>
               <h4
-                className={`relative text-3xl duration-1000 ease-in-out xl:text-2xl text-kili-white ${UNDERLINE_STYLES}`}
+                className={`relative text-3xl duration-1000 ease-in-out xl:text-xl 2xl:text-2xl text-kili-white ${UNDERLINE_STYLES}`}
               >
                 {project.name}
               </h4>
-              <span className='text-2xl text-kili-light-gray'>
+              <span className='text-2xl xl:text-xl 2xl:text-2xl text-kili-light-gray'>
                 {isDesktop && '—'} {project.role}
               </span>
             </header>
-            <p className='flex-1 text-xl xl:text-2xl text-kili-light-gray'>
+            <p className='flex-1 text-xl xl:text-xl 2xl:text-2xl text-kili-light-gray'>
               <Balancer>{project.description}</Balancer>
             </p>
             <ul className='flex flex-wrap flex-1 gap-2 text-sm text-kili-light-gray'>
@@ -79,7 +79,9 @@ export default function OtherProject({ project }: Props) {
                 </li>
               ))}
             </ul>
-            <p className='text-2xl text-kili-light-gray'>{project.year}</p>
+            <p className='text-2xl xl:text-xl 2xl:text-2xl text-kili-light-gray'>
+              {project.year}
+            </p>
           </motion.div>
           <motion.hr
             className='w-full h-0.5 border-kili-light-gray origin-left'
@@ -104,7 +106,7 @@ export default function OtherProject({ project }: Props) {
               y: isDesktop ? '0%' : '107%',
               rotate: isDesktop ? 0 : 3
             }}
-            animate={projectIsInView && !isDesktop && { y: '0%', rotate: 0 }}
+            animate={projectIsInView && { y: '0%', rotate: 0 }}
             transition={{
               duration: 1.5,
               ease: 'easeInOut',
@@ -120,6 +122,7 @@ export default function OtherProject({ project }: Props) {
               alt={`Image of ${project.name}`}
               width={project.isRepository ? 420 : 420}
               height={project.isRepository ? 210 : 264}
+              priority
             />
           </motion.div>
         </div>

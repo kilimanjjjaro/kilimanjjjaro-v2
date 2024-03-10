@@ -49,8 +49,8 @@ export default function OtherProjects({ projects }: Props) {
   }, [visibleItems, isInView, t])
 
   return (
-    <section ref={sectionEl} className='px-6 pb-24 xl:pb-40 xl:px-40'>
-      <h3 className='flex flex-col text-4xl leading-none xl:w-1/2 text-kili-white xl:text-7xl'>
+    <section ref={sectionEl} className='px-6 pb-24 xl:pb-40 xl:px-20 2xl:px-40'>
+      <h3 className='flex flex-col text-4xl leading-none xl:w-1/2 text-kili-white xl:text-6xl 2xl:text-7xl'>
         <span className='overflow-hidden'>
           <motion.span
             className='block'
@@ -85,7 +85,7 @@ export default function OtherProjects({ projects }: Props) {
         ))}
       </section>
       <motion.button
-        className='flex items-center w-full gap-2 mt-6 text-2xl text-left xl:w-auto xl:mt-10 text-kili-white group'
+        className='flex items-center w-full gap-2 mt-6 text-2xl xl:text-xl 2xl:text-2xl text-left xl:w-auto xl:mt-10 text-kili-white group'
         onClick={handleShowMore}
         onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
         onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}

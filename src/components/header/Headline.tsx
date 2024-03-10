@@ -20,7 +20,7 @@ export default function Headline() {
   return (
     <motion.h2
       ref={headlineRef}
-      className='flex flex-col items-center text-6xl text-center xl:text-11xl text-kili-white'
+      className='flex flex-col items-center text-6xl text-center xl:text-9xl 2xl:text-11xl text-kili-white'
       initial={{
         scale: 1.3
       }}

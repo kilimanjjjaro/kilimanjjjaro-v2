@@ -19,7 +19,7 @@ export default async function Knowledge() {
       >
         {t('sectionTitle')}
       </HeadlineMarquee>
-      <section className='px-6 pt-12 xl:px-40 xl:pt-32'>
+      <section className='px-6 pt-12 xl:px-20 2xl:px-40 xl:pt-32'>
         <div className='flex flex-col gap-6 xl:gap-0'>
           <Approach />
           <Education />

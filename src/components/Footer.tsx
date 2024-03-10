@@ -37,7 +37,7 @@ export default function Footer() {
   return (
     <footer
       ref={footerEl}
-      className='px-6 pt-20 pb-20 overflow-hidden overlow-hidden xl:py-20 xl:px-40 bg-kili-black'
+      className='px-6 pt-20 pb-20 overflow-hidden overlow-hidden xl:py-20 xl:px-20 2xl:px-40 bg-kili-black'
     >
       <motion.div initial={{ y: 0 }} style={{ y }}>
         <ul className='flex flex-col justify-start gap-6 mb-32 xl:justify-between xl:gap-0 xl:flex-row xl:mb-60'>
