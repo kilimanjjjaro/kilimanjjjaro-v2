@@ -54,7 +54,7 @@ export default function Navigation() {
           animate={navbarStatus ? 'open' : 'closed'}
           exit='closed'
         >
-          <h2 className='text-3xl xl:text-7xl text-kili-light-gray md:hidden'>
+          <h2 className='text-3xl xl:text-7xl text-kili-light-gray xl:hidden'>
             <span className='block overflow-hidden'>
               <motion.span className='block' variants={NAVBAR_LI_VARIANTS}>
                 {t('description.0')}
