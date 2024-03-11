@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import Providers from '@/components/Providers'
 import SmoothScroll from '@/components/SmoothScroll'
 import Footer from '@/components/Footer'
@@ -93,6 +94,7 @@ export default async function RootLayout({
         </Providers>
         <CustomCursor />
         <MessageForDevs />
+        <Analytics />
       </body>
     </html>
   )
