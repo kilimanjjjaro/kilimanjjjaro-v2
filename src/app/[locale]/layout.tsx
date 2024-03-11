@@ -50,7 +50,7 @@ export async function generateMetadata({
       description: t('description'),
       images: [
         {
-          url: 'https://kilimanjjjaro.com/images/og-image.jpg',
+          url: 'https://kilimanjjjaro-v2.vercel.app/images/og-image.jpg',
           width: 1000,
           height: 563
         }

@@ -72,7 +72,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ],
       siteName: 'Kilimanjjjaro',
       type: 'website',
-      url: `https://kilimanjjjaro.com/project/${project.slug}`
+      url: `https://kilimanjjjaro-v2.vercel.app/project/${project.slug}`
     }
   }
 }
