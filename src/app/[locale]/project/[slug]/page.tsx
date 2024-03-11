@@ -11,6 +11,36 @@ interface Props {
   params: { slug: string; locale: string }
 }
 
+export default async function Project({ params }: Props) {
+  const t = await getScopedI18n('project')
+  setStaticParamsLocale(params.locale)
+
+  const projects =
+    params.locale === LOCALES.en ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
+
+  const project = projects.find((project) => project.slug === params.slug)
+
+  const otherProjects = projects.filter(
+    (project) => project.slug !== params.slug
+  )
+
+  if (project === undefined) {
+    return (
+      <main className='flex items-center justify-center w-full h-screen leading-none text-8xl text-kili-white'>
+        {t('notFoundMessage')}
+      </main>
+    )
+  }
+
+  return (
+    <main className='bg-kili-dark-gray'>
+      <Header project={project} />
+      <Grid project={project} />
+      <OtherProjects projects={otherProjects} />
+    </main>
+  )
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const featuredProjects =
     params.locale === LOCALES.en ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
@@ -45,34 +75,4 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://kilimanjjjaro.com/project/${project.slug}`
     }
   }
-}
-
-export default async function Project({ params }: Props) {
-  const t = await getScopedI18n('project')
-  setStaticParamsLocale(params.locale)
-
-  const projects =
-    params.locale === LOCALES.en ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
-
-  const project = projects.find((project) => project.slug === params.slug)
-
-  const otherProjects = projects.filter(
-    (project) => project.slug !== params.slug
-  )
-
-  if (project === undefined) {
-    return (
-      <main className='flex items-center justify-center w-full h-screen leading-none text-8xl text-kili-white'>
-        {t('notFoundMessage')}
-      </main>
-    )
-  }
-
-  return (
-    <main className='bg-kili-dark-gray'>
-      <Header project={project} />
-      <Grid project={project} />
-      <OtherProjects projects={otherProjects} />
-    </main>
-  )
 }

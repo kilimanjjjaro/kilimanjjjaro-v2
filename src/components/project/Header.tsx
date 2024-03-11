@@ -20,16 +20,19 @@ export default function Header({ project }: Props) {
   const { setCursorStatus } = useStore()
 
   return (
-    <header className='flex flex-col min-h-screen gap-y-36 pt-44 pb-36'>
-      <HeadlineMarquee className='text-kili-white text-10xl' baseVelocity={-3}>
+    <header className='flex flex-col min-h-screen gap-y-20 xl:gap-y-36 pt-44 pb-36'>
+      <HeadlineMarquee
+        className='text-6xl text-kili-white xl:text-10xl'
+        baseVelocity={-3}
+      >
         {project.name}
       </HeadlineMarquee>
-      <div className='flex flex-col items-start w-4/6 px-40 gap-y-36'>
-        <p className='text-4xl leading-tight text-kili-white'>
+      <div className='flex flex-col items-start xl:w-4/6 px-6 gap-y-6 xl:px-40 xl:gap-y-36'>
+        <p className='text-2xl xl:text-4xl leading-tight text-kili-white'>
           <Balancer>{project.headerDescription}</Balancer>
         </p>
         <a
-          className={`flex items-center gap-3 text-4xl text-kili-white before:bg-kili-white after:bg-kili-white ${UNDERLINE_STYLES}`}
+          className={`flex items-center gap-3 text-2xl xl:text-4xl text-kili-white before:bg-kili-white after:bg-kili-white ${UNDERLINE_STYLES}`}
           href={project.link}
           target='_blank'
           rel='noopener noreferrer'
