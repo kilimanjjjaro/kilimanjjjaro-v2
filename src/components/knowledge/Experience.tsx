@@ -28,7 +28,7 @@ export default function Experience() {
         animate={isInView ? 'show' : 'hidden'}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       >
-        <h3 className='xl:w-[30%] xl:text-3xl 2xl:text-4xl text-kili-white'>
+        <h3 className='xl:w-[30%] text-4xl xl:text-3xl 2xl:text-4xl text-kili-white'>
           {t('experienceTitle')}
         </h3>
         <ul className='grid flex-1 gap-6 text-xl 2xl:text-2xl xl:gap-10 xl:grid-cols-3'>
