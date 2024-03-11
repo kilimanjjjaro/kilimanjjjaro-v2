@@ -106,7 +106,7 @@ export default function Form({ handleDrag }: Props) {
       aria-label='Contact form'
       ref={formRef}
       action={formAction}
-      className='w-[700px] bg-[#030303] relative rounded-md shadow-lg overflow-hidden pointer-events-auto'
+      className='w-screen xl:w-[700px] bg-[#030303] relative rounded-md shadow-lg overflow-hidden pointer-events-auto'
       initial={{
         y: '90dvh',
         scale: 0.5
@@ -145,14 +145,14 @@ export default function Form({ handleDrag }: Props) {
       </motion.header>
       <main
         data-lenis-prevent
-        className={`relative flex items-center justify-center p-9 h-[55dvh] overflow-y-auto ${firaMonoFont} contact-form overscroll-contain`}
+        className={`relative flex items-center justify-center p-6 xl:p-9 h-[80dvh] xl:h-[55dvh] overflow-y-auto ${firaMonoFont} contact-form overscroll-contain`}
       >
         {!renderFields && <CommandLine />}
         {renderFields && (
           <div className='flex flex-col w-full h-full gap-6 py-6'>
             <div
               className={clsx(
-                'absolute top-0 left-0 flex items-center justify-between bg-[#00ff00] w-full h-6 px-4 text-sm',
+                'absolute top-0 left-0 flex items-center justify-between bg-[#00ff00] w-full h-6 px-4 text-xs xl:text-sm',
                 error && 'bg-red-600'
               )}
             >

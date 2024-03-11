@@ -39,10 +39,10 @@ export default function CommandLine() {
   }, [])
 
   return (
-    <div className='flex flex-col w-full h-full gap-6'>
+    <div className='flex flex-col w-full h-full gap-6 text-sm xl:text-lg'>
       <div>
         <p className='text-kili-light-gray'>~/kilimanjjjaro/src</p>
-        <div className='text-lg text-kili-white'>
+        <div className='text-kili-white'>
           {stepOne && <TypingEffect text='ls' />}
           <motion.span
             initial={{ display: 'inline' }}
@@ -61,7 +61,7 @@ export default function CommandLine() {
         transition={{ delay: 2.1 }}
       >
         {FOLDERS.map((folder) => (
-          <p key={folder} className='text-lg text-kili-white'>
+          <p key={folder} className='text-kili-white'>
             {folder}
           </p>
         ))}
@@ -72,7 +72,7 @@ export default function CommandLine() {
         transition={{ delay: 2.1 }}
       >
         <p className='text-kili-light-gray'>~/kilimanjjjaro/src</p>
-        <div className='text-lg text-kili-white'>
+        <div className='text-kili-white'>
           {stepTwo && <TypingEffect text='cd store && ls' />}
           <motion.span
             initial={{ display: 'inline' }}
@@ -91,7 +91,7 @@ export default function CommandLine() {
         transition={{ delay: 4.1 }}
       >
         {FILES.map((folder) => (
-          <p key={folder} className='text-lg text-kili-white'>
+          <p key={folder} className='text-kili-white'>
             {folder}
           </p>
         ))}
@@ -102,7 +102,7 @@ export default function CommandLine() {
         transition={{ delay: 4.1 }}
       >
         <p className='text-kili-light-gray'>~/kilimanjjjaro/src/store</p>
-        <div className='text-lg text-kili-white'>
+        <div className='text-kili-white'>
           {stepThree && <TypingEffect text='nano messages.json' />}
           <span className='animate-typing'>|</span>
         </div>
