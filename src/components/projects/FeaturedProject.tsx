@@ -51,9 +51,9 @@ export default function FeaturedProject({ project, index }: Props) {
     videoRef.current.pause()
   }
 
-  const resetBackgroundColor = () => {
+  const goToProjectPage = () => {
+    lenis?.scrollTo(0, { duration: 1.5 })
     document.body.style.backgroundColor = ''
-    lenis?.scrollTo(0, { immediate: true })
   }
 
   useEffect(() => {
@@ -72,7 +72,7 @@ export default function FeaturedProject({ project, index }: Props) {
     <Link
       ref={projectEl}
       href={`/project/${project.slug}`}
-      onClick={resetBackgroundColor}
+      onClick={goToProjectPage}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
