@@ -20,7 +20,7 @@ export default {
       portraitAlt: 'Foto de Gonzalo'
     },
     since2017: {
-      headline: 'Desde—2017.'
+      headline: 'Desde—2017'
     },
     featuredProjects: {
       yourIdea: ['¡Hablemos!', 'tu idea', 'puede estar', 'aquí.']
