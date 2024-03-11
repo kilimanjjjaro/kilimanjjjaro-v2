@@ -3,6 +3,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useLenis } from '@studio-freight/react-lenis'
 import FeaturedProject from '@/components/projects/FeaturedProject'
+import YourIdea from '@/components/projects/YourIdea'
 import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
 
 interface Props {
@@ -38,6 +39,9 @@ export default function FeaturedProjects({ projects }: Props) {
           <FeaturedProject project={project} index={index} />
         </SwiperSlide>
       ))}
+      <SwiperSlide>
+        <YourIdea />
+      </SwiperSlide>
     </Swiper>
   )
 }

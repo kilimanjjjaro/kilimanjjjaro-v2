@@ -22,6 +22,9 @@ export default {
     since2017: {
       headline: 'Since—2017.'
     },
+    featuredProjects: {
+      yourIdea: ["Let's talk!", 'your idea', 'can be', 'here.']
+    },
     otherProjects: {
       headline: ['And other equally', 'important projects...'],
       websiteButton: 'Website',

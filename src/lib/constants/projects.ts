@@ -54,26 +54,26 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
         video: '/images/projects/royal-enfield/hero-video.webm'
       }
     },
-    {
-      id: 3,
-      name: 'Threads Clone',
-      slug: 'threads-clone',
-      headerDescription:
-        'This project is a clone of the new social network by Meta called Threads. An attempt was made to recreate the desktop version of the application, and some UX/UI improvements were implemented. The content is obtained from the official Threads API.',
-      sectionDescription:
-        "The project's goal is to learn about and experiment with Qwik.",
-      stacks: ['TypeScript', 'Qwik', 'Tailwind', 'Cloudinary'],
-      keyword: 'Simplicity',
-      role: 'Frontend Development',
-      year: '2023',
-      backgroundColor: '#dbb92f',
-      link: 'https://threads-clone-kilimanjjjaro.vercel.app/',
-      presentation: {
-        background: '/images/projects/threads-clone/background.webp',
-        poster: '/images/projects/threads-clone/poster.webp',
-        video: '/images/projects/kilimanjjjaro-v1/hero-video.webm'
-      }
-    },
+    // {
+    //   id: 3,
+    //   name: 'Threads Clone',
+    //   slug: 'threads-clone',
+    //   headerDescription:
+    //     'This project is a clone of the new social network by Meta called Threads. An attempt was made to recreate the desktop version of the application, and some UX/UI improvements were implemented. The content is obtained from the official Threads API.',
+    //   sectionDescription:
+    //     "The project's goal is to learn about and experiment with Qwik.",
+    //   stacks: ['TypeScript', 'Qwik', 'Tailwind', 'Cloudinary'],
+    //   keyword: 'Simplicity',
+    //   role: 'Frontend Development',
+    //   year: '2023',
+    //   backgroundColor: '#dbb92f',
+    //   link: 'https://threads-clone-kilimanjjjaro.vercel.app/',
+    //   presentation: {
+    //     background: '/images/projects/threads-clone/background.webp',
+    //     poster: '/images/projects/threads-clone/poster.webp',
+    //     video: '/images/projects/kilimanjjjaro-v1/hero-video.webm'
+    //   }
+    // },
     {
       id: 4,
       name: 'Kilimanjjjaro v1',
@@ -144,26 +144,26 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
         video: '/images/projects/royal-enfield/hero-video.webm'
       }
     },
-    {
-      id: 3,
-      name: 'Threads Clone',
-      slug: 'threads-clone',
-      headerDescription:
-        'Este proyecto es un clon de la nueva red social de Meta llamada Threads. Se intentó recrear la versión de escritorio de la aplicación y se implementaron algunas mejoras en UX/UI. El contenido es obtenido de la API oficial de Threads.',
-      sectionDescription:
-        'El principal objetivo del proyecto es aprender y experimentar con Qwik.',
-      stacks: ['TypeScript', 'Qwik', 'Tailwind', 'Cloudinary'],
-      keyword: 'Simplicity',
-      role: 'Desarrollo Frontend',
-      year: '2023',
-      backgroundColor: '#dbb92f',
-      link: 'https://threads-clone-kilimanjjjaro.vercel.app/',
-      presentation: {
-        background: '/images/projects/threads-clone/background.webp',
-        poster: '/images/projects/threads-clone/poster.webp',
-        video: '/images/projects/kilimanjjjaro-v1/hero-video.webm'
-      }
-    },
+    // {
+    //   id: 3,
+    //   name: 'Threads Clone',
+    //   slug: 'threads-clone',
+    //   headerDescription:
+    //     'Este proyecto es un clon de la nueva red social de Meta llamada Threads. Se intentó recrear la versión de escritorio de la aplicación y se implementaron algunas mejoras en UX/UI. El contenido es obtenido de la API oficial de Threads.',
+    //   sectionDescription:
+    //     'El principal objetivo del proyecto es aprender y experimentar con Qwik.',
+    //   stacks: ['TypeScript', 'Qwik', 'Tailwind', 'Cloudinary'],
+    //   keyword: 'Simplicity',
+    //   role: 'Desarrollo Frontend',
+    //   year: '2023',
+    //   backgroundColor: '#dbb92f',
+    //   link: 'https://threads-clone-kilimanjjjaro.vercel.app/',
+    //   presentation: {
+    //     background: '/images/projects/threads-clone/background.webp',
+    //     poster: '/images/projects/threads-clone/poster.webp',
+    //     video: '/images/projects/kilimanjjjaro-v1/hero-video.webm'
+    //   }
+    // },
     {
       id: 4,
       name: 'Kilimanjjjaro v1',

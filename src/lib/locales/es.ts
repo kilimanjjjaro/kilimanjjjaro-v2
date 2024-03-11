@@ -22,6 +22,9 @@ export default {
     since2017: {
       headline: 'Desde—2017.'
     },
+    featuredProjects: {
+      yourIdea: ['¡Hablemos!', 'tu idea', 'puede estar', 'aquí.']
+    },
     otherProjects: {
       headline: ['Otros proyectos', 'igual de importantes...'],
       websiteButton: 'Sitio Web',

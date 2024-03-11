@@ -26,7 +26,7 @@ export default function FeaturedProject({ project, index }: Props) {
   const videoIsInView = useInView(videoRef, { amount: 'all' })
   const { scrollYProgress } = useScroll()
 
-  const bgPositionY = useTransform(scrollYProgress, [0, 0.45], ['0%', '120%'])
+  const bgPositionY = useTransform(scrollYProgress, [0, 0.4], ['0%', '100%'])
 
   const handleMouseEnter = async () => {
     if (videoRef.current === null) return
@@ -73,7 +73,7 @@ export default function FeaturedProject({ project, index }: Props) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <article className='relative flex flex-col aspect-[18/25] group cursor-none'>
+      <article className='relative flex flex-col aspect-[18/22] group cursor-none'>
         <motion.header
           className='top-0 left-0 p-5 flex items-center xl:absolute w-full h-full bg-[length:135%] xl:group-hover:bg-[length:114%] transition-[background-size] ease-in-out duration-1000'
           style={{
