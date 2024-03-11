@@ -184,15 +184,6 @@ export default function SkillsCarousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide className='group'>
-          <Icons.NestJsIcon />
-          <div
-            role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
-          >
-            Nest.js
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className='group'>
           <Icons.FirebaseIcon />
           <div
             role='tooltip'
