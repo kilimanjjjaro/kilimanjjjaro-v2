@@ -13,6 +13,7 @@ interface Props {
   ariaLabel?: string
   onClick: MouseEventHandler<HTMLButtonElement>
   underlined?: boolean
+  disabled?: boolean
 }
 
 export default function Button({
@@ -20,7 +21,8 @@ export default function Button({
   className,
   onClick,
   ariaLabel,
-  underlined
+  underlined,
+  disabled
 }: Props) {
   const { setCursorStatus } = useStore()
 
@@ -31,6 +33,7 @@ export default function Button({
       onClick={onClick}
       onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
       onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+      disabled={disabled}
     >
       {children}
     </button>
