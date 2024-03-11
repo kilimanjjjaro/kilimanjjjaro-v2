@@ -10,6 +10,7 @@ import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import FeaturedProjectName from '@/components/projects/FeaturedProjectName'
 import { CURSOR_STATUS } from '@/lib/constants/general'
 import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
+import { useLenis } from '@studio-freight/react-lenis'
 
 interface Props {
   project: FeaturedProjectInterface
@@ -25,6 +26,7 @@ export default function FeaturedProject({ project, index }: Props) {
   const projectIsInView = useInView(projectEl, { once: true })
   const videoIsInView = useInView(videoRef, { amount: 'all' })
   const { scrollYProgress } = useScroll()
+  const lenis = useLenis(() => {})
 
   const bgPositionY = useTransform(scrollYProgress, [0, 0.4], ['0%', '100%'])
 
@@ -51,6 +53,7 @@ export default function FeaturedProject({ project, index }: Props) {
 
   const resetBackgroundColor = () => {
     document.body.style.backgroundColor = ''
+    lenis?.scrollTo(0, { immediate: true })
   }
 
   useEffect(() => {
