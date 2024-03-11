@@ -13,7 +13,7 @@ export default function YourIdea() {
     <button
       ref={buttonEl}
       onClick={() => setShowContactForm(true)}
-      className='text-6xl leading-none flex flex-col text-kili-white xl:text-9xl 2xl:text-10xl text-left xl:hover:text-kili-light-gray transition-colors duration-1000 ease-in-out'
+      className='text-5xl leading-none flex flex-col text-kili-white xl:text-9xl 2xl:text-8xl text-left xl:hover:text-kili-light-gray transition-colors duration-1000 ease-in-out'
     >
       <span className='overflow-hidden'>
         <motion.span

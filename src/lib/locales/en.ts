@@ -23,7 +23,7 @@ export default {
       headline: 'Since—2017'
     },
     featuredProjects: {
-      yourIdea: ["Let's talk!", 'your idea', 'can be', 'here.']
+      yourIdea: ["Let's talk!", 'your project', 'could be one', 'of these.']
     },
     otherProjects: {
       headline: ['And other equally', 'important projects...'],

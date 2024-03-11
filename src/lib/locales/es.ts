@@ -23,7 +23,7 @@ export default {
       headline: 'Desde—2017'
     },
     featuredProjects: {
-      yourIdea: ['¡Hablemos!', 'tu idea', 'puede estar', 'aquí.']
+      yourIdea: ['¡Hablemos!', 'tu proyecto', 'puede ser uno', 'de estos.']
     },
     otherProjects: {
       headline: ['Otros proyectos', 'igual de importantes...'],
