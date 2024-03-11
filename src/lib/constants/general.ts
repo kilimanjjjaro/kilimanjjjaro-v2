@@ -69,7 +69,7 @@ export const CURSOR_STATUS = {
 
 export const YEARS_OLD = getYearsOld()
 
-export const YEARS_OF_EXPERIENCE = new Date().getFullYear() - 2017
+export const YEARS_OF_EXPERIENCE = new Date().getFullYear() - 2018
 
 export const LOCALES = {
   en: 'en',
