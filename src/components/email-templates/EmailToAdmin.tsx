@@ -91,7 +91,7 @@ export default function EmailToAdmin({ name, email, message }: Props) {
               <Text className='mt-3 mb-0 text-xs'>
                 <Link
                   className='leading-5 underline text-kili-light-gray'
-                  href='https://kilimanjjjaro.com'
+                  href='https://kilimanjjjaro-v2.vercel.app'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
