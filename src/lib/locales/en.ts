@@ -15,7 +15,7 @@ export default {
       headline:
         'Full Stack JavaScript Developer & UX/UI Designer with +{experience} years of work experience.',
       biography:
-        'My name is Gonzalo, and I am {yearsOld} years old. I love designing and developing user experiences that are timeless, simple, and perform well.',
+        "I'm Gonzalo Castillo, a {yearsOld} years old boy who loves to designing and developing user experiences that are timeless, simple and perform well. In my years of experience, I have completed over 20 projects with their objectives achieved.",
       letsTalkButton: "Let's talk!",
       portraitAlt: "Gonzalo's picture"
     },
