@@ -20,6 +20,7 @@ export interface NavbarSliceInterface {
 }
 
 export interface SkillsSliceInterface {
+  stacks: StackInterface[]
   selectedStack: StackInterface
   setSelectedStack: (selectedStack: StackInterface) => void
   shouldMoveToStart: boolean
