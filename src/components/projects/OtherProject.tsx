@@ -9,9 +9,9 @@ import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import useCursorPosition from '@/lib/hooks/useCursorPosition'
 import useElementDimensions from '@/lib/hooks/useElementDimensions'
 import { useScopedI18n } from '@/lib/i18n/client'
-import { CURSOR_STATUS } from '@/lib/constants/general'
+import { CURSOR_STATUS } from '@/lib/constants/globals'
 import { HR_LINE_VARIANTS } from '@/lib/constants/variants'
-import type { OtherProjectInterface } from '@/lib/interfaces/projects'
+import type { OtherProjectInterface } from '@/lib/types/projects'
 
 const UNDERLINE_STYLES =
   'before:h-0.5 before:scale-x-0 before:absolute before:-bottom-2 before:left-0 before:right-0 before:block before:bg-current before:origin-left xl:group-hover:before:scale-x-100 before:transition-transform before:ease-in xl:group-hover:before:ease-out before:duration-1000 after:delay-1000 xl:group-hover:before:delay-0 after:h-0.5 after:absolute after:-bottom-2 after:left-0 after:right-0 after:block after:bg-kili-dark-gray after:origin-left after:scale-x-0 xl:group-hover:after:scale-x-100 after:transition-transform after:ease-in xl:group-hover:after:ease-out after:duration-1000 xl:group-hover:after:delay-1000'

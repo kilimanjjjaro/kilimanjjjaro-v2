@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useLenis } from '@studio-freight/react-lenis'
-import { CURSOR_STATUS } from '@/lib/constants/general'
+import { CURSOR_STATUS } from '@/lib/constants/globals'
 import { useStore } from '@/lib/store/store'
 
 export default function ScrollButton() {

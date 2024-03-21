@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Balancer } from 'react-wrap-balancer'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
-import { LOCALES } from '@/lib/constants/general'
+import { LOCALES } from '@/lib/constants/globals'
 import { EXPERIENCE } from '@/lib/constants/knowledge'
 import {
   HR_LINE_VARIANTS,

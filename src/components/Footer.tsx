@@ -14,7 +14,7 @@ import {
   LOCALES,
   SECTIONS,
   SOCIAL_LINKS
-} from '@/lib/constants/general'
+} from '@/lib/constants/globals'
 
 export default function Footer() {
   const t = useScopedI18n('footer')

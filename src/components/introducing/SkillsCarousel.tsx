@@ -11,7 +11,7 @@ import useElementDimensions from '@/lib/hooks/useElementDimensions'
 import { useStore } from '@/lib/store/store'
 import { ArrowLongRightIcon } from '@/components/icons/ArrowLongRightIcon'
 import { ArrowLongLeftIcon } from '@/components/icons/ArrowLongLeftIcon'
-import { CURSOR_STATUS } from '@/lib/constants/general'
+import { CURSOR_STATUS } from '@/lib/constants/globals'
 
 import 'swiper/css'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'

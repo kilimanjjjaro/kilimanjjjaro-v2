@@ -6,7 +6,7 @@ import Link from '@/components/shared/Link'
 import Button from '@/components/shared/Button'
 import { useStore } from '@/lib/store/store'
 import { useCurrentLocale } from '@/lib/i18n/client'
-import { SECTIONS, LOCALES } from '@/lib/constants/general'
+import { SECTIONS, LOCALES } from '@/lib/constants/globals'
 
 export default function LargeVersion() {
   const { setShowContactForm } = useStore()

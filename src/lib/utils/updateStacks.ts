@@ -1,4 +1,4 @@
-import { STACKS } from '@/lib/constants/general'
+import { STACKS } from '@/lib/constants/globals'
 import { SKILLS } from '@/lib/constants/skills'
 
 export default function updateStacks() {

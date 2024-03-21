@@ -8,8 +8,8 @@ import {
   LANGUAGES_LI_VARIANTS,
   LANGUAGES_UL_VARIANTS
 } from '@/lib/constants/variants'
-import { CURSOR_STATUS, LANGUAGES, LOCALES } from '@/lib/constants/general'
-import type { LanguageInterface } from '@/lib/interfaces/general'
+import { CURSOR_STATUS, LANGUAGES, LOCALES } from '@/lib/constants/globals'
+import type { LanguageInterface } from '@/lib/types/globals'
 
 export default function LanguageSelector() {
   const currentLocale = useCurrentLocale()

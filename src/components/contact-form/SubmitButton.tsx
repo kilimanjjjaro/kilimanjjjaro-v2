@@ -3,7 +3,7 @@ import { useFormStatus } from 'react-dom'
 import clsx from 'clsx'
 import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon'
 import { useStore } from '@/lib/store/store'
-import { CURSOR_STATUS } from '@/lib/constants/general'
+import { CURSOR_STATUS } from '@/lib/constants/globals'
 import { useScopedI18n } from '@/lib/i18n/client'
 
 interface Props {

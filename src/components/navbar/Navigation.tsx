@@ -7,7 +7,7 @@ import Button from '@/components/shared/Button'
 import Link from '@/components/shared/Link'
 import { useStore } from '@/lib/store/store'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
-import { SECTIONS, LOCALES, SOCIAL_LINKS } from '@/lib/constants/general'
+import { SECTIONS, LOCALES, SOCIAL_LINKS } from '@/lib/constants/globals'
 import { NAVBAR_LI_VARIANTS, NAVBAR_VARIANTS } from '@/lib/constants/variants'
 
 export default function Navigation() {

@@ -11,7 +11,7 @@ import Button from '@/components/shared/Button'
 import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
 import { firaMonoFont } from '@/lib/utils/fonts'
-import { CURSOR_STATUS } from '@/lib/constants/general'
+import { CURSOR_STATUS } from '@/lib/constants/globals'
 import cookieImage from '../../public/images/cookie.webp'
 
 export default function CookiesConsent() {

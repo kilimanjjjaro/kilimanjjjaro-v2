@@ -11,7 +11,7 @@ import {
   Tailwind,
   Text
 } from '@react-email/components'
-import { BASE_URL } from '@/lib/constants/general'
+import { BASE_URL } from '@/lib/constants/globals'
 
 interface Props {
   name: string

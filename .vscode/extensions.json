@@ -2,7 +2,6 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "bradlc.vscode-tailwindcss",
-    "heybourn.headwind",
     "usernamehw.errorlens",
     "meganrogge.template-string-converter"
   ]

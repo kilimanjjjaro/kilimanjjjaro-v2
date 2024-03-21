@@ -1,7 +1,7 @@
 'use server'
 
 import { z } from 'zod'
-import { BASE_URL } from '@/lib/constants/general'
+import { BASE_URL } from '@/lib/constants/globals'
 
 const schema = z.object({
   name: z.string().min(1),

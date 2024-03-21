@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
-import { CURSOR_STATUS } from '@/lib/constants/general'
+import { CURSOR_STATUS } from '@/lib/constants/globals'
 
 interface Props {
   step: number

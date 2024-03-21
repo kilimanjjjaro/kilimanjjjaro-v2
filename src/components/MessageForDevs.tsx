@@ -6,7 +6,7 @@ import {
   GITHUB_URL,
   LINKEDIN_URL
 } from '@/lib/constants/message-for-devs'
-import { ADMIN_EMAIL } from '@/lib/constants/general'
+import { ADMIN_EMAIL } from '@/lib/constants/globals'
 
 export default function MessageForDevs() {
   useEffect(() => {

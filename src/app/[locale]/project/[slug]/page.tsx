@@ -4,7 +4,7 @@ import Grid from '@/components/project/Grid'
 import OtherProjects from '@/components/project/OtherProjects'
 import { getScopedI18n } from '@/lib/i18n/server'
 import { FEATURED_PROJECTS } from '@/lib/constants/projects'
-import { LOCALES } from '@/lib/constants/general'
+import { LOCALES } from '@/lib/constants/globals'
 import type { Metadata } from 'next'
 
 interface Props {

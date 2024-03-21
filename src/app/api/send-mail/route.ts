@@ -1,7 +1,7 @@
 import { Resend } from 'resend'
 import EmailToAdmin from '@/components/email-templates/EmailToAdmin'
 import EmailToUser from '@/components/email-templates/EmailToUser'
-import { ADMIN_EMAIL } from '@/lib/constants/general'
+import { ADMIN_EMAIL } from '@/lib/constants/globals'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 

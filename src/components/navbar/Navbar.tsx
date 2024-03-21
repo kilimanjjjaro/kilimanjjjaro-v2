@@ -9,7 +9,7 @@ import LargeVersion from '@/components/navbar/LargeVersion'
 import SmallVersion from '@/components/navbar/SmallVersion'
 import useNavbar from '@/lib/hooks/useNavbar'
 import { useStore } from '@/lib/store/store'
-import { CURSOR_STATUS } from '@/lib/constants/general'
+import { CURSOR_STATUS } from '@/lib/constants/globals'
 
 export default function Navbar() {
   const { setCursorStatus } = useStore()

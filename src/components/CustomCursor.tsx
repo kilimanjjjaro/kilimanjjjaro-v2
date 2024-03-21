@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import useElementDimensions from '@/lib/hooks/useElementDimensions'
 import useCursorPosition from '@/lib/hooks/useCursorPosition'
 import { useStore } from '@/lib/store/store'
-import { CURSOR_STATUS } from '@/lib/constants/general'
+import { CURSOR_STATUS } from '@/lib/constants/globals'
 
 export default function CustomCursor() {
   const { cursorStatus } = useStore()

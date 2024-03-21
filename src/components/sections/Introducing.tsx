@@ -6,7 +6,7 @@ import Biography from '@/components/introducing/Biography'
 import Portrait from '@/components/introducing/Portrait'
 import HeadlineMarquee from '@/components/shared/HeadlineMarquee'
 import { getScopedI18n } from '@/lib/i18n/server'
-import { YEARS_OF_EXPERIENCE, YEARS_OLD } from '@/lib/constants/general'
+import { YEARS_OF_EXPERIENCE, YEARS_OLD } from '@/lib/constants/globals'
 
 export default async function Introducing() {
   const t = await getScopedI18n('home.introducing')

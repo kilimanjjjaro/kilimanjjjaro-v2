@@ -15,7 +15,7 @@ import {
   getStaticParams
 } from '@/lib/i18n/server'
 import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
-import type { ChildrenType } from '@/lib/interfaces/general'
+import type { ChildrenType } from '@/lib/types/globals'
 import type { Metadata } from 'next'
 import '@/app/globals.css'
 

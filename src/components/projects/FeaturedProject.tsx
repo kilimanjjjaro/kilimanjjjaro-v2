@@ -8,8 +8,8 @@ import Balancer from 'react-wrap-balancer'
 import { useStore } from '@/lib/store/store'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import FeaturedProjectName from '@/components/projects/FeaturedProjectName'
-import { CURSOR_STATUS } from '@/lib/constants/general'
-import type { FeaturedProjectInterface } from '@/lib/interfaces/projects'
+import { CURSOR_STATUS } from '@/lib/constants/globals'
+import type { FeaturedProjectInterface } from '@/lib/types/projects'
 import { useLenis } from '@studio-freight/react-lenis'
 
 interface Props {

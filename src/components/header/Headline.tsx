@@ -5,7 +5,7 @@ import clsx from 'clsx'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
 import { useStore } from '@/lib/store/store'
-import { LOCALES } from '@/lib/constants/general'
+import { LOCALES } from '@/lib/constants/globals'
 
 export default function Headline() {
   const t = useScopedI18n('home.header')
