@@ -39,7 +39,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       name: 'Royal Enfield',
       slug: 'royal-enfield',
       headerDescription:
-        'Royal Enfield is a motorcycle brand based in India, known for its classic style and historical heritage. The company was founded in 1893 in Redditch, United Kingdom. Institutional websites was developed for three brand dealerships.',
+        'Royal Enfield is a motorcycle brand based in India, known for its classic style and historical heritage. The company was founded in 1893 in Redditch, United Kingdom. Institutional websites was developed for three brand dealerships through ATOMO Digital Agency.',
       sectionDescription:
         'The Royal Enfield motorcycle is the main element in all sections of the website.',
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
@@ -129,7 +129,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       name: 'Royal Enfield',
       slug: 'royal-enfield',
       headerDescription:
-        'Royal Enfield es una marca de motocicletas con sede en India, conocida por su estilo clásico y su patrimonio histórico. La empresa fue fundada en 1893 en Redditch, Reino Unido. Se desarrollaron sitios web institucionales para tres concesionarios de la marca.',
+        'Royal Enfield es una marca de motocicletas con sede en India, conocida por su estilo clásico y su patrimonio histórico. La empresa fue fundada en 1893 en Redditch, Reino Unido. Se desarrollaron sitios web institucionales para tres concesionarios de la marca a través de ATOMO Digital Agency.',
       sectionDescription:
         'La motocicleta es el elemento principal en todas las secciones del sitio web.',
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
@@ -195,7 +195,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       slug: 'volvo-test-drive',
       link: 'https://volvotestdrive.com.ar/',
       description:
-        'Landing page developed for Volvo Argentina with the objective of simplifying the request for test drives.',
+        'Landing page for Volvo Argentina through ATOMO Digital Agency. This simplifies the request for Test Drive appointments.',
       stacks: ['TypeScript', 'React', 'Tailwind'],
       role: 'Frontend Development',
       image: '/images/projects/volvo-test-drive/poster.webp',
@@ -235,7 +235,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       slug: 'plan-ovalo',
       link: 'https://planovalo.automotoresmataderos.com.ar/',
       description:
-        'Landing page developed for a Ford dealership. Its objective is to inform about the financing plan and provide a means of communication.',
+        'Landing page for a Ford dealership through ATOMO Digital Agency. Its objective is to inform about the financing plan and provide a means of communication.',
       stacks: ['TypeScript', 'Astro', 'Tailwind'],
       role: 'Frontend Development',
       image: '/images/projects/plan-ovalo/poster.webp',
@@ -244,7 +244,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
     },
     {
       id: 5,
-      name: 'Mujeres al Mundo',
+      name: 'HSBC: Mujeres al Mundo',
       slug: 'mujeres-al-mundo',
       link: 'https://www.mujeresalmundo.hsbc.com.ar/',
       description:
@@ -257,11 +257,11 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
     },
     {
       id: 6,
-      name: 'Plantemos un Árbol',
+      name: 'Bioland: Plantemos un Árbol',
       slug: 'plantemos-un-arbol',
       link: 'https://www.bio-land.com/plantemos-un-arbol/',
       description:
-        'Landing page developed for an environmental awareness campaign driven by BioLand, an all-natural products company.',
+        'Landing page developed for an environmental awareness campaign driven by BioLand, an all-natural products company. Developed through Circulo Agencia.',
       stacks: ['WordPress', 'WPBakery', 'CSS'],
       role: 'Frontend Development',
       image: '/images/projects/plantemos-un-arbol/poster.webp',
@@ -274,7 +274,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       slug: 'automotores-mataderos',
       link: 'https://automotoresmataderos.com.ar/',
       description:
-        "Project developed for a Ford dealership. It's an institutional page and its objective is to contain information about the dealership and the brand.",
+        'Project developed for a Ford dealership through ATOMO Digital Agency. Its objective is to contain information about the dealership and the brand.',
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
       role: 'Frontend Development',
       image: '/images/projects/automotores-mataderos/poster.webp',
@@ -289,7 +289,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       slug: 'volvo-test-drive',
       link: 'https://volvotestdrive.com.ar/',
       description:
-        'Landing page desarrollada para Volvo Argentina. Su objetivo es simplificar la solicitud de pruebas de manejo.',
+        'Landing page para Volvo Argentina a través de ATOMO Digital Agency. Esta simplifica la solicitud de citas para pruebas de manejo.',
       stacks: ['TypeScript', 'React', 'Tailwind'],
       role: 'Desarrollo Frontend',
       image: '/images/projects/volvo-test-drive/poster.webp',
@@ -329,7 +329,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       slug: 'plan-ovalo',
       link: 'https://planovalo.automotoresmataderos.com.ar/',
       description:
-        'Landing page desarrollada para un concesionario de Ford. Su objetivo es informar sobre el plan de financiamiento y proporcionar un medio de comunicación.',
+        'Landing page para concesionario de Ford a través de ATOMO Digital Agency. Su objetivo es informar sobre el plan de financiamiento y proporcionar un medio de comunicación.',
       stacks: ['TypeScript', 'Astro', 'Tailwind'],
       role: 'Desarrollo Frontend',
       image: '/images/projects/plan-ovalo/poster.webp',
@@ -338,7 +338,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
     },
     {
       id: 5,
-      name: 'Mujeres al Mundo',
+      name: 'HSBC: Mujeres al Mundo',
       slug: 'mujeres-al-mundo',
       link: 'https://www.mujeresalmundo.hsbc.com.ar/',
       description:
@@ -351,11 +351,11 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
     },
     {
       id: 6,
-      name: 'Plantemos un Árbol',
+      name: 'Bioland: Plantemos un Árbol',
       slug: 'plantemos-un-arbol',
       link: 'https://www.bio-land.com/plantemos-un-arbol/',
       description:
-        'Landing page desarrollada para una campaña de concientización ambiental impulsada por BioLand, una empresa de productos totalmente naturales.',
+        'Landing page desarrollada para una campaña de concientización ambiental impulsada por BioLand, una empresa de productos totalmente naturales. Desarrollada a través de Circulo Agencia.',
       stacks: ['WordPress', 'WPBakery', 'CSS'],
       role: 'Desarrollo Frontend',
       image: '/images/projects/plantemos-un-arbol/poster.webp',
@@ -368,7 +368,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       slug: 'automotores-mataderos',
       link: 'https://automotoresmataderos.com.ar/',
       description:
-        'Proyecto desarrollado para una concesionaria de Ford. Es una página institucional y su objetivo es brindar información sobre la concesionaria y la marca.',
+        'Proyecto desarrollado para una concesionaria de Ford a través de ATOMO Digital Agency. Es una página institucional y su objetivo es brindar información sobre la concesionaria y la marca.',
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
       role: 'Desarrollo Frontend',
       image: '/images/projects/automotores-mataderos/poster.webp',
