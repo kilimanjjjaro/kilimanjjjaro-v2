@@ -248,7 +248,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       slug: 'mujeres-al-mundo',
       link: 'https://www.mujeresalmundo.hsbc.com.ar/',
       description:
-        "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world. Collaborative Project.",
+        "It's the HSBC bank's community created in 2019 for ambitious women seeking to enhance their leadership in the business world. Developed through agency.",
       stacks: ['HTML', 'JavaScript', 'CSS', 'SCSS', 'BEMIT', 'Bootstrap'],
       role: 'Frontend Development',
       image: '/images/projects/mam/poster.webp',
@@ -285,7 +285,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
   es: [
     {
       id: 1,
-      name: 'Volvo Test Drive',
+      name: 'Volvo: Test Drive',
       slug: 'volvo-test-drive',
       link: 'https://volvotestdrive.com.ar/',
       description:
