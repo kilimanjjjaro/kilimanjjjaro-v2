@@ -13,7 +13,7 @@ export default {
     introducing: {
       sectionTitle: 'Introducing Me',
       headline:
-        'Full Stack JavaScript Developer & UX/UI Designer with +{experience} years of work experience.',
+        'Full Stack Developer & UX/UI Designer with +{experience} years of work experience.',
       biography:
         "I'm Gonzalo Castillo, a {yearsOld} years old boy who loves to designing and developing user experiences that are timeless, simple and perform well. In my years of experience, I have completed +20 projects with their goals achieved.",
       letsTalkButton: "Let's talk!",

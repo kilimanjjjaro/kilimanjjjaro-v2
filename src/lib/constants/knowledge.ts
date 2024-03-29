@@ -52,7 +52,7 @@ export const EXPERIENCE = {
     },
     {
       year: '2017 — Present',
-      name: 'Freelance'
+      name: 'Freelance Full Stack Developer & UX/UI Designer'
     },
     {
       year: '2017 — 2021',
