@@ -78,7 +78,7 @@ export const EXPERIENCE = {
 export const EDUCATION = {
   en: [
     {
-      year: '2011 — Present',
+      year: '2017 — Present',
       name: 'As a self-taught person, I love documentation.'
     },
     {
@@ -88,7 +88,7 @@ export const EDUCATION = {
   ],
   es: [
     {
-      year: '2011 — Presente',
+      year: '2017 — Presente',
       name: 'Como autodidacta, amo la documentación.'
     },
     {
