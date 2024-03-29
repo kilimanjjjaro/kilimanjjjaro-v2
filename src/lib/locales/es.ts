@@ -15,7 +15,7 @@ export default {
       headline:
         'Desarrollador Full Stack y Diseñador UI/UX con +{experience} años de experiencia laboral.',
       biography:
-        'Soy Gonzalo Castillo, un joven de 31 años que ama diseñar y desarrollar experiencias de usuario que sean atemporales, simples y que funcionen bien. En mis años de experiencia, he completado más de 20 proyectos con sus objetivos alcanzados.',
+        'Soy Gonzalo Castillo, un joven de {yearsOld} años que ama diseñar y desarrollar experiencias de usuario que sean atemporales, simples y que funcionen bien. En mis años de experiencia, he completado más de 20 proyectos con sus objetivos alcanzados.',
       letsTalkButton: '¡Hablemos!',
       portraitAlt: 'Foto de Gonzalo'
     },
