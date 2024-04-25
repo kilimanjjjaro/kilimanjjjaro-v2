@@ -14,6 +14,8 @@ interface BodyInterface {
 export async function POST(request: Request) {
   const body: BodyInterface = await request.json()
 
+  console.log('API_BODY', body)
+
   try {
     const responseAdmin = await resend.emails.send({
       from: `Kilimanjjjaro <${ADMIN_EMAIL}>`,
