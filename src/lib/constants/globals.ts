@@ -2,7 +2,7 @@ import getYearsOld from '@/lib/utils/getYearsOld'
 
 export const BASE_URL = `${
   process.env.NODE_ENV === 'production'
-    ? 'https://www.kilimanjjjaro.com'
+    ? 'https://kilimanjjjaro.com'
     : 'http://localhost:3000'
 }`
 
