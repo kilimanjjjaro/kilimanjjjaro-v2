@@ -1,6 +1,5 @@
 import { Resend } from 'resend'
 import EmailToAdmin from '@/components/email-templates/EmailToAdmin'
-import EmailToUser from '@/components/email-templates/EmailToUser'
 import { ADMIN_EMAIL } from '@/lib/constants/globals'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
@@ -14,8 +13,6 @@ interface BodyInterface {
 export async function POST(request: Request) {
   const body: BodyInterface = await request.json()
 
-  console.log('API_BODY', body)
-
   try {
     const responseAdmin = await resend.emails.send({
       from: `Kilimanjjjaro <onboarding@resend.dev>`,
@@ -25,18 +22,7 @@ export async function POST(request: Request) {
       react: EmailToAdmin(body)
     })
 
-    const responseUser = await resend.emails.send({
-      from: `Kilimanjjjaro <onboarding@resend.dev>`,
-      to: body.email,
-      subject: 'Message received',
-      reply_to: ADMIN_EMAIL,
-      react: EmailToUser(body)
-    })
-
-    console.log('responseAdmin', responseAdmin)
-    console.log('responseUser', responseUser)
-
-    if (responseAdmin.error === null && responseUser.error === null) {
+    if (responseAdmin.error === null) {
       return Response.json({ status: 200 }, { status: 200 })
     } else {
       throw new Error('Error sending email to admin')
