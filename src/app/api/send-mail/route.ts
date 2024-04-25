@@ -18,7 +18,7 @@ export async function POST(request: Request) {
 
   try {
     const responseAdmin = await resend.emails.send({
-      from: `Kilimanjjjaro <${ADMIN_EMAIL}>`,
+      from: `Kilimanjjjaro <onboarding@resend.dev>`,
       to: ADMIN_EMAIL,
       subject: `New message from ${body.name}`,
       reply_to: body.email,
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     })
 
     const responseUser = await resend.emails.send({
-      from: `Kilimanjjjaro <${ADMIN_EMAIL}>`,
+      from: `Kilimanjjjaro <onboarding@resend.dev>`,
       to: body.email,
       subject: 'Message received',
       reply_to: ADMIN_EMAIL,
