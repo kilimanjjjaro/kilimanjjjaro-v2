@@ -2,11 +2,11 @@ import getYearsOld from '@/lib/utils/getYearsOld'
 
 export const BASE_URL = `${
   process.env.NODE_ENV === 'production'
-    ? 'https://kilimanjjjaro-v2.vercel.app'
+    ? 'https://www.kilimanjjjaro.com'
     : 'http://localhost:3000'
 }`
 
-export const ADMIN_EMAIL = 'kilimanjjjaro1@gmail.com'
+export const ADMIN_EMAIL = 'gonzaloemacastillo@gmail.com'
 
 export const LANGUAGES = {
   en: [

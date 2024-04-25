@@ -91,7 +91,7 @@ export default function EmailToUser({ name, email, message }: Props) {
               <Text className='mt-3 mb-0 text-xs'>
                 <Link
                   className='leading-5 underline text-kili-light-gray'
-                  href='https://kilimanjjjaro-v2.vercel.app'
+                  href='https://www.kilimanjjjaro.com'
                   target='_blank'
                   rel='noopener noreferrer'
                 >

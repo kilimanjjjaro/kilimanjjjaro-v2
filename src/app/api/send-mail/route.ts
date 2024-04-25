@@ -31,6 +31,9 @@ export async function POST(request: Request) {
       react: EmailToUser(body)
     })
 
+    console.log('responseAdmin', responseAdmin)
+    console.log('responseUser', responseUser)
+
     if (responseAdmin.error === null && responseUser.error === null) {
       return Response.json({ status: 200 }, { status: 200 })
     } else {

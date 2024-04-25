@@ -3,7 +3,7 @@ export default {
     defaultTitle: 'Kilimanjjjaro — Creative web experiences',
     description:
       'Kilimanjjjaro is a creative studio focused on web experiences.',
-    url: 'https://kilimanjjjaro-v2.vercel.app',
+    url: 'https://www.kilimanjjjaro.com',
     locale: 'en'
   },
   home: {
