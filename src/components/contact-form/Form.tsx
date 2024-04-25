@@ -73,7 +73,7 @@ export default function Form({ handleDrag }: Props) {
         setSuccess(false)
         setStep(1)
         formRef.current?.reset()
-      }, 2000)
+      }, 5000)
 
       return () => {
         clearTimeout(timeout)
