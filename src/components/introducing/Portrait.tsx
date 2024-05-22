@@ -32,7 +32,12 @@ export default function Portrait() {
       }}
       style={isDesktop ? { y } : {}}
     >
-      <Image src={portraitImage} alt={t('sectionTitle')} priority />
+      <Image
+        src={portraitImage}
+        alt={t('sectionTitle')}
+        priority
+        quality={95}
+      />
     </motion.div>
   )
 }
