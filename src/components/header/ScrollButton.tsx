@@ -12,7 +12,7 @@ export default function ScrollButton() {
   const lenis = useLenis(() => {})
 
   const handleClick = () => {
-    const elementRef = document.getElementById('featured-projects')
+    const elementRef = document.getElementById('projects')
 
     if (elementRef != null) {
       lenis?.scrollTo(elementRef, {
