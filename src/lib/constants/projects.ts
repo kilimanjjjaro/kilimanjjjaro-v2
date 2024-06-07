@@ -193,7 +193,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       id: 1,
       name: 'Volvo Test Drive',
       slug: 'volvo-test-drive',
-      link: 'https://volvo-testdrive.vercel.app/',
+      link: 'https://volvotestdrive.com.ar/',
       description:
         'Landing page for Volvo Argentina through ATOMO Digital Agency. This simplifies the request for Test Drive appointments.',
       stacks: ['TypeScript', 'React', 'Tailwind'],
@@ -287,7 +287,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       id: 1,
       name: 'Volvo: Test Drive',
       slug: 'volvo-test-drive',
-      link: 'https://volvo-testdrive.vercel.app/',
+      link: 'https://volvotestdrive.com.ar/',
       description:
         'Landing page para Volvo Argentina a través de ATOMO Digital Agency. Esta simplifica la solicitud de citas para pruebas de manejo.',
       stacks: ['TypeScript', 'React', 'Tailwind'],
