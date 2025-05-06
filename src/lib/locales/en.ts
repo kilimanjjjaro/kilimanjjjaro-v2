@@ -8,7 +8,7 @@ export default {
   },
   home: {
     header: {
-      headline: ['Thinking', 'future—proff', 'experiences.']
+      headline: ['Thinking', 'future—proof', 'experiences.']
     },
     introducing: {
       sectionTitle: 'Introducing Me',
