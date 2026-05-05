@@ -29,10 +29,10 @@ export default function HeadlineMarquee({
   const { scrollY } = useScroll()
   const scrollVelocity = useVelocity(scrollY)
   const smoothVelocity = useSpring(scrollVelocity, {
-    damping: 50,
-    stiffness: 400
+    damping: 80,
+    stiffness: 300
   })
-  const velocityFactor = useTransform(smoothVelocity, [0, 2000], [0, 8], {
+  const velocityFactor = useTransform(smoothVelocity, [0, 4000], [0, 3], {
     clamp: false
   })
 
