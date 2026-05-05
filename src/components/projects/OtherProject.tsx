@@ -45,7 +45,7 @@ export default function OtherProject({ project }: Props) {
       onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
     >
       <article className='relative flex flex-col items-center xl:flex-row group cursor-none'>
-        <section className='order-2 overflow-hidden xl:order-1'>
+        <section className='order-2 overflow-hidden xl:order-1 xl:flex-1'>
           <motion.div
             className='flex flex-col xl:flex-row gap-4 xl:items-center pt-6 xl:pt-10 pb-6 xl:pb-[42px] xl:gap-10'
             initial={{ y: '110%', rotate: 3 }}
