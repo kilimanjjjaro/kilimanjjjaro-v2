@@ -7,6 +7,35 @@ import type {
 export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
   en: [
     {
+      id: 5,
+      name: 'Linktree Clone',
+      slug: 'linktree-clone',
+      headerDescription:
+        'A Linktree clone developed as a personal project. The goal was to replicate the original editor experience and go beyond it by adding full authentication, relational database persistence and a real-time visual customization system. Users can create multiple trees, manage their links and social profiles, and publish a public page accessible through a custom URL.',
+      sectionDescription:
+        'A playground to experiment with serverless PostgreSQL persistence through Prisma, atomic transactions and diff-based syncing, a server-first approach based on React Server Components and Server Actions, and Three.js shaders for the animated background.',
+      stacks: [
+        'Next JS',
+        'React',
+        'TypeScript',
+        'Tailwind CSS',
+        'PostgreSQL',
+        'Prisma',
+        'Three.js',
+        'NextAuth'
+      ],
+      keyword: 'Experimentation',
+      role: 'UX/UI Design — Frontend Development',
+      year: '2026',
+      backgroundColor: '#43e660',
+      link: '/#',
+      presentation: {
+        background: '/images/projects/linktree-clone/background.webp',
+        poster: '/images/projects/linktree-clone/poster.webp',
+        video: '/images/projects/linktree-clone/hero-video.webm'
+      }
+    },
+    {
       id: 1,
       name: 'wrkload',
       slug: 'wrkload',
@@ -17,7 +46,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       stacks: [
         'Next JS',
         'TypeScript',
-        'Tailwind',
+        'Tailwind CSS',
         'Node JS',
         'MongoDB',
         'Express',
@@ -62,7 +91,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
     //     'This project is a clone of the new social network by Meta called Threads. An attempt was made to recreate the desktop version of the application, and some UX/UI improvements were implemented. The content is obtained from the official Threads API.',
     //   sectionDescription:
     //     "The project's goal is to learn about and experiment with Qwik.",
-    //   stacks: ['TypeScript', 'Qwik', 'Tailwind', 'Cloudinary'],
+    //   stacks: ['TypeScript', 'Qwik', 'Tailwind CSS', 'Cloudinary'],
     //   keyword: 'Simplicity',
     //   role: 'Frontend Development',
     //   year: '2023',
@@ -97,6 +126,35 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
   ],
   es: [
     {
+      id: 5,
+      name: 'Linktree Clone',
+      slug: 'linktree-clone',
+      headerDescription:
+        'Un clon de Linktree desarrollado como proyecto personal. La idea fue replicar la experiencia del editor original e ir más allá agregando autenticación completa, persistencia en base de datos relacional y un sistema de personalización visual en tiempo real. Los usuarios pueden crear múltiples árboles, administrar sus enlaces y perfiles sociales, y publicar una página pública accesible mediante una URL personalizada.',
+      sectionDescription:
+        'Una oportunidad para experimentar con persistencia en PostgreSQL serverless mediante Prisma, transacciones atómicas y sincronización por diff, un enfoque server-first basado en React Server Components y Server Actions, y shaders con Three.js para el fondo animado.',
+      stacks: [
+        'Next JS',
+        'React',
+        'TypeScript',
+        'Tailwind CSS',
+        'PostgreSQL',
+        'Prisma',
+        'Three.js',
+        'NextAuth'
+      ],
+      keyword: 'Experimentation',
+      role: 'Diseño UX/UI — Desarrollo Frontend & Backend',
+      year: '2026',
+      backgroundColor: '#43e660',
+      link: '/#',
+      presentation: {
+        background: '/images/projects/linktree-clone/background.webp',
+        poster: '/images/projects/linktree-clone/poster.webp',
+        video: '/images/projects/linktree-clone/hero-video.webm'
+      }
+    },
+    {
       id: 1,
       name: 'wrkload',
       slug: 'wrkload',
@@ -107,7 +165,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       stacks: [
         'Next JS',
         'TypeScript',
-        'Tailwind',
+        'Tailwind CSS',
         'Node JS',
         'MongoDB',
         'Express',
@@ -152,7 +210,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
     //     'Este proyecto es un clon de la nueva red social de Meta llamada Threads. Se intentó recrear la versión de escritorio de la aplicación y se implementaron algunas mejoras en UX/UI. El contenido es obtenido de la API oficial de Threads.',
     //   sectionDescription:
     //     'El principal objetivo del proyecto es aprender y experimentar con Qwik.',
-    //   stacks: ['TypeScript', 'Qwik', 'Tailwind', 'Cloudinary'],
+    //   stacks: ['TypeScript', 'Qwik', 'Tailwind CSS', 'Cloudinary'],
     //   keyword: 'Simplicity',
     //   role: 'Desarrollo Frontend',
     //   year: '2023',
@@ -196,7 +254,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       link: 'https://volvotestdrive.com.ar/',
       description:
         'Landing page for Volvo Argentina through ATOMO Digital Agency. This simplifies the request for Test Drive appointments.',
-      stacks: ['TypeScript', 'React', 'Tailwind'],
+      stacks: ['TypeScript', 'React', 'Tailwind CSS'],
       role: 'Frontend Development',
       image: '/images/projects/volvo-test-drive/poster.webp',
       year: '2023',
@@ -236,7 +294,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       link: 'https://planovalo.automotoresmataderos.com.ar/',
       description:
         'Landing page for a Ford dealership through ATOMO Digital Agency. Its objective is to inform about the financing plan and provide a means of communication.',
-      stacks: ['TypeScript', 'Astro', 'Tailwind'],
+      stacks: ['TypeScript', 'Astro', 'Tailwind CSS'],
       role: 'Frontend Development',
       image: '/images/projects/plan-ovalo/poster.webp',
       year: '2023',
@@ -290,7 +348,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       link: 'https://volvotestdrive.com.ar/',
       description:
         'Landing page para Volvo Argentina a través de ATOMO Digital Agency. Esta simplifica la solicitud de citas para pruebas de manejo.',
-      stacks: ['TypeScript', 'React', 'Tailwind'],
+      stacks: ['TypeScript', 'React', 'Tailwind CSS'],
       role: 'Desarrollo Frontend',
       image: '/images/projects/volvo-test-drive/poster.webp',
       year: '2023',
@@ -330,7 +388,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       link: 'https://planovalo.automotoresmataderos.com.ar/',
       description:
         'Landing page para concesionario de Ford a través de ATOMO Digital Agency. Su objetivo es informar sobre el plan de financiamiento y proporcionar un medio de comunicación.',
-      stacks: ['TypeScript', 'Astro', 'Tailwind'],
+      stacks: ['TypeScript', 'Astro', 'Tailwind CSS'],
       role: 'Desarrollo Frontend',
       image: '/images/projects/plan-ovalo/poster.webp',
       year: '2023',
