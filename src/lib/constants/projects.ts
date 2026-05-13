@@ -7,35 +7,6 @@ import type {
 export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
   en: [
     {
-      id: 5,
-      name: 'Linktree Clone',
-      slug: 'linktree-clone',
-      headerDescription:
-        'A Linktree clone developed as a personal project. The goal was to replicate the original editor experience and go beyond it by adding full authentication, relational database persistence and a real-time visual customization system. Users can create multiple trees, manage their links and social profiles, and publish a public page accessible through a custom URL.',
-      sectionDescription:
-        'A playground to experiment with serverless PostgreSQL persistence through Prisma, atomic transactions and diff-based syncing, a server-first approach based on React Server Components and Server Actions, and Three.js shaders for the animated background.',
-      stacks: [
-        'Next JS',
-        'React',
-        'TypeScript',
-        'Tailwind CSS',
-        'PostgreSQL',
-        'Prisma',
-        'Three.js',
-        'NextAuth'
-      ],
-      keyword: 'Experimentation',
-      role: 'UX/UI Design — Frontend Development',
-      year: '2026',
-      backgroundColor: '#43e660',
-      link: '/#',
-      presentation: {
-        background: '/images/projects/linktree-clone/background.webp',
-        poster: '/images/projects/linktree-clone/poster.webp',
-        video: '/images/projects/linktree-clone/hero-video.webm'
-      }
-    },
-    {
       id: 1,
       name: 'wrkload',
       slug: 'wrkload',
@@ -125,35 +96,6 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
     }
   ],
   es: [
-    {
-      id: 5,
-      name: 'Linktree Clone',
-      slug: 'linktree-clone',
-      headerDescription:
-        'Un clon de Linktree desarrollado como proyecto personal. La idea fue replicar la experiencia del editor original e ir más allá agregando autenticación completa, persistencia en base de datos relacional y un sistema de personalización visual en tiempo real. Los usuarios pueden crear múltiples árboles, administrar sus enlaces y perfiles sociales, y publicar una página pública accesible mediante una URL personalizada.',
-      sectionDescription:
-        'Una oportunidad para experimentar con persistencia en PostgreSQL serverless mediante Prisma, transacciones atómicas y sincronización por diff, un enfoque server-first basado en React Server Components y Server Actions, y shaders con Three.js para el fondo animado.',
-      stacks: [
-        'Next JS',
-        'React',
-        'TypeScript',
-        'Tailwind CSS',
-        'PostgreSQL',
-        'Prisma',
-        'Three.js',
-        'NextAuth'
-      ],
-      keyword: 'Experimentation',
-      role: 'Diseño UX/UI — Desarrollo Frontend & Backend',
-      year: '2026',
-      backgroundColor: '#43e660',
-      link: '/#',
-      presentation: {
-        background: '/images/projects/linktree-clone/background.webp',
-        poster: '/images/projects/linktree-clone/poster.webp',
-        video: '/images/projects/linktree-clone/hero-video.webm'
-      }
-    },
     {
       id: 1,
       name: 'wrkload',
@@ -248,6 +190,28 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
 export const OTHER_PROJECTS: OtherProjectsInterface = {
   en: [
     {
+      id: 8,
+      name: 'Linktree Clone',
+      slug: 'linktree-clone',
+      link: 'https://linktree-clone-amber.vercel.app/',
+      description:
+        'A Linktree clone developed as a personal project, replicating the original editor experience with full authentication, relational database persistence and a real-time visual customization system.',
+      stacks: [
+        'Next JS',
+        'React',
+        'TypeScript',
+        'Tailwind CSS',
+        'PostgreSQL',
+        'Prisma',
+        'Three.js',
+        'NextAuth'
+      ],
+      role: 'UX/UI Design — Frontend Development',
+      image: '/images/projects/linktree-clone/poster.webp',
+      year: '2026',
+      isRepository: false
+    },
+    {
       id: 1,
       name: 'Volvo Test Drive',
       slug: 'volvo-test-drive',
@@ -341,6 +305,28 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
     }
   ],
   es: [
+    {
+      id: 8,
+      name: 'Linktree Clone',
+      slug: 'linktree-clone',
+      link: 'https://linktree-clone-amber.vercel.app/',
+      description:
+        'Un clon de Linktree desarrollado como proyecto personal, replicando la experiencia del editor original con autenticación completa, persistencia en base de datos relacional y un sistema de personalización visual en tiempo real.',
+      stacks: [
+        'Next JS',
+        'React',
+        'TypeScript',
+        'Tailwind CSS',
+        'PostgreSQL',
+        'Prisma',
+        'Three.js',
+        'NextAuth'
+      ],
+      role: 'Diseño UX/UI — Desarrollo Frontend',
+      image: '/images/projects/linktree-clone/poster.webp',
+      year: '2026',
+      isRepository: false
+    },
     {
       id: 1,
       name: 'Volvo: Test Drive',
