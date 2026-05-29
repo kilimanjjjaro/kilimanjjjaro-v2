@@ -27,7 +27,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       role: 'UX/UI Design — Frontend & Backend Development',
       year: '2023',
       backgroundColor: '#6174af',
-      link: '/#',
+      link: 'https://wrkload.vercel.app/',
       presentation: {
         background: '/images/projects/wrkload/background.webp',
         poster: '/images/projects/wrkload/poster.webp',
@@ -117,7 +117,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       role: 'Diseño UX/UI — Desarrollo Frontend & Backend',
       year: '2023',
       backgroundColor: '#6174af',
-      link: '/#',
+      link: 'https://wrkload.vercel.app/',
       presentation: {
         background: '/images/projects/wrkload/background.webp',
         poster: '/images/projects/wrkload/poster.webp',
