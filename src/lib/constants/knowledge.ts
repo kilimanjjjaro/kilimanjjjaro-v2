@@ -47,12 +47,12 @@ export const CLIENTS = [
 export const EXPERIENCE = {
   en: [
     {
-      year: '2021 — Present',
-      name: 'Full Stack Developer at Circulo'
-    },
-    {
       year: '2017 — Present',
       name: 'Freelance Full Stack Developer & UX/UI Designer'
+    },
+    {
+      year: '2021 — 2024',
+      name: 'Full Stack Developer at Circulo'
     },
     {
       year: '2017 — 2021',
@@ -61,12 +61,12 @@ export const EXPERIENCE = {
   ],
   es: [
     {
-      year: '2021 — Presente',
-      name: 'Desarrollador Full Stack en Circulo'
-    },
-    {
       year: '2017 — Presente',
       name: 'Freelance'
+    },
+    {
+      year: '2021 — 2024',
+      name: 'Desarrollador Full Stack en Circulo'
     },
     {
       year: '2017 — 2021',
