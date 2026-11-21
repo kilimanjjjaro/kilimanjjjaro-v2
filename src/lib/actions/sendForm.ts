@@ -5,7 +5,7 @@ import { BASE_URL } from '@/lib/constants/globals'
 
 const schema = z.object({
   name: z.string().min(1),
-  email: z.string().email(),
+  email: z.email(),
   message: z.string().min(1)
 })
 
