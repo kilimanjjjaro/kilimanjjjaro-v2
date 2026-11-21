@@ -173,6 +173,7 @@ test.describe('contact form', () => {
 
     const form = await openContactForm(page, introducing.letsTalkButton)
     await expect(form).toBeVisible()
+    await expect(form.getByText('components', { exact: true })).toBeVisible()
     await form.locator('header button').click()
     await expect(form).toBeHidden()
   })
@@ -207,6 +208,7 @@ test.describe('cookies consent', () => {
   test('declining removes the locale cookie', async ({ page, context }) => {
     await page.goto('/es')
     await waitForApp(page)
+    await page.waitForLoadState('networkidle')
 
     const locale = async () =>
       (await context.cookies()).find((cookie) => cookie.name === 'Next-Locale')
