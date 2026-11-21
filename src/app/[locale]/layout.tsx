@@ -74,7 +74,7 @@ export default async function RootLayout({
 }: {
   children: ChildrenType
 }) {
-  const currentLocale = getCurrentLocale()
+  const currentLocale = await getCurrentLocale()
 
   return (
     <html lang={currentLocale}>

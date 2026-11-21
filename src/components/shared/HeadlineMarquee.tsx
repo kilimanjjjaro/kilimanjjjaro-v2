@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { wrap } from '@motionone/utils'
+import wrap from '@/lib/utils/wrap'
 import clsx from 'clsx'
 import {
   motion,
