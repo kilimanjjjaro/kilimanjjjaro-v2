@@ -7,17 +7,25 @@ import {
   MAX_PARTIAL_ROTATION,
   MIN_INTRO_OFFSET_PX,
   MIN_PARTIAL_ROTATION,
+  MISSING_ELEMENT_OPACITY,
+  MISSING_ELEMENT_WIDTH,
   MISSING_SLIDE_INDEX,
   SINGLE_ELEMENT
 } from '../constants/e2e'
 import {
   isScrolledPast,
   readCarouselIndex,
+  readElementWidth,
   readHeadlineSamples,
   readHeadlineWordMatrix,
+  readScrollButtonState,
   scrollWindowTo
 } from './page-scripts'
-import type { MatrixSample, WordTransform } from '../types/browser'
+import type {
+  ElementVisibility,
+  MatrixSample,
+  WordTransform
+} from '../types/browser'
 
 export function toWordTransform({ a, b, f }: MatrixSample): WordTransform {
   return {
@@ -74,6 +82,23 @@ export async function countPartialIntroFrames(page: Page) {
     ).length
 }
 
+export async function renderedWidth(page: Page, selector: string) {
+  return (
+    (await page.evaluate(readElementWidth, selector)) ?? MISSING_ELEMENT_WIDTH
+  )
+}
+
 export async function carouselIndex(page: Page) {
   return (await page.evaluate(readCarouselIndex)) ?? MISSING_SLIDE_INDEX
+}
+
+export async function scrollButtonState(
+  page: Page
+): Promise<ElementVisibility> {
+  return (
+    (await page.evaluate(readScrollButtonState)) ?? {
+      display: 'missing',
+      opacity: MISSING_ELEMENT_OPACITY
+    }
+  )
 }

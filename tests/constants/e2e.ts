@@ -23,6 +23,7 @@ export const BANNER_SETTLE_MS = 1_000
 
 export const COMPACT_NAVBAR_SCROLL_Y = 400
 export const COMPACT_NAVBAR_MIN_SCROLL_Y = 50
+export const SCROLL_BUTTON_SCROLL_Y = 300
 
 export const SINGLE_ELEMENT = 1
 export const NO_ELEMENTS = 0
@@ -39,10 +40,20 @@ export const MIN_SCROLLED_OFFSET_PX = 10
 export const MIN_SCROLLED_ROTATION = 0.5
 export const DEGREES_IN_HALF_TURN = 180
 
+export const CURSOR_START_X = 400
+export const CURSOR_START_Y = 300
+export const MIN_CURSOR_WIDTH_PX = 40
+export const MIN_CAROUSEL_ARROW_WIDTH_PX = 100
+export const CAROUSEL_HOVER_RATIO = 0.75
 export const CAROUSEL_RIGHT_SIDE_RATIO = 0.8
+export const MOUSE_MOVE_STEPS = 5
 
 export const MISSING_SLIDE_INDEX = -1
 export const FIRST_SLIDE_INDEX = 0
 export const SECOND_SLIDE_INDEX = 1
+
+export const MISSING_ELEMENT_OPACITY = 0
+export const MISSING_ELEMENT_WIDTH = 0
+export const VISIBLE_ELEMENT_OPACITY = 1
 
 export const IGNORED_ERROR_URLS = ['/_vercel/insights/']

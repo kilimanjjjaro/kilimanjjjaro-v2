@@ -8,6 +8,8 @@ import {
   countPartialIntroFrames,
   openContactForm,
   readFirstHeadlineWord,
+  renderedWidth,
+  scrollButtonState,
   scrollTo,
   showCompactNavbar,
   waitForApp
@@ -16,19 +18,27 @@ import { unexpectedErrors } from '../utils/errors'
 import { readCookieConsent, recordHeadlineIntro } from '../utils/page-scripts'
 import {
   BANNER_SETTLE_MS,
+  CAROUSEL_HOVER_RATIO,
   CAROUSEL_RIGHT_SIDE_RATIO,
   COMPACT_NAVBAR_SCROLL_Y,
+  CURSOR_START_X,
+  CURSOR_START_Y,
   FIRST_SLIDE_INDEX,
   HEADLINE_SAMPLING_MS,
+  MIN_CAROUSEL_ARROW_WIDTH_PX,
+  MIN_CURSOR_WIDTH_PX,
   MIN_INTRO_FRAMES,
   MIN_SCROLLED_OFFSET_PX,
   MIN_SCROLLED_ROTATION,
+  MOUSE_MOVE_STEPS,
   NO_ELEMENTS,
   POLL_TIMEOUT_MS,
   QUICK_TIMEOUT_MS,
   RETRY_TIMEOUT_MS,
+  SCROLL_BUTTON_SCROLL_Y,
   SECOND_SLIDE_INDEX,
-  SETTLED_OFFSET_PX
+  SETTLED_OFFSET_PX,
+  VISIBLE_ELEMENT_OPACITY
 } from '../constants/e2e'
 
 test.describe('header headline', () => {
@@ -57,6 +67,57 @@ test.describe('header headline', () => {
     expect((await readFirstHeadlineWord(page)).rotate).toBeGreaterThan(
       MIN_SCROLLED_ROTATION
     )
+  })
+})
+
+test.describe('custom cursor', () => {
+  test.skip(({ isMobile }) => isMobile, 'The custom cursor is desktop only')
+
+  test('follows the mouse and turns into an arrow over the carousel', async ({
+    page
+  }) => {
+    await page.goto('/')
+    await waitForApp(page)
+
+    await page.mouse.move(CURSOR_START_X, CURSOR_START_Y)
+    await expect
+      .poll(async () => await renderedWidth(page, 'body > div.w-14.h-14'))
+      .toBeGreaterThan(MIN_CURSOR_WIDTH_PX)
+
+    const carousel = page.locator('.skills-carousel')
+    await carousel.scrollIntoViewIfNeeded()
+    const box = await carousel.boundingBox()
+    if (box === null) throw new Error('carousel not visible')
+    await page.mouse.move(
+      box.x + box.width * CAROUSEL_HOVER_RATIO,
+      box.y + getCenter(box.height),
+      { steps: MOUSE_MOVE_STEPS }
+    )
+    await expect
+      .poll(async () => await renderedWidth(page, '.skills-carousel + div svg'))
+      .toBeGreaterThan(MIN_CAROUSEL_ARROW_WIDTH_PX)
+  })
+})
+
+test.describe('header scroll button', () => {
+  test('fades in after the intro and hides once the user scrolls', async ({
+    page
+  }) => {
+    await page.goto('/')
+    await waitForApp(page)
+
+    await expect
+      .poll(async () => await scrollButtonState(page), {
+        timeout: RETRY_TIMEOUT_MS
+      })
+      .toEqual({ display: 'block', opacity: VISIBLE_ELEMENT_OPACITY })
+
+    await scrollTo(page, SCROLL_BUTTON_SCROLL_Y)
+    await expect
+      .poll(async () => (await scrollButtonState(page)).display, {
+        timeout: POLL_TIMEOUT_MS
+      })
+      .toBe('none')
   })
 })
 

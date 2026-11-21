@@ -279,7 +279,7 @@ export default function SkillsCarousel() {
       </Swiper>
       <motion.div
         ref={arrowEl}
-        className='fixed top-0 left-0 z-10 scale-0 pointer-events-none xl:opacity-0 selection:hidden'
+        className='fixed top-0 left-0 z-10 [transform:scale(0)] pointer-events-none xl:opacity-0 selection:hidden'
         style={{ x, y }}
         animate={{
           scale: isHovered ? FULL_SCALE : HIDDEN_SCALE,

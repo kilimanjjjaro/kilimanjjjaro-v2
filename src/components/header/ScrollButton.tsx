@@ -28,11 +28,13 @@ export default function ScrollButton() {
     }
   }
 
-  useEffect(() => {
-    lenis?.on('scroll', () => {
-      setIsScrolling(true)
-    })
-  }, [lenis])
+  useEffect(
+    () =>
+      lenis?.on('scroll', ({ isScrolling }) => {
+        if (isScrolling !== false) setIsScrolling(true)
+      }),
+    [lenis]
+  )
 
   return (
     <motion.button

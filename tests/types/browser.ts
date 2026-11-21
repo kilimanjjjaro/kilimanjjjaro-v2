@@ -14,6 +14,11 @@ export interface WordTransform {
   rotate: number
 }
 
+export interface ElementVisibility {
+  display: string
+  opacity: number
+}
+
 declare global {
   interface Window {
     headlineSamples?: MatrixSample[]

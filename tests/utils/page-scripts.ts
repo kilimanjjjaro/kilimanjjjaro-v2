@@ -1,4 +1,4 @@
-import type { MatrixSample } from '../types/browser'
+import type { ElementVisibility, MatrixSample } from '../types/browser'
 
 export function readHeadlineWordMatrix(): MatrixSample {
   const word = document.querySelector('main header h2 > span')
@@ -45,12 +45,28 @@ export function readHeadlineSamples(): MatrixSample[] {
   return window.headlineSamples ?? []
 }
 
+export function readElementWidth(selector: string): number | null {
+  return document.querySelector(selector)?.getBoundingClientRect().width ?? null
+}
+
 export function readCarouselIndex(): number | null {
   const carousel = document.querySelector<
     HTMLElement & { swiper?: { activeIndex: number } }
   >('.skills-carousel')
 
   return carousel?.swiper?.activeIndex ?? null
+}
+
+export function readScrollButtonState(): ElementVisibility | null {
+  const button = Array.from(
+    document.querySelectorAll('main header button')
+  ).find((element) => element.textContent.trim() === 'Scroll')
+
+  if (button === undefined) return null
+
+  const { display, opacity } = getComputedStyle(button)
+
+  return { display, opacity: Number(opacity) }
 }
 
 export function scrollWindowTo(top: number) {
