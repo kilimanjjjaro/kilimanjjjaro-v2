@@ -2,17 +2,31 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Requirements: Node.js 26 (pinned with Volta) and pnpm 11. pnpm runs the
+project scripts with the Node.js version declared in `devEngines`.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Checks
+
+```bash
+pnpm typecheck   # TypeScript
+pnpm lint        # ESLint
+pnpm test        # Unit tests (Vitest)
+pnpm build       # Production build
+pnpm test:e2e    # End-to-end tests (Playwright, needs a build first)
+pnpm test:all    # All of the above, in order
+```
+
+Before the first e2e run, install the browser with
+`pnpm exec playwright install chromium`. The e2e tests never submit the contact
+form, so they do not send emails. The same checks run in CI on every pull
+request (`.github/workflows/ci.yml`).
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
