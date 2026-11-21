@@ -15,6 +15,7 @@ export const CI_RETRIES = 1
 export const LOCAL_RETRIES = 0
 
 export const APP_READY_TIMEOUT_MS = 20_000
+export const POLL_TIMEOUT_MS = 10_000
 export const RETRY_TIMEOUT_MS = 15_000
 export const QUICK_TIMEOUT_MS = 2_000
 export const HYDRATION_WAIT_MS = 2_500
@@ -27,6 +28,16 @@ export const SINGLE_ELEMENT = 1
 export const NO_ELEMENTS = 0
 export const NO_REDIRECTS = 0
 export const MIN_IMAGE_BYTES = 100
+
+export const HEADLINE_SAMPLING_MS = 4000
+export const MIN_INTRO_FRAMES = 5
+export const MIN_INTRO_OFFSET_PX = 1
+export const MIN_PARTIAL_ROTATION = 0.5
+export const MAX_PARTIAL_ROTATION = 5.5
+export const SETTLED_OFFSET_PX = 0
+export const MIN_SCROLLED_OFFSET_PX = 10
+export const MIN_SCROLLED_ROTATION = 0.5
+export const DEGREES_IN_HALF_TURN = 180
 
 export const CAROUSEL_RIGHT_SIDE_RATIO = 0.8
 

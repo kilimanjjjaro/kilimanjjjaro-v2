@@ -11,9 +11,8 @@ import {
   HEADLINE_INTRO_SCALE,
   HEADLINE_REVEAL_ROTATION,
   HEADLINE_SCROLL_END,
-  HEADLINE_SECOND_WORD_DELAY,
-  HEADLINE_THIRD_WORD_DELAY,
   HEADLINE_WORD_HIDDEN_STATE,
+  HEADLINE_WORDS_TRANSITION,
   INTRO_TRANSITION,
   NO_ROTATION,
   REVEALED_STATE,
@@ -56,14 +55,15 @@ export default function Headline() {
           currentLocale === LOCALES.es && 'xl:-translate-x-36'
         )}
       >
-        <motion.span
-          className='block'
-          style={{ y, rotate }}
-          initial={HEADLINE_WORD_HIDDEN_STATE}
-          animate={REVEALED_STATE}
-          transition={INTRO_TRANSITION}
-        >
-          {t('headline.0')}{' '}
+        <motion.span className='block' style={{ y, rotate }}>
+          <motion.span
+            className='block'
+            initial={HEADLINE_WORD_HIDDEN_STATE}
+            animate={REVEALED_STATE}
+            transition={HEADLINE_WORDS_TRANSITION}
+          >
+            {t('headline.0')}{' '}
+          </motion.span>
         </motion.span>
       </span>
       <span
@@ -73,31 +73,30 @@ export default function Headline() {
           currentLocale === LOCALES.es && 'xl:translate-x-36 xl:-mt-8 xl:mb-4'
         )}
       >
-        <motion.span
-          className='flex items-center gap-x-1'
-          style={{ y, rotate }}
-          initial={HEADLINE_WORD_HIDDEN_STATE}
-          animate={REVEALED_STATE}
-          transition={{
-            ...INTRO_TRANSITION,
-            delay: HEADLINE_SECOND_WORD_DELAY
-          }}
-        >
-          {t('headline.1')}{' '}
+        <motion.span className='block' style={{ y, rotate }}>
+          <motion.span
+            className='flex items-center gap-x-1'
+            initial={HEADLINE_WORD_HIDDEN_STATE}
+            animate={REVEALED_STATE}
+            transition={HEADLINE_WORDS_TRANSITION}
+          >
+            {t('headline.1')}{' '}
+          </motion.span>
         </motion.span>
       </span>
       <span className='relative overflow-hidden'>
-        <motion.span
-          className='block'
-          style={{ y, rotate }}
-          initial={HEADLINE_WORD_HIDDEN_STATE}
-          animate={REVEALED_STATE}
-          transition={{ ...INTRO_TRANSITION, delay: HEADLINE_THIRD_WORD_DELAY }}
-          onAnimationComplete={() => {
-            setIntroRunning(false)
-          }}
-        >
-          {t('headline.2')}
+        <motion.span className='block' style={{ y, rotate }}>
+          <motion.span
+            className='block'
+            initial={HEADLINE_WORD_HIDDEN_STATE}
+            animate={REVEALED_STATE}
+            transition={HEADLINE_WORDS_TRANSITION}
+            onAnimationComplete={() => {
+              setIntroRunning(false)
+            }}
+          >
+            {t('headline.2')}
+          </motion.span>
         </motion.span>
       </span>
     </motion.h2>

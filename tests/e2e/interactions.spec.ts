@@ -5,21 +5,60 @@ import updateStacks from '@/lib/utils/updateStacks'
 import getCenter from '@/lib/utils/getCenter'
 import {
   carouselIndex,
+  countPartialIntroFrames,
   openContactForm,
+  readFirstHeadlineWord,
+  scrollTo,
   showCompactNavbar,
   waitForApp
 } from '../utils/browser'
 import { unexpectedErrors } from '../utils/errors'
-import { readCookieConsent } from '../utils/page-scripts'
+import { readCookieConsent, recordHeadlineIntro } from '../utils/page-scripts'
 import {
   BANNER_SETTLE_MS,
   CAROUSEL_RIGHT_SIDE_RATIO,
+  COMPACT_NAVBAR_SCROLL_Y,
   FIRST_SLIDE_INDEX,
+  HEADLINE_SAMPLING_MS,
+  MIN_INTRO_FRAMES,
+  MIN_SCROLLED_OFFSET_PX,
+  MIN_SCROLLED_ROTATION,
   NO_ELEMENTS,
+  POLL_TIMEOUT_MS,
   QUICK_TIMEOUT_MS,
   RETRY_TIMEOUT_MS,
-  SECOND_SLIDE_INDEX
+  SECOND_SLIDE_INDEX,
+  SETTLED_OFFSET_PX
 } from '../constants/e2e'
+
+test.describe('header headline', () => {
+  test('words rise into place on load and move down on scroll', async ({
+    page
+  }) => {
+    await page.addInitScript(recordHeadlineIntro, HEADLINE_SAMPLING_MS)
+
+    await page.goto('/')
+    await waitForApp(page)
+
+    await expect
+      .poll(async () => await countPartialIntroFrames(page))
+      .toBeGreaterThan(MIN_INTRO_FRAMES)
+
+    await expect
+      .poll(async () => Math.round((await readFirstHeadlineWord(page)).y), {
+        timeout: POLL_TIMEOUT_MS
+      })
+      .toBe(SETTLED_OFFSET_PX)
+
+    await scrollTo(page, COMPACT_NAVBAR_SCROLL_Y)
+    await expect
+      .poll(async () => (await readFirstHeadlineWord(page)).y)
+      .toBeGreaterThan(MIN_SCROLLED_OFFSET_PX)
+    expect((await readFirstHeadlineWord(page)).rotate).toBeGreaterThan(
+      MIN_SCROLLED_ROTATION
+    )
+  })
+})
 
 test.describe('navigation menu', () => {
   test('opens and closes with the menu button and Escape', async ({

@@ -51,8 +51,7 @@ export const FADE_IN_DELAY = 2
 export const REVEAL_STAGGER = 0.2
 export const OTHER_PROJECT_STAGGER = 0.3
 export const FEATURED_PROJECT_STAGGER = 1.04
-export const HEADLINE_SECOND_WORD_DELAY = 0.3
-export const HEADLINE_THIRD_WORD_DELAY = 0.5
+export const HEADLINE_WORDS_DELAY = 0.5
 export const STAGGER_CHILDREN = 0.1
 export const REVERSE_STAGGER_DIRECTION = -1
 
@@ -94,6 +93,11 @@ export const INTRO_TRANSITION: Transition = {
 export const VIDEO_FADE_TRANSITION: Transition = {
   duration: VIDEO_FADE_DURATION,
   ease: 'easeInOut'
+}
+
+export const HEADLINE_WORDS_TRANSITION: Transition = {
+  ...INTRO_TRANSITION,
+  delay: HEADLINE_WORDS_DELAY
 }
 
 export const FADE_OUT_STATE = { opacity: HIDDEN_OPACITY }
