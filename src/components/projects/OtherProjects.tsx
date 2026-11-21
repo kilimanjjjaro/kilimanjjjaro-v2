@@ -69,8 +69,8 @@ export default function OtherProjects({ projects }: Props) {
         ))}
       </h3>
       <section className='mt-6 xl:mt-10'>
-        {projects.slice(FIRST_INDEX, visibleItems).map((project) => (
-          <OtherProject key={project.id} project={project} />
+        {projects.slice(FIRST_INDEX, visibleItems).map((project, index) => (
+          <OtherProject key={project.slug} project={project} index={index} />
         ))}
       </section>
       <motion.button

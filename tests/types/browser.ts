@@ -22,5 +22,6 @@ export interface ElementVisibility {
 declare global {
   interface Window {
     headlineSamples?: MatrixSample[]
+    settledOtherProjects?: number[]
   }
 }

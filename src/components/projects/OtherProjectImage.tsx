@@ -16,6 +16,7 @@ import type { OtherProjectInterface } from '@/lib/types/projects'
 
 interface Props {
   project: OtherProjectInterface
+  index: number
   isInView: boolean
   isDesktop: boolean
   transition: Transition
@@ -23,6 +24,7 @@ interface Props {
 
 export default function OtherProjectImage({
   project,
+  index,
   isInView,
   isDesktop,
   transition
@@ -31,7 +33,7 @@ export default function OtherProjectImage({
     <div
       className={clsx(
         'xl:absolute overflow-hidden mt-8 xl:mt-0 order-1 xl:order-2 right-10 z-10',
-        isEven(project.id) ? 'xl:-rotate-3' : 'xl:rotate-3'
+        isEven(index) ? 'xl:-rotate-3' : 'xl:rotate-3'
       )}
     >
       <motion.div

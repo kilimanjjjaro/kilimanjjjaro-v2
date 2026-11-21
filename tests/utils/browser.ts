@@ -3,6 +3,7 @@ import {
   APP_READY_TIMEOUT_MS,
   COMPACT_NAVBAR_MIN_SCROLL_Y,
   COMPACT_NAVBAR_SCROLL_Y,
+  COMPARED_OTHER_PROJECTS,
   DEGREES_IN_HALF_TURN,
   MAX_PARTIAL_ROTATION,
   MIN_INTRO_OFFSET_PX,
@@ -10,6 +11,8 @@ import {
   MISSING_ELEMENT_OPACITY,
   MISSING_ELEMENT_WIDTH,
   MISSING_SLIDE_INDEX,
+  OTHER_PROJECTS_SETTLE_TIMEOUT_MS,
+  SETTLED_TOLERANCE_PX,
   SINGLE_ELEMENT
 } from '../constants/e2e'
 import {
@@ -19,7 +22,9 @@ import {
   readHeadlineSamples,
   readHeadlineWordMatrix,
   readScrollButtonState,
-  scrollWindowTo
+  readSettledOtherProjects,
+  scrollWindowTo,
+  trackSettledOtherProjects
 } from './page-scripts'
 import type {
   ElementVisibility,
@@ -101,4 +106,14 @@ export async function scrollButtonState(
       opacity: MISSING_ELEMENT_OPACITY
     }
   )
+}
+
+export async function recordOtherProjectsSettleOrder(page: Page) {
+  await page.waitForFunction(
+    trackSettledOtherProjects,
+    { count: COMPARED_OTHER_PROJECTS, tolerance: SETTLED_TOLERANCE_PX },
+    { polling: 'raf', timeout: OTHER_PROJECTS_SETTLE_TIMEOUT_MS }
+  )
+
+  return await page.evaluate(readSettledOtherProjects)
 }

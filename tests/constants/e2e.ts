@@ -52,6 +52,12 @@ export const MISSING_SLIDE_INDEX = -1
 export const FIRST_SLIDE_INDEX = 0
 export const SECOND_SLIDE_INDEX = 1
 
+export const COMPARED_OTHER_PROJECTS = 2
+export const SETTLED_TOLERANCE_PX = 1
+export const OTHER_PROJECTS_SETTLE_TIMEOUT_MS = 8000
+export const FIRST_OTHER_PROJECT = 0
+export const SECOND_OTHER_PROJECT = 1
+
 export const MISSING_ELEMENT_OPACITY = 0
 export const MISSING_ELEMENT_WIDTH = 0
 export const VISIBLE_ELEMENT_OPACITY = 1

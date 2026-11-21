@@ -8,6 +8,7 @@ import {
   countPartialIntroFrames,
   openContactForm,
   readFirstHeadlineWord,
+  recordOtherProjectsSettleOrder,
   renderedWidth,
   scrollButtonState,
   scrollTo,
@@ -23,6 +24,7 @@ import {
   COMPACT_NAVBAR_SCROLL_Y,
   CURSOR_START_X,
   CURSOR_START_Y,
+  FIRST_OTHER_PROJECT,
   FIRST_SLIDE_INDEX,
   HEADLINE_SAMPLING_MS,
   MIN_CAROUSEL_ARROW_WIDTH_PX,
@@ -36,6 +38,7 @@ import {
   QUICK_TIMEOUT_MS,
   RETRY_TIMEOUT_MS,
   SCROLL_BUTTON_SCROLL_Y,
+  SECOND_OTHER_PROJECT,
   SECOND_SLIDE_INDEX,
   SETTLED_OFFSET_PX,
   VISIBLE_ELEMENT_OPACITY
@@ -96,6 +99,23 @@ test.describe('custom cursor', () => {
     await expect
       .poll(async () => await renderedWidth(page, '.skills-carousel + div svg'))
       .toBeGreaterThan(MIN_CAROUSEL_ARROW_WIDTH_PX)
+  })
+})
+
+test.describe('other projects', () => {
+  test.skip(({ isMobile }) => isMobile, 'Items are staggered on desktop only')
+
+  test('items rise into place in list order', async ({ page }) => {
+    await page.goto('/')
+    await waitForApp(page)
+
+    const firstItem = page.locator('a[target="_blank"] article h4').first()
+    await firstItem.scrollIntoViewIfNeeded()
+
+    expect(await recordOtherProjectsSettleOrder(page)).toEqual([
+      FIRST_OTHER_PROJECT,
+      SECOND_OTHER_PROJECT
+    ])
   })
 })
 

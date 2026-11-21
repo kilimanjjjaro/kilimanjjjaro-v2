@@ -5,6 +5,7 @@ import OtherProjectImage from '@/components/projects/OtherProjectImage'
 import OtherProjectVisitButton from '@/components/projects/OtherProjectVisitButton'
 import { useStore } from '@/lib/store/store'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
+import toListPosition from '@/lib/utils/toListPosition'
 import { CURSOR_STATUS } from '@/lib/constants/globals'
 import { HR_LINE_VARIANTS } from '@/lib/constants/variants'
 import { OTHER_PROJECT_UNDERLINE_STYLES } from '@/lib/constants/styles'
@@ -19,16 +20,17 @@ import type { OtherProjectInterface } from '@/lib/types/projects'
 
 interface Props {
   project: OtherProjectInterface
+  index: number
 }
 
-export default function OtherProject({ project }: Props) {
+export default function OtherProject({ project, index }: Props) {
   const { setCursorStatus } = useStore()
   const projectRef = useRef<HTMLAnchorElement>(null)
   const projectIsInView = useInView(projectRef, { once: true })
   const { isDesktop } = useMediaQuery()
   const transition = {
     ...REVEAL_TRANSITION,
-    delay: isDesktop ? project.id * OTHER_PROJECT_STAGGER : NO_DELAY
+    delay: isDesktop ? toListPosition(index) * OTHER_PROJECT_STAGGER : NO_DELAY
   }
 
   return (
@@ -89,6 +91,7 @@ export default function OtherProject({ project }: Props) {
         </section>
         <OtherProjectImage
           project={project}
+          index={index}
           isInView={projectIsInView}
           isDesktop={isDesktop}
           transition={transition}

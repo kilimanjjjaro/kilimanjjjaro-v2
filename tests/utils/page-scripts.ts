@@ -69,6 +69,37 @@ export function readScrollButtonState(): ElementVisibility | null {
   return { display, opacity: Number(opacity) }
 }
 
+export function trackSettledOtherProjects({
+  count,
+  tolerance
+}: {
+  count: number
+  tolerance: number
+}): boolean {
+  const settled = window.settledOtherProjects ?? []
+  window.settledOtherProjects = settled
+
+  Array.from(
+    document.querySelectorAll('a[target="_blank"] article section > div')
+  )
+    .filter((_, index) => index < count)
+    .forEach((item, index) => {
+      const { transform } = getComputedStyle(item)
+      const { f: offset } =
+        transform === 'none' ? new DOMMatrix() : new DOMMatrix(transform)
+
+      if (Math.abs(offset) < tolerance && !settled.includes(index)) {
+        settled.push(index)
+      }
+    })
+
+  return settled.length >= count
+}
+
+export function readSettledOtherProjects(): number[] {
+  return window.settledOtherProjects ?? []
+}
+
 export function scrollWindowTo(top: number) {
   window.scrollTo({ top })
 }
