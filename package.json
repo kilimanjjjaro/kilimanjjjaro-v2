@@ -28,8 +28,9 @@
     "resend": "6.39.0",
     "sharp": "0.35.5",
     "swiper": "14.4.0",
+    "use-sync-external-store": "1.7.0",
     "zod": "4.6.7",
-    "zustand": "4.5.7"
+    "zustand": "5.1.0"
   },
   "devDependencies": {
     "@playwright/test": "1.65.1",
