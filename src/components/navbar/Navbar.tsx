@@ -36,7 +36,7 @@ export default function Navbar() {
     <motion.header
       className={clsx(
         'fixed left-6 h-7 right-6 md:left-8 md:right-8 z-50 top-10 items-center md:top-11 mix-blend-difference flex justify-between transition-transform duration-1000 ease-in-out',
-        !isVisible && '-translate-y-[68px]'
+        !isVisible && 'translate-y-[-68px]'
       )}
       initial={{ display: 'none', ...FADE_OUT_STATE }}
       animate={{ display: 'flex', ...FADE_IN_STATE }}

@@ -104,9 +104,9 @@ export default function FeaturedProject({ project, index }: Props) {
       }}
       onMouseLeave={handleMouseLeave}
     >
-      <article className='relative flex flex-col aspect-[18/22] group cursor-none'>
+      <article className='relative flex flex-col aspect-18/22 group cursor-none'>
         <motion.header
-          className='top-0 left-0 p-5 flex items-center xl:absolute w-full h-full bg-[length:135%] xl:group-hover:bg-[length:114%] transition-[background-size] ease-in-out duration-1000'
+          className='top-0 left-0 p-5 flex items-center xl:absolute w-full h-full bg-size-[135%] xl:group-hover:bg-size-[114%] transition-[background-size] ease-in-out duration-1000'
           style={{
             backgroundImage: `url('${project.presentation.background}')`,
             backgroundPositionY: isDesktop ? bgPositionY : 'center'

@@ -26,7 +26,7 @@ export default function Header({ project }: Props) {
         {project.name}
       </HeadlineMarquee>
       <div className='flex flex-col items-start xl:w-4/6 px-6 gap-y-6 xl:px-40 xl:gap-y-36'>
-        <p className='text-2xl xl:text-4xl leading-tight text-kili-white'>
+        <p className='text-2xl xl:text-4xl leading-tight xl:leading-10 text-kili-white'>
           <Balancer>{project.headerDescription}</Balancer>
         </p>
         <a

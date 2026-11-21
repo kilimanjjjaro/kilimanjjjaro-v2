@@ -77,7 +77,7 @@ export default function Fields({ step, setStep }: Props) {
           onMouseLeave={() => {
             setCursorStatus(CURSOR_STATUS.DEFAULT)
           }}
-          className='placeholder-opacity-100 bg-transparent outline-none text-kili-white focus:outline-none'
+          className='placeholder-opacity-100 bg-transparent outline-hidden text-kili-white focus:outline-hidden'
           type='text'
           name='name'
           required
@@ -99,7 +99,7 @@ export default function Fields({ step, setStep }: Props) {
           onChange={() => {
             setStep(FormStep.Email)
           }}
-          className='placeholder-opacity-100 bg-transparent outline-none text-kili-white focus:outline-none'
+          className='placeholder-opacity-100 bg-transparent outline-hidden text-kili-white focus:outline-hidden'
           type='email'
           name='email'
           required
@@ -119,7 +119,7 @@ export default function Fields({ step, setStep }: Props) {
           onKeyDown={(event) => {
             handleKeyDown({ event, nextStep: FormStep.Submit })
           }}
-          className='bg-transparent outline-none resize-none h-7 text-kili-white focus:outline-none peer/message'
+          className='bg-transparent outline-hidden resize-none h-7 text-kili-white focus:outline-hidden peer/message'
           name='message'
           rows={1}
           required

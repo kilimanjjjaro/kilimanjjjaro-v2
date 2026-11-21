@@ -64,7 +64,7 @@ export default function StackSelector() {
           <PlusIcon
             className={clsx(
               'duration-1000 transition-transform ease-in-out w-4 xl:group-hover:rotate-180',
-              showSelector && '!-rotate-45'
+              showSelector && '-rotate-45!'
             )}
           />
         </h2>
@@ -77,7 +77,7 @@ export default function StackSelector() {
       >
         {!isDesktop && (
           <motion.div
-            className='fixed bottom-0 left-0 w-full h-screen origin-bottom bg-gradient-to-t from-kili-black to-kili-black/0'
+            className='fixed bottom-0 left-0 w-full h-screen origin-bottom bg-linear-to-t from-kili-black to-kili-black/0'
             initial={{ scaleY: '0%' }}
             animate={showSelector ? { scaleY: '100%' } : { scaleY: '0%' }}
             transition={TRANSITION}

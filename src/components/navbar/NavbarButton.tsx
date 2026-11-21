@@ -30,7 +30,7 @@ export default function NavbarButton() {
           >
             <motion.span
               key='top-line'
-              className='block h-0.5 bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white translate-y-[5px] rotate-[135deg]'
+              className='block h-0.5 bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white translate-y-[5px] rotate-135'
               initial={{ width: '0%' }}
               animate={{ width: '100%' }}
               exit={{

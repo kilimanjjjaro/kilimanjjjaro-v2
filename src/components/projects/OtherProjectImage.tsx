@@ -45,7 +45,7 @@ export default function OtherProjectImage({
         <Image
           className={clsx(
             'block transition-transform duration-1000 ease-in-out xl:translate-y-[105%] xl:group-hover:translate-y-0',
-            project.isRepository ? 'aspect-[420/210]' : 'aspect-[420/264]'
+            project.isRepository ? 'aspect-420/210' : 'aspect-420/264'
           )}
           src={project.image}
           alt={`Image of ${project.name}`}

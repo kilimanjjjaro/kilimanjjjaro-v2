@@ -76,7 +76,7 @@ export default function Navigation() {
                     'block text-kili-white text-3xl leading-none xl:text-9xl overflow-hidden transition-colors duration-1000 ease-in-out',
                     isHovering &&
                       hoveredSection !== section.slug &&
-                      '!text-kili-light-gray'
+                      'text-kili-light-gray!'
                   )}
                   onMouseEnter={() => {
                     handleMouseEnter(section.slug)
