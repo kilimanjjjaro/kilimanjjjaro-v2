@@ -62,7 +62,7 @@ test.describe('project pages', () => {
       await page.goto(`${prefix}/project/this-project-does-not-exist`)
 
       await expect(
-        page.getByText(LOCALES[locale].project.notFoundMessage)
+        page.getByRole('main').getByText(LOCALES[locale].project.notFoundMessage)
       ).toBeVisible()
       await expect(page).toHaveTitle(
         `${LOCALES[locale].project.notFoundMessage} — Kilimanjjjaro`

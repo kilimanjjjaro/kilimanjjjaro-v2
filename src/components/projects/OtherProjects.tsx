@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView } from 'motion/react'
 import Balancer from 'react-wrap-balancer'
 import OtherProject from '@/components/projects/OtherProject'
 import { PlusIcon } from '@/components/icons/PlusIcon'

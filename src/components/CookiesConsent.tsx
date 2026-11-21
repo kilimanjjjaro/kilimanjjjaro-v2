@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { deleteCookie } from 'cookies-next'
+import { deleteCookie } from 'cookies-next/client'
 import Balancer from 'react-wrap-balancer'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'motion/react'
 import clsx from 'clsx'
 import AnimatedText from '@/components/shared/AnimatedText'
 import Button from '@/components/shared/Button'

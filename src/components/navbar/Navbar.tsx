@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { AnimatePresence, motion } from 'framer-motion'
-import { useLenis } from '@studio-freight/react-lenis'
+import { AnimatePresence, motion } from 'motion/react'
+import { useLenis } from 'lenis/react'
 import clsx from 'clsx'
 import LargeVersion from '@/components/navbar/LargeVersion'
 import SmallVersion from '@/components/navbar/SmallVersion'

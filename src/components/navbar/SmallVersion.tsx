@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import LanguageSelector from '@/components/navbar/LanguageSelector'
 import NavbarButton from '@/components/navbar/NavbarButton'
 

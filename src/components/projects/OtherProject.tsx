@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import clsx from 'clsx'
 import Image from 'next/image'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView } from 'motion/react'
 import Balancer from 'react-wrap-balancer'
 import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
 import { useStore } from '@/lib/store/store'

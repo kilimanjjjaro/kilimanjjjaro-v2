@@ -8,12 +8,13 @@ import { LOCALES } from '@/lib/constants/globals'
 import type { Metadata } from 'next'
 
 interface Props {
-  params: { slug: string; locale: string }
+  params: Promise<{ slug: string; locale: string }>
 }
 
-export default async function Project({ params }: Props) {
-  const t = await getScopedI18n('project')
+export default async function Project(props: Props) {
+  const params = await props.params
   setStaticParamsLocale(params.locale)
+  const t = await getScopedI18n('project')
 
   const projects =
     params.locale === LOCALES.en ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
@@ -41,7 +42,9 @@ export default async function Project({ params }: Props) {
   )
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const params = await props.params
+  setStaticParamsLocale(params.locale)
   const featuredProjects =
     params.locale === LOCALES.en ? FEATURED_PROJECTS.en : FEATURED_PROJECTS.es
   const project = featuredProjects.find(

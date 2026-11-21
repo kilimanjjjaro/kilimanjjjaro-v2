@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView } from 'motion/react'
 import { useScopedI18n } from '@/lib/i18n/client'
 import { CLIENTS } from '@/lib/constants/knowledge'
 import {

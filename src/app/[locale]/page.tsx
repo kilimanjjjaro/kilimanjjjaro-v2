@@ -6,10 +6,11 @@ import Since2017 from '@/components/sections/Since2017'
 import Knowledge from '@/components/sections/Knowledge'
 
 export default async function Home({
-  params: { locale }
+  params
 }: {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
+  const { locale } = await params
   setStaticParamsLocale(locale)
   return (
     <main>

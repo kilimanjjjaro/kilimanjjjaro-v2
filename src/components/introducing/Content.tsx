@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'motion/react'
 import LetsTalkButton from '@/components/introducing/LetsTalkButton'
 import Headline from '@/components/introducing/Headline'
 import Biography from '@/components/introducing/Biography'

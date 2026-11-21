@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
 
 interface Props {
-  ref: React.RefObject<HTMLElement>
+  ref: React.RefObject<HTMLElement | null>
 }
 
 export default function useElementDimensions({ ref }: Props) {

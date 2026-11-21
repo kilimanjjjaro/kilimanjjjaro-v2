@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { useInView } from 'framer-motion'
+import { useInView } from 'motion/react'
 
 interface Props {
   className?: string

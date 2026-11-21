@@ -1,7 +1,7 @@
 'use client'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { useLenis } from '@studio-freight/react-lenis'
+import { useLenis } from 'lenis/react'
 import FeaturedProject from '@/components/projects/FeaturedProject'
 import YourIdea from '@/components/projects/YourIdea'
 import type { FeaturedProjectInterface } from '@/lib/types/projects'

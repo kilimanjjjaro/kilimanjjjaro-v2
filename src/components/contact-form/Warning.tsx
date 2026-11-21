@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import Button from '@/components/shared/Button'
 import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
 import { useScopedI18n } from '@/lib/i18n/client'

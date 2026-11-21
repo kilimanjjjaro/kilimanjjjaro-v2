@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'motion/react'
 import clsx from 'clsx'
 import Button from '@/components/shared/Button'
 import Link from '@/components/shared/Link'

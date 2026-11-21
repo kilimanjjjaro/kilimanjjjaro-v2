@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect } from 'react'
-import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
+import { ReactLenis, useLenis } from 'lenis/react'
+import 'lenis/dist/lenis.css'
 import { useStore } from '@/lib/store/store'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import type { ChildrenType } from '@/lib/types/globals'

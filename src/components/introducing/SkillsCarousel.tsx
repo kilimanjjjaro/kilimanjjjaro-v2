@@ -1,9 +1,9 @@
 'use client'
 
 import { useRef, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { useLenis } from '@studio-freight/react-lenis'
+import { useLenis } from 'lenis/react'
 import * as Icons from '@/components/introducing/SkillIcons'
 import useSkillsCarousel from '@/lib/hooks/useSkillsCarousel'
 import useCursorPosition from '@/lib/hooks/useCursorPosition'

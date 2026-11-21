@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
-import { motion } from 'framer-motion'
-import { useLenis } from '@studio-freight/react-lenis'
+import { motion } from 'motion/react'
+import { useLenis } from 'lenis/react'
 import NavbarButton from '@/components/navbar/NavbarButton'
 import Link from '@/components/shared/Link'
 import Button from '@/components/shared/Button'

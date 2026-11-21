@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView } from 'motion/react'
 import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
 

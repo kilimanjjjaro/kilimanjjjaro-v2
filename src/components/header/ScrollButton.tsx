@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
-import { useLenis } from '@studio-freight/react-lenis'
+import { motion } from 'motion/react'
+import { useLenis } from 'lenis/react'
 import { CURSOR_STATUS } from '@/lib/constants/globals'
 import { useStore } from '@/lib/store/store'
 

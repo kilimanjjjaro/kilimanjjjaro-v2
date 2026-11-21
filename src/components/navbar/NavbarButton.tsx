@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'motion/react'
 import { useStore } from '@/lib/store/store'
 import Button from '@/components/shared/Button'
 import { useState } from 'react'

@@ -11,7 +11,7 @@ import {
   useMotionValue,
   useVelocity,
   useAnimationFrame
-} from 'framer-motion'
+} from 'motion/react'
 
 interface Props {
   children: string

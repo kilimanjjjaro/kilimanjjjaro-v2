@@ -1,4 +1,6 @@
-export const NAVBAR_VARIANTS = {
+import type { Variants } from 'motion/react'
+
+export const NAVBAR_VARIANTS: Variants = {
   open: {
     y: '0%',
     transition: {
@@ -17,7 +19,7 @@ export const NAVBAR_VARIANTS = {
   }
 }
 
-export const NAVBAR_LI_VARIANTS = {
+export const NAVBAR_LI_VARIANTS: Variants = {
   open: {
     y: '0%',
     rotate: 0,
@@ -36,7 +38,7 @@ export const NAVBAR_LI_VARIANTS = {
   }
 }
 
-export const STACKS_UL_VARIANTS = {
+export const STACKS_UL_VARIANTS: Variants = {
   open: {
     opacity: 1,
     display: 'flex'
@@ -49,7 +51,7 @@ export const STACKS_UL_VARIANTS = {
   }
 }
 
-export const STACKS_LI_VARIANTS = {
+export const STACKS_LI_VARIANTS: Variants = {
   open: {
     y: '0%',
     rotate: 0
@@ -60,7 +62,7 @@ export const STACKS_LI_VARIANTS = {
   }
 }
 
-export const LANGUAGES_UL_VARIANTS = {
+export const LANGUAGES_UL_VARIANTS: Variants = {
   open: {
     opacity: 1,
     display: 'flex'
@@ -73,7 +75,7 @@ export const LANGUAGES_UL_VARIANTS = {
   }
 }
 
-export const LANGUAGES_LI_VARIANTS = {
+export const LANGUAGES_LI_VARIANTS: Variants = {
   open: {
     y: '0%'
   },
@@ -82,7 +84,7 @@ export const LANGUAGES_LI_VARIANTS = {
   }
 }
 
-export const OTHER_PROJECTS_VARIANTS = {
+export const OTHER_PROJECTS_VARIANTS: Variants = {
   hidden: {
     opacity: 0
   },
@@ -91,7 +93,7 @@ export const OTHER_PROJECTS_VARIANTS = {
   }
 }
 
-export const KNOWLEDGE_ITEM_VARIANTS = {
+export const KNOWLEDGE_ITEM_VARIANTS: Variants = {
   hidden: {
     y: '110%',
     rotate: 3
@@ -102,7 +104,7 @@ export const KNOWLEDGE_ITEM_VARIANTS = {
   }
 }
 
-export const HR_LINE_VARIANTS = {
+export const HR_LINE_VARIANTS: Variants = {
   hidden: {
     scaleX: '0%'
   },

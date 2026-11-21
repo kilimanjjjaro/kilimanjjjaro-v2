@@ -1,8 +1,8 @@
 'use client'
 
 import { useMemo, useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useLenis } from '@studio-freight/react-lenis'
+import { motion, useScroll, useTransform } from 'motion/react'
+import { useLenis } from 'lenis/react'
 import { useStore } from '@/lib/store/store'
 import Link from '@/components/shared/Link'
 import Button from '@/components/shared/Button'

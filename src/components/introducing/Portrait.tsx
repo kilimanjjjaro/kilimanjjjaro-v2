@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import Image from 'next/image'
-import { motion, useScroll, useInView, useTransform } from 'framer-motion'
+import { motion, useScroll, useInView, useTransform } from 'motion/react'
 import portraitImage from '../../../public/images/portrait.webp'
 import { useScopedI18n } from '@/lib/i18n/client'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'

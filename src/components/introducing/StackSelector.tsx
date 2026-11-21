@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import clsx from 'clsx'
-import { useLenis } from '@studio-freight/react-lenis'
+import { useLenis } from 'lenis/react'
 import { PlusIcon } from '@/components/icons/PlusIcon'
 import { useStore } from '@/lib/store/store'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
@@ -88,7 +88,7 @@ export default function StackSelector() {
           .map((stack) => (
             <li
               key={stack.id}
-              className='overflow-hidden leading-none transition-colors duration-1000 ease-in-out xl:hover:text-kili-light-gray'
+              className='relative overflow-hidden leading-none transition-colors duration-1000 ease-in-out xl:hover:text-kili-light-gray'
             >
               <motion.button
                 onClick={() => handleClickOnSkills(stack)}

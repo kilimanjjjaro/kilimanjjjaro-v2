@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { motion, useInView, useScroll, useTransform } from 'framer-motion'
+import { motion, useInView, useScroll, useTransform } from 'motion/react'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import { useScopedI18n } from '@/lib/i18n/client'
 import Image from 'next/image'
