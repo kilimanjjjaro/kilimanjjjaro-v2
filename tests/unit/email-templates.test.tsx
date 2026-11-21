@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { render } from '@react-email/components'
+import { render } from 'react-email'
 import EmailToAdmin from '@/components/email-templates/EmailToAdmin'
 import EmailToUser from '@/components/email-templates/EmailToUser'
 import { BASE_URL } from '@/lib/constants/globals'

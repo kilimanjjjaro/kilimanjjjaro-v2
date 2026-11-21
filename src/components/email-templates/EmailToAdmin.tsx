@@ -10,7 +10,7 @@ import {
   Section,
   Tailwind,
   Text
-} from '@react-email/components'
+} from 'react-email'
 import { BASE_URL } from '@/lib/constants/globals'
 
 interface Props {

@@ -18,7 +18,7 @@ export async function POST(request: Request) {
       from: `Kilimanjjjaro <onboarding@resend.dev>`,
       to: ADMIN_EMAIL,
       subject: `New message from ${body.name}`,
-      reply_to: body.email,
+      replyTo: body.email,
       react: EmailToAdmin(body)
     })
 
