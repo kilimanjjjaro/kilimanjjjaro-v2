@@ -24,7 +24,11 @@ export default function FormModal() {
             dragControls={dragControls}
             dragListener={false}
           >
-            <ContactForm handleDrag={(event) => dragControls.start(event)} />
+            <ContactForm
+              handleDrag={(event) => {
+                dragControls.start(event)
+              }}
+            />
           </motion.div>
         </motion.div>
       )}

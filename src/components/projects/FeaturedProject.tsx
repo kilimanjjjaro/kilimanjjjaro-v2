@@ -11,6 +11,26 @@ import FeaturedProjectName from '@/components/projects/FeaturedProjectName'
 import { CURSOR_STATUS } from '@/lib/constants/globals'
 import type { FeaturedProjectInterface } from '@/lib/types/projects'
 import { useLenis } from 'lenis/react'
+import {
+  CLIP_HIDDEN_STATE,
+  CLIP_VISIBLE_STATE,
+  FADE_IN_STATE,
+  FADE_OUT_STATE,
+  FEATURED_BACKGROUND_SCROLL_END,
+  FEATURED_PROJECT_STAGGER,
+  INTRO_TRANSITION,
+  NO_DELAY,
+  SCROLL_PROGRESS_START,
+  TRANSITION,
+  VIDEO_FADE_TRANSITION
+} from '@/lib/constants/animation'
+import { PAGE_SCROLL_DURATION, SCROLL_TOP } from '@/lib/constants/scroll'
+import {
+  MOBILE_DELAYED_FEATURED_PROJECTS,
+  VIDEO_START_TIME
+} from '@/lib/constants/projects-ui'
+import playVideo from '@/lib/utils/playVideo'
+import toListPosition from '@/lib/utils/toListPosition'
 
 interface Props {
   project: FeaturedProjectInterface
@@ -21,23 +41,29 @@ export default function FeaturedProject({ project, index }: Props) {
   const { setCursorStatus } = useStore()
   const projectEl = useRef<HTMLAnchorElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [isHovered, setIsHovered] = useState<number | null>(null)
+  const [isHovered, setIsHovered] = useState<string | null>(null)
   const { isDesktop } = useMediaQuery()
   const projectIsInView = useInView(projectEl, { once: true })
   const videoIsInView = useInView(videoRef, { amount: 'all' })
   const { scrollYProgress } = useScroll()
-  const lenis = useLenis(() => {})
+  const lenis = useLenis()
 
-  const bgPositionY = useTransform(scrollYProgress, [0, 0.4], ['0%', '100%'])
+  const bgPositionY = useTransform(
+    scrollYProgress,
+    [SCROLL_PROGRESS_START, FEATURED_BACKGROUND_SCROLL_END],
+    ['0%', '100%']
+  )
 
   const handleMouseEnter = async () => {
     if (videoRef.current === null) return
 
-    setIsHovered(project.id)
-    setCursorStatus(CURSOR_STATUS.HIDDEN)
-    document.body.style.backgroundColor = project.backgroundColor
+    const { backgroundColor } = project
 
-    videoRef.current.currentTime = 0
+    setIsHovered(project.slug)
+    setCursorStatus(CURSOR_STATUS.HIDDEN)
+    document.body.style.backgroundColor = backgroundColor
+
+    videoRef.current.currentTime = VIDEO_START_TIME
     await videoRef.current.play()
   }
 
@@ -52,7 +78,7 @@ export default function FeaturedProject({ project, index }: Props) {
   }
 
   const goToProjectPage = () => {
-    lenis?.scrollTo(0, { duration: 1.5 })
+    lenis?.scrollTo(SCROLL_TOP, { duration: PAGE_SCROLL_DURATION })
     document.body.style.backgroundColor = ''
   }
 
@@ -60,20 +86,22 @@ export default function FeaturedProject({ project, index }: Props) {
     if (isDesktop) return
 
     if (videoIsInView) {
-      videoRef.current?.play().catch(() => {})
+      playVideo(videoRef.current)
     } else {
       videoRef.current?.pause()
     }
   }, [videoIsInView, isDesktop])
 
-  const shouldDelay = index < 2 && !isDesktop
+  const shouldDelay = index < MOBILE_DELAYED_FEATURED_PROJECTS && !isDesktop
 
   return (
     <Link
       ref={projectEl}
       href={`/project/${project.slug}`}
       onClick={goToProjectPage}
-      onMouseEnter={handleMouseEnter}
+      onMouseEnter={() => {
+        void handleMouseEnter()
+      }}
       onMouseLeave={handleMouseLeave}
     >
       <article className='relative flex flex-col aspect-[18/22] group cursor-none'>
@@ -83,34 +111,20 @@ export default function FeaturedProject({ project, index }: Props) {
             backgroundImage: `url('${project.presentation.background}')`,
             backgroundPositionY: isDesktop ? bgPositionY : 'center'
           }}
-          initial={{
-            clipPath: 'inset(100% 0% 0% 0%)'
-          }}
-          animate={
-            projectIsInView && {
-              clipPath: 'inset(0% 0% 0% 0%)'
-            }
-          }
+          initial={CLIP_HIDDEN_STATE}
+          animate={projectIsInView && CLIP_VISIBLE_STATE}
           transition={{
-            duration: 3,
-            ease: [0.17, 0.84, 0.44, 1],
-            delay: shouldDelay ? project.id * 1.04 : 0
+            ...INTRO_TRANSITION,
+            delay: shouldDelay
+              ? toListPosition(index) * FEATURED_PROJECT_STAGGER
+              : NO_DELAY
           }}
         >
           <motion.div
             className='w-full relative transition-transform duration-1000 ease-in-out scale-100 xl:scale-[.85] aspect-video xl:group-hover:scale-100'
-            initial={{
-              opacity: 0
-            }}
-            animate={
-              videoIsInView && {
-                opacity: 1
-              }
-            }
-            transition={{
-              duration: 2,
-              ease: 'easeInOut'
-            }}
+            initial={FADE_OUT_STATE}
+            animate={videoIsInView && FADE_IN_STATE}
+            transition={VIDEO_FADE_TRANSITION}
           >
             {isDesktop && (
               <Image
@@ -135,7 +149,7 @@ export default function FeaturedProject({ project, index }: Props) {
           </motion.div>{' '}
         </motion.header>
 
-        <FeaturedProjectName projectId={project.id} isHovered={isHovered}>
+        <FeaturedProjectName projectSlug={project.slug} isHovered={isHovered}>
           {project.name}
         </FeaturedProjectName>
         <footer className='left-0 mt-2 leading-tight xl:leading-none xl:mt-0 xl:absolute xl:text-xl xl:overflow-hidden top-full text-kili-light-gray xl:text-kili-white'>
@@ -147,16 +161,13 @@ export default function FeaturedProject({ project, index }: Props) {
             animate={
               isDesktop
                 ? {
-                    y: isHovered === project.id ? '20%' : '-105%'
+                    y: isHovered === project.slug ? '20%' : '-105%'
                   }
                 : {
                     y: '16px'
                   }
             }
-            transition={{
-              duration: 1,
-              ease: 'easeInOut'
-            }}
+            transition={TRANSITION}
           >
             <Balancer>{project.role}</Balancer>
           </motion.span>

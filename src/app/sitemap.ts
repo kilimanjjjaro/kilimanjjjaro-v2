@@ -1,5 +1,9 @@
 import { FEATURED_PROJECTS } from '@/lib/constants/projects'
 import type { MetadataRoute } from 'next'
+import {
+  SITEMAP_HOME_PRIORITY,
+  SITEMAP_PROJECT_PRIORITY
+} from '@/lib/constants/seo'
 
 const BASE_URL = 'https://kilimanjjjaro.com'
 
@@ -11,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: BASE_URL,
       lastModified,
       changeFrequency: 'monthly',
-      priority: 1,
+      priority: SITEMAP_HOME_PRIORITY,
       alternates: {
         languages: {
           en: BASE_URL,
@@ -23,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE_URL}/es`,
       lastModified,
       changeFrequency: 'monthly',
-      priority: 1,
+      priority: SITEMAP_HOME_PRIORITY,
       alternates: {
         languages: {
           en: BASE_URL,
@@ -39,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${BASE_URL}/project/${slug}`,
         lastModified,
         changeFrequency: 'yearly',
-        priority: 0.8,
+        priority: SITEMAP_PROJECT_PRIORITY,
         alternates: {
           languages: {
             en: `${BASE_URL}/project/${slug}`,
@@ -51,7 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${BASE_URL}/es/project/${slug}`,
         lastModified,
         changeFrequency: 'yearly',
-        priority: 0.8,
+        priority: SITEMAP_PROJECT_PRIORITY,
         alternates: {
           languages: {
             en: `${BASE_URL}/project/${slug}`,

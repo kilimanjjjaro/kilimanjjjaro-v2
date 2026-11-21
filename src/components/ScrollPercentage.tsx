@@ -3,27 +3,29 @@
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import useScroll from '@/lib/hooks/useScroll'
+import watchScrollPercentage from '@/lib/utils/watchScrollPercentage'
+import { SCROLL_PERCENTAGE_HIDE_DELAY_MS } from '@/lib/constants/scroll'
 
 export default function ScrollPercentage() {
   const [showScrollPercentage, setShowScrollPercentage] = useState(false)
   const { scrollPercentage } = useScroll()
-  const [lastScrollPercentage, setLastScrollPercentage] =
-    useState(scrollPercentage)
 
   useEffect(() => {
-    if (scrollPercentage !== lastScrollPercentage) {
-      setShowScrollPercentage(true)
-      setLastScrollPercentage(scrollPercentage)
-    } else {
-      const timeoutId = setTimeout(() => {
-        setShowScrollPercentage(false)
-      }, 2500)
+    let timeoutId: NodeJS.Timeout | undefined = undefined
 
-      return () => {
-        clearTimeout(timeoutId)
-      }
+    const stopWatching = watchScrollPercentage(() => {
+      setShowScrollPercentage(true)
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => {
+        setShowScrollPercentage(false)
+      }, SCROLL_PERCENTAGE_HIDE_DELAY_MS)
+    })
+
+    return () => {
+      stopWatching()
+      clearTimeout(timeoutId)
     }
-  }, [scrollPercentage, lastScrollPercentage])
+  }, [])
 
   return (
     <div

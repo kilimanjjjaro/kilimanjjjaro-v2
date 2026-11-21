@@ -1,43 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
+import subscribeToResize from '@/lib/utils/subscribeToResize'
+import getViewport from '@/lib/utils/getViewport'
+import { Viewport } from '@/lib/constants/breakpoints'
 
 export default function useMediaQuery() {
-  const [viewportWidth, setViewportWidth] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
-  const [isTablet, setIsTablet] = useState(false)
-  const [isDesktop, setIsDesktop] = useState(false)
-
-  useEffect(() => {
-    setViewportWidth(window.innerWidth)
-
-    if (viewportWidth < 768) {
-      setIsMobile(true)
-      setIsTablet(false)
-      setIsDesktop(false)
-    }
-
-    if (viewportWidth >= 768 && viewportWidth < 1280) {
-      setIsMobile(false)
-      setIsTablet(true)
-      setIsDesktop(false)
-    }
-
-    if (viewportWidth >= 1280) {
-      setIsMobile(false)
-      setIsTablet(false)
-      setIsDesktop(true)
-    }
-
-    window.addEventListener('resize', () => setViewportWidth(window.innerWidth))
-
-    return () =>
-      window.removeEventListener('resize', () =>
-        setViewportWidth(window.innerWidth)
-      )
-  }, [viewportWidth])
+  const viewport = useSyncExternalStore(
+    subscribeToResize,
+    getViewport,
+    () => Viewport.Unknown
+  )
 
   return {
-    isMobile,
-    isTablet,
-    isDesktop
+    isMobile: viewport === Viewport.Mobile,
+    isTablet: viewport === Viewport.Tablet,
+    isDesktop: viewport === Viewport.Desktop
   }
 }

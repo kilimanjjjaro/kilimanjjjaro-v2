@@ -4,10 +4,11 @@ import { useEffect, useRef } from 'react'
 import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
 import { CURSOR_STATUS } from '@/lib/constants/globals'
+import { FormStep } from '@/lib/constants/form'
 
 interface Props {
-  step: number
-  setStep: (step: number) => void
+  step: FormStep
+  setStep: (step: FormStep) => void
 }
 
 export default function Fields({ step, setStep }: Props) {
@@ -18,12 +19,14 @@ export default function Fields({ step, setStep }: Props) {
   const emailInputRef = useRef<HTMLInputElement>(null)
 
   const handleChange = () => {
-    if (textAreaRef.current === null) return
+    const { current: textArea } = textAreaRef
 
-    setStep(3)
+    if (textArea === null) return
 
-    const scrollHeight = textAreaRef.current.scrollHeight
-    textAreaRef.current.style.height = `${scrollHeight}px`
+    setStep(FormStep.Message)
+
+    const { scrollHeight } = textArea
+    textArea.style.height = `${scrollHeight}px`
   }
 
   const handleKeyDown = ({
@@ -31,10 +34,10 @@ export default function Fields({ step, setStep }: Props) {
     nextStep
   }: {
     event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>
-    nextStep: number
+    nextStep: FormStep
   }) => {
     if (event.key === 'Enter' && !event.shiftKey) {
-      if (step <= 3) {
+      if (step <= FormStep.Message) {
         event.preventDefault()
 
         setStep(nextStep)
@@ -43,15 +46,15 @@ export default function Fields({ step, setStep }: Props) {
   }
 
   useEffect(() => {
-    if (step === 1) {
+    if (step === FormStep.Name) {
       nameInputRef.current?.focus()
     }
 
-    if (step === 2) {
+    if (step === FormStep.Email) {
       emailInputRef.current?.focus()
     }
 
-    if (step === 3) {
+    if (step === FormStep.Message) {
       textAreaRef.current?.focus()
     }
   }, [step])
@@ -62,10 +65,18 @@ export default function Fields({ step, setStep }: Props) {
         {t('name')}:
         <input
           ref={nameInputRef}
-          onKeyDown={(event) => handleKeyDown({ event, nextStep: 2 })}
-          onChange={() => setStep(1)}
-          onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-          onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+          onKeyDown={(event) => {
+            handleKeyDown({ event, nextStep: FormStep.Email })
+          }}
+          onChange={() => {
+            setStep(FormStep.Name)
+          }}
+          onMouseEnter={() => {
+            setCursorStatus(CURSOR_STATUS.HOVER)
+          }}
+          onMouseLeave={() => {
+            setCursorStatus(CURSOR_STATUS.DEFAULT)
+          }}
           className='placeholder-opacity-100 bg-transparent outline-none text-kili-white focus:outline-none'
           type='text'
           name='name'
@@ -76,10 +87,18 @@ export default function Fields({ step, setStep }: Props) {
         {t('email')}:
         <input
           ref={emailInputRef}
-          onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-          onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
-          onKeyDown={(event) => handleKeyDown({ event, nextStep: 3 })}
-          onChange={() => setStep(2)}
+          onMouseEnter={() => {
+            setCursorStatus(CURSOR_STATUS.HOVER)
+          }}
+          onMouseLeave={() => {
+            setCursorStatus(CURSOR_STATUS.DEFAULT)
+          }}
+          onKeyDown={(event) => {
+            handleKeyDown({ event, nextStep: FormStep.Message })
+          }}
+          onChange={() => {
+            setStep(FormStep.Email)
+          }}
           className='placeholder-opacity-100 bg-transparent outline-none text-kili-white focus:outline-none'
           type='email'
           name='email'
@@ -90,10 +109,16 @@ export default function Fields({ step, setStep }: Props) {
         {t('message')}:
         <textarea
           ref={textAreaRef}
-          onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-          onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+          onMouseEnter={() => {
+            setCursorStatus(CURSOR_STATUS.HOVER)
+          }}
+          onMouseLeave={() => {
+            setCursorStatus(CURSOR_STATUS.DEFAULT)
+          }}
           onChange={handleChange}
-          onKeyDown={(event) => handleKeyDown({ event, nextStep: 4 })}
+          onKeyDown={(event) => {
+            handleKeyDown({ event, nextStep: FormStep.Submit })
+          }}
           className='bg-transparent outline-none resize-none h-7 text-kili-white focus:outline-none peer/message'
           name='message'
           rows={1}

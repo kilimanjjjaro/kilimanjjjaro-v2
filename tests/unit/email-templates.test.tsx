@@ -10,16 +10,26 @@ const PROPS = {
   message: 'I would like to work with you.'
 }
 
-const KILI_WHITE = /color:\s*(#f8f8f8|rgb\(\s*248[\s,]+248[\s,]+248)/i
+const KILI_WHITE = /color:\s*(?:#f8f8f8|rgb\(\s*248[\s,]+248[\s,]+248)/iv
 
 describe.each([
-  ['EmailToAdmin', EmailToAdmin, 'Hi Gonzalo!', `${PROPS.name} sent you a message`],
-  ['EmailToUser', EmailToUser, `Hi ${PROPS.name}!`, 'I will answer you as soon as possible.']
+  [
+    'EmailToAdmin',
+    EmailToAdmin,
+    'Hi Gonzalo!',
+    `${PROPS.name} sent you a message`
+  ],
+  [
+    'EmailToUser',
+    EmailToUser,
+    `Hi ${PROPS.name}!`,
+    'I will answer you as soon as possible.'
+  ]
 ])('%s', (_, Template, greeting, preview) => {
   it('renders a complete HTML document with the form data', async () => {
     const html = await render(<Template {...PROPS} />)
 
-    expect(html).toMatch(/^<!DOCTYPE html/i)
+    expect(html).toMatch(/^<!DOCTYPE html/iv)
     expect(html).toContain(greeting)
     expect(html).toContain(preview)
     expect(html).toContain(PROPS.name)
@@ -34,7 +44,7 @@ describe.each([
     const html = await render(<Template {...PROPS} />)
 
     expect(html).toMatch(KILI_WHITE)
-    expect(html).not.toMatch(/class="[^"]*text-kili-white/)
+    expect(html).not.toMatch(/class="[^"]*text-kili-white/v)
   })
 
   it('escapes user provided content', async () => {

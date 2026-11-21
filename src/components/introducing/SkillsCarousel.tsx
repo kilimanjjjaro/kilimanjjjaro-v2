@@ -3,7 +3,6 @@
 import { useRef, useState } from 'react'
 import { motion } from 'motion/react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { useLenis } from 'lenis/react'
 import * as Icons from '@/components/introducing/SkillIcons'
 import useSkillsCarousel from '@/lib/hooks/useSkillsCarousel'
 import useCursorPosition from '@/lib/hooks/useCursorPosition'
@@ -12,9 +11,17 @@ import { useStore } from '@/lib/store/store'
 import { ArrowLongRightIcon } from '@/components/icons/ArrowLongRightIcon'
 import { ArrowLongLeftIcon } from '@/components/icons/ArrowLongLeftIcon'
 import { CURSOR_STATUS } from '@/lib/constants/globals'
+import {
+  FULL_SCALE,
+  HIDDEN_OPACITY,
+  HIDDEN_SCALE,
+  TRANSITION,
+  VISIBLE_OPACITY
+} from '@/lib/constants/animation'
+import { SKILLS_CAROUSEL_BREAKPOINTS } from '@/lib/constants/carousel'
+import getCenter from '@/lib/utils/getCenter'
 
 import 'swiper/css'
-import useMediaQuery from '@/lib/hooks/useMediaQuery'
 
 export default function SkillsCarousel() {
   const { setCursorStatus, setSwiperInstance } = useStore()
@@ -23,48 +30,44 @@ export default function SkillsCarousel() {
   const elementDimensions = useElementDimensions({ ref: arrowEl })
   const { x, y } = useCursorPosition({
     trigger: isHovered,
-    translateX: elementDimensions.width / 2,
-    translateY: elementDimensions.height / 2
+    translateX: getCenter(elementDimensions.width),
+    translateY: getCenter(elementDimensions.height)
   })
   const { isNextArrow, sectionEl, handleMouseMove, handleChange, handleClick } =
     useSkillsCarousel()
-  const { isDesktop } = useMediaQuery()
-  const lenis = useLenis(() => {})
 
   const handleMouse = (boolean: boolean) => {
     setIsHovered(boolean)
     setCursorStatus(boolean ? CURSOR_STATUS.HIDDEN : CURSOR_STATUS.DEFAULT)
   }
 
-  const handleSlideChangeStart = () => isDesktop ?? lenis?.stop()
-  const handleSlideChangeEnd = () => isDesktop ?? lenis?.start()
-
   return (
     <div
       ref={sectionEl}
       className='relative px-[26px] cursor-none xl:px-20 2xl:px-40'
-      onMouseMove={(event) => handleMouseMove(event)}
-      onMouseEnter={() => handleMouse(true)}
-      onMouseLeave={() => handleMouse(false)}
+      onMouseMove={(event) => {
+        handleMouseMove(event)
+      }}
+      onMouseEnter={() => {
+        handleMouse(true)
+      }}
+      onMouseLeave={() => {
+        handleMouse(false)
+      }}
       onClick={handleClick}
     >
       <Swiper
         className='skills-carousel'
-        onSwiper={(swiper) => setSwiperInstance(swiper)}
+        onSwiper={(swiper) => {
+          setSwiperInstance(swiper)
+        }}
         onSlideChange={handleChange}
-        onSlideChangeTransitionStart={handleSlideChangeStart}
-        onSlideChangeTransitionEnd={handleSlideChangeEnd}
         slidesPerView='auto'
         spaceBetween={56}
         speed={300}
         edgeSwipeDetection='prevent'
         touchEventsTarget='container'
-        breakpoints={{
-          1280: {
-            speed: 700,
-            spaceBetween: 144
-          }
-        }}
+        breakpoints={SKILLS_CAROUSEL_BREAKPOINTS}
       >
         <SwiperSlide className='group'>
           <Icons.ReactIcon />
@@ -279,13 +282,10 @@ export default function SkillsCarousel() {
         className='fixed top-0 left-0 z-10 scale-0 pointer-events-none xl:opacity-0 selection:hidden'
         style={{ x, y }}
         animate={{
-          scale: isHovered ? 1 : 0,
-          opacity: isHovered ? 1 : 0
+          scale: isHovered ? FULL_SCALE : HIDDEN_SCALE,
+          opacity: isHovered ? VISIBLE_OPACITY : HIDDEN_OPACITY
         }}
-        transition={{
-          duration: 1,
-          ease: 'easeInOut'
-        }}
+        transition={TRANSITION}
       >
         {isNextArrow && <ArrowLongRightIcon className='w-32 fill-kili-white' />}
         {!isNextArrow && <ArrowLongLeftIcon className='w-32 fill-kili-white' />}

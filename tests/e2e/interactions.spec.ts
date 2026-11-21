@@ -1,14 +1,25 @@
-import type { Page } from '@playwright/test'
-import {
-  test,
-  expect,
-  showCompactNavbar,
-  unexpectedErrors,
-  waitForApp
-} from './fixtures'
+import { test, expect } from './fixtures'
 import en from '@/lib/locales/en'
 import es from '@/lib/locales/es'
 import updateStacks from '@/lib/utils/updateStacks'
+import getCenter from '@/lib/utils/getCenter'
+import {
+  carouselIndex,
+  openContactForm,
+  showCompactNavbar,
+  waitForApp
+} from '../utils/browser'
+import { unexpectedErrors } from '../utils/errors'
+import { readCookieConsent } from '../utils/page-scripts'
+import {
+  BANNER_SETTLE_MS,
+  CAROUSEL_RIGHT_SIDE_RATIO,
+  FIRST_SLIDE_INDEX,
+  NO_ELEMENTS,
+  QUICK_TIMEOUT_MS,
+  RETRY_TIMEOUT_MS,
+  SECOND_SLIDE_INDEX
+} from '../constants/e2e'
 
 test.describe('navigation menu', () => {
   test('opens and closes with the menu button and Escape', async ({
@@ -26,7 +37,9 @@ test.describe('navigation menu', () => {
     const menu = page.locator('nav.fixed')
     await expect(menu).toBeVisible()
     await expect(menu.getByRole('link', { name: 'GitHub' })).toBeVisible()
-    await expect(menu.getByRole('link', { name: 'Introducing Me' })).toBeVisible()
+    await expect(
+      menu.getByRole('link', { name: 'Introducing Me' })
+    ).toBeVisible()
 
     await page.keyboard.press('Escape')
     await expect(menu).toBeHidden()
@@ -46,11 +59,11 @@ test.describe('language selector', () => {
 
     await expect(async () => {
       if (!(await spanish.isVisible())) await current.click()
-      await expect(spanish).toBeVisible({ timeout: 2_000 })
-    }).toPass({ timeout: 15_000 })
+      await expect(spanish).toBeVisible({ timeout: QUICK_TIMEOUT_MS })
+    }).toPass({ timeout: RETRY_TIMEOUT_MS })
     await spanish.click()
 
-    await expect(page).toHaveURL(/\/es$/)
+    await expect(page).toHaveURL(/\/es$/v)
     await expect(page.locator('html')).toHaveAttribute('lang', 'es')
     await expect(page).toHaveTitle(es.metadata.defaultTitle)
 
@@ -59,35 +72,29 @@ test.describe('language selector', () => {
 })
 
 test.describe('skills carousel', () => {
-  const stacks = updateStacks()
-
-  async function carouselIndex(page: Page): Promise<number> {
-    return await page.evaluate(() => {
-      const el = document.querySelector('.skills-carousel')
-      return (el as (Element & { swiper?: { activeIndex: number } }) | null)
-        ?.swiper?.activeIndex ?? -1
-    })
-  }
+  const [firstStack, secondStack] = updateStacks()
 
   test('moves to the selected stack', async ({ page, browserErrors }) => {
     await page.goto('/')
     await waitForApp(page)
 
     const selector = page.getByRole('button', {
-      name: `${stacks[0].name} Skills`
+      name: `${firstStack.name} Skills`
     })
     await selector.scrollIntoViewIfNeeded()
-    expect(await carouselIndex(page)).toBe(0)
+    expect(await carouselIndex(page)).toBe(FIRST_SLIDE_INDEX)
 
     await selector.click()
-    await page.getByRole('button', { name: `${stacks[1].name} Skills` }).click()
+    await page
+      .getByRole('button', { name: `${secondStack.name} Skills` })
+      .click()
 
     await expect(
-      page.getByRole('heading', { name: `${stacks[1].name} Skills` })
+      page.getByRole('heading', { name: `${secondStack.name} Skills` })
     ).toBeVisible()
     await expect
       .poll(async () => await carouselIndex(page))
-      .toBe(stacks[1].startIndex)
+      .toBe(secondStack.startIndex)
 
     expect(unexpectedErrors(browserErrors)).toEqual([])
   })
@@ -98,20 +105,30 @@ test.describe('skills carousel', () => {
 
     const carousel = page.locator('.skills-carousel')
     await carousel.scrollIntoViewIfNeeded()
-    expect(await carouselIndex(page)).toBe(0)
+    expect(await carouselIndex(page)).toBe(FIRST_SLIDE_INDEX)
 
     const box = await carousel.boundingBox()
     if (box === null) throw new Error('carousel not visible')
     const width = page.viewportSize()?.width ?? box.width
-    await page.mouse.move(width * 0.8, box.y + box.height / 2)
-    await page.mouse.click(width * 0.8, box.y + box.height / 2)
+    const x = width * CAROUSEL_RIGHT_SIDE_RATIO
+    const y = box.y + getCenter(box.height)
+    await page.mouse.move(x, y)
+    await page.mouse.click(x, y)
 
-    await expect.poll(async () => await carouselIndex(page)).toBe(1)
+    await expect
+      .poll(async () => await carouselIndex(page))
+      .toBe(SECOND_SLIDE_INDEX)
   })
 })
 
 test.describe('contact form', () => {
-  const t = en.contactForm
+  const {
+    contactForm: t,
+    home: { introducing }
+  } = en
+  const {
+    sendButton: [sendLabel]
+  } = t
 
   test('opens, guides through the fields and closes with the warning', async ({
     page,
@@ -120,17 +137,11 @@ test.describe('contact form', () => {
     await page.goto('/')
     await waitForApp(page)
 
-    const openButton = page
-      .locator('#introducing-me')
-      .getByRole('button', { name: en.home.introducing.letsTalkButton })
-    await openButton.scrollIntoViewIfNeeded()
-    await openButton.click()
-
-    const form = page.getByRole('form', { name: 'Contact form' })
+    const form = await openContactForm(page, introducing.letsTalkButton)
     await expect(form).toBeVisible()
 
     const name = form.getByRole('textbox', { name: t.fields.name })
-    await expect(name).toBeVisible({ timeout: 15_000 })
+    await expect(name).toBeVisible({ timeout: RETRY_TIMEOUT_MS })
     await expect(name).toBeFocused()
     await expect(form.getByText(t.welcomeMessage)).toBeVisible()
 
@@ -146,7 +157,7 @@ test.describe('contact form', () => {
 
     await message.fill('Hello!')
     await expect(form.getByText(t.suggestionMessage)).toBeVisible()
-    await expect(form.getByRole('button', { name: t.sendButton[0] })).toBeVisible()
+    await expect(form.getByRole('button', { name: sendLabel })).toBeVisible()
 
     await page.keyboard.press('Escape')
     await expect(form.getByText(t.warningModal.headline)).toBeVisible()
@@ -160,13 +171,7 @@ test.describe('contact form', () => {
     await page.goto('/')
     await waitForApp(page)
 
-    const openButton = page
-      .locator('#introducing-me')
-      .getByRole('button', { name: en.home.introducing.letsTalkButton })
-    await openButton.scrollIntoViewIfNeeded()
-    await openButton.click()
-
-    const form = page.getByRole('form', { name: 'Contact form' })
+    const form = await openContactForm(page, introducing.letsTalkButton)
     await expect(form).toBeVisible()
     await form.locator('header button').click()
     await expect(form).toBeHidden()
@@ -174,7 +179,7 @@ test.describe('contact form', () => {
 })
 
 test.describe('cookies consent', () => {
-  const t = en.cookiesConsent
+  const { cookiesConsent: t } = en
 
   test('is shown on the first visit and remembers acceptance', async ({
     page
@@ -185,16 +190,18 @@ test.describe('cookies consent', () => {
     const banner = page.getByRole('alert').filter({ hasText: t.headline })
     await expect(banner).toBeAttached()
 
-    await banner.getByRole('button', { name: t.acceptButton }).dispatchEvent('click')
-    await expect(banner).toHaveCount(0)
-    expect(
-      await page.evaluate(() => localStorage.getItem('__COOKIES_CONSENT__'))
-    ).toBe('1')
+    await banner
+      .getByRole('button', { name: t.acceptButton })
+      .dispatchEvent('click')
+    await expect(banner).toHaveCount(NO_ELEMENTS)
+    expect(await page.evaluate(readCookieConsent)).toBe('1')
 
     await page.reload()
     await waitForApp(page)
-    await page.waitForTimeout(1_000)
-    await expect(page.getByRole('alert').filter({ hasText: t.headline })).toHaveCount(0)
+    await page.waitForTimeout(BANNER_SETTLE_MS)
+    await expect(
+      page.getByRole('alert').filter({ hasText: t.headline })
+    ).toHaveCount(NO_ELEMENTS)
   })
 
   test('declining removes the locale cookie', async ({ page, context }) => {
@@ -212,11 +219,9 @@ test.describe('cookies consent', () => {
     await banner
       .getByRole('button', { name: 'Close cookies consent' })
       .dispatchEvent('click')
-    await expect(banner).toHaveCount(0)
+    await expect(banner).toHaveCount(NO_ELEMENTS)
 
-    expect(
-      await page.evaluate(() => localStorage.getItem('__COOKIES_CONSENT__'))
-    ).toBe('0')
+    expect(await page.evaluate(readCookieConsent)).toBe('0')
     expect(await locale()).toBeUndefined()
   })
 })

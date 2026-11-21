@@ -1,0 +1,20 @@
+{
+  "marquee": [
+    { "value": -100, "expected": -20 },
+    { "value": -40.5, "expected": -20.5 },
+    { "value": -40, "expected": -20 },
+    { "value": -30, "expected": -30 },
+    { "value": -20, "expected": -20 },
+    { "value": -19.99, "expected": -39.989999999999995 },
+    { "value": 0, "expected": -20 },
+    { "value": 7.25, "expected": -32.75 },
+    { "value": 20, "expected": -20 },
+    { "value": 55, "expected": -25 },
+    { "value": 1234.5, "expected": -25.5 }
+  ],
+  "ranges": [
+    { "min": 0, "max": 10, "value": 25, "expected": 5 },
+    { "min": 0, "max": 10, "value": -3, "expected": 7 },
+    { "min": 5, "max": 5.5, "value": 7, "expected": 5 }
+  ]
+}

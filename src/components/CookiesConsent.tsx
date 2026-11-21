@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState, useSyncExternalStore } from 'react'
 import Image from 'next/image'
 import { deleteCookie } from 'cookies-next/client'
 import Balancer from 'react-wrap-balancer'
@@ -11,27 +11,41 @@ import Button from '@/components/shared/Button'
 import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
 import { firaMonoFont } from '@/lib/utils/fonts'
+import subscribeToStorage from '@/lib/utils/subscribeToStorage'
+import needsCookiesConsent from '@/lib/utils/needsCookiesConsent'
 import { CURSOR_STATUS } from '@/lib/constants/globals'
+import { NO_OFFSET, TRANSITION } from '@/lib/constants/animation'
+import {
+  COOKIES_CONSENT_DELAY,
+  COOKIES_CONSENT_HIDDEN_OFFSET,
+  COOKIES_CONSENT_STORAGE_KEY
+} from '@/lib/constants/projects-ui'
 import cookieImage from '../../public/images/cookie.webp'
 
 export default function CookiesConsent() {
   const t = useScopedI18n('cookiesConsent')
   const { setCursorStatus } = useStore()
-  const [showCookiesConsent, setShowCookiesConsent] = useState(false)
+  const needsConsent = useSyncExternalStore(
+    subscribeToStorage,
+    needsCookiesConsent,
+    () => false
+  )
+  const [isDismissed, setIsDismissed] = useState(false)
   const [showCloseWarning, setShowCloseWarning] = useState(false)
+  const showCookiesConsent = needsConsent && !isDismissed
 
   const handleAccept = () => {
-    window.localStorage.setItem('__COOKIES_CONSENT__', '1')
+    window.localStorage.setItem(COOKIES_CONSENT_STORAGE_KEY, '1')
 
-    setShowCookiesConsent(false)
+    setIsDismissed(true)
   }
 
   const handleDecline = () => {
-    window.localStorage.setItem('__COOKIES_CONSENT__', '0')
+    window.localStorage.setItem(COOKIES_CONSENT_STORAGE_KEY, '0')
 
     deleteCookie('Next-Locale')
 
-    setShowCookiesConsent(false)
+    setIsDismissed(true)
   }
 
   const handleMouseEnter = () => {
@@ -44,26 +58,16 @@ export default function CookiesConsent() {
     setCursorStatus(CURSOR_STATUS.DEFAULT)
   }
 
-  useEffect(() => {
-    const cookiesConsent = window.localStorage.getItem('__COOKIES_CONSENT__')
-
-    if (cookiesConsent === null) setShowCookiesConsent(true)
-  }, [])
-
   return (
     <AnimatePresence>
       {showCookiesConsent && (
         <motion.div
           role='alert'
           className='fixed flex-col bottom-6 left-6 xl:bottom-8 xl:left-8 bg-[#030303]/95 backdrop-blur-md z-20 w-auto max-w-[256px] overflow-hidden rounded-md'
-          initial={{ y: 265 }}
-          animate={showCookiesConsent && { y: 0 }}
-          exit={{ y: 265, transition: { duration: 1, ease: 'easeInOut' } }}
-          transition={{
-            duration: 1,
-            ease: 'easeInOut',
-            delay: 10
-          }}
+          initial={{ y: COOKIES_CONSENT_HIDDEN_OFFSET }}
+          animate={{ y: NO_OFFSET }}
+          exit={{ y: COOKIES_CONSENT_HIDDEN_OFFSET, transition: TRANSITION }}
+          transition={{ ...TRANSITION, delay: COOKIES_CONSENT_DELAY }}
         >
           <header className='flex items-center w-full h-6 px-4 bg-kili-light-gray/30'>
             <button

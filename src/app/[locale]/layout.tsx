@@ -18,6 +18,7 @@ import {
 import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
 import type { ChildrenType } from '@/lib/types/globals'
 import type { Metadata } from 'next'
+import { OG_IMAGE_HEIGHT, OG_IMAGE_WIDTH } from '@/lib/constants/seo'
 import '@/app/globals.css'
 
 interface MetadataProps {
@@ -54,8 +55,8 @@ export async function generateMetadata({
       images: [
         {
           url: 'https://kilimanjjjaro.com/images/og-image.jpg',
-          width: 1000,
-          height: 563
+          width: OG_IMAGE_WIDTH,
+          height: OG_IMAGE_HEIGHT
         }
       ],
       siteName: 'Kilimanjjjaro',

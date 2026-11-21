@@ -1,14 +1,21 @@
+import type { StackId } from '@/lib/constants/skills'
+
 export type ChildrenType = React.ReactNode
 
-export interface StackInterface {
-  id: number
+export interface StackBaseInterface {
+  id: StackId
   name: string
+}
+
+export interface StackInterface extends StackBaseInterface {
   startIndex: number
   endIndex: number
 }
 
+export type Locale = 'en' | 'es'
+
 export interface LanguageInterface {
-  id: string
+  id: Locale
   name: string
 }
 

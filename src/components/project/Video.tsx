@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from 'react'
 import { useInView } from 'motion/react'
+import { VIDEO_VISIBILITY_THRESHOLD } from '@/lib/constants/projects-ui'
+import playVideo from '@/lib/utils/playVideo'
 
 interface Props {
   className?: string
@@ -11,13 +13,13 @@ interface Props {
 
 export default function Video({ className, src, autoPlay }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const isInView = useInView(videoRef, { amount: 0.5 })
+  const isInView = useInView(videoRef, { amount: VIDEO_VISIBILITY_THRESHOLD })
 
   useEffect(() => {
     if (autoPlay === true) return
 
     if (isInView) {
-      videoRef.current?.play().catch(() => {})
+      playVideo(videoRef.current)
     } else {
       videoRef.current?.pause()
     }

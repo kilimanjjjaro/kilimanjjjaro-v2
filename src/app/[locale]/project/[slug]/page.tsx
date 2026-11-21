@@ -6,6 +6,7 @@ import { getScopedI18n } from '@/lib/i18n/server'
 import { FEATURED_PROJECTS } from '@/lib/constants/projects'
 import { LOCALES } from '@/lib/constants/globals'
 import type { Metadata } from 'next'
+import { OG_IMAGE_HEIGHT, OG_IMAGE_WIDTH } from '@/lib/constants/seo'
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>
@@ -69,8 +70,8 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       images: [
         {
           url: `/images/projects/${project.slug}/og-image.jpg`,
-          width: 1000,
-          height: 563
+          width: OG_IMAGE_WIDTH,
+          height: OG_IMAGE_HEIGHT
         }
       ],
       siteName: 'Kilimanjjjaro',

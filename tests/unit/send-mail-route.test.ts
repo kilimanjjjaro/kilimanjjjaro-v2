@@ -1,35 +1,24 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { ADMIN_EMAIL } from '@/lib/constants/globals'
+import {
+  HTTP_STATUS_BAD_REQUEST,
+  HTTP_STATUS_OK,
+  HTTP_STATUS_UNPROCESSABLE_ENTITY
+} from '@/lib/constants/http'
+import { jsonRequest, jsonResponse, readJsonBody } from '../utils/http'
+import { loadSendMailRoute } from '../utils/routes'
+import {
+  CONTACT_FORM_VALUES,
+  RESEND_EMAILS_ENDPOINT,
+  RESEND_PAYLOAD_SCHEMA,
+  RESEND_TEST_KEY,
+  SINGLE_CALL
+} from '../constants/unit'
 
-const BODY = {
-  name: 'Ada Lovelace',
-  email: 'ada@example.com',
-  message: 'I would like to work with you.'
-}
-
-function jsonResponse(body: unknown, status = 200) {
-  return new Response(JSON.stringify(body), {
-    status,
-    headers: { 'content-type': 'application/json' }
-  })
-}
-
-function request(body: unknown) {
-  return new Request('http://localhost/api/send-mail', {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(body)
-  })
-}
-
-async function loadRoute() {
-  vi.resetModules()
-  vi.stubEnv('RESEND_API_KEY', 're_test_key')
-  return await import('@/app/api/send-mail/route')
-}
+const SEND_MAIL_URL = 'http://localhost/api/send-mail'
 
 describe('POST /api/send-mail', () => {
-  const fetchMock = vi.fn()
+  const fetchMock = vi.fn<typeof fetch>()
 
   beforeEach(() => {
     fetchMock.mockReset()
@@ -38,52 +27,71 @@ describe('POST /api/send-mail', () => {
 
   it('sends the admin email through Resend and responds 200', async () => {
     fetchMock.mockResolvedValue(jsonResponse({ id: 'email_123' }))
-    const { POST } = await loadRoute()
+    const { POST } = await loadSendMailRoute()
 
-    const response = await POST(request(BODY))
+    const response = await POST(jsonRequest(SEND_MAIL_URL, CONTACT_FORM_VALUES))
 
-    expect(response.status).toBe(200)
-    expect(await response.json()).toEqual({ status: 200 })
-    expect(fetchMock).toHaveBeenCalledTimes(1)
+    expect(response.status).toBe(HTTP_STATUS_OK)
+    expect(await response.json()).toEqual({ status: HTTP_STATUS_OK })
+    expect(fetchMock).toHaveBeenCalledTimes(SINGLE_CALL)
 
-    const [url, init] = fetchMock.mock.calls[0]
-    expect(String(url)).toBe('https://api.resend.com/emails')
-    expect(init.method).toBe('POST')
+    const {
+      mock: {
+        calls: [[url, init]]
+      }
+    } = fetchMock
+    expect(url).toBe(RESEND_EMAILS_ENDPOINT)
+    expect(init?.method).toBe('POST')
 
-    const headers = new Headers(init.headers)
-    expect(headers.get('authorization')).toBe('Bearer re_test_key')
+    const headers = new Headers(init?.headers)
+    expect(headers.get('authorization')).toBe(`Bearer ${RESEND_TEST_KEY}`)
 
-    const payload = JSON.parse(init.body)
+    const payload = RESEND_PAYLOAD_SCHEMA.parse(readJsonBody(init))
     expect(payload.from).toBe('Kilimanjjjaro <onboarding@resend.dev>')
     expect([payload.to].flat()).toEqual([ADMIN_EMAIL])
-    expect(payload.subject).toBe(`New message from ${BODY.name}`)
-    expect([payload.reply_to].flat()).toEqual([BODY.email])
-    expect(payload.html).toContain(BODY.name)
-    expect(payload.html).toContain(BODY.email)
-    expect(payload.html).toContain(BODY.message)
+    expect(payload.subject).toBe(`New message from ${CONTACT_FORM_VALUES.name}`)
+    expect([payload.reply_to].flat()).toEqual([CONTACT_FORM_VALUES.email])
+    expect(payload.html).toContain(CONTACT_FORM_VALUES.name)
+    expect(payload.html).toContain(CONTACT_FORM_VALUES.email)
+    expect(payload.html).toContain(CONTACT_FORM_VALUES.message)
   })
 
   it('responds 400 when Resend returns an error', async () => {
     fetchMock.mockResolvedValue(
       jsonResponse(
-        { statusCode: 422, name: 'validation_error', message: 'Invalid `to` field' },
-        422
+        {
+          statusCode: HTTP_STATUS_UNPROCESSABLE_ENTITY,
+          name: 'validation_error',
+          message: 'Invalid `to` field'
+        },
+        HTTP_STATUS_UNPROCESSABLE_ENTITY
       )
     )
-    const { POST } = await loadRoute()
+    const { POST } = await loadSendMailRoute()
 
-    const response = await POST(request(BODY))
+    const response = await POST(jsonRequest(SEND_MAIL_URL, CONTACT_FORM_VALUES))
 
-    expect(response.status).toBe(400)
-    expect(await response.json()).toEqual({ status: 400 })
+    expect(response.status).toBe(HTTP_STATUS_BAD_REQUEST)
+    expect(await response.json()).toEqual({ status: HTTP_STATUS_BAD_REQUEST })
   })
 
   it('responds 400 when the request to Resend fails', async () => {
     fetchMock.mockRejectedValue(new Error('network down'))
-    const { POST } = await loadRoute()
+    const { POST } = await loadSendMailRoute()
 
-    const response = await POST(request(BODY))
+    const response = await POST(jsonRequest(SEND_MAIL_URL, CONTACT_FORM_VALUES))
 
-    expect(response.status).toBe(400)
+    expect(response.status).toBe(HTTP_STATUS_BAD_REQUEST)
+  })
+
+  it('responds 400 without calling Resend when the body is invalid', async () => {
+    const { POST } = await loadSendMailRoute()
+
+    const response = await POST(
+      jsonRequest(SEND_MAIL_URL, { ...CONTACT_FORM_VALUES, email: 'nope' })
+    )
+
+    expect(response.status).toBe(HTTP_STATUS_BAD_REQUEST)
+    expect(fetchMock).not.toHaveBeenCalled()
   })
 })

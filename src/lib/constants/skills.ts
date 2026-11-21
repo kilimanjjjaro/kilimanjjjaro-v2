@@ -1,127 +1,108 @@
+export enum StackId {
+  Frontend = 1,
+  Backend = 2,
+  Extra = 3
+}
+
 export const SKILLS = [
   {
-    id: 1,
     name: 'React',
-    stackId: 1
+    stackId: StackId.Frontend
   },
   {
-    id: 2,
     name: 'Astro',
-    stackId: 1
+    stackId: StackId.Frontend
   },
   {
-    id: 3,
     name: 'Next.js',
-    stackId: 1
+    stackId: StackId.Frontend
   },
   {
-    id: 4,
     name: 'Svelte',
-    stackId: 1
+    stackId: StackId.Frontend
   },
   {
-    id: 5,
     name: 'Qwik',
-    stackId: 1
+    stackId: StackId.Frontend
   },
   {
-    id: 6,
     name: 'Vue',
-    stackId: 1
+    stackId: StackId.Frontend
   },
   {
-    id: 7,
     name: 'Nuxt',
-    stackId: 1
+    stackId: StackId.Frontend
   },
   {
-    id: 8,
     name: 'Tailwind CSS',
-    stackId: 1
+    stackId: StackId.Frontend
   },
   {
-    id: 9,
     name: 'TypeScript',
-    stackId: 1
+    stackId: StackId.Frontend
   },
   {
-    id: 10,
     name: 'JavaScript',
-    stackId: 1
+    stackId: StackId.Frontend
   },
   {
-    id: 11,
     name: 'HTML',
-    stackId: 1
+    stackId: StackId.Frontend
   },
   {
-    id: 12,
     name: 'CSS',
-    stackId: 1
+    stackId: StackId.Frontend
   },
   {
-    id: 13,
     name: 'Node.js',
-    stackId: 2
+    stackId: StackId.Backend
   },
   {
-    id: 14,
     name: 'Express',
-    stackId: 2
+    stackId: StackId.Backend
   },
   {
-    id: 15,
     name: 'NestJS',
-    stackId: 2
+    stackId: StackId.Backend
   },
   {
-    id: 16,
     name: 'Firebase',
-    stackId: 2
+    stackId: StackId.Backend
   },
   {
-    id: 17,
     name: 'Supabase',
-    stackId: 2
+    stackId: StackId.Backend
   },
   {
-    id: 18,
     name: 'MongoDB',
-    stackId: 2
+    stackId: StackId.Backend
   },
   {
-    id: 19,
     name: 'Playwright',
-    stackId: 3
+    stackId: StackId.Extra
   },
   {
-    id: 20,
     name: 'Figma',
-    stackId: 3
+    stackId: StackId.Extra
   },
   {
-    id: 21,
     name: 'XD',
-    stackId: 3
+    stackId: StackId.Extra
   },
   {
-    id: 22,
     name: 'WordPress',
-    stackId: 3
+    stackId: StackId.Extra
   },
   {
-    id: 23,
     name: 'Elementor',
-    stackId: 3
+    stackId: StackId.Extra
   },
   {
-    id: 24,
     name: 'Illustrator',
-    stackId: 3
+    stackId: StackId.Extra
   },
   {
-    id: 25,
     name: 'Photoshop',
-    stackId: 3
+    stackId: StackId.Extra
   }
 ]

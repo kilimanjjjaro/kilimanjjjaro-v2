@@ -4,10 +4,20 @@ import type {
   OtherProjectsInterface
 } from '@/lib/types/projects'
 
+export enum OtherProjectId {
+  VolvoTestDrive = 1,
+  DolArgApi = 2,
+  WrkloadApi = 3,
+  PlanOvalo = 4,
+  MujeresAlMundo = 5,
+  PlantemosUnArbol = 6,
+  AutomotoresMataderos = 7,
+  LinktreeClone = 8
+}
+
 export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
   en: [
     {
-      id: 1,
       name: 'wrkload',
       slug: 'wrkload',
       headerDescription:
@@ -35,7 +45,6 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       }
     },
     {
-      id: 2,
       name: 'Royal Enfield',
       slug: 'royal-enfield',
       headerDescription:
@@ -75,7 +84,6 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
     //   }
     // },
     {
-      id: 4,
       name: 'Kilimanjjjaro v1',
       slug: 'kilimanjjjaro-v1',
       headerDescription:
@@ -97,7 +105,6 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
   ],
   es: [
     {
-      id: 1,
       name: 'wrkload',
       slug: 'wrkload',
       headerDescription:
@@ -125,7 +132,6 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       }
     },
     {
-      id: 2,
       name: 'Royal Enfield',
       slug: 'royal-enfield',
       headerDescription:
@@ -165,7 +171,6 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
     //   }
     // },
     {
-      id: 4,
       name: 'Kilimanjjjaro v1',
       slug: 'kilimanjjjaro-v1',
       headerDescription:
@@ -190,7 +195,7 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
 export const OTHER_PROJECTS: OtherProjectsInterface = {
   en: [
     {
-      id: 8,
+      id: OtherProjectId.LinktreeClone,
       name: 'Linktree Clone',
       slug: 'linktree-clone',
       link: 'https://linktree-clone-amber.vercel.app/',
@@ -212,7 +217,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 1,
+      id: OtherProjectId.VolvoTestDrive,
       name: 'Volvo Test Drive',
       slug: 'volvo-test-drive',
       link: 'https://volvotestdrive.com.ar/',
@@ -225,7 +230,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 2,
+      id: OtherProjectId.DolArgApi,
       name: 'DolArg API',
       slug: 'dolarg-api',
       link: 'https://github.com/kilimanjjjaro/dolarg-api',
@@ -238,7 +243,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: true
     },
     {
-      id: 3,
+      id: OtherProjectId.WrkloadApi,
       name: 'wrkload API',
       slug: 'wrkload-api',
       link: 'https://github.com/kilimanjjjaro/wrkload-api',
@@ -252,7 +257,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
     },
 
     {
-      id: 4,
+      id: OtherProjectId.PlanOvalo,
       name: 'Plan Ovalo',
       slug: 'plan-ovalo',
       link: 'https://planovalo.automotoresmataderos.com.ar/',
@@ -265,7 +270,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 5,
+      id: OtherProjectId.MujeresAlMundo,
       name: 'HSBC: Mujeres al Mundo',
       slug: 'mujeres-al-mundo',
       link: 'https://www.mujeresalmundo.hsbc.com.ar/',
@@ -278,7 +283,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 6,
+      id: OtherProjectId.PlantemosUnArbol,
       name: 'Bioland: Plantemos un Árbol',
       slug: 'plantemos-un-arbol',
       link: 'https://www.bio-land.com/plantemos-un-arbol/',
@@ -291,7 +296,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 7,
+      id: OtherProjectId.AutomotoresMataderos,
       name: 'Automotores Mataderos',
       slug: 'automotores-mataderos',
       link: 'https://automotoresmataderos.com.ar/',
@@ -306,7 +311,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
   ],
   es: [
     {
-      id: 8,
+      id: OtherProjectId.LinktreeClone,
       name: 'Linktree Clone',
       slug: 'linktree-clone',
       link: 'https://linktree-clone-amber.vercel.app/',
@@ -328,7 +333,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 1,
+      id: OtherProjectId.VolvoTestDrive,
       name: 'Volvo: Test Drive',
       slug: 'volvo-test-drive',
       link: 'https://volvotestdrive.com.ar/',
@@ -341,7 +346,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 2,
+      id: OtherProjectId.DolArgApi,
       name: 'DolArg API',
       slug: 'dolarg-api',
       link: 'https://github.com/kilimanjjjaro/dolarg-api',
@@ -354,7 +359,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: true
     },
     {
-      id: 3,
+      id: OtherProjectId.WrkloadApi,
       name: 'wrkload API',
       slug: 'wrkload-api',
       link: 'https://github.com/kilimanjjjaro/wrkload-api',
@@ -368,7 +373,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
     },
 
     {
-      id: 4,
+      id: OtherProjectId.PlanOvalo,
       name: 'Plan Ovalo',
       slug: 'plan-ovalo',
       link: 'https://planovalo.automotoresmataderos.com.ar/',
@@ -381,7 +386,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 5,
+      id: OtherProjectId.MujeresAlMundo,
       name: 'HSBC: Mujeres al Mundo',
       slug: 'mujeres-al-mundo',
       link: 'https://www.mujeresalmundo.hsbc.com.ar/',
@@ -394,7 +399,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 6,
+      id: OtherProjectId.PlantemosUnArbol,
       name: 'Bioland: Plantemos un Árbol',
       slug: 'plantemos-un-arbol',
       link: 'https://www.bio-land.com/plantemos-un-arbol/',
@@ -407,7 +412,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 7,
+      id: OtherProjectId.AutomotoresMataderos,
       name: 'Automotores Mataderos',
       slug: 'automotores-mataderos',
       link: 'https://automotoresmataderos.com.ar/',
@@ -421,3 +426,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
     }
   ]
 }
+
+export const {
+  en: { length: TOTAL_OTHER_PROJECTS }
+} = OTHER_PROJECTS

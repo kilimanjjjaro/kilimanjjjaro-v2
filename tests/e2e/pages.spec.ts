@@ -1,4 +1,8 @@
-import { test, expect, unexpectedErrors, waitForApp } from './fixtures'
+import { test, expect } from './fixtures'
+import { waitForApp } from '../utils/browser'
+import { unexpectedErrors } from '../utils/errors'
+import { HYDRATION_WAIT_MS } from '../constants/e2e'
+import { HTTP_STATUS_OK } from '@/lib/constants/http'
 import en from '@/lib/locales/en'
 import es from '@/lib/locales/es'
 import { FEATURED_PROJECTS } from '@/lib/constants/projects'
@@ -27,12 +31,12 @@ test.describe('every page renders without errors', () => {
     test(path, async ({ page, browserErrors }) => {
       const response = await page.goto(path)
 
-      expect(response?.status()).toBe(200)
+      expect(response?.status()).toBe(HTTP_STATUS_OK)
       await waitForApp(page)
       await expect(page.locator('html')).toHaveAttribute('lang', locale)
       await expect(page).toHaveTitle(title)
 
-      await page.waitForTimeout(2_500)
+      await page.waitForTimeout(HYDRATION_WAIT_MS)
       expect(unexpectedErrors(browserErrors)).toEqual([])
     })
   }
@@ -40,11 +44,11 @@ test.describe('every page renders without errors', () => {
 
 test.describe('project pages', () => {
   for (const locale of ['en', 'es'] as const) {
-    const projects = FEATURED_PROJECTS[locale]
+    const { [locale]: projects } = FEATURED_PROJECTS
+    const [project] = projects
     const prefix = locale === 'en' ? '' : '/es'
 
     test(`show the project content (${locale})`, async ({ page }) => {
-      const project = projects[0]
       await page.goto(`${prefix}/project/${project.slug}`)
 
       await expect(
@@ -62,7 +66,9 @@ test.describe('project pages', () => {
       await page.goto(`${prefix}/project/this-project-does-not-exist`)
 
       await expect(
-        page.getByRole('main').getByText(LOCALES[locale].project.notFoundMessage)
+        page
+          .getByRole('main')
+          .getByText(LOCALES[locale].project.notFoundMessage)
       ).toBeVisible()
       await expect(page).toHaveTitle(
         `${LOCALES[locale].project.notFoundMessage} — Kilimanjjjaro`
@@ -107,11 +113,13 @@ test.describe('metadata', () => {
         'href',
         canonical
       )
-      for (const [lang, href] of Object.entries(alternates)) {
-        await expect(
-          page.locator(`link[rel="alternate"][hreflang="${lang}"]`)
-        ).toHaveAttribute('href', href)
-      }
+      await Promise.all(
+        Object.entries(alternates).map(async ([lang, href]) => {
+          await expect(
+            page.locator(`link[rel="alternate"][hreflang="${lang}"]`)
+          ).toHaveAttribute('href', href)
+        })
+      )
       await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute(
         'content',
         locale
@@ -124,7 +132,9 @@ test.describe('metadata', () => {
   }
 
   test('project pages declare their own Open Graph image', async ({ page }) => {
-    const project = FEATURED_PROJECTS.en[0]
+    const {
+      en: [project]
+    } = FEATURED_PROJECTS
     await page.goto(`/project/${project.slug}`)
 
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(

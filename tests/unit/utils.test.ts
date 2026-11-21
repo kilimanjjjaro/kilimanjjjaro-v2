@@ -4,22 +4,24 @@ import updateStacks from '@/lib/utils/updateStacks'
 import { getGitHubImage } from '@/lib/utils/getGitHubImage'
 import { SKILLS } from '@/lib/constants/skills'
 import { STACKS } from '@/lib/constants/globals'
+import { FIRST_INDEX, LAST_INDEX_OFFSET } from '@/lib/constants/math'
+import { NEXT_INDEX_OFFSET } from '../constants/unit'
+import { findStackIdAt } from '../utils/stacks'
+import YEARS_OLD_CASES from '../constants/years-old-cases.json'
 
 describe('getYearsOld', () => {
   afterEach(() => {
     vi.useRealTimers()
   })
 
-  it.each([
-    ['2026-12-09T12:00:00', 33],
-    ['2026-12-10T12:00:00', 34],
-    ['2027-01-01T12:00:00', 34],
-    ['2026-06-15T12:00:00', 33]
-  ])('on %s returns %i', (date, expected) => {
-    vi.useFakeTimers()
-    vi.setSystemTime(new Date(date))
-    expect(getYearsOld()).toBe(expected)
-  })
+  it.each(YEARS_OLD_CASES)(
+    'on $date returns $expected',
+    ({ date, expected }) => {
+      vi.useFakeTimers()
+      vi.setSystemTime(new Date(date))
+      expect(getYearsOld()).toBe(expected)
+    }
+  )
 })
 
 describe('updateStacks', () => {
@@ -32,19 +34,20 @@ describe('updateStacks', () => {
   })
 
   it('computes contiguous ranges that cover all skills', () => {
-    expect(stacks[0].startIndex).toBe(0)
-    for (let i = 1; i < stacks.length; i++) {
-      expect(stacks[i].startIndex).toBe(stacks[i - 1].endIndex + 1)
-    }
-    expect(stacks[stacks.length - 1].endIndex).toBe(SKILLS.length - 1)
+    const [firstStack] = stacks
+    const lastStack = stacks.at(-LAST_INDEX_OFFSET)
+
+    expect(firstStack.startIndex).toBe(FIRST_INDEX)
+    stacks.slice(NEXT_INDEX_OFFSET).forEach((stack, index) => {
+      expect(stack.startIndex).toBe(stacks[index].endIndex + NEXT_INDEX_OFFSET)
+    })
+    expect(lastStack?.endIndex).toBe(SKILLS.length - LAST_INDEX_OFFSET)
   })
 
   it('every skill inside a range belongs to that stack', () => {
-    for (const stack of stacks) {
-      for (let i = stack.startIndex; i <= stack.endIndex; i++) {
-        expect(SKILLS[i].stackId).toBe(stack.id)
-      }
-    }
+    SKILLS.forEach((skill, index) => {
+      expect(findStackIdAt(stacks, index)).toBe(skill.stackId)
+    })
   })
 })
 
@@ -52,7 +55,7 @@ describe('getGitHubImage', () => {
   it('builds a cache-busted Open Graph URL for the repository', () => {
     const url = getGitHubImage('wrkload')
     expect(url).toMatch(
-      /^https:\/\/opengraph\.githubassets\.com\/[0-9a-f-]{36}\/kilimanjjjaro\/wrkload$/
+      /^https:\/\/opengraph\.githubassets\.com\/[0-9a-f\-]{36}\/kilimanjjjaro\/wrkload$/v
     )
     expect(getGitHubImage('wrkload')).not.toBe(url)
   })

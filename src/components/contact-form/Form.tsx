@@ -1,8 +1,8 @@
 import { useActionState, useCallback, useEffect, useRef, useState } from 'react'
-import clsx from 'clsx'
 import { motion } from 'motion/react'
 import CommandLine from '@/components/contact-form/CommandLine'
 import Fields from '@/components/contact-form/Fields'
+import StatusBar from '@/components/contact-form/StatusBar'
 import Warning from '@/components/contact-form/Warning'
 import SubmitButton from '@/components/contact-form/SubmitButton'
 import Button from '@/components/shared/Button'
@@ -10,23 +10,30 @@ import { useStore } from '@/lib/store/store'
 import sendForm from '@/lib/actions/sendForm'
 import { firaMonoFont } from '@/lib/utils/fonts'
 import { CURSOR_STATUS } from '@/lib/constants/globals'
-import { useScopedI18n } from '@/lib/i18n/client'
-import { FORM_DEFAULT_STATE } from '@/lib/constants/form'
+import { TRANSITION } from '@/lib/constants/animation'
+import {
+  CONTACT_FORM_HIDDEN_STATE,
+  CONTACT_FORM_VISIBLE_STATE,
+  FIELDS_RENDER_DELAY_MS,
+  FORM_DEFAULT_STATE,
+  FormStep,
+  SUCCESS_MESSAGE_DURATION_MS
+} from '@/lib/constants/form'
 
 interface Props {
   handleDrag: React.PointerEventHandler<HTMLElement>
 }
 
 export default function Form({ handleDrag }: Props) {
-  const t = useScopedI18n('contactForm')
   const [state, formAction] = useActionState(sendForm, FORM_DEFAULT_STATE)
+  const [expiredState, setExpiredState] = useState(FORM_DEFAULT_STATE)
   const { setShowContactForm, setCursorStatus } = useStore()
   const formRef = useRef<HTMLFormElement>(null)
-  const [success, setSuccess] = useState(false)
-  const [error, setError] = useState(false)
+  const success = state.success && state !== expiredState
+  const { error } = state
   const [renderFields, setRenderFields] = useState(false)
   const [showWarning, setShowWarning] = useState(false)
-  const [step, setStep] = useState(1)
+  const [step, setStep] = useState(FormStep.Name)
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
@@ -46,9 +53,7 @@ export default function Form({ handleDrag }: Props) {
     [setShowContactForm, showWarning]
   )
 
-  const handleCloseClick = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  const handleCloseClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
     setShowContactForm(false)
   }
@@ -56,7 +61,7 @@ export default function Form({ handleDrag }: Props) {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setRenderFields(true)
-    }, 6600)
+    }, FIELDS_RENDER_DELAY_MS)
 
     return () => {
       clearTimeout(timeout)
@@ -65,14 +70,11 @@ export default function Form({ handleDrag }: Props) {
 
   useEffect(() => {
     if (state.success) {
-      setSuccess(true)
-      setError(false)
-
       const timeout = setTimeout(() => {
-        setSuccess(false)
-        setStep(1)
+        setExpiredState(state)
+        setStep(FormStep.Name)
         formRef.current?.reset()
-      }, 5000)
+      }, SUCCESS_MESSAGE_DURATION_MS)
 
       return () => {
         clearTimeout(timeout)
@@ -80,9 +82,6 @@ export default function Form({ handleDrag }: Props) {
     }
 
     if (state.error) {
-      setError(true)
-      setSuccess(false)
-
       formRef.current?.focus()
     }
   }, [state])
@@ -95,47 +94,32 @@ export default function Form({ handleDrag }: Props) {
     }
   }, [handleKeyDown])
 
-  const renderWelcomeMessage = step <= 2 && !error && !success
-  const renderSuccessMessage = success && !error
-  const renderSuggestionMessage = step > 2 && !error && !success
-  const renderErrorMessage = error && !success
-
   return (
     <motion.form
       aria-label='Contact form'
       ref={formRef}
       action={formAction}
       className='w-screen xl:w-[700px] bg-[#030303] relative rounded-md shadow-lg overflow-hidden pointer-events-auto'
-      initial={{
-        y: '90dvh',
-        scale: 0.5
-      }}
-      animate={{
-        y: '0dvh',
-        scale: 1
-      }}
-      exit={{
-        y: '90dvh',
-        scale: 0.5,
-        transition: {
-          duration: 1,
-          ease: 'easeInOut'
-        }
-      }}
-      transition={{
-        duration: 1,
-        ease: 'easeInOut'
-      }}
+      initial={CONTACT_FORM_HIDDEN_STATE}
+      animate={CONTACT_FORM_VISIBLE_STATE}
+      exit={{ ...CONTACT_FORM_HIDDEN_STATE, transition: TRANSITION }}
+      transition={TRANSITION}
     >
       <motion.header
         className='flex items-center h-10 gap-4 px-4 bg-kili-light-gray/30 cursor-grab active:cursor-grabbing active:select-none'
         onPointerDown={handleDrag}
-        onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-        onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+        onMouseEnter={() => {
+          setCursorStatus(CURSOR_STATUS.HOVER)
+        }}
+        onMouseLeave={() => {
+          setCursorStatus(CURSOR_STATUS.DEFAULT)
+        }}
       >
         <Button
           aria-label='Close contact form'
-          onClick={(event) => handleCloseClick(event)}
+          onClick={(event) => {
+            handleCloseClick(event)
+          }}
           className='w-3 h-3 transition-colors duration-1000 bg-red-600 rounded-full xl:hover:bg-kili-white'
         />
         <p className='text-sm tracking-wide text-kili-white'>
@@ -149,18 +133,7 @@ export default function Form({ handleDrag }: Props) {
         {!renderFields && <CommandLine />}
         {renderFields && (
           <div className='flex flex-col w-full h-full gap-6 py-6'>
-            <div
-              className={clsx(
-                'absolute top-0 left-0 flex items-center justify-between bg-[#00ff00] w-full h-6 px-4 text-xs xl:text-sm',
-                error && 'bg-red-600'
-              )}
-            >
-              <span>GNU nano 2.8.4</span>
-              {renderWelcomeMessage && <span>{t('welcomeMessage')}</span>}
-              {renderSuggestionMessage && <span>{t('suggestionMessage')}</span>}
-              {renderSuccessMessage && <span>{t('successMessage')}</span>}
-              {renderErrorMessage && <span>{t('errorMessage')}</span>}
-            </div>
+            <StatusBar step={step} error={error} success={success} />
             <Fields step={step} setStep={setStep} />
           </div>
         )}
@@ -170,7 +143,7 @@ export default function Form({ handleDrag }: Props) {
         <SubmitButton
           error={error}
           success={success}
-          shouldFocus={step === 4}
+          shouldFocus={step === FormStep.Submit}
         />
       )}
     </motion.form>

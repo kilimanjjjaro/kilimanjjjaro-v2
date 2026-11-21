@@ -74,7 +74,7 @@ export default function EmailToAdmin({ name, email, message }: Props) {
                 </li>
               </ul>
               <Text className='mt-5 mb-0 text-kili-white'>
-                Don't forget to reply this as soon as possible.
+                Don&apos;t forget to reply this as soon as possible.
               </Text>
               <Text className='m-0 text-kili-white'>
                 <i>Have a great day!</i>

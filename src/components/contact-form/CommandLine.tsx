@@ -1,17 +1,15 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'motion/react'
 import TypingEffect from '@/components/shared/TypingEffect'
-
-const FOLDERS = [
-  'app',
-  'components',
-  'constants',
-  'hooks',
-  'interfaces',
-  'store'
-]
-
-const FILES = ['messages.json', 'issues.json']
+import {
+  COMMAND_LINE_FILES,
+  COMMAND_LINE_FILES_DELAY,
+  COMMAND_LINE_FIRST_COMMAND_MS,
+  COMMAND_LINE_FOLDERS,
+  COMMAND_LINE_FOLDERS_DELAY,
+  COMMAND_LINE_SECOND_COMMAND_MS,
+  COMMAND_LINE_THIRD_COMMAND_MS
+} from '@/lib/constants/form'
 
 export default function CommandLine() {
   const [stepOne, setStepOne] = useState(false)
@@ -21,15 +19,15 @@ export default function CommandLine() {
   useEffect(() => {
     const timeoutOne = setTimeout(() => {
       setStepOne(true)
-    }, 1500)
+    }, COMMAND_LINE_FIRST_COMMAND_MS)
 
     const timeoutTwo = setTimeout(() => {
       setStepTwo(true)
-    }, 2700)
+    }, COMMAND_LINE_SECOND_COMMAND_MS)
 
     const timeoutThree = setTimeout(() => {
       setStepThree(true)
-    }, 4800)
+    }, COMMAND_LINE_THIRD_COMMAND_MS)
 
     return () => {
       clearTimeout(timeoutOne)
@@ -47,7 +45,7 @@ export default function CommandLine() {
           <motion.span
             initial={{ display: 'inline' }}
             animate={{ display: 'none' }}
-            transition={{ delay: 2.1 }}
+            transition={{ delay: COMMAND_LINE_FOLDERS_DELAY }}
             className='animate-typing'
           >
             |
@@ -58,9 +56,9 @@ export default function CommandLine() {
         className='grid-cols-3'
         initial={{ display: 'none' }}
         animate={{ display: 'grid' }}
-        transition={{ delay: 2.1 }}
+        transition={{ delay: COMMAND_LINE_FOLDERS_DELAY }}
       >
-        {FOLDERS.map((folder) => (
+        {COMMAND_LINE_FOLDERS.map((folder) => (
           <p key={folder} className='text-kili-white'>
             {folder}
           </p>
@@ -69,7 +67,7 @@ export default function CommandLine() {
       <motion.div
         initial={{ display: 'none' }}
         animate={{ display: 'block' }}
-        transition={{ delay: 2.1 }}
+        transition={{ delay: COMMAND_LINE_FOLDERS_DELAY }}
       >
         <p className='text-kili-light-gray'>~/kilimanjjjaro/src</p>
         <div className='text-kili-white'>
@@ -77,7 +75,7 @@ export default function CommandLine() {
           <motion.span
             initial={{ display: 'inline' }}
             animate={{ display: 'none' }}
-            transition={{ delay: 4.1 }}
+            transition={{ delay: COMMAND_LINE_FILES_DELAY }}
             className='animate-typing'
           >
             |
@@ -88,9 +86,9 @@ export default function CommandLine() {
         className='grid grid-cols-3'
         initial={{ display: 'none' }}
         animate={{ display: 'grid' }}
-        transition={{ delay: 4.1 }}
+        transition={{ delay: COMMAND_LINE_FILES_DELAY }}
       >
-        {FILES.map((folder) => (
+        {COMMAND_LINE_FILES.map((folder) => (
           <p key={folder} className='text-kili-white'>
             {folder}
           </p>
@@ -99,7 +97,7 @@ export default function CommandLine() {
       <motion.div
         initial={{ display: 'none' }}
         animate={{ display: 'block' }}
-        transition={{ delay: 4.1 }}
+        transition={{ delay: COMMAND_LINE_FILES_DELAY }}
       >
         <p className='text-kili-light-gray'>~/kilimanjjjaro/src/store</p>
         <div className='text-kili-white'>

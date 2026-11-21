@@ -2,6 +2,10 @@ import { describe, expect, it } from 'vitest'
 import sitemap from '@/app/sitemap'
 import robots from '@/app/robots'
 import { FEATURED_PROJECTS } from '@/lib/constants/projects'
+import {
+  HOME_SITEMAP_ENTRIES,
+  SITEMAP_ENTRIES_PER_PROJECT
+} from '../constants/unit'
 
 const BASE = 'https://kilimanjjjaro.com'
 
@@ -19,12 +23,15 @@ describe('sitemap', () => {
       expect(urls).toContain(`${BASE}/project/${slug}`)
       expect(urls).toContain(`${BASE}/es/project/${slug}`)
     }
-    expect(entries).toHaveLength(2 + FEATURED_PROJECTS.en.length * 2)
+    expect(entries).toHaveLength(
+      HOME_SITEMAP_ENTRIES +
+        FEATURED_PROJECTS.en.length * SITEMAP_ENTRIES_PER_PROJECT
+    )
   })
 
   it('declares language alternates for every entry', () => {
     for (const entry of entries) {
-      const languages = entry.alternates?.languages as Record<string, string>
+      const languages = entry.alternates?.languages ?? {}
       expect(Object.keys(languages).sort()).toEqual(['en', 'es'])
       expect(Object.values(languages)).toContain(entry.url)
     }

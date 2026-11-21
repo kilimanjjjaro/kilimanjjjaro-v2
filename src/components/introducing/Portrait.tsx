@@ -6,6 +6,13 @@ import { motion, useScroll, useInView, useTransform } from 'motion/react'
 import portraitImage from '../../../public/images/portrait.webp'
 import { useScopedI18n } from '@/lib/i18n/client'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
+import {
+  CLIP_HIDDEN_STATE,
+  CLIP_VISIBLE_STATE,
+  INTRO_TRANSITION,
+  PORTRAIT_PARALLAX_END,
+  PORTRAIT_PARALLAX_START
+} from '@/lib/constants/animation'
 
 export default function Portrait() {
   const t = useScopedI18n('home.introducing')
@@ -13,31 +20,21 @@ export default function Portrait() {
   const imageEl = useRef<HTMLDivElement>(null)
   const isInView = useInView(imageEl, { once: true })
   const { scrollYProgress } = useScroll()
-  const y = useTransform(scrollYProgress, [0.3, 0.7], ['10%', '-10%'])
+  const y = useTransform(
+    scrollYProgress,
+    [PORTRAIT_PARALLAX_START, PORTRAIT_PARALLAX_END],
+    ['10%', '-10%']
+  )
 
   return (
     <motion.div
       ref={imageEl}
-      initial={{
-        clipPath: 'inset(100% 0% 0% 0%)'
-      }}
-      animate={
-        isInView && {
-          clipPath: 'inset(0% 0% 0% 0%)'
-        }
-      }
-      transition={{
-        duration: 3,
-        ease: [0.17, 0.84, 0.44, 1]
-      }}
+      initial={CLIP_HIDDEN_STATE}
+      animate={isInView && CLIP_VISIBLE_STATE}
+      transition={INTRO_TRANSITION}
       style={isDesktop ? { y } : {}}
     >
-      <Image
-        src={portraitImage}
-        alt={t('sectionTitle')}
-        priority
-        quality={95}
-      />
+      <Image src={portraitImage} alt={t('sectionTitle')} preload quality={95} />
     </motion.div>
   )
 }

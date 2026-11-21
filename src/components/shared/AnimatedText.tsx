@@ -1,13 +1,15 @@
 'use client'
 
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState
-} from 'react'
+import { useCallback, useLayoutEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
+import scrambleText from '@/lib/utils/scrambleText'
+import {
+  SCRAMBLE_COUNT_STEP,
+  SCRAMBLE_INTERVAL_MS,
+  SCRAMBLE_ITERATIONS,
+  SCRAMBLE_START_COUNT,
+  UNMEASURED_WIDTH
+} from '@/lib/constants/text'
 
 interface Props {
   text: string
@@ -17,64 +19,47 @@ interface Props {
 export default function AnimatedText({ text, className }: Props) {
   const animationInterval = useRef<NodeJS.Timeout | null>(null)
   const textRef = useRef<HTMLSpanElement>(null)
+  const counter = useRef(SCRAMBLE_START_COUNT)
   const [originalText, setOriginalText] = useState(text)
-  const [counter, setCounter] = useState(0)
-  const [initialWidth, setInitialWidth] = useState(0)
-
-  const changeTextRandomly = useCallback(() => {
-    const originalLetters = originalText.split('')
-
-    const newText = originalLetters
-      .filter((character) => character !== ' ')
-      .map((_, index, arr) => {
-        const availableLetters = [...arr]
-
-        availableLetters.splice(index, 1)
-
-        return availableLetters[
-          Math.floor(Math.random() * availableLetters.length)
-        ]
-      })
-      .join('')
-
-    setOriginalText(newText)
-  }, [originalText])
+  const [initialWidth, setInitialWidth] = useState(UNMEASURED_WIDTH)
 
   const measureTextWidth = useCallback(() => {
-    if (textRef.current !== null) {
-      const width = textRef.current.offsetWidth
+    const { current: textElement } = textRef
 
-      setInitialWidth(width)
+    if (textElement !== null) {
+      const { offsetWidth } = textElement
+
+      setInitialWidth(offsetWidth)
     }
   }, [])
 
   const startAnimation = useCallback(() => {
     if (animationInterval.current === null) {
       const interval = setInterval(() => {
-        changeTextRandomly()
-        setCounter((prevCounter) => prevCounter + 1)
-      }, 140)
+        counter.current += SCRAMBLE_COUNT_STEP
+
+        if (counter.current < SCRAMBLE_ITERATIONS) {
+          setOriginalText(scrambleText(originalText))
+          return
+        }
+
+        clearInterval(interval)
+        counter.current = SCRAMBLE_START_COUNT
+        setOriginalText(text)
+      }, SCRAMBLE_INTERVAL_MS)
 
       animationInterval.current = interval
     }
-  }, [changeTextRandomly])
+  }, [originalText, text])
 
   const stopAnimation = useCallback(() => {
     if (animationInterval.current !== null) {
       clearInterval(animationInterval.current)
       animationInterval.current = null
-      setCounter(0)
+      counter.current = SCRAMBLE_START_COUNT
       setOriginalText(text)
     }
   }, [text])
-
-  useEffect(() => {
-    if (counter >= 6) {
-      clearInterval(animationInterval.current as NodeJS.Timeout)
-      setCounter(0)
-      setOriginalText(text)
-    }
-  }, [counter, text])
 
   useLayoutEffect(() => {
     measureTextWidth()
@@ -86,7 +71,9 @@ export default function AnimatedText({ text, className }: Props) {
       className={clsx('whitespace-nowrap flex justify-center', className ?? '')}
       onMouseEnter={startAnimation}
       onMouseLeave={stopAnimation}
-      style={{ width: initialWidth !== 0 ? initialWidth : 'auto' }}
+      style={{
+        width: initialWidth === UNMEASURED_WIDTH ? 'auto' : initialWidth
+      }}
     >
       {originalText}
     </span>

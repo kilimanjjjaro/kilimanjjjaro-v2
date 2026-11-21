@@ -1,5 +1,6 @@
+import type { OtherProjectId } from '@/lib/constants/projects'
+
 export interface FeaturedProjectInterface {
-  id: number
   name: string
   slug: string
   headerDescription: string
@@ -18,7 +19,7 @@ export interface FeaturedProjectInterface {
 }
 
 export interface OtherProjectInterface {
-  id: number
+  id: OtherProjectId
   slug: string
   name: string
   image: string

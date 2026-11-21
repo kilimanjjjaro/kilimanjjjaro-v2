@@ -4,33 +4,15 @@ import { describe, expect, it } from 'vitest'
 import en from '@/lib/locales/en'
 import es from '@/lib/locales/es'
 import { FEATURED_PROJECTS } from '@/lib/constants/projects'
-
-type Shape = string | Shape[] | { [key: string]: Shape }
-
-function shape(value: unknown): Shape {
-  if (Array.isArray(value)) return value.map(shape)
-  if (value !== null && typeof value === 'object') {
-    return Object.fromEntries(
-      Object.entries(value).map(([key, inner]) => [key, shape(inner)])
-    )
-  }
-  return typeof value
-}
-
-function placeholders(value: unknown): string[] {
-  const text = JSON.stringify(value)
-  return Array.from(text.matchAll(/\{(\w+)\}/g), (match) => match[1]).sort(
-    (a, b) => a.localeCompare(b)
-  )
-}
+import { findPlaceholders, toShape } from '../utils/locales'
 
 describe('locales', () => {
   it('es has exactly the same keys and array lengths as en', () => {
-    expect(shape(es)).toEqual(shape(en))
+    expect(toShape(es)).toEqual(toShape(en))
   })
 
   it('es uses the same interpolation placeholders as en', () => {
-    expect(placeholders(es)).toEqual(placeholders(en))
+    expect(findPlaceholders(es)).toEqual(findPlaceholders(en))
   })
 })
 

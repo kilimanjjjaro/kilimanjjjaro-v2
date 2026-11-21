@@ -5,6 +5,7 @@ import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon'
 import { useStore } from '@/lib/store/store'
 import { CURSOR_STATUS } from '@/lib/constants/globals'
 import { useScopedI18n } from '@/lib/i18n/client'
+import getSubmitButtonContent from '@/lib/utils/getSubmitButtonContent'
 
 interface Props {
   error: boolean
@@ -17,16 +18,13 @@ export default function SubmitButton({ error, success, shouldFocus }: Props) {
   const { setCursorStatus } = useStore()
   const { pending } = useFormStatus()
   const buttonRef = useRef<HTMLButtonElement>(null)
+  const content = getSubmitButtonContent({ error, success, pending })
 
   useEffect(() => {
     if (shouldFocus) {
       buttonRef.current?.focus()
     }
   }, [shouldFocus])
-
-  const renderWelcomeText = !error && !success && !pending
-  const renderSuccessText = success && !error && !pending
-  const renderErrorText = error && !success && !pending
 
   return (
     <button
@@ -37,23 +35,19 @@ export default function SubmitButton({ error, success, shouldFocus }: Props) {
       )}
       disabled={pending}
       aria-disabled={pending}
-      onMouseEnter={() => setCursorStatus(CURSOR_STATUS.HOVER)}
-      onMouseLeave={() => setCursorStatus(CURSOR_STATUS.DEFAULT)}
+      onMouseEnter={() => {
+        setCursorStatus(CURSOR_STATUS.HOVER)
+      }}
+      onMouseLeave={() => {
+        setCursorStatus(CURSOR_STATUS.DEFAULT)
+      }}
     >
-      {renderWelcomeText && (
+      {content !== null && (
         <>
-          {t('sendButton.0')}
-          <ArrowRightIcon className='w-3' />
+          {t(content.label)}
+          {content.showArrow && <ArrowRightIcon className='w-3' />}
         </>
       )}
-      {renderErrorText && (
-        <>
-          {t('sendButton.2')}
-          <ArrowRightIcon className='w-3' />
-        </>
-      )}
-      {renderSuccessText && t('sendButton.3')}
-      {pending && t('sendButton.1')}
     </button>
   )
 }

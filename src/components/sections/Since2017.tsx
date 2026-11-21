@@ -6,6 +6,16 @@ import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import { useScopedI18n } from '@/lib/i18n/client'
 import Image from 'next/image'
 import Video from '../project/Video'
+import {
+  FULL_SCALE,
+  GRID_INITIAL_SCALE,
+  SCROLL_PROGRESS_RANGE,
+  SINCE_2017_DESKTOP_SCALE_END,
+  SINCE_2017_DESKTOP_SCALE_START,
+  SINCE_2017_MOBILE_SCALE_END,
+  SINCE_2017_MOBILE_SCALE_START
+} from '@/lib/constants/animation'
+import playVideo from '@/lib/utils/playVideo'
 
 export default function Since2017() {
   const t = useScopedI18n('home.since2017')
@@ -18,19 +28,30 @@ export default function Since2017() {
     offset: ['start end', 'end start']
   })
 
-  const headlineScaleOutput = isDesktop ? [2, 0.9] : [4, 1.2]
-  const gridScale = useTransform(scrollYProgress, [0, 1], [1.5, 1])
-  const columnYNegative = useTransform(scrollYProgress, [0, 1], ['25%', '-15%'])
-  const columnYPositive = useTransform(scrollYProgress, [0, 1], ['-15%', '25%'])
+  const headlineScaleOutput = isDesktop
+    ? [SINCE_2017_DESKTOP_SCALE_START, SINCE_2017_DESKTOP_SCALE_END]
+    : [SINCE_2017_MOBILE_SCALE_START, SINCE_2017_MOBILE_SCALE_END]
+  const gridScale = useTransform(scrollYProgress, SCROLL_PROGRESS_RANGE, [
+    GRID_INITIAL_SCALE,
+    FULL_SCALE
+  ])
+  const columnYNegative = useTransform(scrollYProgress, SCROLL_PROGRESS_RANGE, [
+    '25%',
+    '-15%'
+  ])
+  const columnYPositive = useTransform(scrollYProgress, SCROLL_PROGRESS_RANGE, [
+    '-15%',
+    '25%'
+  ])
   const headlineScale = useTransform(
     scrollYProgress,
-    [0, 1],
+    SCROLL_PROGRESS_RANGE,
     headlineScaleOutput
   )
 
   useEffect(() => {
     if (videoIsInView) {
-      videoRef.current?.play().catch(() => {})
+      playVideo(videoRef.current)
     } else {
       videoRef.current?.pause()
     }

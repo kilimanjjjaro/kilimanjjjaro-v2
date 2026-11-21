@@ -1,5 +1,6 @@
 import type { Swiper } from 'swiper'
 import type { StackInterface } from '@/lib/types/globals'
+import type { NavbarVersion } from '@/lib/constants/navbar'
 
 export interface GlobalsSliceInterface {
   cursorStatus: string
@@ -15,8 +16,8 @@ export interface GlobalsSliceInterface {
 export interface NavbarSliceInterface {
   navbarStatus: boolean
   setNavbarStatus: (navbarStatus: boolean) => void
-  navbarVersion: number
-  setNavbarVersion: (navbarVersion: number) => void
+  navbarVersion: NavbarVersion
+  setNavbarVersion: (navbarVersion: NavbarVersion) => void
 }
 
 export interface SkillsSliceInterface {
@@ -28,6 +29,4 @@ export interface SkillsSliceInterface {
 }
 
 export interface StoreInterface
-  extends GlobalsSliceInterface,
-    NavbarSliceInterface,
-    SkillsSliceInterface {}
+  extends GlobalsSliceInterface, NavbarSliceInterface, SkillsSliceInterface {}

@@ -10,6 +10,7 @@ import {
   HR_LINE_VARIANTS,
   KNOWLEDGE_ITEM_VARIANTS
 } from '@/lib/constants/variants'
+import { REVEAL_TRANSITION } from '@/lib/constants/animation'
 
 export default function Experience() {
   const t = useScopedI18n('home.knowledge')
@@ -26,7 +27,7 @@ export default function Experience() {
         className='flex flex-col gap-4 xl:flex-row pt-6 pb-6 xl:pb-[82px] xl:pt-20 xl:gap-10'
         variants={KNOWLEDGE_ITEM_VARIANTS}
         animate={isInView ? 'show' : 'hidden'}
-        transition={{ duration: 1.5, ease: 'easeInOut' }}
+        transition={REVEAL_TRANSITION}
       >
         <h3 className='xl:w-[30%] text-4xl xl:text-3xl 2xl:text-4xl text-kili-white'>
           {t('experienceTitle')}
@@ -49,7 +50,7 @@ export default function Experience() {
         initial='hidden'
         variants={HR_LINE_VARIANTS}
         animate={isInView ? 'show' : 'hidden'}
-        transition={{ duration: 1.5, ease: 'easeInOut' }}
+        transition={REVEAL_TRANSITION}
       />
     </article>
   )

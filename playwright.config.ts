@@ -1,24 +1,33 @@
 import { defineConfig, devices } from '@playwright/test'
+import {
+  CI_RETRIES,
+  DESKTOP_VIEWPORT,
+  E2E_BASE_URL,
+  E2E_PORT,
+  EXPECT_TIMEOUT_MS,
+  LOCAL_RETRIES,
+  TEST_TIMEOUT_MS,
+  WEB_SERVER_TIMEOUT_MS
+} from './tests/constants/e2e'
 
-const PORT = 3100
-const BASE_URL = `http://localhost:${PORT}`
+const isCI = process.env.CI !== undefined
 
 export default defineConfig({
   testDir: './tests/e2e',
   fullyParallel: true,
-  forbidOnly: process.env.CI !== undefined,
-  retries: process.env.CI !== undefined ? 1 : 0,
-  reporter: process.env.CI !== undefined ? [['github'], ['html', { open: 'never' }]] : 'list',
-  timeout: 60_000,
-  expect: { timeout: 15_000 },
+  forbidOnly: isCI,
+  retries: isCI ? CI_RETRIES : LOCAL_RETRIES,
+  reporter: isCI ? [['github'], ['html', { open: 'never' }]] : 'list',
+  timeout: TEST_TIMEOUT_MS,
+  expect: { timeout: EXPECT_TIMEOUT_MS },
   use: {
-    baseURL: BASE_URL,
+    baseURL: E2E_BASE_URL,
     trace: 'retain-on-failure'
   },
   projects: [
     {
       name: 'desktop',
-      use: { ...devices['Desktop Chrome'], viewport: { width: 1440, height: 900 } }
+      use: { ...devices['Desktop Chrome'], viewport: DESKTOP_VIEWPORT }
     },
     {
       name: 'mobile',
@@ -26,10 +35,10 @@ export default defineConfig({
     }
   ],
   webServer: {
-    command: `pnpm start --port ${PORT}`,
-    url: BASE_URL,
-    reuseExistingServer: process.env.CI === undefined,
-    timeout: 120_000,
+    command: `pnpm start --port ${E2E_PORT}`,
+    url: E2E_BASE_URL,
+    reuseExistingServer: !isCI,
+    timeout: WEB_SERVER_TIMEOUT_MS,
     env: {
       RESEND_API_KEY: process.env.RESEND_API_KEY ?? 're_e2e_dummy_key'
     }

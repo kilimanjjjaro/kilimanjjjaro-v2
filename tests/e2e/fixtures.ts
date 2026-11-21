@@ -1,13 +1,5 @@
-import { test as base, expect, type Page } from '@playwright/test'
-
-interface BrowserError {
-  text: string
-  url: string
-}
-
-const IGNORED_ERRORS: Array<(error: BrowserError) => boolean> = [
-  (error) => error.url.includes('/_vercel/insights/')
-]
+import { test as base, expect } from '@playwright/test'
+import type { BrowserError } from '../types/browser'
 
 export const test = base.extend<{ browserErrors: BrowserError[] }>({
   browserErrors: [
@@ -28,26 +20,5 @@ export const test = base.extend<{ browserErrors: BrowserError[] }>({
     { auto: true }
   ]
 })
-
-export function unexpectedErrors(errors: BrowserError[]) {
-  return errors
-    .filter((error) => !IGNORED_ERRORS.some((ignore) => ignore(error)))
-    .map((error) => `${error.text} ${error.url}`.trim())
-}
-
-export async function waitForApp(page: Page) {
-  await page.waitForLoadState('load')
-  await expect(page.locator('body > header, header.fixed').first()).toBeVisible({
-    timeout: 20_000
-  })
-}
-
-export async function showCompactNavbar(page: Page) {
-  await page.evaluate(() => window.scrollTo(0, 400))
-  await page.waitForFunction(() => window.scrollY >= 50)
-  await expect(
-    page.getByRole('button', { name: 'Toggle navigation menu' })
-  ).toHaveCount(1)
-}
 
 export { expect }

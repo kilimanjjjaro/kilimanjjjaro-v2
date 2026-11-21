@@ -10,6 +10,7 @@ import {
   HR_LINE_VARIANTS,
   KNOWLEDGE_ITEM_VARIANTS
 } from '@/lib/constants/variants'
+import { REVEAL_TRANSITION } from '@/lib/constants/animation'
 
 export default function Education() {
   const t = useScopedI18n('home.knowledge')
@@ -17,9 +18,10 @@ export default function Education() {
   const isInView = useInView(articleRef, { once: true })
   const currentLocale = useCurrentLocale()
 
-  const education = useMemo(() => {
-    return currentLocale === LOCALES.en ? EDUCATION.en : EDUCATION.es
-  }, [currentLocale])
+  const education = useMemo(
+    () => (currentLocale === LOCALES.en ? EDUCATION.en : EDUCATION.es),
+    [currentLocale]
+  )
 
   return (
     <article ref={articleRef} className='overflow-hidden'>
@@ -27,7 +29,7 @@ export default function Education() {
         className='flex flex-col gap-4 xl:flex-row pt-6 pb-6 xl:pb-[82px] xl:pt-20 xl:gap-10'
         variants={KNOWLEDGE_ITEM_VARIANTS}
         animate={isInView ? 'show' : 'hidden'}
-        transition={{ duration: 1.5, ease: 'easeInOut' }}
+        transition={REVEAL_TRANSITION}
       >
         <h3 className='w-[30%] text-4xl xl:text-3xl 2xl:text-4xl text-kili-white'>
           {t('educationTitle')}
@@ -50,7 +52,7 @@ export default function Education() {
         initial='hidden'
         variants={HR_LINE_VARIANTS}
         animate={isInView ? 'show' : 'hidden'}
-        transition={{ duration: 1.5, ease: 'easeInOut' }}
+        transition={REVEAL_TRANSITION}
       />
     </article>
   )

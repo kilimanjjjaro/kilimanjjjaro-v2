@@ -2,6 +2,13 @@ import { useRef } from 'react'
 import { motion, useInView } from 'motion/react'
 import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
+import {
+  REVEAL_STAGGER,
+  REVEAL_TRANSITION,
+  REVEALED_STATE,
+  TEXT_REVEAL_HIDDEN_STATE
+} from '@/lib/constants/animation'
+import { YOUR_IDEA_KEYS } from '@/lib/constants/projects-ui'
 
 export default function YourIdea() {
   const t = useScopedI18n('home.featuredProjects')
@@ -12,64 +19,23 @@ export default function YourIdea() {
   return (
     <button
       ref={buttonEl}
-      onClick={() => setShowContactForm(true)}
+      onClick={() => {
+        setShowContactForm(true)
+      }}
       className='text-5xl leading-none flex flex-col text-kili-white xl:text-9xl 2xl:text-8xl text-left xl:hover:text-kili-light-gray transition-colors duration-1000 ease-in-out'
     >
-      <span className='overflow-hidden'>
-        <motion.span
-          className='xl:block'
-          initial={{ y: '127%', rotate: 4 }}
-          animate={isInView && { y: '0%', rotate: 0 }}
-          transition={{
-            duration: 1.5,
-            ease: 'easeInOut'
-          }}
-        >
-          {t('yourIdea.0')}
-        </motion.span>
-      </span>
-      <span className='overflow-hidden'>
-        <motion.span
-          className='xl:block'
-          initial={{ y: '127%', rotate: 4 }}
-          animate={isInView && { y: '0%', rotate: 0 }}
-          transition={{
-            duration: 1.5,
-            ease: 'easeInOut',
-            delay: 0.2
-          }}
-        >
-          {t('yourIdea.1')}
-        </motion.span>
-      </span>
-      <span className='overflow-hidden'>
-        <motion.span
-          className='xl:block'
-          initial={{ y: '127%', rotate: 4 }}
-          animate={isInView && { y: '0%', rotate: 0 }}
-          transition={{
-            duration: 1.5,
-            ease: 'easeInOut',
-            delay: 0.4
-          }}
-        >
-          {t('yourIdea.2')}
-        </motion.span>
-      </span>
-      <span className='overflow-hidden'>
-        <motion.span
-          className='xl:block'
-          initial={{ y: '127%', rotate: 4 }}
-          animate={isInView && { y: '0%', rotate: 0 }}
-          transition={{
-            duration: 1.5,
-            ease: 'easeInOut',
-            delay: 0.6
-          }}
-        >
-          {t('yourIdea.3')}
-        </motion.span>
-      </span>
+      {YOUR_IDEA_KEYS.map((key, index) => (
+        <span key={key} className='overflow-hidden'>
+          <motion.span
+            className='xl:block'
+            initial={TEXT_REVEAL_HIDDEN_STATE}
+            animate={isInView && REVEALED_STATE}
+            transition={{ ...REVEAL_TRANSITION, delay: index * REVEAL_STAGGER }}
+          >
+            {t(key)}
+          </motion.span>
+        </span>
+      ))}
     </button>
   )
 }
