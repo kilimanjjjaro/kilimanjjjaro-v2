@@ -10,7 +10,7 @@ import {
   Section,
   Tailwind,
   Text
-} from '@react-email/components'
+} from 'react-email'
 import { BASE_URL } from '@/lib/constants/globals'
 
 interface Props {
@@ -24,8 +24,6 @@ export default function EmailToUser({ name, email, message }: Props) {
 
   return (
     <Html>
-      <Head />
-      <Preview>{previewText}</Preview>
       <Tailwind
         config={{
           theme: {
@@ -40,10 +38,12 @@ export default function EmailToUser({ name, email, message }: Props) {
           }
         }}
       >
-        <Body className='m-0 font-sans !bg-black py-14'>
+        <Head />
+        <Preview>{previewText}</Preview>
+        <Body className='m-0 font-sans bg-black! py-14'>
           <Container className='w-[480px] mx-auto px-6'>
             <Heading as='h1' className='m-0 text-4xl font-bold text-kili-white'>
-              <strong>Hi {name}!</strong>
+              <strong>{`Hi ${name}!`}</strong>
               <Img
                 className='inline ml-3'
                 src={`${BASE_URL}/images/email/hand.png`}
@@ -63,7 +63,7 @@ export default function EmailToUser({ name, email, message }: Props) {
                   </Text>
                 </li>
                 <li className='m-0'>
-                  <Text className='my-0 [&>*]:text-kili-black'>
+                  <Text className='my-0 *:text-kili-black'>
                     <u>Email:</u> {email}
                   </Text>
                 </li>

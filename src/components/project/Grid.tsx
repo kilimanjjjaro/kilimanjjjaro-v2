@@ -1,11 +1,16 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'motion/react'
 import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 import Video from '@/components/project/Video'
 import { useScopedI18n } from '@/lib/i18n/client'
 import type { FeaturedProjectInterface } from '@/lib/types/projects'
+import {
+  FULL_SCALE,
+  GRID_INITIAL_SCALE,
+  SCROLL_PROGRESS_RANGE
+} from '@/lib/constants/animation'
 import { useRef } from 'react'
 
 interface Props {
@@ -20,9 +25,18 @@ export default function Grid({ project }: Props) {
     offset: ['start end', 'end start']
   })
 
-  const gridScale = useTransform(scrollYProgress, [0, 1], [1.5, 1])
-  const columnYNegative = useTransform(scrollYProgress, [0, 1], ['25%', '-15%'])
-  const columnYPositive = useTransform(scrollYProgress, [0, 1], ['-15%', '25%'])
+  const gridScale = useTransform(scrollYProgress, SCROLL_PROGRESS_RANGE, [
+    GRID_INITIAL_SCALE,
+    FULL_SCALE
+  ])
+  const columnYNegative = useTransform(scrollYProgress, SCROLL_PROGRESS_RANGE, [
+    '25%',
+    '-15%'
+  ])
+  const columnYPositive = useTransform(scrollYProgress, SCROLL_PROGRESS_RANGE, [
+    '-15%',
+    '25%'
+  ])
 
   return (
     <>

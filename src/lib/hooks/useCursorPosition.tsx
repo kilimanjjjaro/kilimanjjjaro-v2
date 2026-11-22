@@ -1,5 +1,9 @@
 import { useEffect } from 'react'
-import { useMotionValue, useSpring } from 'framer-motion'
+import { useMotionValue, useSpring } from 'motion/react'
+import {
+  CURSOR_OFFSCREEN_POSITION,
+  CURSOR_SPRING
+} from '@/lib/constants/cursor'
 
 interface Props {
   trigger: boolean
@@ -12,11 +16,10 @@ export default function useCursorPosition({
   translateX,
   translateY
 }: Props) {
-  const x = useMotionValue(-100)
-  const y = useMotionValue(-100)
-  const springConfig = { damping: 100, stiffness: 500 }
-  const cursorXSpring = useSpring(x, springConfig)
-  const cursorYSpring = useSpring(y, springConfig)
+  const x = useMotionValue(CURSOR_OFFSCREEN_POSITION)
+  const y = useMotionValue(CURSOR_OFFSCREEN_POSITION)
+  const cursorXSpring = useSpring(x, CURSOR_SPRING)
+  const cursorYSpring = useSpring(y, CURSOR_SPRING)
 
   useEffect(() => {
     if (!trigger) return

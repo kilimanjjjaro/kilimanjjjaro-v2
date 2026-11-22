@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useStore } from '@/lib/store/store'
+import { CAROUSEL_SLIDE_SPEED } from '@/lib/constants/carousel'
+import getCenter from '@/lib/utils/getCenter'
 
 export default function useSkillsCarousel() {
   const [isNextArrow, setIsNextArrow] = useState(true)
@@ -13,12 +15,10 @@ export default function useSkillsCarousel() {
     swiperInstance
   } = useStore()
 
-  const handleMouseMove = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (sectionEl.current === null) return
 
-    const isRightSide = window.innerWidth / 2 <= event.pageX
+    const isRightSide = getCenter(window.innerWidth) <= event.pageX
 
     if (isRightSide) {
       setIsNextArrow(true)
@@ -30,7 +30,7 @@ export default function useSkillsCarousel() {
   const handleChange = () => {
     if (swiperInstance === null) return
 
-    const currentSlideIndex = swiperInstance.activeIndex
+    const { activeIndex: currentSlideIndex } = swiperInstance
 
     const stack = stacks.find(
       (stack) =>
@@ -50,10 +50,10 @@ export default function useSkillsCarousel() {
     if (swiperInstance === null) return
 
     if (isNextArrow) {
-      swiperInstance.slideNext(1000)
+      swiperInstance.slideNext(CAROUSEL_SLIDE_SPEED)
     }
     if (!isNextArrow) {
-      swiperInstance.slidePrev(1000)
+      swiperInstance.slidePrev(CAROUSEL_SLIDE_SPEED)
     }
   }
 
@@ -61,7 +61,7 @@ export default function useSkillsCarousel() {
     if (swiperInstance === null) return
 
     if (shouldMoveToStart) {
-      swiperInstance.slideTo(selectedStack.startIndex, 1000)
+      swiperInstance.slideTo(selectedStack.startIndex, CAROUSEL_SLIDE_SPEED)
     }
   }, [selectedStack, shouldMoveToStart, swiperInstance])
 

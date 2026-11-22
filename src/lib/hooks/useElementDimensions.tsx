@@ -1,23 +1,24 @@
 import { useEffect, useState } from 'react'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
+import { UNMEASURED_WIDTH } from '@/lib/constants/text'
 
 interface Props {
-  ref: React.RefObject<HTMLElement>
+  ref: React.RefObject<HTMLElement | null>
 }
 
 export default function useElementDimensions({ ref }: Props) {
   const { isDesktop } = useMediaQuery()
   const [elementDimensions, setElementDimensions] = useState({
-    width: 0,
-    height: 0
+    width: UNMEASURED_WIDTH,
+    height: UNMEASURED_WIDTH
   })
 
   useEffect(() => {
-    const elementRef = ref.current
+    const { current: element } = ref
 
-    if (elementRef === null) return
+    if (element === null) return
 
-    const { width, height } = elementRef.getBoundingClientRect()
+    const { width, height } = element.getBoundingClientRect()
 
     setElementDimensions({
       width: Math.round(width),

@@ -18,5 +18,5 @@ const firaMono = Fira_Mono({
   display: 'swap'
 })
 
-export const neueHaasGroteskDisplayFont = neueHaasGroteskDisplay.className
-export const firaMonoFont = firaMono.className
+export const { className: neueHaasGroteskDisplayFont } = neueHaasGroteskDisplay
+export const { className: firaMonoFont } = firaMono

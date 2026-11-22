@@ -1,29 +1,14 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
+import subscribeToScroll from '@/lib/utils/subscribeToScroll'
+import getScrollPercentage from '@/lib/utils/getScrollPercentage'
+import { INITIAL_SCROLL_PERCENTAGE } from '@/lib/constants/scroll'
 
 export default function useScroll() {
-  const [scrollPercentage, setScrollPercentage] = useState(0)
-
-  const getScrollPercentage = useCallback(() => {
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement
-
-    if (scrollTop === 0) return setScrollPercentage(0)
-
-    const currentScrollPercentage = Math.round(
-      (scrollTop / (scrollHeight - clientHeight)) * 100
-    )
-
-    setScrollPercentage(currentScrollPercentage)
-  }, [])
-
-  useEffect(() => {
-    getScrollPercentage()
-
-    window.addEventListener('scroll', getScrollPercentage)
-
-    return () => {
-      window.removeEventListener('scroll', getScrollPercentage)
-    }
-  }, [getScrollPercentage])
+  const scrollPercentage = useSyncExternalStore(
+    subscribeToScroll,
+    getScrollPercentage,
+    () => INITIAL_SCROLL_PERCENTAGE
+  )
 
   return { scrollPercentage }
 }

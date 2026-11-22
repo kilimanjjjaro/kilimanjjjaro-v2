@@ -1,5 +1,4 @@
 export interface FeaturedProjectInterface {
-  id: number
   name: string
   slug: string
   headerDescription: string
@@ -18,7 +17,6 @@ export interface FeaturedProjectInterface {
 }
 
 export interface OtherProjectInterface {
-  id: number
   slug: string
   name: string
   image: string

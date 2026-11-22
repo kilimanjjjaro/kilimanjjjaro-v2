@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'motion/react'
 import clsx from 'clsx'
 import Button from '@/components/shared/Button'
 import Link from '@/components/shared/Link'
@@ -22,9 +22,10 @@ export default function Navigation() {
     setShowContactForm(true)
   }
 
-  const sections = useMemo(() => {
-    return currentLocale === LOCALES.en ? SECTIONS.en : SECTIONS.es
-  }, [currentLocale])
+  const sections = useMemo(
+    () => (currentLocale === LOCALES.en ? SECTIONS.en : SECTIONS.es),
+    [currentLocale]
+  )
 
   const handleMouseEnter = useCallback((slug: string) => {
     setIsHovering(true)
@@ -51,7 +52,7 @@ export default function Navigation() {
           className='fixed inset-0 z-40 flex flex-col justify-end gap-24 px-6 pt-32 pb-8 xl:p-8 xl:justify-end xl:gap-0 bg-kili-dark-gray'
           variants={NAVBAR_VARIANTS}
           initial='closed'
-          animate={navbarStatus ? 'open' : 'closed'}
+          animate='open'
           exit='closed'
         >
           <h2 className='text-3xl xl:text-7xl text-kili-light-gray xl:hidden'>
@@ -75,14 +76,31 @@ export default function Navigation() {
                     'block text-kili-white text-3xl leading-none xl:text-9xl overflow-hidden transition-colors duration-1000 ease-in-out',
                     isHovering &&
                       hoveredSection !== section.slug &&
-                      '!text-kili-light-gray'
+                      'text-kili-light-gray!'
                   )}
-                  onMouseEnter={() => handleMouseEnter(section.slug)}
+                  onMouseEnter={() => {
+                    handleMouseEnter(section.slug)
+                  }}
                   onMouseLeave={handleMouseLeave}
                 >
-                  {section.slug !== 'lets-talk' ? (
+                  {section.slug === 'lets-talk' ? (
+                    <Button
+                      onClick={() => {
+                        openContactModal()
+                      }}
+                    >
+                      <motion.span
+                        className='block'
+                        variants={NAVBAR_LI_VARIANTS}
+                      >
+                        {section.name}
+                      </motion.span>
+                    </Button>
+                  ) : (
                     <Link
-                      onClick={() => setNavbarStatus(false)}
+                      onClick={() => {
+                        setNavbarStatus(false)
+                      }}
                       href={`/#${section.slug}`}
                     >
                       <motion.span
@@ -92,15 +110,6 @@ export default function Navigation() {
                         {section.name}
                       </motion.span>
                     </Link>
-                  ) : (
-                    <Button onClick={() => openContactModal()}>
-                      <motion.span
-                        className='block'
-                        variants={NAVBAR_LI_VARIANTS}
-                      >
-                        {section.name}
-                      </motion.span>
-                    </Button>
                   )}
                 </li>
               ))}

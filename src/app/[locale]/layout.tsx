@@ -1,4 +1,5 @@
-import { Analytics } from '@vercel/analytics/react'
+import { Analytics } from '@vercel/analytics/next'
+import { setStaticParamsLocale } from 'next-international/server'
 import Providers from '@/components/Providers'
 import SmoothScroll from '@/components/SmoothScroll'
 import Footer from '@/components/Footer'
@@ -17,15 +18,18 @@ import {
 import { neueHaasGroteskDisplayFont } from '@/lib/utils/fonts'
 import type { ChildrenType } from '@/lib/types/globals'
 import type { Metadata } from 'next'
+import { OG_IMAGE_HEIGHT, OG_IMAGE_WIDTH } from '@/lib/constants/seo'
 import '@/app/globals.css'
 
 interface MetadataProps {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
 export async function generateMetadata({
   params
 }: MetadataProps): Promise<Metadata> {
+  const { locale } = await params
+  setStaticParamsLocale(locale)
   const t = await getScopedI18n('metadata')
 
   const fullMetadata: Metadata = {
@@ -51,14 +55,14 @@ export async function generateMetadata({
       images: [
         {
           url: 'https://kilimanjjjaro.com/images/og-image.jpg',
-          width: 1000,
-          height: 563
+          width: OG_IMAGE_WIDTH,
+          height: OG_IMAGE_HEIGHT
         }
       ],
       siteName: 'Kilimanjjjaro',
       type: 'website',
       url: t('url'),
-      locale: params.locale
+      locale
     }
   }
 
@@ -70,11 +74,15 @@ export function generateStaticParams() {
 }
 
 export default async function RootLayout({
-  children
+  children,
+  params
 }: {
   children: ChildrenType
+  params: Promise<{ locale: string }>
 }) {
-  const currentLocale = getCurrentLocale()
+  const { locale } = await params
+  setStaticParamsLocale(locale)
+  const currentLocale = await getCurrentLocale()
 
   return (
     <html lang={currentLocale}>

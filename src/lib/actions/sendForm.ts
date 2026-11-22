@@ -1,17 +1,20 @@
 'use server'
 
-import { z } from 'zod'
 import { BASE_URL } from '@/lib/constants/globals'
+import {
+  CONTACT_FORM_SCHEMA,
+  FORM_ERROR_STATE,
+  FORM_SUCCESS_STATE
+} from '@/lib/constants/form'
+import { HTTP_STATUS_OK } from '@/lib/constants/http'
+import type { InitialStateFormInterface } from '@/lib/types/form'
 
-const schema = z.object({
-  name: z.string().min(1),
-  email: z.string().email(),
-  message: z.string().min(1)
-})
-
-export default async function sendForm(prevState: any, payload: any) {
+export default async function sendForm(
+  _prevState: InitialStateFormInterface,
+  payload: FormData
+): Promise<InitialStateFormInterface> {
   try {
-    const body = schema.parse({
+    const body = CONTACT_FORM_SCHEMA.parse({
       name: payload.get('name'),
       email: payload.get('email'),
       message: payload.get('message')
@@ -26,12 +29,12 @@ export default async function sendForm(prevState: any, payload: any) {
       cache: 'no-store'
     })
 
-    if (response.status === 200) {
-      return { success: true, error: false }
-    } else {
-      throw new Error('Something went wrong')
+    if (response.status === HTTP_STATUS_OK) {
+      return { ...FORM_SUCCESS_STATE }
     }
-  } catch (err) {
-    return { success: false, error: true }
+
+    throw new Error('Something went wrong')
+  } catch {
+    return { ...FORM_ERROR_STATE }
   }
 }

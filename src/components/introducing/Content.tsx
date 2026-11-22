@@ -1,11 +1,12 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'motion/react'
 import LetsTalkButton from '@/components/introducing/LetsTalkButton'
 import Headline from '@/components/introducing/Headline'
 import Biography from '@/components/introducing/Biography'
 import Portrait from '@/components/introducing/Portrait'
+import { SCROLL_PROGRESS_RANGE } from '@/lib/constants/animation'
 
 interface Props {
   headline: string
@@ -19,7 +20,7 @@ export default function Content({ headline, biography }: Props) {
     offset: ['start end', 'start start']
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '-50%'])
+  const y = useTransform(scrollYProgress, SCROLL_PROGRESS_RANGE, ['0%', '-50%'])
 
   return (
     <main

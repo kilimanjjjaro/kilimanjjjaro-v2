@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView } from 'motion/react'
 import { Balancer } from 'react-wrap-balancer'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
 import { LOCALES } from '@/lib/constants/globals'
@@ -10,6 +10,7 @@ import {
   HR_LINE_VARIANTS,
   KNOWLEDGE_ITEM_VARIANTS
 } from '@/lib/constants/variants'
+import { REVEAL_TRANSITION } from '@/lib/constants/animation'
 
 export default function Approach() {
   const t = useScopedI18n('home.knowledge')
@@ -17,9 +18,10 @@ export default function Approach() {
   const isInView = useInView(articleRef, { once: true })
   const currentLocale = useCurrentLocale()
 
-  const approach = useMemo(() => {
-    return currentLocale === LOCALES.en ? APPROACH.en : APPROACH.es
-  }, [currentLocale])
+  const approach = useMemo(
+    () => (currentLocale === LOCALES.en ? APPROACH.en : APPROACH.es),
+    [currentLocale]
+  )
 
   return (
     <article ref={articleRef} className='overflow-hidden'>
@@ -27,7 +29,7 @@ export default function Approach() {
         className='flex flex-col gap-6 xl:flex-row pb-6 xl:pb-[82px] xl:gap-10'
         variants={KNOWLEDGE_ITEM_VARIANTS}
         animate={isInView ? 'show' : 'hidden'}
-        transition={{ duration: 1.5, ease: 'easeInOut' }}
+        transition={REVEAL_TRANSITION}
       >
         <h3 className='xl:w-[30%] text-4xl xl:text-3xl 2xl:text-4xl text-kili-white'>
           {t('approachTitle')}
@@ -48,7 +50,7 @@ export default function Approach() {
         initial='hidden'
         variants={HR_LINE_VARIANTS}
         animate={isInView ? 'show' : 'hidden'}
-        transition={{ duration: 1.5, ease: 'easeInOut' }}
+        transition={REVEAL_TRANSITION}
       />
     </article>
   )

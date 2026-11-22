@@ -1,9 +1,8 @@
 'use client'
 
 import { useRef, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { useLenis } from '@studio-freight/react-lenis'
 import * as Icons from '@/components/introducing/SkillIcons'
 import useSkillsCarousel from '@/lib/hooks/useSkillsCarousel'
 import useCursorPosition from '@/lib/hooks/useCursorPosition'
@@ -11,10 +10,18 @@ import useElementDimensions from '@/lib/hooks/useElementDimensions'
 import { useStore } from '@/lib/store/store'
 import { ArrowLongRightIcon } from '@/components/icons/ArrowLongRightIcon'
 import { ArrowLongLeftIcon } from '@/components/icons/ArrowLongLeftIcon'
-import { CURSOR_STATUS } from '@/lib/constants/globals'
+import {
+  FULL_SCALE,
+  HIDDEN_OPACITY,
+  HIDDEN_SCALE,
+  TRANSITION,
+  VISIBLE_OPACITY
+} from '@/lib/constants/animation'
+import { SKILLS_CAROUSEL_BREAKPOINTS } from '@/lib/constants/carousel'
+import getCenter from '@/lib/utils/getCenter'
 
 import 'swiper/css'
-import useMediaQuery from '@/lib/hooks/useMediaQuery'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 export default function SkillsCarousel() {
   const { setCursorStatus, setSwiperInstance } = useStore()
@@ -23,54 +30,50 @@ export default function SkillsCarousel() {
   const elementDimensions = useElementDimensions({ ref: arrowEl })
   const { x, y } = useCursorPosition({
     trigger: isHovered,
-    translateX: elementDimensions.width / 2,
-    translateY: elementDimensions.height / 2
+    translateX: getCenter(elementDimensions.width),
+    translateY: getCenter(elementDimensions.height)
   })
   const { isNextArrow, sectionEl, handleMouseMove, handleChange, handleClick } =
     useSkillsCarousel()
-  const { isDesktop } = useMediaQuery()
-  const lenis = useLenis(() => {})
 
   const handleMouse = (boolean: boolean) => {
     setIsHovered(boolean)
-    setCursorStatus(boolean ? CURSOR_STATUS.HIDDEN : CURSOR_STATUS.DEFAULT)
+    setCursorStatus(boolean ? CursorStatus.Hidden : CursorStatus.Default)
   }
-
-  const handleSlideChangeStart = () => isDesktop ?? lenis?.stop()
-  const handleSlideChangeEnd = () => isDesktop ?? lenis?.start()
 
   return (
     <div
       ref={sectionEl}
       className='relative px-[26px] cursor-none xl:px-20 2xl:px-40'
-      onMouseMove={(event) => handleMouseMove(event)}
-      onMouseEnter={() => handleMouse(true)}
-      onMouseLeave={() => handleMouse(false)}
+      onMouseMove={(event) => {
+        handleMouseMove(event)
+      }}
+      onMouseEnter={() => {
+        handleMouse(true)
+      }}
+      onMouseLeave={() => {
+        handleMouse(false)
+      }}
       onClick={handleClick}
     >
       <Swiper
         className='skills-carousel'
-        onSwiper={(swiper) => setSwiperInstance(swiper)}
+        onSwiper={(swiper) => {
+          setSwiperInstance(swiper)
+        }}
         onSlideChange={handleChange}
-        onSlideChangeTransitionStart={handleSlideChangeStart}
-        onSlideChangeTransitionEnd={handleSlideChangeEnd}
         slidesPerView='auto'
         spaceBetween={56}
         speed={300}
         edgeSwipeDetection='prevent'
         touchEventsTarget='container'
-        breakpoints={{
-          1280: {
-            speed: 700,
-            spaceBetween: 144
-          }
-        }}
+        breakpoints={SKILLS_CAROUSEL_BREAKPOINTS}
       >
         <SwiperSlide className='group'>
           <Icons.ReactIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             React
           </div>
@@ -79,7 +82,7 @@ export default function SkillsCarousel() {
           <Icons.AstroIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             Astro
           </div>
@@ -88,7 +91,7 @@ export default function SkillsCarousel() {
           <Icons.NextJsIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             Next.js
           </div>
@@ -97,7 +100,7 @@ export default function SkillsCarousel() {
           <Icons.QwikIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             Qwik
           </div>
@@ -106,7 +109,7 @@ export default function SkillsCarousel() {
           <Icons.VueIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             Vue
           </div>
@@ -115,7 +118,7 @@ export default function SkillsCarousel() {
           <Icons.NuxtIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             Nuxt
           </div>
@@ -124,7 +127,7 @@ export default function SkillsCarousel() {
           <Icons.TailwindCssIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             Tailwind CSS
           </div>
@@ -133,7 +136,7 @@ export default function SkillsCarousel() {
           <Icons.TypeScriptIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             TypeScript
           </div>
@@ -142,7 +145,7 @@ export default function SkillsCarousel() {
           <Icons.JavaScriptIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             JavaScript
           </div>
@@ -151,7 +154,7 @@ export default function SkillsCarousel() {
           <Icons.HtmlIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             HTML
           </div>
@@ -160,7 +163,7 @@ export default function SkillsCarousel() {
           <Icons.CssIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             CSS
           </div>
@@ -169,7 +172,7 @@ export default function SkillsCarousel() {
           <Icons.NodeJsIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             Node.js
           </div>
@@ -178,7 +181,7 @@ export default function SkillsCarousel() {
           <Icons.ExpressIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             Express
           </div>
@@ -187,7 +190,7 @@ export default function SkillsCarousel() {
           <Icons.FirebaseIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             Firebase
           </div>
@@ -196,7 +199,7 @@ export default function SkillsCarousel() {
           <Icons.SupabaseIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             Supabase
           </div>
@@ -205,7 +208,7 @@ export default function SkillsCarousel() {
           <Icons.MongoDbIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             MongoDB
           </div>
@@ -214,7 +217,7 @@ export default function SkillsCarousel() {
           <Icons.PlaywrightIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             Playwright
           </div>
@@ -223,7 +226,7 @@ export default function SkillsCarousel() {
           <Icons.FigmaIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             Figma
           </div>
@@ -232,7 +235,7 @@ export default function SkillsCarousel() {
           <Icons.XdIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             XD
           </div>
@@ -241,7 +244,7 @@ export default function SkillsCarousel() {
           <Icons.WordPressIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             WordPress
           </div>
@@ -250,7 +253,7 @@ export default function SkillsCarousel() {
           <Icons.ElementorIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             Elementor
           </div>
@@ -259,7 +262,7 @@ export default function SkillsCarousel() {
           <Icons.IllustratorIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             Illustrator
           </div>
@@ -268,7 +271,7 @@ export default function SkillsCarousel() {
           <Icons.PhotoshopIcon />
           <div
             role='tooltip'
-            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
+            className='px-3 xl:px-3.5 pt-2 pb-2 xl:pb-1.5 mt-8 text-sm xl:text-base leading-none xl:leading-6 duration-1000 ease-in-out rounded-full xl:opacity-0 bg-kili-light-gray xl:group-hover:opacity-100 transition-opacity selection:hidden'
           >
             Photoshop
           </div>
@@ -276,16 +279,13 @@ export default function SkillsCarousel() {
       </Swiper>
       <motion.div
         ref={arrowEl}
-        className='fixed top-0 left-0 z-10 scale-0 pointer-events-none xl:opacity-0 selection:hidden'
+        className='fixed top-0 left-0 z-10 [transform:scale(0)] pointer-events-none xl:opacity-0 selection:hidden'
         style={{ x, y }}
         animate={{
-          scale: isHovered ? 1 : 0,
-          opacity: isHovered ? 1 : 0
+          scale: isHovered ? FULL_SCALE : HIDDEN_SCALE,
+          opacity: isHovered ? VISIBLE_OPACITY : HIDDEN_OPACITY
         }}
-        transition={{
-          duration: 1,
-          ease: 'easeInOut'
-        }}
+        transition={TRANSITION}
       >
         {isNextArrow && <ArrowLongRightIcon className='w-32 fill-kili-white' />}
         {!isNextArrow && <ArrowLongLeftIcon className='w-32 fill-kili-white' />}

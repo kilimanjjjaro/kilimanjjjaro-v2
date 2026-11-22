@@ -1,13 +1,14 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView } from 'motion/react'
 import { useScopedI18n } from '@/lib/i18n/client'
 import { CLIENTS } from '@/lib/constants/knowledge'
 import {
   HR_LINE_VARIANTS,
   KNOWLEDGE_ITEM_VARIANTS
 } from '@/lib/constants/variants'
+import { REVEAL_TRANSITION } from '@/lib/constants/animation'
 
 export default function Clients() {
   const t = useScopedI18n('home.knowledge')
@@ -20,7 +21,7 @@ export default function Clients() {
         className='flex flex-col xl:flex-row pt-6 pb-6 xl:pb-[82px] xl:pt-20 gap-6 xl:gap-10'
         variants={KNOWLEDGE_ITEM_VARIANTS}
         animate={isInView ? 'show' : 'hidden'}
-        transition={{ duration: 1.5, ease: 'easeInOut' }}
+        transition={REVEAL_TRANSITION}
       >
         <h3 className='w-[30%] text-4xl xl:text-3xl 2xl:text-4xl text-kili-white'>
           {t('clientsTitle')}
@@ -36,7 +37,7 @@ export default function Clients() {
         initial='hidden'
         variants={HR_LINE_VARIANTS}
         animate={isInView ? 'show' : 'hidden'}
-        transition={{ duration: 1.5, ease: 'easeInOut' }}
+        transition={REVEAL_TRANSITION}
       />
     </article>
   )

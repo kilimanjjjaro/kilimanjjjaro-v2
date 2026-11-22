@@ -7,7 +7,6 @@ import type {
 export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
   en: [
     {
-      id: 1,
       name: 'wrkload',
       slug: 'wrkload',
       headerDescription:
@@ -35,7 +34,6 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       }
     },
     {
-      id: 2,
       name: 'Royal Enfield',
       slug: 'royal-enfield',
       headerDescription:
@@ -75,7 +73,6 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
     //   }
     // },
     {
-      id: 4,
       name: 'Kilimanjjjaro v1',
       slug: 'kilimanjjjaro-v1',
       headerDescription:
@@ -97,7 +94,6 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
   ],
   es: [
     {
-      id: 1,
       name: 'wrkload',
       slug: 'wrkload',
       headerDescription:
@@ -125,7 +121,6 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
       }
     },
     {
-      id: 2,
       name: 'Royal Enfield',
       slug: 'royal-enfield',
       headerDescription:
@@ -165,7 +160,6 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
     //   }
     // },
     {
-      id: 4,
       name: 'Kilimanjjjaro v1',
       slug: 'kilimanjjjaro-v1',
       headerDescription:
@@ -190,7 +184,6 @@ export const FEATURED_PROJECTS: FeaturedProjectsInterface = {
 export const OTHER_PROJECTS: OtherProjectsInterface = {
   en: [
     {
-      id: 8,
       name: 'Linktree Clone',
       slug: 'linktree-clone',
       link: 'https://linktree-clone-amber.vercel.app/',
@@ -212,7 +205,6 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 1,
       name: 'Volvo Test Drive',
       slug: 'volvo-test-drive',
       link: 'https://volvotestdrive.com.ar/',
@@ -225,7 +217,6 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 2,
       name: 'DolArg API',
       slug: 'dolarg-api',
       link: 'https://github.com/kilimanjjjaro/dolarg-api',
@@ -238,7 +229,6 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: true
     },
     {
-      id: 3,
       name: 'wrkload API',
       slug: 'wrkload-api',
       link: 'https://github.com/kilimanjjjaro/wrkload-api',
@@ -252,7 +242,6 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
     },
 
     {
-      id: 4,
       name: 'Plan Ovalo',
       slug: 'plan-ovalo',
       link: 'https://planovalo.automotoresmataderos.com.ar/',
@@ -265,7 +254,6 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 5,
       name: 'HSBC: Mujeres al Mundo',
       slug: 'mujeres-al-mundo',
       link: 'https://www.mujeresalmundo.hsbc.com.ar/',
@@ -278,7 +266,6 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 6,
       name: 'Bioland: Plantemos un Árbol',
       slug: 'plantemos-un-arbol',
       link: 'https://www.bio-land.com/plantemos-un-arbol/',
@@ -291,7 +278,6 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 7,
       name: 'Automotores Mataderos',
       slug: 'automotores-mataderos',
       link: 'https://automotoresmataderos.com.ar/',
@@ -306,7 +292,6 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
   ],
   es: [
     {
-      id: 8,
       name: 'Linktree Clone',
       slug: 'linktree-clone',
       link: 'https://linktree-clone-amber.vercel.app/',
@@ -328,7 +313,6 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 1,
       name: 'Volvo: Test Drive',
       slug: 'volvo-test-drive',
       link: 'https://volvotestdrive.com.ar/',
@@ -341,7 +325,6 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 2,
       name: 'DolArg API',
       slug: 'dolarg-api',
       link: 'https://github.com/kilimanjjjaro/dolarg-api',
@@ -354,7 +337,6 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: true
     },
     {
-      id: 3,
       name: 'wrkload API',
       slug: 'wrkload-api',
       link: 'https://github.com/kilimanjjjaro/wrkload-api',
@@ -368,7 +350,6 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
     },
 
     {
-      id: 4,
       name: 'Plan Ovalo',
       slug: 'plan-ovalo',
       link: 'https://planovalo.automotoresmataderos.com.ar/',
@@ -381,7 +362,6 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 5,
       name: 'HSBC: Mujeres al Mundo',
       slug: 'mujeres-al-mundo',
       link: 'https://www.mujeresalmundo.hsbc.com.ar/',
@@ -394,7 +374,6 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 6,
       name: 'Bioland: Plantemos un Árbol',
       slug: 'plantemos-un-arbol',
       link: 'https://www.bio-land.com/plantemos-un-arbol/',
@@ -407,7 +386,6 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
       isRepository: false
     },
     {
-      id: 7,
       name: 'Automotores Mataderos',
       slug: 'automotores-mataderos',
       link: 'https://automotoresmataderos.com.ar/',
@@ -421,3 +399,7 @@ export const OTHER_PROJECTS: OtherProjectsInterface = {
     }
   ]
 }
+
+export const {
+  en: { length: TOTAL_OTHER_PROJECTS }
+} = OTHER_PROJECTS

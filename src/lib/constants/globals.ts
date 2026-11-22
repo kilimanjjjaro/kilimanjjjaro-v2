@@ -1,14 +1,20 @@
 import getYearsOld from '@/lib/utils/getYearsOld'
+import { CAREER_START_YEAR } from '@/lib/constants/personal'
+import { StackId } from '@/lib/constants/skills'
+import type {
+  LanguageInterface,
+  Locale,
+  StackBaseInterface
+} from '@/lib/types/globals'
 
-export const BASE_URL = `${
+export const BASE_URL =
   process.env.NODE_ENV === 'production'
     ? 'https://kilimanjjjaro.com'
     : 'http://localhost:3000'
-}`
 
 export const ADMIN_EMAIL = 'gonzaloemacastillo@gmail.com'
 
-export const LANGUAGES = {
+export const LANGUAGES: Record<Locale, LanguageInterface[]> = {
   en: [
     { id: 'en', name: 'English' },
     { id: 'es', name: 'Spanish' }
@@ -42,37 +48,15 @@ export const SECTIONS = {
   ]
 }
 
-export const STACKS = [
-  {
-    id: 1,
-    name: 'Frontend',
-    startIndex: 0,
-    endIndex: 0
-  },
-  {
-    id: 2,
-    name: 'Backend',
-    startIndex: 0,
-    endIndex: 0
-  },
-  {
-    id: 3,
-    name: 'Extra',
-    startIndex: 0,
-    endIndex: 0
-  }
+export const STACKS: StackBaseInterface[] = [
+  { id: StackId.Frontend, name: 'Frontend' },
+  { id: StackId.Backend, name: 'Backend' },
+  { id: StackId.Extra, name: 'Extra' }
 ]
-
-export const CURSOR_STATUS = {
-  DEFAULT: 'default',
-  HIDDEN: 'hidden',
-  HOVER: 'hover',
-  FEATURED: 'featured'
-}
 
 export const YEARS_OLD = getYearsOld()
 
-export const YEARS_OF_EXPERIENCE = new Date().getFullYear() - 2018
+export const YEARS_OF_EXPERIENCE = new Date().getFullYear() - CAREER_START_YEAR
 
 export const LOCALES = {
   en: 'en',

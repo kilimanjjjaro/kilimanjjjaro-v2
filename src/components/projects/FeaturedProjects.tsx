@@ -1,17 +1,18 @@
 'use client'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { useLenis } from '@studio-freight/react-lenis'
+import { useLenis } from 'lenis/react'
 import FeaturedProject from '@/components/projects/FeaturedProject'
 import YourIdea from '@/components/projects/YourIdea'
 import type { FeaturedProjectInterface } from '@/lib/types/projects'
+import { FEATURED_CAROUSEL_BREAKPOINTS } from '@/lib/constants/carousel'
 
 interface Props {
   projects: FeaturedProjectInterface[]
 }
 
 export default function FeaturedProjects({ projects }: Props) {
-  const lenis = useLenis(() => {})
+  const lenis = useLenis()
 
   return (
     <Swiper
@@ -26,16 +27,10 @@ export default function FeaturedProjects({ projects }: Props) {
       centeredSlidesBounds
       edgeSwipeDetection='prevent'
       touchEventsTarget='container'
-      breakpoints={{
-        1280: {
-          enabled: false,
-          slidesPerView: 2,
-          spaceBetween: 0
-        }
-      }}
+      breakpoints={FEATURED_CAROUSEL_BREAKPOINTS}
     >
       {projects.map((project, index) => (
-        <SwiperSlide key={project.id}>
+        <SwiperSlide key={project.slug}>
           <FeaturedProject project={project} index={index} />
         </SwiperSlide>
       ))}

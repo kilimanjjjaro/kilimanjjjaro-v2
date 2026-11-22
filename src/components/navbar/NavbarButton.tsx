@@ -1,7 +1,13 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'motion/react'
 import { useStore } from '@/lib/store/store'
 import Button from '@/components/shared/Button'
 import { useState } from 'react'
+import { TRANSITION } from '@/lib/constants/animation'
+import {
+  MENU_ICON_DELAY,
+  MENU_ICON_EXIT_STAGGER,
+  MENU_ICON_SECOND_LINE_DELAY
+} from '@/lib/constants/navbar'
 
 export default function NavbarButton() {
   const { setNavbarStatus, navbarStatus } = useStore()
@@ -11,7 +17,9 @@ export default function NavbarButton() {
     <Button
       className='relative flex items-center justify-center cursor-pointer w-7 h-7 group'
       ariaLabel='Toggle navigation menu'
-      onClick={() => setNavbarStatus(!navbarStatus)}
+      onClick={() => {
+        setNavbarStatus(!navbarStatus)
+      }}
       disabled={disable}
     >
       <AnimatePresence initial={false}>
@@ -22,22 +30,17 @@ export default function NavbarButton() {
           >
             <motion.span
               key='top-line'
-              className='block h-0.5 bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white translate-y-[5px] rotate-[135deg]'
+              className='block h-0.5 bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white translate-y-[5px] rotate-135'
               initial={{ width: '0%' }}
               animate={{ width: '100%' }}
               exit={{
                 width: '0%',
-                transition: {
-                  duration: 1,
-                  ease: 'easeInOut'
-                }
+                transition: TRANSITION
               }}
-              transition={{
-                duration: 1,
-                ease: 'easeInOut',
-                delay: 1
+              transition={{ ...TRANSITION, delay: MENU_ICON_DELAY }}
+              onAnimationStart={() => {
+                setDisable(true)
               }}
-              onAnimationStart={() => setDisable(true)}
             />
             <motion.span
               className='block h-0.5 bg-kili-light-gray transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white translate-y-[-5px] rotate-[-135deg]'
@@ -45,17 +48,12 @@ export default function NavbarButton() {
               animate={{ width: '100%' }}
               exit={{
                 width: '0%',
-                transition: {
-                  duration: 1,
-                  ease: 'easeInOut'
-                }
+                transition: TRANSITION
               }}
-              transition={{
-                duration: 1,
-                ease: 'easeInOut',
-                delay: 1
+              transition={{ ...TRANSITION, delay: MENU_ICON_DELAY }}
+              onAnimationComplete={() => {
+                setDisable(false)
               }}
-              onAnimationComplete={() => setDisable(false)}
             />
           </div>
         ) : (
@@ -69,17 +67,12 @@ export default function NavbarButton() {
               animate={{ scaleX: '100%' }}
               exit={{
                 scaleX: '0%',
-                transition: {
-                  duration: 1,
-                  ease: 'easeInOut'
-                }
+                transition: TRANSITION
               }}
-              transition={{
-                duration: 1,
-                ease: 'easeInOut',
-                delay: 1
+              transition={{ ...TRANSITION, delay: MENU_ICON_DELAY }}
+              onAnimationStart={() => {
+                setDisable(true)
               }}
-              onAnimationStart={() => setDisable(true)}
             />
             <motion.span
               className='block w-full h-0.5 bg-kili-light-gray origin-right transition-colors ease-in-out duration-1000 xl:group-hover:bg-kili-white'
@@ -87,18 +80,12 @@ export default function NavbarButton() {
               animate={{ scaleX: '100%' }}
               exit={{
                 scaleX: '0%',
-                transition: {
-                  duration: 1,
-                  ease: 'easeInOut',
-                  delay: 0.2
-                }
+                transition: { ...TRANSITION, delay: MENU_ICON_EXIT_STAGGER }
               }}
-              transition={{
-                duration: 1,
-                ease: 'easeInOut',
-                delay: 1.2
+              transition={{ ...TRANSITION, delay: MENU_ICON_SECOND_LINE_DELAY }}
+              onAnimationComplete={() => {
+                setDisable(false)
               }}
-              onAnimationComplete={() => setDisable(false)}
             />
           </div>
         )}

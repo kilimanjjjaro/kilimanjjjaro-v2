@@ -1,54 +1,62 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState, useSyncExternalStore } from 'react'
 import Image from 'next/image'
-import { deleteCookie } from 'cookies-next'
+import { deleteCookie } from 'cookies-next/client'
 import Balancer from 'react-wrap-balancer'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'motion/react'
 import clsx from 'clsx'
 import AnimatedText from '@/components/shared/AnimatedText'
 import Button from '@/components/shared/Button'
 import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
 import { firaMonoFont } from '@/lib/utils/fonts'
-import { CURSOR_STATUS } from '@/lib/constants/globals'
+import subscribeToStorage from '@/lib/utils/subscribeToStorage'
+import needsCookiesConsent from '@/lib/utils/needsCookiesConsent'
+import { NO_OFFSET, TRANSITION } from '@/lib/constants/animation'
+import {
+  COOKIES_CONSENT_DELAY,
+  COOKIES_CONSENT_HIDDEN_OFFSET,
+  COOKIES_CONSENT_STORAGE_KEY
+} from '@/lib/constants/projects-ui'
 import cookieImage from '../../public/images/cookie.webp'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 export default function CookiesConsent() {
   const t = useScopedI18n('cookiesConsent')
   const { setCursorStatus } = useStore()
-  const [showCookiesConsent, setShowCookiesConsent] = useState(false)
+  const needsConsent = useSyncExternalStore(
+    subscribeToStorage,
+    needsCookiesConsent,
+    () => false
+  )
+  const [isDismissed, setIsDismissed] = useState(false)
   const [showCloseWarning, setShowCloseWarning] = useState(false)
+  const showCookiesConsent = needsConsent && !isDismissed
 
   const handleAccept = () => {
-    window.localStorage.setItem('__COOKIES_CONSENT__', '1')
+    window.localStorage.setItem(COOKIES_CONSENT_STORAGE_KEY, '1')
 
-    setShowCookiesConsent(false)
+    setIsDismissed(true)
   }
 
   const handleDecline = () => {
-    window.localStorage.setItem('__COOKIES_CONSENT__', '0')
+    window.localStorage.setItem(COOKIES_CONSENT_STORAGE_KEY, '0')
 
     deleteCookie('Next-Locale')
 
-    setShowCookiesConsent(false)
+    setIsDismissed(true)
   }
 
   const handleMouseEnter = () => {
     setShowCloseWarning(true)
-    setCursorStatus(CURSOR_STATUS.HOVER)
+    setCursorStatus(CursorStatus.Hover)
   }
 
   const handleMouseLeave = () => {
     setShowCloseWarning(false)
-    setCursorStatus(CURSOR_STATUS.DEFAULT)
+    setCursorStatus(CursorStatus.Default)
   }
-
-  useEffect(() => {
-    const cookiesConsent = window.localStorage.getItem('__COOKIES_CONSENT__')
-
-    if (cookiesConsent === null) setShowCookiesConsent(true)
-  }, [])
 
   return (
     <AnimatePresence>
@@ -56,14 +64,10 @@ export default function CookiesConsent() {
         <motion.div
           role='alert'
           className='fixed flex-col bottom-6 left-6 xl:bottom-8 xl:left-8 bg-[#030303]/95 backdrop-blur-md z-20 w-auto max-w-[256px] overflow-hidden rounded-md'
-          initial={{ y: 265 }}
-          animate={showCookiesConsent && { y: 0 }}
-          exit={{ y: 265, transition: { duration: 1, ease: 'easeInOut' } }}
-          transition={{
-            duration: 1,
-            ease: 'easeInOut',
-            delay: 10
-          }}
+          initial={{ y: COOKIES_CONSENT_HIDDEN_OFFSET }}
+          animate={{ y: NO_OFFSET }}
+          exit={{ y: COOKIES_CONSENT_HIDDEN_OFFSET, transition: TRANSITION }}
+          transition={{ ...TRANSITION, delay: COOKIES_CONSENT_DELAY }}
         >
           <header className='flex items-center w-full h-6 px-4 bg-kili-light-gray/30'>
             <button
@@ -92,7 +96,7 @@ export default function CookiesConsent() {
             <div className='flex gap-4 text-xs md:text-sm'>
               <Button
                 className={clsx(
-                  'w-full h-8 xl:h-9 pt-px rounded-md outline-none transition-colors duration-1000 ease-in-out appearance-none xl:hover:text-red-500 xl:hover:bg-red-500/10',
+                  'w-full h-8 xl:h-9 pt-px rounded-md outline-hidden transition-colors duration-1000 ease-in-out appearance-none xl:hover:text-red-500 xl:hover:bg-red-500/10',
                   showCloseWarning
                     ? 'bg-red-500/10 text-red-500'
                     : 'bg-kili-white/0 text-kili-white'
@@ -106,7 +110,7 @@ export default function CookiesConsent() {
               </Button>
               <Button
                 className={clsx(
-                  'w-full h-8 xl:h-9 pt-px transition-colors duration-1000 ease-in-out rounded-md outline-none appearance-none text-kili-white xl:hover:text-green-500 xl:hover:bg-green-500/10 focus:bg-kili-white',
+                  'w-full h-8 xl:h-9 pt-px transition-colors duration-1000 ease-in-out rounded-md outline-hidden appearance-none text-kili-white xl:hover:text-green-500 xl:hover:bg-green-500/10 focus:bg-kili-white',
                   showCloseWarning ? 'bg-kili-white/0' : 'bg-kili-white/5'
                 )}
                 onClick={handleAccept}

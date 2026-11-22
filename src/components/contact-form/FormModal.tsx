@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { AnimatePresence, motion, useDragControls } from 'framer-motion'
+import { AnimatePresence, motion, useDragControls } from 'motion/react'
 import ContactForm from '@/components/contact-form/Form'
 import { useStore } from '@/lib/store/store'
 
@@ -24,7 +24,11 @@ export default function FormModal() {
             dragControls={dragControls}
             dragListener={false}
           >
-            <ContactForm handleDrag={(event) => dragControls.start(event)} />
+            <ContactForm
+              handleDrag={(event) => {
+                dragControls.start(event)
+              }}
+            />
           </motion.div>
         </motion.div>
       )}
