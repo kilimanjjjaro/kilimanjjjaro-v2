@@ -1,10 +1,11 @@
 import type { Swiper } from 'swiper'
 import type { StackInterface } from '@/lib/types/globals'
 import type { NavbarVersion } from '@/lib/constants/navbar'
+import type { CursorStatus } from '@/lib/constants/cursor'
 
 export interface GlobalsSliceInterface {
-  cursorStatus: string
-  setCursorStatus: (cursorStatus: string) => void
+  cursorStatus: CursorStatus
+  setCursorStatus: (cursorStatus: CursorStatus) => void
   swiperInstance: Swiper | null
   setSwiperInstance: (swiperInstance: Swiper) => void
   showContactForm: boolean

@@ -3,8 +3,8 @@
 import { useEffect, useRef } from 'react'
 import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
-import { CURSOR_STATUS } from '@/lib/constants/globals'
 import { FormStep } from '@/lib/constants/form'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 interface Props {
   step: FormStep
@@ -72,10 +72,10 @@ export default function Fields({ step, setStep }: Props) {
             setStep(FormStep.Name)
           }}
           onMouseEnter={() => {
-            setCursorStatus(CURSOR_STATUS.HOVER)
+            setCursorStatus(CursorStatus.Hover)
           }}
           onMouseLeave={() => {
-            setCursorStatus(CURSOR_STATUS.DEFAULT)
+            setCursorStatus(CursorStatus.Default)
           }}
           className='placeholder-opacity-100 bg-transparent outline-hidden text-kili-white focus:outline-hidden'
           type='text'
@@ -88,10 +88,10 @@ export default function Fields({ step, setStep }: Props) {
         <input
           ref={emailInputRef}
           onMouseEnter={() => {
-            setCursorStatus(CURSOR_STATUS.HOVER)
+            setCursorStatus(CursorStatus.Hover)
           }}
           onMouseLeave={() => {
-            setCursorStatus(CURSOR_STATUS.DEFAULT)
+            setCursorStatus(CursorStatus.Default)
           }}
           onKeyDown={(event) => {
             handleKeyDown({ event, nextStep: FormStep.Message })
@@ -110,10 +110,10 @@ export default function Fields({ step, setStep }: Props) {
         <textarea
           ref={textAreaRef}
           onMouseEnter={() => {
-            setCursorStatus(CURSOR_STATUS.HOVER)
+            setCursorStatus(CursorStatus.Hover)
           }}
           onMouseLeave={() => {
-            setCursorStatus(CURSOR_STATUS.DEFAULT)
+            setCursorStatus(CursorStatus.Default)
           }}
           onChange={handleChange}
           onKeyDown={(event) => {

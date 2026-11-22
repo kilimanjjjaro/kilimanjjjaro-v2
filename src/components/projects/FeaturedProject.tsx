@@ -8,7 +8,6 @@ import Balancer from 'react-wrap-balancer'
 import { useStore } from '@/lib/store/store'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import FeaturedProjectName from '@/components/projects/FeaturedProjectName'
-import { CURSOR_STATUS } from '@/lib/constants/globals'
 import type { FeaturedProjectInterface } from '@/lib/types/projects'
 import { useLenis } from 'lenis/react'
 import {
@@ -31,6 +30,7 @@ import {
 } from '@/lib/constants/projects-ui'
 import playVideo from '@/lib/utils/playVideo'
 import toListPosition from '@/lib/utils/toListPosition'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 interface Props {
   project: FeaturedProjectInterface
@@ -60,7 +60,7 @@ export default function FeaturedProject({ project, index }: Props) {
     const { backgroundColor } = project
 
     setIsHovered(project.slug)
-    setCursorStatus(CURSOR_STATUS.HIDDEN)
+    setCursorStatus(CursorStatus.Hidden)
     document.body.style.backgroundColor = backgroundColor
 
     videoRef.current.currentTime = VIDEO_START_TIME
@@ -71,7 +71,7 @@ export default function FeaturedProject({ project, index }: Props) {
     if (videoRef.current === null) return
 
     setIsHovered(null)
-    setCursorStatus(CURSOR_STATUS.DEFAULT)
+    setCursorStatus(CursorStatus.Default)
     document.body.style.backgroundColor = ''
 
     videoRef.current.pause()

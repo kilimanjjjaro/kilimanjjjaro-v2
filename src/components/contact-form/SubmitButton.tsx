@@ -3,9 +3,9 @@ import { useFormStatus } from 'react-dom'
 import clsx from 'clsx'
 import { ArrowRightIcon } from '@/components/icons/ArrowRightIcon'
 import { useStore } from '@/lib/store/store'
-import { CURSOR_STATUS } from '@/lib/constants/globals'
 import { useScopedI18n } from '@/lib/i18n/client'
 import getSubmitButtonContent from '@/lib/utils/getSubmitButtonContent'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 interface Props {
   error: boolean
@@ -36,10 +36,10 @@ export default function SubmitButton({ error, success, shouldFocus }: Props) {
       disabled={pending}
       aria-disabled={pending}
       onMouseEnter={() => {
-        setCursorStatus(CURSOR_STATUS.HOVER)
+        setCursorStatus(CursorStatus.Hover)
       }}
       onMouseLeave={() => {
-        setCursorStatus(CURSOR_STATUS.DEFAULT)
+        setCursorStatus(CursorStatus.Default)
       }}
     >
       {content !== null && (

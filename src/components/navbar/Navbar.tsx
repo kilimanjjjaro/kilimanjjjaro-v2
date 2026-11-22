@@ -9,7 +9,6 @@ import LargeVersion from '@/components/navbar/LargeVersion'
 import SmallVersion from '@/components/navbar/SmallVersion'
 import useNavbar from '@/lib/hooks/useNavbar'
 import { useStore } from '@/lib/store/store'
-import { CURSOR_STATUS } from '@/lib/constants/globals'
 import {
   FADE_IN_STATE,
   FADE_IN_TRANSITION,
@@ -17,6 +16,7 @@ import {
 } from '@/lib/constants/animation'
 import { NavbarVersion } from '@/lib/constants/navbar'
 import { SCROLL_TOP, SECTION_SCROLL_DURATION } from '@/lib/constants/scroll'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 export default function Navbar() {
   const { setCursorStatus } = useStore()
@@ -47,10 +47,10 @@ export default function Navbar() {
           'leading-none mt-0.5 tracking-wide transition-colors duration-1000 ease-in-out text-kili-light-gray xl:hover:text-kili-white'
         )}
         onMouseEnter={() => {
-          setCursorStatus(CURSOR_STATUS.HOVER)
+          setCursorStatus(CursorStatus.Hover)
         }}
         onMouseLeave={() => {
-          setCursorStatus(CURSOR_STATUS.DEFAULT)
+          setCursorStatus(CursorStatus.Default)
         }}
         onClick={handleClick}
       >

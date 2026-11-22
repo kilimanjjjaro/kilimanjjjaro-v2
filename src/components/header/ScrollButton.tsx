@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'motion/react'
 import { useLenis } from 'lenis/react'
-import { CURSOR_STATUS } from '@/lib/constants/globals'
 import {
   FADE_IN_DELAY,
   FADE_IN_DURATION,
@@ -12,6 +11,7 @@ import {
 } from '@/lib/constants/animation'
 import { PAGE_SCROLL_DURATION } from '@/lib/constants/scroll'
 import { useStore } from '@/lib/store/store'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 export default function ScrollButton() {
   const { setCursorStatus } = useStore()
@@ -41,10 +41,10 @@ export default function ScrollButton() {
       className='absolute bottom-0 text-sm transition-colors duration-1000 ease-in-out xl:text-base xl:bottom-8 text-kili-light-gray xl:hover:text-kili-white mix-blend-difference'
       onClick={handleClick}
       onMouseEnter={() => {
-        setCursorStatus(CURSOR_STATUS.HOVER)
+        setCursorStatus(CursorStatus.Hover)
       }}
       onMouseLeave={() => {
-        setCursorStatus(CURSOR_STATUS.DEFAULT)
+        setCursorStatus(CursorStatus.Default)
       }}
       initial={{
         display: 'none',

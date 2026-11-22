@@ -6,7 +6,6 @@ import OtherProjectVisitButton from '@/components/projects/OtherProjectVisitButt
 import { useStore } from '@/lib/store/store'
 import useMediaQuery from '@/lib/hooks/useMediaQuery'
 import toListPosition from '@/lib/utils/toListPosition'
-import { CURSOR_STATUS } from '@/lib/constants/globals'
 import { HR_LINE_VARIANTS } from '@/lib/constants/variants'
 import { OTHER_PROJECT_UNDERLINE_STYLES } from '@/lib/constants/styles'
 import {
@@ -17,6 +16,7 @@ import {
   REVEALED_STATE
 } from '@/lib/constants/animation'
 import type { OtherProjectInterface } from '@/lib/types/projects'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 interface Props {
   project: OtherProjectInterface
@@ -40,10 +40,10 @@ export default function OtherProject({ project, index }: Props) {
       target='_blank'
       rel='noopener noreferrer'
       onMouseEnter={() => {
-        setCursorStatus(CURSOR_STATUS.HIDDEN)
+        setCursorStatus(CursorStatus.Hidden)
       }}
       onMouseLeave={() => {
-        setCursorStatus(CURSOR_STATUS.DEFAULT)
+        setCursorStatus(CursorStatus.Default)
       }}
     >
       <article className='relative flex flex-col items-center xl:flex-row group cursor-none'>

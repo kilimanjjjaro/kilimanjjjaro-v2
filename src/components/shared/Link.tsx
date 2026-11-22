@@ -3,9 +3,9 @@
 import NextLink from 'next/link'
 import clsx from 'clsx'
 import { useStore } from '@/lib/store/store'
-import { CURSOR_STATUS } from '@/lib/constants/globals'
 import type { ChildrenType } from '@/lib/types/globals'
 import { UNDERLINE_STYLES } from '@/lib/constants/styles'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 interface Props {
   children: ChildrenType
@@ -35,10 +35,10 @@ export default function Link({
       target={target}
       rel={rel}
       onMouseEnter={() => {
-        setCursorStatus(CURSOR_STATUS.HOVER)
+        setCursorStatus(CursorStatus.Hover)
       }}
       onMouseLeave={() => {
-        setCursorStatus(CURSOR_STATUS.DEFAULT)
+        setCursorStatus(CursorStatus.Default)
       }}
       onClick={onClick}
     >

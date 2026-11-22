@@ -13,7 +13,6 @@ import { useScopedI18n } from '@/lib/i18n/client'
 import { firaMonoFont } from '@/lib/utils/fonts'
 import subscribeToStorage from '@/lib/utils/subscribeToStorage'
 import needsCookiesConsent from '@/lib/utils/needsCookiesConsent'
-import { CURSOR_STATUS } from '@/lib/constants/globals'
 import { NO_OFFSET, TRANSITION } from '@/lib/constants/animation'
 import {
   COOKIES_CONSENT_DELAY,
@@ -21,6 +20,7 @@ import {
   COOKIES_CONSENT_STORAGE_KEY
 } from '@/lib/constants/projects-ui'
 import cookieImage from '../../public/images/cookie.webp'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 export default function CookiesConsent() {
   const t = useScopedI18n('cookiesConsent')
@@ -50,12 +50,12 @@ export default function CookiesConsent() {
 
   const handleMouseEnter = () => {
     setShowCloseWarning(true)
-    setCursorStatus(CURSOR_STATUS.HOVER)
+    setCursorStatus(CursorStatus.Hover)
   }
 
   const handleMouseLeave = () => {
     setShowCloseWarning(false)
-    setCursorStatus(CURSOR_STATUS.DEFAULT)
+    setCursorStatus(CursorStatus.Default)
   }
 
   return (

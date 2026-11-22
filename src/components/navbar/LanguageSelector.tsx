@@ -8,9 +8,10 @@ import {
   LANGUAGES_LI_VARIANTS,
   LANGUAGES_UL_VARIANTS
 } from '@/lib/constants/variants'
-import { CURSOR_STATUS, LANGUAGES, LOCALES } from '@/lib/constants/globals'
+import { LANGUAGES, LOCALES } from '@/lib/constants/globals'
 import type { LanguageInterface } from '@/lib/types/globals'
 import { TRANSITION } from '@/lib/constants/animation'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 export default function LanguageSelector() {
   const currentLocale = useCurrentLocale()
@@ -62,10 +63,10 @@ export default function LanguageSelector() {
                 handleClick({ language })
               }}
               onMouseEnter={() => {
-                setCursorStatus(CURSOR_STATUS.HOVER)
+                setCursorStatus(CursorStatus.Hover)
               }}
               onMouseLeave={() => {
-                setCursorStatus(CURSOR_STATUS.DEFAULT)
+                setCursorStatus(CursorStatus.Default)
               }}
               variants={LANGUAGES_LI_VARIANTS}
               transition={TRANSITION}

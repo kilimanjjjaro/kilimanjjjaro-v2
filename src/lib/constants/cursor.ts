@@ -1,6 +1,12 @@
 import type { Variants } from 'motion/react'
 import { FULL_SCALE, HIDDEN_SCALE } from '@/lib/constants/animation'
 
+export enum CursorStatus {
+  Default = 'default',
+  Hidden = 'hidden',
+  Hover = 'hover'
+}
+
 export const CURSOR_OFFSCREEN_POSITION = -100
 
 const CURSOR_SPRING_DAMPING = 100

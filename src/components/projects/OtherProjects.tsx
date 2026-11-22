@@ -9,7 +9,6 @@ import { useScopedI18n } from '@/lib/i18n/client'
 import { useStore } from '@/lib/store/store'
 import { TOTAL_OTHER_PROJECTS } from '@/lib/constants/projects'
 import getOtherProjectsButtonKey from '@/lib/utils/getOtherProjectsButtonKey'
-import { CURSOR_STATUS } from '@/lib/constants/globals'
 import { FIRST_INDEX } from '@/lib/constants/math'
 import {
   FADE_IN_STATE,
@@ -26,6 +25,7 @@ import {
   OTHER_PROJECTS_PER_CLICK
 } from '@/lib/constants/projects-ui'
 import type { OtherProjectInterface } from '@/lib/types/projects'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 interface Props {
   projects: OtherProjectInterface[]
@@ -77,10 +77,10 @@ export default function OtherProjects({ projects }: Props) {
         className='flex items-center w-full gap-2 mt-6 text-2xl xl:text-xl 2xl:text-2xl text-left xl:w-auto xl:mt-10 text-kili-white group'
         onClick={handleShowMore}
         onMouseEnter={() => {
-          setCursorStatus(CURSOR_STATUS.HOVER)
+          setCursorStatus(CursorStatus.Hover)
         }}
         onMouseLeave={() => {
-          setCursorStatus(CURSOR_STATUS.DEFAULT)
+          setCursorStatus(CursorStatus.Default)
         }}
         initial={FADE_OUT_STATE}
         animate={isInView && FADE_IN_STATE}

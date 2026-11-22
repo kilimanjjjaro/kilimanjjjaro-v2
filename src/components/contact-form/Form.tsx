@@ -9,7 +9,6 @@ import Button from '@/components/shared/Button'
 import { useStore } from '@/lib/store/store'
 import sendForm from '@/lib/actions/sendForm'
 import { firaMonoFont } from '@/lib/utils/fonts'
-import { CURSOR_STATUS } from '@/lib/constants/globals'
 import { TRANSITION } from '@/lib/constants/animation'
 import {
   CONTACT_FORM_HIDDEN_STATE,
@@ -19,6 +18,7 @@ import {
   FormStep,
   SUCCESS_MESSAGE_DURATION_MS
 } from '@/lib/constants/form'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 interface Props {
   handleDrag: React.PointerEventHandler<HTMLElement>
@@ -109,10 +109,10 @@ export default function Form({ handleDrag }: Props) {
         className='flex items-center h-10 gap-4 px-4 bg-kili-light-gray/30 cursor-grab active:cursor-grabbing active:select-none'
         onPointerDown={handleDrag}
         onMouseEnter={() => {
-          setCursorStatus(CURSOR_STATUS.HOVER)
+          setCursorStatus(CursorStatus.Hover)
         }}
         onMouseLeave={() => {
-          setCursorStatus(CURSOR_STATUS.DEFAULT)
+          setCursorStatus(CursorStatus.Default)
         }}
       >
         <Button

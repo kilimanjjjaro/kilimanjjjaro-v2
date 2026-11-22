@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { useStore } from '@/lib/store/store'
 import updateStacks from '@/lib/utils/updateStacks'
 import { NavbarVersion } from '@/lib/constants/navbar'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 const initialState = useStore.getState()
 
@@ -13,7 +14,7 @@ describe('store', () => {
   it('starts with the expected defaults', () => {
     const state = useStore.getState()
     const [firstStack] = updateStacks()
-    expect(state.cursorStatus).toBe('default')
+    expect(state.cursorStatus).toBe(CursorStatus.Default)
     expect(state.showContactForm).toBe(false)
     expect(state.navbarStatus).toBe(false)
     expect(state.navbarVersion).toBe(NavbarVersion.None)
@@ -29,7 +30,7 @@ describe('store', () => {
     const {
       stacks: [, secondStack]
     } = state
-    state.setCursorStatus('hover')
+    state.setCursorStatus(CursorStatus.Hover)
     state.setShowContactForm(true)
     state.setNavbarStatus(true)
     state.setNavbarVersion(NavbarVersion.Small)
@@ -38,7 +39,7 @@ describe('store', () => {
     state.setSelectedStack(secondStack)
 
     const next = useStore.getState()
-    expect(next.cursorStatus).toBe('hover')
+    expect(next.cursorStatus).toBe(CursorStatus.Hover)
     expect(next.showContactForm).toBe(true)
     expect(next.navbarStatus).toBe(true)
     expect(next.navbarVersion).toBe(NavbarVersion.Small)

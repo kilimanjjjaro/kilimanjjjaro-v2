@@ -1,9 +1,9 @@
 'use client'
 
 import { useStore } from '@/lib/store/store'
-import { CURSOR_STATUS } from '@/lib/constants/globals'
 import Link from 'next/link'
 import type { FeaturedProjectInterface } from '@/lib/types/projects'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 export default function OtherProjects({
   projects
@@ -18,10 +18,10 @@ export default function OtherProjects({
         <h3
           key={project.slug}
           onMouseEnter={() => {
-            setCursorStatus(CURSOR_STATUS.HOVER)
+            setCursorStatus(CursorStatus.Hover)
           }}
           onMouseLeave={() => {
-            setCursorStatus(CURSOR_STATUS.DEFAULT)
+            setCursorStatus(CursorStatus.Default)
           }}
         >
           <Link

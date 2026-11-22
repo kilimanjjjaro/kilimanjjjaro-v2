@@ -1,10 +1,11 @@
 import type { StateCreator } from 'zustand'
+import { CursorStatus } from '@/lib/constants/cursor'
 import type { GlobalsSliceInterface } from '@/lib/types/store'
 
 export const createGeneralSlice: StateCreator<GlobalsSliceInterface> = (
   set
 ) => ({
-  cursorStatus: 'default',
+  cursorStatus: CursorStatus.Default,
   setCursorStatus: (cursorStatus) => {
     set(() => ({ cursorStatus }))
   },

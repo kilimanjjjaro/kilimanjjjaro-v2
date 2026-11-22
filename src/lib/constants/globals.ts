@@ -54,13 +54,6 @@ export const STACKS: StackBaseInterface[] = [
   { id: StackId.Extra, name: 'Extra' }
 ]
 
-export const CURSOR_STATUS = {
-  DEFAULT: 'default',
-  HIDDEN: 'hidden',
-  HOVER: 'hover',
-  FEATURED: 'featured'
-}
-
 export const YEARS_OLD = getYearsOld()
 
 export const YEARS_OF_EXPERIENCE = new Date().getFullYear() - CAREER_START_YEAR

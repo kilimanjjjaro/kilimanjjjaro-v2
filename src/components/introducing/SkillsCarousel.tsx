@@ -10,7 +10,6 @@ import useElementDimensions from '@/lib/hooks/useElementDimensions'
 import { useStore } from '@/lib/store/store'
 import { ArrowLongRightIcon } from '@/components/icons/ArrowLongRightIcon'
 import { ArrowLongLeftIcon } from '@/components/icons/ArrowLongLeftIcon'
-import { CURSOR_STATUS } from '@/lib/constants/globals'
 import {
   FULL_SCALE,
   HIDDEN_OPACITY,
@@ -22,6 +21,7 @@ import { SKILLS_CAROUSEL_BREAKPOINTS } from '@/lib/constants/carousel'
 import getCenter from '@/lib/utils/getCenter'
 
 import 'swiper/css'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 export default function SkillsCarousel() {
   const { setCursorStatus, setSwiperInstance } = useStore()
@@ -38,7 +38,7 @@ export default function SkillsCarousel() {
 
   const handleMouse = (boolean: boolean) => {
     setIsHovered(boolean)
-    setCursorStatus(boolean ? CURSOR_STATUS.HIDDEN : CURSOR_STATUS.DEFAULT)
+    setCursorStatus(boolean ? CursorStatus.Hidden : CursorStatus.Default)
   }
 
   return (

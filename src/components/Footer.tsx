@@ -9,12 +9,7 @@ import Button from '@/components/shared/Button'
 import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
 import { ArrowUpIcon } from '@/components/icons/ArrowUpIcon'
 import { useCurrentLocale, useScopedI18n } from '@/lib/i18n/client'
-import {
-  CURSOR_STATUS,
-  LOCALES,
-  SECTIONS,
-  SOCIAL_LINKS
-} from '@/lib/constants/globals'
+import { LOCALES, SECTIONS, SOCIAL_LINKS } from '@/lib/constants/globals'
 import {
   FOOTER_REVEAL_TRANSITION,
   HEADLINE_REVEAL_ROTATION,
@@ -23,6 +18,7 @@ import {
   SCROLL_PROGRESS_RANGE
 } from '@/lib/constants/animation'
 import { SCROLL_TOP, SECTION_SCROLL_DURATION } from '@/lib/constants/scroll'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 export default function Footer() {
   const t = useScopedI18n('footer')
@@ -99,10 +95,10 @@ export default function Footer() {
                   className='block overflow-hidden text-xl transition-colors duration-1000 ease-in-out xl:text-base text-kili-light-gray xl:hover:text-kili-white'
                   href={social.link}
                   onMouseEnter={() => {
-                    setCursorStatus(CURSOR_STATUS.HOVER)
+                    setCursorStatus(CursorStatus.Hover)
                   }}
                   onMouseLeave={() => {
-                    setCursorStatus(CURSOR_STATUS.DEFAULT)
+                    setCursorStatus(CursorStatus.Default)
                   }}
                   target='_blank'
                   rel='noopener noreferrer'

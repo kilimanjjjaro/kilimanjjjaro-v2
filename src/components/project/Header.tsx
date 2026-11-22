@@ -5,9 +5,9 @@ import HeadlineMarquee from '@/components/shared/HeadlineMarquee'
 import { ArrowCornerIcon } from '@/components/icons/ArrowCornerIcon'
 import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
-import { CURSOR_STATUS } from '@/lib/constants/globals'
 import type { FeaturedProjectInterface } from '@/lib/types/projects'
 import { UNDERLINE_STYLES } from '@/lib/constants/styles'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 interface Props {
   project: FeaturedProjectInterface
@@ -35,10 +35,10 @@ export default function Header({ project }: Props) {
           target='_blank'
           rel='noopener noreferrer'
           onMouseEnter={() => {
-            setCursorStatus(CURSOR_STATUS.HOVER)
+            setCursorStatus(CursorStatus.Hover)
           }}
           onMouseLeave={() => {
-            setCursorStatus(CURSOR_STATUS.DEFAULT)
+            setCursorStatus(CursorStatus.Default)
           }}
         >
           {t('visitButton')}

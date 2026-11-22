@@ -12,8 +12,8 @@ import {
   STACKS_UL_VARIANTS
 } from '@/lib/constants/variants'
 import type { StackInterface } from '@/lib/types/globals'
-import { CURSOR_STATUS } from '@/lib/constants/globals'
 import { STAGGER_CHILDREN, TRANSITION } from '@/lib/constants/animation'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 export default function StackSelector() {
   const {
@@ -53,10 +53,10 @@ export default function StackSelector() {
           handleClickOnSelector()
         }}
         onMouseEnter={() => {
-          setCursorStatus(CURSOR_STATUS.HOVER)
+          setCursorStatus(CursorStatus.Hover)
         }}
         onMouseLeave={() => {
-          setCursorStatus(CURSOR_STATUS.DEFAULT)
+          setCursorStatus(CursorStatus.Default)
         }}
       >
         <h2 className='flex items-center gap-4 leading-none group'>
@@ -95,10 +95,10 @@ export default function StackSelector() {
                   handleClickOnSkills(stack)
                 }}
                 onMouseEnter={() => {
-                  setCursorStatus(CURSOR_STATUS.HOVER)
+                  setCursorStatus(CursorStatus.Hover)
                 }}
                 onMouseLeave={() => {
-                  setCursorStatus(CURSOR_STATUS.DEFAULT)
+                  setCursorStatus(CursorStatus.Default)
                 }}
                 variants={STACKS_LI_VARIANTS}
                 transition={TRANSITION}
