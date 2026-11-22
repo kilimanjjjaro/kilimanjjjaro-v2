@@ -10,20 +10,27 @@ interface Props {
 }
 
 export default function TypingEffect({ text }: Props) {
-  const [currentPosition, setCurrentPosition] = useState(TYPING_START_POSITION)
+  const [typed, setTyped] = useState({ text, position: TYPING_START_POSITION })
+  const position = typed.text === text ? typed.position : TYPING_START_POSITION
   const items = text.split('')
 
   useEffect(() => {
-    if (currentPosition >= items.length) return
+    if (position >= text.length) return
 
     const intervalId = setInterval(() => {
-      setCurrentPosition((prevPosition) => prevPosition + TYPING_STEP)
+      setTyped((prevTyped) => ({
+        text,
+        position:
+          (prevTyped.text === text
+            ? prevTyped.position
+            : TYPING_START_POSITION) + TYPING_STEP
+      }))
     }, TYPING_INTERVAL_MS)
 
     return () => {
       clearInterval(intervalId)
     }
-  }, [currentPosition, items])
+  }, [position, text])
 
-  return items.slice(TYPING_START_POSITION, currentPosition).join('')
+  return items.slice(TYPING_START_POSITION, position).join('')
 }
