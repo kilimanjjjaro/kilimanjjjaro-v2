@@ -15,12 +15,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Checks
 
 ```bash
-pnpm typecheck   # TypeScript
-pnpm lint        # ESLint
-pnpm test        # Unit tests (Vitest)
-pnpm build       # Production build
-pnpm test:e2e    # End-to-end tests (Playwright, needs a build first)
-pnpm test:all    # All of the above, in order
+pnpm format:check  # Prettier (pnpm format fixes the files)
+pnpm typecheck     # TypeScript
+pnpm lint          # ESLint
+pnpm test          # Unit tests (Vitest)
+pnpm build         # Production build
+pnpm test:e2e      # End-to-end tests (Playwright, needs a build first)
+pnpm test:all      # All of the above, in order
 ```
 
 Before the first e2e run, install the browser with

@@ -7,10 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "test:all": "pnpm typecheck && pnpm lint && pnpm test && pnpm build && pnpm test:e2e"
+    "test:all": "pnpm format:check && pnpm typecheck && pnpm lint && pnpm test && pnpm build && pnpm test:e2e"
   },
   "dependencies": {
     "@react-email/render": "2.3.1",
@@ -43,6 +45,7 @@
     "eslint-config-next": "16.4.6",
     "eslint-config-prettier": "10.1.8",
     "postcss": "8.5.33",
+    "prettier": "3.10.1",
     "tailwindcss": "4.3.5",
     "typescript": "6.0.3",
     "vitest": "5.1.1"
