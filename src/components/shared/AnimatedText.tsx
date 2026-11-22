@@ -20,18 +20,13 @@ export default function AnimatedText({ text, className }: Props) {
   const animationInterval = useRef<NodeJS.Timeout | null>(null)
   const textRef = useRef<HTMLSpanElement>(null)
   const counter = useRef(SCRAMBLE_START_COUNT)
-  const [originalText, setOriginalText] = useState(text)
-  const [initialWidth, setInitialWidth] = useState(UNMEASURED_WIDTH)
-
-  const measureTextWidth = useCallback(() => {
-    const { current: textElement } = textRef
-
-    if (textElement !== null) {
-      const { offsetWidth } = textElement
-
-      setInitialWidth(offsetWidth)
-    }
-  }, [])
+  const [scrambledText, setScrambledText] = useState<string | null>(null)
+  const [measuredWidth, setMeasuredWidth] = useState({
+    text,
+    width: UNMEASURED_WIDTH
+  })
+  const isMeasured =
+    measuredWidth.text === text && measuredWidth.width !== UNMEASURED_WIDTH
 
   const startAnimation = useCallback(() => {
     if (animationInterval.current === null) {
@@ -39,31 +34,35 @@ export default function AnimatedText({ text, className }: Props) {
         counter.current += SCRAMBLE_COUNT_STEP
 
         if (counter.current < SCRAMBLE_ITERATIONS) {
-          setOriginalText(scrambleText(originalText))
+          setScrambledText(scrambleText(text))
           return
         }
 
         clearInterval(interval)
         counter.current = SCRAMBLE_START_COUNT
-        setOriginalText(text)
+        setScrambledText(null)
       }, SCRAMBLE_INTERVAL_MS)
 
       animationInterval.current = interval
     }
-  }, [originalText, text])
+  }, [text])
 
   const stopAnimation = useCallback(() => {
     if (animationInterval.current !== null) {
       clearInterval(animationInterval.current)
       animationInterval.current = null
       counter.current = SCRAMBLE_START_COUNT
-      setOriginalText(text)
+      setScrambledText(null)
     }
-  }, [text])
+  }, [])
 
   useLayoutEffect(() => {
-    measureTextWidth()
-  }, [measureTextWidth])
+    const { current: textElement } = textRef
+
+    if (textElement !== null) {
+      setMeasuredWidth({ text, width: textElement.offsetWidth })
+    }
+  }, [text])
 
   return (
     <span
@@ -71,11 +70,9 @@ export default function AnimatedText({ text, className }: Props) {
       className={clsx('whitespace-nowrap flex justify-center', className ?? '')}
       onMouseEnter={startAnimation}
       onMouseLeave={stopAnimation}
-      style={{
-        width: initialWidth === UNMEASURED_WIDTH ? 'auto' : initialWidth
-      }}
+      style={{ width: isMeasured ? measuredWidth.width : 'auto' }}
     >
-      {originalText}
+      {scrambledText ?? text}
     </span>
   )
 }
