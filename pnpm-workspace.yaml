@@ -8,3 +8,5 @@ peerDependencyRules:
     eslint-plugin-import>eslint: '10'
     eslint-plugin-jsx-a11y>eslint: '10'
     eslint-plugin-react>eslint: '10'
+minimumReleaseAgeExclude:
+  - lenis@1.3.28
