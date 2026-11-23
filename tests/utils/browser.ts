@@ -4,6 +4,8 @@ import {
   COMPACT_NAVBAR_MIN_SCROLL_Y,
   COMPACT_NAVBAR_SCROLL_Y,
   COMPARED_OTHER_PROJECTS,
+  CURSOR_REST_COLOR,
+  CURSOR_SELECTOR,
   DEGREES_IN_HALF_TURN,
   MAX_PARTIAL_ROTATION,
   MIN_INTRO_OFFSET_PX,
@@ -11,6 +13,7 @@ import {
   MISSING_ELEMENT_OPACITY,
   MISSING_ELEMENT_WIDTH,
   MISSING_SLIDE_INDEX,
+  MOUSE_MOVE_STEPS,
   OTHER_PROJECTS_SETTLE_TIMEOUT_MS,
   SETTLED_TOLERANCE_PX,
   SINGLE_ELEMENT
@@ -116,4 +119,12 @@ export async function recordOtherProjectsSettleOrder(page: Page) {
   )
 
   return await page.evaluate(readSettledOtherProjects)
+}
+
+export async function expectCursorAtRest(page: Page, x: number, y: number) {
+  await page.mouse.move(x, y, { steps: MOUSE_MOVE_STEPS })
+  await expect(page.locator(CURSOR_SELECTOR)).toHaveCSS(
+    'border-top-color',
+    CURSOR_REST_COLOR
+  )
 }

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
-import { FormStep } from '@/lib/constants/form'
+import { FormStep, HONEYPOT_FIELD } from '@/lib/constants/form'
 import { CursorStatus } from '@/lib/constants/cursor'
 
 interface Props {
@@ -125,6 +125,14 @@ export default function Fields({ step, setStep }: Props) {
           required
         />
       </label>
+      <input
+        className='absolute w-0 h-0 p-0 border-0 opacity-0 pointer-events-none'
+        type='text'
+        name={HONEYPOT_FIELD}
+        tabIndex={-1}
+        autoComplete='off'
+        aria-hidden
+      />
     </>
   )
 }

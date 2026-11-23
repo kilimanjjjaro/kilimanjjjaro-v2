@@ -1,4 +1,5 @@
 import { test as base, expect } from '@playwright/test'
+import { reportCspViolations } from '../utils/page-scripts'
 import type { BrowserError } from '../types/browser'
 
 export const test = base.extend<{ browserErrors: BrowserError[] }>({
@@ -14,6 +15,11 @@ export const test = base.extend<{ browserErrors: BrowserError[] }>({
       page.on('pageerror', (error) => {
         errors.push({ text: `Uncaught: ${error.message}`, url: '' })
       })
+
+      await page.exposeFunction('reportCspViolation', (violation: string) => {
+        errors.push({ text: violation, url: page.url() })
+      })
+      await page.addInitScript(reportCspViolations)
 
       await use(errors)
     },

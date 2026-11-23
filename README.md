@@ -23,7 +23,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - `src/app/[locale]`: pages for each locale (`/` and `/es`), including the
   project pages under `project/[slug]`
-- `src/app/api/send-mail`: route that sends the contact form emails
+- `src/lib/actions`: server action that sends the contact form emails
 - `src/components`: React components, grouped by section
 - `src/lib/constants`: content, animation settings, breakpoints and other values
 - `src/lib/utils`, `src/lib/hooks`: helpers and hooks used by the components

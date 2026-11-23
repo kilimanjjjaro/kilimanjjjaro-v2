@@ -3,9 +3,12 @@ import en from '@/lib/locales/en'
 import es from '@/lib/locales/es'
 import updateStacks from '@/lib/utils/updateStacks'
 import getCenter from '@/lib/utils/getCenter'
+import { HONEYPOT_FIELD } from '@/lib/constants/form'
+import { SECTIONS, SOCIAL_LINKS } from '@/lib/constants/globals'
 import {
   carouselIndex,
   countPartialIntroFrames,
+  expectCursorAtRest,
   openContactForm,
   readFirstHeadlineWord,
   recordOtherProjectsSettleOrder,
@@ -23,6 +26,10 @@ import {
   CAROUSEL_RIGHT_SIDE_RATIO,
   COMPACT_NAVBAR_SCROLL_Y,
   CURSOR_START_X,
+  CURSOR_HOVER_BACKGROUND,
+  PAGE_MARGIN_X,
+  CURSOR_REST_COLOR,
+  CURSOR_SELECTOR,
   CURSOR_START_Y,
   FIRST_OTHER_PROJECT,
   FIRST_SLIDE_INDEX,
@@ -84,7 +91,7 @@ test.describe('custom cursor', () => {
 
     await page.mouse.move(CURSOR_START_X, CURSOR_START_Y)
     await expect
-      .poll(async () => await renderedWidth(page, 'body > div.w-14.h-14'))
+      .poll(async () => await renderedWidth(page, CURSOR_SELECTOR))
       .toBeGreaterThan(MIN_CURSOR_WIDTH_PX)
 
     const carousel = page.locator('.skills-carousel')
@@ -99,6 +106,71 @@ test.describe('custom cursor', () => {
     await expect
       .poll(async () => await renderedWidth(page, '.skills-carousel + div svg'))
       .toBeGreaterThan(MIN_CAROUSEL_ARROW_WIDTH_PX)
+  })
+
+  test('is a white ring at rest, also after a hover', async ({ page }) => {
+    const {
+      en: [{ name: projectsLabel }]
+    } = SECTIONS
+    await page.goto('/')
+    await waitForApp(page)
+
+    const cursor = page.locator(CURSOR_SELECTOR)
+    await page.mouse.move(CURSOR_START_X, CURSOR_START_Y)
+    await expect(cursor).toHaveCSS('border-top-color', CURSOR_REST_COLOR)
+
+    await page
+      .locator('header.fixed')
+      .getByRole('link', { name: projectsLabel })
+      .hover()
+    await expect(cursor).toHaveCSS('background-color', CURSOR_REST_COLOR)
+
+    await page.mouse.move(CURSOR_START_X, CURSOR_START_Y)
+    await expect(cursor).toHaveCSS('border-top-color', CURSOR_REST_COLOR)
+  })
+
+  test('turns into a dot over the contact call to action', async ({ page }) => {
+    const {
+      home: {
+        featuredProjects: {
+          yourIdea: [, yourProject]
+        }
+      }
+    } = en
+    await page.goto('/')
+    await waitForApp(page)
+
+    const callToAction = page.getByText(yourProject, { exact: true })
+    await callToAction.scrollIntoViewIfNeeded()
+    const box = await callToAction.boundingBox()
+    if (box === null) throw new Error('call to action not visible')
+
+    await expectCursorAtRest(page, PAGE_MARGIN_X, box.y + getCenter(box.height))
+    await callToAction.hover()
+
+    await expect(page.locator(CURSOR_SELECTOR)).toHaveCSS(
+      'background-color',
+      CURSOR_HOVER_BACKGROUND
+    )
+  })
+
+  test('turns into a dot over the menu social links', async ({ page }) => {
+    const [{ name: githubLabel }] = SOCIAL_LINKS
+    await page.goto('/')
+    await waitForApp(page)
+    await showCompactNavbar(page)
+
+    await page.getByRole('button', { name: 'Toggle navigation menu' }).click()
+    await expectCursorAtRest(page, CURSOR_START_X, CURSOR_START_Y)
+    await page
+      .locator('nav.fixed')
+      .getByRole('link', { name: githubLabel })
+      .hover()
+
+    await expect(page.locator(CURSOR_SELECTOR)).toHaveCSS(
+      'background-color',
+      CURSOR_HOVER_BACKGROUND
+    )
   })
 })
 
@@ -264,6 +336,10 @@ test.describe('contact form', () => {
     await expect(name).toBeVisible({ timeout: RETRY_TIMEOUT_MS })
     await expect(name).toBeFocused()
     await expect(form.getByText(t.welcomeMessage)).toBeVisible()
+
+    const honeypot = form.locator(`input[name="${HONEYPOT_FIELD}"]`)
+    await expect(honeypot).toBeHidden()
+    await expect(honeypot).toHaveAttribute('tabindex', '-1')
 
     await name.fill('Ada Lovelace')
     await name.press('Enter')

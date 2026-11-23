@@ -9,10 +9,12 @@ import {
   TEXT_REVEAL_HIDDEN_STATE
 } from '@/lib/constants/animation'
 import { YOUR_IDEA_KEYS } from '@/lib/constants/projects-ui'
+import { CursorStatus } from '@/lib/constants/cursor'
 
 export default function YourIdea() {
   const t = useScopedI18n('home.featuredProjects')
   const setShowContactForm = useStore((state) => state.setShowContactForm)
+  const setCursorStatus = useStore((state) => state.setCursorStatus)
   const buttonEl = useRef<HTMLButtonElement>(null)
   const isInView = useInView(buttonEl, { once: true })
 
@@ -21,6 +23,12 @@ export default function YourIdea() {
       ref={buttonEl}
       onClick={() => {
         setShowContactForm(true)
+      }}
+      onMouseEnter={() => {
+        setCursorStatus(CursorStatus.Hover)
+      }}
+      onMouseLeave={() => {
+        setCursorStatus(CursorStatus.Default)
       }}
       className='text-5xl leading-none flex flex-col text-kili-white xl:text-9xl 2xl:text-8xl text-left xl:hover:text-kili-light-gray transition-colors duration-1000 ease-in-out'
     >
