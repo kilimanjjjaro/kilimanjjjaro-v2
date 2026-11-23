@@ -3,9 +3,13 @@ import sendForm from '@/lib/actions/sendForm'
 import { BASE_URL } from '@/lib/constants/globals'
 import { FORM_DEFAULT_STATE } from '@/lib/constants/form'
 import { HTTP_STATUS_BAD_REQUEST, HTTP_STATUS_OK } from '@/lib/constants/http'
-import { emptyResponse, readJsonBody } from '../utils/http'
+import { emptyResponse, jsonResponse, readJsonBody } from '../utils/http'
 import { toFormData } from '../utils/forms'
-import { SINGLE_CALL } from '../constants/unit'
+import {
+  RESEND_EMAILS_ENDPOINT,
+  RESEND_TEST_KEY,
+  SINGLE_CALL
+} from '../constants/unit'
 
 const VALID = {
   name: 'Ada Lovelace',
@@ -40,6 +44,23 @@ describe('sendForm server action', () => {
     expect(init?.headers).toMatchObject({ 'Content-Type': 'application/json' })
     expect(readJsonBody(init)).toEqual(VALID)
   })
+
+  it.fails(
+    'sends the email through Resend instead of the site API',
+    async () => {
+      vi.stubEnv('RESEND_API_KEY', RESEND_TEST_KEY)
+      fetchMock.mockResolvedValue(jsonResponse({ id: 'email_123' }))
+
+      await sendForm(FORM_DEFAULT_STATE, toFormData(VALID))
+
+      const {
+        mock: {
+          calls: [[url]]
+        }
+      } = fetchMock
+      expect(url).toBe(RESEND_EMAILS_ENDPOINT)
+    }
+  )
 
   it('strips unknown fields before sending', async () => {
     fetchMock.mockResolvedValue(emptyResponse(HTTP_STATUS_OK))
