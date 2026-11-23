@@ -6,13 +6,14 @@ English and Spanish built with Next.js 16 (App Router), React 19, Tailwind CSS
 
 ## Getting Started
 
-Requirements: Node.js 26 (pinned with Volta) and pnpm 11. pnpm runs the
-project scripts with the Node.js version declared in `devEngines`.
+Requirements: Node.js 26 and npm 12, both pinned in `package.json` with Volta.
+npm only runs the install scripts listed in `allowScripts`; approve new ones
+with `npm install-scripts approve <package>`.
 
 ```bash
 cp .env.example .env
-pnpm install
-pnpm dev
+npm install
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -35,17 +36,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Checks
 
 ```bash
-pnpm format:check  # Prettier (pnpm format fixes the files)
-pnpm typecheck     # TypeScript
-pnpm lint          # ESLint
-pnpm test          # Unit tests (Vitest)
-pnpm build         # Production build
-pnpm test:e2e      # End-to-end tests (Playwright, needs a build first)
-pnpm test:all      # All of the above, in order
+npm run format:check  # Prettier (npm run format fixes the files)
+npm run typecheck     # TypeScript
+npm run lint          # ESLint
+npm test              # Unit tests (Vitest)
+npm run build         # Production build
+npm run test:e2e      # End-to-end tests (Playwright, needs a build first)
+npm run test:all      # All of the above, in order
 ```
 
 Before the first e2e run, install the browser with
-`pnpm exec playwright install chromium`. The e2e tests never submit the contact
+`npx playwright install chromium`. The e2e tests never submit the contact
 form, so they do not send emails. The same checks run in CI on every pull
 request (`.github/workflows/ci.yml`).
 

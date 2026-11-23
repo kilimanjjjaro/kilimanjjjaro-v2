@@ -1,4 +1,4 @@
-import type { Variants } from 'motion/react'
+import { stagger, type Variants } from 'motion/react'
 import {
   HIDDEN_OPACITY,
   ITEM_REVEAL_ROTATION,
@@ -6,7 +6,6 @@ import {
   MENU_EASE,
   MENU_ITEM_DURATION,
   NO_ROTATION,
-  REVERSE_STAGGER_DIRECTION,
   STAGGER_CHILDREN,
   TEXT_REVEAL_ROTATION,
   VISIBLE_OPACITY
@@ -18,8 +17,7 @@ export const NAVBAR_VARIANTS: Variants = {
     transition: {
       duration: MENU_DURATION,
       ease: MENU_EASE,
-      staggerChildren: STAGGER_CHILDREN,
-      staggerDirection: REVERSE_STAGGER_DIRECTION
+      delayChildren: stagger(STAGGER_CHILDREN, { from: 'last' })
     }
   },
   closed: {

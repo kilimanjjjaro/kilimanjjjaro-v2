@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'motion/react'
+import { motion, stagger } from 'motion/react'
 import clsx from 'clsx'
 import { useLenis } from 'lenis/react'
 import { PlusIcon } from '@/components/icons/PlusIcon'
@@ -73,7 +73,7 @@ export default function StackSelector() {
         className='fixed left-0 right-0 z-10 flex-col items-center hidden gap-6 bottom-8 xl:gap-10 xl:flex-row xl:static'
         variants={STACKS_UL_VARIANTS}
         animate={showSelector ? 'open' : 'closed'}
-        transition={{ ...TRANSITION, staggerChildren: STAGGER_CHILDREN }}
+        transition={{ ...TRANSITION, delayChildren: stagger(STAGGER_CHILDREN) }}
       >
         {!isDesktop && (
           <motion.div
