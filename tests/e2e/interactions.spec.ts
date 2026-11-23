@@ -4,10 +4,11 @@ import es from '@/lib/locales/es'
 import updateStacks from '@/lib/utils/updateStacks'
 import getCenter from '@/lib/utils/getCenter'
 import { HONEYPOT_FIELD } from '@/lib/constants/form'
-import { SECTIONS } from '@/lib/constants/globals'
+import { SECTIONS, SOCIAL_LINKS } from '@/lib/constants/globals'
 import {
   carouselIndex,
   countPartialIntroFrames,
+  expectCursorAtRest,
   openContactForm,
   readFirstHeadlineWord,
   recordOtherProjectsSettleOrder,
@@ -25,6 +26,8 @@ import {
   CAROUSEL_RIGHT_SIDE_RATIO,
   COMPACT_NAVBAR_SCROLL_Y,
   CURSOR_START_X,
+  CURSOR_HOVER_BACKGROUND,
+  PAGE_MARGIN_X,
   CURSOR_REST_COLOR,
   CURSOR_SELECTOR,
   CURSOR_START_Y,
@@ -124,6 +127,57 @@ test.describe('custom cursor', () => {
 
     await page.mouse.move(CURSOR_START_X, CURSOR_START_Y)
     await expect(cursor).toHaveCSS('border-top-color', CURSOR_REST_COLOR)
+  })
+
+  test.fail(
+    'turns into a dot over the contact call to action',
+    async ({ page }) => {
+      const {
+        home: {
+          featuredProjects: {
+            yourIdea: [, yourProject]
+          }
+        }
+      } = en
+      await page.goto('/')
+      await waitForApp(page)
+
+      const callToAction = page.getByText(yourProject, { exact: true })
+      await callToAction.scrollIntoViewIfNeeded()
+      const box = await callToAction.boundingBox()
+      if (box === null) throw new Error('call to action not visible')
+
+      await expectCursorAtRest(
+        page,
+        PAGE_MARGIN_X,
+        box.y + getCenter(box.height)
+      )
+      await callToAction.hover()
+
+      await expect(page.locator(CURSOR_SELECTOR)).toHaveCSS(
+        'background-color',
+        CURSOR_HOVER_BACKGROUND
+      )
+    }
+  )
+
+  test.fail('turns into a dot over the menu social links', async ({ page }) => {
+    const [{ name: githubLabel }] = SOCIAL_LINKS
+    await page.goto('/')
+    await waitForApp(page)
+    await showCompactNavbar(page)
+
+    await page.getByRole('button', { name: 'Toggle navigation menu' }).click()
+    await expectCursorAtRest(page, CURSOR_START_X, CURSOR_START_Y)
+    await page
+      .locator('nav.fixed')
+      .getByRole('link', { name: githubLabel })
+      .hover()
+
+    await expect(page.locator(CURSOR_SELECTOR)).toHaveCSS(
+      'background-color',
+      CURSOR_HOVER_BACKGROUND
+    )
   })
 })
 
