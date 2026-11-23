@@ -1,12 +1,13 @@
 'use server'
 
-import { BASE_URL } from '@/lib/constants/globals'
+import { Resend } from 'resend'
+import EmailToAdmin from '@/components/email-templates/EmailToAdmin'
+import { ADMIN_EMAIL } from '@/lib/constants/globals'
 import {
   CONTACT_FORM_SCHEMA,
   FORM_ERROR_STATE,
   FORM_SUCCESS_STATE
 } from '@/lib/constants/form'
-import { HTTP_STATUS_OK } from '@/lib/constants/http'
 import type { InitialStateFormInterface } from '@/lib/types/form'
 
 export default async function sendForm(
@@ -20,20 +21,20 @@ export default async function sendForm(
       message: payload.get('message')
     })
 
-    const response = await fetch(`${BASE_URL}/api/send-mail`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body),
-      cache: 'no-store'
+    const resend = new Resend(process.env.RESEND_API_KEY)
+    const { error } = await resend.emails.send({
+      from: 'Kilimanjjjaro <onboarding@resend.dev>',
+      to: ADMIN_EMAIL,
+      subject: `New message from ${body.name}`,
+      replyTo: body.email,
+      react: EmailToAdmin(body)
     })
 
-    if (response.status === HTTP_STATUS_OK) {
+    if (error === null) {
       return { ...FORM_SUCCESS_STATE }
     }
 
-    throw new Error('Something went wrong')
+    throw new Error('Error sending email to admin')
   } catch {
     return { ...FORM_ERROR_STATE }
   }

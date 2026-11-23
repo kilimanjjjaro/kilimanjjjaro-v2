@@ -2,14 +2,12 @@ import { test, expect } from '@playwright/test'
 import { FEATURED_PROJECTS } from '@/lib/constants/projects'
 import {
   HTTP_STATUS_BAD_REQUEST,
-  HTTP_STATUS_METHOD_NOT_ALLOWED,
-  HTTP_STATUS_OK
-} from '@/lib/constants/http'
-import { MIN_IMAGE_BYTES, NO_REDIRECTS } from '../constants/e2e'
-import {
+  HTTP_STATUS_NOT_FOUND,
+  HTTP_STATUS_OK,
   HTTP_STATUS_TEMPORARY_REDIRECT,
   REDIRECT_STATUSES
 } from '../constants/http'
+import { MIN_IMAGE_BYTES, NO_REDIRECTS } from '../constants/e2e'
 
 test.skip(({ browserName, isMobile }) => isMobile || browserName !== 'chromium')
 
@@ -58,10 +56,10 @@ test.describe('i18n middleware', () => {
   })
 
   test('does not intercept API routes', async ({ request }) => {
-    const response = await request.get('/api/send-mail', {
+    const response = await request.get('/api/unknown', {
       maxRedirects: NO_REDIRECTS
     })
-    expect(response.status()).toBe(HTTP_STATUS_METHOD_NOT_ALLOWED)
+    expect(response.status()).toBe(HTTP_STATUS_NOT_FOUND)
   })
 })
 
