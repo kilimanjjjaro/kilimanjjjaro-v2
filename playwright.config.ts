@@ -35,7 +35,7 @@ export default defineConfig({
     }
   ],
   webServer: {
-    command: `npm run start -- --port ${E2E_PORT}`,
+    command: `pnpm start --port ${E2E_PORT}`,
     url: E2E_BASE_URL,
     reuseExistingServer: !isCI,
     timeout: WEB_SERVER_TIMEOUT_MS,

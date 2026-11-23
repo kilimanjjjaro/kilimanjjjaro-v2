@@ -12,7 +12,7 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "test:all": "npm run format:check && npm run typecheck && npm run lint && npm test && npm run build && npm run test:e2e"
+    "test:all": "pnpm format:check && pnpm typecheck && pnpm lint && pnpm test && pnpm build && pnpm test:e2e"
   },
   "dependencies": {
     "@react-email/render": "2.3.1",
@@ -54,25 +54,17 @@
     "vitest": "5.1.1"
   },
   "volta": {
-    "node": "26.13.1",
-    "npm": "12.2.3"
+    "node": "26.13.1"
   },
   "engines": {
     "node": "26.x"
   },
-  "packageManager": "npm@12.2.3",
-  "overrides": {
-    "eslint-plugin-import": {
-      "eslint": "$eslint"
-    },
-    "eslint-plugin-jsx-a11y": {
-      "eslint": "$eslint"
-    },
-    "eslint-plugin-react": {
-      "eslint": "$eslint"
+  "packageManager": "pnpm@11.20.0",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "26.13.1",
+      "onFail": "download"
     }
-  },
-  "allowScripts": {
-    "esbuild@0.28.2": true
   }
 }
