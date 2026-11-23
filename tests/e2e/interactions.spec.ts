@@ -4,6 +4,7 @@ import es from '@/lib/locales/es'
 import updateStacks from '@/lib/utils/updateStacks'
 import getCenter from '@/lib/utils/getCenter'
 import { HONEYPOT_FIELD } from '@/lib/constants/form'
+import { SECTIONS } from '@/lib/constants/globals'
 import {
   carouselIndex,
   countPartialIntroFrames,
@@ -24,6 +25,8 @@ import {
   CAROUSEL_RIGHT_SIDE_RATIO,
   COMPACT_NAVBAR_SCROLL_Y,
   CURSOR_START_X,
+  CURSOR_REST_COLOR,
+  CURSOR_SELECTOR,
   CURSOR_START_Y,
   FIRST_OTHER_PROJECT,
   FIRST_SLIDE_INDEX,
@@ -85,7 +88,7 @@ test.describe('custom cursor', () => {
 
     await page.mouse.move(CURSOR_START_X, CURSOR_START_Y)
     await expect
-      .poll(async () => await renderedWidth(page, 'body > div.w-14.h-14'))
+      .poll(async () => await renderedWidth(page, CURSOR_SELECTOR))
       .toBeGreaterThan(MIN_CURSOR_WIDTH_PX)
 
     const carousel = page.locator('.skills-carousel')
@@ -100,6 +103,27 @@ test.describe('custom cursor', () => {
     await expect
       .poll(async () => await renderedWidth(page, '.skills-carousel + div svg'))
       .toBeGreaterThan(MIN_CAROUSEL_ARROW_WIDTH_PX)
+  })
+
+  test.fail('is a white ring at rest, also after a hover', async ({ page }) => {
+    const {
+      en: [{ name: projectsLabel }]
+    } = SECTIONS
+    await page.goto('/')
+    await waitForApp(page)
+
+    const cursor = page.locator(CURSOR_SELECTOR)
+    await page.mouse.move(CURSOR_START_X, CURSOR_START_Y)
+    await expect(cursor).toHaveCSS('border-top-color', CURSOR_REST_COLOR)
+
+    await page
+      .locator('header.fixed')
+      .getByRole('link', { name: projectsLabel })
+      .hover()
+    await expect(cursor).toHaveCSS('background-color', CURSOR_REST_COLOR)
+
+    await page.mouse.move(CURSOR_START_X, CURSOR_START_Y)
+    await expect(cursor).toHaveCSS('border-top-color', CURSOR_REST_COLOR)
   })
 })
 
