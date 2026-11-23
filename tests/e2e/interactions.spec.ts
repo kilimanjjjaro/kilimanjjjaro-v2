@@ -105,7 +105,7 @@ test.describe('custom cursor', () => {
       .toBeGreaterThan(MIN_CAROUSEL_ARROW_WIDTH_PX)
   })
 
-  test.fail('is a white ring at rest, also after a hover', async ({ page }) => {
+  test('is a white ring at rest, also after a hover', async ({ page }) => {
     const {
       en: [{ name: projectsLabel }]
     } = SECTIONS
