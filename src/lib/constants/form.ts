@@ -1,4 +1,3 @@
-import { z } from 'zod'
 import { FULL_SCALE } from '@/lib/constants/animation'
 import type { InitialStateFormInterface } from '@/lib/types/form'
 
@@ -24,14 +23,7 @@ export enum FormStep {
   Submit = 4
 }
 
-export const MIN_FIELD_LENGTH = 1
 export const HONEYPOT_FIELD = 'website'
-
-export const CONTACT_FORM_SCHEMA = z.object({
-  name: z.string().min(MIN_FIELD_LENGTH),
-  email: z.email(),
-  message: z.string().min(MIN_FIELD_LENGTH)
-})
 export const FIELDS_RENDER_DELAY_MS = 6600
 export const SUCCESS_MESSAGE_DURATION_MS = 5000
 const CONTACT_FORM_HIDDEN_SCALE = 0.5

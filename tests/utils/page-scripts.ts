@@ -111,3 +111,11 @@ export function isScrolledPast(minScrollY: number): boolean {
 export function readCookieConsent(): string | null {
   return localStorage.getItem('__COOKIES_CONSENT__')
 }
+
+export function reportCspViolations() {
+  document.addEventListener('securitypolicyviolation', (event) => {
+    void window.reportCspViolation?.(
+      `CSP violation: ${event.violatedDirective} ${event.blockedURI}`
+    )
+  })
+}

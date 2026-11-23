@@ -23,5 +23,6 @@ declare global {
   interface Window {
     headlineSamples?: MatrixSample[]
     settledOtherProjects?: number[]
+    reportCspViolation?: (violation: string) => Promise<void>
   }
 }

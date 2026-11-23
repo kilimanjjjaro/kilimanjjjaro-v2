@@ -3,8 +3,8 @@
 import { Resend } from 'resend'
 import EmailToAdmin from '@/components/email-templates/EmailToAdmin'
 import { ADMIN_EMAIL } from '@/lib/constants/globals'
+import { CONTACT_FORM_SCHEMA } from '@/lib/constants/contact-form-schema'
 import {
-  CONTACT_FORM_SCHEMA,
   FORM_ERROR_STATE,
   FORM_SUCCESS_STATE,
   HONEYPOT_FIELD

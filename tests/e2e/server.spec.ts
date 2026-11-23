@@ -5,7 +5,9 @@ import {
   HTTP_STATUS_NOT_FOUND,
   HTTP_STATUS_OK,
   HTTP_STATUS_TEMPORARY_REDIRECT,
-  REDIRECT_STATUSES
+  REDIRECT_STATUSES,
+  REQUIRED_CSP_DIRECTIVES,
+  SECURITY_HEADERS
 } from '../constants/http'
 import { MIN_IMAGE_BYTES, NO_REDIRECTS } from '../constants/e2e'
 
@@ -123,4 +125,22 @@ test.describe('image optimization', () => {
     const response = await request.get(`/_next/image?url=${url}&w=64&q=75`)
     expect(response.status()).toBe(HTTP_STATUS_BAD_REQUEST)
   })
+})
+
+test.describe('security headers', () => {
+  for (const path of ['/', '/es', '/project/wrkload', '/robots.txt']) {
+    test(`are sent with ${path}`, async ({ request }) => {
+      const response = await request.get(path)
+      const headers = response.headers()
+
+      expect(headers).toMatchObject(SECURITY_HEADERS)
+
+      const directives = headers['content-security-policy']
+        .split(';')
+        .map((directive) => directive.trim())
+      expect(directives).toEqual(
+        expect.arrayContaining(REQUIRED_CSP_DIRECTIVES)
+      )
+    })
+  }
 })

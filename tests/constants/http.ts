@@ -14,3 +14,19 @@ export const REDIRECT_STATUSES = [
   HTTP_STATUS_TEMPORARY_REDIRECT,
   HTTP_STATUS_PERMANENT_REDIRECT
 ]
+
+export const SECURITY_HEADERS = {
+  'x-content-type-options': 'nosniff',
+  'x-frame-options': 'DENY',
+  'referrer-policy': 'strict-origin-when-cross-origin',
+  'permissions-policy':
+    'camera=(), microphone=(), geolocation=(), browsing-topics=()'
+}
+
+export const REQUIRED_CSP_DIRECTIVES = [
+  "default-src 'self'",
+  "frame-ancestors 'none'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'"
+]
