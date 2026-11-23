@@ -129,39 +129,32 @@ test.describe('custom cursor', () => {
     await expect(cursor).toHaveCSS('border-top-color', CURSOR_REST_COLOR)
   })
 
-  test.fail(
-    'turns into a dot over the contact call to action',
-    async ({ page }) => {
-      const {
-        home: {
-          featuredProjects: {
-            yourIdea: [, yourProject]
-          }
+  test('turns into a dot over the contact call to action', async ({ page }) => {
+    const {
+      home: {
+        featuredProjects: {
+          yourIdea: [, yourProject]
         }
-      } = en
-      await page.goto('/')
-      await waitForApp(page)
+      }
+    } = en
+    await page.goto('/')
+    await waitForApp(page)
 
-      const callToAction = page.getByText(yourProject, { exact: true })
-      await callToAction.scrollIntoViewIfNeeded()
-      const box = await callToAction.boundingBox()
-      if (box === null) throw new Error('call to action not visible')
+    const callToAction = page.getByText(yourProject, { exact: true })
+    await callToAction.scrollIntoViewIfNeeded()
+    const box = await callToAction.boundingBox()
+    if (box === null) throw new Error('call to action not visible')
 
-      await expectCursorAtRest(
-        page,
-        PAGE_MARGIN_X,
-        box.y + getCenter(box.height)
-      )
-      await callToAction.hover()
+    await expectCursorAtRest(page, PAGE_MARGIN_X, box.y + getCenter(box.height))
+    await callToAction.hover()
 
-      await expect(page.locator(CURSOR_SELECTOR)).toHaveCSS(
-        'background-color',
-        CURSOR_HOVER_BACKGROUND
-      )
-    }
-  )
+    await expect(page.locator(CURSOR_SELECTOR)).toHaveCSS(
+      'background-color',
+      CURSOR_HOVER_BACKGROUND
+    )
+  })
 
-  test.fail('turns into a dot over the menu social links', async ({ page }) => {
+  test('turns into a dot over the menu social links', async ({ page }) => {
     const [{ name: githubLabel }] = SOCIAL_LINKS
     await page.goto('/')
     await waitForApp(page)

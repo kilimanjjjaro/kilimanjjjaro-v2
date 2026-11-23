@@ -117,14 +117,14 @@ export default function Navigation() {
             <ul className='flex gap-6 xl:items-end xl:flex-col xl:static'>
               {SOCIAL_LINKS.map((social) => (
                 <li key={social.name}>
-                  <a
+                  <Link
                     className='text-xl leading-none transition-colors duration-1000 ease-in-out xl:text-6xl text-kili-light-gray xl:hover:text-kili-white'
                     href={social.link}
                     target='_blank'
                     rel='noopener noreferrer'
                   >
                     {social.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
