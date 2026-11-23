@@ -23,3 +23,4 @@ export const CONTACT_FORM_VALUES = {
 export const HOME_SITEMAP_ENTRIES = 2
 export const SITEMAP_ENTRIES_PER_PROJECT = 2
 export const NEXT_INDEX_OFFSET = 1
+export const BOT_WEBSITE = 'https://spam.example.com'

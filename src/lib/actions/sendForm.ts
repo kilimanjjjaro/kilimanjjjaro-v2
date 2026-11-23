@@ -6,7 +6,8 @@ import { ADMIN_EMAIL } from '@/lib/constants/globals'
 import {
   CONTACT_FORM_SCHEMA,
   FORM_ERROR_STATE,
-  FORM_SUCCESS_STATE
+  FORM_SUCCESS_STATE,
+  HONEYPOT_FIELD
 } from '@/lib/constants/form'
 import type { InitialStateFormInterface } from '@/lib/types/form'
 
@@ -15,6 +16,12 @@ export default async function sendForm(
   payload: FormData
 ): Promise<InitialStateFormInterface> {
   try {
+    const honeypot = payload.get(HONEYPOT_FIELD)
+
+    if (honeypot !== null && honeypot !== '') {
+      return { ...FORM_SUCCESS_STATE }
+    }
+
     const body = CONTACT_FORM_SCHEMA.parse({
       name: payload.get('name'),
       email: payload.get('email'),

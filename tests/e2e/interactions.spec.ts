@@ -3,6 +3,7 @@ import en from '@/lib/locales/en'
 import es from '@/lib/locales/es'
 import updateStacks from '@/lib/utils/updateStacks'
 import getCenter from '@/lib/utils/getCenter'
+import { HONEYPOT_FIELD } from '@/lib/constants/form'
 import {
   carouselIndex,
   countPartialIntroFrames,
@@ -264,6 +265,10 @@ test.describe('contact form', () => {
     await expect(name).toBeVisible({ timeout: RETRY_TIMEOUT_MS })
     await expect(name).toBeFocused()
     await expect(form.getByText(t.welcomeMessage)).toBeVisible()
+
+    const honeypot = form.locator(`input[name="${HONEYPOT_FIELD}"]`)
+    await expect(honeypot).toBeHidden()
+    await expect(honeypot).toHaveAttribute('tabindex', '-1')
 
     await name.fill('Ada Lovelace')
     await name.press('Enter')

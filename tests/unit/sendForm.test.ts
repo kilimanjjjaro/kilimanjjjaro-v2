@@ -1,11 +1,12 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import sendForm from '@/lib/actions/sendForm'
 import { ADMIN_EMAIL } from '@/lib/constants/globals'
-import { FORM_DEFAULT_STATE } from '@/lib/constants/form'
+import { FORM_DEFAULT_STATE, HONEYPOT_FIELD } from '@/lib/constants/form'
 import { HTTP_STATUS_UNPROCESSABLE_ENTITY } from '../constants/http'
 import { jsonResponse, readJsonBody } from '../utils/http'
 import { toFormData } from '../utils/forms'
 import {
+  BOT_WEBSITE,
   CONTACT_FORM_VALUES,
   RESEND_EMAILS_ENDPOINT,
   RESEND_PAYLOAD_SCHEMA,
@@ -69,6 +70,28 @@ describe('sendForm server action', () => {
     } = fetchMock
     const payload = RESEND_PAYLOAD_SCHEMA.parse(readJsonBody(init))
     expect(payload.html).not.toContain('unexpected field')
+  })
+
+  it('ignores submissions that fill the honeypot field', async () => {
+    const result = await sendForm(
+      FORM_DEFAULT_STATE,
+      toFormData({ ...CONTACT_FORM_VALUES, [HONEYPOT_FIELD]: BOT_WEBSITE })
+    )
+
+    expect(result).toEqual({ success: true, error: false })
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  it('sends submissions that leave the honeypot field empty', async () => {
+    fetchMock.mockResolvedValue(jsonResponse({ id: 'email_123' }))
+
+    const result = await sendForm(
+      FORM_DEFAULT_STATE,
+      toFormData({ ...CONTACT_FORM_VALUES, [HONEYPOT_FIELD]: '' })
+    )
+
+    expect(result).toEqual({ success: true, error: false })
+    expect(fetchMock).toHaveBeenCalledTimes(SINGLE_CALL)
   })
 
   it.each([

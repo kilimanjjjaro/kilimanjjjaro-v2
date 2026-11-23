@@ -25,6 +25,7 @@ export enum FormStep {
 }
 
 export const MIN_FIELD_LENGTH = 1
+export const HONEYPOT_FIELD = 'website'
 
 export const CONTACT_FORM_SCHEMA = z.object({
   name: z.string().min(MIN_FIELD_LENGTH),
