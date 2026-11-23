@@ -53,7 +53,6 @@ export const OTHER_PROJECT_STAGGER = 0.3
 export const FEATURED_PROJECT_STAGGER = 1.04
 export const HEADLINE_WORDS_DELAY = 0.5
 export const STAGGER_CHILDREN = 0.1
-export const REVERSE_STAGGER_DIRECTION = -1
 
 export const ITEM_REVEAL_ROTATION = 3
 export const TEXT_REVEAL_ROTATION = 4
