@@ -12,13 +12,14 @@ concurrency:
 permissions:
   contents: read
 
+env:
+  RESEND_API_KEY: re_ci_dummy_key
+
 jobs:
   checks:
-    name: Format, typecheck, lint, unit tests and build
+    name: Format, typecheck, lint, unit tests and audit
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    env:
-      RESEND_API_KEY: re_ci_dummy_key
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
 
@@ -39,10 +40,26 @@ jobs:
 
       - run: pnpm test
 
-      - run: pnpm build
-
       - name: Security audit (production dependencies)
         run: pnpm audit --prod --audit-level high
+
+  e2e:
+    name: Build and e2e tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: package.json
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm build
 
       - name: Install Playwright browser
         run: pnpm exec playwright install --with-deps chromium
