@@ -1,13 +1,21 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import sendForm from '@/lib/actions/sendForm'
 import { ADMIN_EMAIL } from '@/lib/constants/globals'
-import { FORM_DEFAULT_STATE, HONEYPOT_FIELD } from '@/lib/constants/form'
+import {
+  EMAIL_MAX_LENGTH,
+  FORM_DEFAULT_STATE,
+  HONEYPOT_FIELD,
+  MESSAGE_MAX_LENGTH,
+  NAME_MAX_LENGTH
+} from '@/lib/constants/form'
 import { HTTP_STATUS_UNPROCESSABLE_ENTITY } from '../constants/http'
 import { jsonResponse, readJsonBody } from '../utils/http'
 import { toFormData } from '../utils/forms'
 import {
   BOT_WEBSITE,
   CONTACT_FORM_VALUES,
+  EXTRA_CHARACTER,
+  OVERSIZED_FIELD_LENGTH,
   RESEND_EMAILS_ENDPOINT,
   RESEND_PAYLOAD_SCHEMA,
   RESEND_TEST_KEY,
@@ -107,6 +115,53 @@ describe('sendForm server action', () => {
 
     expect(result).toEqual({ success: false, error: true })
     expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  it('rejects an oversized message without calling Resend', async () => {
+    fetchMock.mockResolvedValue(jsonResponse({ id: 'email_123' }))
+
+    const result = await sendForm(
+      FORM_DEFAULT_STATE,
+      toFormData({
+        ...CONTACT_FORM_VALUES,
+        message: 'a'.repeat(OVERSIZED_FIELD_LENGTH)
+      })
+    )
+
+    expect(result).toEqual({ success: false, error: true })
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  it.each([
+    ['name', NAME_MAX_LENGTH],
+    ['email', EMAIL_MAX_LENGTH],
+    ['message', MESSAGE_MAX_LENGTH]
+  ])('rejects a %s longer than %i characters', async (field, maxLength) => {
+    const value = 'a'.repeat(maxLength + EXTRA_CHARACTER)
+
+    const result = await sendForm(
+      FORM_DEFAULT_STATE,
+      toFormData({ ...CONTACT_FORM_VALUES, [field]: value })
+    )
+
+    expect(result).toEqual({ success: false, error: true })
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  it('sends a name and a message at their maximum length', async () => {
+    fetchMock.mockResolvedValue(jsonResponse({ id: 'email_123' }))
+
+    const result = await sendForm(
+      FORM_DEFAULT_STATE,
+      toFormData({
+        ...CONTACT_FORM_VALUES,
+        name: 'a'.repeat(NAME_MAX_LENGTH),
+        message: 'a'.repeat(MESSAGE_MAX_LENGTH)
+      })
+    )
+
+    expect(result).toEqual({ success: true, error: false })
+    expect(fetchMock).toHaveBeenCalledTimes(SINGLE_CALL)
   })
 
   it('reports an error when Resend returns an error', async () => {
