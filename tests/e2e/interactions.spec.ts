@@ -5,11 +5,14 @@ import updateStacks from '@/lib/utils/updateStacks'
 import getCenter from '@/lib/utils/getCenter'
 import { HONEYPOT_FIELD } from '@/lib/constants/form'
 import { SECTIONS, SOCIAL_LINKS } from '@/lib/constants/globals'
+import { FEATURED_PROJECTS } from '@/lib/constants/projects'
 import {
   carouselIndex,
   countPartialIntroFrames,
+  declineCookies,
   expectCursorAtRest,
   openContactForm,
+  readLocaleCookie,
   readFirstHeadlineWord,
   recordOtherProjectsSettleOrder,
   renderedWidth,
@@ -405,21 +408,28 @@ test.describe('cookies consent', () => {
     await page.goto('/es')
     await waitForApp(page)
     await page.waitForLoadState('networkidle')
+    expect(await readLocaleCookie(context)).toBeDefined()
 
-    const locale = async () =>
-      (await context.cookies()).find((cookie) => cookie.name === 'Next-Locale')
-    expect(await locale()).toBeDefined()
-
-    const banner = page
-      .getByRole('alert')
-      .filter({ hasText: es.cookiesConsent.headline })
-    await expect(banner).toBeAttached()
-    await banner
-      .getByRole('button', { name: 'Close cookies consent' })
-      .dispatchEvent('click')
-    await expect(banner).toHaveCount(NO_ELEMENTS)
+    await declineCookies(page, es.cookiesConsent.headline)
 
     expect(await page.evaluate(readCookieConsent)).toBe('0')
-    expect(await locale()).toBeUndefined()
+    expect(await readLocaleCookie(context)).toBeUndefined()
+  })
+
+  test('keeps the locale cookie away after declining', async ({
+    page,
+    context
+  }) => {
+    const {
+      es: [{ slug }]
+    } = FEATURED_PROJECTS
+    await page.goto('/es')
+    await waitForApp(page)
+    await declineCookies(page, es.cookiesConsent.headline)
+
+    await page.goto(`/es/project/${slug}`)
+    await waitForApp(page)
+
+    expect(await readLocaleCookie(context)).toBeUndefined()
   })
 })

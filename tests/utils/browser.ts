@@ -1,6 +1,8 @@
-import { expect, type Page } from '@playwright/test'
+import { expect, type BrowserContext, type Page } from '@playwright/test'
+import { LOCALE_COOKIE } from '@/lib/constants/cookies'
 import {
   APP_READY_TIMEOUT_MS,
+  NO_ELEMENTS,
   COMPACT_NAVBAR_MIN_SCROLL_Y,
   COMPACT_NAVBAR_SCROLL_Y,
   COMPARED_OTHER_PROJECTS,
@@ -127,4 +129,19 @@ export async function expectCursorAtRest(page: Page, x: number, y: number) {
     'border-top-color',
     CURSOR_REST_COLOR
   )
+}
+
+export async function readLocaleCookie(context: BrowserContext) {
+  const cookies = await context.cookies()
+
+  return cookies.find((cookie) => cookie.name === LOCALE_COOKIE)
+}
+
+export async function declineCookies(page: Page, headline: string) {
+  const banner = page.getByRole('alert').filter({ hasText: headline })
+  await expect(banner).toBeAttached()
+  await banner
+    .getByRole('button', { name: 'Close cookies consent' })
+    .dispatchEvent('click')
+  await expect(banner).toHaveCount(NO_ELEMENTS)
 }
