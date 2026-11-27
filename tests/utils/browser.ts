@@ -1,7 +1,7 @@
 import { expect, type BrowserContext, type Page } from '@playwright/test'
+import { LOCALE_COOKIE } from '@/lib/constants/cookies'
 import {
   APP_READY_TIMEOUT_MS,
-  LOCALE_COOKIE,
   NO_ELEMENTS,
   COMPACT_NAVBAR_MIN_SCROLL_Y,
   COMPACT_NAVBAR_SCROLL_Y,

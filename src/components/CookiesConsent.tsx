@@ -2,7 +2,7 @@
 
 import { useState, useSyncExternalStore } from 'react'
 import Image from 'next/image'
-import { deleteCookie } from 'cookies-next/client'
+import { deleteCookie, setCookie } from 'cookies-next/client'
 import Balancer from 'react-wrap-balancer'
 import { AnimatePresence, motion } from 'motion/react'
 import clsx from 'clsx'
@@ -14,6 +14,12 @@ import { firaMonoFont } from '@/lib/utils/fonts'
 import subscribeToStorage from '@/lib/utils/subscribeToStorage'
 import needsCookiesConsent from '@/lib/utils/needsCookiesConsent'
 import { NO_OFFSET, TRANSITION } from '@/lib/constants/animation'
+import {
+  COOKIES_CONSENT_COOKIE,
+  COOKIES_CONSENT_MAX_AGE_SECONDS,
+  DECLINED_COOKIES_CONSENT,
+  LOCALE_COOKIE
+} from '@/lib/constants/cookies'
 import {
   COOKIES_CONSENT_DELAY,
   COOKIES_CONSENT_HIDDEN_OFFSET,
@@ -37,13 +43,20 @@ export default function CookiesConsent() {
   const handleAccept = () => {
     window.localStorage.setItem(COOKIES_CONSENT_STORAGE_KEY, '1')
 
+    deleteCookie(COOKIES_CONSENT_COOKIE)
+
     setIsDismissed(true)
   }
 
   const handleDecline = () => {
     window.localStorage.setItem(COOKIES_CONSENT_STORAGE_KEY, '0')
 
-    deleteCookie('Next-Locale')
+    deleteCookie(LOCALE_COOKIE)
+    setCookie(COOKIES_CONSENT_COOKIE, DECLINED_COOKIES_CONSENT, {
+      maxAge: COOKIES_CONSENT_MAX_AGE_SECONDS,
+      path: '/',
+      sameSite: 'strict'
+    })
 
     setIsDismissed(true)
   }

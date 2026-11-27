@@ -27,7 +27,6 @@ export const SCROLL_BUTTON_SCROLL_Y = 300
 
 export const SINGLE_ELEMENT = 1
 export const NO_ELEMENTS = 0
-export const LOCALE_COOKIE = 'Next-Locale'
 export const NO_REDIRECTS = 0
 export const MIN_IMAGE_BYTES = 100
 

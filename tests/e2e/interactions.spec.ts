@@ -416,20 +416,20 @@ test.describe('cookies consent', () => {
     expect(await readLocaleCookie(context)).toBeUndefined()
   })
 
-  test.fail(
-    'keeps the locale cookie away after declining',
-    async ({ page, context }) => {
-      const {
-        es: [{ slug }]
-      } = FEATURED_PROJECTS
-      await page.goto('/es')
-      await waitForApp(page)
-      await declineCookies(page, es.cookiesConsent.headline)
+  test('keeps the locale cookie away after declining', async ({
+    page,
+    context
+  }) => {
+    const {
+      es: [{ slug }]
+    } = FEATURED_PROJECTS
+    await page.goto('/es')
+    await waitForApp(page)
+    await declineCookies(page, es.cookiesConsent.headline)
 
-      await page.goto(`/es/project/${slug}`)
-      await waitForApp(page)
+    await page.goto(`/es/project/${slug}`)
+    await waitForApp(page)
 
-      expect(await readLocaleCookie(context)).toBeUndefined()
-    }
-  )
+    expect(await readLocaleCookie(context)).toBeUndefined()
+  })
 })
