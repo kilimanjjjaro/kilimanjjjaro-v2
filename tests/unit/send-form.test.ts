@@ -8,6 +8,7 @@ import { toFormData } from '../utils/forms'
 import {
   BOT_WEBSITE,
   CONTACT_FORM_VALUES,
+  OVERSIZED_FIELD_LENGTH,
   RESEND_EMAILS_ENDPOINT,
   RESEND_PAYLOAD_SCHEMA,
   RESEND_TEST_KEY,
@@ -104,6 +105,21 @@ describe('sendForm server action', () => {
     ]
   ])('rejects %s without calling Resend', async (_, values) => {
     const result = await sendForm(FORM_DEFAULT_STATE, toFormData(values))
+
+    expect(result).toEqual({ success: false, error: true })
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  it.fails('rejects an oversized message without calling Resend', async () => {
+    fetchMock.mockResolvedValue(jsonResponse({ id: 'email_123' }))
+
+    const result = await sendForm(
+      FORM_DEFAULT_STATE,
+      toFormData({
+        ...CONTACT_FORM_VALUES,
+        message: 'a'.repeat(OVERSIZED_FIELD_LENGTH)
+      })
+    )
 
     expect(result).toEqual({ success: false, error: true })
     expect(fetchMock).not.toHaveBeenCalled()
