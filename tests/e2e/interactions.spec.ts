@@ -3,7 +3,7 @@ import en from '@/lib/locales/en'
 import es from '@/lib/locales/es'
 import updateStacks from '@/lib/utils/updateStacks'
 import getCenter from '@/lib/utils/getCenter'
-import { HONEYPOT_FIELD } from '@/lib/constants/form'
+import { HONEYPOT_FIELD, MESSAGE_MAX_LENGTH } from '@/lib/constants/form'
 import { SECTIONS, SOCIAL_LINKS } from '@/lib/constants/globals'
 import { FEATURED_PROJECTS } from '@/lib/constants/projects'
 import {
@@ -353,6 +353,10 @@ test.describe('contact form', () => {
     await email.press('Enter')
     const message = form.getByRole('textbox', { name: t.fields.message })
     await expect(message).toBeFocused()
+    await expect(message).toHaveAttribute(
+      'maxlength',
+      String(MESSAGE_MAX_LENGTH)
+    )
 
     await message.fill('Hello!')
     await expect(form.getByText(t.suggestionMessage)).toBeVisible()

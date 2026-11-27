@@ -20,6 +20,7 @@ export const CONTACT_FORM_VALUES = {
   message: 'I would like to work with you.'
 }
 export const OVERSIZED_FIELD_LENGTH = 10_000
+export const EXTRA_CHARACTER = 1
 
 export const HOME_SITEMAP_ENTRIES = 2
 export const SITEMAP_ENTRIES_PER_PROJECT = 2

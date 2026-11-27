@@ -3,7 +3,13 @@
 import { useEffect, useRef } from 'react'
 import { useStore } from '@/lib/store/store'
 import { useScopedI18n } from '@/lib/i18n/client'
-import { FormStep, HONEYPOT_FIELD } from '@/lib/constants/form'
+import {
+  EMAIL_MAX_LENGTH,
+  FormStep,
+  HONEYPOT_FIELD,
+  MESSAGE_MAX_LENGTH,
+  NAME_MAX_LENGTH
+} from '@/lib/constants/form'
 import { CursorStatus } from '@/lib/constants/cursor'
 
 interface Props {
@@ -80,6 +86,7 @@ export default function Fields({ step, setStep }: Props) {
           className='placeholder-opacity-100 bg-transparent outline-hidden text-kili-white focus:outline-hidden'
           type='text'
           name='name'
+          maxLength={NAME_MAX_LENGTH}
           required
         />
       </label>
@@ -102,6 +109,7 @@ export default function Fields({ step, setStep }: Props) {
           className='placeholder-opacity-100 bg-transparent outline-hidden text-kili-white focus:outline-hidden'
           type='email'
           name='email'
+          maxLength={EMAIL_MAX_LENGTH}
           required
         />
       </label>
@@ -122,6 +130,7 @@ export default function Fields({ step, setStep }: Props) {
           className='bg-transparent outline-hidden resize-none h-7 text-kili-white focus:outline-hidden peer/message'
           name='message'
           rows={1}
+          maxLength={MESSAGE_MAX_LENGTH}
           required
         />
       </label>
